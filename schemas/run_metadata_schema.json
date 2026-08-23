@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canary research run metadata",
+  "type": "object",
+  "required": [
+    "run_id", "timestamp", "script_sha256", "python_version",
+    "library_versions", "device", "seeds", "dataset_split_hash",
+    "train_epochs", "repair_epochs", "optimizer", "learning_rate",
+    "candidate_grammar_version", "complexity_definition_version",
+    "sensor_definition_version"
+  ],
+  "properties": {
+    "run_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "script_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "git_commit": {"type": ["string", "null"]},
+    "python_version": {"type": "string"},
+    "library_versions": {"type": "object"},
+    "device": {"type": "object"},
+    "seeds": {"type": "array", "items": {"type": "integer"}},
+    "dataset_split_hash": {"type": "string"},
+    "train_epochs": {"type": "integer", "minimum": 0},
+    "repair_epochs": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+    "optimizer": {"type": "string"},
+    "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+    "candidate_grammar_version": {"type": "string"},
+    "complexity_definition_version": {"type": "string"},
+    "sensor_definition_version": {"type": "string"}
+  },
+  "additionalProperties": true
+}
