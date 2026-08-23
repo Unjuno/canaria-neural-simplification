@@ -20,11 +20,16 @@ These findings are **task/architecture conditioned**. They are not a universal t
 
 ## Start here
 
-1. [`docs/RESEARCH_SUMMARY.md`](docs/RESEARCH_SUMMARY.md) — integrated current narrative.
-2. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — claim-by-claim status and limitations.
-3. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed explanations retained as evidence.
-4. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — statistical unit, blind-lock procedure, seed policy, storage terminology.
-5. [`docs/ROADMAP.md`](docs/ROADMAP.md) — open questions for when experiments resume.
+1. [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md) — question → evidence navigation.
+2. [`docs/RESEARCH_SUMMARY.md`](docs/RESEARCH_SUMMARY.md) — integrated current narrative.
+3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — claim-by-claim status and limitations.
+4. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed explanations retained as evidence.
+5. [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — genuinely unresolved questions; also lists questions that are no longer open.
+6. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — statistical unit, blind-lock procedure, seed policy, storage terminology, metadata schemas.
+7. [`docs/phases/README.md`](docs/phases/README.md) — chronological phase/evidence index.
+8. [`results/README.md`](results/README.md) — machine-readable evidence index.
+9. [`scripts/phases/README.md`](scripts/phases/README.md) — reproduction-script map.
+10. [`docs/ROADMAP.md`](docs/ROADMAP.md) — priorities for when experiments resume.
 
 ## Research history
 
@@ -41,10 +46,11 @@ The historical v10 handoff captures how the research moved from Canary-guided lo
 - [`docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md`](docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md)
 - [`docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md`](docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md)
 
-Historical numeric claims are indexed in:
+Historical numeric claims and experiment inventory are indexed in:
 
 - [`results/history/v10/key_results.csv`](results/history/v10/key_results.csv)
 - [`results/history/v10/claim_registry.csv`](results/history/v10/claim_registry.csv)
+- [`results/history/v10/experiment_catalog.csv`](results/history/v10/experiment_catalog.csv)
 
 ## Decisive later phases
 
@@ -57,18 +63,34 @@ Historical numeric claims are indexed in:
 - [`results/v12/phaseD_equal_capacity_spatial_v12/decision.json`](results/v12/phaseD_equal_capacity_spatial_v12/decision.json)
 - [`results/v12/phaseE_global_boundary_adapter_v12/decision.json`](results/v12/phaseE_global_boundary_adapter_v12/decision.json)
 
+### Precision, count, and structured sparsity
+- [`docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md`](docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md)
+- [`docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md`](docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md)
+- [`docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md`](docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md)
+- [`docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md`](docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md)
+- [`docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md`](docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md)
+
 ### Extreme core compression
+- [`docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md`](docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md)
+- [`docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md`](docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md)
+- [`docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md`](docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md)
+- [`docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md`](docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md)
 - [`docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md`](docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md)
+- [`docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md`](docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md)
 - [`docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md`](docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md)
 - [`docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md`](docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md)
 
 ### Global accounting
 - [`docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md`](docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md)
+- [`docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md`](docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md)
 - [`docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md`](docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md)
 - [`results/v18/raw/phaseX_summary.json`](results/v18/raw/phaseX_summary.json)
 - [`results/v18/raw_phaseY/phaseY_summary.json`](results/v18/raw_phaseY/phaseY_summary.json)
 
 ### Exact whole-network codec
+- [`docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md`](docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md)
+- [`docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md`](docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md)
+- [`docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md`](docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md)
 - [`docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md`](docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md)
 - [`docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md`](docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md)
 - [`results/v19/raw_AD/confirmatory_codec_summary.json`](results/v19/raw_AD/confirmatory_codec_summary.json)
@@ -90,7 +112,7 @@ pip install -r requirements.txt
 python tools/audit_repo.py
 ```
 
-Historical experiments did not preserve a single exact dependency lockfile. Read [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) before attempting bitwise reproduction.
+Historical experiments did not preserve a single exact dependency lockfile. Read [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) and [`environment/history/v10/REPRODUCIBILITY_LIMITS.md`](environment/history/v10/REPRODUCIBILITY_LIMITS.md) before attempting bitwise reproduction.
 
 ## Important scope limits
 
@@ -98,7 +120,13 @@ Historical experiments did not preserve a single exact dependency lockfile. Read
 2. Operational complexity depends on the candidate grammar/codec; this is not a proof of Kolmogorov complexity or codec-independent minimum description length.
 3. **44.5 B / ~28 B are compiled-core results, not whole-network sizes.**
 4. **9,926 B is a real whole-network serialized size** and is the correct number for the current end-to-end compression claim.
-5. Cross-dataset, ResNet, and arbitrary-subgraph external validity remain open.
+5. Cross-dataset, ResNet, arbitrary-subgraph, off-manifold, and null-model external validity remain open.
+
+## Reproducibility metadata
+
+- [`schemas/run_metadata_schema.json`](schemas/run_metadata_schema.json)
+- [`schemas/blind_map_event_schema.json`](schemas/blind_map_event_schema.json)
+- [`environment/history/v10/current_audit_environment.json`](environment/history/v10/current_audit_environment.json)
 
 ## License
 
@@ -106,4 +134,4 @@ Original code and documentation are released under the **Apache License 2.0**. T
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the repository commit/tag and the exact protocol/result files used.
+See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the repository commit/snapshot branch and the exact protocol/result files used.
