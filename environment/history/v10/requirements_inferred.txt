@@ -1,0 +1,8 @@
+# Inferred runtime dependencies only; historical versions were not pinned.
+# Do NOT treat this file as a bitwise-reproduction lockfile.
+numpy
+pandas
+torch
+scikit-learn
+matplotlib
+scipy
