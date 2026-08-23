@@ -1,0 +1,22 @@
+{
+  "snapshot_type": "audit environment, NOT historical experiment environment",
+  "date": "2026-08-22",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "processor": "",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "torch": "2.10.0+cpu",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8",
+    "scipy": "1.17.0"
+  },
+  "cuda": {
+    "available": false,
+    "version": null,
+    "device_count": 0,
+    "devices": []
+  }
+}
