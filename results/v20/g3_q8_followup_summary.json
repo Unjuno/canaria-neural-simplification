@@ -1,0 +1,13 @@
+{
+  "seeds": [3200, 3202, 3203, 3204, 3208, 3209, 3211, 3212],
+  "n": 8,
+  "codec": "per-tensor symmetric int8 with FP32 scale, explicit tensor name/shape headers, zlib level 9",
+  "q8_utility": {"mean": 0.9670398469203483, "ci95_low": 0.9580363667686124, "ci95_high": 0.976638516571934},
+  "q8_zlib_reduction": {"mean": 0.6053247469490589, "ci95_low": 0.6038340140347576, "ci95_high": 0.6068273633543522},
+  "q8_raw_reduction": {"mean": 0.5882606122558778, "ci95_low": 0.5882606122558778, "ci95_high": 0.5882606122558778},
+  "compiled_q8_fidelity": {"mean": 0.9987483876227732, "ci95_low": 0.9964768044556049, "ci95_high": 1.00099112798026},
+  "control_q8_fidelity": {"mean": 1.0002548763388888, "ci95_low": 0.998810481787175, "ci95_high": 1.0017057306481587},
+  "mean_control_zlib_bytes": 34435.75,
+  "mean_compiled_zlib_bytes": 13590.625,
+  "pass95_count_q8_utility": 7
+}
