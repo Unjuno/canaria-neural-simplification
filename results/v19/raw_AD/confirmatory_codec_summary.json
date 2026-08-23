@@ -1,0 +1,25 @@
+{
+  "n": 8,
+  "bytes_unique": [
+    9926
+  ],
+  "all_roundtrip_exact": true,
+  "max_roundtrip_logit_diff": 0.0,
+  "metrics": {
+    "codec_combined_fidelity": {
+      "mean": 0.9636346199893907,
+      "lo": 0.9516014593725857,
+      "hi": 0.974011079467368
+    },
+    "codec_vs_dense_q4": {
+      "mean": 0.9735020829485472,
+      "lo": 0.9641151797744847,
+      "hi": 0.9832811148437413
+    },
+    "codec_quantized_utility": {
+      "mean": 0.9834749075770023,
+      "lo": 0.9639339322654951,
+      "hi": 1.0058853401699566
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "n_eligible": 8,
+  "primary_rank": 256,
+  "primary_tau": 8,
+  "primary_post_minus_pre_mean": -0.020404571459447393,
+  "primary_ci95": [
+    -0.026594838373996635,
+    -0.013825305686749455
+  ],
+  "D_pure_post_location": "FAIL"
+}

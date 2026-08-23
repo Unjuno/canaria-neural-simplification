@@ -1,0 +1,23 @@
+{
+  "n_eligible": 8,
+  "primary_rank": 256,
+  "primary_tau": 2,
+  "primary_post_minus_pre_mean": -0.02994061377809623,
+  "primary_ci95": [
+    -0.049755195605706765,
+    -0.01441957140994604
+  ],
+  "D_pure_post_location": "FAIL",
+  "pre_utility_mean": 0.7605094007528191,
+  "pre_utility_ci95": [
+    0.7037712323844083,
+    0.8017822866333766
+  ],
+  "post_utility_mean": 0.7305687869747229,
+  "post_utility_ci95": [
+    0.6742312869077234,
+    0.7792356674670395
+  ],
+  "D_pre_local_capacity_sufficiency": "FAIL",
+  "D_post_local_capacity_sufficiency": "FAIL"
+}

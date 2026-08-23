@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-08-23T14:15:34.972209+00:00",
+  "n_seeds": 8,
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007
+  ],
+  "span_minima_rows": 1440,
+  "composition_rows": 3360,
+  "sha256": {
+    "stage1_span_minima_locked.csv": "96b9eed16d9a372422aecb16e516d4e54c1910959a3087e42e559cf9640688cd",
+    "stage1_composition_events_locked.csv": "4afa0bb54f650cfe48d155e135788d2b7cfca5005231b59f8813d8de71823df9"
+  }
+}

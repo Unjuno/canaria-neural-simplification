@@ -1,0 +1,52 @@
+{
+  "n_seeds": 8,
+  "n_events": 3360,
+  "D_A": {
+    "q_L": 0.845,
+    "ci95": [
+      0.7225,
+      0.95
+    ],
+    "q_H": 0.569078947368421,
+    "q_H_ci95": [
+      0.4328947368421053,
+      0.7151480263157904
+    ],
+    "decision": "PASS observer / FAIL local"
+  },
+  "D_C": {
+    "q_G": 0.7107142857142857,
+    "ci95": [
+      0.6127976190476191,
+      0.8136904761904762
+    ],
+    "q_strong": 0.6491071428571429,
+    "q_strong_ci95": [
+      0.531547619047619,
+      0.7785714285714286
+    ],
+    "decision": "PASS"
+  },
+  "D_B": {
+    "implementation": "LOSO logistic: standardized width vs width+K_pct; pooled OOF AUC; 3000 seed-cluster bootstrap replicates",
+    "auc_width": 0.7357452110699273,
+    "auc_width_Kpct": 0.7414152762756773,
+    "delta_auc": 0.0056700652057499745,
+    "ci95": [
+      -0.0005992528699626075,
+      0.010519791535254792
+    ],
+    "decision": "UNCERTAIN"
+  },
+  "sequential_stop_n8": true,
+  "stage1_sha256": {
+    "stage1_span_minima_locked.csv": "96b9eed16d9a372422aecb16e516d4e54c1910959a3087e42e559cf9640688cd",
+    "stage1_composition_events_locked.csv": "4afa0bb54f650cfe48d155e135788d2b7cfca5005231b59f8813d8de71823df9"
+  },
+  "stage2_stage3_sha256": {
+    "stage2_canary_span_sensor.csv": "b1790ee4254439bbb4756c102928e1e83d2d7aa48617fb444388d22395d04d47",
+    "stage2_canary_event_sensor.csv": "13ecac808b51c5c6afaf554b0fb32258dc36d229707daba5d8e062ea0493b2b9",
+    "stage2_canary_span_sensor_ranked.csv": "62fdaa66f28af1942dfa9ad38689a379271a55ba148df180fd248d73794a3c49",
+    "stage3_locked_join.csv": "042b454271845a4c333f6bcae9e942263b2e6cc2c4745c615e25cf52fa349204"
+  }
+}
