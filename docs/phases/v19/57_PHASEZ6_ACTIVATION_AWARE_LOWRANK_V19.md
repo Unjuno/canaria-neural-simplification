@@ -1,0 +1,4 @@
+# Phase Z6 — Activation-aware rank31 head fit (exploratory)
+
+After rank sweep showed rank alone was insufficient, fit rank31 factors using only unlabeled calibration activations.
+Calibration: first 512 training inputs. Target: repaired compiled model's first-head preactivation (before ReLU). Initialize from weight SVD rank31. Optimize only the two factor matrices for 300 Adam steps, MSE objective, no labels/accuracy and no downstream output used in fitting. Then serialize with the exact Phase-Z3 channelwise 4-bit/FP16-bias codec. Same 2900/3000-series architectures; initial test on independent Phase-Z4 cohort 3000-3007.
