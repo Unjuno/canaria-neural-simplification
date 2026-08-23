@@ -1,0 +1,28 @@
+topic,metric,value,scope,status
+general_composition,simplification_rate_all,0.725,"4 seeds, 80 binary composition events",moderate evidence
+general_composition,simplification_rate_width2,0.500,24 events,moderate evidence
+general_composition,simplification_rate_width3,0.688,32 events,moderate evidence
+general_composition,simplification_rate_width4,1.000,24 events,moderate; adaptive setting
+recursive_simplification,unique_parent_with_internal_simplification,0.531,32 simplified unique parents,moderate
+adaptive_collapse,direct_pass_rate,0/8,full-span small operators,strong within tested set
+adaptive_collapse,repair4_pass_rate,8/8,same operators after 4 epochs,strong within tested set
+adaptive_collapse,mean_storage_ratio,0.0158,full-span tested operators,strong within tested set
+formation_time,pass_tau0,0.000,8 conditions,moderate
+formation_time,pass_tau2,0.625,8 conditions,moderate
+formation_time,pass_tau4,1.000,8 conditions,moderate
+canary_sensor,LOSO_AUC_width_only,0.710,composition events,exploratory
+canary_sensor,LOSO_AUC_width_plus_scalar_canary,0.750,composition events,exploratory
+canary_sensor,LOSO_AUC_width_canary_fit,0.799,composition events,exploratory
+boundary_scale,spearman_width_participation_ratio,-0.853,4-seed width 1-4 aggregate,moderate
+boundary_scale,width4_participation_ratio,1.98,effective operator trajectory,moderate
+boundary_scale,width4_rank2_weight_error,0.0826,effective operator trajectory,moderate
+operator_coordinates,rank2_abs_aug_diff,~0.0063,2-seed same-chart trajectory,strong within chart
+function_atlas,coarse_clusters_observed,29,4-seed gauge-invariant atlas,exploratory
+function_atlas,coarse_cluster_asymptote,~30.6,curve fit,exploratory
+new_task,orientation_compiled_accuracy_epoch20,~0.922,3-seed mean,moderate
+new_task,orientation_inheritance_epoch20,~0.712,3-seed mean,moderate
+new_task,position_compiled_accuracy_epoch20,~0.710,3-seed mean,moderate
+new_task,position_inheritance_epoch20,~0.736,3-seed mean,moderate
+KD_damage_detection,targeted_detection,3/3,block0/1/2 seed0 targeted damage,strong mini-test
+KD_repair,canary_weighted_aug_mean,0.7126,targeted damage summary,mixed
+KD_repair,CE_aug_mean,0.7156,same summary,mixed
