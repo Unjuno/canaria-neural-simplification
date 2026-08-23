@@ -15,6 +15,7 @@ This directory contains compact machine-readable evidence for the public claims.
 - `v17/` — sub-100-byte core sequence, independent confirmation, and exact serialization evidence.
 - `v18/` — global complexity accounting and whole-network low-bit summaries.
 - `v19/` — head-compression sequence and exact 9,926-byte whole-network codec confirmation.
+- `v20/` — small-ViT architecture-family generalization: confirmatory adapted-transfer and q8/zlib whole-network follow-up.
 
 ## How to interpret a result
 
@@ -34,5 +35,7 @@ This directory contains compact machine-readable evidence for the public claims.
 - Whole-network global accounting: `v18/phaseX_summary.json`
 - Whole-network low-bit boundary: `v18/phaseY_summary.json`
 - Exact 9,926-byte codec confirmation: `v19/confirmatory_codec_summary.json`
+- Small-ViT adapted transfer: `v20/g3_confirmatory_summary.json`
+- Small-ViT q8 whole-network follow-up: `v20/g3_q8_followup_summary.json`
 
 Historical files are preserved as evidence, not necessarily as a clean modern API.
