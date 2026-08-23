@@ -25,11 +25,22 @@ These findings are **task/architecture conditioned**. They are not a universal t
 3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — claim-by-claim status and limitations.
 4. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed explanations retained as evidence.
 5. [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — genuinely unresolved questions; also lists questions that are no longer open.
-6. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — statistical unit, blind-lock procedure, seed policy, storage terminology, metadata schemas.
-7. [`docs/phases/README.md`](docs/phases/README.md) — chronological phase/evidence index.
-8. [`results/README.md`](results/README.md) — machine-readable evidence index.
-9. [`scripts/phases/README.md`](scripts/phases/README.md) — reproduction-script map.
-10. [`docs/ROADMAP.md`](docs/ROADMAP.md) — priorities for when experiments resume.
+6. [`docs/GENERALIZATION_ROADMAP.md`](docs/GENERALIZATION_ROADMAP.md) — primary next research program: map zero-shot, adapted, conditional, and negative transfer across CNNs, ViTs/Transformers, small language models, recurrent/state-space models, and arbitrary subgraphs.
+7. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — statistical unit, blind-lock procedure, seed policy, storage terminology, metadata schemas.
+8. [`docs/phases/README.md`](docs/phases/README.md) — chronological phase/evidence index.
+9. [`results/README.md`](results/README.md) — machine-readable evidence index.
+10. [`scripts/phases/README.md`](scripts/phases/README.md) — reproduction-script map.
+11. [`docs/ROADMAP.md`](docs/ROADMAP.md) — overall priorities for when experiments resume.
+
+## Next scientific question
+
+The current priority is **not** to assume that one compiler must work unchanged on every network. The next phase will distinguish three questions:
+
+- Is the **simplification phenomenon** itself recurrent across substantially different trained network families?
+- Does one **unchanged compiler** transfer across families?
+- If not, can a small, preregistered set of **family-specific adaptation rules** expose the same phenomenon without post-hoc rescue?
+
+A network that fails under a fair adaptation budget is a valid negative result. The intended output is a map of transfer regimes, not a forced claim that Canaria is universal. See [`docs/GENERALIZATION_ROADMAP.md`](docs/GENERALIZATION_ROADMAP.md).
 
 ## Research history
 
@@ -120,7 +131,7 @@ Historical experiments did not preserve a single exact dependency lockfile. Read
 2. Operational complexity depends on the candidate grammar/codec; this is not a proof of Kolmogorov complexity or codec-independent minimum description length.
 3. **44.5 B / ~28 B are compiled-core results, not whole-network sizes.**
 4. **9,926 B is a real whole-network serialized size** and is the correct number for the current end-to-end compression claim.
-5. Cross-dataset, ResNet, arbitrary-subgraph, off-manifold, and null-model external validity remain open.
+5. Cross-dataset, ResNet, Transformer, language-model, arbitrary-subgraph, off-manifold, and null-model external validity remain open.
 
 ## Reproducibility metadata
 
