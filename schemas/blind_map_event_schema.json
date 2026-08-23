@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canary-blind simplification event row",
+  "type": "object",
+  "required": [
+    "event_id", "run_id", "model_id", "seed", "training_state",
+    "span_start", "span_end", "width", "split_index", "tau",
+    "original_storage", "selected_candidate", "selected_storage",
+    "control_aug_acc", "compiled_aug_acc", "utility_ratio",
+    "composition_gain", "strong_simplification"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "model_id": {"type": "string", "minLength": 1},
+    "seed": {"type": "integer"},
+    "training_state": {"type": "string"},
+    "span_start": {"type": "integer", "minimum": 0},
+    "span_end": {"type": "integer", "minimum": 0},
+    "width": {"type": "integer", "minimum": 2},
+    "split_index": {"type": "integer", "minimum": 1},
+    "tau": {"type": "integer", "enum": [0, 1, 2, 4, 8]},
+    "original_storage": {"type": "number", "exclusiveMinimum": 0},
+    "selected_candidate": {"type": "string"},
+    "selected_storage": {"type": "number", "exclusiveMinimum": 0},
+    "control_aug_acc": {"type": "number", "minimum": 0, "maximum": 1},
+    "compiled_aug_acc": {"type": "number", "minimum": 0, "maximum": 1},
+    "utility_ratio": {"type": "number", "minimum": 0},
+    "composition_gain": {"type": "number"},
+    "strong_simplification": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
