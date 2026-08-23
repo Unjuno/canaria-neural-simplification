@@ -1,0 +1,21 @@
+{
+  "confirmatory_seeds": [3200, 3202, 3203, 3204, 3208, 3209, 3211, 3212],
+  "seed_rule": "first 8 baseline-eligible seeds >=3200",
+  "baseline_eligibility": ">=0.95",
+  "n": 8,
+  "baseline_acc": {"mean": 0.962962962962963, "ci95_low": 0.9581018518518518, "ci95_high": 0.967824074074074, "pass95_count": 8},
+  "tau0_utility": {"mean": 0.942108519666903, "ci95_low": 0.9321357652037423, "ci95_high": 0.9514277752306847, "pass95_count": 2},
+  "tau2_utility": {"mean": 0.9612998480298425, "ci95_low": 0.954811632630575, "ci95_high": 0.9675886800769687, "pass95_count": 7},
+  "tau8_utility": {"mean": 0.9684781350852136, "ci95_low": 0.9610226376238984, "ci95_high": 0.9767338494328889, "pass95_count": 7},
+  "whole_model_param_reduction": {"mean": 0.6018240525689684, "ci95_low": 0.6018240525689684, "ci95_high": 0.6018240525689684},
+  "decision": {"zero_shot": "FAIL", "adapted_tau8": "PASS", "transfer_class": "A: adapted transfer"},
+  "excluded_or_extra_runs": {
+    "3201": "baseline ineligible",
+    "3205": "baseline ineligible",
+    "3206": "baseline ineligible",
+    "3207": "baseline ineligible",
+    "3210": "baseline ineligible",
+    "3213": "executed after first 8 eligible were already determined; not used in confirmatory inference",
+    "3214": "executed after first 8 eligible were already determined; not used in confirmatory inference"
+  }
+}
