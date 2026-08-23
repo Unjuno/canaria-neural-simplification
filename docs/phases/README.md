@@ -14,6 +14,7 @@ This directory is the chronological record of the later research program. Protoc
 | v17 N–W | Sub-100-byte core, scale/pattern sharing, independent confirmation, exact codecs | Mixed; key claims independently confirmed | `v17/40_...` through `v17/50_...` |
 | v18 X/Y | Whole-network accounting and low-bit whole-model boundary | New-seed matched accounting | `v18/51_...` through `v18/53_...` |
 | v19 Z–AD | Head compression and exact 9,926-byte whole-network codec | Exploration followed by independent confirmation | `v19/54_...` through `v19/62_...` |
+| **v20 G3** | **Does simplification transfer from residual CNNs to a Transformer family?** | **Pilot-locked architecture adaptation followed by new-seed confirmatory + q8 whole-network follow-up** | `v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md`, `v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md`, `results/v20/` |
 
 ## Evidence discipline
 
@@ -22,4 +23,4 @@ This directory is the chronological record of the later research program. Protoc
 - `exploratory` means the condition was motivated by observed results and must not be presented as preregistered evidence.
 - Exact serialization claims require pack/unpack identity checks, not only nominal bit-count calculations.
 
-For the current cross-phase interpretation, use `../RESEARCH_SUMMARY.md` and `../CLAIMS_AND_EVIDENCE.md` rather than reading one phase in isolation.
+For the current cross-phase interpretation, use `../RESEARCH_SUMMARY.md`, `../CLAIMS_AND_EVIDENCE.md`, and `../GENERALIZATION_STATUS.md` rather than reading one phase in isolation.
