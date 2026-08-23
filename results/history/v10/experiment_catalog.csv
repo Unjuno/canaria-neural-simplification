@@ -1,0 +1,157 @@
+experiment_dir,report_title,file_count,md_count,csv_count,png_count
+canary_core_adaptive_alpha_policy,Adaptive alpha policy from long3 repair results,9,1,5,3
+canary_core_assembly_kd_repair_mini,Canary-guided assembly repair mini,6,1,2,3
+canary_core_augmented_digits_quick,Augmented digits canary-gated replacement,12,1,6,5
+canary_core_augmented_digits_remediation,Augmented digits remediation experiment,14,1,7,6
+canary_core_auto_compile_fixedpoint,Fully automatic canary-guided compile-to-fixed-point,7,1,4,2
+canary_core_auto_compile_fixedpoint_relaxed,Fully automatic canary-guided compile-to-fixed-point,7,1,4,2
+canary_core_auto_compile_fixedpoint_v2,Fully automatic compile fixed-point v2,7,1,4,2
+canary_core_auto_compile_fixedpoint_v2_relaxed,Fully automatic compile fixed-point v2,7,1,4,2
+canary_core_auto_function_family_combined,Automatic function-family compiler — 2 seed summary,2,1,1,0
+canary_core_auto_function_family_seed0,Automatic function-family compiler,11,1,7,3
+canary_core_auto_function_family_seed1,Automatic function-family compiler,11,1,7,3
+canary_core_auto_multiobjective_combined,Hard-filter-free four-objective auto compiler,2,1,1,0
+canary_core_auto_multiobjective_seed0,Four-objective automatic compiler,10,1,7,2
+canary_core_auto_multiobjective_seed1,Four-objective automatic compiler,10,1,7,2
+canary_core_auto_multiobjective_seed2,Four-objective automatic compiler,10,1,7,2
+canary_core_auto_pareto_knee_combined,Pareto-knee automatic compiler: 2-seed summary,2,1,1,0
+canary_core_auto_pareto_knee_seed0,Pareto-knee automatic compiler,13,1,7,5
+canary_core_auto_pareto_knee_seed1,Pareto-knee automatic compiler,12,1,7,4
+canary_core_auto_risk_from_utility,Utility-Constrained Automatic Risk Selection,10,1,6,3
+canary_core_auto_risk_from_utility_trial2,Utility-Constrained Automatic Risk Selection,10,1,6,3
+canary_core_auto_risk_from_utility_trial2_combined,Utility-constrained automatic risk selection: 2-seed summary,2,1,1,0
+canary_core_auto_risk_from_utility_trial2_seed1,Utility-Constrained Automatic Risk Selection,10,1,6,3
+canary_core_auto_span_merge_light,,4,0,4,0
+canary_core_auto_span_merge_seed0_strong,Canary-guided automatic span merging,12,1,7,4
+canary_core_blind_intrinsic_map_pilot_v9,Blind intrinsic map pilot v9,8,0,6,0
+canary_core_boundary_expansion_atlas,Boundary expansion × replaceable-function atlas,12,1,7,4
+canary_core_boundary_scale_manifold_combined,Boundary expansion and mechanism-manifold dimension,9,1,6,2
+canary_core_boundary_scale_manifold_seed0,Boundary-scale mechanism manifold seed 0,4,1,3,0
+canary_core_boundary_scale_manifold_seed1,Boundary-scale mechanism manifold seed 1,4,1,3,0
+canary_core_boundary_scale_manifold_seed2,Boundary-scale mechanism manifold seed 2,4,1,3,0
+canary_core_boundary_scale_manifold_seed3,Boundary-scale mechanism manifold seed 3,4,1,3,0
+canary_core_break_retrain_modes_fast,"Canary block reset retraining modes, fast focus",11,1,7,3
+canary_core_break_retrain_quick,Canary break-and-retrain experiment,9,1,5,3
+canary_core_canary_diagnostic,Canary diagnostic meta-experiment,9,1,4,4
+canary_core_canary_weighted_kd_allblocks_ultra,Ultra-mini all-block canary-weighted KD,9,1,5,3
+canary_core_canary_weighted_kd_alltarget_summary,Canary-weighted KD targeted damage summary,9,1,5,3
+canary_core_canary_weighted_kd_blocks12_mini,Targeted canary-weighted KD for block1/block2,9,1,5,3
+canary_core_canary_weighted_kd_mini,Canary-weighted distillation repair mini,9,1,4,4
+canary_core_canary_weighted_kd_targeted_mini,Targeted canary-weighted KD mini,9,1,4,4
+canary_core_ce_kd_alpha_long3,Longer CE+KD alpha repair check,17,1,12,4
+canary_core_ce_kd_alpha_quick2,Quick2 multi-seed CE+KD alpha repair,15,1,11,3
+canary_core_ce_kd_alpha_sweep_mini,CE + KD alpha sweep,7,1,3,3
+canary_core_ce_kd_mix_repair_mini,CE + canary-weighted KD repair mini,10,1,5,4
+canary_core_cnn_auto_adopt,CNN auto-adopt replacement experiment,7,1,2,3
+canary_core_cnn_both_rank8_control,CNN both-conv rank-8 control,6,1,2,2
+canary_core_cnn_calibration_sweep,CNN calibration-size sweep,7,1,2,3
+canary_core_cnn_controls,CNN digits replacement controls,7,1,2,3
+canary_core_cnn_digits_quick,Quick CNN digits replacement experiment,5,1,1,2
+canary_core_cnn_forward_canary,Forward canary-only selection experiment,11,1,5,5
+canary_core_cnn_frontier_confirm,CNN frontier rank confirmation,9,1,3,4
+canary_core_cnn_policy_ablation,CNN auto-adoption policy ablation,7,1,1,4
+canary_core_cnn_rank_sweep_quick,CNN quick rank sweep,8,1,2,4
+canary_core_cnn_sequential,CNN sequential replacement experiment,6,1,1,3
+canary_core_cnn_sequential_rank8,CNN sequential replacement experiment,7,1,2,3
+canary_core_cnn_shell_finetune,CNN rank-4 canary shell fine-tune experiment,7,1,2,3
+canary_core_cnn_stress_quick,Dropout/noise stress test,11,1,5,5
+canary_core_cnn_stress_remediation_quick,Stress remediation experiment,13,1,7,5
+canary_core_cnn_threshold_frontier,Canary threshold frontier experiment,10,1,4,5
+canary_core_collapse_performance_quick,Canary-collapse performance quick experiment,13,1,8,4
+canary_core_component_sweep,Component Replacement Sweep,4,1,0,2
+canary_core_composition_aware_greedy_focus,Composition-aware greedy canary compression quick,5,1,3,1
+canary_core_composition_aware_greedy_quick,Composition-aware greedy canary compression quick,12,1,7,4
+canary_core_composition_collapse_greedy_quick,Composition-aware Canary-Collapse Greedy Quick,10,1,5,4
+canary_core_compression_family_frontier,Compression family frontier and canary remediation,18,1,8,9
+canary_core_depth_trainability_pilot_v9,Depth trainability pilot v9,3,0,3,0
+canary_core_dictionary_boundary_followup,Mechanism dictionary / boundary expansion follow-up,4,1,3,0
+canary_core_early_utility_selection_core,Early utility mechanism selection,8,1,5,2
+canary_core_existing_compressions,Canary with existing compression candidates,11,1,5,5
+canary_core_expression_synthesis_seed0,Primitive expression synthesis compiler,10,1,7,2
+canary_core_expression_synthesis_trial4_seed0,Primitive expression synthesis compiler,10,1,7,2
+canary_core_fixed_gauge_dictionary_0to1,Fixed-gauge mechanism dictionary 0->1,3,1,2,0
+canary_core_fixed_gauge_dictionary_0to2,Fixed-gauge mechanism dictionary 0->2,3,1,2,0
+canary_core_fixed_gauge_dictionary_k3_0to1,Fixed 3x3 gauge dictionary 0->1,3,1,2,0
+canary_core_fixed_gauge_dictionary_k3_0to2,Fixed 3x3 gauge dictionary 0->2,3,1,2,0
+canary_core_fixed_gauge_repair_0to1_e12,Fixed gauge shell repair 0->1 epoch12,2,1,1,0
+canary_core_fixed_gauge_repair_0to2_e12,Fixed gauge shell repair 0->2 epoch12,2,1,1,0
+canary_core_fullspan_archetype_dimension,Full-span archetype coordinate dimension,13,1,10,2
+canary_core_fullspan_atlas_trial4_combined,Full-span function atlas with 4-epoch recontracting,13,1,9,3
+canary_core_fullspan_latent_basis,Full-span latent basis experiment,13,1,6,6
+canary_core_fullspan_operator_structure,Full-span operator structure report,8,1,4,3
+canary_core_function_atlas_combined,Canary-replaceable function atlas: cross-seed empirical saturation,11,1,7,3
+canary_core_function_atlas_gauge,,4,0,4,0
+canary_core_function_atlas_gauge_combined,Gauge-invariant canary-replaceable function atlas,22,1,19,2
+canary_core_function_atlas_gauge_combined4,Gauge-invariant canary-replaceable function atlas,22,1,19,2
+canary_core_function_atlas_seed0,Canary-replaceable function atlas and empirical saturation,10,1,6,3
+canary_core_function_atlas_seed1,Canary-replaceable function atlas and empirical saturation,10,1,6,3
+canary_core_function_atlas_seed2,Canary-replaceable function atlas and empirical saturation,10,1,6,3
+canary_core_function_atlas_seed3,Canary-replaceable function atlas and empirical saturation,10,1,6,3
+canary_core_function_family_all_replace,Function-family probing and all-replacement experiment,13,1,8,4
+canary_core_function_identity_shift_combined,Function identity after compile -> freeze -> retrain,7,1,3,3
+canary_core_function_identity_shift_seed0,Old composition vs re-trained effective function,6,1,3,2
+canary_core_function_identity_shift_seed1,Old composition vs re-trained effective function,6,1,3,2
+canary_core_function_identity_shift_seed2,Old composition vs re-trained effective function,6,1,3,2
+canary_core_function_identity_trajectory_seed0,Function identity trajectory after frozen K1 compile,2,1,1,0
+canary_core_function_identity_trajectory_seed1,Function identity trajectory after frozen K1 compile,2,1,1,0
+canary_core_general_composition_law,General composition-law probe,41,2,35,4
+canary_core_global_relocation_pilot_v9,Global relocation pilot v9,8,1,6,0
+canary_core_iterative_compile_loop,Iterative Canary-Guided Compile / Recontract Loop,9,1,5,3
+canary_core_known_residual_augmented_fast2,Fast2 augmentation-aware known-K residual experiment,7,1,4,2
+canary_core_known_residual_augmented_mini,Mini augmentation-aware known-K residual experiment,5,1,2,2
+canary_core_known_residual_augmented_stronger2,Stronger2 augmentation-aware known-K residual experiment,7,1,4,2
+canary_core_known_residual_seeded,Canary-seeded known-operator + learned-residual experiment,10,1,5,4
+canary_core_large_span_dictionary_coverage,,2,0,2,0
+canary_core_large_span_dictionary_reuse,Large-span mechanism dictionary reuse,7,1,3,3
+canary_core_latent_component_implant,Dominant latent component implantation,12,1,7,4
+canary_core_latent_component_implant_K3,Dominant latent component implantation (K3),12,1,7,4
+canary_core_latent_component_implant_K3_paired,Dominant latent component implantation (K3),12,1,7,4
+canary_core_master_summary,Canary Core Master Summary,7,1,4,2
+canary_core_mechanism_dictionary_coordinates,Mechanism dictionary + coordinate compression follow-up,5,1,2,2
+canary_core_mechanism_implantation,,1,0,1,0
+canary_core_mechanism_implantation_quick,Canary-guided mechanism implantation experiment,13,1,8,4
+canary_core_mechanism_implantation_target2_strong,Canary-guided mechanism implantation experiment,13,1,8,4
+canary_core_mechanism_implantation_target_sweep,Full-span mechanism implantation target sweep,14,1,9,4
+canary_core_mechanism_inheritance_combined,Mechanism inheritance + Canary combined report,9,1,5,3
+canary_core_mechanism_inheritance_growth_seed0,Growing-span mechanism inheritance — seed 0,4,1,1,2
+canary_core_mechanism_inheritance_growth_seed1,Growing-span mechanism inheritance — seed 1,4,1,1,2
+canary_core_mechanism_inheritance_growth_seed2,Growing-span mechanism inheritance — seed 2,4,1,1,2
+canary_core_mechanism_inheritance_longstage_seed0,Long-stage mechanism inheritance seed 0,6,1,1,4
+canary_core_mechanism_inheritance_longstage_seed1,Long-stage mechanism inheritance seed 1,6,1,1,4
+canary_core_mechanism_inheritance_seed0,Mechanism inheritance across compile cycles — seed 0,4,1,1,2
+canary_core_miniexperiment,Canary Core Mini-Experiment Report,5,1,0,2
+canary_core_modular_compression,Canary-guided modular compression,11,1,6,4
+canary_core_multicandidate_forward,Multi-candidate forward canary selection,10,1,5,4
+canary_core_multiseed,Canary Core Multi-Seed Experiment,4,1,0,2
+canary_core_newtask_inheritance_combined,New-task mechanism transition — 3 seed combined,14,1,7,6
+canary_core_newtask_inheritance_seed0,New-task mechanism inheritance seed 0,7,1,2,4
+canary_core_newtask_inheritance_seed1,New-task mechanism inheritance seed 1,7,1,2,4
+canary_core_newtask_inheritance_seed2,New-task mechanism inheritance seed 2,7,1,2,4
+canary_core_null_control,Canary Core Null-Control Report,3,1,0,1
+canary_core_operation_family_map_quick,Operation Family Map Quick,14,1,7,6
+canary_core_operation_probe,Operation probe for frozen CNN core,8,1,5,2
+canary_core_operator_coordinate_compression,Operator coordinate compression seed 1,13,2,11,0
+canary_core_position_signature,Canary signature as position/type information,15,1,11,3
+canary_core_postshell_functional_diagnostics_v9,Post-shell functional diagnostics v9,4,0,4,0
+canary_core_progressive_collapse_seed0,Progressive canary collapse experiment,6,1,2,3
+canary_core_rank3_value_control,Rank-3 mechanism value control,12,1,7,4
+canary_core_rank3_value_control_combined,Rank-3 mechanism value control — 2 seed combined,5,1,3,1
+canary_core_rank3_value_control_seed1,Rank-3 mechanism value control,12,1,7,4
+canary_core_recursive_head_boundary_pilot_v10,Recursive head-boundary pilot v10,4,0,3,0
+canary_core_recursive_posthead_width_pilot_v10,Recursive post-head width pilot v10,8,0,7,0
+canary_core_recursive_recompile_pilot_v10,Recursive recompile pilot v10,8,0,7,0
+canary_core_recursive_repair_phase_pilot_v10,Recursive repair phase pilot v10,6,0,5,0
+canary_core_replacement,Actual Low-Rank Core Component Replacement,5,1,0,3
+canary_core_replacement_controls,Replacement Control Experiment,4,1,0,2
+canary_core_span_auto_policy_existing,Automatic span merge policy from existing span probes,7,1,3,3
+canary_core_span_merge_experiment,Canary span-merge experiment,10,1,5,4
+canary_core_span_residual_experiment,Span merge + residual experiment,7,1,3,3
+canary_core_stitching_experiment,Canary stitching experiment,8,1,4,3
+canary_core_suppression_knockout_quick,Canary knockout / suppression quick experiment,13,1,7,5
+canary_core_taskshift_inheritance_seed0,Task-shift mechanism inheritance — seed 0,7,1,2,4
+canary_core_taskshift_inheritance_seed1,Task-shift mechanism inheritance — seed 1,7,1,2,4
+canary_core_taskshift_inheritance_seed2,Task-shift mechanism inheritance — seed 2,7,1,2,4
+canary_core_temporal_dynamics,Canary temporal dynamics,9,1,5,3
+canary_core_temporal_tail,Canary temporal tail,11,1,7,3
+canary_core_trajectory_selector,Canary mechanism trajectory selector,14,1,9,4
+canary_phaseA_residual8_baseline_eligibility_v9,Phase A residual8 baseline eligibility v9,3,0,2,0
