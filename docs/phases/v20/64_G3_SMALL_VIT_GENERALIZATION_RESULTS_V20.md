@@ -56,6 +56,8 @@ Codec:
 - resulting real byte stream compressed with zlib level 9,
 - q8 weights are dequantized back into the model for accuracy measurement.
 
+The byte counts are real serialized **parameter-state streams** for every tensor in the model. The Python/architecture decoder implementation is treated as shared code and is not charged. Therefore these numbers are appropriate for matched whole-network parameter-code comparison, but they are not standalone executable-package sizes analogous to the v19 exact 9,926-byte codec.
+
 Results across the same 8 confirmatory seeds:
 
 - mean matched-control q8+zlib size: **34,435.8 B**
@@ -68,7 +70,7 @@ Results across the same 8 confirmatory seeds:
 - compiled q8 / compiled FP32 fidelity: **0.99875**
 - 95% CI: **[0.99648, 1.00099]**
 
-Thus the result is not only a parameter-count reduction. Under this explicit q8 real-byte codec, the whole ViT model is also approximately 60% smaller while maintaining matched-control-relative utility.
+Thus the result is not only a parameter-count reduction. Under this explicit q8 real-byte parameter codec, the whole ViT parameter state is also approximately 60% smaller while maintaining matched-control-relative utility.
 
 ## What this establishes
 This is positive evidence that task-conditioned computational simplification is **not restricted to the residual-CNN architecture family** used in earlier phases.
@@ -82,6 +84,7 @@ The experiment changes architecture family while holding task/data fixed, so it 
 - It does not test a language Transformer, autoregressive decoding, KV-cache behavior, or long-context dependence.
 - Baseline eligibility used the held-out split as historically defined; future external-validity phases should preferably separate eligibility/validation from final test evaluation.
 - The 60% reduction is architecture/code specific, not a universal compression ratio.
+- The q8 byte stream assumes a shared architecture/decoder and should not be described as a fully standalone executable model file.
 
 ## Next discriminative experiments
 1. **G3b: CIFAR-10 + small ViT** — task and input complexity shift within the Transformer family.
