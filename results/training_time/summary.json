@@ -1,0 +1,89 @@
+{
+  "snapshot_date": "2026-08-24",
+  "scope": "corrected training-time consolidation mainline on the small real-text character-LM testbed",
+  "architecture": {
+    "large": {"depth": 4, "mlp": 48, "parameters": 23138},
+    "intermediate": {"depth": 3, "mlp": 36, "parameters": 16502},
+    "final": {"depth": 2, "mlp": 24, "parameters": 11042},
+    "final_parameter_reduction_fraction": 0.522776
+  },
+  "G7": {
+    "evidence": "confirmatory",
+    "seeds": [4300,4301,4302,4303,4304,4305,4306,4307],
+    "decision": "PASS",
+    "mean_ppl": {
+      "large_reference": 19.7843,
+      "small_from_start": 21.3126,
+      "terminal_posthoc": 19.7978,
+      "late_one_shot": 19.8675,
+      "early_one_shot": 19.7515,
+      "progressive": 19.4478
+    },
+    "progressive_minus_early": {"mean": -0.3037, "bootstrap95": [-0.3384,-0.2664], "wins": "8/8"},
+    "progressive_minus_late": {"mean": -0.4197, "bootstrap95": [-0.5114,-0.3229], "wins": "8/8"},
+    "progressive_minus_large_secondary": {"mean": -0.3365, "bootstrap95": [-0.4175,-0.2492], "wins": "8/8"},
+    "small_minus_large": {"mean": 1.5282, "bootstrap95": [1.0855,1.8885]},
+    "recontracting_ppl_curve": {
+      "after_first_4_to_3": 26.6813,
+      "after_recovery_to_epoch_8": 20.5601,
+      "after_second_3_to_2": 20.6226,
+      "final": 19.4478
+    }
+  },
+  "G8": {
+    "evidence": "confirmatory",
+    "seeds": [4500,4501,4502,4503,4504,4505,4506,4507],
+    "decision": "PASS",
+    "mean_ppl": {"functional": 19.7432, "identity": 29.7099, "shuffled": 22.7611, "large": 20.0650},
+    "functional_minus_identity": {"mean": -9.9667, "bootstrap95": [-10.5572,-9.3989], "wins": "8/8"},
+    "functional_minus_shuffled": {"mean": -3.0179, "bootstrap95": [-3.3287,-2.7020], "wins": "8/8"}
+  },
+  "G9": {
+    "evidence": "confirmatory",
+    "seeds": [4700,4701,4702,4703,4704,4705,4706,4707],
+    "decision": "PASS",
+    "mean_ppl_by_fit_budget": {"25pct": 20.3412, "50pct": 19.8401, "100pct": 19.6037, "200pct": 19.5071},
+    "improvement_25_to_50": {"mean": 0.5011, "bootstrap95": [0.3975,0.6690], "wins": "8/8"},
+    "improvement_50_to_100": {"mean": 0.2364, "bootstrap95": [0.2015,0.2821], "wins": "8/8"},
+    "improvement_100_to_200_secondary": {"mean": 0.0966, "bootstrap95": [0.0776,0.1186], "wins": "8/8"}
+  },
+  "G10": {
+    "evidence": "confirmatory",
+    "seeds": [4900,4901,4902,4903,4904,4905,4906,4907],
+    "decision": "PASS",
+    "mean_ppl": {"functional": 19.423406929341862, "inheritance_only": 20.645987055966955, "hybrid": 19.301770972799382},
+    "inherit_minus_functional": {"mean": 1.2225801266250929, "bootstrap95": [1.0883215176730356,1.3832644179495497]},
+    "hybrid_minus_functional": {"mean": -0.12163595654248294, "bootstrap95": [-0.1830661020832367,-0.06909468229347393], "wins": "8/8"}
+  },
+  "G11": {
+    "evidence": "confirmatory",
+    "seeds": [5400,5401,5402,5403,5404,5405,5406,5407],
+    "decision": "PASS",
+    "final_target_reached": "8/8",
+    "mean_auto_ppl": 20.1767,
+    "mean_large_ppl": 20.2267,
+    "mean_relative_auto_large_percent": -0.240,
+    "relative_bootstrap95_percent": [-0.593,0.153],
+    "mean_compiler_updates": 180,
+    "max_compiler_updates": 192,
+    "preregistered_max_compiler_updates": 232
+  },
+  "G15": {
+    "evidence": "confirmatory",
+    "seeds": [5800,5801,5802,5803,5804,5805,5806,5807],
+    "decision": "PASS",
+    "mean_staged_ppl": 19.9029,
+    "mean_direct_wait_ppl": 20.2022,
+    "staged_minus_direct": {"mean": -0.2993, "bootstrap95": [-0.3379,-0.2616], "wins": "8/8"},
+    "mean_compiler_updates": {"staged": 186, "direct": 192}
+  },
+  "G17": {
+    "evidence": "confirmatory_equivalence",
+    "seeds": [6000,6001,6002,6003,6004,6005,6006,6007],
+    "decision": "PASS_EQUIVALENCE",
+    "equivalence_band_ppl": [-0.10,0.10],
+    "factorized_minus_direct": {"mean": 0.0279, "bootstrap95": [-0.0019,0.0614]},
+    "compiler_updates_each": 192,
+    "interpretation": "without task learning between 4->3 and 3->2, factorized fitting is equivalent to direct 4->2; the G15 staged benefit therefore depends on the intervening learning/recontracting interval under this protocol"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "snapshot_date": "2026-08-24",
+  "note": "Protocol hashes refer to the local locked files used before the corresponding fresh-seed outcomes were generated. The repository summary is a post-run index; it is not itself the preregistration artifact.",
+  "protocols": {
+    "G7": {
+      "name": "training-time consolidation confirmatory",
+      "fresh_seeds": [4300,4301,4302,4303,4304,4305,4306,4307],
+      "statistical_unit": "independently initialized model seed",
+      "primary_endpoint": "held-out test PPL",
+      "decision_rule": "paired bootstrap 95% CI for progressive-minus-early and progressive-minus-late must both lie entirely below zero",
+      "protocol_sha256": "b200a3ace7024a24dec9bf03d3aaeb2b1bfc4158fbe8157d57e7d40bad0ca928"
+    },
+    "G8": {
+      "name": "functional-transfer necessity confirmatory",
+      "fresh_seeds": [4500,4501,4502,4503,4504,4505,4506,4507],
+      "statistical_unit": "independently initialized model seed",
+      "primary_endpoint": "held-out test PPL",
+      "decision_rule": "upper paired-bootstrap 95% CI < 0 for functional-minus-identity and functional-minus-shuffled",
+      "protocol_sha256": "fa8ca60400a3c900745042715a7ad397c112a7c312963fe9aeaa8caa4e75efb2"
+    },
+    "G9": {
+      "name": "functional-transfer budget dose-response confirmatory",
+      "fresh_seeds": [4700,4701,4702,4703,4704,4705,4706,4707],
+      "statistical_unit": "independently initialized model seed",
+      "primary_endpoint": "held-out test PPL",
+      "decision_rule": "50% fit budget must beat 25% and 100% must beat 50% by paired-bootstrap 95% CI",
+      "protocol_sha256": "3c0db7acd14f79e121d5cd9371444384719ad4eb0af35f011170c70485508c52"
+    },
+    "G10": {
+      "name": "structured-inheritance confirmatory",
+      "fresh_seeds": [4900,4901,4902,4903,4904,4905,4906,4907],
+      "statistical_unit": "independently initialized model seed",
+      "primary_endpoint": "held-out test PPL",
+      "decision_rule": "inheritance-only must be worse than functional and hybrid inheritance+functional refinement must be better than random-init functional fitting by paired-bootstrap 95% CI",
+      "protocol_sha256": null,
+      "note": "The confirmatory summary contains the full locked protocol specification, but a separate lock file was not retained in the current mounted handoff directory. Do not invent a hash."
+    },
+    "G11": {
+      "name": "autonomous consolidation confirmatory",
+      "fresh_seeds": [5400,5401,5402,5403,5404,5405,5406,5407],
+      "primary_endpoint": "autonomous target attainment plus non-inferiority to Large and compiler-update cap",
+      "decision_rule": "8/8 reach final 2-block; Auto/Large relative-PPL 95% CI upper < +2%; compiler updates <=232 for every seed",
+      "protocol_sha256": "5bf43a8397601efa62f169b7d2201dd36dd353e5823cfdef445f79bdf746bc32"
+    },
+    "G15": {
+      "name": "staged-versus-direct-wait confirmatory",
+      "fresh_seeds": [5800,5801,5802,5803,5804,5805,5806,5807],
+      "primary_endpoint": "held-out test PPL at identical final 2-block architecture",
+      "decision_rule": "staged-minus-direct paired-bootstrap 95% CI entirely below zero",
+      "protocol_sha256": "fa150a90ef288576bc130f7ea42f038b0046d4095cdc11f20271e52b6d1f2e02"
+    },
+    "G17": {
+      "name": "factorization-only equivalence confirmatory",
+      "fresh_seeds": [6000,6001,6002,6003,6004,6005,6006,6007],
+      "primary_endpoint": "held-out test PPL difference factorized-minus-direct",
+      "decision_rule": "complete paired-bootstrap 95% CI must lie within preregistered equivalence band [-0.10,+0.10] PPL",
+      "protocol_sha256": "8a490f61c133669859200fe981cebf531eb2b49a7d7d143ff75de5c1d2906a75"
+    }
+  },
+  "integrity_note": "An earlier 5300-series autonomous run had its protocol-lock file overwritten by another experiment. Those runs were explicitly downgraded to exploratory evidence and are not represented as confirmatory here."
+}
