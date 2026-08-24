@@ -27,13 +27,28 @@ The transfer map is now explicitly **mixed**, which is more informative than a u
 
 This rejects a simplistic interpretation that "Transformer blocks are generally compressible if PPL is preserved." Autoregressive trajectory stability is an additional constraint. The current evidence supports a conditional universality picture: task-effective simplification exists across several architecture families, but whether it is usable depends on downstream error amplification and the compiler/repair objective.
 
+## v23 rollout-horizon diagnostic
+
+A post-confirmatory diagnostic on the same eight seeds measured greedy token agreement versus rollout horizon.
+
+Tau=0 compiled vs baseline agreement decays monotonically:
+
+- 1 token: **0.9219 [0.8906, 0.9531]**
+- 2 tokens: **0.9004 [0.8613, 0.9375]**
+- 4 tokens: **0.8408 [0.7813, 0.8945]**
+- 8 tokens: **0.7651 [0.6938, 0.8315]**
+- 16 tokens: **0.6753 [0.5977, 0.7598]**
+- 24 tokens: **0.6326 [0.5508, 0.7288]**
+
+This is evidence for an **error-amplification / trajectory-divergence mechanism**: the compiler is locally close, but small early differences alter future autoregressive inputs and accumulate. The selected tau8 joint repair is worse at every measured horizon. See `docs/phases/v23/78_G6B_ROLLOUT_HORIZON_DIAGNOSTIC_V23.md`, `79_G6B_ROLLOUT_HORIZON_RESULTS_V23.md`, and `results/v23/g6b_horizon_summary.json`.
+
 ## Strong evaluation lesson
 
 For autoregressive models, **teacher-forced likelihood is necessary but not sufficient**. v22 and v23 jointly show that local next-token metrics can hide substantial rollout divergence. Any future decoder-LM simplification claim must retain rollout-sensitive metrics as primary evidence.
 
 ## Next highest-information tests
 
-1. **Rollout-horizon sweep** on the v23 real-text setting (1,2,4,8,16,24 tokens) to estimate error-amplification timescale.
-2. **Objective adaptation**: compare residual-stream MSE against a preregistered logit/KL-aware compiler objective on pilot checkpoints, then freeze and re-confirm.
-3. **Small pretrained/subword LM** on real text with independent fine-tuning/checkpoint replicates; PPL and rollout metrics remain jointly primary.
-4. G4/G3b CIFAR-10 ResNet/ViT to map task difficulty outside language.
+1. **Objective adaptation:** compare residual-stream MSE against a preregistered logit/KL-aware (and optionally short-rollout-aware) compiler objective on pilot checkpoints, then freeze and re-confirm on fresh seeds.
+2. **Small pretrained/subword LM** on real text with independent fine-tuning/checkpoint replicates, only after the objective is frozen; PPL and rollout metrics remain jointly primary.
+3. G4/G3b CIFAR-10 ResNet/ViT to map task difficulty outside language.
+4. Attention-only vs MLP-only causal compilation to identify which decoder submodule dominates trajectory sensitivity.
