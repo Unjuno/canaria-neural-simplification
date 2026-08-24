@@ -1,0 +1,14 @@
+{
+  "phase": "G6c_v24_logit_aware_realtext",
+  "protocol_sha256": "386ea8c3a0e000d807127661be92927aab20289f3b3db14af7af0eed593912ce",
+  "objective": "O1_hidden_mse_plus_teacher_forced_logit_KL",
+  "seeds": [3600,3601,3602,3603,3604,3605,3606,3607],
+  "parameter_reduction": {"mean": 0.5227763851672573, "ci95": [0.5227763851672573,0.5227763851672573]},
+  "tau0_ppl_utility": {"mean": 0.9966796798141072, "ci95": [0.9958015018656181,0.9976137254564125]},
+  "tau0_rollout_agreement": {"mean": 0.5616861954331398, "ci95": [0.4868123373016715,0.6373697817325592]},
+  "tau8_ppl_utility": {"mean": 0.9434327894536962, "ci95": [0.9381868389566071,0.9476673133485152]},
+  "tau8_rollout_agreement": {"mean": 0.4251302070915699, "ci95": [0.3644205741584301,0.4884440079331398]},
+  "zero_shot_pass": false,
+  "adapted_pass": false,
+  "transfer_class": "N"
+}
