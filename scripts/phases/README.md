@@ -5,8 +5,8 @@ This directory contains **selected original research scripts** for later phases.
 ## Reproduction order
 
 1. Read the matching protocol under `docs/phases/`.
-2. Check `docs/REPRODUCIBILITY.md` for seed and blindness rules.
-3. Run historical scripts in an isolated output directory; never overwrite locked result files.
+2. Check `docs/REPRODUCIBILITY.md` for seed, blindness, eligibility, and matched-control rules.
+3. Run phase scripts in an isolated output directory; never overwrite locked result files.
 4. Compare regenerated summaries with the corresponding files under `results/`.
 
 ## Historical-script caveat
@@ -19,8 +19,16 @@ Some original scripts contain absolute `/mnt/data/...` paths or imports into the
 - `v17/` — 44.5 B independent confirmation and exact ternary/enumerative core codecs.
 - `v18/` — whole-network low-bit evaluation; Phase-X accounting protocol/results remain public even where the original monolithic script is not yet ported.
 - `v19/` — exact 9,926-byte whole-network pack/unpack implementation.
+- `v20/` — small-ViT architecture-generalization runner.
+- `v21/` — non-image Transformer-encoder zero-shot transfer runner.
+- `v22/` — causal decoder-LM confirmatory and q8 follow-up runners.
+- `v23/` — real-text character-LM model/data/evaluation utilities and confirmatory negative-transfer runner.
 
 The v13–v16 protocols/results are public under `docs/phases/` and `results/`; their original experiment scripts remain historical/non-portable unless explicitly added later.
+
+## Autoregressive phases
+
+For v22 and later decoder experiments, **teacher-forced PPL is not accepted as sufficient functional evidence**. Reproduction should retain the preregistered free-running rollout metrics. v23 is intentionally a negative result: the model preserves PPL while failing rollout fidelity under the tested compiler/adaptation budget.
 
 ## Portable reusable code
 
