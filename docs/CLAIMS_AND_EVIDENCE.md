@@ -18,6 +18,9 @@
 | Simplification transfers from the residual-CNN family to a small Vision Transformer on the same digits task | **Supported as adapted transfer** | Preregistered n=8 architecture-shift confirmatory | Same dataset/task; zero-shot transfer failed |
 | A 4-block small ViT core can be replaced by 2 smaller Transformer blocks with >60% whole-model reduction while retaining matched-control utility | **Supported** | v20 confirmatory + q8/zlib follow-up | Small ViT; one task and one adaptation recipe |
 | One fixed compiler recipe transfers zero-shot from the residual CNN to the small ViT | **Rejected under tested recipe** | v20 confirmatory | Other generic grammars may exist |
+| The G3 Transformer compiler transfers zero-shot from image-token ViT to a discrete non-image sequence encoder | **Supported** | v21 preregistered n=8 confirmatory | Synthetic sequence-order classification, not language |
+| A 4-block sequence Transformer can be replaced by 2 smaller blocks without task repair while preserving utility | **Supported** | v21 zero-shot confirmatory | Controlled synthetic task; small model |
+| Sequence-Transformer q8 state-stream size can fall by ~58% without task repair and retain utility | **Supported under declared codec** | v21 q8 follow-up | Shared architecture/decoder code not charged per model |
 | Unlimited recursive compilation reaches arbitrarily small models | **Not supported** | Pilot negative results | Grammar-dependent |
 | A finite universal mechanism dictionary exists | **Open** | Exploratory | Candidate-grammar dependence |
-| Findings generalize to CIFAR/ResNet/language Transformers/arbitrary subgraphs | **Open** | Not yet tested | External validity |
+| Findings generalize to CIFAR/ResNet/natural-language decoder Transformers/arbitrary subgraphs | **Open** | Not yet tested | External validity |
