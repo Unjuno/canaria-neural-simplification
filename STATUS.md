@@ -1,29 +1,28 @@
 # Project status
 
-**2026-08-24: active experiment execution is paused.** The repository is in a curation/reproducibility phase.
+**2026-08-24: external-validity experiments resumed.** The repository remains the canonical research record, but the project is now actively executing the cross-architecture generalization roadmap.
 
-## Public curation state
+## Current experimental frontier
 
-The public `main` branch now contains:
+The v20-v23 generalization series now contains both positive and negative transfer:
 
-- the integrated current research narrative;
-- claim/evidence and negative-result registers;
-- the historical v10 handoff, research timeline, terms, evidence matrix, and blind confirmatory protocol;
-- a 156-experiment historical catalog and verified historical key-results/claim registry;
-- locked Phase-A confirmatory summaries;
-- equal-capacity causal-control decisions;
-- low-bit / structured-sparsity / sub-100-byte core result reports;
-- whole-network global-accounting results;
-- the independently confirmed 9,926-byte whole-network protocol, summary, and original exact bit-packing implementation;
-- Apache-2.0 license, citation metadata, contribution rules, CI audit, and reproducibility guidance.
+- **v20 / G3:** residual CNN -> small ViT: **A — adapted transfer**.
+- **v21 / G5:** image-token ViT -> non-image Transformer encoder: **Z — zero-shot transfer**.
+- **v22 / G6:** Transformer encoder -> synthetic causal decoder: **A — adapted transfer**; PPL-only evaluation was insufficient because zero-shot generation drifted.
+- **v23 / G6b:** synthetic causal language -> held-out natural English character LM: **N — no transfer under tested budget**. Teacher-forced PPL remained near-identical at tau0 while autoregressive rollout fidelity failed; the prespecified bounded joint-repair adaptation also failed.
 
-The curated public tree is the canonical human-readable research record. Large duplicated historical ZIPs, generated plots/caches, and training checkpoints are intentionally not copied into Git history. The historical experiment catalog and claim registry preserve the inventory/provenance of those archived runs.
+The current objective is therefore not to accumulate positive compression results. It is to map **where simplification transfers, where architecture/task-specific adaptation is sufficient, and where autoregressive/error-amplification dynamics create a genuine applicability boundary**.
 
-## Repository policy while experiments are paused
+## Repository policy during active experiments
 
-- Do not overwrite locked protocols or historical result files.
-- Keep failed hypotheses and non-replications visible.
-- Separate confirmatory, independent-holdout, pilot, and exploratory evidence.
-- Report uncertainty at the seed/model cluster level where repeated spans/events share a network.
-- Distinguish core bytes, nominal code length, entropy estimates, and real whole-model serialized bytes.
-- Port old absolute-path scripts additively rather than rewriting the historical evidence chain.
+- Freeze protocols/conditions before confirmatory cohorts.
+- Keep pilot, exploratory, confirmatory, independent-holdout, and negative evidence explicitly separated.
+- Never weaken a confirmatory threshold because a pilot or early seed is difficult.
+- Use matched continued-training controls for repair experiments.
+- Use seed/model as the inference unit when repeated events share a trained model.
+- Preserve failed hypotheses, non-replications, runtime amendments, and ineligible baseline seeds.
+- Distinguish core bytes, parameter/state-stream bytes, entropy/code proxies, and real standalone serialized whole-model bytes.
+- For autoregressive models, teacher-forced likelihood is not sufficient; rollout-sensitive metrics remain required.
+- Historical evidence-producing scripts should be preserved; portability fixes belong in additive modern modules/scripts.
+
+See `docs/GENERALIZATION_STATUS.md` for the live transfer map and `docs/CLAIMS_AND_EVIDENCE.md` for the current claim registry.
