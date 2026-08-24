@@ -15,19 +15,19 @@ This directory contains compact machine-readable evidence for the public claims.
 - `v17/` — sub-100-byte core sequence, independent confirmation, and exact serialization evidence.
 - `v18/` — global complexity accounting and whole-network low-bit summaries.
 - `v19/` — head-compression sequence and exact 9,926-byte whole-network codec confirmation.
-- `v20/` — small-ViT architecture-family generalization: confirmatory adapted-transfer and q8/zlib whole-network follow-up.
+- `v20/` — small-ViT architecture-family generalization: adapted-transfer confirmatory and q8/zlib follow-up.
+- `v21/` — non-image Transformer encoder zero-shot transfer and q8 follow-up.
+- `v22/` — causal decoder LM adapted transfer with paired PPL / free-generation metrics and q8 follow-up.
+- `v23/` — **negative real-text causal-LM generalization**; PPL preserved while autoregressive rollout fidelity fails under both zero-shot and the prespecified bounded adaptation.
 
 ## How to interpret a result
 
 1. Find the associated protocol/result narrative under `docs/phases/`.
 2. Check whether the result is confirmatory, independent holdout, pilot, or exploratory.
 3. Prefer seed/model-cluster uncertainty to treating multiple spans from the same network as independent samples.
-4. For compression, distinguish:
-   - core bytes;
-   - nominal bit counts;
-   - entropy/zlib proxy sizes;
-   - real serialized whole-network bytes.
+4. For compression, distinguish core bytes, nominal bit counts, entropy/zlib proxy sizes, state-stream bytes, and real standalone serialized whole-network bytes.
 5. Do not exclude failed seeds or near-threshold cases after observing the outcome unless the exclusion rule was fixed beforehand.
+6. For autoregressive models, do not treat teacher-forced PPL as sufficient evidence of successful functional transfer; check rollout-sensitive metrics.
 
 ## Canonical headline evidence
 
@@ -36,6 +36,8 @@ This directory contains compact machine-readable evidence for the public claims.
 - Whole-network low-bit boundary: `v18/phaseY_summary.json`
 - Exact 9,926-byte codec confirmation: `v19/confirmatory_codec_summary.json`
 - Small-ViT adapted transfer: `v20/g3_confirmatory_summary.json`
-- Small-ViT q8 whole-network follow-up: `v20/g3_q8_followup_summary.json`
+- Sequence-Transformer zero-shot transfer: `v21/g5_confirmatory_summary.json`
+- Synthetic causal-decoder adapted transfer: `v22/g6_confirmatory_summary.json`
+- **Real-text causal-decoder negative transfer:** `v23/g6b_confirmatory_summary.json`
 
 Historical files are preserved as evidence, not necessarily as a clean modern API.
