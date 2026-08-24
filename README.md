@@ -2,117 +2,108 @@
 
 **Canaria** is an experimental research repository for studying task-conditioned computational simplification, redistribution, compilation, and low-bit compression in trained neural networks.
 
-> **Project status (2026-08-24): experiments paused; repository curation and reproducibility phase.**
+> **Project status (2026-08-24): active external-validity/generalization experiments.**
 
-The goal of the current phase is not to generate new positive results. It is to make the accumulated evidence—confirmatory, exploratory, and negative—auditable and reusable by other researchers.
+The repository is designed as an auditable research record: confirmatory results, pilot/adaptation history, negative results, exact codecs, machine-readable summaries, and historical failures are kept together rather than publishing only the successful endpoint.
 
 ## Current strongest findings
 
-- **Simplification is not confined to high-Canary regions.** In the blinded 8-seed confirmatory Phase A (3,360 composition events), low-Canary strong-simplification rate was **0.845** (95% seed-cluster CI **0.7225–0.9500**). A Canary-local necessary-condition hypothesis failed.
-- **Composition subadditivity is common in the tested setting.** Confirmatory `P(G>0)` was **0.7107** (95% CI **0.6128–0.8137**).
-- **The tested Canary adds little predictive value beyond span width.** LOSO AUC improvement was **+0.00567**, with a 95% CI crossing zero. Treat the current Canary as a weak/uncertain sensor, not a causal law.
-- **Pure post-boundary location explanations failed.** Three equal-capacity pre/post intervention families found no special post-location advantage after capacity/function-class control.
-- **Whole-network simplification survives accounting.** Versus matched continued-training controls, compiled models were about **26.1% smaller in fixed FP32 code** and **28.8% smaller under q8+zlib**, while mean utility was **0.988**. Measured shell-code growth offset only a few percent of removed-core savings.
-- **Extreme core compression is possible, but core bytes are not model bytes.** A **44.5-byte** structured ternary core was independently confirmed after repair; exact serialization of the same core could be smaller without changing predictions.
-- **A real whole-network codec below 10 KB was independently confirmed.** The current end-to-end result is **9,926 bytes**, with exact pack/unpack (`max logit diff = 0`), combined fidelity **0.9636** (95% CI **0.9516–0.9740**) and matched-control utility **0.9835** (95% CI **0.9639–1.0059**).
+- **Simplification is not confined to high-Canary regions.** In blinded Phase A, the low-Canary strong-simplification rate was **0.845** (95% seed-cluster CI **0.7225–0.9500**). A Canary-local necessary-condition hypothesis failed.
+- **Composition subadditivity is common in the original tested setting.** Confirmatory `P(G>0)` was **0.7107** (95% CI **0.6128–0.8137**).
+- **Pure downstream-location explanations failed.** Equal-capacity pre/post interventions did not support a special post-boundary causal advantage.
+- **Whole-network simplification survives accounting in the residual-CNN setting.** Compiled models were about **26.1% smaller in fixed FP32 code** and **28.8% smaller under q8+zlib** versus matched controls while retaining utility.
+- **A real whole-network codec below 10 KB was independently confirmed.** The current residual-CNN endpoint is **9,926 bytes**, exact pack/unpack, with confirmatory combined fidelity **0.9636 [0.9516, 0.9740]** and matched-control utility **0.9835 [0.9639, 1.0059]**.
+- **Transformer generalization is mixed, not uniformly positive.** The same broad simplification idea transfers to a small ViT (adapted), a non-image Transformer encoder (zero-shot), and a synthetic causal decoder (adapted), but **fails under the tested budget on a held-out natural-English character LM**.
+- **Teacher-forced PPL is not sufficient for autoregressive simplification.** In v23, tau0 PPL utility was **0.9970 [0.9958, 0.9982]** after a 52.28% parameter reduction, yet greedy rollout agreement was only **0.6326 [0.5503, 0.7269]**. The prespecified tau8 joint-repair adaptation also failed.
 
-These findings are **task/architecture conditioned**. They are not a universal theorem about neural networks.
+These are **task/architecture/codec-conditioned empirical results**, not a universal theorem or a proof of codec-independent minimum description length.
+
+## Generalization map
+
+| Phase | Shift | Outcome | Headline |
+|---|---|---|---|
+| **G3 / v20** | residual CNN -> small ViT | **A — adapted transfer** | 4 Transformer blocks -> 2 smaller blocks; 60.18% parameter reduction; tau8 utility 0.9685 [0.9610, 0.9767] |
+| **G5 / v21** | image-token ViT -> non-image Transformer encoder | **Z — zero-shot transfer** | tau0 utility 0.99184 [0.97986, 1.00199]; ~58% q8+zlib state-stream reduction |
+| **G6 / v22** | encoder/synthetic sequence -> causal decoder | **A — adapted transfer** | zero-shot PPL looked acceptable but generation drifted; tau8 restored PPL + generation utility |
+| **G6b / v23** | synthetic causal language -> held-out natural English character LM | **N — no transfer under tested budget** | tau0 PPL nearly preserved but autoregressive trajectory fidelity failed; bounded joint repair also failed |
+
+The project therefore distinguishes three different questions:
+
+1. **Phenomenon universality** — does task-conditioned simplification recur across network families?
+2. **Compiler universality** — does one unchanged compiler work everywhere?
+3. **Adaptation-rule universality** — can a small explicit set of family/task-specific rules predict when simplification is recoverable?
+
+The present evidence supports a **conditional/mixed** picture rather than universal zero-shot transfer.
 
 ## Start here
 
-1. [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md) — question → evidence navigation.
-2. [`docs/RESEARCH_SUMMARY.md`](docs/RESEARCH_SUMMARY.md) — integrated current narrative.
-3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — claim-by-claim status and limitations.
-4. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed explanations retained as evidence.
-5. [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — genuinely unresolved questions; also lists questions that are no longer open.
-6. [`docs/GENERALIZATION_ROADMAP.md`](docs/GENERALIZATION_ROADMAP.md) — primary next research program: map zero-shot, adapted, conditional, and negative transfer across CNNs, ViTs/Transformers, small language models, recurrent/state-space models, and arbitrary subgraphs.
-7. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — statistical unit, blind-lock procedure, seed policy, storage terminology, metadata schemas.
-8. [`docs/phases/README.md`](docs/phases/README.md) — chronological phase/evidence index.
-9. [`results/README.md`](results/README.md) — machine-readable evidence index.
-10. [`scripts/phases/README.md`](scripts/phases/README.md) — reproduction-script map.
-11. [`docs/ROADMAP.md`](docs/ROADMAP.md) — overall priorities for when experiments resume.
+1. [`docs/GENERALIZATION_STATUS.md`](docs/GENERALIZATION_STATUS.md) — live cross-architecture transfer ledger.
+2. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — claim-by-claim status, evidence class, and limitation.
+3. [`docs/KNOWLEDGE_MAP.md`](docs/KNOWLEDGE_MAP.md) — question → evidence navigation.
+4. [`docs/RESEARCH_SUMMARY.md`](docs/RESEARCH_SUMMARY.md) — integrated research narrative through the core/global-accounting program.
+5. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed explanations retained as first-class evidence.
+6. [`docs/GENERALIZATION_ROADMAP.md`](docs/GENERALIZATION_ROADMAP.md) — Z/A/C/N/I transfer taxonomy and future architecture/task sequence.
+7. [`docs/phases/README.md`](docs/phases/README.md) — chronological protocol/result index.
+8. [`results/README.md`](results/README.md) — machine-readable evidence index.
+9. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — seed policy, matched controls, blindness, storage terminology, metadata rules.
+10. [`STATUS.md`](STATUS.md) — current execution state and repository policy.
 
-## Next scientific question
+## Recent generalization phases
 
-The current priority is **not** to assume that one compiler must work unchanged on every network. The next phase will distinguish three questions:
+### v20 — small ViT
+- [`docs/phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md`](docs/phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md)
+- [`docs/phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md`](docs/phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md)
 
-- Is the **simplification phenomenon** itself recurrent across substantially different trained network families?
-- Does one **unchanged compiler** transfer across families?
-- If not, can a small, preregistered set of **family-specific adaptation rules** expose the same phenomenon without post-hoc rescue?
+### v21 — non-image Transformer encoder
+- [`docs/phases/v21/66_G5_SEQUENCE_TRANSFORMER_CONFIRM_PROTOCOL_V21.md`](docs/phases/v21/66_G5_SEQUENCE_TRANSFORMER_CONFIRM_PROTOCOL_V21.md)
+- [`docs/phases/v21/67_G5_SEQUENCE_TRANSFORMER_RESULTS_V21.md`](docs/phases/v21/67_G5_SEQUENCE_TRANSFORMER_RESULTS_V21.md)
 
-A network that fails under a fair adaptation budget is a valid negative result. The intended output is a map of transfer regimes, not a forced claim that Canaria is universal. See [`docs/GENERALIZATION_ROADMAP.md`](docs/GENERALIZATION_ROADMAP.md).
+### v22 — synthetic causal decoder LM
+- [`docs/phases/v22/69_G6_DECODER_LM_CONFIRM_PROTOCOL_V22.md`](docs/phases/v22/69_G6_DECODER_LM_CONFIRM_PROTOCOL_V22.md)
+- [`docs/phases/v22/70_G6_DECODER_LM_RESULTS_V22.md`](docs/phases/v22/70_G6_DECODER_LM_RESULTS_V22.md)
 
-## Research history
+### v23 — held-out natural-English character LM (negative transfer)
+- [`docs/phases/v23/71_75_G6B_PILOT_AUDIT_V23.md`](docs/phases/v23/71_75_G6B_PILOT_AUDIT_V23.md)
+- [`docs/phases/v23/76_G6B_REALTEXT_CONFIRM_PROTOCOL_V23.md`](docs/phases/v23/76_G6B_REALTEXT_CONFIRM_PROTOCOL_V23.md)
+- [`docs/phases/v23/77_G6B_REALTEXT_LM_RESULTS_V23.md`](docs/phases/v23/77_G6B_REALTEXT_LM_RESULTS_V23.md)
+- [`results/v23/g6b_confirmatory_summary.json`](results/v23/g6b_confirmatory_summary.json)
 
-The historical v10 handoff captures how the research moved from Canary-guided local compression to a broader theory of adaptive compositional simplification:
+## Core / whole-network compression milestones
 
-- [`docs/history/v10/00_START_HERE.md`](docs/history/v10/00_START_HERE.md)
-- [`docs/history/v10/01_RESEARCH_HANDOFF.md`](docs/history/v10/01_RESEARCH_HANDOFF.md)
-- [`docs/history/v10/02_CONFIRMED_FINDINGS.md`](docs/history/v10/02_CONFIRMED_FINDINGS.md)
-- [`docs/history/v10/05_TERMS_AND_METRICS.md`](docs/history/v10/05_TERMS_AND_METRICS.md)
-- [`docs/history/v10/06_NEGATIVE_RESULTS_AND_PITFALLS.md`](docs/history/v10/06_NEGATIVE_RESULTS_AND_PITFALLS.md)
-- [`docs/history/v10/09_RESEARCH_TIMELINE.md`](docs/history/v10/09_RESEARCH_TIMELINE.md)
-- [`docs/history/v10/10_EVIDENCE_MATRIX.md`](docs/history/v10/10_EVIDENCE_MATRIX.md)
-- [`docs/history/v10/13_REPRODUCTION_GUIDE.md`](docs/history/v10/13_REPRODUCTION_GUIDE.md)
-- [`docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md`](docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md)
-- [`docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md`](docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md)
+- 44.5-byte compiled core independently confirmed after repair (v17).
+- Whole-network accounting showed local simplification was not explained away by measured shell-code growth (v18).
+- Exact independently confirmed **9,926-byte whole-network binary model** in the residual-8 digits setting (v19).
 
-Historical numeric claims and experiment inventory are indexed in:
-
-- [`results/history/v10/key_results.csv`](results/history/v10/key_results.csv)
-- [`results/history/v10/claim_registry.csv`](results/history/v10/claim_registry.csv)
-- [`results/history/v10/experiment_catalog.csv`](results/history/v10/experiment_catalog.csv)
-
-## Decisive later phases
-
-### Blind simplification / Canary
-- [`results/phaseA_v11/STAGE1_LOCK.json`](results/phaseA_v11/STAGE1_LOCK.json)
-- [`results/phaseA_v11/stage3_confirmatory_summary.json`](results/phaseA_v11/stage3_confirmatory_summary.json)
-
-### Equal-capacity causal controls
-- [`results/v12/phaseC_equal_capacity_adapter_v12/decision.json`](results/v12/phaseC_equal_capacity_adapter_v12/decision.json)
-- [`results/v12/phaseD_equal_capacity_spatial_v12/decision.json`](results/v12/phaseD_equal_capacity_spatial_v12/decision.json)
-- [`results/v12/phaseE_global_boundary_adapter_v12/decision.json`](results/v12/phaseE_global_boundary_adapter_v12/decision.json)
-
-### Precision, count, and structured sparsity
-- [`docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md`](docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md)
-- [`docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md`](docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md)
-- [`docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md`](docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md)
-- [`docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md`](docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md)
-- [`docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md`](docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md)
-
-### Extreme core compression
-- [`docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md`](docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md)
-- [`docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md`](docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md)
-- [`docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md`](docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md)
-- [`docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md`](docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md)
-- [`docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md`](docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md)
-- [`docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md`](docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md)
-- [`docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md`](docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md)
-- [`docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md`](docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md)
-
-### Global accounting
-- [`docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md`](docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md)
-- [`docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md`](docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md)
-- [`docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md`](docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md)
-- [`results/v18/raw/phaseX_summary.json`](results/v18/raw/phaseX_summary.json)
-- [`results/v18/raw_phaseY/phaseY_summary.json`](results/v18/raw_phaseY/phaseY_summary.json)
-
-### Exact whole-network codec
-- [`docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md`](docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md)
-- [`docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md`](docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md)
-- [`docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md`](docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md)
-- [`docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md`](docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md)
-- [`docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md`](docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md)
-- [`results/v19/raw_AD/confirmatory_codec_summary.json`](results/v19/raw_AD/confirmatory_codec_summary.json)
-- [`scripts/phases/v19/run_phaseAD_exact_codec_v19.py`](scripts/phases/v19/run_phaseAD_exact_codec_v19.py) — original exact bit-packing implementation; see [`scripts/README.md`](scripts/README.md) for historical path assumptions.
+Important: **44.5 B / ~28 B refer to compiled-core representations, not complete networks. 9,926 B is the current exact standalone whole-network serialized result.**
 
 ## Evidence classes
 
 - **Confirmatory** — condition/protocol locked before outcome inspection; independent seeds and explicit decision rule.
-- **Independent holdout** — condition selected earlier, then retested on new seeds without reselection.
-- **Pilot / exploratory** — hypothesis-generating or implementation-validating.
-- **Negative result** — failed hypothesis kept as first-class evidence.
+- **Independent holdout** — a previously selected condition retested on fresh seeds/checkpoints without reselection.
+- **Pilot / exploratory** — used for bounded selection, implementation validation, or hypothesis generation.
+- **Negative result** — a failed hypothesis or transfer condition retained explicitly rather than discarded.
+
+For autoregressive models, PPL/token accuracy and free-running rollout are reported separately. A PPL-only success is not accepted as functional transfer after v22/v23.
+
+## Current next questions
+
+The highest-information follow-ups are:
+
+- measure v23 rollout divergence versus horizon (1/2/4/8/16/24 tokens);
+- test a **logit/KL-aware compiler objective** against residual-stream MSE on pilots, then freeze and independently confirm;
+- test a small **pretrained/subword real-text LM** using independent fine-tuning/checkpoint replicates;
+- execute CIFAR-10 ResNet/ViT branches to separate language/autoregression from general task difficulty;
+- continue task-effective repair-dimension, off-manifold, null-model, mechanism-algebra, and codec-independent MDL work.
+
+See [`docs/GENERALIZATION_STATUS.md`](docs/GENERALIZATION_STATUS.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md).
+
+## Reuse / code organization
+
+- `src/canaria/` — cleaned reusable components.
+- `scripts/phases/` — evidence-producing historical/phase scripts; portability fixes should be additive rather than silently rewriting provenance.
+- `results/` — compact machine-readable evidence.
+- `docs/phases/` — locked protocols, amendments, and result narratives.
+- `schemas/` — run/blind-event metadata schemas.
 
 ## Quick environment check
 
@@ -123,21 +114,7 @@ pip install -r requirements.txt
 python tools/audit_repo.py
 ```
 
-Historical experiments did not preserve a single exact dependency lockfile. Read [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) and [`environment/history/v10/REPRODUCIBILITY_LIMITS.md`](environment/history/v10/REPRODUCIBILITY_LIMITS.md) before attempting bitwise reproduction.
-
-## Important scope limits
-
-1. Most decisive experiments use a digits-like task and an 8-block residual CNN.
-2. Operational complexity depends on the candidate grammar/codec; this is not a proof of Kolmogorov complexity or codec-independent minimum description length.
-3. **44.5 B / ~28 B are compiled-core results, not whole-network sizes.**
-4. **9,926 B is a real whole-network serialized size** and is the correct number for the current end-to-end compression claim.
-5. Cross-dataset, ResNet, Transformer, language-model, arbitrary-subgraph, off-manifold, and null-model external validity remain open.
-
-## Reproducibility metadata
-
-- [`schemas/run_metadata_schema.json`](schemas/run_metadata_schema.json)
-- [`schemas/blind_map_event_schema.json`](schemas/blind_map_event_schema.json)
-- [`environment/history/v10/current_audit_environment.json`](environment/history/v10/current_audit_environment.json)
+Early historical runs did not preserve a single exact package lockfile. Read [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) and [`environment/history/v10/REPRODUCIBILITY_LIMITS.md`](environment/history/v10/REPRODUCIBILITY_LIMITS.md) before expecting bitwise reproduction.
 
 ## License
 
@@ -145,4 +122,4 @@ Original code and documentation are released under the **Apache License 2.0**. T
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the repository commit/snapshot branch and the exact protocol/result files used.
+See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the repository commit/snapshot and the exact protocol/result files used.
