@@ -1,0 +1,13 @@
+{
+  "phase": "G6d_v25_trajectory_aware_realtext",
+  "protocol_sha256": "8df2dceb82e7d79e2a785ab6eeedec305282a3e0937069b31a2886b466b8e0e7",
+  "variant": "T2_24step_one_iteration_onpolicy",
+  "seeds": [3700,3701,3702,3703,3704,3705,3706,3707],
+  "parameter_reduction": {"mean": 0.5227763851672573, "ci95": [0.5227763851672573,0.5227763851672573]},
+  "ppl_utility": {"mean": 0.9970882113590016, "ci95": [0.9962736920433402,0.9978380042521904]},
+  "rollout_agreement": {"mean": 0.6196289137005806, "ci95": [0.5112304724752903,0.72900390625], "min": 0.3424479067325592, "max": 0.8815104365348816},
+  "exact_agreement": {"mean": 0.3203125, "ci95": [0.18359375,0.50390625]},
+  "first_divergence": {"mean": 11.8203125, "ci95": [8.9765625,15.05859375]},
+  "zero_shot_pass": false,
+  "transfer_class": "N"
+}
