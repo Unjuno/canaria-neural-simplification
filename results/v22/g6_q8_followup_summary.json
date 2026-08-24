@@ -1,0 +1,13 @@
+{
+  "phase": "G6 q8 tau8 state-stream follow-up",
+  "seeds": [3400, 3401, 3402, 3403, 3404, 3405, 3406, 3407],
+  "q8_raw_reduction": {"mean": 0.5621822361731288, "ci95": [0.5621822361731288, 0.5621822361731288]},
+  "q8_zlib_reduction": {"mean": 0.5787748760622775, "ci95": [0.577789199869868, 0.5796772764496602]},
+  "q8_ppl_utility": {"mean": 0.9846024375887352, "ci95": [0.9794407834492964, 0.9889208813380721]},
+  "q8_generation_token_utility": {"mean": 0.959014892578125, "ci95": [0.943267822265625, 0.972503662109375]},
+  "compiled_q8_fp32_ppl_fidelity": {"mean": 0.9994096281778884, "ci95": [0.9991777859614104, 0.9996168327840785]},
+  "compiled_q8_fp32_generation_fidelity": {"mean": 0.9956577991776235, "ci95": [0.993520565327018, 0.997498148993867]},
+  "control_q8_zlib_bytes": {"mean": 20844.875, "ci95": [20812.625, 20870.875]},
+  "compiled_q8_zlib_bytes": {"mean": 8780.375, "ci95": [8759.5, 8803.375]},
+  "accounting_note": "real parameter/state byte stream with names/shapes and per-tensor FP32 scales, zlib level 9; shared architecture/decoder program not charged"
+}
