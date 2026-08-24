@@ -22,13 +22,16 @@
 | A 4-block sequence Transformer can be replaced by 2 smaller blocks without task repair while preserving utility | **Supported** | v21 zero-shot confirmatory | Controlled synthetic task; small model |
 | Sequence-Transformer q8 state-stream size can fall by ~58% without task repair and retain utility | **Supported under declared codec** | v21 q8 follow-up | Shared architecture/decoder code not charged per model |
 | Simplification transfers to a synthetic causal decoder-only Transformer after bounded repair | **Supported as adapted transfer** | v22 preregistered n=8 confirmatory | Controlled deterministic language; not natural prose |
-| Teacher-forced PPL alone is sufficient to certify decoder simplification | **Rejected** | v22 + v23 paired PPL/rollout confirmatory evidence | Small causal models |
-| Decoder zero-shot compilation can preserve PPL while still failing free-running generation | **Supported and independently reinforced** | v22 synthetic decoder + v23 real-text decoder | Short greedy rollout horizons |
+| Teacher-forced PPL alone is sufficient to certify decoder simplification | **Rejected** | v22–v25 paired PPL/rollout evidence | Small causal models and short greedy horizons |
+| Decoder zero-shot compilation can preserve PPL while still failing free-running generation | **Supported and repeatedly reinforced** | v22 synthetic decoder + v23–v25 real-text decoder | 24-character greedy rollout metric |
 | A 4-block synthetic causal decoder can be replaced by 2 smaller causal blocks with ~58% parameter/state reduction after repair while retaining PPL and generation utility | **Supported** | v22 confirmatory + q8 follow-up | Small synthetic task |
-| The same bounded 4->2 causal simplification transfers to held-out natural English character modeling | **Rejected under tested budget** | **v23 preregistered n=8 negative confirmatory** | Small character LM; limited corpus; alternative objectives not tested |
+| The same bounded 4->2 causal simplification transfers to held-out natural English character modeling | **Rejected under tested budget** | **v23 preregistered n=8 negative confirmatory** | Small character LM; limited corpus |
 | On v23 real text, tau0 compilation preserves teacher-forced PPL (~0.997 utility) while strongly changing autoregressive rollouts (~0.633 agreement) | **Supported** | v23 n=8 confirmatory | Greedy rollout fidelity metric; 24-character horizon |
 | The v23 prespecified joint-repair adaptation rescues real-text autoregressive fidelity | **Rejected** | v23 n=8 confirmatory | Other repair/objective families remain open |
-| Transformer simplification is uniformly positive across tasks once architecture-specific adaptation is allowed | **Rejected by current transfer map** | G3/G5/G6/G6b mixed outcomes | Limited architecture/task panel |
+| Adding teacher-forced logit KL is sufficient to stabilize the natural-text compiled trajectory | **Rejected** | **v24 preregistered n=8 negative confirmatory** | One fixed 52.28% reduction and one KL weighting |
+| One bounded iteration of on-policy prefix distillation is sufficient to stabilize the natural-text compiled trajectory | **Rejected** | **v25 preregistered n=8 negative confirmatory** | One dataset-aggregation iteration; fixed compiler capacity |
+| A 52.28%-smaller natural-text compiler can retain ~0.997 PPL utility while remaining rollout-unstable even after output-aware and one-step trajectory-aware fitting | **Supported across v23–v25** | Three fresh-seed confirmatory phases | Character LM; aggressive fixed compression point |
+| Transformer simplification is uniformly positive across tasks once architecture-specific adaptation is allowed | **Rejected by current transfer map** | G3/G5/G6/G6b/G6c/G6d mixed outcomes | Limited architecture/task panel |
 | Unlimited recursive compilation reaches arbitrarily small models | **Not supported** | Pilot negative results | Grammar-dependent |
 | A finite universal mechanism dictionary exists | **Open** | Exploratory | Candidate-grammar dependence |
 | Findings generalize to CIFAR/ResNet/pretrained subword LMs/arbitrary subgraphs | **Open** | Not yet tested | External validity |
