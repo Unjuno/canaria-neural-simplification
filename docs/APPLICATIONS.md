@@ -1,12 +1,10 @@
-# Canaria — Potential Application Directions
+# Canaria — Application directions and evidence status
 
-## Purpose
+## Core systems idea
 
-This document records possible application directions suggested by the Canaria research program.
+Canaria suggests treating a trained model not only as a tensor checkpoint, but as a potentially smaller **task-conditioned functional representation** that can later be serialized, materialized, compiled, or executed directly.
 
-The core application idea is not merely to prune a network or store its original parameter tensors more compactly. It is to treat a trained model as something that may admit a **smaller task-conditioned functional representation**, which can later be compiled, materialized, or executed when needed.
-
-A possible deployment abstraction is:
+Conceptually:
 
 ```text
 training / consolidation
@@ -15,266 +13,236 @@ compact functional representation
         ↓
 serialize / distribute / archive
         ↓
-runtime compiler
+load / materialize / compile
         ↓
-hardware-specific executable operator(s)
-        ↓
-inference
+execute
 ```
 
-This is conceptually different from the usual deployment assumption:
+This differs from the conventional assumption:
 
 ```text
 checkpoint
    ↓
-load all parameter tensors
+load original parameterization
    ↓
-execute the same stored parameterization
+execute original parameterization
 ```
 
-The research does not yet prove that every model admits such a representation, or that runtime compilation is always faster. The application cases below should therefore be treated as engineering hypotheses enabled by the empirical results on compositional simplification and training-time consolidation.
+The application space must be separated into **measured evidence** and **future engineering hypotheses**.
 
 ---
+
+## What has now been measured
+
+A bounded CPU-only PoC is documented in `RUNTIME_POC.md` using G7 seed 4300.
+
+The compact artifact is a serialized learned 2-block representation (`state_dict + manifest`) and executes directly. It does **not** reconstruct the original 4-block model.
+
+Measured results:
+
+| metric | large | compact |
+|---|---:|---:|
+| serialized artifact + manifest | 110,093 B | **54,646 B** |
+| parameters | 23,138 | **11,042** |
+| batch-128 CPU inference, 5 fresh-process probes | 47.05 ms | **23.11 ms** |
+| load/materialize, mean | 7.85 ms | 5.86 ms |
+| process RSS delta | 4.72 MB | 4.56 MB |
+| test PPL | 19.2784 | **18.9322** |
+
+Supported at this PoC scope:
+
+- **storage/distribution size reduction**;
+- **native execution of the compact learned representation**;
+- **lower CPU inference latency in the measured setup**.
+
+Boundary results:
+
+- load/materialization was lower on average but showed cache sensitivity, so it is secondary evidence;
+- meaningful host-RAM reduction was **not demonstrated**;
+- GPU, NPU, browser, large-model, energy, and universal runtime claims are not established.
+
+See:
+
+- `docs/RUNTIME_POC.md`
+- `scripts/reproduce/g7_confirmatory/runtime_poc.py`
+- `results/reproduction/runtime_poc_seed4300_report.json`
+
+---
+
+# Application directions
 
 ## 1. Compact model distribution
 
-### Idea
+Instead of distributing the original full tensor checkpoint, distribute a smaller learned functional representation.
 
-Distribute a smaller functional representation rather than the original full tensor checkpoint.
-
-At the target machine:
-
-1. read the compact Canaria representation;
-2. compile or materialize the required operators;
-3. execute them on the local hardware.
-
-### Potential benefit
+Potential benefits:
 
 - smaller model downloads;
-- lower CDN / package distribution bandwidth;
-- smaller container or application images;
-- cheaper replication across many inference nodes;
-- faster transfer to edge devices when network bandwidth is the bottleneck.
+- lower model-registry/CDN bandwidth;
+- cheaper cross-region replication;
+- smaller application/container artifacts;
+- lower archival storage.
 
-### Important distinction
-
-If the runtime compiler simply recreates the complete original-size model in memory, this improves **storage and transport**, but does not necessarily improve peak inference memory.
-
-For memory savings, compilation should be incremental or the compact representation should be executable directly.
+The small CPU PoC provides initial evidence for this direction through a 50.36% reduction in serialized artifact+manifest size. Generalization to larger models remains open.
 
 ---
 
-## 2. Layerwise / spanwise just-in-time materialization
+## 2. Native compact execution
 
-### Idea
-
-Keep the model in compact form and materialize only the span currently needed for execution.
-
-```text
-compact model
-   ↓
-compile span 1 → execute → release
-   ↓
-compile span 2 → execute → release
-   ↓
-...
-```
-
-### Potential benefit
-
-Peak memory could approach:
+The strongest deployment form is:
 
 ```text
 compact representation
-+ current compiled span
-+ activations / KV cache
+→ materialize compact operator
+→ execute compact operator directly
 ```
 
 rather than:
 
 ```text
-entire expanded parameter set
-+ activations / KV cache
+compact representation
+→ reconstruct original large model
+→ execute original model
 ```
 
-This direction is particularly relevant for models that do not fit completely in GPU memory.
+Potential representations include:
 
-### Relation to existing systems
+- reduced-depth spans;
+- fused learned operators;
+- low-rank or factored operators;
+- structured sparse kernels;
+- small replacement networks;
+- analytic/FIR-like replacements where valid;
+- hardware-specific generated kernels.
 
-Modern inference systems already use weight streaming or layerwise onloading to move ordinary stored weights from CPU/NVMe into GPU memory only when needed.
-
-Canaria could be complementary: instead of streaming the original weight tensors, it could stream or compile a **smaller functional representation**.
+The current PoC demonstrates direct execution for one reduced-depth learned replacement on CPU.
 
 ---
 
-## 3. Native execution of the compact operator
+## 3. Spanwise / just-in-time materialization
 
-This is the stronger version of the idea.
+A future runtime could keep a model compact and materialize only the span currently needed:
 
-Rather than:
+```text
+compact model
+   ↓
+materialize span 1 → execute → release
+   ↓
+materialize span 2 → execute → release
+   ↓
+...
+```
+
+Potential peak memory could approach:
 
 ```text
 compact representation
-→ expand back into ordinary dense weights
-→ execute
++ current materialized span
++ activations / KV cache
 ```
 
-the runtime could execute the simplified operator directly.
+rather than the entire expanded weight set.
 
-Examples might include:
-
-- reduced-depth spans;
-- low-rank or factored operators;
-- fused learned operators;
-- sparse structured kernels;
-- small replacement networks;
-- analytic / polynomial / FIR-like replacements where appropriate;
-- hardware-specific generated kernels.
-
-### Potential benefit
-
-If successful, this could reduce not only disk size but also:
-
-- DRAM/VRAM traffic;
-- memory bandwidth;
-- MAC count;
-- kernel-launch overhead;
-- energy use.
-
-This is the deployment direction most closely aligned with the finding that a composed span can sometimes admit a simpler representation than its individual components.
+This remains **unproven**. The current PoC did not demonstrate meaningful host-RAM reduction.
 
 ---
 
-## 4. Model cold-start reduction
+## 4. Cold-start / scale-to-zero inference
 
-Large models can be expensive to start because their parameter files must be:
+A smaller functional artifact could reduce some combination of:
 
-1. fetched;
-2. deserialized;
-3. allocated;
-4. transferred to an accelerator.
+1. download time;
+2. deserialization;
+3. allocation;
+4. device transfer;
+5. first-token latency.
 
-A smaller functional representation may reduce the first stages enough to be useful for:
+Possible settings:
 
 - serverless inference;
-- scale-to-zero deployments;
-- short-lived inference workers;
-- bursty workloads;
-- autoscaled GPU pools.
+- bursty autoscaling;
+- short-lived workers;
+- edge services.
 
-Whether total startup latency improves depends on the cost of compilation versus the time saved loading and transferring weights.
-
-A practical benchmark should therefore measure:
-
-```text
-download time
-+ decode / compile time
-+ device transfer time
-+ first-token latency
-```
-
-rather than model-file size alone.
+The correct benchmark is total startup cost, not file size alone. The current load/materialization result is too environment-sensitive for a general cold-start claim.
 
 ---
 
 ## 5. Memory-bandwidth-bound inference
 
-Many modern inference workloads are limited by weight movement rather than arithmetic throughput.
+If a composed span is replaced by a smaller directly executable operator, the relevant gain may be **bytes moved per token** rather than only parameter count.
 
-If Canaria can replace several weight-heavy operations by a smaller composed operator, the relevant gain may be:
+Future measurements should include:
 
-```text
-bytes read per token
-```
-
-rather than only:
-
-```text
-parameter count
-```
-
-This suggests benchmarking:
-
-- bytes transferred from DRAM per token;
-- GPU HBM reads;
+- DRAM/HBM bytes per token;
 - host-to-device traffic;
-- energy per token;
-- sustained tokens/s at low batch size.
+- tokens/s at small batch size;
+- power/energy per token.
 
-The application may be particularly valuable when arithmetic is cheap relative to memory movement.
+Not yet measured.
 
 ---
 
-## 6. Edge and embedded deployment
+## 6. Edge / mobile / browser deployment
 
-A device could ship with:
+A device could carry:
 
-- a compact Canaria model representation;
-- a small runtime compiler;
-- hardware-specific compilation rules.
+- a compact Canaria representation;
+- a small runtime/compiler;
+- hardware-specific materialization rules.
 
-This could support devices where:
+Potential targets:
 
-- storage is constrained;
-- RAM is smaller than the expanded model;
-- model downloads are expensive;
-- multiple models must coexist.
-
-Possible targets include:
-
-- mobile devices;
-- embedded GPUs;
+- mobile;
+- embedded GPU/NPU;
 - robotics;
 - offline appliances;
-- browsers / WebGPU environments;
+- WebGPU/browser runtimes;
 - local assistants.
+
+Not yet validated.
 
 ---
 
 ## 7. Hardware-specific recompilation
 
-The same functional representation might be compiled differently for different hardware.
-
-For example:
+One functional representation could potentially target multiple execution backends:
 
 ```text
-same Canaria IR
+same functional IR
      ├── GPU fused kernel
-     ├── CPU vectorized implementation
-     ├── NPU operator graph
+     ├── CPU vectorized operator
+     ├── NPU graph
      └── low-memory streaming implementation
 ```
 
-This is potentially more flexible than distributing one fixed parameterization.
+This would make the artifact closer to a compiler IR than a conventional checkpoint.
 
-The compact representation would act more like an intermediate representation (IR) in a compiler toolchain than a conventional neural-network checkpoint.
+Not yet validated.
 
 ---
 
 ## 8. Multi-model serving
 
-Inference servers often host many models or many variants of a model.
-
-Instead of keeping every full parameterization resident, a server could retain:
+A server could retain:
 
 - shared runtime/compiler code;
 - compact model-specific representations;
-- compiled hot spans in a cache.
+- only frequently used compiled spans in a cache.
 
 Possible benefit:
 
-- more models per machine;
-- lower inactive-model memory;
-- faster model swapping;
-- cache only frequently used compiled operators.
+- more models per node;
+- lower inactive-model storage footprint;
+- faster swapping if materialization is cheap enough.
 
-This resembles a code cache or JIT cache more than ordinary model loading.
+Not yet validated.
 
 ---
 
-## 9. Base model + compact specialized variants
+## 9. Compact specializations
 
-If a shared base model can be combined with compact task-specific consolidated spans, a deployment might store:
+A future deployment could potentially store:
 
 ```text
 shared base
@@ -283,67 +251,58 @@ shared base
 + compact specialization C
 ```
 
-rather than several full checkpoints.
+rather than several complete checkpoints.
 
-Potential uses:
+Possible uses:
 
-- domain-specific assistants;
-- customer-specific deployments;
+- domain variants;
+- customer-specific models;
 - language variants;
-- safety / policy variants;
-- per-device specialization.
+- policy/safety variants;
+- device-specific variants.
 
-This requires future experiments: current Canaria evidence does not yet establish that such variants compose cleanly.
+Current evidence does not establish clean composability of such specializations.
 
 ---
 
-## 10. Checkpoint archival and research preservation
+## 10. Checkpoint archival
 
-Research organizations often retain many large checkpoints.
-
-A functional compiler representation could potentially be useful for:
+Functional representations may be useful for:
 
 - long-term checkpoint storage;
-- keeping many intermediate training states;
-- preserving functional behavior while reducing archive cost;
-- storing experimental variants.
+- preserving many intermediate training states;
+- reducing experiment-archive size;
+- storing model variants.
 
-This application is less latency-sensitive, so expensive offline compilation may be acceptable.
+This application can tolerate expensive offline compilation if fidelity is explicit.
 
-A key requirement would be a clearly specified fidelity guarantee.
+Only the small PoC's artifact-size result is currently measured.
 
 ---
 
 ## 11. Progressive compilation during training
 
-Canaria also suggests a training-system application rather than only an inference application.
-
-A training runtime could periodically:
+Canaria also suggests a training-system application:
 
 1. identify a consolidatable span;
-2. compile it to a smaller replacement;
+2. transfer it into a smaller replacement;
 3. commit the replacement;
 4. continue task learning;
 5. repeat.
 
-This can be viewed as **online recompilation of the learning system**.
+Potential consequences:
 
-Potential advantages:
+- learning-time capacity can exceed final deployment capacity;
+- later training operates on smaller structures;
+- final architecture need not be fixed at initialization.
 
-- later training steps operate on a smaller model;
-- temporary training capacity can exceed final deployment capacity;
-- the final architecture need not be chosen at initialization;
-- learning-time capacity and final description size can be separated.
-
-This direction follows directly from the G7–G20 training-time consolidation evidence.
+This direction is supported scientifically by the G7–G20 training-time consolidation program, though system-level training cost savings are not yet established.
 
 ---
 
 ## 12. Self-recompiling models
 
-A more speculative direction is a model that periodically reorganizes its own computation.
-
-Possible loop:
+A longer-term loop is:
 
 ```text
 learn
@@ -361,110 +320,37 @@ recontract
 repeat
 ```
 
-The recent Canaria experiments indicate that such a controller cannot safely use a single approximation-error threshold. It may need to estimate:
+The controller cannot safely use one approximation-error threshold. Current evidence suggests it may need:
 
 - compiler difficulty;
-- direction of residual error;
+- residual-error direction;
 - downstream task sensitivity;
-- expected immediate task damage;
+- immediate task-damage estimate;
 - remaining learning horizon;
 - expected recovery;
-- compilation cost.
+- marginal compilation cost.
 
-This is a longer-term research direction, not yet a production result.
-
----
-
-## 13. Network / CDN efficient model delivery
-
-If compact representations are significantly smaller than checkpoints, they could reduce:
-
-- model-registry storage;
-- artifact replication;
-- CDN bandwidth;
-- cross-region synchronization;
-- model-update traffic.
-
-This can matter even when runtime inference memory is unchanged.
-
-It is therefore useful to distinguish four separate efficiencies:
-
-1. **storage efficiency**
-2. **distribution efficiency**
-3. **resident-memory efficiency**
-4. **execution efficiency**
-
-A Canaria representation may improve some without improving all four.
+This remains a research direction.
 
 ---
 
-## 14. Small update packages
+# Deployment modes
 
-If the compiled representation is modular, an update may replace only selected functional spans rather than redistributing an entire checkpoint.
-
-Potential applications:
-
-- OTA model updates;
-- rapid rollback;
-- patching task-specific behavior;
-- incremental model deployment.
-
-This requires a stable representation format and compatibility rules between spans.
-
----
-
-## 15. Mixed storage hierarchy
-
-A model could be split according to how expensive each region is to reconstruct.
-
-Example:
+## Mode A — Load-time materialization
 
 ```text
-hot / sensitive spans        → stored precompiled
-medium-cost spans            → compact + JIT compiled
-cold / rarely used spans     → disk / network streamed
+compact artifact → executable compact model
 ```
 
-The runtime could optimize across:
-
-- storage;
-- CPU RAM;
-- GPU memory;
-- compilation latency;
-- request frequency.
-
-This makes Canaria naturally compatible with weight-streaming systems rather than necessarily replacing them.
-
----
-
-# Engineering deployment modes
-
-The application space becomes clearer if Canaria deployment is divided into four modes.
-
-## Mode A — Load-time compilation
-
-```text
-compact file → full executable model
-```
-
-Primary benefit:
-- file size;
-- distribution.
-
-Peak runtime memory may remain unchanged.
+The current PoC is closest to this mode.
 
 ## Mode B — Spanwise JIT materialization
 
 ```text
-compact file → one span → execute → release
+compact artifact → one span → execute → release
 ```
 
-Primary benefit:
-- file size;
-- peak resident weight memory.
-
-Cost:
-- repeated compilation / decode overhead.
+Potential RAM/VRAM benefit; untested.
 
 ## Mode C — Native compact execution
 
@@ -472,86 +358,63 @@ Cost:
 compact operator → execute directly
 ```
 
-Potential benefits:
-- file size;
-- memory bandwidth;
-- compute;
-- energy.
+Demonstrated only for the small CPU PoC.
 
-This is the strongest but most hardware-dependent form.
-
-## Mode D — Adaptive runtime recompilation
+## Mode D — Hardware-adaptive recompilation
 
 ```text
-compact IR → choose implementation according to hardware / memory / workload
+functional IR → implementation selected for hardware / memory / workload
 ```
 
-Potential benefit:
-- one functional model representation can target different execution environments.
+Untested.
 
 ---
 
-# What should be measured
+# What future systems work should measure
 
-A future deployment benchmark should not report only parameter reduction.
-
-Minimum metrics:
+Do not report parameter reduction alone. Separate:
 
 - serialized bytes;
-- bytes after general-purpose compression;
-- cold-start latency;
-- compilation latency;
+- compressed bytes;
+- download latency;
+- materialization/compile latency;
 - peak CPU RAM;
 - peak GPU VRAM;
 - host-to-device bytes;
-- GPU memory-bandwidth traffic;
+- memory-bandwidth traffic;
 - inference latency;
 - throughput;
-- energy if measurable;
+- energy;
 - task utility;
 - functional fidelity;
-- compiler cache hit / miss behavior.
+- cache behavior.
 
-The central systems question is:
+The central engineering question is:
 
-> Does the reduction in stored / transferred / executed computation exceed the runtime cost of reconstructing or compiling it?
+> Does the reduction in stored, transferred, or executed computation exceed the runtime cost of materializing or compiling it?
 
 ---
 
-# Important limitations
+# Interpretation boundaries
 
-The following should not currently be claimed:
+Do **not** currently claim:
 
 - that Canaria always improves inference latency;
-- that compressed functional representations always reduce peak memory;
-- that runtime compilation is cheaper than loading weights;
-- that the current small-model results transfer directly to large LLMs;
-- that a compact representation is automatically hardware-efficient;
-- that functional simplification is equivalent to lossless weight compression.
+- that compact functional representations always reduce peak RAM/VRAM;
+- that runtime materialization is universally cheaper than checkpoint loading;
+- that the small CPU PoC transfers directly to GPUs or large LLMs;
+- that compact representations are automatically hardware-efficient;
+- that functional simplification is equivalent to lossless tensor compression.
 
-These are application hypotheses requiring dedicated systems experiments.
+The current safe statement is narrower:
 
----
-
-# Relationship to existing deployment techniques
-
-Existing systems already demonstrate that model inference can benefit from changing when and where weights are loaded:
-
-- NVIDIA TensorRT Weight Streaming streams weights from host memory when needed.
-- DeepSpeed ZeRO-Inference streams model layers from CPU/NVMe to GPU.
-- Compression-aware training research has targeted memory-bandwidth reduction by making weights / activations easier to compress.
-
-The distinctive Canaria opportunity is different:
-
-> not only **move the original weights more efficiently**, but potentially **replace the stored weight-level implementation with a smaller task-conditioned functional representation** and compile from that representation.
-
-These approaches are complementary.
+> In one small CPU PoC, a progressively consolidated learned representation was about 50% smaller on disk and about 2× faster for the measured batch-128 inference workload, while meaningful RSS reduction was not demonstrated.
 
 ---
 
 # Suggested long-term artifact
 
-A useful final Canaria package could eventually contain:
+A future deployable package might look like:
 
 ```text
 model.canaria
@@ -562,6 +425,4 @@ fidelity_contract.json
 hardware_profiles/
 ```
 
-where `model.canaria` is not necessarily a collection of original parameter tensors, but a serialized functional intermediate representation.
-
-That would make the research concept concrete enough for another researcher or systems engineer to continue independently.
+where `model.canaria` is a serialized functional representation rather than necessarily the original parameter tensors.
