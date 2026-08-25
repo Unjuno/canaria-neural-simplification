@@ -1,0 +1,28 @@
+{
+  "name": "Canaria-Phase2A-precision-composition-v1",
+  "locked_before_results": true,
+  "date": "2026-08-26",
+  "task": "sklearn digits 10-class classification",
+  "teacher": "4-block residual MLP, hidden=64, residual width=128",
+  "span": "first two residual blocks",
+  "fresh_seeds": [31000,31001,31002,31003,31004,31005,31006,31007],
+  "replacement_budget_grid_params": [512,1024,1536,2048,3072,4096,6144],
+  "fit_updates_per_map": 600,
+  "quantization": {
+    "type": "post-training symmetric per-matrix signed uniform dequantized weights",
+    "bits": [32,12,8,6,4,3],
+    "qmax_rule": "2^(bits-1)-1 for bits<32",
+    "scale_storage": "FP16, one scale per Linear weight matrix for bits<32",
+    "bias": "replacement Linear layers have no bias"
+  },
+  "selection": {
+    "uses_test": false,
+    "functional_criterion": "validation span NMSE <= 0.08",
+    "utility_criterion": "validation accuracy >= teacher validation accuracy - 0.02",
+    "selected_endpoint": "minimum parameter budget passing both criteria separately for component-wise and composed conditions at each precision"
+  },
+  "primary_hypothesis": "At 4-bit precision, composed replacement has lower minimum passing coded size than component-wise replacement.",
+  "primary_decision": "PASS iff >=7/8 seeds have coded_bits_comp < coded_bits_sep and seed-bootstrap 95% CI upper bound of mean log2(coded_bits_comp/coded_bits_sep) < 0; FAIL if CI lower bound >=0 or <=1/8 wins; otherwise UNCERTAIN.",
+  "secondary": ["32,12,8,6,3-bit coded-size ratios", "selected test accuracy difference after validation-only selection", "quantization-induced change in NMSE and pass frontier"],
+  "scope": "Exploratory new-phase experiment; does not modify frozen v0.2.0 claims."
+}
