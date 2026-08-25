@@ -47,6 +47,7 @@ required = [
     ROOT / "docs/PUBLIC_SNAPSHOT.md",
     ROOT / "docs/HISTORICAL_INDEX.md",
     ROOT / "docs/CORE_DISCOVERY.md",
+    ROOT / "docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md",
     ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
     ROOT / "docs/PUBLICATION_NOTES.md",
     ROOT / "docs/TERMINOLOGY.md",
@@ -74,12 +75,15 @@ required = [
     ROOT / "results/reproduction/runtime_poc_seed4300_report.json",
     ROOT / ".github/workflows/reproduce-g7.yml",
     ROOT / ".github/workflows/runtime-poc.yml",
+    ROOT / "scripts/replication/vit_compositional.py",
+    ROOT / "results/replication/vit_compositional/PROTOCOL_LOCK.json",
+    ROOT / "results/replication/vit_compositional/confirm_summary.json",
+    ROOT / "results/replication/vit_compositional/seed_table.csv",
 ]
 for p in required:
     if not p.exists():
         errors.append(f"missing required file: {rel(p)}")
 
-# Public-facing Markdown should not accumulate broken repository-relative links.
 public_markdown = [p for p in required if p.suffix == ".md"]
 md_link = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 for p in public_markdown:
@@ -90,7 +94,6 @@ for p in public_markdown:
         target = raw_target.strip()
         if not target or target.startswith(("http://", "https://", "mailto:", "#")):
             continue
-        # Drop optional Markdown title and fragment; public local links use simple paths.
         target = target.split()[0].strip("<>")
         target = unquote(target.split("#", 1)[0])
         if not target:
@@ -104,7 +107,6 @@ for p in public_markdown:
         if not candidate.exists():
             errors.append(f"broken public markdown link: {rel(p)} -> {raw_target}")
 
-# Portable reproduction code must remain free of private historical mount assumptions.
 reproduce_root = ROOT / "scripts/reproduce"
 if reproduce_root.exists():
     for p in reproduce_root.rglob("*.py"):
@@ -168,6 +170,28 @@ if poc_path.exists():
             errors.append("runtime PoC must preserve generalization boundary")
     except Exception as exc:
         errors.append(f"runtime PoC semantic audit: {exc}")
+
+rep_path = ROOT / "results/replication/vit_compositional/confirm_summary.json"
+if rep_path.exists():
+    try:
+        rep = json.loads(rep_path.read_text(encoding="utf-8"))
+        primary = rep.get("primary", {})
+        secondary = rep.get("secondary", {})
+        if rep.get("n") != 8:
+            errors.append("ViT compositional replication must preserve n=8")
+        if primary.get("pass") is not True:
+            errors.append("ViT compositional replication must remain PASS")
+        if primary.get("composed_lower_count") != 8:
+            errors.append("ViT compositional replication must preserve 8/8 composed-lower result")
+        ci = primary.get("paired_bootstrap95_ratio", [999,999])
+        if len(ci) != 2 or ci[1] >= 1.0:
+            errors.append("ViT compositional replication bootstrap CI must remain below 1")
+        if secondary.get("mean_composed_test_utility", 0.0) < 0.95:
+            errors.append("ViT compositional replication must preserve mean composed test utility >=0.95")
+        if secondary.get("mean_composed_compiler_updates", 10**9) >= secondary.get("mean_componentwise_compiler_updates", -1):
+            errors.append("ViT replication must preserve lower composed compiler-update count")
+    except Exception as exc:
+        errors.append(f"ViT compositional replication semantic audit: {exc}")
 
 for p in (ROOT / "README.md", ROOT / "STATUS.md"):
     if p.exists():
