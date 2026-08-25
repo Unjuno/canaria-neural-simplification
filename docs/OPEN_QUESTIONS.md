@@ -4,119 +4,43 @@
 
 The purpose of this file is to leave bounded questions that another researcher can pick up. It is not a commitment to continue expanding the current project.
 
-## Priority 0 — closure tasks before a final snapshot
+## Completed closure task
 
-These are the only experiments currently considered potentially necessary for closing public claims.
+### Clean-repository reproduction
 
-### 1. Clean-repository reproduction
+A portable public runner now reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 
-Clone the public repository into a clean environment and reproduce at least one representative confirmatory pipeline without relying on unpublished `/mnt/data` paths.
+See `scripts/reproduce/g7_confirmatory/README.md`, `results/reproduction/g7_seed4300_report.json`, and `docs/REPRODUCIBILITY.md`.
 
-Pass criterion: the public instructions and retained artifacts are sufficient to reproduce the stated decision outcome.
+This is a software/data portability result for an already-confirmatory seed, not a new independent scientific replication.
 
-### 2. Direct compositional-simplification replication on a clearly different family
+## Conditional closure tasks
 
-Only needed if a publication-level novelty claim requires stronger external validity.
+### 1. Direct compositional-simplification replication on a clearly different family
 
-The decisive design should compare:
+Only needed if a publication-level novelty/generalization claim requires stronger external validity. Compare component-wise simplification with composed-span simplification under matched replacement/optimization budget, task-utility criterion, complexity accounting, and fresh seeds.
 
-- component-wise simplification;
-- composed-span simplification;
-- matched replacement/optimization budget;
-- matched task-utility criterion;
-- fresh seeds;
-- a clearly different architecture/task family.
+Tracked in GitHub Issue #2.
 
-The point is to test the core discovery directly, not to optimize another controller.
+### 2. Minimal runtime-compilation proof-of-concept
 
-### 3. Minimal runtime-compilation proof-of-concept
+Only needed if systems/deployment claims are made. Measure compact serialized bytes, load/compile/materialization time, peak RAM/VRAM, inference latency/throughput, and task utility/fidelity. A negative result is acceptable.
 
-Only needed if systems/deployment claims are made.
-
-Measure:
-
-- compact serialized bytes;
-- load/compile/materialization time;
-- peak RAM/VRAM;
-- inference latency/throughput;
-- task utility/fidelity.
-
-A negative result is acceptable. The question is whether a compact functional representation can actually be used as a deployment artifact and which resource dimension, if any, improves.
+Tracked in GitHub Issue #3.
 
 ## Scientific questions left for future researchers
 
-### 4. Grammar-independent complexity
-
-Current composition and codec results are operational. How stable are the conclusions across independently motivated description grammars?
-
-### 5. Large pretrained models
-
-Do compositional simplification and training-time recontracting occur in pretrained subword language models at useful scales?
-
-### 6. Functional boundaries
-
-Can useful replacement boundaries be detected automatically without enumerating many spans?
-
-### 7. Why does recontracting improve compiler optimization?
-
-Current evidence shows lower normalized fit cost after task learning, but candidate causes remain:
-
-- representation redistribution;
-- improved conditioning;
-- basin migration;
-- architecture curriculum;
-- task-manifold dimensionality changes.
-
-### 8. Why does task sensitivity increase at the same time?
-
-G20e/G22 show that normalized fit gets easier while immediate task damage at matched error increases.
-
-Open decomposition:
-
-- downstream Jacobian spectrum;
-- LayerNorm effects;
-- logit-margin changes;
-- error-direction alignment;
-- higher-order curvature.
-
-### 9. Risk-model universality
-
-The first/second-order immediate-damage proxy and horizon model transferred across two depth paths in the same small-LM family. Test different widths, heads, tasks, and architectures before treating coefficients or forms as general laws.
-
-### 10. Cost-aware autonomous control
-
-G21 and G27 show that accurate risk prediction does not by itself yield a Pareto-optimal policy.
-
-A future controller must explicitly value both:
-
-- expected final task damage;
-- marginal compiler/training/deployment cost.
-
-### 11. Off-manifold versus task-manifold simplification
-
-How much of the observed simplification is specific to the task/data manifold?
-
-Useful probes include strong augmentation, interpolation, adversarial/off-manifold inputs, and synthetic tasks with known latent structure.
-
-### 12. Null models
-
-Stronger nulls remain valuable:
-
-- random weights;
-- shuffled labels;
-- memorized random labels;
-- synthetic teachers with known compositional complexity;
-- deliberately non-compressible functions.
-
-### 13. Recursive fixed points
-
-Unlimited recursive collapse is not supported. Is there a stable task-conditioned complexity floor, and how grammar-dependent is it?
-
-### 14. Deployment representation
-
-Could a future `model.canaria` artifact act as a functional IR compiled differently for GPU, CPU, NPU, or low-memory streaming execution?
-
-See `APPLICATIONS.md`.
+- Grammar-independent description complexity.
+- Large pretrained Transformer/LLM external validity.
+- Automatic detection of useful functional boundaries.
+- Why recontracting reduces later compiler optimization cost.
+- Why downstream task sensitivity can rise at the same time.
+- Risk-model transfer across widths, heads, tasks, and architectures.
+- Cost-aware autonomous control beyond fixed risk caps.
+- Off-manifold versus task-manifold simplification.
+- Stronger null models and synthetic teachers with known complexity.
+- Stable recursive complexity floors/fixed points.
+- Functional IRs and hardware-specific JIT/runtime compilation.
 
 ## Questions that are not open in the tested settings
 
