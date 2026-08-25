@@ -48,6 +48,7 @@ required = [
     ROOT / "docs/HISTORICAL_INDEX.md",
     ROOT / "docs/CORE_DISCOVERY.md",
     ROOT / "docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md",
+    ROOT / "docs/CORE_DISCOVERY_REPLICATION_DIGITS.md",
     ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
     ROOT / "docs/PUBLICATION_NOTES.md",
     ROOT / "docs/TERMINOLOGY.md",
@@ -79,6 +80,9 @@ required = [
     ROOT / "results/replication/vit_compositional/PROTOCOL_LOCK.json",
     ROOT / "results/replication/vit_compositional/confirm_summary.json",
     ROOT / "results/replication/vit_compositional/seed_table.csv",
+    ROOT / "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+    ROOT / "results/core_discovery_digits/PROTOCOL_LOCK.json",
+    ROOT / "results/core_discovery_digits/confirm_summary.json",
 ]
 for p in required:
     if not p.exists():
@@ -171,10 +175,10 @@ if poc_path.exists():
     except Exception as exc:
         errors.append(f"runtime PoC semantic audit: {exc}")
 
-rep_path = ROOT / "results/replication/vit_compositional/confirm_summary.json"
-if rep_path.exists():
+vit_path = ROOT / "results/replication/vit_compositional/confirm_summary.json"
+if vit_path.exists():
     try:
-        rep = json.loads(rep_path.read_text(encoding="utf-8"))
+        rep = json.loads(vit_path.read_text(encoding="utf-8"))
         primary = rep.get("primary", {})
         secondary = rep.get("secondary", {})
         if rep.get("n") != 8:
@@ -183,7 +187,7 @@ if rep_path.exists():
             errors.append("ViT compositional replication must remain PASS")
         if primary.get("composed_lower_count") != 8:
             errors.append("ViT compositional replication must preserve 8/8 composed-lower result")
-        ci = primary.get("paired_bootstrap95_ratio", [999,999])
+        ci = primary.get("paired_bootstrap95_ratio", [999, 999])
         if len(ci) != 2 or ci[1] >= 1.0:
             errors.append("ViT compositional replication bootstrap CI must remain below 1")
         if secondary.get("mean_composed_test_utility", 0.0) < 0.95:
@@ -192,6 +196,40 @@ if rep_path.exists():
             errors.append("ViT replication must preserve lower composed compiler-update count")
     except Exception as exc:
         errors.append(f"ViT compositional replication semantic audit: {exc}")
+
+mlp_path = ROOT / "results/core_discovery_digits/confirm_summary.json"
+if mlp_path.exists():
+    try:
+        rep = json.loads(mlp_path.read_text(encoding="utf-8"))
+        primary = rep.get("primary", {})
+        secondary = rep.get("secondary_confirmatory", {})
+        mech = rep.get("mechanistic_secondary_2048_params", {})
+        expected_lock = "f0d16d813918f2a419a8ba1dfd0bf0efe663a0b7f8105288a84dc84f18530f5b"
+        if rep.get("status") != "PASS":
+            errors.append("residual-MLP compositional replication must remain PASS")
+        if rep.get("original_protocol_lock_sha256") != expected_lock:
+            errors.append("residual-MLP original protocol lock hash changed")
+        if primary.get("n") != 8:
+            errors.append("residual-MLP compositional replication must preserve n=8")
+        if primary.get("wins_composed_lower_budget") != 8:
+            errors.append("residual-MLP replication must preserve 8/8 composed-lower result")
+        ci = primary.get("bootstrap95", [999, 999])
+        if len(ci) != 2 or ci[1] >= 0:
+            errors.append("residual-MLP primary log-budget CI must remain below zero")
+        if primary.get("mean_composed_budget", 10**18) >= primary.get("mean_componentwise_budget", -1):
+            errors.append("residual-MLP replication must preserve lower mean composed budget")
+        util_ci = secondary.get("bootstrap95", [-999, -999])
+        if len(util_ci) != 2 or util_ci[0] <= secondary.get("noninferiority_margin", -0.02):
+            errors.append("residual-MLP test-utility noninferiority result changed")
+        local = mech.get("local_componentwise_mean_nmse", -1)
+        joint = mech.get("joint_factorized_span_objective_mean_nmse", 10**18)
+        composed = mech.get("single_composed_mean_nmse", 10**18)
+        if not (joint < local):
+            errors.append("residual-MLP joint span-objective control must remain better than local component-wise fit")
+        if not (composed < joint):
+            errors.append("residual-MLP single composed control must remain lower NMSE than joint factorized control")
+    except Exception as exc:
+        errors.append(f"residual-MLP compositional replication semantic audit: {exc}")
 
 for p in (ROOT / "README.md", ROOT / "STATUS.md"):
     if p.exists():
