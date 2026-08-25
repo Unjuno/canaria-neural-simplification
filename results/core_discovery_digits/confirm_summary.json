@@ -1,0 +1,54 @@
+{
+  "experiment": "Canaria-Issue2-direct-compositional-simplification-digits-v1",
+  "status": "PASS",
+  "protocol_sha256": "f0d16d813918f2a419a8ba1dfd0bf0efe663a0b7f8105288a84dc84f18530f5b",
+  "script_sha256": "a40ece2b7d96798225729982848e25571c8e3006ef0477f96466880ad50ba453",
+  "confirmatory_seeds": [1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207],
+  "primary": {
+    "metric": "mean log2(B_composed/B_componentwise)",
+    "mean": -1.0518796874098555,
+    "bootstrap95": [-1.207518749639422, -0.896240625180289],
+    "geometric_mean_budget_ratio": 0.4823393149801547,
+    "wilcoxon_one_sided_p": 0.00390625,
+    "wins_composed_lower_budget": 8,
+    "n": 8,
+    "mean_componentwise_budget": 3584.0,
+    "mean_composed_budget": 1728.0,
+    "arithmetic_mean_budget_reduction_fraction": 0.5178571428571428,
+    "decision": "PASS: bootstrap 95% CI upper < 0"
+  },
+  "secondary_confirmatory": {
+    "metric": "test accuracy difference at validation-selected minimum budgets (composed - componentwise)",
+    "mean": 0.005833327770233154,
+    "bootstrap95": [0.00305554, 0.00805556],
+    "noninferiority_margin": -0.02,
+    "decision": "PASS: bootstrap 95% CI lower > -0.02",
+    "note": "Test set was not used to select budgets."
+  },
+  "per_seed_selected_budgets": [
+    {"seed":1200,"componentwise":3072,"composed":1536,"log2_ratio":-1.0,"test_acc_diff":0.00888890027999878},
+    {"seed":1201,"componentwise":3072,"composed":2048,"log2_ratio":-0.5849625007211563,"test_acc_diff":0.00888890027999878},
+    {"seed":1202,"componentwise":4096,"composed":2048,"log2_ratio":-1.0,"test_acc_diff":-0.0022222399711608887},
+    {"seed":1203,"componentwise":4096,"composed":1536,"log2_ratio":-1.415037499278844,"test_acc_diff":0.006666660308837891},
+    {"seed":1204,"componentwise":3072,"composed":1536,"log2_ratio":-1.0,"test_acc_diff":0.00888890027999878},
+    {"seed":1205,"componentwise":4096,"composed":2048,"log2_ratio":-1.0,"test_acc_diff":0.006666660308837891},
+    {"seed":1206,"componentwise":3072,"composed":1536,"log2_ratio":-1.0,"test_acc_diff":0.006666660308837891},
+    {"seed":1207,"componentwise":4096,"composed":1536,"log2_ratio":-1.415037499278844,"test_acc_diff":0.0022221803665161133}
+  ],
+  "mechanistic_secondary_2048_params": {
+    "local_componentwise_mean_nmse": 0.14742862982885715,
+    "joint_factorized_span_objective_mean_nmse": 0.06390628316600954,
+    "single_composed_mean_nmse": 0.05332285159467254,
+    "joint_minus_local_mean": -0.08352234666284761,
+    "joint_minus_local_bootstrap95": [-0.09298867, -0.07116119],
+    "composed_minus_joint_mean": -0.010583431571336996,
+    "composed_minus_joint_bootstrap95": [-0.01398938, -0.00690076],
+    "interpretation": "Most of the gain over local component-wise simplification is recovered when the same two-module factorized architecture is optimized end-to-end on the composed span target; the single composed module provides a smaller additional gain."
+  },
+  "scope": {
+    "architecture": "4-block residual MLP, hidden state 64, residual MLP width 128",
+    "task": "sklearn digits image classification (vectorized 8x8 images)",
+    "span": "first two residual blocks",
+    "claim_boundary": "Independent architecture-family replication of operational compositional simplification; not proof of universal mathematical complexity reduction."
+  }
+}
