@@ -3,7 +3,9 @@ from __future__ import annotations
 import ast
 import csv
 import json
+import re
 from pathlib import Path
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
@@ -76,6 +78,43 @@ required = [
 for p in required:
     if not p.exists():
         errors.append(f"missing required file: {rel(p)}")
+
+# Public-facing Markdown should not accumulate broken repository-relative links.
+public_markdown = [p for p in required if p.suffix == ".md"]
+md_link = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+for p in public_markdown:
+    if not p.exists():
+        continue
+    text = p.read_text(encoding="utf-8")
+    for raw_target in md_link.findall(text):
+        target = raw_target.strip()
+        if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+            continue
+        # Drop optional Markdown title and fragment; public local links use simple paths.
+        target = target.split()[0].strip("<>")
+        target = unquote(target.split("#", 1)[0])
+        if not target:
+            continue
+        candidate = (p.parent / target).resolve()
+        try:
+            candidate.relative_to(ROOT.resolve())
+        except ValueError:
+            errors.append(f"public markdown link escapes repository: {rel(p)} -> {raw_target}")
+            continue
+        if not candidate.exists():
+            errors.append(f"broken public markdown link: {rel(p)} -> {raw_target}")
+
+# Portable reproduction code must remain free of private historical mount assumptions.
+reproduce_root = ROOT / "scripts/reproduce"
+if reproduce_root.exists():
+    for p in reproduce_root.rglob("*.py"):
+        try:
+            text = p.read_text(encoding="utf-8")
+        except Exception as exc:
+            errors.append(f"portable runner read error: {rel(p)}: {exc}")
+            continue
+        if "/mnt/data" in text:
+            errors.append(f"private /mnt/data dependency reintroduced in portable runner: {rel(p)}")
 
 late_path = ROOT / "results/training_time/late_stage_summary.json"
 if late_path.exists():
