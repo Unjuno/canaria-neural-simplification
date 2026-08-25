@@ -12,33 +12,60 @@ The central empirical discovery is **not** "we pruned layers" or "we compressed 
 
 > Implementation-level computational complexity can be non-additive across learned boundaries. In the tested settings, composed spans were simpler to replace than component-wise treatment suggested.
 
-Supporting evidence now includes two complementary lines:
+Supporting evidence now includes three complementary lines.
 
-1. **Original residual-CNN confirmatory evidence**
-   - composition subadditivity `P(G>0)=0.7107`, 95% CI `0.6128–0.8137` under the declared grammar;
-   - strong simplification outside high-Canary regions;
-   - implementation-block boundaries failing as universal functional boundaries;
-   - wider-span replacement succeeding where local replacement could fail;
-   - whole-network accounting rejecting the strongest hidden-relocation explanation.
+### 1. Original residual-CNN confirmatory evidence
 
-2. **Direct Small Vision Transformer replication**
-   - fixed central two-block span;
-   - common replacement grammar for component-wise and composed treatment;
-   - locked passing criterion: held-out span NMSE `<=0.12`, validation utility `>=0.95`;
-   - first 8 fresh baseline-eligible seeds `>=9000`;
-   - component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
-   - composed minimum passing complexity: **4,904–5,424 params**;
-   - mean composed/component-wise ratio: **0.51988**;
-   - paired seed-bootstrap95: **[0.50634, 0.53926]**;
-   - composed smaller: **8/8 seeds**;
-   - selected composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
-   - component-wise fitting received twice the compiler updates, so the complexity advantage was not purchased by extra optimization on the composed side.
+- composition subadditivity `P(G>0)=0.7107`, 95% CI `0.6128–0.8137` under the declared grammar;
+- strong simplification outside high-Canary regions;
+- implementation-block boundaries failing as universal functional boundaries;
+- wider-span replacement succeeding where local replacement could fail;
+- whole-network accounting rejecting the strongest hidden-relocation explanation.
+
+### 2. Direct Small Vision Transformer replication
+
+- fixed central two-block span;
+- common replacement grammar for component-wise and composed treatment;
+- locked passing criterion: held-out span NMSE `<=0.12`, validation utility `>=0.95`;
+- first 8 fresh baseline-eligible seeds `>=9000`;
+- component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
+- composed minimum passing complexity: **4,904–5,424 params**;
+- mean composed/component-wise ratio: **0.51988**;
+- paired seed-bootstrap95: **[0.50634, 0.53926]**;
+- composed smaller: **8/8 seeds**;
+- selected composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
+- component-wise fitting received twice the compiler updates, so the complexity advantage was not purchased by extra optimization on the composed side.
+
+### 3. Direct residual-MLP replication with exact learned-budget matching
+
+Fresh seeds `1200–1207` used a four-block residual MLP on sklearn digits and a fixed first-two-block span.
+
+At every budget point, component-wise and composed conditions had the **same learned replacement-parameter count**. Candidate selection used validation NMSE/accuracy only.
+
+Results:
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed lower-budget: **8/8 seeds**;
+- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
+- paired bootstrap95: **[−1.2075, −0.8962]**;
+- geometric mean budget ratio: **0.4823×**;
+- untouched-test accuracy difference at selected budgets: composed minus component-wise **+0.583 percentage points**, bootstrap95 **[+0.306,+0.806] pt**.
+
+A 2048-parameter mechanistic secondary retained the two-module replacement topology but changed the fitting objective from local intermediate targets to the composed span target:
+
+- local component-wise NMSE: **0.1474**;
+- same two-module architecture jointly fit to the span target: **0.0639**;
+- one composed module: **0.0533**.
+
+This supports the interpretation that much of the effect follows the **functional boundary/objective**, not merely the fact that the final replacement uses one module rather than two.
 
 ### Safe wording
 
 - "We identify and systematically characterize an empirical phenomenon of compositional simplification in learned neural computation."
 - "Under declared task distributions and replacement grammars, composed learned functions can exhibit subadditive replacement/description complexity."
-- "The core component-wise-versus-composed effect was directly replicated in a Small Vision Transformer under a fresh locked protocol."
+- "The core component-wise-versus-composed effect was directly replicated under fresh locked protocols in both a Small Vision Transformer and a residual MLP."
+- "A residual-MLP mechanistic control indicates that much of the gain follows the composed functional objective even when the two-module topology is retained."
 
 ### Avoid
 
@@ -46,7 +73,7 @@ Supporting evidence now includes two complementary lines:
 - "We measured Kolmogorov complexity."
 - "Canary is the cause or necessary condition of simplification."
 - "Every neural network can be compiled to a tiny program."
-- "The SmallViT result proves universal Transformer or LLM subadditivity."
+- "The SmallViT or residual-MLP results prove universal Transformer, LLM, or task-universal subadditivity."
 
 ## Secondary discovery: dynamic consolidation
 
@@ -96,7 +123,7 @@ A credible public account should include at least these boundaries:
 - G21 hard task-damage veto could prevent final contraction.
 - G27 fixed risk caps did not yield a cost/utility Pareto improvement.
 - The current runtime PoC did not demonstrate meaningful host-RAM reduction.
-- The direct SmallViT replication remains small-model and grammar-dependent.
+- Both direct core-discovery replications remain small-model and grammar-dependent.
 
 ## Reproducibility statement
 
@@ -141,18 +168,19 @@ Publication-safe systems statement:
 
 1. **Problem:** implementation boundaries may overstate task-effective functional complexity.
 2. **Discovery:** original compositional simplification / subadditivity.
-3. **Direct replication:** SmallViT component-wise versus composed replacement under a locked fresh protocol.
-4. **Controls:** Canary not necessary; boundary expansion; whole-network accounting; negative recursive results.
-5. **Dynamic extension:** training-time consolidation and staged-vs-direct mechanism separation.
-6. **Recontracting mechanism:** compiler conditioning versus downstream sensitivity.
-7. **Boundaries:** autoregressive rollout failures and controller failures.
-8. **Reproducibility:** public exact reproduction of one confirmatory seed.
-9. **Systems implication:** bounded serialization/materialization/direct-execution PoC with explicit RAM boundary.
-10. **Limitations / handoff:** small models, operational complexity grammar, large-LLM external validity.
+3. **Direct replication A:** SmallViT component-wise versus composed replacement under a locked fresh protocol.
+4. **Direct replication B:** residual-MLP exact-budget replication plus joint span-objective control.
+5. **Controls:** Canary not necessary; boundary expansion; whole-network accounting; negative recursive results.
+6. **Dynamic extension:** training-time consolidation and staged-vs-direct mechanism separation.
+7. **Recontracting mechanism:** compiler conditioning versus downstream sensitivity.
+8. **Boundaries:** autoregressive rollout failures and controller failures.
+9. **Reproducibility:** public exact reproduction of one confirmatory seed.
+10. **Systems implication:** bounded serialization/materialization/direct-execution PoC with explicit RAM boundary.
+11. **Limitations / handoff:** small models, operational complexity grammars, large-LLM and task-type external validity.
 
 ## Novelty / priority language
 
-The repository supports claiming that Canaria **identifies and characterizes** this empirical phenomenon and now includes a fresh cross-family direct replication in a Small Vision Transformer.
+The repository supports claiming that Canaria **identifies and characterizes** this empirical phenomenon and includes direct fresh replications in two additional architecture families beyond the original residual-CNN setting.
 
 A strict "first ever" priority claim should still be made only after a dedicated literature review covering at least layer fusion, depth pruning, progressive module replacement, distillation, network morphism/surgery, learned program extraction, and function-preserving compression.
 
