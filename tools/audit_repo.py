@@ -52,6 +52,7 @@ required = [
     ROOT / "docs/LATE_STAGE_FINDINGS.md",
     ROOT / "docs/NEGATIVE_RESULTS.md",
     ROOT / "docs/APPLICATIONS.md",
+    ROOT / "docs/RUNTIME_POC.md",
     ROOT / "docs/OPEN_QUESTIONS.md",
     ROOT / "docs/REPRODUCIBILITY.md",
     ROOT / "docs/ROADMAP.md",
@@ -62,8 +63,12 @@ required = [
     ROOT / "results/training_time/ARTIFACT_INVENTORY.md",
     ROOT / "scripts/reproduce/g7_confirmatory/run_seed.py",
     ROOT / "scripts/reproduce/g7_confirmatory/README.md",
+    ROOT / "scripts/reproduce/g7_confirmatory/requirements.txt",
+    ROOT / "scripts/reproduce/g7_confirmatory/runtime_poc.py",
     ROOT / "results/reproduction/g7_seed4300_report.json",
+    ROOT / "results/reproduction/runtime_poc_seed4300_report.json",
     ROOT / ".github/workflows/reproduce-g7.yml",
+    ROOT / ".github/workflows/runtime-poc.yml",
 ]
 for p in required:
     if not p.exists():
@@ -97,6 +102,30 @@ if repro_path.exists():
             errors.append("G7 reproduction output hash changed")
     except Exception as exc:
         errors.append(f"G7 reproduction semantic audit: {exc}")
+
+poc_path = ROOT / "results/reproduction/runtime_poc_seed4300_report.json"
+if poc_path.exists():
+    try:
+        poc = json.loads(poc_path.read_text(encoding="utf-8"))
+        if poc.get("status") != "PASS_WITH_BOUNDARY":
+            errors.append("runtime PoC must remain PASS_WITH_BOUNDARY")
+        if poc.get("hardware") != "CPU only":
+            errors.append("runtime PoC hardware scope changed unexpectedly")
+        ser = poc.get("serialized_bytes_including_manifest", {})
+        if ser.get("compact", 10**18) >= ser.get("large", -1):
+            errors.append("runtime PoC must preserve smaller compact serialized artifact")
+        inf = poc.get("cpu_inference_batch128_ms", {})
+        if inf.get("compact_mean", 10**18) >= inf.get("large_mean", -1):
+            errors.append("runtime PoC must preserve measured compact CPU inference advantage")
+        interpretation = poc.get("interpretation", {})
+        host_ram = str(interpretation.get("host_ram", "")).lower()
+        generalization = str(interpretation.get("generalization", "")).lower()
+        if "not" not in host_ram or "demonstrated" not in host_ram:
+            errors.append("runtime PoC must preserve host-RAM non-claim")
+        if "not established" not in generalization:
+            errors.append("runtime PoC must preserve generalization boundary")
+    except Exception as exc:
+        errors.append(f"runtime PoC semantic audit: {exc}")
 
 for p in (ROOT / "README.md", ROOT / "STATUS.md"):
     if p.exists():
