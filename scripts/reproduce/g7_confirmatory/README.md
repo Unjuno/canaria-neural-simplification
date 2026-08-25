@@ -17,22 +17,24 @@ The runner compares the same six conditions used in G7:
 
 The data are deterministic character-LM windows generated from the dataset-description text files shipped with scikit-learn. No private dataset files are required.
 
-## Install
+## Install the recorded environment
 
-A minimal current environment is:
+For the exact recorded reproduction environment:
 
 ```bash
-python -m pip install torch numpy scikit-learn
+python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
 ```
 
-The exact environment used for the public reproduction on 2026-08-25 was:
+Recorded versions:
 
 - Python 3.13.5
 - PyTorch 2.10.0+cpu
 - NumPy 2.3.5
 - scikit-learn 1.8.0
 
-Historical runs did not preserve a full lockfile, so other library versions may reproduce the qualitative endpoint without byte-identical floating-point output.
+The requirements file pins the Python packages; Python 3.13 is selected explicitly in the manual GitHub Actions workflow.
+
+Historical runs did not preserve a full repository-wide lockfile, so other library versions may reproduce the qualitative endpoint without byte-identical floating-point output.
 
 ## Run
 
@@ -44,7 +46,7 @@ python scripts/reproduce/g7_confirmatory/run_seed.py \
   --out g7_seed_4300.json
 ```
 
-For the environment listed above, the complete JSON output has SHA256:
+For the recorded environment, the complete JSON output has SHA256:
 
 ```text
 68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028
@@ -62,6 +64,12 @@ The headline test perplexities are:
 | progressive compute-matched | **18.932213342799887** |
 
 See `results/reproduction/g7_seed4300_report.json` for the recorded reproduction result.
+
+## GitHub Actions
+
+The manual workflow `.github/workflows/reproduce-g7.yml` installs the pinned environment, runs seed 4300, verifies the exact output hash, and uploads the resulting JSON as a workflow artifact.
+
+It is intentionally `workflow_dispatch`-only so the full reproduction is not run on every routine push.
 
 ## Integrity note
 
