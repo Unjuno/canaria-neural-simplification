@@ -14,8 +14,8 @@ This file defines how to read the repository as of the current consolidation pha
 8. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
 9. `FAQ.md` — common interpretation boundaries and public-facing questions.
 10. `APPLICATIONS.md` — engineering hypotheses and deployment directions.
-11. `REPRODUCIBILITY.md` — integrity/reproduction policy.
-12. `ROADMAP.md` and `OPEN_QUESTIONS.md` — bounded closure work and handoff.
+11. `REPRODUCIBILITY.md` — integrity/reproduction policy and the portable G7 reproduction.
+12. `ROADMAP.md` and `OPEN_QUESTIONS.md` — bounded conditional work and handoff.
 13. `HISTORICAL_INDEX.md` — which older documents are preserved as historical context rather than current instructions.
 14. `../CHANGELOG.md` — version/snapshot changes.
 
@@ -33,14 +33,27 @@ Later training-time experiments extend that observation: consolidation followed 
 - Parameter reduction, serialized size, compiler-update cost, FLOPs, wall-clock time, memory, and energy are separate quantities.
 - Runtime-compilation applications remain hypotheses until measured directly.
 
+## Completed portability closure
+
+A self-contained public runner now reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+
+In the recorded environment, its complete output exactly matched the archived confirmatory JSON with SHA256:
+
+`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+
+See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
+
+This verifies software/data portability for one representative confirmatory pipeline. It is not counted as an additional independent scientific seed.
+
 ## Current stopping policy
 
-Broad experiment expansion is paused. New work should close a specific publication, reproduction, or deployment evidence gap. Otherwise it belongs in `OPEN_QUESTIONS.md` for future researchers.
+Broad experiment expansion is paused. The repository now satisfies the representative clean-reproduction closure target.
 
-The three concrete closure tasks are tracked as GitHub Issues:
+Only two conditional public-claim tasks remain:
 
-- **#1** — clean-repository reproduction of one confirmatory pipeline;
-- **#2** — direct replication of compositional simplification on a different family, only if the public generalization/novelty claim needs it;
-- **#3** — minimal runtime-compilation proof of concept.
+- **Issue #2** — direct replication of compositional simplification on a different family, only if a stronger public generalization/novelty claim is pursued;
+- **Issue #3** — minimal runtime-compilation proof of concept, only if deployment/runtime claims are pursued.
 
-These issues are intentionally narrow. Completing all three is not required unless the corresponding public claims are pursued.
+Issue #1, clean-repository reproduction, is complete and should remain closed unless a portability regression is found.
+
+Neither remaining issue is required to preserve the current research snapshot at its present claim scope.
