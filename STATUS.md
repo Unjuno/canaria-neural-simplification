@@ -1,10 +1,10 @@
 # Project status
 
-**2026-08-25: release-ready public research snapshot.**
+**2026-08-25: release-ready, scientifically closed public research snapshot at the current claim scope.**
 
-Broad experiment expansion is paused. The representative public reproduction and bounded runtime/materialization PoC are complete, the current repository audit passes on `main`, and no additional experiment is required for the present scoped claims.
+Broad experiment expansion is stopped for this snapshot. The representative public reproduction and bounded runtime/materialization PoC are complete, the repository audit passes on `main`, and **no additional experiment is required for the present scoped claims**.
 
-The only remaining scientific closure item is **optional**: GitHub Issue #2, a direct replication of the core compositional-simplification phenomenon on a clearly different architecture/task if a stronger publication-level generalization/novelty claim is deliberately pursued.
+Future cross-family replication remains scientifically valuable, but it is now explicitly future work rather than unfinished closure work. GitHub Issue #2 was closed as `not planned` for v0.2.0 and can be reopened only if a later publication deliberately pursues a stronger external-validity or priority claim.
 
 ## Current project-level thesis
 
@@ -80,26 +80,29 @@ This is a bounded small-model CPU PoC, not evidence of universal GPU/LLM/runtime
 
 ## Release state
 
-Repository-level release preparation is complete enough to freeze the current claim scope:
+Repository-level scientific closure is complete at the current claim scope:
 
 - current public/historical documentation is separated;
 - machine-readable late-stage evidence is indexed;
 - G21 failure and other negative results are preserved;
 - exact public reproduction is retained and audit-checked;
 - runtime-PoC storage/CPU result and RAM/generalization boundaries are audit-checked;
-- `docs/RELEASE_CHECKLIST.md` records the remaining GitHub-UI steps.
+- GitHub Issues #1 and #3 are closed as completed;
+- GitHub Issue #2 is closed as `not planned` for this snapshot and retained as future-work design;
+- `docs/RELEASE_CHECKLIST.md` records only optional/manual GitHub-UI release metadata steps.
 
-Latest verified public-snapshot audit on `main` completed successfully before this status update. Subsequent commits should continue to be accepted only if the same audit remains green.
+## Future research, not current closure work
 
-## Optional remaining work
+Possible future projects include:
 
-Only one conditional scientific closure task remains:
+- direct cross-family replication of component-wise versus composed-span simplification;
+- large pretrained Transformer/LLM external validity;
+- codec-independent complexity/MDL;
+- hardware-specific functional IR/JIT execution;
+- larger-scale RAM/VRAM/energy/runtime benchmarks;
+- stronger cost-aware autonomous control.
 
-- **Issue #2:** direct compositional-simplification replication on one clearly different architecture/task, only if a stronger publication-level generalization/novelty claim is desired.
-
-It is intentionally open for handoff and is **not required** for the current scoped snapshot.
-
-Everything else should be treated as future research for interested contributors rather than required completion work.
+These should begin as new research issues/phases rather than silently extending the current G-number mainline.
 
 ## Current public documentation
 
