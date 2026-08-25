@@ -7,13 +7,17 @@ This file defines how to read the repository as of the current consolidation pha
 1. `../README.md` — project-level question, main findings, scope.
 2. `CORE_DISCOVERY.md` — central empirical discovery: compositional simplification.
 3. `CLAIMS_AND_EVIDENCE.md` — current supported/rejected/open claim registry.
-4. `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time consolidation evidence.
-5. `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller evidence.
-6. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
-7. `APPLICATIONS.md` — engineering hypotheses and deployment directions.
-8. `REPRODUCIBILITY.md` — integrity/reproduction policy.
-9. `ROADMAP.md` and `OPEN_QUESTIONS.md` — bounded closure work and handoff.
-10. `HISTORICAL_INDEX.md` — which older documents are preserved as historical context rather than current instructions.
+4. `PUBLICATION_NOTES.md` — claim hierarchy for papers, talks, and technical communication.
+5. `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time consolidation evidence.
+6. `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller evidence.
+7. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
+8. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
+9. `FAQ.md` — common interpretation boundaries and public-facing questions.
+10. `APPLICATIONS.md` — engineering hypotheses and deployment directions.
+11. `REPRODUCIBILITY.md` — integrity/reproduction policy.
+12. `ROADMAP.md` and `OPEN_QUESTIONS.md` — bounded closure work and handoff.
+13. `HISTORICAL_INDEX.md` — which older documents are preserved as historical context rather than current instructions.
+14. `../CHANGELOG.md` — version/snapshot changes.
 
 ## Snapshot interpretation
 
