@@ -4,9 +4,9 @@
 
 > Can trained neural computation sometimes be represented more simply when several learned computations are treated as one composed function rather than as separate implementation blocks?
 
-The repository preserves positive, negative, exploratory, and confirmatory evidence. It is currently in a **research consolidation / public-snapshot phase**: broad experiment expansion is paused, and new experiments should be added only when they close a concrete evidential gap.
+The repository preserves positive, negative, exploratory, confirmatory, and reproduction evidence. It is currently in a **research consolidation / public-snapshot phase**: broad experiment expansion is paused, and new experiments should be added only when they close a concrete evidential gap.
 
-For the intended public reading order and snapshot policy, see [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md). For release-level changes, see [`CHANGELOG.md`](CHANGELOG.md).
+For the intended public reading order and snapshot policy, see [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md).
 
 ## Core empirical finding
 
@@ -46,6 +46,23 @@ Headline evidence:
 - **G27:** fixed risk caps exposed a cost/utility trade-off rather than a Pareto improvement; it remains exploratory.
 
 See [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md).
+
+## Portable reproduction
+
+One representative fresh-confirmatory training-time result now has a self-contained public reproduction path.
+
+```bash
+python -m pip install torch numpy scikit-learn
+python scripts/reproduce/g7_confirmatory/run_seed.py --seed 4300 --out g7_seed_4300.json
+```
+
+In the recorded environment, this reproduced the archived G7 seed-4300 JSON exactly, with SHA256:
+
+`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+
+See [`scripts/reproduce/g7_confirmatory/README.md`](scripts/reproduce/g7_confirmatory/README.md) and [`results/reproduction/g7_seed4300_report.json`](results/reproduction/g7_seed4300_report.json).
+
+This validates software/data portability for an already-confirmatory seed; it is not counted as a new independent scientific replication.
 
 ## What is established
 
@@ -92,14 +109,14 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 1. [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) — reading order and snapshot policy.
 2. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — the central empirical discovery and its scope.
 3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — current supported/rejected/open claim registry.
-4. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — claim hierarchy for papers, talks, and technical communication.
+4. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
 5. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
 6. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanism/controller results.
 7. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
-8. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — possible deployment and systems applications.
-9. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — evidence and reproduction policy.
-10. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — bounded closure work and handoff.
-11. [`docs/HISTORICAL_INDEX.md`](docs/HISTORICAL_INDEX.md) — current versus historical document map.
+8. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
+9. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — possible deployment and systems applications.
+10. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — evidence and reproduction policy.
+11. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — bounded conditional work and handoff.
 12. [`STATUS.md`](STATUS.md) — current project state.
 
 Machine-readable result summaries and protocol locks are under `results/`.
@@ -110,6 +127,7 @@ Machine-readable result summaries and protocol locks are under `results/`.
 - **Independent holdout** — selected condition retested without reselection.
 - **Exploratory** — implementation validation or hypothesis generation.
 - **Negative result** — a failed hypothesis retained explicitly.
+- **Reproduction** — rerun of an already-observed condition to validate portability; not a new independent seed by itself.
 
 A successful toy result is not treated as universal evidence, and a failed local/post-hoc intervention is not treated as proof that training-time consolidation is impossible.
 
@@ -117,7 +135,8 @@ A successful toy result is not treated as universal evidence, and a failed local
 
 - `src/canaria/` — cleaned reusable components from earlier phases.
 - `scripts/phases/` — provenance-preserving evidence scripts; some historical scripts retain environment-specific paths.
-- `results/` — machine-readable evidence, summary files, and protocol locks.
+- `scripts/reproduce/` — portable reproduction runners that remove historical local-path assumptions without rewriting evidence scripts.
+- `results/` — machine-readable evidence, summary files, protocol locks, and reproduction reports.
 - `docs/history/` and `docs/phases/` — historical research record.
 - `archives/` — retained handoff/history material.
 - `schemas/` — metadata schemas.
