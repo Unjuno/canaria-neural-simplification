@@ -1,6 +1,6 @@
 # Open research questions
 
-**Project mode: public-snapshot / handoff.**
+**Project mode: frozen public-snapshot / handoff.**
 
 The purpose of this file is to leave bounded questions that another researcher can pick up. It is not a commitment to continue expanding the current project.
 
@@ -8,59 +8,33 @@ The purpose of this file is to leave bounded questions that another researcher c
 
 ### Clean-repository reproduction
 
-A portable public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256:
+A portable public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+See `scripts/reproduce/g7_confirmatory/README.md`, `results/reproduction/g7_seed4300_report.json`, and `REPRODUCIBILITY.md`.
 
-See `scripts/reproduce/g7_confirmatory/README.md`, `results/reproduction/g7_seed4300_report.json`, and `docs/REPRODUCIBILITY.md`.
-
-This is software/data portability evidence for an already-confirmatory seed, not a new independent scientific replication.
+This is a software/data portability result for an already-confirmatory seed, not a new independent scientific replication.
 
 ### Minimal runtime/materialization proof of concept
 
-A bounded CPU-only PoC now demonstrates:
+A bounded CPU-only PoC now serializes, materializes, and directly executes the G7 seed-4300 compact learned representation without reconstructing the original 4-block model.
 
-```text
-compact learned representation
-→ serialize
-→ load/materialize
-→ execute directly
-```
-
-for G7 seed 4300.
-
-Recorded result:
+Headline result:
 
 - serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- parameters: **23,138 → 11,042** (`−52.28%`);
-- batch-128 CPU inference: **47.05 → 23.11 ms mean** over five fresh-process probes;
-- load/materialize: **7.85 → 5.86 ms mean**, treated as secondary because cache sensitivity was observed;
-- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
-- test PPL: **19.2784 → 18.9322**.
+- batch-128 CPU inference: **47.05 → 23.11 ms mean** across five fresh-process probes;
+- meaningful host-RAM reduction was **not demonstrated** (`4.72 → 4.56 MB` RSS delta).
 
-See `docs/RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
 
-This is a small-model CPU engineering PoC, not evidence of universal GPU, LLM, RAM, or runtime gains.
-
-## Only remaining conditional closure task
+## Optional future replication
 
 ### Direct compositional-simplification replication on a clearly different family
 
-This is needed only if a stronger publication-level generalization/novelty claim is pursued.
+This is **not required** for the current scoped public claim. It becomes useful only if a future paper/report wants a stronger cross-family generalization or novelty/priority statement.
 
-The decisive design should compare:
+A future confirmatory design should compare component-wise simplification with composed-span simplification under matched replacement/optimization budget, task-utility criterion, complexity accounting, and fresh seeds.
 
-- component-wise simplification;
-- composed-span simplification;
-- matched replacement/optimization budget;
-- matched task-utility criterion;
-- explicit complexity accounting;
-- fresh seeds;
-- a clearly different architecture/task family.
-
-The point is to test the **core compositional-simplification phenomenon directly**, not merely to obtain another pruning/compression endpoint.
-
-Tracked in GitHub Issue #2. It is intentionally optional at the current public-claim scope.
+The previous GitHub Issue #2 records the intended design. For the current snapshot it should be treated as future work, not unfinished closure work.
 
 ## Scientific questions left for future researchers
 
@@ -74,8 +48,8 @@ Tracked in GitHub Issue #2. It is intentionally optional at the current public-c
 - Off-manifold versus task-manifold simplification.
 - Stronger null models and synthetic teachers with known complexity.
 - Stable recursive complexity floors/fixed points.
-- Functional IRs and hardware-specific JIT/runtime compilation.
-- Whether spanwise materialization can reduce peak RAM/VRAM on realistically large models.
+- Functional IRs and hardware-specific JIT/runtime compilation beyond the current small CPU PoC.
+- Direct cross-family replication of the core compositional-simplification phenomenon if stronger external-validity language is desired.
 
 ## Questions that are not open in the tested settings
 
@@ -85,6 +59,6 @@ Tracked in GitHub Issue #2. It is intentionally optional at the current public-c
 - Hard shadow-damage vetoes can block successful final contraction.
 - The same normalized functional-error threshold is not equally task-safe before and after recontracting.
 - A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
-- The current runtime PoC does **not** demonstrate meaningful host-RAM reduction.
+- The current runtime PoC does not demonstrate meaningful host-RAM reduction.
 
-Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, `LATE_STAGE_FINDINGS.md`, and `RUNTIME_POC.md`.
+Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
