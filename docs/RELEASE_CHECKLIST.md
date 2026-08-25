@@ -12,8 +12,10 @@ This checklist is for freezing the current repository as a public research snaps
 - [x] Minimal CPU runtime/materialization PoC added with explicit RAM/generalization boundaries.
 - [x] `docs/README.md` and `HISTORICAL_INDEX.md` separate current from frozen historical material.
 - [x] Repository audit enforces public-snapshot invariants.
-- [x] GitHub Issues #1 and #3 closed as completed.
-- [x] Issue #2 classified as optional future work rather than a blocker for the current scoped claim.
+- [x] GitHub Issue #1 closed as completed.
+- [x] GitHub Issue #3 closed as completed.
+- [x] GitHub Issue #2 closed as `not planned` for the current scoped snapshot and retained only as future-work design.
+- [x] No scientific experiment remains required for v0.2.0 at the present claim scope.
 
 ## Scientific closure decision
 
@@ -23,11 +25,11 @@ The current snapshot deliberately keeps the scientific claim scoped to the teste
 
 A direct replication of component-wise versus composed-span simplification on a clearly different architecture/task would strengthen a future cross-family generalization or priority claim, but it is **not required** for the present snapshot wording.
 
-GitHub Issue #2 is therefore future work, not unfinished closure work for v0.2.0.
+The previous Issue #2 is therefore closed as `not planned` for v0.2.0. Reopen it or create a new research-phase issue only if a future publication deliberately strengthens the external-validity claim.
 
-## Suggested GitHub UI metadata
+## Remaining optional GitHub UI metadata
 
-The connected automation currently does not expose repository-description or tag/release creation, so these remain manual UI actions if desired.
+The connected automation does not expose repository-description or tag/release creation, so these remain manual UI actions if desired.
 
 Suggested repository description:
 
@@ -51,7 +53,7 @@ Suggested release summary:
 2. Optionally run the manual `reproduce-g7.yml` workflow.
 3. Optionally run the manual `runtime-poc.yml` workflow.
 4. Read `PUBLICATION_NOTES.md` and ensure release text uses the same claim hierarchy.
-5. Keep future cross-family replication separate from the frozen current snapshot; reopen/new-issue it only if a later publication requires stronger external-validity language.
+5. Keep future cross-family replication separate from the frozen current snapshot.
 
 ## Citation
 
@@ -65,4 +67,4 @@ Until a paper exists, cite:
 
 ## Stopping rule
 
-After the release metadata is set, treat the current repository as a **frozen public research snapshot**. Future scientific work should begin from a new issue/question or a new research phase rather than silently extending the old G-number mainline.
+After the optional release metadata is set, treat the current repository as a **frozen public research snapshot**. Future scientific work should begin from a new issue/question or a new research phase rather than silently extending the old G-number mainline.
