@@ -46,6 +46,8 @@ required = [
     ROOT / "docs/CORE_DISCOVERY.md",
     ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
     ROOT / "docs/PUBLICATION_NOTES.md",
+    ROOT / "docs/TERMINOLOGY.md",
+    ROOT / "docs/FAQ.md",
     ROOT / "docs/TRAINING_TIME_CONSOLIDATION.md",
     ROOT / "docs/LATE_STAGE_FINDINGS.md",
     ROOT / "docs/NEGATIVE_RESULTS.md",
