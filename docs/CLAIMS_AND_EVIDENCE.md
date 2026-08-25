@@ -1,6 +1,6 @@
 # Claims and evidence
 
-This file is the **current public claim registry** for Canaria. It intentionally separates supported empirical claims, rejected explanations, and open hypotheses. Detailed phase-by-phase history remains in `RESEARCH_SUMMARY.md`, `GENERALIZATION_STATUS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and the locked phase documents.
+This file is the **current public claim registry** for Canaria. It separates supported empirical claims, rejected explanations, bounded engineering results, and open hypotheses. Detailed history remains in `RESEARCH_SUMMARY.md`, `GENERALIZATION_STATUS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and the locked phase documents.
 
 ## A. Core discovery: compositional simplification
 
@@ -71,18 +71,46 @@ See `CORE_DISCOVERY.md` for the careful discovery statement.
 
 The transfer map is intentionally mixed. See `GENERALIZATION_STATUS.md` for the detailed historical ledger.
 
-## G. Claims that remain open
+## G. Public reproducibility closure
+
+| Claim | Status | Evidence | Limitation |
+|---|---|---|---|
+| One representative confirmatory pipeline can run without private `/mnt/data` dependencies | **Supported** | Portable G7 seed-4300 runner | One already-confirmatory seed, not a new independent replication |
+| The portable G7 seed-4300 output matches the archived output exactly in the recorded environment | **Supported** | Matching JSON SHA256 `68265c044f...d0028` | Exact match is environment-specific |
+
+See `REPRODUCIBILITY.md` and `results/reproduction/g7_seed4300_report.json`.
+
+## H. Bounded runtime/materialization PoC
+
+| Claim | Status | Evidence | Scope / limitation |
+|---|---|---|---|
+| A learned compact replacement can be serialized/materialized and executed directly without reconstructing the original larger model | **Supported in one small CPU PoC** | G7 seed-4300 runtime PoC | One model/seed and CPU environment |
+| The compact serialized artifact is smaller | **Supported in PoC** | `110,093→54,646 B` (`−50.36%`) | `state_dict + manifest`; not a universal codec result |
+| The compact model has lower measured CPU inference latency | **Supported in PoC** | batch-128 mean `47.05→23.11 ms`, 5 fresh-process probes | CPU-only and workload-specific |
+| Load/materialization is universally faster | **Not established** | mean `7.85→5.86 ms`, but cache sensitivity observed | Secondary result only |
+| Compact representation meaningfully reduces host RAM | **Not demonstrated** | RSS delta `4.72→4.56 MB` (`0.966×`) | Small model / allocator overhead dominates |
+| GPU/LLM/energy/runtime benefits generalize | **Open** | No direct evidence | Requires dedicated systems benchmarks |
+
+See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+
+## I. Claims that remain open
 
 - Universality across large pretrained Transformers or LLMs.
 - Codec-independent minimum description length.
-- A universal mechanism dictionary or universal compiler grammar.
-- Exact wall-clock/FLOP/energy/VRAM benefits of a compact functional representation.
+- A universal mechanism dictionary or compiler grammar.
+- General FLOP/energy/VRAM/RAM benefits of compact functional representations.
+- GPU/NPU/edge/browser runtime effects.
+- Whether spanwise JIT materialization reduces peak memory on realistically large models.
 - A universally Pareto-optimal autonomous controller.
 - Whether the local first/second-order task-risk relation generalizes across substantially different tasks, widths, heads, and architectures.
-- Whether compact functional representations can support practical runtime compilation/JIT materialization.
+- Direct replication of the **core compositional-simplification phenomenon** on one clearly different architecture/task if a stronger publication-level generalization claim is desired.
 
 ## Claim discipline
 
-Do **not** describe the current evidence as proving that function composition always reduces mathematical complexity. The supported empirical statement is narrower:
+Do **not** describe the current evidence as proving that function composition always reduces mathematical complexity. The supported scientific statement is narrower:
 
 > For some trained networks and task distributions, a composed input-output span admits a substantially smaller task-preserving replacement than component-wise treatment suggests, and continued learning after consolidation can change the ease and risk of later consolidation.
+
+The supported systems statement is also narrow:
+
+> In one small CPU PoC, a progressively consolidated learned representation was about 50% smaller as a serialized artifact and about 2× faster for the measured batch-128 inference workload, while meaningful host-RAM reduction was not demonstrated.
