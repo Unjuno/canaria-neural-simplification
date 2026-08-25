@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you use Canaria in research, please cite this repository and the specific experiment protocol/result files used."
+message: "If you use Canaria in research, please cite this repository snapshot and the specific experiment protocol/result files used."
 title: "Canaria Neural Simplification"
 type: software
 authors:
   - name: "Unjuno"
 repository-code: "https://github.com/Unjuno/canaria-neural-simplification"
 license: Apache-2.0
-date-released: 2026-08-24
-version: 0.1.0
+date-released: 2026-08-25
+version: 0.2.0
