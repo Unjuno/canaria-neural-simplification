@@ -1,0 +1,26 @@
+{
+  "reproduction": "G7 fresh confirmatory seed 4300",
+  "date": "2026-08-25",
+  "seed": 4300,
+  "status": "PASS",
+  "change_from_historical_code": "Only path/import portability changes; model, data generation, seeds, optimization order, budgets and metrics unchanged.",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+  },
+  "historical_reference_sha256": "68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028",
+  "reproduced_output_sha256": "68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028",
+  "exact_json_equal": true,
+  "headline_test_ppl": {
+    "large_reference": 19.278388330876,
+    "small_from_start": 20.49408599251734,
+    "terminal_posthoc": 19.30211076363844,
+    "late_one_shot": 19.33549169102473,
+    "early_one_shot": 19.164090006166735,
+    "progressive_compute_matched": 18.932213342799887
+  },
+  "interpretation": "The public portable runner reproduced the archived fresh-confirmatory seed output exactly in the recorded environment. This is a software/reproducibility result, not a new independent scientific seed."
+}
