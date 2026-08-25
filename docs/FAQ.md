@@ -20,6 +20,10 @@ No. The evidence is operational and task-conditioned. Complexity depends on the 
 
 Under a declared replacement/description grammar, the composed span can require less replacement complexity than component-wise treatment would suggest. The original confirmatory setting observed this frequently.
 
+The core phenomenon was later tested directly in a fresh Small Vision Transformer experiment. For a fixed central two-block span, component-wise and composed replacement used the same declared one-block grammar and the same locked task/fidelity criteria. Across 8/8 fresh eligible seeds, the minimum passing composed representation required only **4,904–5,424 parameters** versus **9,808** for component-wise treatment. The mean complexity ratio was **0.5199**, bootstrap95 **[0.5063,0.5393]**, with mean selected composed test utility **0.9786**.
+
+This strengthens cross-family evidence but still does not imply universal Transformer or LLM subadditivity.
+
 ## Why not simply train the final small model from the start?
 
 In the G7 testbed, training the final small architecture from the start was worse than allowing a larger computation to form and consolidating it during learning. This supports separating **learning-time capacity** from **final description capacity** in that setting.
@@ -42,7 +46,7 @@ No. v22–v25 showed that teacher-forced likelihood can remain close while free-
 
 ## Does Canaria work on large pretrained LLMs?
 
-Not established. The project contains small Transformer/decoder/generalization evidence, but the strongest training-time mechanism experiments use a small real-text character-LM testbed. Large pretrained LLM validity remains open.
+Not established. The project contains small Transformer/decoder/generalization evidence and a direct SmallViT compositional replication, but the strongest training-time mechanism experiments use a small real-text character-LM testbed. Large pretrained LLM validity remains open.
 
 ## Can the public repository reproduce any confirmatory result without private files?
 
@@ -112,22 +116,24 @@ Removing these failures would make the theory look stronger but less credible.
 
 ## Is the current project scientifically complete?
 
-At the **current scoped claim**, yes: v0.2.0 is intended to be a frozen public research snapshot. The representative clean reproduction and minimal runtime PoC are complete, and no additional experiment is required before freezing the present claims.
+At the **current scoped claim**, yes: v0.2.0 is intended to be a frozen public research snapshot. The representative clean reproduction, direct cross-family compositional replication, and minimal runtime PoC are complete. No additional experiment is required before freezing the present claims.
 
 This does not mean the scientific topic is exhausted. It means future work should begin as a new research question/phase rather than silently extending this snapshot.
 
 ## What happened to the proposed cross-family replication?
 
-It remains useful future work if a later paper wants a materially stronger cross-family generalization or priority claim. The previous GitHub Issue #2 was closed as `not planned` for v0.2.0 because the current public wording is explicitly limited to the tested settings.
+It was completed.
 
-A future researcher can reopen that design or start a new issue without changing the evidential status of the frozen snapshot.
+The fresh SmallViT confirmatory experiment found a mean composed/component-wise minimum-passing complexity ratio of **0.5199**, bootstrap95 **[0.5063,0.5393]**, with 8/8 fresh seeds favoring the composed representation and mean selected composed test utility **0.9786**.
+
+See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
 
 ## What should a new contributor work on?
 
 There is no required closure task left for v0.2.0.
 
-Choose a question from `OPEN_QUESTIONS.md` as a **new research project**. High-value directions include direct cross-family replication, large pretrained models, grammar-independent complexity, hardware-specific functional IR/JIT execution, and larger-scale memory/energy/runtime benchmarking.
+Choose a question from `OPEN_QUESTIONS.md` as a **new research project**. High-value directions include large pretrained models, additional task/span/grammar replication, grammar-independent complexity, hardware-specific functional IR/JIT execution, and larger-scale memory/energy/runtime benchmarking.
 
 ## What is the safest one-sentence summary?
 
-> Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation, shows in small-model experiments that consolidation followed by continued learning changes both the ease and task-risk of later consolidation, and provides a bounded CPU PoC showing that one compact learned representation can be serialized and executed directly without reconstructing its larger predecessor.
+> Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation, directly replicates the core component-wise-versus-composed effect in a Small Vision Transformer, shows in small-model experiments that consolidation followed by continued learning changes both the ease and task-risk of later consolidation, and provides a bounded CPU PoC showing that one compact learned representation can be serialized and executed directly without reconstructing its larger predecessor.
