@@ -6,28 +6,34 @@ This file defines how to read the repository as of the current frozen public-sna
 
 1. `../README.md` — project-level question, main findings, scope.
 2. `CORE_DISCOVERY.md` — central empirical discovery: compositional simplification.
-3. `CLAIMS_AND_EVIDENCE.md` — current supported/rejected/open claim registry.
-4. `PUBLICATION_NOTES.md` — claim hierarchy for papers, talks, and technical communication.
-5. `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time consolidation evidence.
-6. `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller evidence.
-7. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
-8. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
-9. `FAQ.md` — common interpretation boundaries and public-facing questions.
-10. `APPLICATIONS.md` — engineering directions and their evidence status.
-11. `RUNTIME_POC.md` — bounded CPU-only serialization/materialization/execution proof of concept.
-12. `REPRODUCIBILITY.md` — integrity/reproduction policy and portable G7 reproduction.
-13. `ROADMAP.md` and `OPEN_QUESTIONS.md` — future research/handoff, not unfinished snapshot work.
-14. `HISTORICAL_INDEX.md` — older documents preserved as historical context rather than current instructions.
-15. `RELEASE_CHECKLIST.md` — release metadata checklist.
-16. `../CHANGELOG.md` — version/snapshot changes.
+3. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — fresh SmallViT component-wise versus composed replication of the core phenomenon.
+4. `CLAIMS_AND_EVIDENCE.md` — current supported/rejected/open claim registry.
+5. `PUBLICATION_NOTES.md` — claim hierarchy for papers, talks, and technical communication.
+6. `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time consolidation evidence.
+7. `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller evidence.
+8. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
+9. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
+10. `FAQ.md` — common interpretation boundaries and public-facing questions.
+11. `APPLICATIONS.md` — engineering directions and their evidence status.
+12. `RUNTIME_POC.md` — bounded CPU-only serialization/materialization/execution proof of concept.
+13. `REPRODUCIBILITY.md` — integrity/reproduction policy and portable G7 reproduction.
+14. `ROADMAP.md` and `OPEN_QUESTIONS.md` — future research/handoff, not unfinished snapshot work.
+15. `HISTORICAL_INDEX.md` — older documents preserved as historical context rather than current instructions.
+16. `RELEASE_CHECKLIST.md` — release metadata checklist.
+17. `../CHANGELOG.md` — version/snapshot changes.
 
 ## Snapshot interpretation
 
 Canaria is not presented as a production-ready compression library. It is an auditable research record centered on the empirical observation that learned computation can sometimes be simpler when represented as a composed task-conditioned function than when treated component-by-component.
 
+The static core phenomenon now has both:
+
+- original residual-CNN confirmatory composition evidence; and
+- a fresh direct SmallViT replication under a locked component-wise-versus-composed comparison.
+
 Later training-time experiments extend that observation: consolidation followed by task learning changes the ease and task-risk of later consolidation.
 
-The current snapshot is deliberately scoped to the tested settings. It does not require additional experiments to support its present wording.
+The current snapshot is deliberately scoped to the tested settings. No additional experiment is required to support its present wording.
 
 ## Evidence discipline
 
@@ -36,6 +42,27 @@ The current snapshot is deliberately scoped to the tested settings. It does not 
 - Small-model mechanistic results are not promoted to large-LLM universality claims.
 - Parameter reduction, serialized size, compiler-update cost, FLOPs, wall-clock time, memory, and energy are separate quantities.
 - A systems PoC result must not be generalized beyond the measured resource and environment.
+- The SmallViT replication strengthens architecture-family external validity but does not establish universal Transformer/LLM subadditivity.
+
+## Completed direct cross-family replication
+
+A fresh confirmatory Small Vision Transformer experiment fixed the central two-block span and compared:
+
+- component-wise replacement of the two source blocks separately;
+- direct replacement of their composed input-output map.
+
+Under the locked passing rule (`held-out span NMSE <= 0.12`, validation utility `>= 0.95`) across the first 8 fresh baseline-eligible seeds `>=9000`:
+
+- component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
+- composed minimum passing complexity: **4,904–5,424 params**;
+- mean composed/component-wise complexity ratio: **0.51988**;
+- seed-bootstrap95: **[0.50634, 0.53926]**;
+- composed smaller: **8/8**;
+- selected composed mean test utility: **0.97856**, test data not used for selection.
+
+Primary pre-registered decision: **PASS**.
+
+See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
 
 ## Completed portability closure
 
@@ -47,8 +74,6 @@ In the recorded environment, its complete output exactly matched the archived co
 
 See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
 
-This verifies software/data portability for one representative confirmatory pipeline. It is not counted as an additional independent scientific seed.
-
 ## Completed bounded runtime PoC
 
 The repository also contains a small CPU-only deployment proof of concept using the same G7 seed-4300 large and progressive compact models.
@@ -56,11 +81,9 @@ The repository also contains a small CPU-only deployment proof of concept using 
 Measured results:
 
 - serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- batch-128 CPU inference: **47.05 → 23.11 ms mean** across five fresh-process probes;
+- batch-128 CPU inference: **47.05 → 23.11 ms mean**;
 - load/materialize: **7.85 → 5.86 ms mean**, secondary because cache sensitivity was observed;
 - process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**.
-
-The compact artifact executes the learned 2-block representation directly rather than reconstructing the original 4-block model.
 
 See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
 
@@ -68,9 +91,9 @@ See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`
 
 The current scientific snapshot is **closed at its present claim scope**.
 
-- Issue #1 (portable reproduction) — completed.
-- Issue #3 (minimal runtime/materialization PoC) — completed.
-- Issue #2 (direct cross-family replication) — closed as `not planned` for v0.2.0 and retained only as a future-work design for a later stronger generalization/priority claim.
+- Issue #1 — portable reproduction: completed.
+- Issue #2 — direct cross-family compositional replication: completed.
+- Issue #3 — minimal runtime/materialization PoC: completed.
 
 No open experiment is required before freezing the current research record.
 
