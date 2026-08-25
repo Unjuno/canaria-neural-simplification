@@ -61,6 +61,7 @@ required = [
     ROOT / "results/training_time/protocol_manifest.json",
     ROOT / "results/training_time/late_stage_summary.json",
     ROOT / "results/training_time/ARTIFACT_INVENTORY.md",
+    ROOT / "results/reproduction/README.md",
     ROOT / "scripts/reproduce/g7_confirmatory/run_seed.py",
     ROOT / "scripts/reproduce/g7_confirmatory/README.md",
     ROOT / "scripts/reproduce/g7_confirmatory/requirements.txt",
