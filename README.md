@@ -6,7 +6,7 @@
 
 The repository preserves positive, negative, exploratory, and confirmatory evidence. It is currently in a **research consolidation / public-snapshot phase**: broad experiment expansion is paused, and new experiments should be added only when they close a concrete evidential gap.
 
-For the intended public reading order and snapshot policy, see [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md).
+For the intended public reading order and snapshot policy, see [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md). For release-level changes, see [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Core empirical finding
 
@@ -92,13 +92,15 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 1. [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) — reading order and snapshot policy.
 2. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — the central empirical discovery and its scope.
 3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — current supported/rejected/open claim registry.
-4. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
-5. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanism/controller results.
-6. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
-7. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — possible deployment and systems applications.
-8. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — evidence and reproduction policy.
-9. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — bounded closure work and handoff.
-10. [`STATUS.md`](STATUS.md) — current project state.
+4. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — claim hierarchy for papers, talks, and technical communication.
+5. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
+6. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanism/controller results.
+7. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
+8. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — possible deployment and systems applications.
+9. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — evidence and reproduction policy.
+10. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — bounded closure work and handoff.
+11. [`docs/HISTORICAL_INDEX.md`](docs/HISTORICAL_INDEX.md) — current versus historical document map.
+12. [`STATUS.md`](STATUS.md) — current project state.
 
 Machine-readable result summaries and protocol locks are under `results/`.
 
