@@ -4,7 +4,7 @@
 
 > Can trained neural computation sometimes be represented more simply when several learned computations are treated as one composed function rather than as separate implementation blocks?
 
-The repository preserves positive, negative, exploratory, confirmatory, reproduction, and bounded systems-PoC evidence. It is in a **research consolidation / public-snapshot phase**: broad experiment expansion is paused.
+The repository preserves positive, negative, exploratory, confirmatory, reproduction, and bounded systems-PoC evidence. It is a **release-ready public research snapshot** at its current claim scope; broad experiment expansion is stopped.
 
 See [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) for the intended reading order and snapshot policy.
 
@@ -20,11 +20,36 @@ In the tested settings:
 - a learned span could sometimes admit a smaller task-conditioned replacement even when component-wise simplification was poor;
 - whole-network accounting showed that measured local simplification was not merely hidden parameter relocation under the declared codecs.
 
-A direct fresh replication now tests the core phenomenon in a different architecture family: a Small Vision Transformer on sklearn digits. For a fixed central two-block span, the same locked task/fidelity criterion was applied to component-wise versus directly composed replacement. Across 8/8 fresh eligible seeds, the selected composed representation used **4,904–5,424 replacement parameters** versus **9,808** for component-wise treatment. The mean composed/component-wise complexity ratio was **0.5199**, seed-bootstrap 95% CI **[0.5063, 0.5393]**, while mean held-out test utility of the selected composed candidates was **0.9786**.
+### Direct replication 1 — Small Vision Transformer
 
-The project does **not** claim that mathematical or Kolmogorov complexity universally decreases under composition. The supported claim is operational: for some trained networks and task distributions, a composed input-output map admits a substantially smaller task-preserving representation than component-wise treatment suggests. The direct ViT replication strengthens this beyond the original residual-CNN architecture, but does not establish universal Transformer or LLM behavior.
+A fresh locked replication tested the core phenomenon in a SmallViT on sklearn digits. For a fixed central two-block span, component-wise versus directly composed replacement used the same task/fidelity rule.
 
-See [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) and [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md).
+Across 8/8 fresh eligible seeds, the selected composed representation used **4,904–5,424 replacement parameters** versus **9,808** for component-wise treatment. Mean composed/component-wise complexity ratio: **0.5199**, seed-bootstrap 95% CI **[0.5063, 0.5393]**. Mean held-out test utility of selected composed candidates: **0.9786**.
+
+See [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md).
+
+### Direct replication 2 — residual MLP
+
+A second locked fresh replication used a four-block residual MLP on sklearn digits and the first two residual blocks.
+
+At every budget grid point, component-wise and composed conditions had **exactly matched learned replacement-parameter counts**. Candidate selection used validation NMSE and validation accuracy only; the final test set was untouched until the minimum passing budget had been selected.
+
+Across fresh seeds `1200–1207`:
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed lower-budget: **8/8 seeds**;
+- mean `log2(B_composed/B_componentwise) = -1.0519`, bootstrap95 **[-1.2075,-0.8962]**;
+- geometric mean budget ratio: **0.4823×**;
+- test accuracy difference at validation-selected budgets, composed minus component-wise: **+0.583 percentage points**, bootstrap95 **[+0.306,+0.806] pt**.
+
+At a fixed 2048-parameter budget, a mechanistic control found span NMSE **0.1474** for local component-wise fitting, **0.0639** for the same two-module architecture jointly optimized on the composed span target, and **0.0533** for one composed module. Most of the gain therefore follows the **functional span objective/boundary**, not merely a one-module topology change.
+
+See [`docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md) and `results/core_discovery_digits/`.
+
+The project does **not** claim that mathematical or Kolmogorov complexity universally decreases under composition. The supported claim is operational: for some trained networks and task distributions, a composed input-output map admits a substantially smaller task-preserving representation than component-wise treatment suggests. The original residual-CNN result now has direct locked fresh replications in both a Small Vision Transformer and a residual MLP.
+
+See [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md).
 
 ## Dynamic extension: consolidation during learning
 
@@ -101,21 +126,22 @@ See [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) and [`results/reproduction/runt
 Within the tested small-model settings:
 
 1. learned computation can exhibit task-conditioned compositional simplification;
-2. a direct component-wise-versus-composed replication in a Small Vision Transformer found about **48% lower replacement complexity** for the composed span under locked task/fidelity criteria, with 8/8 fresh seeds favoring composition;
+2. the core component-wise-versus-composed effect has locked fresh direct replications in a Small Vision Transformer and a residual MLP;
 3. simplification is not a simple local Canary-threshold phenomenon;
-4. staged consolidation with intervening task learning can outperform direct contraction at the same final capacity;
-5. recontracting can make the next compiler easier to optimize while simultaneously increasing downstream sensitivity to residual error;
-6. task damage is better predicted by sensitivity-aware quantities than by representation error alone;
-7. remaining learning horizon changes expected post-commit damage;
-8. one representative confirmatory path is publicly reproducible without private local imports;
-9. one small CPU PoC demonstrates that a learned compact representation can be serialized, materialized, and executed directly without reconstructing the original larger model.
+4. the residual-MLP mechanistic control shows that much of the advantage follows the composed **functional objective/boundary**, even when the two-module topology is retained;
+5. staged consolidation with intervening task learning can outperform direct contraction at the same final capacity;
+6. recontracting can make the next compiler easier to optimize while simultaneously increasing downstream sensitivity to residual error;
+7. task damage is better predicted by sensitivity-aware quantities than by representation error alone;
+8. remaining learning horizon changes expected post-commit damage;
+9. one representative confirmatory path is publicly reproducible without private local imports;
+10. one small CPU PoC demonstrates that a learned compact representation can be serialized, materialized, and executed directly without reconstructing the original larger model.
 
 ## What is not established
 
 - universal simplification of arbitrary neural networks;
 - codec-independent Kolmogorov/MDL claims;
 - large-pretrained-LLM validity;
-- universal Transformer-span subadditivity;
+- task-universal or span-universal compositional subadditivity;
 - guaranteed FLOP, wall-clock, energy, RAM, or VRAM improvements;
 - universal GPU/runtime speedup;
 - a universally optimal autonomous controller;
@@ -135,18 +161,19 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 
 1. [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) — reading order and snapshot policy.
 2. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical discovery and scope.
-3. [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md) — direct SmallViT component-wise versus composed replication.
-4. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — supported/rejected/open claim registry.
-5. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
-6. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
-7. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanisms/controllers.
-8. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
-9. [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) — bounded systems result.
-10. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
-11. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — deployment directions and evidence status.
-12. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — reproduction policy.
-13. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — handoff and future work.
-14. [`STATUS.md`](STATUS.md) — current project state.
+3. [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md) — direct SmallViT replication.
+4. [`docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md) — second direct residual-MLP replication and functional-boundary control.
+5. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — supported/rejected/open claim registry.
+6. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
+7. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
+8. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanisms/controllers.
+9. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
+10. [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) — bounded systems result.
+11. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
+12. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — deployment directions and evidence status.
+13. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — reproduction policy.
+14. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — handoff and future work.
+15. [`STATUS.md`](STATUS.md) — current project state.
 
 ## Evidence classes
 
@@ -161,8 +188,8 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 
 - `src/canaria/` — cleaned reusable components from earlier phases.
 - `scripts/phases/` — provenance-preserving evidence scripts; some retain historical environment-specific paths.
-- `scripts/reproduce/` — portable reproduction and systems-PoC runners.
-- `scripts/replication/` — fresh direct replication runners for the core scientific phenomenon.
+- `scripts/reproduce/` — portable reproduction and systems-PoC runners, including the residual-MLP direct replication runner.
+- `scripts/replication/` — fresh direct replication runners such as the SmallViT core-discovery replication.
 - `results/` — machine-readable evidence, protocol locks, reproduction reports, replication results, and PoC reports.
 - `docs/history/` and `docs/phases/` — historical research record.
 - `archives/` — retained handoff/history material.
