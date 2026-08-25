@@ -1,0 +1,68 @@
+{
+  "poc": "G7 compact functional runtime materialization",
+  "date": "2026-08-25",
+  "status": "PASS_WITH_BOUNDARY",
+  "seed": 4300,
+  "format": "canaria-runtime-poc-v1",
+  "hardware": "CPU only",
+  "scope": "Small-model systems proof of concept; not a production runtime benchmark.",
+  "representation": "torch state_dict plus JSON manifest; the compact artifact executes the learned 2-block compiler natively and does not reconstruct the original 4-block model.",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+  },
+  "serialized_bytes_including_manifest": {
+    "large": 110093,
+    "compact": 54646,
+    "reduction_fraction": 0.5036378334680679
+  },
+  "params": {
+    "large": 23138,
+    "compact": 11042,
+    "reduction_fraction": 0.5227763851672573
+  },
+  "fresh_process_probe_n_each": 5,
+  "load_materialize_ms": {
+    "large_mean": 7.852954999907524,
+    "large_median": 7.125246000214247,
+    "large_stdev": 1.7518855983680766,
+    "compact_mean": 5.858026799796789,
+    "compact_median": 5.752555999606557,
+    "compact_stdev": 0.7124595002397286,
+    "mean_ratio_compact_over_large": 0.7459646464121815,
+    "median_ratio_compact_over_large": 0.8073484058562448
+  },
+  "cpu_inference_batch128_ms": {
+    "large_mean": 47.04550046000804,
+    "large_median": 46.742658499988465,
+    "large_stdev": 0.7634691520303152,
+    "compact_mean": 23.11309202999837,
+    "compact_median": 22.122664149992488,
+    "compact_stdev": 1.6747385234147356,
+    "mean_ratio_compact_over_large": 0.491292297966861,
+    "median_ratio_compact_over_large": 0.4732863910596345
+  },
+  "rss_delta_bytes": {
+    "large_mean": 4718592,
+    "large_median": 4730880,
+    "compact_mean": 4558848,
+    "compact_median": 4558848,
+    "mean_ratio_compact_over_large": 0.9661458333333334
+  },
+  "test_ppl": {
+    "large": 19.278388330876,
+    "compact": 18.932213342799887,
+    "compact_minus_large": -0.34617498807611113
+  },
+  "interpretation": {
+    "storage_distribution": "Supported in this PoC: serialized artifact plus manifest was about 50.36% smaller.",
+    "cpu_execution": "Supported in this PoC: mean batch-128 CPU inference time was about 49.1% of the large model.",
+    "materialization_latency": "Observed lower on the five-process benchmark, but cache/filesystem sensitivity was visible in auxiliary runs, so this remains a secondary result rather than a general claim.",
+    "host_ram": "Not meaningfully demonstrated: process RSS delta was about 96.6% of the large model despite the smaller parameter state.",
+    "generalization": "Not established beyond this one CPU, small model, and seed 4300."
+  }
+}
