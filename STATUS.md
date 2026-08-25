@@ -2,15 +2,18 @@
 
 **2026-08-25: release-ready, scientifically closed public snapshot at the current claim scope.**
 
-Broad experiment expansion is stopped for this snapshot. The representative public reproduction and bounded runtime/materialization PoC are complete, the repository audit passes on `main`, and **no additional experiment is required for the present scoped claims**.
-
-Future cross-family replication remains scientifically valuable, but it is now explicitly future work rather than unfinished closure work. GitHub Issue #2 was closed as `not planned` for v0.2.0 and can be reopened only if a later publication deliberately pursues a stronger external-validity or priority claim.
+Broad experiment expansion is stopped for this snapshot. The representative public reproduction, bounded runtime/materialization PoC, and direct cross-family replication of the core compositional-simplification phenomenon are complete. **No additional experiment is required for the present scoped claims.**
 
 ## Current project-level thesis
 
 The central result is **task-conditioned compositional simplification of learned neural computation**:
 
 > implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially simpler task-preserving representation when treated as one composed input-output function.
+
+The static phenomenon is now supported by both:
+
+- the original residual-CNN confirmatory composition evidence; and
+- a fresh Small Vision Transformer component-wise-versus-composed replication.
 
 The dynamic extension is:
 
@@ -22,7 +25,8 @@ Intervening task learning after a structural consolidation changes the subsequen
 
 ### Confirmed
 
-- historical composition subadditivity in the original confirmatory setting;
+- original composition subadditivity (`P(G>0)=0.7107`, 95% CI `0.6128–0.8137`) under the declared grammar;
+- direct SmallViT replication: composed/component-wise minimum passing replacement-complexity ratio **0.5199**, paired bootstrap95 **[0.5063, 0.5393]**, composed smaller in **8/8 fresh seeds**, selected composed mean test utility **0.9786**;
 - whole-network reductions under declared codecs, including an exact 9,926-byte residual-CNN endpoint;
 - training-time staged consolidation (G7);
 - function-aligned transfer requirement (G8);
@@ -46,12 +50,41 @@ Intervening task learning after a structural consolidation changes the subsequen
 - A hard task-damage veto (G21) can prevent final contraction and increase compiler cost.
 - A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
 - Unlimited recursive collapse is not supported by the current grammar.
+- The SmallViT replication does not imply universal Transformer/LLM subadditivity.
+
+## Cross-family core-discovery replication — complete
+
+A fresh confirmatory SmallViT experiment compared the same fixed two-block span under a common replacement grammar:
+
+- **component-wise:** simplify each Transformer block separately;
+- **composed:** fit the two-block input-output map directly.
+
+Locked passing rule:
+
+- training-held-out span NMSE `<= 0.12`;
+- validation utility `>= 0.95`.
+
+First 8 fresh baseline-eligible seeds `>=9000` were used; exploratory 8900-series seeds were excluded and test data were not used for candidate selection.
+
+Result:
+
+- component-wise minimum passing complexity: **9,808 params** in all 8 seeds;
+- composed minimum passing complexity: **4,904–5,424 params**;
+- mean ratio: **0.51988**;
+- paired bootstrap95: **[0.50634, 0.53926]**;
+- composed smaller: **8/8**;
+- composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
+- compiler updates: **640 component-wise vs 320 composed**.
+
+Primary decision: **PASS**.
+
+See `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
 
 ## Reproducibility closure — complete
 
 A portable public runner reproduces **G7 fresh confirmatory seed 4300** without private `/mnt/data` imports.
 
-On the recorded environment (Python 3.13.5, PyTorch 2.10.0+cpu, NumPy 2.3.5, scikit-learn 1.8.0), the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
+In the recorded environment, the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
@@ -61,54 +94,43 @@ This is software/reproducibility evidence for an already-confirmatory seed, not 
 
 ## Runtime/materialization PoC — complete at small-model scope
 
-A minimal CPU-only systems PoC serializes and materializes the G7 seed-4300 large model and progressive compact model as `state_dict + manifest` artifacts.
-
-Recorded result:
+Recorded G7 seed-4300 CPU-only PoC:
 
 - serialized artifact + manifest: **110,093 → 54,646 bytes** (**−50.36%**);
 - parameters: **23,138 → 11,042** (**−52.28%**);
-- CPU batch-128 inference, five fresh-process probes: **47.05 → 23.11 ms mean** (compact/large **0.491×**);
-- load/materialize: **7.85 → 5.86 ms mean**, but cache sensitivity was observed, so this is secondary;
-- process RSS delta: **4.72 → 4.56 MB** (compact/large **0.966×**), so meaningful host-RAM reduction was **not demonstrated**;
+- CPU batch-128 inference: **47.05 → 23.11 ms mean**;
+- load/materialize: **7.85 → 5.86 ms mean**, secondary due cache sensitivity;
+- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
 - test PPL: **19.2784 large vs 18.9322 compact**.
 
-The compact artifact executes the learned 2-block representation directly and does not reconstruct the original 4-block model.
-
-See `docs/RUNTIME_POC.md`, `scripts/reproduce/g7_confirmatory/runtime_poc.py`, and `results/reproduction/runtime_poc_seed4300_report.json`.
-
-This is a bounded small-model CPU PoC, not evidence of universal GPU/LLM/runtime speedup.
+See `docs/RUNTIME_POC.md`.
 
 ## Release state
 
-Repository-level scientific closure is complete at the current claim scope:
+All three bounded closure tasks are complete:
 
-- current public/historical documentation is separated;
-- machine-readable late-stage evidence is indexed;
-- G21 failure and other negative results are preserved;
-- exact public reproduction is retained and audit-checked;
-- runtime-PoC storage/CPU result and RAM/generalization boundaries are audit-checked;
-- GitHub Issues #1 and #3 are closed as completed;
-- GitHub Issue #2 is closed as `not planned` for this snapshot and retained as future-work design;
-- `docs/RELEASE_CHECKLIST.md` records only optional/manual GitHub-UI release metadata steps.
+1. representative clean-repository reproduction — complete;
+2. direct cross-family replication of compositional simplification — complete;
+3. minimal runtime/materialization PoC — complete.
+
+The repository should now be treated as a **frozen public research snapshot** at its current claim scope. Future work should start as a new issue/research phase rather than extending the old G-number mainline.
 
 ## Future research, not current closure work
 
 Possible future projects include:
 
-- direct cross-family replication of component-wise versus composed-span simplification;
-- large pretrained Transformer/LLM external validity;
+- larger pretrained Transformer/LLM external validity;
+- replication across additional tasks/spans/replacement grammars;
 - codec-independent complexity/MDL;
 - hardware-specific functional IR/JIT execution;
 - larger-scale RAM/VRAM/energy/runtime benchmarks;
 - stronger cost-aware autonomous control.
 
-These should begin as new research issues/phases rather than silently extending the current G-number mainline.
-
 ## Current public documentation
 
-- `docs/README.md`
 - `docs/PUBLIC_SNAPSHOT.md`
 - `docs/CORE_DISCOVERY.md`
+- `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`
 - `docs/CLAIMS_AND_EVIDENCE.md`
 - `docs/PUBLICATION_NOTES.md`
 - `docs/TRAINING_TIME_CONSOLIDATION.md`
