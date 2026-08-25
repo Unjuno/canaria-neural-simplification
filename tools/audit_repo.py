@@ -57,6 +57,7 @@ required = [
     ROOT / "docs/OPEN_QUESTIONS.md",
     ROOT / "docs/REPRODUCIBILITY.md",
     ROOT / "docs/ROADMAP.md",
+    ROOT / "docs/RELEASE_CHECKLIST.md",
     ROOT / "results/phaseA_v11/stage3_confirmatory_summary.json",
     ROOT / "results/training_time/summary.json",
     ROOT / "results/training_time/protocol_manifest.json",
