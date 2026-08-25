@@ -13,19 +13,21 @@ This checklist is for freezing the current repository as a public research snaps
 - [x] `docs/README.md` and `HISTORICAL_INDEX.md` separate current from frozen historical material.
 - [x] Repository audit enforces public-snapshot invariants.
 - [x] GitHub Issues #1 and #3 closed as completed.
-- [ ] Decide whether Issue #2 is needed for the intended publication-level novelty/generalization claim.
+- [x] Issue #2 classified as optional future work rather than a blocker for the current scoped claim.
 
-## Optional scientific closure
+## Scientific closure decision
 
-Issue #2 is the only remaining optional closure item:
+The current snapshot deliberately keeps the scientific claim scoped to the tested settings:
 
-> directly replicate **component-wise vs composed-span simplification** on one clearly different architecture/task under matched budgets and fresh seeds.
+> Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation under declared task distributions, replacement grammars, and accounting rules.
 
-Run it only if the public claim is strengthened beyond the current scoped wording. It is not required to preserve the present snapshot.
+A direct replication of component-wise versus composed-span simplification on a clearly different architecture/task would strengthen a future cross-family generalization or priority claim, but it is **not required** for the present snapshot wording.
+
+GitHub Issue #2 is therefore future work, not unfinished closure work for v0.2.0.
 
 ## Suggested GitHub UI metadata
 
-The connected automation currently does not expose repository-description or tag/release creation, so these are manual UI actions if desired.
+The connected automation currently does not expose repository-description or tag/release creation, so these remain manual UI actions if desired.
 
 Suggested repository description:
 
@@ -49,7 +51,7 @@ Suggested release summary:
 2. Optionally run the manual `reproduce-g7.yml` workflow.
 3. Optionally run the manual `runtime-poc.yml` workflow.
 4. Read `PUBLICATION_NOTES.md` and ensure release text uses the same claim hierarchy.
-5. Keep Issue #2 open if external replication is future work; close it as `not planned` only if intentionally freezing the current claim scope.
+5. Keep future cross-family replication separate from the frozen current snapshot; reopen/new-issue it only if a later publication requires stronger external-validity language.
 
 ## Citation
 
