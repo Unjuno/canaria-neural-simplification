@@ -1,0 +1,19 @@
+{
+  "decision": "PASS",
+  "n": 8,
+  "per_matrix": {
+    "sep_pass": 0,
+    "comp_pass": 2,
+    "sep_nmse_mean": 0.11610336408957786,
+    "comp_nmse_mean": 0.09018909348815893
+  },
+  "rowwise": {
+    "sep_pass": 7,
+    "comp_pass": 7,
+    "sep_nmse_mean": 0.060007499405858374,
+    "comp_nmse_mean": 0.04959594908118636,
+    "sep_code_bits": 53248,
+    "comp_code_bits": 52224
+  },
+  "interpretation": "At 3 bits and 16384 weights, row-wise scale granularity rescues functional fidelity in 7/8 seeds for both conditions; per-matrix scaling does not. Precision failure is quantizer-granularity dependent, not a simple weight-count limit."
+}
