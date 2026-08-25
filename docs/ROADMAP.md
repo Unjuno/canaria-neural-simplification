@@ -6,26 +6,33 @@ The earlier cross-architecture roadmap is preserved in `GENERALIZATION_ROADMAP.m
 
 ## What would justify a new experiment now
 
-A new experiment should close one of three concrete gaps:
+A new experiment should close one of two remaining conditional gaps:
 
-1. **Public-claim closure** — a direct replication needed to support a claim we intend to make prominently.
-2. **Reproducibility closure** — a clean-repository run needed so a third party can reproduce a representative result.
-3. **Deployment closure** — a minimal systems proof-of-concept needed before claiming a practical application.
+1. **Public-claim closure** — a direct replication needed to support a stronger generalization/novelty claim we intend to make prominently.
+2. **Deployment closure** — a minimal systems proof-of-concept needed before claiming a practical runtime/application benefit.
 
 If an experiment does not satisfy one of those criteria, record it under `OPEN_QUESTIONS.md` rather than extending the active mainline.
 
-## Priority 1 — clean-repository reproduction
+## Completed closure — clean-repository reproduction
 
-Goal: from a clean clone and documented dependencies, run at least one representative confirmatory pipeline without private `/mnt/data` assumptions.
+A portable runner now reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` assumptions.
 
-Preferred targets:
+The current public reproduction uses only scikit-learn's packaged dataset-description text as source material and preserves the historical model, data-window generation, seeds, minibatch order, optimizer schedule, compiler budgets, and metrics.
 
-- one original compositional-simplification result; or
-- one training-time staged-vs-direct result.
+In the recorded environment, the generated JSON exactly matched the archived confirmatory seed output, including SHA256:
 
-Success means the public repository contains all required code/data-generation instructions and reproduces the qualitative/registered endpoint. Bitwise reproduction is not required for the oldest historical phases unless the environment is fully specified.
+`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
-## Priority 2 — direct replication of the core discovery
+Public artifacts:
+
+- `scripts/reproduce/g7_confirmatory/run_seed.py`
+- `scripts/reproduce/g7_confirmatory/README.md`
+- `results/reproduction/g7_seed4300_report.json`
+- `.github/workflows/reproduce-g7.yml`
+
+This closes the repository-portability gap for one representative confirmatory pipeline. It does not constitute a new independent scientific replication because seed 4300 belongs to the original G7 confirmatory cohort.
+
+## Conditional priority 1 — direct replication of the core discovery
 
 Only if a publication-level novelty/generalization claim requires it, run one clearly different architecture/task that directly tests:
 
@@ -42,7 +49,9 @@ A useful confirmatory design should predefine:
 - fresh seed policy;
 - paired decision rule.
 
-## Priority 3 — minimal runtime-compilation proof-of-concept
+Tracked in GitHub Issue #2.
+
+## Conditional priority 2 — minimal runtime-compilation proof-of-concept
 
 Only if deployment claims are to be made, build one small end-to-end demonstration:
 
@@ -63,6 +72,8 @@ Measure at minimum:
 
 A negative result is acceptable. The goal is to separate storage/distribution benefit from runtime-memory or execution-speed benefit.
 
+Tracked in GitHub Issue #3.
+
 ## Handoff topics for future researchers
 
 These remain interesting but are not required to close the current project:
@@ -80,4 +91,6 @@ See `OPEN_QUESTIONS.md` for the bounded handoff list.
 
 ## Stopping rule
 
-After the public repository passes its integrity checks and any chosen closure experiment is documented, treat Canaria as a **research snapshot**. New work should start from explicit issues/questions rather than an indefinitely extending G-number sequence.
+The repository now has a public-snapshot reading order, automated integrity checks, negative-result preservation, and one portable exact confirmatory reproduction. Treat Canaria as a **research snapshot** unless one of the two conditional public-claim tasks above is deliberately pursued.
+
+New work should start from explicit issues/questions rather than an indefinitely extending G-number sequence.
