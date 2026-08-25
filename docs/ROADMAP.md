@@ -6,20 +6,9 @@ The earlier cross-architecture roadmap is preserved in `GENERALIZATION_ROADMAP.m
 
 ## Completed closure — clean-repository reproduction
 
-A portable runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` assumptions.
-
-The generated JSON exactly matched the archived confirmatory seed output in the recorded environment, including SHA256:
+A portable runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` assumptions. The generated JSON exactly matched the archived confirmatory seed output in the recorded environment, including SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
-
-Public artifacts:
-
-- `scripts/reproduce/g7_confirmatory/run_seed.py`
-- `scripts/reproduce/g7_confirmatory/README.md`
-- `results/reproduction/g7_seed4300_report.json`
-- `.github/workflows/reproduce-g7.yml`
-
-This closes the repository-portability gap for one representative confirmatory pipeline. It is not a new independent scientific replication.
 
 ## Completed closure — minimal runtime materialization PoC
 
@@ -36,45 +25,48 @@ For G7 seed 4300:
 
 - serialized artifact + manifest: **110,093 → 54,646 bytes** (**−50.36%**);
 - parameters: **23,138 → 11,042** (**−52.28%**);
-- mean CPU batch-128 inference across five fresh processes: **47.05 → 23.11 ms** (compact/large **0.491×**);
-- mean load/materialize: **7.85 → 5.86 ms**, but cache sensitivity makes this secondary;
-- RSS delta: **4.72 → 4.56 MB** (compact/large **0.966×**), so meaningful host-RAM reduction was **not demonstrated**.
+- mean CPU batch-128 inference: **47.05 → 23.11 ms**;
+- RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was not demonstrated.
 
-The compact artifact executes the learned 2-block compiler directly rather than rebuilding the original 4-block model.
+## Completed closure — direct cross-family replication of the core discovery
 
-Public artifacts:
+A fresh confirmatory SmallViT experiment directly compared component-wise versus composed replacement of the same fixed two-block span.
 
-- `docs/RUNTIME_POC.md`
-- `scripts/reproduce/g7_confirmatory/runtime_poc.py`
-- `results/reproduction/runtime_poc_seed4300_report.json`
-- `.github/workflows/runtime-poc.yml`
+Locked passing criterion:
 
-This closes the minimal deployment-PoC task at a small-model CPU scope. It does not establish GPU, LLM, or universal runtime benefits.
+- training-held-out span NMSE `<= 0.12`;
+- validation utility `>= 0.95`.
 
-## Future research — direct replication of the core discovery
+Fresh eligible seeds:
 
-A future publication seeking stronger cross-family generalization or novelty/priority language could directly test:
+`9000, 9003, 9004, 9007, 9008, 9009, 9010, 9011`
 
-> component-wise simplification versus composed-span simplification under matched fidelity/utility and complexity accounting on a clearly different architecture/task.
+Result:
 
-This is **future work**, not a v0.2.0 closure requirement. The previous GitHub Issue #2 has been closed as `not planned` for the current snapshot; reopen it or start a new research-phase issue only if the stronger claim is deliberately pursued.
+- component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
+- composed minimum passing complexity: **4,904–5,424 params**;
+- mean composed/component-wise ratio: **0.51988**;
+- paired bootstrap95: **[0.50634, 0.53926]**;
+- composed smaller: **8/8 seeds**;
+- selected composed mean test utility: **0.97856**;
+- compiler updates: **640 component-wise vs 320 composed**.
 
-A useful future confirmatory design should predefine:
+Primary pre-registered decision: **PASS**.
 
-- component and composed spans;
-- replacement grammar/budget;
-- task-utility criterion;
-- complexity measure(s);
-- fresh seed policy;
-- paired decision rule;
-- whole-network relocation/accounting where relevant;
-- negative-result retention.
+See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
 
-## Other handoff topics
+## Current stopping rule
 
-These remain interesting but are not required to close the current project:
+All bounded closure tasks for this public snapshot are complete. Canaria should now be treated as a **frozen research snapshot** at the current claim scope.
 
-- large pretrained Transformer/LLM external validity;
+Do not continue the old G-number sequence by default. New scientific work should start from a new issue/research phase with its own claim, protocol, and stopping rule.
+
+## Future research topics
+
+These remain scientifically interesting but are not required for closure:
+
+- larger pretrained Transformer/LLM external validity;
+- replication on additional tasks, spans, and replacement grammars;
 - codec-independent complexity/MDL;
 - off-manifold functional complexity;
 - stronger null models and known-complexity synthetic teachers;
@@ -84,10 +76,4 @@ These remain interesting but are not required to close the current project:
 - hardware-specific functional IR and JIT execution beyond the minimal PoC;
 - larger-scale memory/energy/runtime benchmarking.
 
-See `OPEN_QUESTIONS.md` for the bounded handoff list.
-
-## Stopping rule
-
-The repository now has a public-snapshot reading order, automated integrity checks, negative-result preservation, one portable exact confirmatory reproduction, and one reproducible small-model runtime materialization PoC.
-
-Treat Canaria v0.2.0 as a **frozen research snapshot** at its current claim scope. Future scientific work should start from a new issue/question or new research phase rather than extending the old mainline in place.
+See `OPEN_QUESTIONS.md` for the handoff list.
