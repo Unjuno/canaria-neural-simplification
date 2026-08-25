@@ -31,6 +31,9 @@ Added or substantially revised:
 - `docs/PUBLIC_SNAPSHOT.md`
 - `docs/CORE_DISCOVERY.md`
 - `docs/CLAIMS_AND_EVIDENCE.md`
+- `docs/PUBLICATION_NOTES.md`
+- `docs/TERMINOLOGY.md`
+- `docs/FAQ.md`
 - `docs/LATE_STAGE_FINDINGS.md`
 - `docs/NEGATIVE_RESULTS.md`
 - `docs/APPLICATIONS.md`
@@ -40,23 +43,31 @@ Added or substantially revised:
 - `results/training_time/late_stage_summary.json`
 - `results/training_time/ARTIFACT_INVENTORY.md`
 
+### Reproducibility closure
+
+- Added `scripts/reproduce/g7_confirmatory/run_seed.py`, a self-contained public runner for G7 fresh confirmatory seed 4300 with no private `/mnt/data` imports.
+- Added `results/reproduction/g7_seed4300_report.json`.
+- The portable run reproduced the archived confirmatory JSON exactly in the recorded environment, with matching SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
+- Added `.github/workflows/reproduce-g7.yml` as a manual exact-reproduction workflow.
+- Updated snapshot/status/roadmap documentation to mark representative clean-repository reproduction as complete.
+
 ### Public handoff
 
 - Broad experiment expansion is paused.
-- Closure work is limited to reproducibility, one direct external replication if needed for a public claim, and one runtime-compilation proof-of-concept if deployment claims are pursued.
-- Created narrow GitHub Issues for those closure tasks.
+- Remaining closure work is conditional: one direct external replication only if a stronger generalization/novelty claim is pursued, and one runtime-compilation proof-of-concept only if deployment claims are pursued.
+- Created narrow GitHub Issues for those conditional tasks.
 - Historical plans/results remain preserved rather than rewritten to match the later theory.
 
 ### Integrity
 
-- Upgraded `tools/audit_repo.py` to require current public-snapshot documents and late-stage evidence.
-- Added semantic checks that G18–G26 remain indexed and G21 remains recorded as a failure.
+- Upgraded `tools/audit_repo.py` to require current public-snapshot documents, late-stage evidence, G7 portable reproduction artifacts, and preservation of the G21 failure.
 - Repository CI runs the audit and reusable unit tests.
+- Added research-integrity issue/PR templates.
 - Package/citation metadata advanced to `0.2.0`.
 
 ### Known limitations
 
-- A fully independent clean-clone reproduction of a representative confirmatory pipeline remains an explicit closure task.
+- The exact G7 portability reproduction validates one already-confirmatory seed; it is not a new independent scientific replication.
 - Some late-stage raw protocol/result artifacts are indexed by retained SHA256 rather than duplicated as separate repository files; see `results/training_time/ARTIFACT_INVENTORY.md`.
 - Runtime-compilation, memory, latency, and energy benefits remain engineering hypotheses until benchmarked directly.
 
