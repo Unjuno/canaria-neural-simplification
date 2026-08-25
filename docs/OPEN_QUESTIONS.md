@@ -10,36 +10,36 @@ The purpose of this file is to leave bounded questions that another researcher c
 
 A portable public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 
-See `scripts/reproduce/g7_confirmatory/README.md`, `results/reproduction/g7_seed4300_report.json`, and `REPRODUCIBILITY.md`.
-
-This is a software/data portability result for an already-confirmatory seed, not a new independent scientific replication.
-
 ### Minimal runtime/materialization proof of concept
 
-A bounded CPU-only PoC now serializes, materializes, and directly executes the G7 seed-4300 compact learned representation without reconstructing the original 4-block model.
+A bounded CPU-only PoC serializes, materializes, and directly executes the G7 seed-4300 compact learned representation without reconstructing the original 4-block model.
 
 Headline result:
 
 - serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- batch-128 CPU inference: **47.05 → 23.11 ms mean** across five fresh-process probes;
+- batch-128 CPU inference: **47.05 → 23.11 ms mean**;
 - meaningful host-RAM reduction was **not demonstrated** (`4.72 → 4.56 MB` RSS delta).
 
-See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+### Direct cross-family replication of compositional simplification
 
-## Optional future replication
+A fresh confirmatory SmallViT experiment directly compared component-wise versus composed treatment of the same fixed central two-block span under a common replacement grammar and locked task/fidelity rule.
 
-### Direct compositional-simplification replication on a clearly different family
+Result across 8 fresh eligible seeds:
 
-This is **not required** for the current scoped public claim. It becomes useful only if a future paper/report wants a stronger cross-family generalization or novelty/priority statement.
+- component-wise minimum passing complexity: **9,808 replacement params**;
+- composed minimum passing complexity: **4,904–5,424 params**;
+- mean complexity ratio: **0.51988**;
+- paired bootstrap95: **[0.50634, 0.53926]**;
+- composed smaller: **8/8**;
+- selected composed mean test utility: **0.97856**.
 
-A future confirmatory design should compare component-wise simplification with composed-span simplification under matched replacement/optimization budget, task-utility criterion, complexity accounting, and fresh seeds.
-
-The previous GitHub Issue #2 records the intended design. For the current snapshot it should be treated as future work, not unfinished closure work.
+This closes the optional direct cross-family replication design previously recorded in GitHub Issue #2.
 
 ## Scientific questions left for future researchers
 
 - Grammar-independent description complexity.
-- Large pretrained Transformer/LLM external validity.
+- Larger pretrained Transformer/LLM external validity.
+- Replication across additional tasks, spans, widths, and replacement grammars.
 - Automatic detection of useful functional boundaries.
 - Why recontracting reduces later compiler optimization cost.
 - Why downstream task sensitivity can rise at the same time.
@@ -49,7 +49,6 @@ The previous GitHub Issue #2 records the intended design. For the current snapsh
 - Stronger null models and synthetic teachers with known complexity.
 - Stable recursive complexity floors/fixed points.
 - Functional IRs and hardware-specific JIT/runtime compilation beyond the current small CPU PoC.
-- Direct cross-family replication of the core compositional-simplification phenomenon if stronger external-validity language is desired.
 
 ## Questions that are not open in the tested settings
 
@@ -60,5 +59,6 @@ The previous GitHub Issue #2 records the intended design. For the current snapsh
 - The same normalized functional-error threshold is not equally task-safe before and after recontracting.
 - A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
 - The current runtime PoC does not demonstrate meaningful host-RAM reduction.
+- The SmallViT replication does not establish universal Transformer or LLM compositional subadditivity.
 
-Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
+Before starting new work, read `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
