@@ -32,7 +32,7 @@ Public documentation now incorporates the G7–G27 program, including:
 - The portable run reproduced the archived confirmatory JSON exactly in the recorded environment, with matching SHA256:
   `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 - Added `.github/workflows/reproduce-g7.yml` as a manual exact-reproduction workflow.
-- Closed GitHub Issue #1.
+- Closed GitHub Issue #1 as completed.
 
 ### Runtime/materialization proof of concept
 
@@ -46,7 +46,7 @@ Public documentation now incorporates the G7–G27 program, including:
   - load/materialize decreased **7.85 → 5.86 ms mean**, but cache sensitivity makes this secondary evidence;
   - process RSS delta changed only **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
   - the compact 2-block learned representation executes directly and does not reconstruct the original 4-block model.
-- Closed GitHub Issue #3.
+- Closed GitHub Issue #3 as completed.
 
 ### Evidence organization
 
@@ -66,20 +66,24 @@ Added or substantially revised:
 - `docs/ROADMAP.md`
 - `docs/OPEN_QUESTIONS.md`
 - `docs/HISTORICAL_INDEX.md`
+- `docs/RELEASE_CHECKLIST.md`
 - `results/training_time/late_stage_summary.json`
 - `results/training_time/ARTIFACT_INVENTORY.md`
 
-### Public handoff
+### Public handoff and scientific closure
 
-- Broad experiment expansion is paused.
+- Broad experiment expansion for v0.2.0 is stopped.
 - Representative clean-repository reproduction and the bounded runtime PoC are complete.
-- The only remaining optional closure item is GitHub Issue #2: direct replication of the **core compositional-simplification phenomenon** on a clearly different architecture/task, only if a stronger publication-level generalization/novelty claim is pursued.
+- GitHub Issue #2 (direct cross-family replication of the core compositional-simplification phenomenon) was closed as `not planned` for this snapshot because the current public claim remains explicitly scoped to the tested settings.
+- The Issue #2 design remains documented future work for any later publication that seeks stronger cross-family generalization or novelty/priority language.
+- No additional experiment is required to freeze the current scientific claim scope.
 - Historical plans/results remain preserved rather than rewritten to fit the later theory.
 
 ### Integrity
 
 - Upgraded `tools/audit_repo.py` to require current public-snapshot documents, late-stage evidence, portable reproduction artifacts, and runtime-PoC artifacts.
 - Added semantic checks preserving the G21 failure and reproduction/PoC interpretation boundaries.
+- Added public-Markdown link checks and guards against reintroducing private `/mnt/data` dependencies in portable runners.
 - Repository CI runs the audit and reusable unit tests.
 - Added research-integrity issue/PR templates.
 - Package/citation metadata advanced to `0.2.0`.
@@ -89,6 +93,7 @@ Added or substantially revised:
 - The exact G7 portability reproduction validates one already-confirmatory seed; it is not a new independent scientific replication.
 - The runtime PoC is small-model and CPU-only; it does not establish GPU, LLM, energy, peak-RAM, or universal runtime benefits.
 - Some late-stage raw protocol/result artifacts are indexed by retained SHA256 rather than duplicated as separate repository files; see `results/training_time/ARTIFACT_INVENTORY.md`.
+- Direct cross-family replication of the core discovery remains future work if stronger external-validity language is desired.
 
 ## 0.1.0 — 2026-08-24 — training-time mainline snapshot
 
