@@ -30,18 +30,11 @@ For G7 seed 4300:
 
 ## Completed closure — direct cross-family replication of the core discovery
 
-A fresh confirmatory SmallViT experiment directly compared component-wise versus composed replacement of the same fixed two-block span.
+The core component-wise-versus-composed effect now has two direct fresh architecture-family replications beyond the original residual-CNN program.
 
-Locked passing criterion:
+### Small Vision Transformer
 
-- training-held-out span NMSE `<= 0.12`;
-- validation utility `>= 0.95`.
-
-Fresh eligible seeds:
-
-`9000, 9003, 9004, 9007, 9008, 9009, 9010, 9011`
-
-Result:
+Fresh confirmatory result:
 
 - component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
 - composed minimum passing complexity: **4,904–5,424 params**;
@@ -51,9 +44,25 @@ Result:
 - selected composed mean test utility: **0.97856**;
 - compiler updates: **640 component-wise vs 320 composed**.
 
-Primary pre-registered decision: **PASS**.
-
 See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
+
+### Residual MLP
+
+A second fresh confirmatory experiment on a four-block residual MLP used exact learned-parameter-budget matching between component-wise and composed replacement.
+
+Fresh seeds `1200–1207`:
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed lower-budget: **8/8 seeds**;
+- mean `log2(B_composed/B_componentwise) = -1.0519`;
+- bootstrap95 **[-1.2075,-0.8962]**;
+- geometric mean budget ratio **0.4823×**;
+- untouched-test accuracy difference at validation-selected budgets: **+0.583 pt**, bootstrap95 **[+0.306,+0.806] pt**.
+
+At fixed 2048 params, local component-wise span NMSE was **0.1474**, the same two-module architecture jointly optimized on the span target reached **0.0639**, and one composed module reached **0.0533**. This indicates that much of the effect follows the composed **functional objective/boundary** rather than only the one-module topology.
+
+See `CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
 
 ## Current stopping rule
 
@@ -66,7 +75,8 @@ Do not continue the old G-number sequence by default. New scientific work should
 These remain scientifically interesting but are not required for closure:
 
 - larger pretrained Transformer/LLM external validity;
-- replication on additional tasks, spans, and replacement grammars;
+- replication on additional **task types** rather than only additional architecture families;
+- additional spans, widths, and replacement grammars;
 - codec-independent complexity/MDL;
 - off-manifold functional complexity;
 - stronger null models and known-complexity synthetic teachers;
