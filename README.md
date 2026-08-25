@@ -20,9 +20,11 @@ In the tested settings:
 - a learned span could sometimes admit a smaller task-conditioned replacement even when component-wise simplification was poor;
 - whole-network accounting showed that measured local simplification was not merely hidden parameter relocation under the declared codecs.
 
-The project does **not** claim that mathematical or Kolmogorov complexity universally decreases under composition. The supported claim is operational: for some trained networks and task distributions, a composed input-output map admits a substantially smaller task-preserving representation than component-wise treatment suggests.
+A direct fresh replication now tests the core phenomenon in a different architecture family: a Small Vision Transformer on sklearn digits. For a fixed central two-block span, the same locked task/fidelity criterion was applied to component-wise versus directly composed replacement. Across 8/8 fresh eligible seeds, the selected composed representation used **4,904–5,424 replacement parameters** versus **9,808** for component-wise treatment. The mean composed/component-wise complexity ratio was **0.5199**, seed-bootstrap 95% CI **[0.5063, 0.5393]**, while mean held-out test utility of the selected composed candidates was **0.9786**.
 
-See [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md).
+The project does **not** claim that mathematical or Kolmogorov complexity universally decreases under composition. The supported claim is operational: for some trained networks and task distributions, a composed input-output map admits a substantially smaller task-preserving representation than component-wise treatment suggests. The direct ViT replication strengthens this beyond the original residual-CNN architecture, but does not establish universal Transformer or LLM behavior.
+
+See [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) and [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md).
 
 ## Dynamic extension: consolidation during learning
 
@@ -99,19 +101,21 @@ See [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) and [`results/reproduction/runt
 Within the tested small-model settings:
 
 1. learned computation can exhibit task-conditioned compositional simplification;
-2. simplification is not a simple local Canary-threshold phenomenon;
-3. staged consolidation with intervening task learning can outperform direct contraction at the same final capacity;
-4. recontracting can make the next compiler easier to optimize while simultaneously increasing downstream sensitivity to residual error;
-5. task damage is better predicted by sensitivity-aware quantities than by representation error alone;
-6. remaining learning horizon changes expected post-commit damage;
-7. one representative confirmatory path is publicly reproducible without private local imports;
-8. one small CPU PoC demonstrates that a learned compact representation can be serialized, materialized, and executed directly without reconstructing the original larger model.
+2. a direct component-wise-versus-composed replication in a Small Vision Transformer found about **48% lower replacement complexity** for the composed span under locked task/fidelity criteria, with 8/8 fresh seeds favoring composition;
+3. simplification is not a simple local Canary-threshold phenomenon;
+4. staged consolidation with intervening task learning can outperform direct contraction at the same final capacity;
+5. recontracting can make the next compiler easier to optimize while simultaneously increasing downstream sensitivity to residual error;
+6. task damage is better predicted by sensitivity-aware quantities than by representation error alone;
+7. remaining learning horizon changes expected post-commit damage;
+8. one representative confirmatory path is publicly reproducible without private local imports;
+9. one small CPU PoC demonstrates that a learned compact representation can be serialized, materialized, and executed directly without reconstructing the original larger model.
 
 ## What is not established
 
 - universal simplification of arbitrary neural networks;
 - codec-independent Kolmogorov/MDL claims;
 - large-pretrained-LLM validity;
+- universal Transformer-span subadditivity;
 - guaranteed FLOP, wall-clock, energy, RAM, or VRAM improvements;
 - universal GPU/runtime speedup;
 - a universally optimal autonomous controller;
@@ -131,17 +135,18 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 
 1. [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) — reading order and snapshot policy.
 2. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical discovery and scope.
-3. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — supported/rejected/open claim registry.
-4. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
-5. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
-6. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanisms/controllers.
-7. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
-8. [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) — bounded systems result.
-9. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
-10. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — deployment directions and evidence status.
-11. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — reproduction policy.
-12. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — optional remaining work and handoff.
-13. [`STATUS.md`](STATUS.md) — current project state.
+3. [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md) — direct SmallViT component-wise versus composed replication.
+4. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — supported/rejected/open claim registry.
+5. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
+6. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
+7. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanisms/controllers.
+8. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
+9. [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) — bounded systems result.
+10. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
+11. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — deployment directions and evidence status.
+12. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — reproduction policy.
+13. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — handoff and future work.
+14. [`STATUS.md`](STATUS.md) — current project state.
 
 ## Evidence classes
 
@@ -157,7 +162,8 @@ See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
 - `src/canaria/` — cleaned reusable components from earlier phases.
 - `scripts/phases/` — provenance-preserving evidence scripts; some retain historical environment-specific paths.
 - `scripts/reproduce/` — portable reproduction and systems-PoC runners.
-- `results/` — machine-readable evidence, protocol locks, reproduction reports, and PoC reports.
+- `scripts/replication/` — fresh direct replication runners for the core scientific phenomenon.
+- `results/` — machine-readable evidence, protocol locks, reproduction reports, replication results, and PoC reports.
 - `docs/history/` and `docs/phases/` — historical research record.
 - `archives/` — retained handoff/history material.
 - `schemas/` — metadata schemas.
