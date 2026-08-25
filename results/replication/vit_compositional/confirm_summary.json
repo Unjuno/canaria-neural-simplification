@@ -1,0 +1,40 @@
+{
+  "experiment": "Issue2-ViT-direct-compositional-simplification-confirmatory-v1",
+  "eligible_seeds": [9000,9003,9004,9007,9008,9009,9010,9011],
+  "n": 8,
+  "selection_criteria": {"hold_nmse_max": 0.12, "validation_utility_min": 0.95},
+  "rows": [
+    {"seed":9000,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.07431996430223536,"val_utility":0.9845559845559846,"test_utility":0.9737827715355805,"compiler_updates":640},"composed":{"choice":"8","replacement_params":4904,"hold_nmse":0.09360617030480563,"val_utility":0.9845559845559846,"test_utility":0.9812734082397003,"compiler_updates":320},"complexity_ratio":0.5},
+    {"seed":9003,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.08372234316828257,"val_utility":0.981132075471698,"test_utility":0.9886792452830188,"compiler_updates":640},"composed":{"choice":"8","replacement_params":4904,"hold_nmse":0.11335472420293025,"val_utility":0.9547169811320754,"test_utility":0.9773584905660377,"compiler_updates":320},"complexity_ratio":0.5},
+    {"seed":9004,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.07164011023693395,"val_utility":0.9621212121212122,"test_utility":0.9770114942528735,"compiler_updates":640},"composed":{"choice":"8","replacement_params":4904,"hold_nmse":0.09442995449225666,"val_utility":0.9772727272727274,"test_utility":0.9808429118773947,"compiler_updates":320},"complexity_ratio":0.5},
+    {"seed":9007,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.08065850602972756,"val_utility":0.9770114942528735,"test_utility":0.9883268482490273,"compiler_updates":640},"composed":{"choice":"16","replacement_params":5424,"hold_nmse":0.10131216490054905,"val_utility":0.9655172413793104,"test_utility":0.9883268482490273,"compiler_updates":320},"complexity_ratio":0.5530179445350734},
+    {"seed":9008,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.08502990933707905,"val_utility":0.9731800766283525,"test_utility":0.9809885931558936,"compiler_updates":640},"composed":{"choice":"8","replacement_params":4904,"hold_nmse":0.11809613851120518,"val_utility":0.9731800766283525,"test_utility":0.961977186311787,"compiler_updates":320},"complexity_ratio":0.5},
+    {"seed":9009,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.11235752054655333,"val_utility":0.9808429118773947,"test_utility":0.9923664122137404,"compiler_updates":640},"composed":{"choice":"16","replacement_params":5424,"hold_nmse":0.11587490578141786,"val_utility":0.9808429118773947,"test_utility":0.984732824427481,"compiler_updates":320},"complexity_ratio":0.5530179445350734},
+    {"seed":9010,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.10069746516744103,"val_utility":0.9578544061302682,"test_utility":0.9923076923076924,"compiler_updates":640},"composed":{"choice":"8","replacement_params":4904,"hold_nmse":0.11670357363286614,"val_utility":0.9501915708812261,"test_utility":0.9615384615384616,"compiler_updates":320},"complexity_ratio":0.5},
+    {"seed":9011,"componentwise":{"choice":["8","8"],"replacement_params":9808,"hold_nmse":0.08515405205102207,"val_utility":0.9961538461538462,"test_utility":0.9848484848484849,"compiler_updates":640},"composed":{"choice":"16","replacement_params":5424,"hold_nmse":0.10621017783758072,"val_utility":0.976923076923077,"test_utility":0.9924242424242424,"compiler_updates":320},"complexity_ratio":0.5530179445350734}
+  ],
+  "primary": {
+    "componentwise_passing_all": true,
+    "composed_passing_all": true,
+    "composed_lower_count": 8,
+    "mean_complexity_ratio": 0.5198817292006526,
+    "geometric_mean_complexity_ratio": 0.5192583172404809,
+    "paired_bootstrap95_ratio": [0.5063387402401965,0.5392584000468318],
+    "pass": true
+  },
+  "secondary": {
+    "mean_composed_test_utility": 0.9785592967042664,
+    "composed_test_utility_bootstrap95": [0.9709049629861999,0.9856163167705256],
+    "mean_componentwise_test_utility": 0.9847889427307889,
+    "mean_composed_hold_nmse": 0.10744847620795143,
+    "mean_componentwise_hold_nmse": 0.08669748385490937,
+    "mean_composed_compiler_updates": 320.0,
+    "mean_componentwise_compiler_updates": 640.0,
+    "test_utility_pass": true
+  },
+  "hashes": {
+    "code_sha256": "b1b361f1003cab35bb3a549747ffc0a71063fdb56818acc670b35087a642ca3b",
+    "protocol_sha256": "7c9dc793a19c1eae2390460de95cade3136a781076f903ee0a951b5b2ed0997d",
+    "summary_sha256_local": "278aff68e9b49fc995bf2a27cc2027f3e8d09f2261c88568a6b5e8d7eefe726d"
+  }
+}
