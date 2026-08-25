@@ -1,52 +1,69 @@
 # Project status
 
-**2026-08-24: corrected mainline is training-time functional consolidation and autonomous self-recompilation.**
+**2026-08-25: research consolidation / public-snapshot phase.**
 
-The repository remains the canonical research record. Earlier post-hoc/generalization experiments are preserved, including the v23–v25 natural-text failures. The current mainline was corrected after an internal audit showed that local deletion/pruning experiments were drifting away from the original Canaria question of consolidating a wider learned computation into a smaller mechanism and then allowing the surrounding network to adapt.
+Broad experiment expansion is paused. Canaria has enough confirmatory and negative evidence to preserve a coherent research result. New experiments should now be added only when they close a specific evidential gap required for a public claim, reproduction, or deployment proof-of-concept.
 
-## Current mainline
+## Current project-level thesis
 
-Working process:
+The central result is **task-conditioned compositional simplification of learned neural computation**:
+
+> implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially simpler task-preserving representation when treated as one composed input-output function.
+
+The dynamic extension is:
 
 > **form → transfer → commit → recontract → transfer again**
 
-A larger model first forms useful computation. A span is transferred into a smaller replacement; the replacement is committed before perfect equivalence is required; task learning resumes; later consolidations repeat the process.
+Intervening task learning after a structural consolidation changes the subsequent optimization geometry. In the current small real-text LM testbed, later compiler fitting becomes easier in normalized functional-error terms, while downstream sensitivity to residual error increases.
 
-### Confirmed training-time results
+## Current evidence frontier
 
-- **G7:** progressive `4→3→2` consolidation at the same final 2-block / MLP24 capacity beat early and late one-shot `4→2` schedules on fresh seeds 4300–4307. Final reduction from the 4-block / MLP48 reference: **52.28% parameters**.
-- **G8:** correct function-aligned transfer was required under identity and shuffled-target controls.
-- **G9:** more accurate functional transfer improved final task utility, with clear diminishing returns as compiler-fit budget increased.
-- **G10:** structured weight inheritance alone was insufficient; inheritance followed by function-aligned refinement outperformed random-initialized functional fitting.
-- **G11:** the calibration-only autonomous controller reached the final 2-block architecture in **8/8** fresh seeds while satisfying the locked +2% non-inferiority criterion against the Large reference; maximum compiler updates were **192** versus the preregistered maximum **232**.
-- **G15:** staged `4→3→2` with task learning between commits beat waiting for a direct `4→2` merge by **−0.2993 PPL**, 95% CI **[−0.3379, −0.2616]**, 8/8 fresh seeds.
-- **G17:** when task learning was removed between `4→3` and `3→2`, the factorized path was equivalent to direct `4→2` within the preregistered ±0.10 PPL band. This isolates the current strongest mechanism: **the staged benefit depends on intervening task learning/recontracting, not merely on splitting one compiler fit into two fits.**
+### Confirmed
 
-## Historical boundary result retained
+- historical composition subadditivity in the original confirmatory setting;
+- whole-network reductions under declared codecs, including an exact 9,926-byte residual-CNN endpoint;
+- training-time staged consolidation (G7);
+- function-aligned transfer requirement (G8);
+- diminishing returns to transfer fit (G9);
+- inheritance + functional refinement (G10);
+- autonomous consolidation under a locked non-inferiority protocol (G11);
+- staged-vs-direct path effect (G15);
+- factorization-without-learning equivalence control (G17);
+- deadline-aware controller improvement (G18);
+- staged-path replication on `5→4→2` (G19);
+- lower normalized next-compiler fit cost after recontracting (G20d);
+- higher immediate task sensitivity at matched normalized error (G20e, G22);
+- sensitivity-aware immediate-damage prediction (G23–G25);
+- horizon-aware future-damage prediction (G26).
 
-The v23–v25 natural-English character-LM series remains a valid negative result for the tested post-hoc/bounded-repair regime: teacher-forced likelihood could remain near-identical while free-running autoregressive trajectories diverged. The later training-time results do not erase this result; they change the intervention path being studied.
+### Confirmed negative / boundary results
 
-## Evidence policy
+- Canary is not a necessary local condition for simplification.
+- Teacher-forced PPL is not sufficient evidence of autoregressive functional equivalence.
+- The tested v23–v25 natural-text post-hoc objectives did not recover rollout-sensitive fidelity.
+- A hard task-damage veto (G21) can prevent final contraction and increase compiler cost.
+- A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
+- Unlimited recursive collapse is not supported by the current grammar.
 
-- Freeze confirmatory protocols before inspecting fresh-seed outcomes.
-- Keep exploratory, confirmatory, independent-holdout, equivalence, and negative evidence explicitly separated.
-- Do not promote runs with broken/missing protocol-lock integrity to confirmatory status.
-- Use independently initialized model seed as the inference unit unless a different unit is preregistered.
-- Keep test data outside controller commit decisions; use training/calibration data only for autonomous consolidation choices.
-- Preserve failed controls and mechanism-separation experiments.
-- Distinguish parameter count, compiler-update proxy, exact FLOPs, wall clock, energy, compressed state-stream bytes, and standalone serialized bytes.
-- Do not equate teacher fidelity with task utility.
+## What remains worth doing
 
-## Current execution frontier
+Only bounded closure experiments:
 
-The highest-information next test is **G18: a recontracting-aware autonomous policy**. The stable controller currently uses a static functional-NMSE threshold. G13–G17 show that commit quality depends not only on instantaneous replacement error but also on the amount of task-learning horizon remaining after the commit.
+1. **clean-repository reproduction** of one representative confirmatory pipeline;
+2. **one direct compositional-simplification replication** on a clearly different architecture/task if a publication-level novelty claim requires it;
+3. **one minimal runtime-compilation proof-of-concept** if systems/deployment claims are to be made.
 
-A second required test is **G19: staged-path generalization** to a different source depth/path (for example `5→4→3→2` versus `5→2`) before treating the staged effect as architecture-independent.
+Everything else should be treated as future work for interested researchers rather than required completion work.
 
-See:
+## Current public documentation
 
+- `docs/CORE_DISCOVERY.md`
+- `docs/CLAIMS_AND_EVIDENCE.md`
 - `docs/TRAINING_TIME_CONSOLIDATION.md`
-- `docs/NEXT_EXPERIMENTS_AUTONOMOUS.md`
-- `results/training_time/summary.json`
-- `results/training_time/protocol_manifest.json`
-- `scripts/phases/training_time/stable_auto_controller_v2.py`
+- `docs/LATE_STAGE_FINDINGS.md`
+- `docs/NEGATIVE_RESULTS.md`
+- `docs/APPLICATIONS.md`
+- `docs/OPEN_QUESTIONS.md`
+- `docs/REPRODUCIBILITY.md`
+
+The repository should be read as an auditable research snapshot, not as a production-ready compression/runtime library.

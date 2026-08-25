@@ -1,0 +1,171 @@
+{
+  "snapshot_date": "2026-08-25",
+  "scope": "Late-stage training-time consolidation and mechanism results. G27 remains exploratory and is documented in docs/LATE_STAGE_FINDINGS.md.",
+  "experiments": {
+    "G18": {
+      "status": "PASS",
+      "protocol": "deadline-aware autonomous consolidation",
+      "n": 12,
+      "seeds": "6200-6211",
+      "headline": {
+        "static_mean_ppl": 19.9384,
+        "deadline_mean_ppl": 19.7574,
+        "mean_ppl_diff_deadline_minus_static": -0.1810,
+        "ppl_diff_bootstrap_95ci": [-0.3508, -0.0417],
+        "static_mean_compiler_updates": 184,
+        "deadline_mean_compiler_updates": 136,
+        "deadline_final_depth2_count": 12
+      },
+      "protocol_lock_sha256": "72b4180e9d3155c2bc57a48944a48c28f8b54d974b69c1bea1e2c4bc03491bde",
+      "confirm_summary_sha256": "5853c10a97b97a5f46cd8684d0d4320e12cdc471fe883a426283e7880ea4facc"
+    },
+    "G19": {
+      "status": "PASS",
+      "protocol": "5->4->2 staged versus 5->2 direct",
+      "n": 8,
+      "seeds": "6600-6607",
+      "headline": {
+        "direct_mean_ppl": 20.047454447162448,
+        "staged_mean_ppl": 19.358004647028576,
+        "mean_ppl_diff_staged_minus_direct": -0.6894498001338709,
+        "bootstrap_95ci": [-0.8251533574648917, -0.5803851330829604],
+        "direct_updates": 192,
+        "staged_updates": 192,
+        "staged_wins": 8
+      },
+      "protocol_lock_sha256": "4753ea9b2d8a34a52c9ff09c331585cf4037dc5f83b8eaff50c0f2c68bfe205a",
+      "confirm_summary_sha256": "1be493193f3c4686c993d76cb35678e762daf9b666c9342463255b4a19894314"
+    },
+    "G20d": {
+      "status": "PASS",
+      "protocol": "fixed standardized-error threshold compiler-cost test",
+      "n": 8,
+      "seeds": "7300-7307",
+      "headline": {
+        "standardized_mse_target": 0.03,
+        "pre_mean_updates": 41.5,
+        "post_mean_updates": 32.125,
+        "mean_update_diff_post_minus_pre": -9.375,
+        "bootstrap_95ci": [-12.5, -6.75],
+        "post_fewer_count": 8,
+        "mean_relative_update_reduction_fraction": 0.21971208625617175
+      },
+      "protocol_lock_sha256": "8a2a3ea61d94cebb44a5db1b00b0bae1782d2475d89b602b49e1de7d5b1c76a3",
+      "confirm_summary_sha256": "33f250dc5cb4a70b464a943b7ecd9476b1aa192100b4cc7dc1b1f73411c14d91"
+    },
+    "G20e": {
+      "status": "CONFIRMED_BOUNDARY",
+      "protocol": "matched standardized-error immediate task-damage test",
+      "n": 8,
+      "seeds": "7500-7507",
+      "headline": {
+        "pre_mean_nll_damage": 0.00718279679616296,
+        "post_mean_nll_damage": 0.010621190071106013,
+        "mean_damage_diff_post_minus_pre": 0.0034383932749430524,
+        "bootstrap_95ci": [0.0017887949943543036, 0.005141735076904297],
+        "pre_mean_updates": 35.875,
+        "post_mean_updates": 28.125
+      },
+      "protocol_lock_sha256": "2d7d7b5a493d454d20eea50fc5187e6efd241b55f913efb3789052f6f96981be",
+      "confirm_summary_sha256": "448b056895055a18277fb68e3dde43405592c5297865184fed1ef05fb1d12212"
+    },
+    "G21": {
+      "status": "FAIL",
+      "protocol": "selective shadow task-damage hard veto",
+      "n": 12,
+      "seeds": "7800-7811",
+      "headline": {
+        "deadline_mean_updates": 120,
+        "selective_mean_updates": 136,
+        "selective_final_depth2_count": 10,
+        "warning": "All-run PPL comparison is not capacity matched because two selective-veto runs ended at depth 3."
+      },
+      "protocol_lock_sha256": "71d64095cda63f8cfcaa9c30124e6691aaae377897a95d4c77318fa4060167fc",
+      "confirm_summary_sha256": "e784b5da22a546934bf6b7fb6dd29e9df23d4b74a16111d0aa780d286928a4b8"
+    },
+    "G22": {
+      "status": "PASS",
+      "protocol": "recontracting sensitivity confirmatory",
+      "n": 12,
+      "seeds": "8100-8111",
+      "headline": {
+        "grad_rms_diff_post_minus_pre": 0.017357955660527145,
+        "grad_rms_bootstrap_95ci": [0.015969245106269684, 0.01886369290924824],
+        "logit_amplification_diff": 0.1883466944542779,
+        "logit_amplification_bootstrap_95ci": [0.17562804114962172, 0.20134855042103592],
+        "nll_damage_diff": 0.0022695726818508567,
+        "nll_damage_bootstrap_95ci": [0.0009101890855365329, 0.0037179191907246887],
+        "pre_mean_fit_updates": 42.25,
+        "post_mean_fit_updates": 32.333333333333336
+      },
+      "protocol_lock_sha256": "f405137c1c1da8731a1e5faa320f9baab4f2e27f7c2e955414df8e8bc92e24fa",
+      "confirm_summary_sha256": "c6f876ce08c4bff60beb7c392b0d75bd108b6c03f786e34e851a5a1405d43307"
+    },
+    "G23": {
+      "status": "PASS",
+      "protocol": "multilevel sensitivity predictor",
+      "n_seeds": 12,
+      "n_observations": 192,
+      "seeds": "8300-8311",
+      "headline": {
+        "std_error_mean_seed_mae": 0.004303094173138139,
+        "signed_first_order_mean_seed_mae": 0.0031886248599248147,
+        "mae_diff_candidate_minus_baseline": -0.001114469313213323,
+        "bootstrap_95ci": [-0.0017011035234436335, -0.0005382133744637366],
+        "candidate_better_seed_count": 10
+      },
+      "protocol_lock_sha256": "5482caaa13f96a2eec9700a17d560cb83c56e2de14c6b722adc960acc2ed6b63",
+      "confirm_summary_sha256": "1d8d85a2e1db535f85b9ba6a076eb0a854a4da53d8feda629d6fd4bdcfd934e8"
+    },
+    "G24": {
+      "status": "PASS",
+      "protocol": "first-plus-second-order task-risk predictor",
+      "n_seeds": 12,
+      "n_observations": 192,
+      "seeds": "8400-8411",
+      "headline": {
+        "first_order_mean_seed_mae": 0.0027633228719980245,
+        "first_plus_second_mean_seed_mae": 0.0005477612511470208,
+        "mae_diff_candidate_minus_baseline": -0.002215561620851004,
+        "bootstrap_95ci": [-0.0026690692540545214, -0.0018053019406644145],
+        "candidate_better_seed_count": 12,
+        "residual_vs_logit_error_squared_spearman_rho": 0.9778894148604294
+      },
+      "protocol_lock_sha256": "a3d80e51328bdcb2c54ebd574b51fd8b27b40680708247b901b625d04053c982",
+      "confirm_summary_sha256": "39727b4426f6d5527027af372eedfc6d4eb94a8728c8015171a93e60f3e6f253"
+    },
+    "G25": {
+      "status": "PASS",
+      "protocol": "frozen G24 risk predictor transferred to 5-block family",
+      "n": 8,
+      "seeds": "8500-8507",
+      "headline": {
+        "signed_only_mean_seed_mae": 0.010334115566071687,
+        "first_plus_second_mean_seed_mae": 0.0019986835061402038,
+        "mean_diff_second_minus_signed": -0.008335432059931484,
+        "bootstrap_95ci": [-0.009464076840106816, -0.007209569935480501],
+        "second_better_count": 8,
+        "coefficients_refit_on_G25": false
+      },
+      "protocol_lock_sha256": "682e4e47c711243da2472c148a771b8a2f8eae004ba5bc142cffbbd798f6b77b",
+      "confirm_summary_sha256": "e6da1d02452804c951a2311138e3187c6e89cc9fd4412db94a17691b28b72d60"
+    },
+    "G26": {
+      "status": "PASS",
+      "protocol": "horizon-aware future task-damage predictor",
+      "n": 12,
+      "seeds": "8700-8711",
+      "headline": {
+        "immediate_risk_baseline_mean_seed_mae": 0.0026934776056397667,
+        "horizon_corrected_mean_seed_mae": 0.0011590128802526328,
+        "mean_diff_recovery_minus_baseline": -0.001534464725387134,
+        "bootstrap_95ci": [-0.0018872102699394832, -0.001148877911251304],
+        "recovery_better_seed_count": 12,
+        "four_epoch_baseline_mae": 0.004976,
+        "four_epoch_horizon_corrected_mae": 0.001832
+      },
+      "protocol_lock_sha256": "ff6d5dea4f710d235982df5f37696a45d5342351845d24ab64b1fdffe742148a",
+      "confirm_summary_sha256": "90ce8fd268c4ee2d3dfe2a5ba1d6f5f57e21c3183b5b66427b6d820b634dabb0"
+    }
+  }
+}

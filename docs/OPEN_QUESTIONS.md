@@ -1,89 +1,130 @@
 # Open research questions
 
-Experiments are currently paused. This file records the questions that remain genuinely unresolved after the current research program, so future work does not confuse an open question with a failed or already-decided one.
+**Project mode: public-snapshot / handoff.**
 
-## Priority S — theory-critical
+The purpose of this file is to leave bounded questions that another researcher can pick up. It is not a commitment to continue expanding the current project.
 
-### 1. Codec-independent global complexity
+## Priority 0 — closure tasks before a final snapshot
 
-Whole-network FP32/q8/zlib accounting supports a real net reduction after compilation, and measured shell growth offsets only a small fraction of removed-core savings. However, this is not a proof of a codec-independent minimum description length.
+These are the only experiments currently considered potentially necessary for closing public claims.
 
-Next decisive test: evaluate the same matched models under several independently motivated code families (entropy code, structured factor code, symbolic/operator grammar, residual neural code) and quantify between-code definition uncertainty.
+### 1. Clean-repository reproduction
 
-### 2. External validity
+Clone the public repository into a clean environment and reproduce at least one representative confirmatory pipeline without relying on unpublished `/mnt/data` paths.
 
-Most decisive evidence comes from a digits-like task and an 8-block residual CNN. The current claims must not be promoted to a universal neural-network law before replication on different tasks and graph topologies.
+Pass criterion: the public instructions and retained artifacts are sufficient to reproduce the stated decision outcome.
 
-Recommended order: Fashion-MNIST → CIFAR-10 + small ResNet → skip/parallel subgraphs → attention/transformer subgraphs.
+### 2. Direct compositional-simplification replication on a clearly different family
 
-### 3. Task-effective repair dimension
+Only needed if a publication-level novelty claim requires stronger external validity.
 
-Raw trainable parameter count failed to explain adaptive recovery. Equal-capacity local/global adapters did not reproduce the apparent downstream-shell advantage.
+The decisive design should compare:
 
-Next test: measure the effective rank/spectrum of the trainable-parameter-to-logit Jacobian and compare repair subspaces at matched task-effective dimension rather than matched parameter count.
+- component-wise simplification;
+- composed-span simplification;
+- matched replacement/optimization budget;
+- matched task-utility criterion;
+- fresh seeds;
+- a clearly different architecture/task family.
 
-## Priority A — mechanism
+The point is to test the core discovery directly, not to optimize another controller.
 
-### 4. Why does simplification increase with repair time?
+### 3. Minimal runtime-compilation proof-of-concept
 
-The blinded confirmatory map shows a strong increase in simplification frequency for larger repair budgets. The causal decomposition between intrinsic replaceability, optimizer dynamics, representational reorganization, and spare adaptive capacity is incomplete.
+Only needed if systems/deployment claims are made.
 
-### 5. Recursive compiler fixed points
+Measure:
 
-The strong hypothesis of unlimited recursive simplification was not supported. A task-conditioned nonlinear complexity floor or grammar-dependent fixed point remains plausible.
+- compact serialized bytes;
+- load/compile/materialization time;
+- peak RAM/VRAM;
+- inference latency/throughput;
+- task utility/fidelity.
 
-Next test: repeat recursive compilation with a strictly expanded, preregistered grammar and report whether the terminal description length moves materially.
+A negative result is acceptable. The question is whether a compact functional representation can actually be used as a deployment artifact and which resource dimension, if any, improves.
 
-### 6. Off-manifold versus task-manifold complexity
+## Scientific questions left for future researchers
 
-Current replacement quality is measured mainly on the task distribution and augmentations. It remains open whether a compiled span is simple only on the data manifold.
+### 4. Grammar-independent complexity
 
-Required probes: interpolation, strong augmentation, Gaussian/noise controls, adversarial/off-manifold inputs, and synthetic manifolds with known latent coordinates.
+Current composition and codec results are operational. How stable are the conclusions across independently motivated description grammars?
 
-### 7. Null models
+### 5. Large pretrained models
 
-We still need stronger controls separating learned compositional simplification from generic overparameterized-network behavior.
+Do compositional simplification and training-time recontracting occur in pretrained subword language models at useful scales?
 
-Priority nulls: random weights, shuffled labels, memorized random labels, synthetic teachers with known composition complexity, and deliberately non-compressible functions.
+### 6. Functional boundaries
 
-## Priority B — representation and mechanism dictionaries
+Can useful replacement boundaries be detected automatically without enumerating many spans?
 
-### 8. Mechanism algebra
+### 7. Why does recontracting improve compiler optimization?
 
-Exploratory results motivate testing closure, idempotence, absorbing elements, and approximate associativity of mechanism composition. This is not yet established.
+Current evidence shows lower normalized fit cost after task learning, but candidate causes remain:
 
-### 9. Grammar saturation / finite-dictionary hypothesis
+- representation redistribution;
+- improved conditioning;
+- basin migration;
+- architecture curriculum;
+- task-manifold dimensionality changes.
 
-Apparent archetype saturation may be a finite candidate-grammar artifact. Expand the grammar in nested stages and test whether the number/dimension of stable modes saturates.
+### 8. Why does task sensitivity increase at the same time?
 
-### 10. Cross-seed canonical dictionary
+G20e/G22 show that normalized fit gets easier while immediate task damage at matched error increases.
 
-Simple gauge alignment was insufficient. Future work should compare canonicalization, functional alignment, CKA/Jacobian similarity, and tightly capacity-controlled nonlinear adapters against random-dictionary controls.
+Open decomposition:
 
-### 11. Archetype uncertainty
+- downstream Jacobian spectrum;
+- LayerNorm effects;
+- logit-margin changes;
+- error-direction alignment;
+- higher-order curvature.
 
-Discrete cluster counts depend on thresholds. Replace single cluster counts with bootstrap stability, intrinsic dimension, density modes, nearest-neighbor graphs, and persistent-topology diagnostics.
+### 9. Risk-model universality
 
-## Priority C — learning-cycle applications
+The first/second-order immediate-damage proxy and horizon model transferred across two depth paths in the same small-LM family. Test different widths, heads, tasks, and architectures before treating coefficients or forms as general laws.
 
-### 12. Residual formation and recompilation
+### 10. Cost-aware autonomous control
 
-New tasks produced residual structure, but the full learn → residual formation → compile → freeze cycle is not decisively established across tasks.
+G21 and G27 show that accurate risk prediction does not by itself yield a Pareto-optimal policy.
 
-### 13. Distillation
+A future controller must explicitly value both:
 
-It remains open whether teacher mechanism complexity predicts minimum student capacity better than teacher parameter count. This should be tested with normal KD, compiled-teacher KD, and mechanism-aware distillation under matched optimization budgets.
+- expected final task damage;
+- marginal compiler/training/deployment cost.
 
-### 14. Whole-network storage frontier
+### 11. Off-manifold versus task-manifold simplification
 
-The exact 9,926-byte whole-network model is independently confirmed, but not globally minimal. Further storage reductions should be treated as engineering/representation experiments unless they also distinguish a theoretical hypothesis.
+How much of the observed simplification is specific to the task/data manifold?
 
-## Questions that are *not* open anymore in the tested setting
+Useful probes include strong augmentation, interpolation, adversarial/off-manifold inputs, and synthetic tasks with known latent structure.
 
-- Canary is **not** a necessary local condition for simplification.
-- Pure downstream location is **not** sufficient to explain adaptive repair advantage after capacity/function-class controls.
-- Simple parameter count alone is **not** an adequate measure of repair capacity.
-- Strong "all local compression is just complexity relocation" is **not** supported by the measured whole-network codecs.
-- Unlimited recursive compilation is **not** supported by the current grammar/pilot evidence.
+### 12. Null models
 
-See `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, and `ROADMAP.md` before proposing new experiments.
+Stronger nulls remain valuable:
+
+- random weights;
+- shuffled labels;
+- memorized random labels;
+- synthetic teachers with known compositional complexity;
+- deliberately non-compressible functions.
+
+### 13. Recursive fixed points
+
+Unlimited recursive collapse is not supported. Is there a stable task-conditioned complexity floor, and how grammar-dependent is it?
+
+### 14. Deployment representation
+
+Could a future `model.canaria` artifact act as a functional IR compiled differently for GPU, CPU, NPU, or low-memory streaming execution?
+
+See `APPLICATIONS.md`.
+
+## Questions that are not open in the tested settings
+
+- Canary is not a necessary local condition for simplification.
+- Teacher-forced PPL is not enough to certify autoregressive functional equivalence.
+- Merely splitting a direct compiler fit into two stages without task learning does not reproduce the staged benefit.
+- Hard shadow-damage vetoes can block successful final contraction.
+- The same normalized functional-error threshold is not equally task-safe before and after recontracting.
+- A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
+
+Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
