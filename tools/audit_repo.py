@@ -41,6 +41,7 @@ required = [
     ROOT / "CITATION.cff",
     ROOT / "CONTRIBUTING.md",
     ROOT / "docs/PUBLIC_SNAPSHOT.md",
+    ROOT / "docs/HISTORICAL_INDEX.md",
     ROOT / "docs/CORE_DISCOVERY.md",
     ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
     ROOT / "docs/TRAINING_TIME_CONSOLIDATION.md",
