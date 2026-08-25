@@ -2,7 +2,7 @@
 
 **2026-08-25: research consolidation / public-snapshot phase.**
 
-Broad experiment expansion is paused. Canaria has enough confirmatory and negative evidence to preserve a coherent research result. New experiments should now be added only when they close a specific evidential gap required for a public claim or deployment proof-of-concept.
+Broad experiment expansion is paused. Canaria now has a representative exact public reproduction path and a bounded runtime-materialization proof of concept. New experiments should be added only when they support a deliberately stronger public claim.
 
 ## Current project-level thesis
 
@@ -45,31 +45,44 @@ Intervening task learning after a structural consolidation changes the subsequen
 - A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
 - Unlimited recursive collapse is not supported by the current grammar.
 
-## Reproducibility closure
+## Reproducibility closure — complete
 
-A portable public runner now reproduces **G7 fresh confirmatory seed 4300** without private `/mnt/data` imports.
+A portable public runner reproduces **G7 fresh confirmatory seed 4300** without private `/mnt/data` imports.
 
-On the recorded environment (Python 3.13.5, PyTorch 2.10.0+cpu, NumPy 2.3.5, scikit-learn 1.8.0), the complete reproduced JSON was byte-for-byte identical to the archived historical output after JSON serialization, with matching SHA256:
+On the recorded environment (Python 3.13.5, PyTorch 2.10.0+cpu, NumPy 2.3.5, scikit-learn 1.8.0), the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
-The progressive compute-matched condition reproduced test PPL **18.932213342799887**, versus early one-shot **19.164090006166735**, late one-shot **19.33549169102473**, and large reference **19.278388330876** for seed 4300.
-
-See:
-
-- `scripts/reproduce/g7_confirmatory/run_seed.py`
-- `scripts/reproduce/g7_confirmatory/README.md`
-- `results/reproduction/g7_seed4300_report.json`
-- `.github/workflows/reproduce-g7.yml`
+See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
 
 This is a software/reproducibility result for an already-confirmatory seed, not a new independent scientific replication.
 
+## Runtime-materialization PoC — complete at small-model scope
+
+A minimal CPU-only end-to-end systems PoC now serializes and materializes the G7 seed-4300 large model and progressive compact model as `state_dict + manifest` artifacts.
+
+Recorded result:
+
+- serialized artifact + manifest: **110,093 → 54,646 bytes** (**−50.36%**);
+- parameters: **23,138 → 11,042** (**−52.28%**);
+- CPU batch-128 inference, five fresh-process probes: **47.05 → 23.11 ms mean** (compact/large **0.491×**);
+- load/materialize: **7.85 → 5.86 ms mean**, but cache sensitivity was observed, so this is secondary;
+- process RSS delta: **4.72 → 4.56 MB** (compact/large **0.966×**), so meaningful host-RAM reduction was **not demonstrated**;
+- test PPL: **19.2784 large vs 18.9322 compact**.
+
+The compact artifact executes the learned 2-block compiler directly and does not reconstruct the original 4-block model.
+
+See `docs/RUNTIME_POC.md`, `scripts/reproduce/g7_confirmatory/runtime_poc.py`, and `results/reproduction/runtime_poc_seed4300_report.json`.
+
+This is a bounded small-model CPU PoC, not evidence of universal GPU/LLM/runtime speedup.
+
 ## What remains worth doing
 
-Only conditional closure work remains:
+Only one conditional scientific closure task remains:
 
-1. **one direct compositional-simplification replication** on a clearly different architecture/task, only if a publication-level generalization/novelty claim requires it;
-2. **one minimal runtime-compilation proof-of-concept**, only if systems/deployment claims are to be made.
+- **direct compositional-simplification replication on one clearly different architecture/task**, only if a stronger publication-level generalization/novelty claim is desired (GitHub Issue #2).
+
+This replication is not required to preserve the current snapshot at its current claim scope.
 
 Everything else should be treated as future work for interested researchers rather than required completion work.
 
@@ -82,6 +95,7 @@ Everything else should be treated as future work for interested researchers rath
 - `docs/LATE_STAGE_FINDINGS.md`
 - `docs/NEGATIVE_RESULTS.md`
 - `docs/APPLICATIONS.md`
+- `docs/RUNTIME_POC.md`
 - `docs/OPEN_QUESTIONS.md`
 - `docs/REPRODUCIBILITY.md`
 - `docs/PUBLICATION_NOTES.md`
