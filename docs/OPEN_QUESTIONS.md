@@ -4,29 +4,63 @@
 
 The purpose of this file is to leave bounded questions that another researcher can pick up. It is not a commitment to continue expanding the current project.
 
-## Completed closure task
+## Completed closure tasks
 
 ### Clean-repository reproduction
 
-A portable public runner now reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
+A portable public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256:
+
+`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
 See `scripts/reproduce/g7_confirmatory/README.md`, `results/reproduction/g7_seed4300_report.json`, and `docs/REPRODUCIBILITY.md`.
 
-This is a software/data portability result for an already-confirmatory seed, not a new independent scientific replication.
+This is software/data portability evidence for an already-confirmatory seed, not a new independent scientific replication.
 
-## Conditional closure tasks
+### Minimal runtime/materialization proof of concept
 
-### 1. Direct compositional-simplification replication on a clearly different family
+A bounded CPU-only PoC now demonstrates:
 
-Only needed if a publication-level novelty/generalization claim requires stronger external validity. Compare component-wise simplification with composed-span simplification under matched replacement/optimization budget, task-utility criterion, complexity accounting, and fresh seeds.
+```text
+compact learned representation
+→ serialize
+→ load/materialize
+→ execute directly
+```
 
-Tracked in GitHub Issue #2.
+for G7 seed 4300.
 
-### 2. Minimal runtime-compilation proof-of-concept
+Recorded result:
 
-Only needed if systems/deployment claims are made. Measure compact serialized bytes, load/compile/materialization time, peak RAM/VRAM, inference latency/throughput, and task utility/fidelity. A negative result is acceptable.
+- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
+- parameters: **23,138 → 11,042** (`−52.28%`);
+- batch-128 CPU inference: **47.05 → 23.11 ms mean** over five fresh-process probes;
+- load/materialize: **7.85 → 5.86 ms mean**, treated as secondary because cache sensitivity was observed;
+- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
+- test PPL: **19.2784 → 18.9322**.
 
-Tracked in GitHub Issue #3.
+See `docs/RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+
+This is a small-model CPU engineering PoC, not evidence of universal GPU, LLM, RAM, or runtime gains.
+
+## Only remaining conditional closure task
+
+### Direct compositional-simplification replication on a clearly different family
+
+This is needed only if a stronger publication-level generalization/novelty claim is pursued.
+
+The decisive design should compare:
+
+- component-wise simplification;
+- composed-span simplification;
+- matched replacement/optimization budget;
+- matched task-utility criterion;
+- explicit complexity accounting;
+- fresh seeds;
+- a clearly different architecture/task family.
+
+The point is to test the **core compositional-simplification phenomenon directly**, not merely to obtain another pruning/compression endpoint.
+
+Tracked in GitHub Issue #2. It is intentionally optional at the current public-claim scope.
 
 ## Scientific questions left for future researchers
 
@@ -41,6 +75,7 @@ Tracked in GitHub Issue #3.
 - Stronger null models and synthetic teachers with known complexity.
 - Stable recursive complexity floors/fixed points.
 - Functional IRs and hardware-specific JIT/runtime compilation.
+- Whether spanwise materialization can reduce peak RAM/VRAM on realistically large models.
 
 ## Questions that are not open in the tested settings
 
@@ -50,5 +85,6 @@ Tracked in GitHub Issue #3.
 - Hard shadow-damage vetoes can block successful final contraction.
 - The same normalized functional-error threshold is not equally task-safe before and after recontracting.
 - A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
+- The current runtime PoC does **not** demonstrate meaningful host-RAM reduction.
 
-Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
+Before starting new work, read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, `LATE_STAGE_FINDINGS.md`, and `RUNTIME_POC.md`.
