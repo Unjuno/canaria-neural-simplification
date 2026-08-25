@@ -41,6 +41,7 @@ required = [
     ROOT / "LICENSE",
     ROOT / "CITATION.cff",
     ROOT / "CONTRIBUTING.md",
+    ROOT / "docs/README.md",
     ROOT / "docs/PUBLIC_SNAPSHOT.md",
     ROOT / "docs/HISTORICAL_INDEX.md",
     ROOT / "docs/CORE_DISCOVERY.md",
