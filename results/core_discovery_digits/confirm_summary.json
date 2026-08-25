@@ -1,8 +1,8 @@
 {
   "experiment": "Canaria-Issue2-direct-compositional-simplification-digits-v1",
   "status": "PASS",
-  "protocol_sha256": "f0d16d813918f2a419a8ba1dfd0bf0efe663a0b7f8105288a84dc84f18530f5b",
-  "script_sha256": "a40ece2b7d96798225729982848e25571c8e3006ef0477f96466880ad50ba453",
+  "original_protocol_lock_sha256": "f0d16d813918f2a419a8ba1dfd0bf0efe663a0b7f8105288a84dc84f18530f5b",
+  "provenance_note": "The repository PROTOCOL_LOCK.json is a readability-preserving reserialization of the locked protocol. The SHA256 above identifies the original local lock artifact used before fresh confirmatory results were inspected.",
   "confirmatory_seeds": [1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207],
   "primary": {
     "metric": "mean log2(B_composed/B_componentwise)",
