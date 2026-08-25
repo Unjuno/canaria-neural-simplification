@@ -1,6 +1,6 @@
 # Project status
 
-**2026-08-25: release-ready, scientifically closed public research snapshot at the current claim scope.**
+**2026-08-25: release-ready, scientifically closed public snapshot at the current claim scope.**
 
 Broad experiment expansion is stopped for this snapshot. The representative public reproduction and bounded runtime/materialization PoC are complete, the repository audit passes on `main`, and **no additional experiment is required for the present scoped claims**.
 
