@@ -8,7 +8,7 @@ This document is a claim hierarchy for papers, technical reports, talks, README 
 
 ## Primary discovery claim
 
-The central empirical discovery is **not** "we pruned layers" or "we compressed a model." The stronger and more distinctive observation is:
+The central empirical discovery is **not** "we pruned layers" or "we compressed a model." The more distinctive observation is:
 
 > Implementation-level computational complexity can be non-additive across learned boundaries. In the tested settings, composed spans were frequently simpler to replace than component-wise treatment suggested.
 
@@ -79,22 +79,50 @@ A credible public account should include at least these boundaries:
 - v23–v25 tested natural-text post-hoc objectives did not close that rollout boundary.
 - G21 hard task-damage veto could prevent final contraction.
 - G27 fixed risk caps did not yield a cost/utility Pareto improvement.
+- The current runtime PoC did not demonstrate meaningful host-RAM reduction.
+
+## Reproducibility statement
+
+A public self-contained runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+
+In the recorded environment, the complete reproduced JSON exactly matches the archived confirmatory output with SHA256:
+
+`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+
+This is a **reproduction/portability result**, not a new independent scientific replication.
 
 ## Application framing
 
-The main systems hypothesis is to move from:
+The systems idea is to move from:
 
 > model as stored parameter tensors
 
  toward:
 
-> model as a compact task-conditioned functional intermediate representation that can be compiled/materialized for execution.
+> model as a compact task-conditioned functional representation that can be serialized, materialized, or compiled for execution.
 
-Possible applications include storage/distribution, JIT span materialization, hardware-specific recompilation, multi-model serving, edge deployment, archival, and training-time self-recompilation.
+### What the current PoC supports
 
-These are **application hypotheses**. Do not claim runtime latency, VRAM, FLOP, or energy benefits without a direct benchmark.
+A bounded CPU-only PoC on G7 seed 4300 demonstrated:
 
-## Suggested paper structure
+- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
+- parameters: **23,138 → 11,042** (`−52.28%`);
+- mean batch-128 CPU inference across five fresh processes: **47.05 → 23.11 ms**;
+- direct execution of the compact learned 2-block representation without reconstructing the original 4-block model.
+
+### What it does not support
+
+- meaningful host-RAM reduction: RSS delta was only **4.72 → 4.56 MB**;
+- a general cold-start claim: load/materialization was lower on average but cache-sensitive;
+- GPU/LLM/energy/VRAM/universal runtime gains.
+
+Therefore the publication-safe systems statement is:
+
+> In one small CPU proof of concept, a progressively consolidated learned representation was about 50% smaller as a serialized artifact and about 2× faster for the measured batch-128 inference workload, while meaningful host-RAM reduction was not demonstrated.
+
+Broader directions—spanwise JIT materialization, hardware-specific recompilation, edge deployment, multi-model serving, and functional IRs—remain engineering hypotheses.
+
+## Suggested paper / technical-report structure
 
 1. **Problem:** implementation boundaries may overstate task-effective functional complexity.
 2. **Discovery:** compositional simplification / subadditivity.
@@ -102,8 +130,9 @@ These are **application hypotheses**. Do not claim runtime latency, VRAM, FLOP, 
 4. **Dynamic extension:** training-time consolidation and staged-vs-direct mechanism separation.
 5. **Recontracting mechanism:** compiler conditioning versus downstream sensitivity.
 6. **Boundaries:** autoregressive rollout failures and controller failures.
-7. **Implications:** learned computation may be better treated as a compilable functional object rather than a fixed parameterization.
-8. **Limitations / handoff:** small models, operational complexity grammar, external validity, runtime PoC not yet established.
+7. **Reproducibility:** public exact reproduction of one confirmatory seed.
+8. **Systems implication:** bounded serialization/materialization/direct-execution PoC with explicit RAM boundary.
+9. **Limitations / handoff:** small models, operational complexity grammar, external validity, optional direct cross-family replication.
 
 ## Novelty / priority language
 
@@ -111,10 +140,12 @@ The repository supports claiming that Canaria **identifies and characterizes** t
 
 The novelty should be attached to the phenomenon and the controlled characterization—not to the generic act of reducing layer count.
 
+A stronger cross-family novelty/generalization statement would benefit from the optional direct replication tracked in GitHub Issue #2.
+
 ## Recommended citation practice
 
 Until a paper exists, cite:
 
 - the exact repository commit or future public-snapshot tag;
-- the relevant protocol/result files or their recorded SHA256 identifiers;
-- the evidence class (confirmatory/exploratory/negative) when discussing a specific endpoint.
+- the relevant protocol/result files or recorded SHA256 identifiers;
+- the evidence class (confirmatory/exploratory/negative/reproduction/systems-PoC) when discussing a specific endpoint.
