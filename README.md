@@ -4,7 +4,7 @@
 
 > Can trained neural computation sometimes be represented more simply when several learned computations are treated as one composed function rather than as separate implementation blocks?
 
-The repository preserves positive, negative, exploratory, confirmatory, reproduction, and bounded systems-PoC evidence. It is a **release-ready public research snapshot** at its current claim scope; broad experiment expansion is stopped.
+The repository preserves positive, negative, exploratory, confirmatory, reproduction, and bounded systems-PoC evidence. It is a **release-ready public-snapshot research record** at its current claim scope; broad experiment expansion is stopped.
 
 See [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) for the intended reading order and snapshot policy.
 
