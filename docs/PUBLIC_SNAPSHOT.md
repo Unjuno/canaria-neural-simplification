@@ -13,11 +13,12 @@ This file defines how to read the repository as of the current consolidation pha
 7. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
 8. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
 9. `FAQ.md` — common interpretation boundaries and public-facing questions.
-10. `APPLICATIONS.md` — engineering hypotheses and deployment directions.
-11. `REPRODUCIBILITY.md` — integrity/reproduction policy and the portable G7 reproduction.
-12. `ROADMAP.md` and `OPEN_QUESTIONS.md` — bounded conditional work and handoff.
-13. `HISTORICAL_INDEX.md` — which older documents are preserved as historical context rather than current instructions.
-14. `../CHANGELOG.md` — version/snapshot changes.
+10. `APPLICATIONS.md` — engineering directions and their evidence status.
+11. `RUNTIME_POC.md` — bounded CPU-only serialization/materialization/execution proof of concept.
+12. `REPRODUCIBILITY.md` — integrity/reproduction policy and portable G7 reproduction.
+13. `ROADMAP.md` and `OPEN_QUESTIONS.md` — optional remaining scientific closure and handoff.
+14. `HISTORICAL_INDEX.md` — older documents preserved as historical context rather than current instructions.
+15. `../CHANGELOG.md` — version/snapshot changes.
 
 ## Snapshot interpretation
 
@@ -27,15 +28,15 @@ Later training-time experiments extend that observation: consolidation followed 
 
 ## Evidence discipline
 
-- Confirmatory, exploratory, reproduction, and negative evidence must remain distinguishable.
+- Confirmatory, exploratory, reproduction, systems-PoC, and negative evidence remain distinguishable.
 - Historical failures are preserved.
 - Small-model mechanistic results are not promoted to large-LLM universality claims.
 - Parameter reduction, serialized size, compiler-update cost, FLOPs, wall-clock time, memory, and energy are separate quantities.
-- Runtime-compilation applications remain hypotheses until measured directly.
+- A systems PoC result must not be generalized beyond the measured resource and environment.
 
 ## Completed portability closure
 
-A self-contained public runner now reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+A self-contained public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
 
 In the recorded environment, its complete output exactly matched the archived confirmatory JSON with SHA256:
 
@@ -45,15 +46,29 @@ See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_r
 
 This verifies software/data portability for one representative confirmatory pipeline. It is not counted as an additional independent scientific seed.
 
+## Completed bounded runtime PoC
+
+The repository also contains a small CPU-only deployment proof of concept using the same G7 seed-4300 large and progressive compact models.
+
+Measured results:
+
+- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
+- batch-128 CPU inference: **47.05 → 23.11 ms mean** across five fresh-process probes;
+- load/materialize: **7.85 → 5.86 ms mean**, secondary because cache sensitivity was observed;
+- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**.
+
+The compact artifact executes the learned 2-block representation directly rather than reconstructing the original 4-block model.
+
+See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+
 ## Current stopping policy
 
-Broad experiment expansion is paused. The repository now satisfies the representative clean-reproduction closure target.
+Broad experiment expansion is paused. The representative portability and bounded runtime-PoC closure tasks are complete.
 
-Only two conditional public-claim tasks remain:
+Only one optional scientific closure task remains:
 
-- **Issue #2** — direct replication of compositional simplification on a different family, only if a stronger public generalization/novelty claim is pursued;
-- **Issue #3** — minimal runtime-compilation proof of concept, only if deployment/runtime claims are pursued.
+- **Issue #2** — direct replication of compositional simplification on a clearly different architecture/task, only if a stronger public generalization/novelty claim is deliberately pursued.
 
-Issue #1, clean-repository reproduction, is complete and should remain closed unless a portability regression is found.
+Issue #1 and Issue #3 are complete and should remain closed unless a portability or benchmark regression is found.
 
-Neither remaining issue is required to preserve the current research snapshot at its present claim scope.
+Issue #2 is not required to preserve the current research snapshot at its present claim scope. New work should otherwise be treated as future research/handoff rather than an indefinitely extending mainline.
