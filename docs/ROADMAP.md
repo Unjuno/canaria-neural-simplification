@@ -1,16 +1,8 @@
-# Research roadmap — public-snapshot / handoff phase
+# Research roadmap — frozen snapshot / future-work handoff
 
-**Current state:** broad experiment expansion is paused.
+**Current state:** the v0.2.0 scientific snapshot is closed at its present claim scope. Broad experiment expansion is stopped.
 
 The earlier cross-architecture roadmap is preserved in `GENERALIZATION_ROADMAP.md` and `GENERALIZATION_STATUS.md` as historical planning/evidence. It should not be read as a current commitment to run every listed experiment.
-
-## What would justify a new experiment now
-
-Only one remaining conditional experiment is considered potentially useful for a stronger public claim:
-
-- **direct replication of compositional simplification on a clearly different architecture/task**, if a stronger generalization/novelty claim is deliberately pursued.
-
-Everything else belongs in `OPEN_QUESTIONS.md` as future work rather than an active mainline obligation.
 
 ## Completed closure — clean-repository reproduction
 
@@ -31,7 +23,7 @@ This closes the repository-portability gap for one representative confirmatory p
 
 ## Completed closure — minimal runtime materialization PoC
 
-A bounded CPU-only systems PoC now implements:
+A bounded CPU-only systems PoC implements:
 
 ```text
 trained large / compact model
@@ -59,26 +51,26 @@ Public artifacts:
 
 This closes the minimal deployment-PoC task at a small-model CPU scope. It does not establish GPU, LLM, or universal runtime benefits.
 
-## Conditional priority — direct replication of the core discovery
+## Future research — direct replication of the core discovery
 
-Only if a publication-level novelty/generalization claim requires it, run one clearly different architecture/task that directly tests:
+A future publication seeking stronger cross-family generalization or novelty/priority language could directly test:
 
-> component-wise simplification versus composed-span simplification under matched fidelity/utility and complexity accounting.
+> component-wise simplification versus composed-span simplification under matched fidelity/utility and complexity accounting on a clearly different architecture/task.
 
-The point is to replicate **compositional simplification itself**, not merely another pruning/compression endpoint.
+This is **future work**, not a v0.2.0 closure requirement. The previous GitHub Issue #2 has been closed as `not planned` for the current snapshot; reopen it or start a new research-phase issue only if the stronger claim is deliberately pursued.
 
-A useful confirmatory design should predefine:
+A useful future confirmatory design should predefine:
 
 - component and composed spans;
 - replacement grammar/budget;
 - task-utility criterion;
 - complexity measure(s);
 - fresh seed policy;
-- paired decision rule.
+- paired decision rule;
+- whole-network relocation/accounting where relevant;
+- negative-result retention.
 
-Tracked in GitHub Issue #2.
-
-## Handoff topics for future researchers
+## Other handoff topics
 
 These remain interesting but are not required to close the current project:
 
@@ -89,7 +81,8 @@ These remain interesting but are not required to close the current project:
 - effective repair/tangent dimension;
 - mechanism algebra/dictionaries;
 - sensitivity-aware utility-cost controllers;
-- hardware-specific functional IR and JIT execution beyond the minimal PoC.
+- hardware-specific functional IR and JIT execution beyond the minimal PoC;
+- larger-scale memory/energy/runtime benchmarking.
 
 See `OPEN_QUESTIONS.md` for the bounded handoff list.
 
@@ -97,4 +90,4 @@ See `OPEN_QUESTIONS.md` for the bounded handoff list.
 
 The repository now has a public-snapshot reading order, automated integrity checks, negative-result preservation, one portable exact confirmatory reproduction, and one reproducible small-model runtime materialization PoC.
 
-Treat Canaria as a **research snapshot** at its current claim scope. New scientific work should start from explicit issues/questions rather than an indefinitely extending G-number sequence.
+Treat Canaria v0.2.0 as a **frozen research snapshot** at its current claim scope. Future scientific work should start from a new issue/question or new research phase rather than extending the old mainline in place.
