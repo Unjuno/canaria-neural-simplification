@@ -22,9 +22,9 @@ Headline result:
 
 ### Direct cross-family replication of compositional simplification
 
-A fresh confirmatory SmallViT experiment directly compared component-wise versus composed treatment of the same fixed central two-block span under a common replacement grammar and locked task/fidelity rule.
+The core phenomenon now has two direct fresh architecture-family replications beyond the original residual-CNN setting.
 
-Result across 8 fresh eligible seeds:
+**SmallViT:**
 
 - component-wise minimum passing complexity: **9,808 replacement params**;
 - composed minimum passing complexity: **4,904–5,424 params**;
@@ -33,13 +33,24 @@ Result across 8 fresh eligible seeds:
 - composed smaller: **8/8**;
 - selected composed mean test utility: **0.97856**.
 
-This closes the optional direct cross-family replication design previously recorded in GitHub Issue #2.
+**Residual MLP:**
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed lower-budget: **8/8 fresh seeds**;
+- mean `log2(B_composed/B_componentwise) = -1.0519`, bootstrap95 **[-1.2075,-0.8962]**;
+- untouched-test accuracy difference at validation-selected budgets: **+0.583 pt**, bootstrap95 **[+0.306,+0.806] pt**.
+
+At fixed 2048 params, local component-wise NMSE was **0.1474**, the same two-module architecture jointly fit to the composed span target reached **0.0639**, and one composed module reached **0.0533**. This strengthens the functional-boundary/objective interpretation.
+
+See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `CORE_DISCOVERY_REPLICATION_DIGITS.md`.
 
 ## Scientific questions left for future researchers
 
 - Grammar-independent description complexity.
 - Larger pretrained Transformer/LLM external validity.
-- Replication across additional tasks, spans, widths, and replacement grammars.
+- Replication across genuinely different **task types** rather than only additional architecture families.
+- Replication across additional spans, widths, and replacement grammars.
 - Automatic detection of useful functional boundaries.
 - Why recontracting reduces later compiler optimization cost.
 - Why downstream task sensitivity can rise at the same time.
@@ -59,6 +70,6 @@ This closes the optional direct cross-family replication design previously recor
 - The same normalized functional-error threshold is not equally task-safe before and after recontracting.
 - A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
 - The current runtime PoC does not demonstrate meaningful host-RAM reduction.
-- The SmallViT replication does not establish universal Transformer or LLM compositional subadditivity.
+- The SmallViT and residual-MLP replications do not establish universal Transformer, LLM, task-universal, or grammar-independent compositional subadditivity.
 
-Before starting new work, read `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
+Before starting new work, read `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, `CORE_DISCOVERY_REPLICATION_DIGITS.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
