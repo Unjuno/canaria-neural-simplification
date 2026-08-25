@@ -1,0 +1,33 @@
+name: reproduce-g7-seed4300
+
+on:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install recorded reproduction environment
+        run: python -m pip install 'torch==2.10.0' 'numpy==2.3.5' 'scikit-learn==1.8.0'
+      - name: Reproduce G7 fresh confirmatory seed 4300
+        run: python scripts/reproduce/g7_confirmatory/run_seed.py --seed 4300 --out g7_seed_4300.json
+      - name: Verify exact recorded output hash
+        shell: python
+        run: |
+          import hashlib
+          from pathlib import Path
+          expected = '68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028'
+          got = hashlib.sha256(Path('g7_seed_4300.json').read_bytes()).hexdigest()
+          print('expected:', expected)
+          print('got:     ', got)
+          if got != expected:
+              raise SystemExit('G7 reproduction hash mismatch')
+      - name: Upload reproduced JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: g7-seed4300-reproduction
+          path: g7_seed_4300.json
