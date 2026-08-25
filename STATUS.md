@@ -1,8 +1,10 @@
 # Project status
 
-**2026-08-25: research consolidation / public-snapshot phase.**
+**2026-08-25: release-ready public research snapshot.**
 
-Broad experiment expansion is paused. Canaria now has a representative exact public reproduction path and a bounded runtime-materialization proof of concept. New experiments should be added only when they support a deliberately stronger public claim.
+Broad experiment expansion is paused. The representative public reproduction and bounded runtime/materialization PoC are complete, the current repository audit passes on `main`, and no additional experiment is required for the present scoped claims.
+
+The only remaining scientific closure item is **optional**: GitHub Issue #2, a direct replication of the core compositional-simplification phenomenon on a clearly different architecture/task if a stronger publication-level generalization/novelty claim is deliberately pursued.
 
 ## Current project-level thesis
 
@@ -55,11 +57,11 @@ On the recorded environment (Python 3.13.5, PyTorch 2.10.0+cpu, NumPy 2.3.5, sci
 
 See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
 
-This is a software/reproducibility result for an already-confirmatory seed, not a new independent scientific replication.
+This is software/reproducibility evidence for an already-confirmatory seed, not a new independent scientific replication.
 
-## Runtime-materialization PoC — complete at small-model scope
+## Runtime/materialization PoC — complete at small-model scope
 
-A minimal CPU-only end-to-end systems PoC now serializes and materializes the G7 seed-4300 large model and progressive compact model as `state_dict + manifest` artifacts.
+A minimal CPU-only systems PoC serializes and materializes the G7 seed-4300 large model and progressive compact model as `state_dict + manifest` artifacts.
 
 Recorded result:
 
@@ -70,36 +72,52 @@ Recorded result:
 - process RSS delta: **4.72 → 4.56 MB** (compact/large **0.966×**), so meaningful host-RAM reduction was **not demonstrated**;
 - test PPL: **19.2784 large vs 18.9322 compact**.
 
-The compact artifact executes the learned 2-block compiler directly and does not reconstruct the original 4-block model.
+The compact artifact executes the learned 2-block representation directly and does not reconstruct the original 4-block model.
 
 See `docs/RUNTIME_POC.md`, `scripts/reproduce/g7_confirmatory/runtime_poc.py`, and `results/reproduction/runtime_poc_seed4300_report.json`.
 
 This is a bounded small-model CPU PoC, not evidence of universal GPU/LLM/runtime speedup.
 
-## What remains worth doing
+## Release state
+
+Repository-level release preparation is complete enough to freeze the current claim scope:
+
+- current public/historical documentation is separated;
+- machine-readable late-stage evidence is indexed;
+- G21 failure and other negative results are preserved;
+- exact public reproduction is retained and audit-checked;
+- runtime-PoC storage/CPU result and RAM/generalization boundaries are audit-checked;
+- `docs/RELEASE_CHECKLIST.md` records the remaining GitHub-UI steps.
+
+Latest verified public-snapshot audit on `main` completed successfully before this status update. Subsequent commits should continue to be accepted only if the same audit remains green.
+
+## Optional remaining work
 
 Only one conditional scientific closure task remains:
 
-- **direct compositional-simplification replication on one clearly different architecture/task**, only if a stronger publication-level generalization/novelty claim is desired (GitHub Issue #2).
+- **Issue #2:** direct compositional-simplification replication on one clearly different architecture/task, only if a stronger publication-level generalization/novelty claim is desired.
 
-This replication is not required to preserve the current snapshot at its current claim scope.
+It is intentionally open for handoff and is **not required** for the current scoped snapshot.
 
-Everything else should be treated as future work for interested researchers rather than required completion work.
+Everything else should be treated as future research for interested contributors rather than required completion work.
 
 ## Current public documentation
 
+- `docs/README.md`
 - `docs/PUBLIC_SNAPSHOT.md`
 - `docs/CORE_DISCOVERY.md`
 - `docs/CLAIMS_AND_EVIDENCE.md`
+- `docs/PUBLICATION_NOTES.md`
 - `docs/TRAINING_TIME_CONSOLIDATION.md`
 - `docs/LATE_STAGE_FINDINGS.md`
 - `docs/NEGATIVE_RESULTS.md`
 - `docs/APPLICATIONS.md`
 - `docs/RUNTIME_POC.md`
-- `docs/OPEN_QUESTIONS.md`
 - `docs/REPRODUCIBILITY.md`
-- `docs/PUBLICATION_NOTES.md`
 - `docs/TERMINOLOGY.md`
 - `docs/FAQ.md`
+- `docs/ROADMAP.md`
+- `docs/OPEN_QUESTIONS.md`
+- `docs/RELEASE_CHECKLIST.md`
 
-The repository should be read as an auditable research snapshot, not as a production-ready compression/runtime library.
+The repository should be read as an auditable **public research snapshot**, not as a production-ready compression/runtime library.
