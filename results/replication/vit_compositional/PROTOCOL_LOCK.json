@@ -1,0 +1,51 @@
+{
+  "experiment": "Issue2-ViT-direct-compositional-simplification-confirmatory-v1",
+  "locked_at": "2026-08-25T23:05:00+09:00",
+  "architecture": "SmallViT depth4 d32 heads4 mlp64 on sklearn digits",
+  "data_split": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "split_seeds": [24680,13579]
+  },
+  "span": [1,2],
+  "span_rationale": "central two Transformer blocks, fixed before confirmatory outcomes to avoid embedding/head edge effects",
+  "replacement_grammar": {
+    "identity": 0,
+    "transformer_block_mlp_widths": [8,16,32,64],
+    "d": 32,
+    "heads": 4
+  },
+  "strategies": {
+    "componentwise": "replace block1 and block2 independently; each choice identity or one compiler block; component compilers trained on teacher intermediate targets",
+    "composed": "replace the two-block input-output map directly with identity or one compiler block"
+  },
+  "optimization": {
+    "fit_epochs_per_nonidentity_compiler": 40,
+    "batch_size": 64,
+    "adamw_lr": 0.003,
+    "weight_decay": 1e-05,
+    "note": "componentwise may use up to twice the compiler updates; this favors componentwise rather than composed"
+  },
+  "baseline": {
+    "train_epochs": 45,
+    "eligibility_validation_accuracy_min": 0.95
+  },
+  "fresh_seed_rule": "first 8 eligible seeds >=9000; exploratory 8900-series excluded",
+  "passing_candidate": {
+    "train_holdout_span_nmse_max": 0.12,
+    "validation_utility_min": 0.95
+  },
+  "selection": "within each strategy, select the passing candidate with minimum replacement parameters, tie-break by lower holdout NMSE; test metrics are not used for selection",
+  "primary_hypothesis": "minimal passing composed replacement complexity is lower than minimal passing componentwise replacement complexity",
+  "primary_decision": {
+    "both_strategies_have_passing_candidate_each_seed": true,
+    "paired_bootstrap_95_upper_of_mean_log_complexity_ratio_lt": 0.0,
+    "composed_lower_seed_count_min": 7
+  },
+  "secondary_task_generalization": {
+    "mean_selected_composed_test_utility_min": 0.95
+  },
+  "inferential_unit": "training seed/model",
+  "code_sha256": "b1b361f1003cab35bb3a549747ffc0a71063fdb56818acc670b35087a642ca3b"
+}
