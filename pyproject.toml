@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "canaria-research"
-version = "0.1.0"
-description = "Reusable components extracted from the Canaria neural simplification research repository"
+version = "0.2.0"
+description = "Research components and evidence for task-conditioned compositional simplification of learned neural computation"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
