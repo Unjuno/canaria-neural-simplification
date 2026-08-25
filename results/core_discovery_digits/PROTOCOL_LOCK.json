@@ -1,0 +1,61 @@
+{
+  "name": "Canaria-Issue2-direct-compositional-simplification-digits-v1",
+  "locked_before_fresh_results": true,
+  "exploratory_seeds": [1100, 1101, 1102, 1103],
+  "confirmatory_seeds": [1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207],
+  "task": "sklearn digits 10-class image classification",
+  "data": {
+    "source": "sklearn.datasets.load_digits",
+    "normalization": "pixels / 16.0",
+    "split": {
+      "outer_test": "train_test_split(test_size=0.25, random_state=1234, stratify=y)",
+      "inner_val": "train_test_split(train_pool, test_size=0.2, random_state=5678, stratify=y_train_pool)",
+      "sizes": {"train": 1077, "val": 270, "test": 450}
+    }
+  },
+  "teacher": {
+    "architecture": "64->GELU(stem64)->4 residual MLP blocks->linear10",
+    "residual_block": "x + Linear128->GELU->Linear64 applied to LayerNorm(x)",
+    "train_epochs": 60,
+    "optimizer": "AdamW(lr=0.002, weight_decay=1e-4)",
+    "batch_size": 64
+  },
+  "span": "first two residual blocks (blocks 0 and 1)",
+  "replacement_grammar": {
+    "tiny_res": "x + W2 GELU(W1 x), bias=False",
+    "componentwise": "two TinyRes modules, each hidden width h",
+    "composed": "one TinyRes module hidden width 2h",
+    "parameter_budget_exact": "componentwise total=2*(128*h)=256h; composed=128*(2h)=256h",
+    "budget_grid": [512, 1024, 1536, 2048, 3072, 4096, 6144],
+    "h_grid": [2, 4, 6, 8, 12, 16, 24],
+    "fit_updates": "600 updates per component module and 600 updates for composed module",
+    "fit_batch_size": 128,
+    "fit_optimizer": "AdamW(lr=0.008, weight_decay=1e-5)",
+    "compute_matching_note": "two width-h component fits at 600 updates each have approximately the same linear-layer multiply count and exact same parameter-update count as one width-2h composed fit at 600 updates"
+  },
+  "selection": {
+    "uses_test": false,
+    "functional_criterion": "validation span NMSE <= 0.08",
+    "utility_criterion": "replacement validation accuracy >= teacher validation accuracy - 0.02",
+    "selected_budget": "smallest grid budget satisfying both criteria"
+  },
+  "primary": {
+    "H1": "composed selected minimum budget is smaller on average",
+    "statistic": "paired mean log2(B_composed/B_componentwise)",
+    "decision": "95% seed bootstrap CI upper < 0",
+    "bootstrap_reps": 20000,
+    "bootstrap_seed": 991200
+  },
+  "secondary_confirmatory": {
+    "H2": "test accuracy at validation-selected composed budget is noninferior to componentwise",
+    "margin_absolute_accuracy": 0.02,
+    "decision": "95% paired bootstrap CI lower of mean(comp_test_acc-sep_test_acc) > -0.02"
+  },
+  "mechanistic_secondary": {
+    "reference_budget": 2048,
+    "joint_factorized_control": "two width8 TinyRes modules jointly fit end-to-end to composed span target for 600 updates; same 2048 params",
+    "purpose": "distinguish local component targets from representation-shape effects",
+    "no_confirmatory_pass_rule": true
+  },
+  "overall_pass": "H1 PASS and H2 PASS; every seed must have a selected budget for both conditions"
+}
