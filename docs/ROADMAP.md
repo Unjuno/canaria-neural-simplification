@@ -1,63 +1,83 @@
-# Research roadmap (experiments resumed for generalization testing)
+# Research roadmap — public-snapshot / handoff phase
 
-The authoritative list of unresolved questions, including questions that are **no longer open**, is [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md).
+**Current state:** broad experiment expansion is paused.
 
-## Primary research axis: cross-architecture generalization
+The earlier cross-architecture roadmap is preserved in `GENERALIZATION_ROADMAP.md` and `GENERALIZATION_STATUS.md` as historical planning/evidence. It should not be read as a current commitment to run every listed experiment.
 
-Before optimizing the current residual-CNN system further, the highest-value question is whether task-conditioned simplification transfers to substantially different network families, and whether transfer is zero-shot, requires bounded family-specific adaptation, is conditional, or fails under a fair test budget.
+## What would justify a new experiment now
 
-See:
+A new experiment should close one of three concrete gaps:
 
-- [`GENERALIZATION_ROADMAP.md`](GENERALIZATION_ROADMAP.md) — prespecified transfer taxonomy and experimental sequence.
-- [`GENERALIZATION_STATUS.md`](GENERALIZATION_STATUS.md) — live outcome ledger.
+1. **Public-claim closure** — a direct replication needed to support a claim we intend to make prominently.
+2. **Reproducibility closure** — a clean-repository run needed so a third party can reproduce a representative result.
+3. **Deployment closure** — a minimal systems proof-of-concept needed before claiming a practical application.
 
-The roadmap distinguishes:
+If an experiment does not satisfy one of those criteria, record it under `OPEN_QUESTIONS.md` rather than extending the active mainline.
 
-1. **phenomenon universality** — simplification recurs across network families;
-2. **compiler universality** — one unchanged compiler works everywhere;
-3. **adaptation-rule universality** — a small set of explicit family-specific rules is sufficient.
+## Priority 1 — clean-repository reproduction
 
-It is acceptable, and scientifically useful, for some networks to simplify only after adaptation or not to simplify under the tested budget.
+Goal: from a clean clone and documented dependencies, run at least one representative confirmatory pipeline without private `/mnt/data` assumptions.
 
-## Completed generalization milestone
+Preferred targets:
 
-### G3 — small ViT architecture shift: **A — adapted transfer**
+- one original compositional-simplification result; or
+- one training-time staged-vs-direct result.
 
-Holding the sklearn-digits task fixed, a 4-block small ViT was compiled into 2 smaller Transformer blocks.
+Success means the public repository contains all required code/data-generation instructions and reproduces the qualitative/registered endpoint. Bitwise reproduction is not required for the oldest historical phases unless the environment is fully specified.
 
-Confirmatory n=8 result:
+## Priority 2 — direct replication of the core discovery
 
-- whole-model parameter reduction: **60.18%**;
-- zero-shot tau0 utility: **0.9421**, 95% CI **[0.9321, 0.9514]** -> FAIL;
-- tau2 utility: **0.9613**, 95% CI **[0.9548, 0.9676]**;
-- tau8 utility: **0.9685**, 95% CI **[0.9610, 0.9767]** -> adapted-transfer PASS;
-- q8+zlib whole-model reduction: **60.53%**, 95% CI **[60.38%, 60.68%]**;
-- q8 matched-control utility: **0.9670**, 95% CI **[0.9580, 0.9766]**.
+Only if a publication-level novelty/generalization claim requires it, run one clearly different architecture/task that directly tests:
 
-This is evidence against the claim that the phenomenon is restricted to the original residual-CNN architecture family, while also showing that the compiler does **not** transfer zero-shot under the tested recipe.
+> component-wise simplification versus composed-span simplification under matched fidelity/utility and complexity accounting.
 
-Evidence:
-- [`docs/phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md`](phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md)
-- [`docs/phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md`](phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md)
+The point is to replicate **compositional simplification itself**, not merely another pruning/compression endpoint.
 
-## Highest-priority next experiments
+A useful confirmatory design should predefine:
 
-1. **G1 — Fashion-MNIST residual CNN**: dataset shift with architecture kept near the original reference. Use a separate eligibility/validation split and untouched final test set.
-2. **G3b — CIFAR-10 small ViT**: test whether the Transformer result survives a substantially harder image distribution.
-3. **G5 — sequence Transformer encoder**: remove image-patch-specific structure while retaining bidirectional Transformer computation.
-4. **G6 — small decoder-only language model**: test causal attention, autoregressive error accumulation, and context-length dependence.
-5. **ViT mechanism decomposition**: attention-only, MLP-only, full-block, and multi-block replacement to test whether composition subadditivity itself transfers.
+- component and composed spans;
+- replacement grammar/budget;
+- task-utility criterion;
+- complexity measure(s);
+- fresh seed policy;
+- paired decision rule.
 
-## Other high-information questions
+## Priority 3 — minimal runtime-compilation proof-of-concept
 
-1. **Codec-independent complexity** — compare several independently motivated MDL/code families and quantify definition uncertainty.
-2. **Task-effective repair dimension** — replace raw parameter count with the effective rank/spectrum of the trainable-parameter-to-logit Jacobian.
-3. **Off-manifold complexity** — separate task-manifold simplification from full-input-space approximation.
-4. **Null models** — random weights/labels, memorization controls, known-complexity synthetic teachers, and deliberately non-compressible functions.
-5. **Mechanism algebra** — closure, associativity, idempotence, absorbing mechanisms, and stability under grammar expansion.
-6. **Cross-seed canonicalization** — representation/functional alignment before claiming a global finite mechanism dictionary.
-7. **Residual formation / recompilation** — test the learn -> residual formation -> compile -> freeze cycle on new tasks.
-8. **Distillation** — test whether teacher mechanism complexity predicts minimum student capacity better than teacher parameter count.
-9. **Whole-network storage frontier** — now that 9,926 B is confirmed, test whether 8–9 KB can be reached without sacrificing independent-seed stability; this remains lower priority than external validity.
+Only if deployment claims are to be made, build one small end-to-end demonstration:
 
-Do not prioritize additional seeds solely to make an already decisive confirmatory result more significant. Prefer new conditions that distinguish competing explanations, and do not retune a supposedly confirmatory architecture cohort after inspecting its outcomes.
+```text
+compact functional representation
+→ load
+→ materialize/compile
+→ execute
+```
+
+Measure at minimum:
+
+- serialized bytes;
+- compile/materialization latency;
+- peak host/device memory if measurable;
+- inference latency;
+- task utility/fidelity.
+
+A negative result is acceptable. The goal is to separate storage/distribution benefit from runtime-memory or execution-speed benefit.
+
+## Handoff topics for future researchers
+
+These remain interesting but are not required to close the current project:
+
+- large pretrained Transformer/LLM external validity;
+- codec-independent complexity/MDL;
+- off-manifold functional complexity;
+- stronger null models and known-complexity synthetic teachers;
+- effective repair/tangent dimension;
+- mechanism algebra/dictionaries;
+- sensitivity-aware utility-cost controllers;
+- hardware-specific functional IR and JIT execution.
+
+See `OPEN_QUESTIONS.md` for the bounded handoff list.
+
+## Stopping rule
+
+After the public repository passes its integrity checks and any chosen closure experiment is documented, treat Canaria as a **research snapshot**. New work should start from explicit issues/questions rather than an indefinitely extending G-number sequence.
