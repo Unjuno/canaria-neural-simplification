@@ -79,11 +79,49 @@ Across the first 8 fresh baseline-eligible seeds `>=9000`:
 
 The component-wise strategy used 640 compiler updates while the composed strategy used 320, so the composed complexity advantage was not purchased with greater fit effort.
 
-This is direct cross-family evidence that the operational compositional-simplification phenomenon is not confined to the original residual-CNN family. It still does not establish universal Transformer or LLM subadditivity.
-
 See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
 
-### 5. Whole-network accounting matters
+### 5. Second direct architecture-family replication in a residual MLP
+
+A second fresh confirmatory experiment tested the same operational question in a four-block residual MLP on sklearn digits.
+
+The fixed span was the first two residual blocks. The replacement grammar used bias-free residual bottleneck modules:
+
+- **component-wise:** two width-`h` replacement modules;
+- **composed:** one width-`2h` replacement module.
+
+For every budget grid point the learned replacement-parameter count was **exactly matched**:
+
+- component-wise total: `256h`;
+- composed total: `256h`.
+
+Fit effort was also conservatively matched by parameter-update count and approximate linear-layer compute. Budget selection used validation only:
+
+- validation span NMSE `<= 0.08`;
+- validation accuracy within 2 absolute percentage points of the teacher;
+- select the smallest passing budget from `512,1024,1536,2048,3072,4096,6144`.
+
+Fresh seeds `1200–1207` produced:
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed smaller: **8/8 fresh seeds**;
+- mean `log2(B_composed/B_componentwise) = -1.0519`;
+- paired bootstrap95 **[-1.2075, -0.8962]**;
+- geometric mean budget ratio: **0.4823×**;
+- mean untouched-test accuracy difference at validation-selected budgets: **+0.00583** for composed minus component-wise, bootstrap95 **[+0.00306,+0.00806]**.
+
+A preregistered mechanistic secondary at fixed 2048 replacement parameters compared local component targets with a joint span objective while keeping the two-module factorized topology:
+
+- local component-wise NMSE: **0.1474**;
+- same two-module architecture jointly fit end-to-end to the span target: **0.0639**;
+- one composed module: **0.0533**.
+
+This control is especially informative: most of the gap is recovered when the implementation still contains two replacement modules but the **optimization target is the composed span function**. The result therefore supports a functional-boundary/objective interpretation rather than attributing the entire effect to the one-module topology.
+
+See `CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
+
+### 6. Whole-network accounting matters
 
 A local replacement can appear small only because complexity moves into the surrounding network. Canaria therefore added whole-network accounting.
 
@@ -91,7 +129,7 @@ In the residual-CNN endpoint, matched whole-network accounting retained a real r
 
 This rejects the strongest form of the explanation that all observed local simplification was merely hidden complexity relocation.
 
-### 6. Dynamic consolidation extends the static phenomenon
+### 7. Dynamic consolidation extends the static phenomenon
 
 The later real-text LM experiments asked a different but related question: what happens when consolidation is performed during learning?
 
@@ -107,11 +145,12 @@ The most useful current interpretation is:
 
 1. neural implementation boundaries can overstate the task-effective complexity of the function that crosses them;
 2. composing a wider span can expose cancellation, redundancy, low-dimensional task manifolds, or other structure that is not visible under component-wise accounting;
-3. the direct SmallViT replication shows that this effect can persist across architecture families under an independently locked grammar and task-preservation rule;
-4. after a consolidation is committed, continued task learning reorganizes the remaining computation;
-5. that reorganization can make the next compiler easier to optimize, while also making the task more sensitive to residual approximation error.
+3. direct SmallViT and residual-MLP fresh replications show that this operational effect is not confined to the original residual-CNN implementation family;
+4. the residual-MLP joint-factorized control indicates that much of the gain follows the **composed functional objective itself**, not merely the use of a one-module replacement topology;
+5. after a consolidation is committed, continued task learning reorganizes the remaining computation;
+6. that reorganization can make the next compiler easier to optimize while also making the task more sensitive to residual approximation error.
 
-The fifth point is important: **"easier to fit" is not the same as "safer to approximate."**
+The sixth point is important: **"easier to fit" is not the same as "safer to approximate."**
 
 ## Strong claims to avoid
 
@@ -123,13 +162,13 @@ The repository does not establish:
 - that every learned network contains large compositional simplifications;
 - that any particular Canary metric is necessary or sufficient;
 - that parameter reduction automatically implies wall-clock or energy reduction;
-- that the SmallViT result implies universal Transformer or large-LLM behavior.
+- that the SmallViT or residual-MLP results imply universal Transformer/LLM or task-universal behavior.
 
 ## Suggested research wording
 
 A strong but defensible summary is:
 
-> **We identify and characterize an empirical phenomenon of task-conditioned compositional simplification in learned neural computation: computations that are difficult or expensive to simplify component-wise can sometimes admit a substantially simpler task-preserving representation when treated as a single composed function. The phenomenon was observed in the original residual-CNN setting and directly replicated in a Small Vision Transformer under a locked component-wise-versus-composed comparison.**
+> **We identify and characterize an empirical phenomenon of task-conditioned compositional simplification in learned neural computation: computations that are difficult or expensive to simplify component-wise can sometimes admit a substantially simpler task-preserving representation when treated as a single composed function. The phenomenon was observed in the original residual-CNN setting and directly replicated under locked fresh protocols in both a Small Vision Transformer and a residual MLP.**
 
 A dynamic extension supported by the training-time experiments is:
 
