@@ -110,13 +110,23 @@ Because many of the strongest current conclusions depend on them. Examples inclu
 
 Removing these failures would make the theory look stronger but less credible.
 
+## Is the current project scientifically complete?
+
+At the **current scoped claim**, yes: v0.2.0 is intended to be a frozen public research snapshot. The representative clean reproduction and minimal runtime PoC are complete, and no additional experiment is required before freezing the present claims.
+
+This does not mean the scientific topic is exhausted. It means future work should begin as a new research question/phase rather than silently extending this snapshot.
+
+## What happened to the proposed cross-family replication?
+
+It remains useful future work if a later paper wants a materially stronger cross-family generalization or priority claim. The previous GitHub Issue #2 was closed as `not planned` for v0.2.0 because the current public wording is explicitly limited to the tested settings.
+
+A future researcher can reopen that design or start a new issue without changing the evidential status of the frozen snapshot.
+
 ## What should a new contributor work on?
 
-The repository-portability task (Issue #1) and minimal runtime PoC (Issue #3) are complete.
+There is no required closure task left for v0.2.0.
 
-Only one optional closure task remains: **Issue #2**, a direct replication of compositional simplification on a clearly different architecture/task if a stronger publication-level generalization/novelty claim is deliberately pursued.
-
-Otherwise, choose a question from `OPEN_QUESTIONS.md` as a new research project rather than extending an indefinite G-number sequence.
+Choose a question from `OPEN_QUESTIONS.md` as a **new research project**. High-value directions include direct cross-family replication, large pretrained models, grammar-independent complexity, hardware-specific functional IR/JIT execution, and larger-scale memory/energy/runtime benchmarking.
 
 ## What is the safest one-sentence summary?
 
