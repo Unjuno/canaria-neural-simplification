@@ -60,6 +60,10 @@ required = [
     ROOT / "results/training_time/protocol_manifest.json",
     ROOT / "results/training_time/late_stage_summary.json",
     ROOT / "results/training_time/ARTIFACT_INVENTORY.md",
+    ROOT / "scripts/reproduce/g7_confirmatory/run_seed.py",
+    ROOT / "scripts/reproduce/g7_confirmatory/README.md",
+    ROOT / "results/reproduction/g7_seed4300_report.json",
+    ROOT / ".github/workflows/reproduce-g7.yml",
 ]
 for p in required:
     if not p.exists():
@@ -77,6 +81,22 @@ if late_path.exists():
             errors.append("late-stage manifest must preserve G21 as FAIL")
     except Exception as exc:
         errors.append(f"late-stage semantic audit: {exc}")
+
+repro_path = ROOT / "results/reproduction/g7_seed4300_report.json"
+if repro_path.exists():
+    try:
+        repro = json.loads(repro_path.read_text(encoding="utf-8"))
+        expected_hash = "68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028"
+        if repro.get("status") != "PASS":
+            errors.append("G7 public reproduction report must remain PASS")
+        if repro.get("exact_json_equal") is not True:
+            errors.append("G7 public reproduction report must preserve exact_json_equal=true")
+        if repro.get("historical_reference_sha256") != expected_hash:
+            errors.append("G7 reproduction historical-reference hash changed")
+        if repro.get("reproduced_output_sha256") != expected_hash:
+            errors.append("G7 reproduction output hash changed")
+    except Exception as exc:
+        errors.append(f"G7 reproduction semantic audit: {exc}")
 
 for p in (ROOT / "README.md", ROOT / "STATUS.md"):
     if p.exists():
