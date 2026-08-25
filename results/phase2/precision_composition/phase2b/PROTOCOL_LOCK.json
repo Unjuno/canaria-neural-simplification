@@ -1,0 +1,16 @@
+{
+  "name": "Canaria-Phase2B-3bit-capacity-rescue-v1",
+  "locked_before_results": true,
+  "date": "2026-08-26",
+  "fresh_seeds": [31100,31101,31102,31103,31104,31105,31106,31107],
+  "task_teacher_span": "same sklearn-digits residual-MLP setup as Phase2A",
+  "quantization": "3-bit symmetric per-matrix signed uniform; FP16 scale per Linear matrix",
+  "budget_grid_params": [6144,8192,12288,16384],
+  "width_h": [24,32,48,64],
+  "fit_updates_per_map": 600,
+  "selection": "validation NMSE <=0.08 and validation accuracy >= teacher validation accuracy -0.02; test untouched until minimum passing budget selected",
+  "hypothesis": "The 3-bit failure observed up to 6144 params is substantially capacity-limited: composed replacements will recover a passing endpoint by 16384 params in at least 6/8 fresh seeds.",
+  "decision": "PASS if composed endpoint exists in >=6/8 seeds; FAIL if <=2/8; otherwise UNCERTAIN.",
+  "secondary": "component-wise rescue rate and paired minimum coded-size ratio where both conditions pass",
+  "scope": "new-phase exploratory mechanism test; frozen v0.2.0 unchanged"
+}
