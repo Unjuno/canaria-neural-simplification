@@ -2,7 +2,7 @@
 
 **2026-08-25: release-ready, scientifically closed public snapshot at the current claim scope.**
 
-Broad experiment expansion is stopped for this snapshot. The representative public reproduction, bounded runtime/materialization PoC, and direct cross-family replication of the core compositional-simplification phenomenon are complete. **No additional experiment is required for the present scoped claims.**
+Broad experiment expansion is stopped for this snapshot. The representative public reproduction, bounded runtime/materialization PoC, and direct cross-family replications of the core compositional-simplification phenomenon are complete. **No additional experiment is required for the present scoped claims.**
 
 ## Current project-level thesis
 
@@ -10,10 +10,11 @@ The central result is **task-conditioned compositional simplification of learned
 
 > implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially simpler task-preserving representation when treated as one composed input-output function.
 
-The static phenomenon is now supported by both:
+The static phenomenon is now supported by:
 
-- the original residual-CNN confirmatory composition evidence; and
-- a fresh Small Vision Transformer component-wise-versus-composed replication.
+- the original residual-CNN confirmatory composition evidence;
+- a fresh Small Vision Transformer component-wise-versus-composed replication; and
+- a second fresh residual-MLP component-wise-versus-composed replication with exact learned-parameter-budget matching.
 
 The dynamic extension is:
 
@@ -27,6 +28,7 @@ Intervening task learning after a structural consolidation changes the subsequen
 
 - original composition subadditivity (`P(G>0)=0.7107`, 95% CI `0.6128–0.8137`) under the declared grammar;
 - direct SmallViT replication: composed/component-wise minimum passing replacement-complexity ratio **0.5199**, paired bootstrap95 **[0.5063, 0.5393]**, composed smaller in **8/8 fresh seeds**, selected composed mean test utility **0.9786**;
+- direct residual-MLP replication: component-wise mean minimum passing budget **3584 params** vs composed **1728 params**, composed lower in **8/8 fresh seeds**, mean `log2(B_comp/B_sep)=-1.0519`, bootstrap95 **[-1.2075,-0.8962]**, with test accuracy difference **+0.583 pt** bootstrap95 **[+0.306,+0.806] pt**;
 - whole-network reductions under declared codecs, including an exact 9,926-byte residual-CNN endpoint;
 - training-time staged consolidation (G7);
 - function-aligned transfer requirement (G8);
@@ -50,21 +52,13 @@ Intervening task learning after a structural consolidation changes the subsequen
 - A hard task-damage veto (G21) can prevent final contraction and increase compiler cost.
 - A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
 - Unlimited recursive collapse is not supported by the current grammar.
-- The SmallViT replication does not imply universal Transformer/LLM subadditivity.
+- The SmallViT and residual-MLP replications do not imply universal Transformer/LLM or task-universal subadditivity.
 
-## Cross-family core-discovery replication — complete
+## Cross-family core-discovery replications — complete
 
-A fresh confirmatory SmallViT experiment compared the same fixed two-block span under a common replacement grammar:
+### Small Vision Transformer
 
-- **component-wise:** simplify each Transformer block separately;
-- **composed:** fit the two-block input-output map directly.
-
-Locked passing rule:
-
-- training-held-out span NMSE `<= 0.12`;
-- validation utility `>= 0.95`.
-
-First 8 fresh baseline-eligible seeds `>=9000` were used; exploratory 8900-series seeds were excluded and test data were not used for candidate selection.
+A fresh confirmatory SmallViT experiment compared a fixed two-block span under a common replacement grammar.
 
 Result:
 
@@ -76,9 +70,33 @@ Result:
 - composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
 - compiler updates: **640 component-wise vs 320 composed**.
 
-Primary decision: **PASS**.
-
 See `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
+
+### Residual MLP
+
+A second fresh confirmatory experiment used a four-block residual MLP on sklearn digits and simplified the first two residual blocks.
+
+For every budget point, component-wise and composed conditions had **exactly the same learned replacement-parameter count**. Fit effort was matched by parameter-update count and approximate linear-layer compute. Candidate selection used validation NMSE/accuracy only; test accuracy was untouched until after budget selection.
+
+Result across fresh seeds `1200–1207`:
+
+- component-wise mean minimum passing budget: **3584 params**;
+- composed mean minimum passing budget: **1728 params**;
+- composed smaller: **8/8**;
+- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
+- paired bootstrap95: **[−1.2075, −0.8962]**;
+- geometric mean budget ratio: **0.4823×**;
+- mean test-accuracy difference at validation-selected budgets: **+0.00583**, bootstrap95 **[+0.00306,+0.00806]**.
+
+At fixed 2048 parameters, a mechanistic control found validation span NMSE:
+
+- local component-wise: **0.1474**;
+- same two-module architecture jointly fit to the composed span target: **0.0639**;
+- one composed module: **0.0533**.
+
+Most of the benefit is therefore recovered by changing the **functional objective/boundary** while keeping the two-module topology, strengthening the interpretation that implementation boundaries can overstate task-effective functional complexity.
+
+See `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
 
 ## Reproducibility closure — complete
 
@@ -107,11 +125,7 @@ See `docs/RUNTIME_POC.md`.
 
 ## Release state
 
-All three bounded closure tasks are complete:
-
-1. representative clean-repository reproduction — complete;
-2. direct cross-family replication of compositional simplification — complete;
-3. minimal runtime/materialization PoC — complete.
+All bounded closure tasks are complete. The residual-MLP replication adds a second direct architecture-family confirmation beyond the already-complete SmallViT replication.
 
 The repository should now be treated as a **frozen public research snapshot** at its current claim scope. Future work should start as a new issue/research phase rather than extending the old G-number mainline.
 
@@ -120,7 +134,7 @@ The repository should now be treated as a **frozen public research snapshot** at
 Possible future projects include:
 
 - larger pretrained Transformer/LLM external validity;
-- replication across additional tasks/spans/replacement grammars;
+- replication across additional task types, spans, widths, and replacement grammars;
 - codec-independent complexity/MDL;
 - hardware-specific functional IR/JIT execution;
 - larger-scale RAM/VRAM/energy/runtime benchmarks;
@@ -131,6 +145,7 @@ Possible future projects include:
 - `docs/PUBLIC_SNAPSHOT.md`
 - `docs/CORE_DISCOVERY.md`
 - `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`
+- `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`
 - `docs/CLAIMS_AND_EVIDENCE.md`
 - `docs/PUBLICATION_NOTES.md`
 - `docs/TRAINING_TIME_CONSOLIDATION.md`
