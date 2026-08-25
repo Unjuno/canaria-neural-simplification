@@ -8,7 +8,8 @@ This directory contains both **current public-snapshot documentation** and **pre
 2. `CORE_DISCOVERY.md` — central compositional-simplification finding.
 3. `CLAIMS_AND_EVIDENCE.md` — current supported/rejected/open claim registry.
 4. `PUBLICATION_NOTES.md` — publication-safe claim hierarchy and wording.
-5. `STATUS.md` is at repository root — current project state.
+5. `RELEASE_CHECKLIST.md` — final tag/release/UI metadata checklist for freezing the snapshot.
+6. `STATUS.md` is at repository root — current project state.
 
 ## Scientific evidence and boundaries
 
@@ -37,6 +38,7 @@ Current measured systems evidence is intentionally narrow:
 
 - `ROADMAP.md` — current closure/handoff roadmap.
 - `OPEN_QUESTIONS.md` — future research questions.
+- `RELEASE_CHECKLIST.md` — final repository-freeze operations.
 
 Representative clean-repository reproduction (Issue #1) and the minimal runtime PoC (Issue #3) are complete.
 
