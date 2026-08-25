@@ -8,3 +8,15 @@ repository-code: "https://github.com/Unjuno/canaria-neural-simplification"
 license: Apache-2.0
 date-released: 2026-08-25
 version: 0.2.0
+abstract: >-
+  Research snapshot on task-conditioned compositional simplification of learned neural computation,
+  training-time consolidation and recontracting, public reproducibility, and a bounded CPU-only
+  serialization/materialization/direct-execution proof of concept.
+keywords:
+  - neural-network simplification
+  - compositional simplification
+  - model compression
+  - training-time consolidation
+  - functional replacement
+  - neural compilation
+  - reproducibility
