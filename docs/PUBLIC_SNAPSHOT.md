@@ -1,6 +1,6 @@
 # Canaria public research snapshot
 
-This file defines how to read the repository as of the current consolidation phase.
+This file defines how to read the repository as of the current frozen public-snapshot phase.
 
 ## Read order
 
@@ -16,15 +16,18 @@ This file defines how to read the repository as of the current consolidation pha
 10. `APPLICATIONS.md` — engineering directions and their evidence status.
 11. `RUNTIME_POC.md` — bounded CPU-only serialization/materialization/execution proof of concept.
 12. `REPRODUCIBILITY.md` — integrity/reproduction policy and portable G7 reproduction.
-13. `ROADMAP.md` and `OPEN_QUESTIONS.md` — optional remaining scientific closure and handoff.
+13. `ROADMAP.md` and `OPEN_QUESTIONS.md` — future research/handoff, not unfinished snapshot work.
 14. `HISTORICAL_INDEX.md` — older documents preserved as historical context rather than current instructions.
-15. `../CHANGELOG.md` — version/snapshot changes.
+15. `RELEASE_CHECKLIST.md` — release metadata checklist.
+16. `../CHANGELOG.md` — version/snapshot changes.
 
 ## Snapshot interpretation
 
 Canaria is not presented as a production-ready compression library. It is an auditable research record centered on the empirical observation that learned computation can sometimes be simpler when represented as a composed task-conditioned function than when treated component-by-component.
 
 Later training-time experiments extend that observation: consolidation followed by task learning changes the ease and task-risk of later consolidation.
+
+The current snapshot is deliberately scoped to the tested settings. It does not require additional experiments to support its present wording.
 
 ## Evidence discipline
 
@@ -61,14 +64,24 @@ The compact artifact executes the learned 2-block representation directly rather
 
 See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
 
-## Current stopping policy
+## Closure state
 
-Broad experiment expansion is paused. The representative portability and bounded runtime-PoC closure tasks are complete.
+The current scientific snapshot is **closed at its present claim scope**.
 
-Only one optional scientific closure task remains:
+- Issue #1 (portable reproduction) — completed.
+- Issue #3 (minimal runtime/materialization PoC) — completed.
+- Issue #2 (direct cross-family replication) — closed as `not planned` for v0.2.0 and retained only as a future-work design for a later stronger generalization/priority claim.
 
-- **Issue #2** — direct replication of compositional simplification on a clearly different architecture/task, only if a stronger public generalization/novelty claim is deliberately pursued.
+No open experiment is required before freezing the current research record.
 
-Issue #1 and Issue #3 are complete and should remain closed unless a portability or benchmark regression is found.
+Future scientific work should begin from a new issue/question or a new research phase rather than silently extending the current G-number sequence.
 
-Issue #2 is not required to preserve the current research snapshot at its present claim scope. New work should otherwise be treated as future research/handoff rather than an indefinitely extending mainline.
+## Manual release metadata
+
+The remaining optional tasks are repository/UI metadata rather than scientific work:
+
+- set/update the GitHub repository description if desired;
+- create tag `v0.2.0-public-snapshot`;
+- create release `Canaria v0.2.0 — Public Research Snapshot`.
+
+See `RELEASE_CHECKLIST.md` for suggested text and checks.
