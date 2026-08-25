@@ -55,6 +55,7 @@ required = [
     ROOT / "results/training_time/summary.json",
     ROOT / "results/training_time/protocol_manifest.json",
     ROOT / "results/training_time/late_stage_summary.json",
+    ROOT / "results/training_time/ARTIFACT_INVENTORY.md",
 ]
 for p in required:
     if not p.exists():
