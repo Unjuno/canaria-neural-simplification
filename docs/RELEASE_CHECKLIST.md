@@ -6,26 +6,27 @@ This checklist is for freezing the current repository as a public research snaps
 
 - [x] README centered on compositional simplification rather than generic compression.
 - [x] Current claim registry separated from historical documents.
-- [x] Positive, negative, exploratory, confirmatory, reproduction, and systems-PoC evidence distinguished.
+- [x] Positive, negative, exploratory, confirmatory, reproduction, systems-PoC, and fresh replication evidence distinguished.
 - [x] G18–G26 late-stage evidence indexed; G21 failure preserved.
 - [x] Portable exact reproduction added for G7 fresh confirmatory seed 4300.
 - [x] Minimal CPU runtime/materialization PoC added with explicit RAM/generalization boundaries.
+- [x] Direct SmallViT component-wise-versus-composed replication completed under a locked fresh protocol.
 - [x] `docs/README.md` and `HISTORICAL_INDEX.md` separate current from frozen historical material.
 - [x] Repository audit enforces public-snapshot invariants.
 - [x] GitHub Issue #1 closed as completed.
+- [x] GitHub Issue #2 closed as completed.
 - [x] GitHub Issue #3 closed as completed.
-- [x] GitHub Issue #2 closed as `not planned` for the current scoped snapshot and retained only as future-work design.
 - [x] No scientific experiment remains required for v0.2.0 at the present claim scope.
 
 ## Scientific closure decision
 
-The current snapshot deliberately keeps the scientific claim scoped to the tested settings:
+The current snapshot supports the scoped statement:
 
 > Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation under declared task distributions, replacement grammars, and accounting rules.
 
-A direct replication of component-wise versus composed-span simplification on a clearly different architecture/task would strengthen a future cross-family generalization or priority claim, but it is **not required** for the present snapshot wording.
+The core phenomenon is supported by the original residual-CNN confirmatory program and by a fresh direct Small Vision Transformer replication. In the SmallViT experiment, the minimum passing composed replacement used about **52%** of the component-wise replacement complexity on average, with a paired seed-bootstrap95 ratio **[0.506, 0.539]** and 8/8 fresh seeds favoring composition.
 
-The previous Issue #2 is therefore closed as `not planned` for v0.2.0. Reopen it or create a new research-phase issue only if a future publication deliberately strengthens the external-validity claim.
+This still does not justify universal Transformer/LLM or mathematical-complexity claims.
 
 ## Remaining optional GitHub UI metadata
 
@@ -45,7 +46,7 @@ Suggested release title:
 
 Suggested release summary:
 
-> Public research snapshot centered on task-conditioned compositional simplification, training-time consolidation/recontracting, preserved negative results, an exact portable G7 confirmatory reproduction, and a bounded CPU runtime/materialization proof of concept. The snapshot does not claim universal mathematical complexity reduction, large-LLM validity, or general RAM/GPU/runtime gains.
+> Public research snapshot centered on task-conditioned compositional simplification, including original residual-CNN evidence and a fresh direct SmallViT replication, training-time consolidation/recontracting, preserved negative results, an exact portable G7 confirmatory reproduction, and a bounded CPU runtime/materialization proof of concept. The snapshot does not claim universal mathematical complexity reduction, large-LLM validity, or general RAM/GPU/runtime gains.
 
 ## Before creating a tag/release
 
@@ -53,7 +54,7 @@ Suggested release summary:
 2. Optionally run the manual `reproduce-g7.yml` workflow.
 3. Optionally run the manual `runtime-poc.yml` workflow.
 4. Read `PUBLICATION_NOTES.md` and ensure release text uses the same claim hierarchy.
-5. Keep future cross-family replication separate from the frozen current snapshot.
+5. Confirm `results/replication/vit_compositional/` remains present and audit-checked.
 
 ## Citation
 
