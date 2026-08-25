@@ -6,15 +6,17 @@ This file is the **current public claim registry** for Canaria. It separates sup
 
 | Claim | Status | Main evidence | Scope / limitation |
 |---|---|---|---|
-| Learned computation can exhibit task-conditioned compositional simplification | **Supported in tested settings** | Original blinded/confirmatory span-composition program + fresh SmallViT direct replication | Operational replacement grammar; not codec-independent Kolmogorov complexity |
+| Learned computation can exhibit task-conditioned compositional simplification | **Supported in tested settings** | Original blinded/confirmatory span-composition program + fresh SmallViT + fresh residual-MLP direct replications | Operational replacement grammars; not codec-independent Kolmogorov complexity |
 | Composition complexity is frequently subadditive | **Supported in original confirmatory setting** | `P(G>0)=0.7107`, 95% CI `0.6128–0.8137` | Residual-CNN-centered original setting and declared grammar |
-| The core component-wise-versus-composed effect transfers to a different architecture family | **Supported in tested SmallViT replication** | 8/8 fresh seeds; mean composed/component-wise minimum-passing complexity ratio `0.51988`, bootstrap95 `[0.50634,0.53926]`; composed mean test utility `0.97856` | Small Vision Transformer on sklearn digits; fixed central two-block span and declared grammar |
+| The core component-wise-versus-composed effect transfers to a Small Vision Transformer | **Supported** | 8/8 fresh seeds; mean composed/component-wise minimum-passing complexity ratio `0.51988`, bootstrap95 `[0.50634,0.53926]`; composed mean test utility `0.97856` | SmallViT on sklearn digits; fixed central two-block span and declared grammar |
+| The core effect also transfers to a residual MLP under exact learned-parameter-budget matching | **Supported** | Fresh seeds `1200–1207`; component-wise mean minimum passing budget `3584`, composed `1728`; 8/8 lower; mean log2 ratio `-1.0519`, bootstrap95 `[-1.2075,-0.8962]`; test accuracy difference `+0.583 pt` | Residual MLP on sklearn digits; same broad supervised-classification genre; declared grammar |
+| Much of the residual-MLP gap follows the composed functional objective rather than only one-module topology | **Supported as mechanistic secondary** | At 2048 params: local component NMSE `0.1474`, same two-module architecture jointly fit to span target `0.0639`, one composed module `0.0533` | One span/grammar; descriptive mechanistic secondary rather than universal law |
 | High Canary is necessary for simplification | **Rejected** | Low-Canary strong-simplification rate `0.845`, 95% seed-cluster CI `0.7225–0.9500` | Other sensor definitions remain possible |
-| Implementation-block boundaries are always the natural functional boundaries | **Rejected / unsupported** | Boundary expansion and wider-span replacements | Boundary behavior is architecture/task dependent |
+| Implementation-block boundaries are always the natural functional boundaries | **Rejected / unsupported** | Boundary expansion, wider-span replacements, residual-MLP joint span-objective control | Boundary behavior is architecture/task dependent |
 | Local simplification is entirely hidden complexity relocation | **Rejected under measured codecs** | Whole-network accounting | Complexity remains codec dependent |
 | Whole-network description size can be materially reduced in the residual-CNN setting | **Supported under declared codecs** | ~26.1% fixed-FP32 and ~28.8% q8+zlib reductions; exact 9,926-byte endpoint | Specific architecture/task and codec family |
 
-See `CORE_DISCOVERY.md` and `CROSS_FAMILY_COMPOSITION_REPLICATION.md`.
+See `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, and `CORE_DISCOVERY_REPLICATION_DIGITS.md`.
 
 ## B. Training-time consolidation
 
@@ -67,6 +69,7 @@ See `CORE_DISCOVERY.md` and `CROSS_FAMILY_COMPOSITION_REPLICATION.md`.
 |---|---|---|
 | residual CNN → small ViT | **Adapted transfer supported** | >60% parameter reduction under tested adapted protocol |
 | direct core phenomenon: residual-CNN evidence → SmallViT component-wise/composed test | **Fresh direct replication supported** | composed minimum-passing replacement complexity ~0.52× component-wise, 8/8 seeds |
+| direct core phenomenon → residual-MLP component-wise/composed test | **Second fresh direct replication supported** | composed selected minimum budget geometric mean ~0.482× component-wise, 8/8 seeds; test utility noninferior and slightly higher in cohort |
 | small ViT → non-image Transformer encoder | **Zero-shot transfer supported** | ~0.992 utility under tested sequence task |
 | encoder/synthetic sequence → causal decoder | **Adapted transfer supported** | Repair restored PPL + generation utility |
 | synthetic causal language → natural-English character LM | **No transfer under tested post-hoc budget** | PPL preserved while rollout fidelity failed |
@@ -94,7 +97,7 @@ The transfer map is intentionally mixed. See `GENERALIZATION_STATUS.md` for the 
 ## I. Claims that remain open
 
 - Universality across large pretrained Transformers or LLMs.
-- Replication of compositional simplification across additional tasks, spans, widths, and replacement grammars.
+- Replication across additional task types, spans, widths, and replacement grammars.
 - Codec-independent minimum description length.
 - A universal mechanism dictionary or compiler grammar.
 - General FLOP/energy/VRAM/RAM benefits of compact functional representations.
@@ -107,7 +110,7 @@ The transfer map is intentionally mixed. See `GENERALIZATION_STATUS.md` for the 
 
 Do **not** describe the current evidence as proving that function composition always reduces mathematical complexity. The supported scientific statement is narrower:
 
-> For some trained networks and task distributions, a composed input-output span admits a substantially smaller task-preserving replacement than component-wise treatment suggests. This effect was observed in the original residual-CNN program and directly replicated in a Small Vision Transformer under a locked fresh protocol. Continued learning after consolidation can also change the ease and risk of later consolidation.
+> For some trained networks and task distributions, a composed input-output span admits a substantially smaller task-preserving replacement than component-wise treatment suggests. This effect was observed in the original residual-CNN program and directly replicated under locked fresh protocols in both a Small Vision Transformer and a residual MLP. Continued learning after consolidation can also change the ease and risk of later consolidation.
 
 The supported systems statement is also narrow:
 
