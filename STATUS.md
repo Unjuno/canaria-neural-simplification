@@ -14,6 +14,8 @@ The reviewer should classify each material public claim as `KEEP`, `EDIT`, `REMO
 
 Incorrect or unsupported statements should be removed from the public-facing surface. Invalidated raw evidence should remain preserved with an explicit invalidation marker so the correction history is auditable.
 
+**Do not publish/post or mark PR #7 ready for review until Issue #9 is closed.**
+
 ## Core result retained pending re-review
 
 The project-level thesis is **task-conditioned compositional simplification of learned neural computation**:
