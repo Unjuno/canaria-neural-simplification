@@ -1,1 +1,0 @@
-One-shot CI trigger for PR #17; removed immediately after triggering.
