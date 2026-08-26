@@ -1,98 +1,103 @@
 # Project status
 
-**Current mode: independent re-review before publication. Broad experiment expansion is stopped.**
+**Current mode: publication-quality gate and repository-state cleanup. Broad experiment expansion is stopped.**
 
-The repository now has enough evidence to be useful as a public research object without requiring a complete theory or exhaustive architecture sweep. New experiments should be limited to small checks that materially improve reproducibility, correct an identified defect, or remove a release blocker.
+The frozen v0.2.0 **public snapshot** remains the version baseline. Post-snapshot precision work is staged separately on this research branch.
 
-The original v0.2.0 **public snapshot** remains the frozen baseline while post-snapshot precision work is staged separately.
+## Independent re-review
 
-## Publication gate
+The review required by `REVIEW_HANDOFF.md` and Issue #9 was performed on 2026-08-26.
 
-Before publication/posting, complete the independent review tracked in Issue #9 using [`REVIEW_HANDOFF.md`](REVIEW_HANDOFF.md).
+Review record:
 
-The reviewer should classify each material public claim as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE`.
+- `docs/INDEPENDENT_REREVIEW_2026-08-26.md`
+- `docs/CLAIMS_AND_EVIDENCE.md`
 
-Incorrect or unsupported statements should be removed from the public-facing surface. Invalidated raw evidence should remain preserved with an explicit invalidation marker so the correction history is auditable.
+The review classified material claims as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE` and changed the public surface accordingly.
 
-**Do not publish/post or mark PR #7 ready for review until Issue #9 is closed.**
+Do not publish/post or mark PR #7 ready while Issue #9 remains open. Closing Issue #9 certifies this scientific quality gate only; the v0.2.0 tag/release boundary and PR #7 merge remain separate repository-state decisions.
 
-## Core result retained pending re-review
+## Core claim retained
 
-The project-level thesis is **task-conditioned compositional simplification of learned neural computation**:
+The project-level thesis is **task-conditioned compositional simplification under explicit operational rules**:
 
-> implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially smaller task-preserving representation when treated as one composed input-output function.
+> Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
-The core effect currently has direct locked replications in:
+The strongest fresh direct replication is the residual MLP with exact learned replacement-parameter matching:
 
-- a Small Vision Transformer; and
-- a residual MLP with exactly matched replacement-parameter budgets.
+- fresh seeds `1200–1207`;
+- composed lower minimum passing budget in `8/8`;
+- geometric composed/component-wise budget ratio `0.4823×`;
+- test utility evaluated only after validation-selected endpoint choice.
 
-In the residual-MLP replication, the composed condition selected a lower minimum passing budget in **8/8 fresh seeds**; geometric composed/component-wise budget ratio **0.4823×**.
+The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
 
-These statements remain subject to the final independent re-review rather than being treated as publication-final wording.
+## Training-time boundary
 
-## Minimal public entry point
+Retained:
 
-Run one direct residual-MLP seed:
+- G7 primary: progressive consolidation beat preregistered early/late one-shot controls;
+- G15/G17: intervening task learning, not merely factorized fitting, is part of the tested staged advantage;
+- G19: staged-path effect also observed on `5→4→2` versus `5→2` with equal compiler-update counts;
+- G18: the tested deadline-aware controller improved over the tested static controller;
+- G20d/e and G22–G26: recontracting can make fitting easier while residual error becomes more task-sensitive in the small character-LM testbed.
 
-```bash
-python -m pip install numpy torch scikit-learn
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
-  --seed 1200 \
-  --out /tmp/canaria_seed1200.json
-```
+G21 remains a valid failure and G27 remains exploratory/no-Pareto-claim.
 
-Recorded seed 1200: component-wise `3072` parameters versus composed `1536`.
+## Phase 2 correction boundary
 
-See [`QUICKSTART.md`](QUICKSTART.md).
+Supported:
 
-## Precision follow-up
+- Phase 2A: 4-bit composed coded-size advantage under the locked residual-MLP quantizer/accounting;
+- Phase 2B: increasing weight count alone did not rescue the tested naive 3-bit per-matrix PTQ;
+- Phase 2C: row-wise scales rescued 3-bit PTQ for both topologies;
+- corrected later work supports viability of short activation-domain QAT-style repair in the tested residual-MLP family.
 
-Post-snapshot Phase 2 extended the question to quantization.
+Critical invalidation:
 
-Current supported boundary, pending independent re-review:
+**Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`.**
 
-- 4-bit composed coded-size advantage: retained under the locked residual-MLP experiment;
-- naive 3-bit per-matrix PTQ: not rescued by simply increasing weight count;
-- row-wise scales: can rescue 3-bit PTQ;
-- short correctly implemented activation-domain QAT repair: can also make coarse per-matrix 3-bit viable in this model family;
-- a lower QAT repair sample complexity for the composed condition: **not confirmed** in the 24-seed confirmatory test.
+Its repair code used raw digit inputs `Xt` where the replacement was defined on internal activation `ta[0]`. Equal width 64 made the semantic error silent.
 
-## Critical correction
+Consequences:
 
-Phase 2E is **INVALIDATED_IMPLEMENTATION_BUG**.
+- Phase 2E `0/8` is not scientific negative evidence;
+- Phase 2I's RNG causal explanation is retracted;
+- 2H/2J interpretations tied to 2E are weakened/confounded;
+- Phase 2O did not confirm a reliable composed repair-sample advantage (`UNCERTAIN`).
 
-Its repair code used raw digit inputs `Xt` where the replacement was defined on the internal activation domain `ta[0]`. The tensors happened to have the same width, so the error was silent.
+Invalidation history is preserved in:
 
-The invalid artifact is retained and marked, not erased. Follow-up Phase 2L changed only the intended repair input and restored composed passing from `0/8` to `8/8` under the controlled rerun.
+- `results/phase2/precision_composition/CORRECTION_STATUS.json`
+- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
 
-See [`docs/phase2/README.md`](docs/phase2/README.md) and [`results/phase2/precision_composition/CORRECTION_STATUS.json`](results/phase2/precision_composition/CORRECTION_STATUS.json).
+Not all later 2D–2O raw per-seed artifacts are checked into this Git branch; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
 
-## What is not established
+## Reproducibility / systems boundary
 
-The repository does not claim:
+- G7 seed 4300 exact portable rerun: retained as reproduction/portability evidence, not independent replication.
+- Runtime PoC: retained only as one small CPU/storage/inference result.
+- Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
 
-- universal simplification of arbitrary neural networks;
-- codec-independent Kolmogorov/MDL reduction;
-- large-pretrained-LLM validity;
-- task- or span-universal compositional subadditivity;
-- guaranteed FLOP, wall-clock, energy, RAM, VRAM, or GPU improvements;
-- a confirmed compositional advantage in quantization-repair sample complexity.
+## Publication gate checks
+
+Issue #9 may close only when the final reviewed branch satisfies:
+
+1. public claim corrections are present;
+2. invalidation history is preserved;
+3. minimal public residual-MLP runner smoke test passes;
+4. `python tools/audit_repo.py` passes;
+5. GitHub `repository-audit` passes for the final reviewed commit.
+
+`docs/RELEASE_CHECKLIST.md` tracks these checks.
 
 ## Stopping rule
 
-Before public release, continue only work in these categories:
+Before public release, continue only:
 
-1. independent re-review and removal/narrowing of unsupported public claims;
-2. repository cleanup that makes the core pattern easier to notice or reproduce;
-3. correction/provenance work for already-run experiments;
-4. one-seed or similarly small smoke tests needed to verify a public runner;
-5. release metadata, tags, CI, and repository protection.
+- correction/provenance work;
+- minimal reproducibility smoke checks;
+- CI/audit fixes;
+- release/version-control metadata and PR review.
 
-Do **not** start a new broad experimental family merely to make the repository feel complete. Unresolved architecture, theory, hardware, and scale questions should remain open for follow-up by other researchers.
-
-## Release separation
-
-The original v0.2.0 scientific snapshot remains the frozen baseline until its tag/release boundary is completed. Post-snapshot precision work is staged separately and should not be back-projected into the v0.2.0 claim registry without an explicit version transition.
-
-For the detailed historical record, use the documents under `docs/`, `results/`, and `archives/`; the root README is intentionally kept short.
+Do **not** open a broad new experimental family merely to make the repository feel complete.
