@@ -3,7 +3,7 @@ name: preannouncement-core-digits-reproduction
 on:
   push:
     branches:
-      - maintenance/pre-announcement-hardening-2026-08-27
+      - execution/preannouncement-core-repro
 
 permissions:
   contents: read
