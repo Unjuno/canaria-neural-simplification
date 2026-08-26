@@ -1,71 +1,50 @@
 # Public snapshot release checklist
 
-This checklist is for freezing the current repository as a public research snapshot. It is intentionally operational and should not reopen broad experiment search.
+This checklist reflects the **post-independent-re-review** repository state. It must not be used to imply publication readiness before the remaining gates are actually satisfied.
 
-## Repository state
+## Scientific/public-claim review
 
-- [x] README centered on compositional simplification rather than generic compression.
-- [x] Current claim registry separated from historical documents.
-- [x] Positive, negative, exploratory, confirmatory, reproduction, systems-PoC, and fresh replication evidence distinguished.
-- [x] G18–G26 late-stage evidence indexed; G21 failure preserved.
-- [x] Portable exact reproduction added for G7 fresh confirmatory seed 4300.
-- [x] Minimal CPU runtime/materialization PoC added with explicit RAM/generalization boundaries.
-- [x] Direct SmallViT component-wise-versus-composed replication completed under a locked fresh protocol.
-- [x] `docs/README.md` and `HISTORICAL_INDEX.md` separate current from frozen historical material.
-- [x] Repository audit enforces public-snapshot invariants.
-- [x] GitHub Issue #1 closed as completed.
-- [x] GitHub Issue #2 closed as completed.
-- [x] GitHub Issue #3 closed as completed.
-- [x] No scientific experiment remains required for v0.2.0 at the present claim scope.
+- [x] Root README centered on the bounded compositional-simplification claim.
+- [x] Public claim registry separates operational claims from mathematical/Kolmogorov claims.
+- [x] Residual-MLP direct replication re-reviewed for split isolation, exact learned-budget accounting, seed rules, and statistics.
+- [x] SmallViT direct replication re-reviewed; test metrics are excluded from the locked selection rule, but the runner's all-candidate test recording is disclosed as a weaker isolation boundary.
+- [x] Training-time primary/secondary and exploratory/confirmatory boundaries re-reviewed.
+- [x] Phase 2E marked `INVALIDATED_IMPLEMENTATION_BUG`; causal descendants corrected/retracted.
+- [x] Phase 2O positive repair-sample-complexity claim removed; result remains `UNCERTAIN`.
+- [x] Invalidated evidence preserved as correction history rather than silently erased.
+- [x] G7 exact rerun described as reproduction/portability evidence, not an independent scientific replication.
+- [x] Runtime PoC restricted to the measured small CPU/storage/inference scope.
+- [x] Independent re-review ledger added: `INDEPENDENT_REREVIEW_2026-08-26.md`.
 
-## Scientific closure decision
+## Repository quality gate
 
-The current snapshot supports the scoped statement:
+Before closing Issue #9:
 
-> Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation under declared task distributions, replacement grammars, and accounting rules.
+- [ ] Minimal public residual-MLP runner smoke test passes on the reviewed branch.
+- [ ] `python tools/audit_repo.py` passes with Phase 2 invalidation invariants enabled.
+- [ ] GitHub `repository-audit` workflow passes for the final reviewed commit.
+- [ ] Root `README.md` / `STATUS.md` updated from “review pending” to the actual completed-review state.
+- [ ] Issue #9 receives the final decision summary and is closed.
 
-The core phenomenon is supported by the original residual-CNN confirmatory program and by a fresh direct Small Vision Transformer replication. In the SmallViT experiment, the minimum passing composed replacement used about **52%** of the component-wise replacement complexity on average, with a paired seed-bootstrap95 ratio **[0.506, 0.539]** and 8/8 fresh seeds favoring composition.
+## Separate release/merge boundary
 
-This still does not justify universal Transformer/LLM or mathematical-complexity claims.
+Closing Issue #9 means the independent scientific quality gate is complete. It does **not** by itself authorize merging PR #7 or rewriting the frozen v0.2.0 boundary.
 
-## Remaining optional GitHub UI metadata
+Before merging or posting the post-snapshot branch:
 
-The connected automation does not expose repository-description or tag/release creation, so these remain manual UI actions if desired.
+1. Resolve the v0.2.0 tag/release boundary tracked separately from Issue #9.
+2. Re-review draft PR #7 against that version boundary.
+3. Confirm the final PR head still passes `repository-audit`.
+4. Keep Phase 2 post-snapshot claims version-separated from the frozen v0.2.0 claim set unless an explicit version transition is made.
 
-Suggested repository description:
+## Public claim that survives the gate
 
-> Research on task-conditioned compositional simplification, training-time consolidation, and compact functional representations of learned neural computation.
+The scoped statement is:
 
-Suggested snapshot tag:
+> Under explicit task distributions, replacement grammars, and passing criteria, some learned spans in the tested networks admit smaller task-preserving replacements when treated as one composed input-output function than when simplified at implementation-component boundaries.
 
-`v0.2.0-public-snapshot`
-
-Suggested release title:
-
-`Canaria v0.2.0 — Public Research Snapshot`
-
-Suggested release summary:
-
-> Public research snapshot centered on task-conditioned compositional simplification, including original residual-CNN evidence and a fresh direct SmallViT replication, training-time consolidation/recontracting, preserved negative results, an exact portable G7 confirmatory reproduction, and a bounded CPU runtime/materialization proof of concept. The snapshot does not claim universal mathematical complexity reduction, large-LLM validity, or general RAM/GPU/runtime gains.
-
-## Before creating a tag/release
-
-1. Verify `main` passes `.github/workflows/ci.yml`.
-2. Optionally run the manual `reproduce-g7.yml` workflow.
-3. Optionally run the manual `runtime-poc.yml` workflow.
-4. Read `PUBLICATION_NOTES.md` and ensure release text uses the same claim hierarchy.
-5. Confirm `results/replication/vit_compositional/` remains present and audit-checked.
+This does **not** justify universal mathematical-complexity, LLM-scale, GPU/RAM/energy, or universal runtime claims.
 
 ## Citation
 
-Until a paper exists, cite:
-
-- the exact commit or snapshot tag;
-- the relevant protocol/result artifacts or recorded SHA256 values;
-- the evidence class for any quoted endpoint.
-
-`CITATION.cff` is the canonical repository citation metadata.
-
-## Stopping rule
-
-After the optional release metadata is set, treat the current repository as a **frozen public research snapshot**. Future scientific work should begin from a new issue/question or a new research phase rather than silently extending the old G-number mainline.
+Until a paper exists, cite the exact commit/tag and the protocol/result artifacts supporting the particular claim. Do not cite an invalidated artifact as evidence merely because it remains in history.
