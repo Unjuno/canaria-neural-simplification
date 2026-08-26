@@ -1,199 +1,95 @@
 # Canaria Neural Simplification
 
-**Canaria** is an experimental research repository about a simple question:
+**Canaria** studies a bounded empirical pattern:
 
-> Can trained neural computation sometimes be represented more simply when several learned computations are treated as one composed function rather than as separate implementation blocks?
+> Under explicit task distributions, replacement grammars, and passing criteria, some learned spans admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
-The repository preserves positive, negative, exploratory, confirmatory, reproduction, and bounded systems-PoC evidence. It is a **release-ready public-snapshot research record** at its current claim scope; broad experiment expansion is stopped.
+```text
+x ── f ──> h ── g ──> y
 
-See [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) for the intended reading order and snapshot policy.
+component-wise: simplify(f) + simplify(g)
+composed:       simplify(g ∘ f)
+```
 
-## Core empirical finding
+This is an **operational replacement/description-complexity** claim. The repository does not claim universal mathematical/Kolmogorov complexity reduction.
 
-The strongest project-level result is **task-conditioned compositional simplification of learned computation**.
+The frozen v0.2.0 **public snapshot** remains the version baseline. Post-snapshot precision work is staged on this research branch.
 
-In the tested settings:
+## Pre-publication review state
 
-- simplification was not confined to high-Canary regions;
-- composition complexity was frequently subadditive (`P(G>0)=0.7107`, 95% CI `0.6128–0.8137`) under the original confirmatory grammar;
-- implementation-block boundaries were not always the most natural functional boundaries;
-- a learned span could sometimes admit a smaller task-conditioned replacement even when component-wise simplification was poor;
-- whole-network accounting showed that measured local simplification was not merely hidden parameter relocation under the declared codecs.
+The independent re-review required by `REVIEW_HANDOFF.md` and Issue #9 was performed on 2026-08-26. The decision ledger is:
 
-### Direct replication 1 — Small Vision Transformer
+- [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md)
+- [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md)
 
-A fresh locked replication tested the core phenomenon in a SmallViT on sklearn digits. For a fixed central two-block span, component-wise versus directly composed replacement used the same task/fidelity rule.
+Do not publish/post or mark PR #7 ready while Issue #9 remains open. Closing that issue completes the scientific quality gate only; the v0.2.0 release/tag boundary and PR #7 merge remain separate decisions.
 
-Across 8/8 fresh eligible seeds, the selected composed representation used **4,904–5,424 replacement parameters** versus **9,808** for component-wise treatment. Mean composed/component-wise complexity ratio: **0.5199**, seed-bootstrap 95% CI **[0.5063, 0.5393]**. Mean held-out test utility of selected composed candidates: **0.9786**.
+## Try the strongest minimal public experiment
 
-See [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md).
+```bash
+python -m pip install numpy torch scikit-learn
+python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
+  --seed 1200 \
+  --out /tmp/canaria_seed1200.json
+```
 
-### Direct replication 2 — residual MLP
+Recorded seed 1200:
 
-A second locked fresh replication used a four-block residual MLP on sklearn digits and the first two residual blocks.
-
-At every budget grid point, component-wise and composed conditions had **exactly matched learned replacement-parameter counts**. Candidate selection used validation NMSE and validation accuracy only; the final test set was untouched until the minimum passing budget had been selected.
+- component-wise minimum passing budget: `3072` learned replacement parameters;
+- composed minimum passing budget: `1536`.
 
 Across fresh seeds `1200–1207`:
 
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed lower-budget: **8/8 seeds**;
-- mean `log2(B_composed/B_componentwise) = -1.0519`, bootstrap95 **[-1.2075,-0.8962]**;
-- geometric mean budget ratio: **0.4823×**;
-- test accuracy difference at validation-selected budgets, composed minus component-wise: **+0.583 percentage points**, bootstrap95 **[+0.306,+0.806] pt**.
+- component-wise mean minimum passing budget: `3584`;
+- composed mean minimum passing budget: `1728`;
+- composed lower: `8/8`;
+- geometric composed/component-wise budget ratio: `0.4823×`.
 
-At a fixed 2048-parameter budget, a mechanistic control found span NMSE **0.1474** for local component-wise fitting, **0.0639** for the same two-module architecture jointly optimized on the composed span target, and **0.0533** for one composed module. Most of the gain therefore follows the **functional span objective/boundary**, not merely a one-module topology change.
+This residual-MLP runner exactly matches learned replacement-parameter budgets at each grid point, uses validation to select the minimum passing budget, and evaluates test utility only after endpoint selection.
 
-See [`docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md) and `results/core_discovery_digits/`.
+See [`QUICKSTART.md`](QUICKSTART.md).
 
-The project does **not** claim that mathematical or Kolmogorov complexity universally decreases under composition. The supported claim is operational: for some trained networks and task distributions, a composed input-output map admits a substantially smaller task-preserving representation than component-wise treatment suggests. The original residual-CNN result now has direct locked fresh replications in both a Small Vision Transformer and a residual MLP.
+## Evidence at a glance
 
-See [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md).
+Retained after independent re-review:
 
-## Dynamic extension: consolidation during learning
+- residual-MLP direct component-wise/composed replication with exact learned-budget matching;
+- SmallViT direct component-wise/composed replication under a locked rule, with an explicit caveat that its runner records test metrics for all candidates even though test is not a selection variable;
+- bounded training-time consolidation/recontracting experiments with positive and negative controls;
+- one bounded CPU serialization/direct-execution proof of concept;
+- Phase 2A–C precision/quantization evidence plus explicit correction history for later Phase 2 work.
 
-Later experiments showed that simplification is not only post-hoc.
+The repository does **not** claim universal LLM-scale validity or general FLOP, RAM, VRAM, GPU, energy, wall-clock, or runtime improvement.
 
-A useful working process is:
+## Critical Phase 2 correction
 
-> **form → transfer → commit → recontract → transfer again**
+Phase 2E is **`INVALIDATED_IMPLEMENTATION_BUG`** and `DO_NOT_USE_FOR_INFERENCE`.
 
-Headline evidence:
+Its repair path used raw `Xt` instead of the intended internal activation domain `ta[0]`; equal width 64 made the semantic error silent.
 
-- **G7:** progressive `4→3→2` consolidation reached a final model with **52.28% fewer parameters** and beat early/late one-shot controls.
-- **G15 + G17:** staged consolidation helped only when task learning occurred between commits; merely factorizing one compiler fit into two did not reproduce the benefit.
-- **G18:** a deadline-aware controller improved mean PPL by **0.181** versus the static controller while reducing mean compiler updates from **184 to 136** on fresh `n=12`.
-- **G19:** the staged effect replicated on `5→4→2` versus direct `5→2` by **−0.689 PPL** with identical compiler-update budgets, 8/8 fresh seeds.
-- **G20d/G20e:** after recontracting, the next compiler reached the same normalized functional-error target with about **22% fewer updates**, but the same normalized error caused **more immediate task damage**.
-- **G22–G26:** downstream sensitivity, error direction, logit-space second-order error, and remaining learning horizon materially improved task-damage prediction.
-- **G21:** a hard shadow-damage veto failed because it prevented final contraction in 2/12 fresh seeds.
-- **G27:** fixed risk caps exposed a cost/utility trade-off rather than a Pareto improvement; it remains exploratory.
+The invalid result is preserved as correction history, not scientific evidence:
 
-See [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) and [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md).
+- [`docs/phase2/README.md`](docs/phase2/README.md)
+- [`results/phase2/precision_composition/CORRECTION_STATUS.json`](results/phase2/precision_composition/CORRECTION_STATUS.json)
+- [`results/phase2/precision_composition/INVALIDATED_HISTORY.md`](results/phase2/precision_composition/INVALIDATED_HISTORY.md)
 
-## Portable exact reproduction
+Phase 2O did **not** confirm a reliable compositional repair-sample advantage; that positive claim is removed.
 
-A self-contained public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+## Reproducibility and systems boundary
 
-```bash
-python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
-python scripts/reproduce/g7_confirmatory/run_seed.py --seed 4300 --out g7_seed_4300.json
-```
+A portable G7 seed-4300 runner exactly reproduced the archived JSON in its recorded environment. This is software/portability evidence for an already-confirmatory seed, **not** a new independent scientific replication.
 
-In the recorded environment, the complete JSON exactly matched the archived confirmatory output with SHA256:
+One small CPU PoC produced a smaller serialized artifact and lower measured batch-128 CPU inference latency. Meaningful host-RAM reduction was not demonstrated; GPU/VRAM/energy/large-model generalization remains open.
 
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+## Where to look
 
-See [`scripts/reproduce/g7_confirmatory/README.md`](scripts/reproduce/g7_confirmatory/README.md) and [`results/reproduction/g7_seed4300_report.json`](results/reproduction/g7_seed4300_report.json).
-
-This is portability/reproducibility evidence for an already-confirmatory seed, not a new independent scientific replication.
-
-## Bounded runtime/materialization PoC
-
-A small CPU-only proof of concept tests the deployment idea:
-
-```text
-compact learned representation
-→ serialize
-→ load/materialize
-→ execute directly
-```
-
-Using G7 seed 4300:
-
-| metric | large 4-block | progressive compact 2-block |
-|---|---:|---:|
-| serialized artifact + manifest | 110,093 B | **54,646 B** |
-| parameters | 23,138 | **11,042** |
-| batch-128 CPU inference, 5 fresh-process probes | 47.05 ms | **23.11 ms** |
-| load/materialize, mean | 7.85 ms | 5.86 ms |
-| process RSS delta | 4.72 MB | 4.56 MB |
-| test PPL | 19.2784 | **18.9322** |
-
-Interpretation:
-
-- storage/distribution reduction was demonstrated in this small PoC;
-- direct CPU execution was faster in this measured setup;
-- load/materialization was faster on average but cache-sensitive, so it is secondary evidence;
-- meaningful host-RAM reduction was **not demonstrated**;
-- GPU, large-model, energy, and universal runtime claims are not established.
-
-See [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) and [`results/reproduction/runtime_poc_seed4300_report.json`](results/reproduction/runtime_poc_seed4300_report.json).
-
-## What is established
-
-Within the tested small-model settings:
-
-1. learned computation can exhibit task-conditioned compositional simplification;
-2. the core component-wise-versus-composed effect has locked fresh direct replications in a Small Vision Transformer and a residual MLP;
-3. simplification is not a simple local Canary-threshold phenomenon;
-4. the residual-MLP mechanistic control shows that much of the advantage follows the composed **functional objective/boundary**, even when the two-module topology is retained;
-5. staged consolidation with intervening task learning can outperform direct contraction at the same final capacity;
-6. recontracting can make the next compiler easier to optimize while simultaneously increasing downstream sensitivity to residual error;
-7. task damage is better predicted by sensitivity-aware quantities than by representation error alone;
-8. remaining learning horizon changes expected post-commit damage;
-9. one representative confirmatory path is publicly reproducible without private local imports;
-10. one small CPU PoC demonstrates that a learned compact representation can be serialized, materialized, and executed directly without reconstructing the original larger model.
-
-## What is not established
-
-- universal simplification of arbitrary neural networks;
-- codec-independent Kolmogorov/MDL claims;
-- large-pretrained-LLM validity;
-- task-universal or span-universal compositional subadditivity;
-- guaranteed FLOP, wall-clock, energy, RAM, or VRAM improvements;
-- universal GPU/runtime speedup;
-- a universally optimal autonomous controller;
-- architecture-universal risk-model coefficients.
-
-## Applications
-
-The longer-term systems interpretation is to treat a trained model as a **compact functional intermediate representation** rather than only as a tensor checkpoint.
-
-Potential directions include compact distribution, spanwise JIT materialization, native compact operators, cold-start reduction, edge deployment, hardware-specific recompilation, multi-model serving, checkpoint archival, and training-time self-recompilation.
-
-The small runtime PoC provides initial evidence for compact serialization and direct CPU execution only. The broader application directions remain engineering hypotheses until measured at the relevant scale/resource.
-
-See [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md).
-
-## Start here
-
-1. [`docs/PUBLIC_SNAPSHOT.md`](docs/PUBLIC_SNAPSHOT.md) — reading order and snapshot policy.
-2. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical discovery and scope.
-3. [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md) — direct SmallViT replication.
-4. [`docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md) — second direct residual-MLP replication and functional-boundary control.
-5. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — supported/rejected/open claim registry.
-6. [`docs/PUBLICATION_NOTES.md`](docs/PUBLICATION_NOTES.md) — publication-safe claim hierarchy.
-7. [`docs/TRAINING_TIME_CONSOLIDATION.md`](docs/TRAINING_TIME_CONSOLIDATION.md) — G7–G17 mainline.
-8. [`docs/LATE_STAGE_FINDINGS.md`](docs/LATE_STAGE_FINDINGS.md) — G18–G27 mechanisms/controllers.
-9. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — failed hypotheses retained as evidence.
-10. [`docs/RUNTIME_POC.md`](docs/RUNTIME_POC.md) — bounded systems result.
-11. [`docs/TERMINOLOGY.md`](docs/TERMINOLOGY.md) and [`docs/FAQ.md`](docs/FAQ.md) — definitions and interpretation boundaries.
-12. [`docs/APPLICATIONS.md`](docs/APPLICATIONS.md) — deployment directions and evidence status.
-13. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — reproduction policy.
-14. [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md) — handoff and future work.
-15. [`STATUS.md`](STATUS.md) — current project state.
-
-## Evidence classes
-
-- **Confirmatory** — fresh seeds, locked condition/endpoints, explicit decision rule.
-- **Independent holdout** — selected condition retested without reselection.
-- **Exploratory** — implementation validation or hypothesis generation.
-- **Negative result** — a failed hypothesis retained explicitly.
-- **Reproduction** — rerun of an already-observed condition to validate portability; not a new independent seed by itself.
-- **Systems PoC** — bounded engineering measurement; scope is limited to the measured environment/resource.
-
-## Repository layout
-
-- `src/canaria/` — cleaned reusable components from earlier phases.
-- `scripts/phases/` — provenance-preserving evidence scripts; some retain historical environment-specific paths.
-- `scripts/reproduce/` — portable reproduction and systems-PoC runners, including the residual-MLP direct replication runner.
-- `scripts/replication/` — fresh direct replication runners such as the SmallViT core-discovery replication.
-- `results/` — machine-readable evidence, protocol locks, reproduction reports, replication results, and PoC reports.
-- `docs/history/` and `docs/phases/` — historical research record.
-- `archives/` — retained handoff/history material.
-- `schemas/` — metadata schemas.
+- [`QUICKSTART.md`](QUICKSTART.md) — minimal direct experiment.
+- [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — authoritative public claim registry.
+- [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md) — independent decision ledger.
+- [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical claim and scope.
+- [`docs/phase2/README.md`](docs/phase2/README.md) — precision/quantization corrections.
+- [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — valid negative evidence versus invalidated evidence.
+- [`STATUS.md`](STATUS.md) — publication/release state.
 
 ## License
 
@@ -201,4 +97,4 @@ Original code and documentation are released under the **Apache License 2.0**. T
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the exact repository commit/snapshot plus the protocol/result files used.
+See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the exact repository commit/snapshot and the protocol/result artifacts supporting the specific claim.

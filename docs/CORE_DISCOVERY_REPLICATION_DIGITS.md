@@ -1,14 +1,12 @@
 # Direct replication of compositional simplification on a residual MLP
 
-This document records the bounded closure experiment tracked in GitHub Issue #2.
+This document records the fresh residual-MLP component-wise-versus-composed experiment. It is the strongest public matched-budget replication in the current repository.
 
-## Why this experiment exists
+## Question
 
-The original Canaria discovery was that learned computation can be easier to replace when several learned components are treated as one composed input-output function rather than simplified independently at implementation boundaries.
+> Under an explicit replacement grammar and validation fidelity/utility rule, does a fixed two-block span require fewer learned replacement parameters when its input-output map is fitted directly than when the two blocks are simplified separately?
 
-To test whether that result was tied to the original architecture family, we ran a fresh confirmatory experiment on a different architecture: a four-block **residual MLP** trained on `sklearn.datasets.load_digits`.
-
-This is an architecture-family replication. The task remains supervised classification, so it does not establish task-universal generality.
+This is an operational replacement-complexity question, not a Kolmogorov-complexity test.
 
 ## Locked design
 
@@ -18,53 +16,58 @@ Fresh confirmatory seeds: `1200–1207`.
 
 Teacher:
 
-- input: 64 normalized digit pixels;
-- stem: linear `64→64` + GELU;
+- `sklearn.datasets.load_digits`;
+- stem `64→64` + GELU;
 - four residual MLP blocks;
-- each teacher block: `x + Linear(128) → GELU → Linear(64)` applied to `LayerNorm(x)`;
 - linear 10-class head.
 
-The tested span is the **first two residual blocks**.
+Tested span: first two residual blocks.
 
 Replacement grammar:
 
-- component-wise: two bias-free residual bottleneck modules, each hidden width `h`;
-- composed-span: one bias-free residual bottleneck module with hidden width `2h`;
-- total learned replacement parameters are therefore exactly matched: `256h` in both conditions.
+- **component-wise:** two bias-free residual bottleneck modules, each hidden width `h`;
+- **composed:** one bias-free residual bottleneck module, hidden width `2h`.
+
+At every budget point, learned replacement parameters are exactly matched:
+
+```text
+component-wise total = 2 × (64h + 64h) = 256h
+composed total       =     (64·2h + 2h·64) = 256h
+```
 
 Budget grid:
 
 `512, 1024, 1536, 2048, 3072, 4096, 6144` learned replacement parameters.
 
-Compiler optimization:
+Compiler fitting:
 
 - 600 updates per component module;
 - 600 updates for the composed module;
 - batch size 128;
 - AdamW, lr `0.008`, weight decay `1e-5`.
 
-Because each component has half the learned parameters of the composed replacement, two component fits at 600 updates each have the same total parameter-update count and approximately the same linear-layer multiply count as one composed fit at 600 updates.
+Because each component module has half the learned parameters of the composed replacement, the two 600-update component fits match the composed fit in total parameter-update count and approximately in linear-layer multiply count.
 
-## Selection rule
+## Selection and test isolation
 
-The final test set is **not** used to select replacement budget.
+Choose the smallest budget satisfying both:
 
-For each condition, choose the smallest budget on the locked grid satisfying both:
+1. validation span NMSE `<= 0.08`;
+2. replacement validation accuracy within 2 absolute percentage points of teacher validation accuracy.
 
-1. validation span NMSE `≤ 0.08`;
-2. replacement validation accuracy within 2 absolute percentage points of the teacher validation accuracy.
+The final test set is not used for budget selection. The public runner evaluates test utility only after the minimum passing endpoint has been selected.
 
 Primary endpoint:
 
 > paired mean `log2(B_composed / B_componentwise)` across fresh seeds.
 
-PASS requires the seed-bootstrap 95% CI upper bound to be below zero.
+PASS requires the seed-bootstrap 95% CI upper bound below zero.
 
 Secondary confirmatory endpoint:
 
-> test-accuracy difference at the validation-selected budgets.
+> test-accuracy difference at validation-selected budgets.
 
-PASS requires the paired bootstrap 95% CI lower bound for `composed - componentwise` to be above `-0.02`.
+PASS requires the paired bootstrap95 lower bound for `composed - component-wise` above `-0.02`.
 
 Protocol SHA256:
 
@@ -73,8 +76,6 @@ Protocol SHA256:
 ## Fresh confirmatory result
 
 **Overall: PASS.**
-
-Selected minimum budgets by seed:
 
 | seed | component-wise | composed |
 |---:|---:|---:|
@@ -87,56 +88,56 @@ Selected minimum budgets by seed:
 | 1206 | 3072 | 1536 |
 | 1207 | 4096 | 1536 |
 
-Composed-span used the smaller minimum budget in **8/8 fresh seeds**.
+Composed selected the smaller minimum passing budget in **8/8** fresh seeds.
 
-Primary result:
+Primary:
 
-- mean component-wise selected budget: **3584 params**;
-- mean composed selected budget: **1728 params**;
+- component-wise mean selected budget: **3584**;
+- composed mean selected budget: **1728**;
 - arithmetic mean budget reduction: **51.8%**;
-- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
-- paired bootstrap 95% CI: **[−1.2075, −0.8962]**;
+- mean `log2(B_composed/B_componentwise)`: **-1.0519**;
+- paired bootstrap95: **[-1.2075,-0.8962]**;
 - geometric mean budget ratio: **0.4823×**;
-- one-sided exact Wilcoxon `p = 0.00390625`.
+- one-sided exact Wilcoxon `p=0.00390625`.
 
-Secondary test-utility result:
+Secondary test utility:
 
 - mean test-accuracy difference, composed minus component-wise: **+0.00583** (+0.583 percentage points);
-- paired bootstrap 95% CI: **[+0.00306, +0.00806]**.
+- paired bootstrap95: **[+0.00306,+0.00806]**.
 
-Thus the lower-budget composed replacements did not achieve the result by accepting worse held-out task utility in this confirmatory cohort.
+Thus, in this fresh cohort, the lower selected composed budgets did not achieve the primary result by accepting inferior held-out task utility.
 
-## Mechanistic secondary control
+## Mechanistic secondary — descriptive, not confirmatory causal proof
 
-At a fixed **2048-parameter** budget we also compared:
+At fixed **2048 learned replacement parameters**, three fits were compared:
 
-1. local component-wise fitting;
-2. the same two-module factorized replacement architecture, but jointly optimized end-to-end on the composed span target;
-3. one composed module.
+1. local component-wise fitting to separate intermediate targets;
+2. the same two-module factorized topology jointly optimized end-to-end on the composed span target;
+3. one composed module optimized on the span target.
 
-Mean validation span NMSE across the fresh seeds:
+Mean validation span NMSE:
 
 - local component-wise: **0.1474**;
-- jointly fit factorized span: **0.0639**;
+- jointly fitted two-module span: **0.0639**;
 - single composed module: **0.0533**.
 
-The joint factorized control recovers most of the gap between local component-wise fitting and the single composed module. This is important: it suggests that much of the observed advantage comes from **treating the two blocks as one functional boundary/objective**, not merely from changing the topology from two small modules to one wider module.
+The joint span-objective condition recovers most of the local component-wise gap while preserving the two-module topology.
 
-The single composed module still showed a smaller additional NMSE advantage over the jointly optimized factorized control, but that comparison was a preregistered descriptive/mechanistic secondary, not the primary discovery test.
+This is **consistent with** the composed functional objective/boundary accounting for a substantial part of the observed operational gap. However, this comparison had no confirmatory PASS/FAIL decision rule and does not uniquely identify a causal mechanism. The remaining difference between joint-factorized and one-module composed fits can reflect topology, optimization, inductive bias, or other factors.
 
-## Interpretation
+## Supported interpretation
 
-This experiment supports an operational form of compositional simplification on a residual-MLP family:
+> In this residual-MLP task, fixed span, replacement grammar, optimization budget, and validation rule, the directly fitted composed span required substantially fewer learned replacement parameters than local component-wise simplification.
 
-> under a declared replacement grammar, optimization budget, validation fidelity criterion, and task-utility criterion, the composed two-block input-output function required substantially fewer learned replacement parameters than independent component-wise simplification.
+This experiment additionally provides descriptive evidence that changing the objective from local intermediate targets to the composed span target can recover much of the gap even when the two-module topology is retained.
 
-It does **not** establish:
+## Not established
 
-- universal mathematical or Kolmogorov complexity reduction under function composition;
-- task-universal generality;
-- that one-module topology is solely responsible for the effect;
-- that every span or architecture exhibits the phenomenon.
+- universal mathematical/Kolmogorov subadditivity;
+- task-universal or architecture-universal behavior;
+- that the single-module topology is solely responsible;
+- that the composed objective is the unique causal mechanism;
+- that every span exhibits this effect;
+- hardware/runtime benefit from the parameter reduction.
 
-The strongest new conclusion is that the core Canaria observation is not confined to the original implementation family, and that the relevant boundary is at least partly **functional/objective-defined rather than implementation-block-defined**.
-
-Machine-readable artifacts are under `results/core_discovery_digits/`.
+Machine-readable artifacts are under `results/core_discovery_digits/` and the public runner is `scripts/reproduce/core_discovery_digits/run_confirmatory.py`.

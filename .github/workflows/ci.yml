@@ -12,9 +12,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install reusable package
-        run: python -m pip install -e .
+      - name: Install reusable package and public-runner dependencies
+        run: python -m pip install -e . numpy torch scikit-learn
       - name: Reusable codec tests
         run: python -m unittest discover -s tests -v
-      - name: Syntax and data audit
+      - name: Syntax, evidence, and correction audit
         run: python tools/audit_repo.py
+      - name: Minimal public runner smoke test
+        run: |
+          python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
+            --seed 1200 \
+            --out /tmp/canaria_seed1200.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path('/tmp/canaria_seed1200.json').read_text())
+          assert result['selected_sep']['budget'] == 3072, result['selected_sep']
+          assert result['selected_comp']['budget'] == 1536, result['selected_comp']
+          assert result['log2_budget_ratio'] == -1.0, result['log2_budget_ratio']
+          print('PUBLIC RUNNER SMOKE PASS')
+          PY

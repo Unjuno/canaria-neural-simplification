@@ -1,0 +1,17 @@
+{
+  "name": "Canaria-Phase2C-3bit-scale-granularity-v1",
+  "locked_before_results": true,
+  "date": "2026-08-26",
+  "fresh_seeds": [31200,31201,31202,31203,31204,31205,31206,31207],
+  "setup": "same sklearn-digits residual-MLP first-two-block replacement",
+  "fixed_budget_params": 16384,
+  "replacement_width": "componentwise h=64 twice; composed width=128; exact equal learned-weight count",
+  "fit_updates_per_map": 600,
+  "precision": "3-bit symmetric signed uniform",
+  "conditions": ["per-matrix FP16 scale", "per-output-channel(row-wise) FP16 scales"],
+  "pass": "validation span NMSE <=0.08 and validation accuracy >= teacher validation accuracy -0.02",
+  "hypothesis": "3-bit failure is largely scale-granularity limited: row-wise scaling rescues the composed condition in >=6/8 fresh seeds at 16384 params.",
+  "decision": "PASS if composed row-wise condition passes >=6/8 seeds; FAIL if <=2/8; otherwise UNCERTAIN.",
+  "secondary": "componentwise rescue rate, NMSE reduction, coded-size overhead including FP16 scales, untouched test accuracy after validation pass determination",
+  "scope": "new-phase exploratory mechanism test; frozen v0.2.0 unchanged"
+}

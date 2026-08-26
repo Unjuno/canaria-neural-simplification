@@ -1,0 +1,16 @@
+{
+  "decision": "FAIL",
+  "composed_rescue_count": 0,
+  "componentwise_rescue_count": 0,
+  "n": 8,
+  "max_budget_params": 16384,
+  "mean_nmse_at_max": {
+    "componentwise": 0.11387627709428787,
+    "composed": 0.09174107939216124
+  },
+  "min_nmse_at_max": {
+    "componentwise": 0.1015821906334497,
+    "composed": 0.08200077126473954
+  },
+  "mean_comp_minus_sep_nmse_at_max": -0.02213519770212663
+}

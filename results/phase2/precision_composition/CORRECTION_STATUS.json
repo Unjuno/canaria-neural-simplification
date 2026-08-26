@@ -1,0 +1,60 @@
+{
+  "date": "2026-08-26",
+  "scope": "Canaria Phase 2 precision/quantization repair audit",
+  "source_correction_bundle_sha256": "1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7",
+  "phases": {
+    "2A": {"status": "VALID_PASS", "note": "4-bit composed coded-size advantage survives."},
+    "2B": {"status": "VALID_FAIL", "note": "Increasing weight count alone did not rescue naive 3-bit per-matrix PTQ."},
+    "2C": {"status": "VALID_PASS", "note": "Row-wise scale granularity rescued 3-bit PTQ for both topologies."},
+    "2D": {"status": "VALID_PASS", "note": "Correct activation-domain short QAT repair can rescue coarse per-matrix 3-bit."},
+    "2E": {
+      "status": "INVALIDATED_IMPLEMENTATION_BUG",
+      "bug": "Repair used raw Xt where the replacement was defined on ta[0]. Both tensors had width 64, so the error was silent.",
+      "scientific_use": "DO_NOT_USE_FOR_INFERENCE"
+    },
+    "2F": {"status": "NUMERICALLY_VALID_INTERPRETATION_UPDATED", "note": "Correct inputs and fresh seeds; interpretation as explaining 2E is obsolete."},
+    "2G": {"status": "VALID", "note": "No general replacement-restart pass/fail flips in the tested fresh fixed-teacher cohort."},
+    "2H": {"status": "NUMERICALLY_VALID_POSTHOC_INTERPRETATION_WEAKENED", "note": "The hard cohort was selected by the invalid 2E outcome."},
+    "2I": {"status": "CAUSAL_CLAIM_RETRACTED", "note": "Relative to 2E, repair input domain was corrected as well as repair RNG changed."},
+    "2J": {"status": "NUMERIC_OBSERVATION_ONLY", "note": "Full-batch success remains observed; mechanism-specific comparison to 2E is confounded."},
+    "2K": {"status": "ABORTED_PRECONDITION", "note": "Stopped after discovering that the 2E premise was invalid."},
+    "2L": {
+      "status": "VALID_PASS",
+      "composed_pass": "8/8",
+      "componentwise_pass": "8/8",
+      "composed_first_pass_updates": [2, 2, 2, 4, 8, 2, 8, 2]
+    },
+    "2M": {
+      "status": "VALID_B128_EFFICIENT",
+      "fresh_seeds": "31700-31707",
+      "composed_median_first_pass_samples": {
+        "random_b128": 384,
+        "random_b256": 768,
+        "random_b512": 1536,
+        "random_b1024": 3072,
+        "deterministic_b128": 384,
+        "restart2_b128": 384,
+        "restart4_b128": 384
+      }
+    },
+    "2N": {
+      "status": "VALID_PASS",
+      "fresh_n": 16,
+      "composed_pass_by_1024": "16/16",
+      "componentwise_pass_by_1024": "16/16",
+      "median_first_pass_samples": {"composed": 320, "componentwise": 384}
+    },
+    "2O": {
+      "status": "VALID_UNCERTAIN",
+      "fresh_n": 24,
+      "composed_pass_by_1024": "23/24",
+      "componentwise_pass_by_1024": "23/24",
+      "paired_comparable_n": 22,
+      "composed_wins_ties_losses": [11, 5, 6],
+      "median_paired_difference_comp_minus_sep_samples": -64,
+      "one_sided_exact_sign_test_p": 0.1662,
+      "mean_difference_bootstrap95": [-157.1, 58.2],
+      "decision": "UNCERTAIN: compositional repair-sample advantage not confirmed"
+    }
+  }
+}

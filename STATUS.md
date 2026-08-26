@@ -1,163 +1,103 @@
 # Project status
 
-**2026-08-25: release-ready, scientifically closed public snapshot at the current claim scope.**
+**Current mode: publication-quality gate and repository-state cleanup. Broad experiment expansion is stopped.**
 
-Broad experiment expansion is stopped for this snapshot. The representative public reproduction, bounded runtime/materialization PoC, and direct cross-family replications of the core compositional-simplification phenomenon are complete. **No additional experiment is required for the present scoped claims.**
+The frozen v0.2.0 **public snapshot** remains the version baseline. Post-snapshot precision work is staged separately on this research branch.
 
-## Current project-level thesis
+## Independent re-review
 
-The central result is **task-conditioned compositional simplification of learned neural computation**:
+The review required by `REVIEW_HANDOFF.md` and Issue #9 was performed on 2026-08-26.
 
-> implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially simpler task-preserving representation when treated as one composed input-output function.
+Review record:
 
-The static phenomenon is now supported by:
-
-- the original residual-CNN confirmatory composition evidence;
-- a fresh Small Vision Transformer component-wise-versus-composed replication; and
-- a second fresh residual-MLP component-wise-versus-composed replication with exact learned-parameter-budget matching.
-
-The dynamic extension is:
-
-> **form → transfer → commit → recontract → transfer again**
-
-Intervening task learning after a structural consolidation changes the subsequent optimization geometry. In the current small real-text LM testbed, later compiler fitting becomes easier in normalized functional-error terms, while downstream sensitivity to residual error increases.
-
-## Current evidence frontier
-
-### Confirmed
-
-- original composition subadditivity (`P(G>0)=0.7107`, 95% CI `0.6128–0.8137`) under the declared grammar;
-- direct SmallViT replication: composed/component-wise minimum passing replacement-complexity ratio **0.5199**, paired bootstrap95 **[0.5063, 0.5393]**, composed smaller in **8/8 fresh seeds**, selected composed mean test utility **0.9786**;
-- direct residual-MLP replication: component-wise mean minimum passing budget **3584 params** vs composed **1728 params**, composed lower in **8/8 fresh seeds**, mean `log2(B_comp/B_sep)=-1.0519`, bootstrap95 **[-1.2075,-0.8962]**, with test accuracy difference **+0.583 pt** bootstrap95 **[+0.306,+0.806] pt**;
-- whole-network reductions under declared codecs, including an exact 9,926-byte residual-CNN endpoint;
-- training-time staged consolidation (G7);
-- function-aligned transfer requirement (G8);
-- diminishing returns to transfer fit (G9);
-- inheritance + functional refinement (G10);
-- autonomous consolidation under a locked non-inferiority protocol (G11);
-- staged-vs-direct path effect (G15);
-- factorization-without-learning equivalence control (G17);
-- deadline-aware controller improvement (G18);
-- staged-path replication on `5→4→2` (G19);
-- lower normalized next-compiler fit cost after recontracting (G20d);
-- higher immediate task sensitivity at matched normalized error (G20e, G22);
-- sensitivity-aware immediate-damage prediction (G23–G25);
-- horizon-aware future-damage prediction (G26).
-
-### Confirmed negative / boundary results
-
-- Canary is not a necessary local condition for simplification.
-- Teacher-forced PPL is not sufficient evidence of autoregressive functional equivalence.
-- The tested v23–v25 natural-text post-hoc objectives did not recover rollout-sensitive fidelity.
-- A hard task-damage veto (G21) can prevent final contraction and increase compiler cost.
-- A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
-- Unlimited recursive collapse is not supported by the current grammar.
-- The SmallViT and residual-MLP replications do not imply universal Transformer/LLM or task-universal subadditivity.
-
-## Cross-family core-discovery replications — complete
-
-### Small Vision Transformer
-
-A fresh confirmatory SmallViT experiment compared a fixed two-block span under a common replacement grammar.
-
-Result:
-
-- component-wise minimum passing complexity: **9,808 params** in all 8 seeds;
-- composed minimum passing complexity: **4,904–5,424 params**;
-- mean ratio: **0.51988**;
-- paired bootstrap95: **[0.50634, 0.53926]**;
-- composed smaller: **8/8**;
-- composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
-- compiler updates: **640 component-wise vs 320 composed**.
-
-See `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
-
-### Residual MLP
-
-A second fresh confirmatory experiment used a four-block residual MLP on sklearn digits and simplified the first two residual blocks.
-
-For every budget point, component-wise and composed conditions had **exactly the same learned replacement-parameter count**. Fit effort was matched by parameter-update count and approximate linear-layer compute. Candidate selection used validation NMSE/accuracy only; test accuracy was untouched until after budget selection.
-
-Result across fresh seeds `1200–1207`:
-
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed smaller: **8/8**;
-- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
-- paired bootstrap95: **[−1.2075, −0.8962]**;
-- geometric mean budget ratio: **0.4823×**;
-- mean test-accuracy difference at validation-selected budgets: **+0.00583**, bootstrap95 **[+0.00306,+0.00806]**.
-
-At fixed 2048 parameters, a mechanistic control found validation span NMSE:
-
-- local component-wise: **0.1474**;
-- same two-module architecture jointly fit to the composed span target: **0.0639**;
-- one composed module: **0.0533**.
-
-Most of the benefit is therefore recovered by changing the **functional objective/boundary** while keeping the two-module topology, strengthening the interpretation that implementation boundaries can overstate task-effective functional complexity.
-
-See `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
-
-## Reproducibility closure — complete
-
-A portable public runner reproduces **G7 fresh confirmatory seed 4300** without private `/mnt/data` imports.
-
-In the recorded environment, the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
-
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
-
-See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
-
-This is software/reproducibility evidence for an already-confirmatory seed, not a new independent scientific replication.
-
-## Runtime/materialization PoC — complete at small-model scope
-
-Recorded G7 seed-4300 CPU-only PoC:
-
-- serialized artifact + manifest: **110,093 → 54,646 bytes** (**−50.36%**);
-- parameters: **23,138 → 11,042** (**−52.28%**);
-- CPU batch-128 inference: **47.05 → 23.11 ms mean**;
-- load/materialize: **7.85 → 5.86 ms mean**, secondary due cache sensitivity;
-- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
-- test PPL: **19.2784 large vs 18.9322 compact**.
-
-See `docs/RUNTIME_POC.md`.
-
-## Release state
-
-All bounded closure tasks are complete. The residual-MLP replication adds a second direct architecture-family confirmation beyond the already-complete SmallViT replication.
-
-The repository should now be treated as a **frozen public research snapshot** at its current claim scope. Future work should start as a new issue/research phase rather than extending the old G-number mainline.
-
-## Future research, not current closure work
-
-Possible future projects include:
-
-- larger pretrained Transformer/LLM external validity;
-- replication across additional task types, spans, widths, and replacement grammars;
-- codec-independent complexity/MDL;
-- hardware-specific functional IR/JIT execution;
-- larger-scale RAM/VRAM/energy/runtime benchmarks;
-- stronger cost-aware autonomous control.
-
-## Current public documentation
-
-- `docs/PUBLIC_SNAPSHOT.md`
-- `docs/CORE_DISCOVERY.md`
-- `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`
-- `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`
+- `docs/INDEPENDENT_REREVIEW_2026-08-26.md`
 - `docs/CLAIMS_AND_EVIDENCE.md`
-- `docs/PUBLICATION_NOTES.md`
-- `docs/TRAINING_TIME_CONSOLIDATION.md`
-- `docs/LATE_STAGE_FINDINGS.md`
-- `docs/NEGATIVE_RESULTS.md`
-- `docs/APPLICATIONS.md`
-- `docs/RUNTIME_POC.md`
-- `docs/REPRODUCIBILITY.md`
-- `docs/TERMINOLOGY.md`
-- `docs/FAQ.md`
-- `docs/ROADMAP.md`
-- `docs/OPEN_QUESTIONS.md`
-- `docs/RELEASE_CHECKLIST.md`
 
-The repository should be read as an auditable **public research snapshot**, not as a production-ready compression/runtime library.
+The review classified material claims as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE` and changed the public surface accordingly.
+
+Do not publish/post or mark PR #7 ready while Issue #9 remains open. Closing Issue #9 certifies this scientific quality gate only; the v0.2.0 tag/release boundary and PR #7 merge remain separate repository-state decisions.
+
+## Core claim retained
+
+The project-level thesis is **task-conditioned compositional simplification under explicit operational rules**:
+
+> Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
+
+The strongest fresh direct replication is the residual MLP with exact learned replacement-parameter matching:
+
+- fresh seeds `1200–1207`;
+- composed lower minimum passing budget in `8/8`;
+- geometric composed/component-wise budget ratio `0.4823×`;
+- test utility evaluated only after validation-selected endpoint choice.
+
+The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
+
+## Training-time boundary
+
+Retained:
+
+- G7 primary: progressive consolidation beat preregistered early/late one-shot controls;
+- G15/G17: intervening task learning, not merely factorized fitting, is part of the tested staged advantage;
+- G19: staged-path effect also observed on `5→4→2` versus `5→2` with equal compiler-update counts;
+- G18: the tested deadline-aware controller improved over the tested static controller;
+- G20d/e and G22–G26: recontracting can make fitting easier while residual error becomes more task-sensitive in the small character-LM testbed.
+
+G21 remains a valid failure and G27 remains exploratory/no-Pareto-claim.
+
+## Phase 2 correction boundary
+
+Supported:
+
+- Phase 2A: 4-bit composed coded-size advantage under the locked residual-MLP quantizer/accounting;
+- Phase 2B: increasing weight count alone did not rescue the tested naive 3-bit per-matrix PTQ;
+- Phase 2C: row-wise scales rescued 3-bit PTQ for both topologies;
+- corrected later work supports viability of short activation-domain QAT-style repair in the tested residual-MLP family.
+
+Critical invalidation:
+
+**Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`.**
+
+Its repair code used raw digit inputs `Xt` where the replacement was defined on internal activation `ta[0]`. Equal width 64 made the semantic error silent.
+
+Consequences:
+
+- Phase 2E `0/8` is not scientific negative evidence;
+- Phase 2I's RNG causal explanation is retracted;
+- 2H/2J interpretations tied to 2E are weakened/confounded;
+- Phase 2O did not confirm a reliable composed repair-sample advantage (`UNCERTAIN`).
+
+Invalidation history is preserved in:
+
+- `results/phase2/precision_composition/CORRECTION_STATUS.json`
+- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
+
+Not all later 2D–2O raw per-seed artifacts are checked into this Git branch; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
+
+## Reproducibility / systems boundary
+
+- G7 seed 4300 exact portable rerun: retained as reproduction/portability evidence, not independent replication.
+- Runtime PoC: retained only as one small CPU/storage/inference result.
+- Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
+
+## Publication gate checks
+
+Issue #9 may close only when the final reviewed branch satisfies:
+
+1. public claim corrections are present;
+2. invalidation history is preserved;
+3. minimal public residual-MLP runner smoke test passes;
+4. `python tools/audit_repo.py` passes;
+5. GitHub `repository-audit` passes for the final reviewed commit.
+
+`docs/RELEASE_CHECKLIST.md` tracks these checks.
+
+## Stopping rule
+
+Before public release, continue only:
+
+- correction/provenance work;
+- minimal reproducibility smoke checks;
+- CI/audit fixes;
+- release/version-control metadata and PR review.
+
+Do **not** open a broad new experimental family merely to make the repository feel complete.
