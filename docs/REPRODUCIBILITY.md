@@ -1,176 +1,163 @@
 # Reproducibility guide
 
-Canaria contains both cleaned reusable code and provenance-preserving historical evidence scripts. Reproducibility therefore has two levels:
+Canaria separates repository integrity, experimental reproduction, and independent scientific replication.
 
-1. **repository integrity** — files, schemas, syntax, and machine-readable summaries are internally consistent;
-2. **experimental reproduction** — a specific historical/confirmatory experiment can be recreated under the documented data, seed, and environment assumptions.
+## Evidence classes
 
-## Quick integrity check
+- **Confirmatory** — protocol/seed policy/endpoints locked before fresh outcomes were inspected.
+- **Exploratory / pilot** — implementation validation or hypothesis generation.
+- **Negative / boundary** — a valid tested hypothesis failed or exposed a limitation.
+- **Invalidated** — implementation/protocol defect makes the experiment unusable for scientific inference; preserve provenance but do not count it as negative evidence.
+- **Reproduction** — rerun of an already-observed condition to validate software/data portability; not new scientific confirmation by itself.
+
+## Repository integrity
+
+Run:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+python -m pip install -e .
 python tools/audit_repo.py
 ```
 
-CI runs unit tests plus `tools/audit_repo.py` on pushes and pull requests.
+GitHub CI also runs unit tests and `tools/audit_repo.py`. The independent-review branch additionally requires a minimal public residual-MLP runner smoke test before Issue #9 can close.
 
-## Public portable reproduction: G7 seed 4300
+An integrity PASS means repository syntax, schemas, required files, correction invariants, and selected semantic guards are consistent. It is **not** a claim that every historical experiment is bitwise reproducible.
 
-The repository now contains a self-contained portable runner for one representative fresh confirmatory pipeline:
+## Preferred minimal scientific entry point — residual MLP
 
 ```bash
-python -m pip install torch numpy scikit-learn
+python -m pip install numpy torch scikit-learn
+python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
+  --seed 1200 \
+  --out /tmp/canaria_seed1200.json
+```
+
+Recorded seed 1200 selects:
+
+- component-wise: `3072` learned replacement parameters;
+- composed: `1536`.
+
+This public runner has the stronger test-isolation pattern: replacements are fitted from training activations, validation selects the minimum passing budget, and test is evaluated only for the selected endpoint.
+
+## SmallViT replication isolation note
+
+The SmallViT protocol locks candidate selection to training-held-out NMSE and validation utility, excluding test accuracy. However, `scripts/replication/vit_compositional.py` records test metrics for every candidate.
+
+Therefore:
+
+- the test metric is **not a selection variable** under the locked rule;
+- the test set was **not operationally hidden** during candidate-result generation;
+- the primary result remains usable because the code hash, selection rule, and fresh-seed policy were locked before fresh outcomes;
+- future runners should delay test evaluation until after selection, as the residual-MLP runner does.
+
+## Portable reproduction — G7 seed 4300
+
+```bash
+python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
 python scripts/reproduce/g7_confirmatory/run_seed.py \
   --seed 4300 \
   --out g7_seed_4300.json
 ```
 
-The historical G7 code depended on private `/mnt/data` import paths. The public runner removes those path assumptions while preserving the scientific computation: model definitions, deterministic data-window generation, seed schedule, minibatch order, optimizer settings, learning-rate schedule, compiler budgets, replacement sequence, and metrics are unchanged.
-
-On 2026-08-25 the portable runner was executed in:
+Recorded reproduction environment:
 
 - Python 3.13.5
 - PyTorch 2.10.0+cpu
 - NumPy 2.3.5
 - scikit-learn 1.8.0
 
-The complete reproduced JSON exactly matched the archived fresh-confirmatory seed-4300 JSON, with identical SHA256:
+The reproduced JSON exactly matched the archived fresh-confirmatory seed-4300 JSON with SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
-Headline test PPL values were:
+This is a **software/portability result for an already-confirmatory seed**, not an independent scientific replication.
 
-- large reference: `19.278388330876`
-- small from start: `20.49408599251734`
-- terminal post-hoc: `19.30211076363844`
-- late one-shot: `19.33549169102473`
-- early one-shot: `19.164090006166735`
-- progressive compute-matched: `18.932213342799887`
+## Phase 2 reproducibility and invalidation boundary
 
-See:
+### Publicly checked-in A–C evidence
 
-- `scripts/reproduce/g7_confirmatory/README.md`
-- `results/reproduction/g7_seed4300_report.json`
-- `.github/workflows/reproduce-g7.yml`
+Phase 2A–C have protocol/result files and portable runners under:
 
-The workflow is manual (`workflow_dispatch`) so the ~full confirmatory-seed computation is not charged to every routine repository push.
+- `results/phase2/precision_composition/`
+- `scripts/phase2/precision_composition/`
 
-This exact match is a **software/reproducibility result**, not a new independent scientific replication, because seed 4300 was already part of the original fresh G7 confirmatory cohort.
+The public runners use internal activation domains consistently and do not rely on `/mnt/data` paths.
 
-## Current public-snapshot invariants
+### Phase 2E invalidation
 
-The audit requires the public entry points and evidence manifests to remain present, including:
+Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG`: repair used raw `Xt` instead of internal activation `ta[0]`. Because both had width 64, the error was shape-compatible but semantically wrong.
 
-- `README.md`
-- `STATUS.md`
-- `docs/PUBLIC_SNAPSHOT.md`
-- `docs/CORE_DISCOVERY.md`
-- `docs/CLAIMS_AND_EVIDENCE.md`
-- `docs/TRAINING_TIME_CONSOLIDATION.md`
-- `docs/LATE_STAGE_FINDINGS.md`
-- `docs/NEGATIVE_RESULTS.md`
-- `docs/APPLICATIONS.md`
-- `docs/OPEN_QUESTIONS.md`
-- `docs/PUBLICATION_NOTES.md`
-- `docs/TERMINOLOGY.md`
-- `docs/FAQ.md`
-- `results/training_time/summary.json`
-- `results/training_time/protocol_manifest.json`
-- `results/training_time/late_stage_summary.json`
-- `scripts/reproduce/g7_confirmatory/run_seed.py`
-- `results/reproduction/g7_seed4300_report.json`
+The invalid result remains in correction history and must not support inference.
 
-The audit also checks Python syntax and parses repository JSON/CSV files. It is an integrity check, not a claim that every historical experiment is bitwise reproducible from one command.
+Authoritative status:
 
-## Historical environment limits
+- `results/phase2/precision_composition/CORRECTION_STATUS.json`
+- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
 
-Early experiments did **not** preserve a complete exact package lock. Reproduce qualitative/aggregate behavior first; do not expect bitwise identity from the oldest scripts.
+### Later 2D–2O provenance
 
-The historical audit environment is preserved under `environment/history/v10/`. Do not backfill unknown metadata as if it had been recorded contemporaneously.
+Not all later raw per-seed artifacts are checked into this Git branch. The correction archive used for the later audit is identified by SHA256:
 
-The exact G7 seed-4300 reproduction above should not be generalized into a claim that all historical phases are byte-reproducible under the same environment.
+`1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
 
-## Evidence classes
+Do not describe later 2D–2O results as fully public portable reproductions merely because their correction status is recorded here.
 
-- **Confirmatory** — conditions/endpoints/seed policy locked before fresh-seed outcome inspection.
-- **Independent holdout** — selected condition retested without reselection.
-- **Exploratory / pilot** — implementation validation or hypothesis generation.
-- **Negative / boundary** — failed hypothesis retained explicitly.
-- **Reproduction** — rerun of an already-observed condition to validate software/data portability; not new scientific confirmation by itself.
+## Test-set discipline
 
-Do not promote exploratory runs to confirmatory after results are known, and do not count a reproduction seed as a new independent seed.
+For new confirmatory runners:
+
+1. fit/train on training or calibration data only;
+2. choose candidates using declared validation/holdout criteria;
+3. freeze the selected candidate/budget;
+4. only then evaluate final test outcomes.
+
+Recording test metrics for all candidates is weaker practice even if a locked selection rule formally excludes them.
 
 ## Statistical unit
 
-Repeated spans or fit checkpoints within one trained network are correlated. Unless a different hierarchy is preregistered, the independently initialized **training seed/model** is the inferential unit. Prefer seed-cluster bootstrap, paired seed analysis, or leave-one-seed-out evaluation over naive event-level intervals.
+Repeated spans or checkpoints inside one trained model are correlated. Unless another hierarchy is preregistered, use the independently initialized **training seed/model** as the inferential unit. Prefer paired seed analysis, seed-cluster bootstrap, or leave-one-seed-out evaluation over naive event-level intervals.
 
-## Matched continuation controls
+## Cost/accounting terminology
 
-Repair/recontracting experiments should compare the compiled candidate against a matched uncompiled/teacher continuation receiving the same task-training budget and minibatch schedule whenever the question concerns recovery over time.
+Keep distinct:
 
-## Test-set isolation
+- learned replacement parameter count;
+- optimizer updates / parameter-update proxy;
+- nominal quantized bit count;
+- scale/metadata bytes;
+- serialized bytes;
+- FLOPs;
+- wall-clock latency;
+- energy;
+- RAM/VRAM.
 
-Autonomous controller decisions must not use final test outcomes. Training/calibration/validation data used for commit decisions should be declared separately from final evaluation data.
+A reduction in one does not prove reduction in the others.
 
-## Protocol integrity
+Custom 2/3/4/12-bit research quantizers must not be relabeled FP4/FP8 unless a hardware datatype implementation actually exists.
 
-Major confirmatory phases should preserve:
+## Runtime PoC boundary
 
-- protocol lock or equivalent preregistration artifact;
-- fresh seed range;
-- primary endpoint and decision rule;
-- code/script hash when available;
-- result summary hash;
-- known deviations or metadata limitations.
+The G7 runtime PoC is one seed, CPU only, small model, batch-128 workload. It supports the recorded serialized-size and CPU-inference observations. It does not establish meaningful host-RAM reduction, GPU/VRAM/energy benefits, or large-model generalization.
 
-For G18–G26, public headline values and protocol/result SHA256 values are indexed in `results/training_time/late_stage_summary.json`.
+## Historical environment limits
 
-## Historical blind-map rule
+Early experiments did not preserve a complete exact package lock. Do not backfill unknown metadata as if it were contemporaneously recorded. Qualitative/aggregate reproduction may be the appropriate target for older phases.
 
-The original Phase-A blindness procedure was:
+Historical code may contain environment-specific paths. Preserve such code as provenance; add portable runners instead of silently rewriting history.
 
-1. train eligible baselines;
-2. evaluate simplification candidates without computing Canary;
-3. save and hash-lock the Stage-1 table;
-4. compute Canary only after that lock;
-5. join sensor and simplification tables.
+## Current publication-quality gate
 
-The original locks remain under `results/phaseA_v11/`.
+The 2026-08-26 independent re-review is tracked by Issue #9 and `INDEPENDENT_REREVIEW_2026-08-26.md`.
 
-## Storage terminology
+Before that issue closes, the reviewed branch must have:
 
-Keep these distinct:
+1. corrected public claims;
+2. explicit Phase 2E invalidation history;
+3. minimal public-runner smoke PASS;
+4. `python tools/audit_repo.py` PASS;
+5. GitHub `repository-audit` PASS;
+6. root public-surface status updated to the actual completed-review state.
 
-- `core bytes` — compiled replacement only;
-- `whole-network bytes` — all model components charged by the declared codec;
-- nominal bit count — bookkeeping estimate;
-- entropy/ideal code length — not necessarily a real file;
-- serialized bytes — an actual materialized artifact.
-
-The 9,926-byte v19 endpoint is an exact round-tripped whole-model serialization under its declared codec, not a codec-independent lower bound.
-
-## Precision terminology
-
-Custom 2/3/4/12-bit experiments are research quantizers unless a hardware datatype is explicitly used. Do not relabel them as FP4/FP8 without implementation evidence.
-
-## Recommended reproduction order for a new contributor
-
-1. Run the repository audit and unit tests.
-2. Read `CORE_DISCOVERY.md`, `CLAIMS_AND_EVIDENCE.md`, and `NEGATIVE_RESULTS.md`.
-3. Run the portable G7 seed-4300 reproduction or the manual GitHub Actions workflow.
-4. Reproduce one historical residual-CNN confirmatory result if studying the original compositional phenomenon.
-5. Reproduce G15/G17 or later if studying the staged-vs-direct/recontracting mechanism specifically.
-6. Only then add a new architecture/task or deployment proof-of-concept.
-
-## Current closure state
-
-The clean-repository portability gap for one representative confirmatory pipeline is now closed by the G7 seed-4300 runner and exact recorded reproduction.
-
-Remaining research is conditional rather than required for repository closure:
-
-- Issue #2: direct replication of compositional simplification on a different family, only if a stronger generalization/novelty claim is pursued;
-- Issue #3: minimal runtime-compilation proof-of-concept, only if deployment claims are pursued.
-
-Historical evidence scripts may still contain environment-specific paths. Do not silently rewrite those scripts; add portable runners and validate equivalence against preserved evidence where possible.
+Issues #2 and #3 are historical completed work, not current closure blockers. PR #7 and the v0.2.0 release/tag boundary remain separate repository-state gates after Issue #9.
