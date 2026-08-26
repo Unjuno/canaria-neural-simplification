@@ -22,7 +22,7 @@ A 2048-parameter joint-factorized control is descriptive/mechanistic secondary. 
 
 The locked selection rule used training-held-out NMSE and validation utility, not test accuracy. Across 8/8 fresh eligible seeds the selected composed replacement was smaller, with mean replacement-parameter ratio `0.5199`.
 
-However, the public runner records test accuracy for every candidate. Test was therefore excluded from the preregistered selection criterion but was **not operationally hidden during result generation**. This is weaker isolation practice than the residual-MLP runner and is disclosed in the public replication document.
+However, the runner records test accuracy for every candidate. Test was excluded from the preregistered selection criterion but was **not operationally hidden during result generation**. This is weaker isolation practice than the residual-MLP runner and is disclosed in the replication document.
 
 ## Does high Canary identify what can be simplified?
 
@@ -50,17 +50,19 @@ See `phase2/README.md` and `../results/phase2/precision_composition/INVALIDATED_
 
 ## Did later correction prove that composition needs fewer QAT repair samples?
 
-No. Phase 2O was `UNCERTAIN`: one-sided exact sign-test `p=0.1662`, and the bootstrap95 mean difference crossed zero. A reliable composed repair-sample advantage is not a public claim.
+No. Phase 2O was `UNCERTAIN`: one-sided exact sign-test `p=0.1662`, and the bootstrap95 mean difference crossed zero. A reliable composed repair-sample advantage is not a current claim.
 
 ## Are all later Phase 2 raw artifacts in this repository?
 
-No. Phase 2A–C raw protocol/result files and portable runners are in Git. Later 2D–2O correction status is preserved through the correction registry and a correction archive SHA256, but not all later raw per-seed artifacts are checked into this branch. Do not describe those later phases as fully public portable reproductions.
+No. Phase 2A–C raw protocol/result files and portable runners are in Git. Later 2D–2O correction status is preserved through the correction registry and a correction archive SHA256, but not all later raw per-seed artifacts are checked into the current branch.
 
 ## Can the repository reproduce a confirmatory result without private files?
 
-Yes. G7 seed 4300 has a self-contained runner under `scripts/reproduce/g7_confirmatory/`. In the recorded environment its output exactly matched the archived JSON SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
+Yes for the existing G7 portability path. G7 seed 4300 has a self-contained runner under `scripts/reproduce/g7_confirmatory/`; in its recorded environment its output exactly matched the archived JSON SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 
-That is software/portability reproduction of an already-confirmatory seed, **not a new independent scientific replication**.
+That is reproduction of an already-confirmatory seed, **not a new independent scientific replication**.
+
+For the residual-MLP headline cohort, a pinned full-cohort reproduction gate is being hardened separately; a one-seed smoke test is not enough for announcement readiness.
 
 ## Has Canaria demonstrated runtime or storage savings?
 
@@ -68,15 +70,19 @@ Only at a bounded small CPU PoC scope. For G7 seed 4300, serialized artifact+man
 
 Meaningful host-RAM reduction was not demonstrated, and GPU/VRAM/energy/LLM/general runtime benefits remain open.
 
-## Is the current branch publication-ready?
+## Is the repository announcement-ready?
 
-Not merely because the experiments exist. The 2026-08-26 independent re-review is a required quality gate. The review must finish with the public-runner smoke test, repository audit, final public-surface update, and closure of Issue #9. PR #7 and the v0.2.0 tag/release boundary are separate repository-state gates.
+No. The current integrated gate is [`ANNOUNCEMENT_READINESS.md`](ANNOUNCEMENT_READINESS.md) / Issue #13. The historical `v0.2.0-public-snapshot` tag and archived release checklist document an earlier repository boundary; they are not current approval to announce.
 
-See `INDEPENDENT_REREVIEW_2026-08-26.md` and `RELEASE_CHECKLIST.md`.
+The 2026-08-26 independent re-review remains the baseline claim audit, but current hardening still includes full-cohort pinned reproduction, a decision on weak external-validity evidence, repository-surface cleanup, and a final integrated review.
+
+## Where did the old v10–v25 directories go?
+
+They are preserved under `../archives/research-history/`. They were moved out of active navigation during pre-announcement cleanup so a new reader does not confuse version-number archaeology with the current evidence surface. See `../archives/README.md`.
 
 ## What should a contributor work on now?
 
-Do not open a broad new experiment family to “complete” the current review. During the quality gate, only fix claim scope, provenance, reproducibility defects, and minimal runner/audit failures. New architecture, scale, theory, and systems questions should begin as explicitly separate follow-up work.
+Prefer a specific blocker or falsifiable scientific weakness over broad experiment accumulation. Current work should either strengthen a known weak evidence boundary, fix reproducibility/provenance, or simplify the public surface. New research should remain isolated until reviewed.
 
 ## Safest one-sentence summary
 

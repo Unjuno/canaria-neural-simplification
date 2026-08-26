@@ -1,59 +1,47 @@
-# Canaria documentation index
+# Documentation index
 
-This directory contains reviewed interpretation, locked phase records, current hardening documents, and preserved historical research artifacts. Do not infer current project status from file names or version numbers alone.
+This directory is the **current interpretation surface**. Older versioned protocols, theory drafts, transfer ledgers, and superseded planning documents are preserved under `../archives/research-history/` rather than mixed into current navigation.
 
-Repository-wide path and evidence-lifecycle conventions are in `../REPOSITORY_LAYOUT.md`.
+## Read first
 
-## Start here — current authoritative documents
+1. `../README.md` — project statement and pre-announcement status.
+2. `../STATUS.md` — current research/readiness state.
+3. `ANNOUNCEMENT_READINESS.md` — active announcement gate.
+4. `CLAIMS_AND_EVIDENCE.md` — reviewed baseline claim registry.
+5. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent KEEP/EDIT/REMOVE/INVALIDATE ledger.
 
-1. `../README.md` — scoped project statement and pre-announcement state.
-2. `../STATUS.md` — current research/readiness status.
-3. `ANNOUNCEMENT_READINESS.md` — active announcement gate and blockers.
-4. `CLAIMS_AND_EVIDENCE.md` — reviewed claim registry for the current baseline.
-5. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent `KEEP / EDIT / REMOVE / INVALIDATE` decision ledger.
-6. `CORE_DISCOVERY.md` — central operational compositional-simplification finding.
-7. `PUBLICATION_NOTES.md` — communication-safe wording and evidence tiers; not approval to announce.
-8. `phase2/README.md` — Phase 2 precision/quantization correction boundary.
-9. `REPRODUCIBILITY.md` — evidence/reproduction policy and current pinned-environment gate.
+## Core evidence
 
-## Scientific evidence and boundaries
-
+- `CORE_DISCOVERY.md` — central bounded compositional-simplification result.
 - `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget direct replication.
-- `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication, including the test-isolation caveat found in re-review.
-- `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time mainline.
-- `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller results.
-- `NEGATIVE_RESULTS.md` — valid failed hypotheses, boundaries, and distinction from invalidated evidence.
-- `TERMINOLOGY.md` — current definitions.
-- `FAQ.md` — interpretation boundaries and common questions.
+- `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT replication and caveat.
+- `TRAINING_TIME_CONSOLIDATION.md` — reviewed G7–G17 training-time evidence.
+- `LATE_STAGE_FINDINGS.md` — later bounded controller/mechanism evidence.
+- `phase2/README.md` — Phase 2 precision/quantization correction boundary.
+- `NEGATIVE_RESULTS.md` — negative, uncertain, and invalidated-evidence distinctions.
 
-Machine-readable evidence lives under `../results/`; use `../results/README.md` to distinguish headline evidence, reproduction evidence, correction history, and extended historical phase results.
+## Reproducibility and systems
 
-## Systems / application layer
+- `REPRODUCIBILITY.md` — reproduction policy and pinned-environment gate.
+- `RUNTIME_POC.md` — bounded small-model CPU serialization/direct-execution PoC.
+- `DATA_DICTIONARY.md` — field definitions useful when reading evidence tables.
 
+## Interpretation / communication
+
+- `TERMINOLOGY.md` — definitions.
+- `FAQ.md` — common interpretation boundaries.
 - `APPLICATIONS.md` — application directions separated by evidence status.
-- `RUNTIME_POC.md` — bounded small-model CPU serialization/materialization/direct-execution PoC.
+- `PUBLICATION_NOTES.md` — communication-safe wording; not approval to announce.
+- `ROADMAP.md` — current research-governance priorities.
+- `OPEN_QUESTIONS.md` — unresolved scientific questions.
+- `HISTORICAL_INDEX.md` — where superseded research-history material moved.
 
-Measured systems evidence is intentionally narrow: smaller serialized artifact and lower measured CPU batch-128 inference latency in one small PoC; meaningful host-RAM reduction was not demonstrated; GPU/LLM/energy/general runtime gains are not established.
+## Historical material
 
-## Protocol and history layer
+The previous `docs/history/` and `docs/phases/` trees, plus older generalization/status/planning documents, are preserved under `../archives/research-history/`. Historical release/review gate records are under `../archives/releases/` and `../archives/reviews/`.
 
-- `phases/` — locked/versioned phase protocols and result narratives. These are evidence records, not automatically current headline claims.
-- `history/` — preserved handoff/theory material from earlier snapshots.
-- `HISTORICAL_INDEX.md` — classification of older planning/status documents that remain at stable paths for provenance.
-- `DATA_DICTIONARY.md` — definitions useful for historical result tables.
-- `PUBLIC_SNAPSHOT.md` — interpretation of the frozen historical v0.2.0 snapshot.
-- `RELEASE_CHECKLIST.md` — historical v0.2.0 checklist, not the current readiness gate.
+Do not interpret archived text as current policy or current claim wording. Use the current claim registry and readiness gate first.
 
-Historical “next experiment” text is preserved for provenance and is not automatically current project instruction.
+## Preservation rule
 
-## Current readiness / branch state
-
-The repository is **pre-announcement**. `main` is the reviewed evidence baseline used for hardening, not an announcement certificate.
-
-Later research may exist on separate branches or draft PRs. Such work is not part of the headline claim set until separately reviewed and merged. A passing locked experiment is necessary evidence, but does not automatically trigger a claim update or announcement.
-
-Use `ANNOUNCEMENT_READINESS.md` / Issue #13 for the current gate rather than the historical v0.2.0 release checklist.
-
-## Preservation principle
-
-Do not rewrite old protocols, locked results, or evidence-producing records to match later theory. Add explicit current interpretation and invalidation/correction records around them. Invalidated evidence remains provenance, not scientific support.
+Locked outcomes are not rewritten to fit later theory. When an experiment becomes invalid, uncertain, superseded, or merely historical, its provenance remains available while the active interpretation surface is corrected.
