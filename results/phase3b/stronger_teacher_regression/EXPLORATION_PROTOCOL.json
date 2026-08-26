@@ -4,6 +4,13 @@
   "status": "LOCKED_BEFORE_STAGE_A_OUTCOMES",
   "scientific_role": "calibration_only_not_confirmatory_evidence",
   "parent_issue": 15,
+  "environment": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0 CPU wheel",
+    "torch_threads": 1
+  },
   "seeds": [2300, 2301, 2302],
   "dataset": "sklearn.datasets.load_diabetes",
   "data": {
