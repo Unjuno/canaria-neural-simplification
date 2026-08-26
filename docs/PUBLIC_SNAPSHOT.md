@@ -1,131 +1,116 @@
 # Canaria public research snapshot
 
-This file defines how to read the repository as of the current frozen public-snapshot phase.
+This file defines how to read the frozen v0.2.0 public-snapshot baseline together with the current post-snapshot research branch.
 
 ## Read order
 
-1. `../README.md` — project-level question, main findings, scope.
-2. `CORE_DISCOVERY.md` — central empirical discovery: compositional simplification.
-3. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — fresh SmallViT component-wise versus composed replication.
-4. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — fresh residual-MLP exact-budget replication and joint span-objective control.
-5. `CLAIMS_AND_EVIDENCE.md` — current supported/rejected/open claim registry.
-6. `PUBLICATION_NOTES.md` — claim hierarchy for papers, talks, and technical communication.
-7. `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 training-time consolidation evidence.
-8. `LATE_STAGE_FINDINGS.md` — G18–G27 mechanism/controller evidence.
-9. `NEGATIVE_RESULTS.md` — falsified explanations and failed interventions.
-10. `TERMINOLOGY.md` — current definitions of Canary, span, compiler, recontracting, fidelity, utility, and complexity terms.
-11. `FAQ.md` — common interpretation boundaries and public-facing questions.
-12. `APPLICATIONS.md` — engineering directions and their evidence status.
-13. `RUNTIME_POC.md` — bounded CPU-only serialization/materialization/execution proof of concept.
-14. `REPRODUCIBILITY.md` — integrity/reproduction policy and portable G7 reproduction.
-15. `ROADMAP.md` and `OPEN_QUESTIONS.md` — future research/handoff, not unfinished snapshot work.
-16. `HISTORICAL_INDEX.md` — older documents preserved as historical context rather than current instructions.
-17. `RELEASE_CHECKLIST.md` — release metadata checklist.
-18. `../CHANGELOG.md` — version/snapshot changes.
+1. `../README.md` — scoped project statement and current publication gate.
+2. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
+3. `CLAIMS_AND_EVIDENCE.md` — authoritative current claim registry.
+4. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
+5. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication and isolation caveat.
+6. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget replication.
+7. `TRAINING_TIME_CONSOLIDATION.md` and `LATE_STAGE_FINDINGS.md` — training-time evidence.
+8. `phase2/README.md` — post-snapshot precision/quantization corrections.
+9. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
+10. `REPRODUCIBILITY.md` — integrity/reproduction policy.
+11. `PUBLICATION_NOTES.md` — publication-safe wording.
+12. `RELEASE_CHECKLIST.md` — quality and release/version-control gates.
+13. `HISTORICAL_INDEX.md` — preserved historical material.
 
 ## Snapshot interpretation
 
-Canaria is not presented as a production-ready compression library. It is an auditable research record centered on the empirical observation that learned computation can sometimes be simpler when represented as a composed task-conditioned function than when treated component-by-component.
+Canaria is an auditable research record, not a production-ready compression library.
 
-The static core phenomenon now has:
+The retained core statement is operational:
 
-- original residual-CNN confirmatory composition evidence;
-- a fresh direct SmallViT replication under a locked component-wise-versus-composed comparison; and
-- a second fresh residual-MLP replication under exact learned-parameter-budget matching.
+> under explicit task distributions, replacement grammars, and passing criteria, some learned spans in the tested networks admit smaller task-preserving replacements when fitted as composed input-output functions than when simplified at implementation-component boundaries.
 
-Later training-time experiments extend that observation: consolidation followed by task learning changes the ease and task-risk of later consolidation.
+The repository does **not** claim mathematical/Kolmogorov complexity reduction or universal Transformer/LLM behavior.
 
-The current snapshot is deliberately scoped to the tested settings. No additional experiment is required to support its present wording.
+## Direct architecture-family evidence
 
-## Evidence discipline
+### Residual MLP — strongest matched-budget public runner
 
-- Confirmatory, exploratory, reproduction, systems-PoC, and negative evidence remain distinguishable.
-- Historical failures are preserved.
-- Small-model mechanistic results are not promoted to large-LLM universality claims.
-- Parameter reduction, serialized size, compiler-update cost, FLOPs, wall-clock time, memory, and energy are separate quantities.
-- A systems PoC result must not be generalized beyond the measured resource and environment.
-- The SmallViT and residual-MLP replications strengthen architecture-family external validity but do not establish task-universal, grammar-independent, Transformer-universal, or LLM-universal subadditivity.
+Fresh seeds `1200–1207` used exact learned replacement-parameter matching at every budget point.
 
-## Completed direct architecture-family replications
+- component-wise mean minimum passing budget: `3584`;
+- composed mean minimum passing budget: `1728`;
+- composed smaller: `8/8`;
+- geometric budget ratio: `0.4823×`;
+- selected-budget test-accuracy difference: `+0.583` percentage points, bootstrap95 `[+0.306,+0.806]` pt.
+
+Validation selects the endpoint; test evaluation follows selection.
+
+The 2048-parameter joint-factorized control is descriptive/mechanistic secondary, not a confirmatory causal decomposition.
 
 ### Small Vision Transformer
 
-Under the locked passing rule (`held-out span NMSE <= 0.12`, validation utility `>= 0.95`) across the first 8 fresh baseline-eligible seeds `>=9000`:
+Under the locked rule across 8 fresh eligible seeds:
 
-- component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
-- composed minimum passing complexity: **4,904–5,424 params**;
-- mean composed/component-wise complexity ratio: **0.51988**;
-- seed-bootstrap95: **[0.50634, 0.53926]**;
-- composed smaller: **8/8**;
-- selected composed mean test utility: **0.97856**, test data not used for selection.
+- component-wise selected replacement: `9808` parameters;
+- composed selected replacement: `4904–5424`;
+- mean ratio: `0.51988`;
+- bootstrap95 `[0.50634,0.53926]`;
+- composed smaller: `8/8`.
 
-See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
+Independent re-review found an important isolation boundary: the selection criterion excludes test accuracy, but the runner records test metrics for every candidate. Therefore say **“test was not a selection variable”**, not “test remained operationally hidden until after selection.”
 
-### Residual MLP
+## Training-time evidence boundary
 
-A four-block residual MLP on sklearn digits used a fixed first-two-block span. At each budget point the learned replacement-parameter count was exactly matched between component-wise and composed conditions.
+The small real-text character-LM program is retained with evidence tiers explicit:
 
-Fresh seeds `1200–1207`:
+- G7 primary PASS is progressive versus early/late one-shot;
+- small-from-start and large-reference differences are secondary observations;
+- G15/G17 support an intervening-learning/recontracting interpretation under the tested schedules;
+- G18 supports the specific tested deadline-aware controller comparison, not a universal controller rule;
+- G21 remains a valid failure;
+- G27 remains exploratory without a Pareto claim.
 
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed smaller: **8/8**;
-- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
-- seed-bootstrap95: **[−1.2075, −0.8962]**;
-- geometric mean budget ratio: **0.4823×**;
-- untouched-test accuracy difference at validation-selected budgets: composed minus component-wise **+0.583 pt**, bootstrap95 **[+0.306,+0.806] pt**.
+Compiler cost in these experiments is generally a proxy, not measured hardware energy/FLOPs/wall-clock equivalence.
 
-At fixed 2048 params, a mechanistic control preserved the two-module topology but changed the objective from local intermediate targets to the composed span target:
+## Phase 2 post-snapshot correction
 
-- local component-wise NMSE: **0.1474**;
-- jointly fit two-module span: **0.0639**;
-- one composed module: **0.0533**.
+Phase 2A–C remain usable under their declared residual-MLP quantizer/accounting.
 
-Most of the gap therefore follows the **functional span objective/boundary**, not merely the topology change.
+Phase 2E is **`INVALIDATED_IMPLEMENTATION_BUG`** and `DO_NOT_USE_FOR_INFERENCE` because repair used raw `Xt` where the replacement was defined on internal activation `ta[0]`; equal width 64 hid the semantic error.
 
-See `CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
+The invalid result is retained as history, not negative scientific evidence. Phase 2I's RNG causal explanation is retracted. Phase 2O did not confirm a reliable composed repair-sample advantage.
 
-## Completed portability closure
+Not all later 2D–2O raw per-seed artifacts are checked into this branch. Their correction archive is identified by SHA256:
 
-A self-contained public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+`1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
 
-In the recorded environment, its complete output exactly matched the archived confirmatory JSON with SHA256:
+See `phase2/README.md` and `../results/phase2/precision_composition/INVALIDATED_HISTORY.md`.
+
+## Reproduction boundary
+
+A self-contained G7 seed-4300 runner exactly matched the archived confirmatory JSON in its recorded environment:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
-See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
+This is reproduction/portability evidence for an already-confirmatory seed, not a new independent scientific replication.
 
-## Completed bounded runtime PoC
+## Runtime PoC boundary
 
-The repository also contains a small CPU-only deployment proof of concept using the same G7 seed-4300 large and progressive compact models.
+One small CPU-only PoC reported:
 
-Measured results:
+- serialized artifact + manifest: `110,093 → 54,646 bytes`;
+- batch-128 CPU inference mean: `47.05 → 23.11 ms`;
+- meaningful host-RAM reduction: **not demonstrated**.
 
-- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- batch-128 CPU inference: **47.05 → 23.11 ms mean**;
-- load/materialize: **7.85 → 5.86 ms mean**, secondary because cache sensitivity was observed;
-- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**.
+Do not generalize this to GPU/VRAM/energy/large models or universal runtime improvement.
 
-See `RUNTIME_POC.md` and `results/reproduction/runtime_poc_seed4300_report.json`.
+## Current closure state
 
-## Closure state
+The scientific re-review required by Issue #9 was performed on 2026-08-26, but publication is gated on the final reviewed head passing the public-runner smoke test and `repository-audit`, followed by Issue #9 closure.
 
-The current scientific snapshot is **closed at its present claim scope**.
+After #9 closes, Issue #5 governs the separate release/version-control sequence:
 
-- Issue #1 — portable reproduction: completed.
-- Issue #2 — direct cross-family compositional replication: completed; later strengthened by the additional residual-MLP replication.
-- Issue #3 — minimal runtime/materialization PoC: completed.
+1. create the frozen v0.2.0 tag/release at the specified baseline commit;
+2. re-review and squash-merge PR #7 if its final audit passes;
+3. clean stale research branches;
+4. confirm final `main` CI;
+5. only then post/share the repository.
 
-No open experiment is required before freezing the current research record.
-
-Future scientific work should begin from a new issue/question or a new research phase rather than silently extending the current G-number sequence.
-
-## Manual release metadata
-
-The remaining optional tasks are repository/UI metadata rather than scientific work:
-
-- set/update the GitHub repository description if desired;
-- create tag `v0.2.0-public-snapshot`;
-- create release `Canaria v0.2.0 — Public Research Snapshot`.
-
-See `RELEASE_CHECKLIST.md` for suggested text and checks.
+No broad new experiment is required for this quality gate; new scientific work should begin as a separate question/phase.
