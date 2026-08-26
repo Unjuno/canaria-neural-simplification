@@ -1,112 +1,106 @@
 # Project status
 
-**Current mode: pre-announcement hardening. The repository is not yet ready for broad public announcement.**
+**Current mode: pre-announcement hardening. The repository is not ready for broad public announcement.**
 
-## Historical snapshot versus current readiness
+Issue #13 is the integrated readiness gate.
 
-- Historical tag: `v0.2.0-public-snapshot`.
-- Historical snapshot commit: `556dce21c7a5516a16780cb28d528d1ff3968e53`.
-- The 2026-08-26 independent re-review and subsequent correction merge remain part of the evidence history.
-- `main` is the reviewed evidence baseline from which current hardening proceeds.
-- The existence of the historical GitHub release/tag does **not** mean the current project has passed an announcement-readiness gate.
+## What is already stable
 
-Issue #13 is the active readiness gate. Do not describe the repository as announcement-ready until that issue is closed after a final claim/reproducibility review.
+The historical tag `v0.2.0-public-snapshot` remains frozen at commit `556dce21c7a5516a16780cb28d528d1ff3968e53`. It is a research-history boundary, not current announcement approval.
 
-## Core claim retained on the reviewed baseline
-
-The project-level thesis remains **task-conditioned compositional simplification under explicit operational rules**:
+The reviewed baseline retains the bounded thesis of **task-conditioned compositional simplification under explicit operational rules**:
 
 > Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
-The strongest direct result currently on `main` is the residual MLP with exact learned replacement-parameter matching:
+The strongest direct evidence remains the residual-MLP digits replication:
 
 - fresh seeds `1200–1207`;
+- exact learned replacement-parameter matching at each grid point;
 - composed lower minimum passing budget in `8/8`;
 - geometric composed/component-wise budget ratio `0.4823×`;
 - validation selects the endpoint; test evaluation follows selection.
 
-The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
+SmallViT replication remains retained with the disclosed caveat that test metrics are recorded for all candidates even though test is not a selection variable.
 
-## Current announcement blockers
+## Current blockers
 
-### 1. Full pinned-environment reproduction of the headline cohort
+### 1. Repository surface — Issue #16
 
-The seed-1200 smoke test is insufficient as the final public reproducibility gate. The complete fresh residual-MLP cohort (`1200–1207`) must be regenerated from a clean checkout using the pinned reproduction environment and checked against the committed primary endpoints/statistics.
+The repository had too much version-number archaeology mixed into active navigation. A dedicated restructure now separates current evidence from the old v10–v25 sequence:
 
-### 2. External-validity evidence selection
+- active `results/` is limited to core, replication, training-time, Phase 2, and reproduction evidence;
+- older versioned docs/results/scripts/environment records are preserved under `archives/research-history/`;
+- historical review/release gate files are moved under `archives/reviews/` and `archives/releases/`;
+- current indexes and audits are being updated around the new boundary.
 
-Draft Phase 3 regression work is not automatically part of the headline claim set. Its protocol/result audit is valid as a completed experiment, but its teacher is weak in absolute predictive performance (confirmatory test R² approximately `0.112–0.255`). Before broad communication, either:
+This restructure is science-neutral: historical content is preserved rather than rewritten.
 
-- retain it as a bounded weak-teacher external-validity result with that limitation prominent; or
-- run a separately locked stronger-teacher regression experiment and decide which evidence belongs in the final claim set.
+### 2. Full pinned-environment reproduction
 
-Do not modify the completed Phase 3 protocol post hoc.
+The seed-1200 smoke test is insufficient. The complete residual-MLP fresh cohort (`1200–1207`) must be regenerated from a clean checkout under the pinned environment and checked against committed endpoints/statistics.
 
-### 3. Final communication review
+A first one-shot GitHub Actions attempt did not yield usable reproduction evidence, so this gate remains open. An execution/infrastructure failure must not be reported as a scientific reproduction failure.
 
-After evidence inclusion/exclusion is settled, re-review `README.md`, `docs/CLAIMS_AND_EVIDENCE.md`, `docs/PUBLICATION_NOTES.md`, `CITATION.cff`, and the announcement-readiness checklist as one surface.
+### 3. External-validity evidence — Issue #15
 
-## Training-time boundary
+Completed draft Phase 3 regression work passed its locked operational replacement-budget rule, but its teacher is weak in absolute predictive performance: confirmatory teacher test R² is approximately `0.112–0.255`.
 
-Retained:
+Therefore it is not yet suitable as a strong announcement-level statement that the effect generalizes to regression.
 
-- G7 primary: progressive consolidation beat preregistered early/late one-shot controls;
-- G15/G17: intervening task learning, not merely factorized fitting, is part of the tested staged advantage;
-- G19: staged-path effect also observed on `5→4→2` versus `5→2` with equal compiler-update counts;
-- G18: the tested deadline-aware controller improved over the tested static controller;
-- G20d/e and G22–G26: recontracting can make fitting easier while residual error becomes more task-sensitive in the small character-LM testbed.
+Issue #15 defines a separate stronger-teacher control. The completed Phase 3 protocol/results must not be modified post hoc. Stage A changes only the teacher training recipe while holding dataset, split, model architecture, span, and replacement accounting fixed; test is excluded from teacher-recipe selection. If Stage A cannot produce a materially stronger validation regime, stop rather than changing architecture opportunistically.
 
-G21 remains a valid failure and G27 remains exploratory/no-Pareto-claim.
+### 4. Final integrated claim review
+
+After Issues #15/#16 and the pinned reproduction gate are resolved, re-review as one surface:
+
+- `README.md`;
+- `docs/CLAIMS_AND_EVIDENCE.md`;
+- `docs/PUBLICATION_NOTES.md`;
+- `CITATION.cff`;
+- release metadata;
+- negative/correction boundaries.
 
 ## Phase 2 correction boundary
 
-Supported:
+Supported within the declared testbed:
 
-- Phase 2A: 4-bit composed coded-size advantage under the locked residual-MLP quantizer/accounting;
-- Phase 2B: increasing weight count alone did not rescue the tested naive 3-bit per-matrix PTQ;
-- Phase 2C: row-wise scales rescued 3-bit PTQ for both topologies;
+- Phase 2A: 4-bit composed coded-size result — `VALID_PASS`;
+- Phase 2B: capacity-only rescue of naïve 3-bit per-matrix PTQ — `VALID_FAIL`;
+- Phase 2C: row-wise scale rescue — `VALID_PASS` for both topologies;
 - corrected later work supports viability of short activation-domain QAT-style repair in the tested residual-MLP family.
 
 Critical invalidation:
 
 **Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`.**
 
-Its repair code used raw digit inputs `Xt` where the replacement was defined on internal activation `ta[0]`. Equal width 64 made the semantic error silent.
+Repair used raw digit inputs `Xt` instead of internal activation `ta[0]`; equal width 64 hid the semantic-domain error.
 
 Consequences:
 
 - Phase 2E `0/8` is not scientific negative evidence;
 - Phase 2I's RNG causal explanation is retracted;
 - 2H/2J interpretations tied to 2E are weakened/confounded;
-- Phase 2O did not confirm a reliable composed repair-sample advantage (`UNCERTAIN`).
+- Phase 2O remains `VALID_UNCERTAIN`; no reliable composed repair-sample advantage is claimed.
 
-Invalidation history is preserved in:
+## Training-time boundary
 
-- `results/phase2/precision_composition/CORRECTION_STATUS.json`
-- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
+Retained within the tested small-model settings:
 
-Not all later 2D–2O raw per-seed artifacts are checked into Git; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
+- G7 primary: progressive consolidation beat preregistered early/late one-shot controls;
+- G15/G17: intervening task learning, not merely multiple compiler fits, is part of the tested staged advantage;
+- G18: tested deadline-aware controller improved over the tested static controller;
+- G20d/e and G22–G26: recontracting can make later fitting easier while residual error becomes more task-sensitive.
 
-## Reproducibility / systems boundary
+G21 remains a valid failure. G27 remains exploratory/no-Pareto-claim.
 
-- G7 seed 4300 exact portable rerun: reproduction/portability evidence, not independent replication.
-- Residual-MLP digits: headline scientific result with a new pinned-environment full-cohort reproduction gate in progress.
-- Runtime PoC: one small CPU/storage/inference result only.
-- Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
+## Systems boundary
 
-## Repository / research-state boundary
+- G7 seed 4300 exact rerun is reproduction/portability evidence, not independent scientific replication.
+- The CPU runtime/materialization result is one small PoC only.
+- Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains are not established.
 
-Repository organization follows `REPOSITORY_LAYOUT.md`:
+## Research rule
 
-- `main` contains the reviewed baseline plus readiness hardening once merged;
-- unmerged research branches and draft PRs are work-in-progress, not automatic claim updates;
-- maintenance changes should remain science-neutral and separate from fresh experimental outcomes;
-- historical protocols/results are preserved rather than rewritten to match later interpretation.
+Do not broaden a completed protocol after observing its outcomes. New work must have a new issue/phase, locked hypothesis/protocol or explicitly exploratory evidence class, inferential-unit policy, and stopping rule.
 
-`repository-audit` is an integrity check, not by itself an announcement-readiness certificate.
-
-## Stopping rule
-
-Do not broaden a completed protocol after seeing its outcomes. New scientific work must use a new issue/research phase with its own hypothesis, protocol/evidence class, inferential-unit policy, and stopping rule.
-
-For the current release decision, follow `docs/ANNOUNCEMENT_READINESS.md` and Issue #13.
+For current release decisions, follow `docs/ANNOUNCEMENT_READINESS.md`, Issue #13, Issue #15, and Issue #16.
