@@ -1,6 +1,6 @@
-# Research roadmap — published snapshot / future-work handoff
+# Research roadmap — reviewed baseline / future-work handoff
 
-**Current state:** the publication-quality gate is complete. Broad experiment expansion is stopped. The frozen v0.2.0 baseline is tagged/released, the independently reviewed post-snapshot state is on `main`, and stale research branches have been removed.
+**Current state:** the publication-quality gate is complete. The frozen v0.2.0 baseline is tagged/released and the independently reviewed post-snapshot state is on `main`. New science proceeds as isolated research phases rather than by extending the completed publication-closure sequence.
 
 ## Completed closure — scientific/public review
 
@@ -39,20 +39,20 @@ The residual-MLP 2048-parameter joint-factorized result is descriptive/mechanist
 - `v0.2.0-public-snapshot` preserves commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
 - GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
 - PR #7 was squash-merged after the frozen release boundary was established.
-- stale `research/phase2-precision-quantization` and `research-snapshot-2026-08-24` branches were deleted.
-- `main` is the sole active branch.
+- stale publication-era research branches were removed as part of that closure.
+- `main` is the reviewed public baseline.
 
-## Current stopping rule
+## Current research-governance rule
 
-Do not continue the old publication/closure sequence or add broad experiments merely to strengthen the public presentation.
-
-New scientific work should start from a new issue/research phase with:
+A completed protocol is not reopened or tuned after outcomes merely to strengthen presentation. New scientific work starts from a new issue/research phase with:
 
 1. a falsifiable claim;
 2. explicit evidence class and protocol lock where appropriate;
 3. an independently initialized inferential unit/seed policy;
 4. a stopping rule;
-5. explicit separation from the frozen v0.2.0 tag and the reviewed post-snapshot baseline.
+5. explicit separation from the frozen v0.2.0 tag and the reviewed `main` baseline.
+
+Research branches and draft PRs may coexist with `main`; until review/merge, their outcomes are work in progress and do not update the public claim registry. Maintenance/repository-organization work should remain separate from experimental outcome commits. See `../REPOSITORY_LAYOUT.md`.
 
 ## Future research topics
 
@@ -69,4 +69,4 @@ Scientifically interesting but separate from the completed publication gate:
 - hardware-specific functional IR/JIT;
 - larger-scale RAM/VRAM/energy/runtime benchmarking.
 
-See `OPEN_QUESTIONS.md` for future-work handoff.
+See `OPEN_QUESTIONS.md` for the durable question inventory. Consult open GitHub issues/PRs for which, if any, of these topics is actively being tested now.

@@ -22,7 +22,7 @@ The independent pre-publication re-review required by Issue #9 was completed on 
 - [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md)
 - [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md)
 
-The reviewed post-v0.2.0 release candidate was squash-merged through PR #7. Stale research branches were removed; `main` is the sole active branch. Current `main` therefore contains the reviewed post-snapshot evidence/corrections without retroactively changing the frozen v0.2.0 tag.
+The reviewed post-v0.2.0 release candidate was squash-merged through PR #7. Current `main` is the reviewed public baseline and contains the post-snapshot evidence/corrections without retroactively changing the frozen v0.2.0 tag. New research may exist on separate branches or draft PRs; it is not part of the public baseline until separately reviewed and merged.
 
 ## Try the strongest minimal public experiment
 
@@ -81,15 +81,26 @@ A portable G7 seed-4300 runner exactly reproduced the archived JSON in its recor
 
 One small CPU PoC produced a smaller serialized artifact and lower measured batch-128 CPU inference latency. Meaningful host-RAM reduction was not demonstrated; GPU/VRAM/energy/large-model generalization remains open.
 
+## Repository map
+
+The repository deliberately separates reviewed interpretation, immutable evidence, historical experiment code, and reusable code. See [`REPOSITORY_LAYOUT.md`](REPOSITORY_LAYOUT.md) before reorganizing paths or interpreting a versioned directory as current by name alone.
+
+- `docs/` — current interpretation, review records, protocols, and preserved history.
+- `results/` — machine-readable evidence and correction records.
+- `scripts/` — reproduction, replication, phase-specific, and historical experiment runners.
+- `src/canaria/` — reusable cleaned code; currently distinct from historical experiment scripts.
+- `tools/` — repository/evidence audits.
+
 ## Where to look
 
 - [`QUICKSTART.md`](QUICKSTART.md) — minimal direct experiment.
+- [`REPOSITORY_LAYOUT.md`](REPOSITORY_LAYOUT.md) — directory, evidence-lifecycle, branch, and workflow conventions.
 - [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — authoritative public claim registry.
 - [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md) — independent decision ledger.
 - [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical claim and scope.
 - [`docs/phase2/README.md`](docs/phase2/README.md) — precision/quantization corrections.
 - [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — valid negative evidence versus invalidated evidence.
-- [`STATUS.md`](STATUS.md) — current repository/publication state.
+- [`STATUS.md`](STATUS.md) — current reviewed public-baseline state.
 
 ## License
 

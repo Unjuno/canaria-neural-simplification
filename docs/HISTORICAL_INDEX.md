@@ -2,7 +2,7 @@
 
 Canaria intentionally preserves earlier roadmaps, theory drafts, transfer plans, and experiment ledgers. These files are useful for provenance, but they are **not all current project instructions**.
 
-Use `README.md` in this directory, `PUBLIC_SNAPSHOT.md`, `CLAIMS_AND_EVIDENCE.md`, `ROADMAP.md`, and repository-root `STATUS.md` for the current public state.
+Use `README.md` in this directory, `PUBLIC_SNAPSHOT.md`, `CLAIMS_AND_EVIDENCE.md`, repository-root `STATUS.md`, and `../REPOSITORY_LAYOUT.md` for the current reviewed repository state.
 
 ## Current authoritative documents
 
@@ -19,17 +19,14 @@ Use `README.md` in this directory, `PUBLIC_SNAPSHOT.md`, `CLAIMS_AND_EVIDENCE.md
 - `APPLICATIONS.md` — application directions separated by evidence status.
 - `RUNTIME_POC.md` — bounded small-model CPU systems PoC.
 - `REPRODUCIBILITY.md` — current reproduction policy and portable G7 path.
-- `ROADMAP.md` — current closure/handoff roadmap.
-- `OPEN_QUESTIONS.md` — unresolved questions for future researchers.
+- `ROADMAP.md` — current research-governance / future-work handoff.
+- `OPEN_QUESTIONS.md` — unresolved questions for future research phases.
 
-## Completed closure artifacts
+## Historical closure records
 
-Two formerly open closure tasks are complete:
+Earlier issues and checklists document the work required to reach the reviewed public baseline. They are closure provenance, not a live backlog. In particular, old statements such as “only Issue #N remains” should be interpreted at the time they were written.
 
-- Issue #1 — clean-repository reproduction of G7 fresh confirmatory seed 4300;
-- Issue #3 — minimal runtime/materialization/direct-execution PoC.
-
-Only Issue #2 remains optional: direct replication of compositional simplification on a clearly different architecture/task if a stronger publication-level generalization/novelty claim is desired.
+For current work in progress, consult open GitHub issues and pull requests. Post-publication research belongs to its own issue/branch/PR and does not become part of the public claim registry merely by existing in the repository.
 
 ## Preserved historical planning / status documents
 
@@ -39,7 +36,7 @@ A prespecified cross-architecture transfer roadmap written before later G5/G6/v2
 
 ### `GENERALIZATION_STATUS.md`
 
-The historical transfer ledger through the post-hoc Transformer/natural-text program. Its "next tests" section records the frontier at that time. Statements such as the old clean-room-reproduction status reflect that historical moment and are superseded by current `STATUS.md` / `REPRODUCIBILITY.md`.
+The historical transfer ledger through the post-hoc Transformer/natural-text program. Its “next tests” section records the frontier at that time. Statements such as the old clean-room-reproduction status reflect that historical moment and are superseded by current `STATUS.md` / `REPRODUCIBILITY.md`.
 
 ### `NEXT_EXPERIMENTS_AUTONOMOUS.md`
 
@@ -57,11 +54,16 @@ Earlier conceptual organization of mechanisms and open questions. Treat as histo
 
 Definitions for historical result tables and fields. Still useful when reading archived phase outputs.
 
+### `REVIEW_HANDOFF.md` at repository root
+
+The publication-review handoff used for the completed independent re-review. Its stable root path is retained because issues and review records refer to it. It is not a standing instruction to repeat the completed publication gate for every future research phase.
+
 ## Phase and history directories
 
 - `docs/phases/` — locked phase protocols/results and detailed evidence.
 - `docs/history/` — preserved handoff/theory documents from earlier snapshots.
-- `archives/` — retained archival bundles and provenance material.
+- `results/history/` — historical machine-readable registries and catalogs.
+- `archives/` — retained archival hashes and provenance material.
 
 ## Preservation rule
 
