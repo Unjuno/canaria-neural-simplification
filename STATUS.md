@@ -1,6 +1,6 @@
 # Project status
 
-**Current mode: published research baseline / future-work handoff. Broad experiment expansion is stopped.**
+**Current mode: reviewed public baseline with isolated post-publication research.**
 
 ## Version and publication boundary
 
@@ -9,9 +9,9 @@
 - GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
 - Independent re-review (Issue #9): completed and closed on 2026-08-26.
 - Reviewed post-snapshot release candidate (PR #7): squash-merged into `main`.
-- Research branch cleanup: completed; `main` is the sole active branch.
+- `main` is the reviewed public baseline. New research may be isolated on research branches/draft PRs and does not change this baseline until separately reviewed and merged.
 
-The frozen v0.2.0 tag is not rewritten by later corrections. Current `main` carries the independently reviewed post-snapshot precision/correction work.
+The frozen v0.2.0 tag is not rewritten by later corrections or experiments. Current `main` carries the independently reviewed post-snapshot precision/correction work.
 
 ## Core claim retained
 
@@ -19,7 +19,7 @@ The project-level thesis is **task-conditioned compositional simplification unde
 
 > Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
-The strongest fresh direct replication is the residual MLP with exact learned replacement-parameter matching:
+The strongest fresh direct replication on the reviewed public baseline is the residual MLP with exact learned replacement-parameter matching:
 
 - fresh seeds `1200–1207`;
 - composed lower minimum passing budget in `8/8`;
@@ -75,10 +75,19 @@ Not all later 2D–2O raw per-seed artifacts are checked into Git; the correctio
 - Runtime PoC: one small CPU/storage/inference result only.
 - Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
 
-## Publication integrity
+## Repository / research-state boundary
 
-The publication sequence is complete: independent review, frozen tag/release boundary, squash merge, and branch cleanup. `repository-audit` on current `main` is the continuing integrity check; Issue #5 records the final publication-gate run.
+The publication sequence is complete: independent review, frozen tag/release boundary, reviewed post-snapshot merge, and integrity audit.
+
+Repository organization follows `REPOSITORY_LAYOUT.md`:
+
+- `main` contains reviewed public material;
+- unmerged research branches and draft PRs are isolated work-in-progress, not public-claim updates;
+- maintenance changes should remain science-neutral and separate from fresh experimental outcomes;
+- historical protocols/results are preserved rather than rewritten to match later interpretation.
+
+`repository-audit` on `main` is the continuing integrity check.
 
 ## Stopping rule
 
-Do not continue the old publication/closure sequence or reopen broad experiments merely to strengthen presentation. New scientific work should begin from a new issue/research phase with its own hypothesis, protocol, evidence class, and stopping rule.
+Do not continue the old publication/closure sequence or broaden a completed protocol after seeing its outcomes. New scientific work should begin from a new issue/research phase with its own hypothesis, protocol/evidence class, inferential-unit policy, and stopping rule.
