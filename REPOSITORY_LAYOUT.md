@@ -1,87 +1,75 @@
 # Repository layout
 
-Canaria is organized as an auditable research repository. Paths are kept stable where possible because protocols, reviews, issues, result hashes, and external citations may refer to them directly.
+Canaria is maintained as an auditable research repository. The current surface is intentionally separated from the older experiment sequence so that a new reader does not have to infer authority from version numbers.
 
-## Authoritative surfaces
+## Current authoritative surface
 
-- `README.md` — concise project statement, scope, and current pre-announcement state.
-- `STATUS.md` — current research/readiness state and scientific boundaries.
-- `docs/ANNOUNCEMENT_READINESS.md` — active broad-announcement gate.
-- `QUICKSTART.md` — shortest supported direct experiment path.
-- `docs/CLAIMS_AND_EVIDENCE.md` — reviewed claim registry for the current baseline.
-- `docs/README.md` — documentation index and current-versus-historical reading guide.
+- `README.md` — project statement, strongest evidence, and current pre-announcement status.
+- `STATUS.md` — current research/readiness state.
+- `docs/ANNOUNCEMENT_READINESS.md` — active announcement gate.
+- `docs/CLAIMS_AND_EVIDENCE.md` — reviewed baseline claim registry.
+- `docs/README.md` — current documentation index.
+- `results/README.md` — current machine-readable evidence index.
 
-The frozen tag `v0.2.0-public-snapshot` is immutable. It is a historical research snapshot, not a current announcement-readiness certificate.
+The tag `v0.2.0-public-snapshot` is immutable historical provenance. It is not a current announcement-readiness certificate.
 
-## Directory roles
+## Active directories
 
-| Path | Role | Mutation policy |
-| --- | --- | --- |
-| `docs/` | Current interpretation, reviews, protocols, phase narratives, readiness gates, and preserved research history | Current index/interpretation/readiness files may be updated; locked protocols and historical records should be preserved |
-| `results/` | Machine-readable evidence, protocol locks, summaries, reproduction reports, correction records | Evidence-producing result files are append-only/immutable after use in inference; corrections are added explicitly |
-| `scripts/reproduce/` | Clean-clone/pinned-environment reproduction runners | May receive additive portability fixes or new versioned runners; do not silently alter historical evidence-producing behavior |
-| `scripts/replication/` | Direct replication runners | Preserve evidence-producing versions; add new versions instead of silently rewriting old outcomes |
-| `scripts/phase2/` | Phase 2 precision/quantization runners associated with the reviewed correction boundary | Preserve provenance; do not rehabilitate invalidated evidence by rewriting code in place |
-| `scripts/phases/` | Phase-specific and historical experiment code | Primarily evidence/provenance code; environment assumptions may be historical |
-| `src/canaria/` | Reusable, cleaned library code separated from historical experiments | Normal library-quality maintenance with tests |
-| `tests/` | Tests for reusable code and stable repository behavior | Normal maintenance |
-| `tools/` | Repository/evidence/readiness audits and verification utilities | Normal maintenance; audit semantics should stay explicit |
-| `schemas/` | Machine-readable metadata/event schemas | Version or document incompatible changes |
-| `environment/` | Historical and current reproduction-environment provenance | Historical records are preserved; current reproduction records may be added |
-| `archives/` | Hashes and archive provenance | Preserve identifiers; do not substitute archive material for checked evidence without documentation |
-| `.github/` | Contribution governance and stable CI/workflow entry points | Stable CI may remain; one-shot research/maintenance workflows should not accumulate after their purpose is complete |
+| Path | Role |
+| --- | --- |
+| `docs/` | current interpretation, evidence summaries, corrections, readiness, and reference material |
+| `results/core_discovery_digits/` | residual-MLP direct matched-budget evidence |
+| `results/replication/` | direct cross-family replication evidence |
+| `results/training_time/` | reviewed training-time evidence |
+| `results/phase2/` | reviewed precision/quantization evidence and correction history |
+| `results/reproduction/` | reproduction and bounded systems reports |
+| `scripts/reproduce/` | supported clean-clone reproduction runners |
+| `scripts/replication/` | direct replication runners |
+| `scripts/phase2/` | Phase 2 runners that remain part of the reviewed evidence chain |
+| `scripts/phases/training_time/` | training-time runners still referenced by current reviewed evidence |
+| `src/canaria/` | reusable cleaned library code |
+| `tests/` | reusable-code tests |
+| `tools/` | evidence-integrity and readiness audits |
+| `archives/` | historical release/review records and superseded/versioned research material |
+
+## Archive boundary
+
+A one-time pre-announcement restructure tracked by Issue #16 moved the older version-number research sequence out of the active `docs/`, `results/`, `scripts/`, and `environment/` navigation into `archives/research-history/`.
+
+The move is organizational only. Historical blobs/results are retained; they are not rewritten to match later interpretation. `archives/README.md` contains the migration map.
+
+Archived material may still contain old relative paths, old status language, historical environment assumptions, or hypotheses later rejected. Treat it as provenance, not current instruction.
 
 ## Evidence lifecycle
 
-A normal confirmatory research unit should have an explicit chain:
+A confirmatory unit should have a visible chain:
 
 ```text
-question / issue
-    ↓
-protocol lock
-    ↓
-evidence-producing runner
-    ↓
-immutable per-seed / summary results
-    ↓
-audit / review
-    ↓
-current interpretation
-    ↓
-claim registry, only if reviewed and merged
+issue/question
+  -> protocol lock
+  -> evidence-producing runner
+  -> immutable result artifacts
+  -> audit/review
+  -> bounded interpretation
+  -> claim registry only after review
 ```
 
-A separate **reproduction lifecycle** may later rerun already-observed evidence under a pinned environment. Reproduction results must be labeled as reproduction and must not silently increase the confirmatory scientific seed count.
+A reproduction run is separate. Re-running an already observed confirmatory seed under a pinned environment is portability/reproduction evidence; it does not silently increase the scientific confirmatory sample size.
 
-Exploration and confirmation should be distinguishable in both filenames/metadata and interpretation. Failed, uncertain, or invalidated evidence remains in the record with an explicit status rather than being silently removed.
+Failed, uncertain, negative, and invalidated evidence is retained with status rather than deleted.
 
-## Current versus historical material
+## Branch policy
 
-Do not infer authority from a high version number, a release name, or a recent-looking filename.
+- `main` is the reviewed evidence baseline, not an announcement certificate.
+- New scientific work stays on an isolated research branch/draft PR until protocol, stopping rule, outcomes, and interpretation have been reviewed.
+- Maintenance/repository cleanup stays separate from fresh scientific outcomes.
+- A protocol PASS does not automatically promote an experiment into the headline claim set.
+- Broad announcement requires the separate readiness gate.
 
-Use these rules:
+## Workflow policy
 
-1. `STATUS.md` and `docs/ANNOUNCEMENT_READINESS.md` define current readiness.
-2. `docs/CLAIMS_AND_EVIDENCE.md` defines the reviewed claim baseline until a later scientific review changes it.
-3. `docs/HISTORICAL_INDEX.md` identifies planning/theory documents preserved for provenance rather than current instruction.
-4. `results/README.md` explains which result families are headline evidence, reproduction evidence, correction history, or historical extended phases.
-5. Locked protocol/result artifacts remain authoritative for what a particular experiment actually did even if later interpretation changes.
+Stable CI and intentionally supported reproduction workflows may remain active. One-shot execution workflows should be removed after their output/provenance has been retained. Git history preserves the exact workflow used.
 
-## Branch and PR policy
+## Path-migration rule
 
-- `main` is the reviewed **evidence baseline**, not by itself an announcement certificate.
-- New scientific work belongs on an isolated research branch and usually a draft PR until its stopping rule and review are complete.
-- Unmerged research results do **not** alter the claim registry or historical snapshot boundary.
-- Repository organization, documentation cleanup, CI maintenance, and similar science-neutral work should use a separate maintenance branch/PR rather than being mixed into fresh experimental commits.
-- A research PR that passes its own protocol is not automatically merge-ready; scientific review and claim-boundary review remain separate steps.
-- Broad announcement requires the separate gate in `docs/ANNOUNCEMENT_READINESS.md`.
-
-## Workflow lifecycle
-
-Stable workflows such as repository-wide CI or intentionally supported reproduction jobs may live on `main`.
-
-One-shot workflows used to execute a particular exploration, confirmation, reproduction audit, release-metadata change, or maintenance action are execution scaffolding. After their outputs and provenance are retained, remove those workflow files from the active branch tip when they are no longer needed. Git history preserves the exact workflow used for the run.
-
-## Path-stability rule
-
-Prefer adding indexes and role documentation over mass-renaming historical directories. Rename or relocate evidence paths only when the benefit clearly outweighs broken references, and record a migration map when doing so.
+After the Issue #16 restructure, current evidence paths should remain stable unless there is a concrete auditability benefit to another move. Historical material belongs under `archives/`; do not move it back into active navigation merely because it contains a positive result.

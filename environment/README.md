@@ -1,28 +1,33 @@
 # Environment records
 
-This directory contains both preserved historical environment metadata and current reproduction-environment references.
+This directory documents the **current supported reproduction environment**. Historical environment captures were moved to `../archives/research-history/environment/` so they are not confused with present installation guidance.
 
-## Current representative reproduction environment
+## Representative reproduction environment
 
 The headline residual-MLP digits reproduction uses:
 
 - `../scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt`
 - `../scripts/reproduce/core_discovery_digits/README.md`
 
-The current CI reference environment is Python 3.11 with NumPy 2.4.6, PyTorch 2.13.0 CPU, and scikit-learn 1.9.0. The CPU PyTorch wheel is installed explicitly from the PyTorch CPU index before the pinned requirements file is applied.
+Current pinned reference:
 
-This is a **modern reproduction environment**, not a claim that these exact package versions were used in every historical experiment.
+- Python 3.11
+- NumPy 2.4.6
+- PyTorch 2.13.0 CPU
+- scikit-learn 1.9.0
 
-## Historical environment records
+The CPU PyTorch wheel is installed explicitly from the PyTorch CPU index before applying the pinned requirements file.
 
-Historical contents are under `history/v10/` and include:
+This is a modern reproduction target. It is **not** a claim that every historical experiment used these exact versions.
 
-- `REPRODUCIBILITY_LIMITS.md` — limitations of the recorded historical environment;
-- `current_audit_environment.json` — captured audit-environment metadata;
-- `requirements_inferred.txt` — inferred historical dependencies.
+## Historical environments
 
-Do not edit historical environment records to match a modern machine. If a clean-port reproduction needs different dependencies, record that environment alongside the new reproduction instead.
+Earlier inferred/captured environment metadata is preserved under:
+
+`../archives/research-history/environment/history/v10/`
+
+Do not rewrite those records to match a modern machine. If an archived experiment is ported, record the new environment as a separate reproduction provenance record.
 
 ## Package boundary
 
-Repository-root `pyproject.toml` describes the lightweight reusable package under `src/canaria/`. It intentionally does not declare every research-runner dependency. Experiment-specific dependencies belong with the relevant reproduction runner.
+Repository-root `pyproject.toml` describes the lightweight reusable package under `src/canaria/`. It intentionally does not encode every historical research-runner dependency.
