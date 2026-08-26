@@ -1,16 +1,27 @@
 # Phase 2 — precision, quantization, and repair
 
-This page is the authoritative short index for the post-snapshot precision experiments.
+This page is the authoritative short index for the post-snapshot precision experiments after the independent pre-publication re-review.
 
-The important point is not that lower precision always helps or always fails. In this model family, deployable complexity depends on **bit width, scale granularity, functional boundary, and repair procedure together**.
+The public conclusion is narrow: in this residual-MLP family, deployable replacement complexity depends jointly on **bit width, scale granularity, functional boundary, and repair procedure**. Lower precision is not automatically better, and composition does not receive a blanket quantization advantage.
+
+## Public evidence boundary
+
+Raw protocol/result files for Phase 2A–C and portable A–C runners are checked into this branch. Later correction work (2D–2O) is summarized by the machine-readable correction registry and the identified correction archive, but **not all later raw per-seed artifacts are present in Git**. Therefore later-phase statements below are correction/provenance claims, not a claim that every later phase is publicly rerunnable from this branch.
+
+Correction archive SHA256:
+
+`1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
+
+See:
+
+- `../../results/phase2/precision_composition/CORRECTION_STATUS.json`
+- `../../results/phase2/precision_composition/INVALIDATED_HISTORY.md`
 
 ## Valid primary sequence
 
 ### Phase 2A — precision × composition
 
-**PASS.** At 4-bit signed-uniform post-training quantization, the composed condition had a smaller minimum passing coded size in **8/8 fresh seeds**.
-
-Primary result:
+**VALID_PASS.** At 4-bit signed-uniform post-training quantization, the composed condition had a smaller minimum passing coded size in **8/8 fresh seeds** under the locked residual-MLP protocol.
 
 ```text
 mean log2(composed/component-wise coded size) = -0.6048
@@ -18,106 +29,84 @@ bootstrap95                                   = [-0.8754, -0.3035]
 geometric coded-size ratio                   = 0.6576×
 ```
 
-See [`PRECISION_COMPOSITION.md`](PRECISION_COMPOSITION.md) and `../../results/phase2/precision_composition/phase2a/`.
+This is an operational coded-size result under the declared quantizer and FP16 scale-metadata accounting, not an intrinsic bit-complexity law.
+
+See `PRECISION_COMPOSITION.md` and `../../results/phase2/precision_composition/phase2a/`.
 
 ### Phase 2B — capacity-only rescue at 3 bit
 
-**FAIL.** Increasing the replacement budget up to 16,384 weights did not rescue naive 3-bit per-matrix PTQ.
+**VALID_FAIL.** Increasing the replacement budget up to 16,384 weights did not rescue naive 3-bit per-matrix PTQ.
 
 ```text
 composed rescue:       0 / 8
 component-wise rescue: 0 / 8
 ```
 
-This rejects the simple explanation that the 3-bit failure was only insufficient parameter count.
+This rejects the tested capacity-only rescue hypothesis; it does not prove that every 3-bit quantizer must fail.
 
 ### Phase 2C — scale granularity
 
-**PASS.** Row-wise/per-output-channel FP16 scales rescued 3-bit PTQ in **7/8 seeds for both topologies** at 16,384 weights.
+**VALID_PASS.** Row-wise/per-output-channel FP16 scales rescued 3-bit PTQ in **7/8 seeds for both topologies** at 16,384 weights.
 
-The rescue itself is therefore not uniquely compositional. It shows that bit width alone is not enough to describe the usable representation.
+The rescue is not uniquely compositional. It shows that nominal bit width alone is insufficient to describe usable representation cost.
 
-### Phase 2D — short quantization-aware repair
+## Critical invalidation — Phase 2E
 
-**PASS.** With the correct activation-domain repair input, short STE/QAT-style repair can make coarse per-matrix 3-bit representations viable in this residual-MLP family.
+**Phase 2E is INVALIDATED_IMPLEMENTATION_BUG and must not be used for scientific inference.**
 
-The coded-size difference at equal 16,384 weights is only a few bytes of scale metadata; that small arithmetic difference should not be overinterpreted.
+The replacement modules were fitted on internal activation `ta[0]`, but the repair path accidentally fed raw digit input `Xt` to the first component and composed map. Both tensors had width 64, so the semantic-domain error passed shape checks.
 
-## Critical correction: Phase 2E
-
-**Phase 2E is invalid scientific evidence.**
-
-A forensic audit found a silent implementation bug: the replacement modules were fitted on the internal activation domain `ta[0]`, but Phase 2E repair accidentally fed raw digit inputs `Xt` to the first component and composed map. Both tensors have width 64, so the error did not trigger a shape exception.
-
-Logically, the faulty calls were equivalent to:
+The faulty calls were equivalent to:
 
 ```text
-qforward(sr1, Xt[ix])     instead of qforward(sr1, ta[0][ix])
-qforward(comp, Xt[ix])    instead of qforward(comp, ta[0][ix])
+qforward(sr1, Xt[ix])
+qforward(comp, Xt[ix])
 ```
 
-The original Phase 2E artifacts should be preserved and marked invalid, not deleted.
+instead of:
+
+```text
+qforward(sr1, ta[0][ix])
+qforward(comp, ta[0][ix])
+```
 
 Consequences:
 
-- Phase 2D remains valid.
-- Phase 2E is **INVALIDATED_IMPLEMENTATION_BUG**.
-- Phase 2F and 2G numerical experiments remain usable, but explanations framed as accounting for Phase 2E are obsolete.
-- Phase 2H numerical outputs remain historical observations, but the “hard cohort” interpretation is weakened because that cohort was defined by the bugged Phase 2E result.
-- The Phase 2I claim that repair RNG alone explained Phase 2E is retracted.
-- The Phase 2J comparison to Phase 2E is confounded by the corrected input domain; its full-batch success remains only a numerical observation.
+- the Phase 2E `0/8` composed result is **not evidence** of stochastic repair failure;
+- Phase 2I's claim that repair RNG explains Phase 2E is **retracted**;
+- Phase 2H's bug-defined “hard cohort” interpretation is weakened;
+- Phase 2J's full-batch success remains a numerical observation, but comparison to bugged 2E is confounded;
+- Phase 2K was aborted once its premise was found invalid.
 
-## Corrected follow-up
+The invalidated evidence is preserved as correction history rather than erased.
 
-### Phase 2K
+## Corrected later boundary
 
-**ABORTED_PRECONDITION.** An equal-example repair benchmark was stopped after one seed once the Phase 2E premise was found to be false. The partial result is retained but excluded from inference.
+### Phase 2D / 2L — correctly implemented short repair
 
-### Phase 2L — controlled bug correction
+Correct activation-domain STE/QAT-style repair can make coarse per-matrix 3-bit representations viable in this tested residual-MLP family.
 
-**PASS.** The only intended change was the repair input `Xt -> ta[0]`; seeds, base fits, learning rate, repair RNG, checkpoints, and validation rule were otherwise held fixed.
+The controlled Phase 2L correction changed the intended repair input `Xt -> ta[0]` while keeping the other controlled settings fixed and reported:
 
 ```text
-corrected composed pass:       8 / 8   (bugged Phase 2E: 0 / 8)
+corrected composed pass:       8 / 8
 corrected component-wise pass: 8 / 8
 composed first-pass updates:   [2, 2, 2, 4, 8, 2, 8, 2]
 ```
 
-This identifies the Phase 2E failure primarily as an implementation artifact.
+This identifies the Phase 2E failure as an implementation artifact. It does not establish a universal QAT repair guarantee.
 
-### Phase 2M — equal sample-presentation repair policies
+### Phase 2M — equal sample-presentation policies
 
-**B128_EFFICIENT.** Fresh seeds 31700–31707; all methods had a 4096-sample cap.
+Fresh seeds `31700–31707` under a 4096-sample cap found batch-128 policies sample-efficient in the tested comparison. This is a policy result for this setup, not a universal optimal batch-size claim.
 
-Median sample presentations to first pass for the composed condition:
+### Phase 2N — exploratory repair-sample curve
 
-```text
-random batch128            384
-random batch256            768
-random batch512           1536
-random batch1024          3072
-deterministic batch128     384
-2-restart batch128         384
-4-restart batch128         384
-```
-
-Fewer optimizer steps at larger batch size did not mean lower sample cost.
-
-### Phase 2N — repair sample curve
-
-**PASS.** Fresh `n=16`.
-
-```text
-composed:       16/16 pass by 1024 samples; all by 640
-component-wise: 16/16 pass by 1024 samples; all by 896
-median first-pass samples: composed 320, component-wise 384
-```
-
-The apparent composed repair-cost advantage was suggestive, not yet confirmatory.
+Fresh `n=16` suggested lower median first-pass samples for composed repair (`320` versus `384`), but this was not yet confirmatory.
 
 ### Phase 2O — confirmatory repair-cost advantage
 
-**UNCERTAIN.** Fresh `n=24`.
+**VALID_UNCERTAIN.** Fresh `n=24` did not establish a reliable composed repair-sample advantage.
 
 ```text
 composed pass by 1024 samples:       23 / 24
@@ -129,31 +118,24 @@ one-sided exact sign-test:            p = 0.1662
 bootstrap95 mean difference:         [-157.1, +58.2]
 ```
 
-Therefore the stronger statement that composition reliably reduces QAT repair sample complexity is **not confirmed**.
+Therefore **do not claim that composition reliably lowers QAT repair sample complexity**.
 
-## Current interpretation
+## Current supported interpretation
 
 Supported:
 
-1. The 4-bit compositional coded-size advantage from Phase 2A survives.
-2. Naive 3-bit per-matrix PTQ is not rescued simply by adding more weights.
-3. Finer scale granularity can rescue 3-bit PTQ without repair.
-4. Correctly implemented short QAT-style repair can also make per-matrix 3-bit viable in this residual-MLP family.
-5. In the tested fresh policy comparison, batch128 was sample-efficient.
+1. Phase 2A: the 4-bit composed coded-size advantage survives under the locked residual-MLP experiment.
+2. Phase 2B: increasing weight count alone did not rescue the tested naive 3-bit per-matrix PTQ.
+3. Phase 2C: finer scale granularity can rescue 3-bit PTQ for both topologies.
+4. Correctly implemented short activation-domain QAT-style repair can make coarse per-matrix 3-bit viable in the tested family.
 
 Not supported:
 
-1. The bugged Phase 2E 0/8 result as evidence of stochastic repair failure.
-2. Repair minibatch RNG as the sole explanation for Phase 2E.
-3. Deterministic full-batch repair as a demonstrated mechanism-specific fix for Phase 2E.
-4. A confirmed compositional advantage in repair sample complexity.
+1. the bugged Phase 2E `0/8` result as scientific negative evidence;
+2. repair minibatch RNG as the sole explanation for Phase 2E;
+3. a mechanism-specific claim that deterministic full-batch repair uniquely fixes Phase 2E;
+4. a confirmed compositional advantage in repair sample complexity.
 
 ## Evidence policy
 
-Protocol locks and negative/invalidated results are retained. Corrections are additive: an incorrect artifact is marked and superseded rather than erased.
-
-The consolidated local correction archive used for the 2K–2O audit has SHA256:
-
-`1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
-
-A compact machine-readable status registry is in [`../../results/phase2/precision_composition/CORRECTION_STATUS.json`](../../results/phase2/precision_composition/CORRECTION_STATUS.json).
+Corrections are additive. Invalidated or failed results are marked and preserved; they are not silently deleted or rewritten as successes.
