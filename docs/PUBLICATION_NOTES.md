@@ -1,195 +1,151 @@
 # Publication / communication notes
 
-This document is a claim hierarchy for papers, technical reports, talks, README summaries, and third-party handoff. It is not a manuscript.
+This document defines publication-safe wording after the 2026-08-26 independent re-review. It is not a manuscript.
 
 ## One-sentence project statement
 
-> Canaria identifies and characterizes **task-conditioned compositional simplification** in learned neural computation: some learned computations that are difficult or expensive to simplify component-wise can admit a substantially smaller task-preserving representation when treated as one composed input-output function.
+> Canaria identifies an empirical pattern of **task-conditioned compositional simplification**: under explicit task distributions, replacement grammars, and passing criteria, some learned spans admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
 ## Primary discovery claim
 
-The central empirical discovery is **not** "we pruned layers" or "we compressed a model." The more distinctive observation is:
+Use **operational replacement/description complexity**, not intrinsic mathematical complexity.
 
-> Implementation-level computational complexity can be non-additive across learned boundaries. In the tested settings, composed spans were simpler to replace than component-wise treatment suggested.
+Safe:
 
-Supporting evidence now includes three complementary lines.
+- “Under the declared grammar, positive operational composition gain was frequent in the original confirmatory setting.”
+- “The component-wise-versus-composed effect was tested under fresh locked protocols in a Small Vision Transformer and a residual MLP.”
+- “The residual-MLP experiment exactly matched learned replacement-parameter budgets at every grid point.”
 
-### 1. Original residual-CNN confirmatory evidence
+Avoid:
 
-- composition subadditivity `P(G>0)=0.7107`, 95% CI `0.6128–0.8137` under the declared grammar;
-- strong simplification outside high-Canary regions;
-- implementation-block boundaries failing as universal functional boundaries;
-- wider-span replacement succeeding where local replacement could fail;
-- whole-network accounting rejecting the strongest hidden-relocation explanation.
+- “Function composition reduces complexity.”
+- “Composition complexity is intrinsically subadditive.”
+- “We measured Kolmogorov complexity.”
+- “The SmallViT/residual-MLP results prove universal Transformer or LLM behavior.”
 
-### 2. Direct Small Vision Transformer replication
+## Direct SmallViT replication
 
-- fixed central two-block span;
-- common replacement grammar for component-wise and composed treatment;
-- locked passing criterion: held-out span NMSE `<=0.12`, validation utility `>=0.95`;
-- first 8 fresh baseline-eligible seeds `>=9000`;
-- component-wise minimum passing complexity: **9,808 replacement params** in all 8 seeds;
-- composed minimum passing complexity: **4,904–5,424 params**;
-- mean composed/component-wise ratio: **0.51988**;
-- paired seed-bootstrap95: **[0.50634, 0.53926]**;
-- composed smaller: **8/8 seeds**;
-- selected composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
-- component-wise fitting received twice the compiler updates, so the complexity advantage was not purchased by extra optimization on the composed side.
+Public result:
 
-### 3. Direct residual-MLP replication with exact learned-budget matching
+- 8/8 fresh eligible seeds selected a smaller composed replacement;
+- mean composed/component-wise replacement-parameter ratio `0.51988`;
+- paired seed-bootstrap95 `[0.50634, 0.53926]`;
+- selected composed mean test utility `0.97856`.
 
-Fresh seeds `1200–1207` used a four-block residual MLP on sklearn digits and a fixed first-two-block span.
+Important isolation caveat: the locked selection criterion excludes test accuracy, but the runner records test accuracy for every candidate. Therefore say **“test was not a selection variable”**, not “the test set was operationally hidden until after selection.”
 
-At every budget point, component-wise and composed conditions had the **same learned replacement-parameter count**. Candidate selection used validation NMSE/accuracy only.
+Do not use SmallViT as an exact parameter-matched mechanistic decomposition; the residual MLP provides the stronger matched-budget control.
 
-Results:
+## Direct residual-MLP replication
 
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed lower-budget: **8/8 seeds**;
-- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
-- paired bootstrap95: **[−1.2075, −0.8962]**;
-- geometric mean budget ratio: **0.4823×**;
-- untouched-test accuracy difference at selected budgets: composed minus component-wise **+0.583 percentage points**, bootstrap95 **[+0.306,+0.806] pt**.
+Fresh `1200–1207`:
 
-A 2048-parameter mechanistic secondary retained the two-module replacement topology but changed the fitting objective from local intermediate targets to the composed span target:
+- component-wise mean minimum passing budget: `3584`;
+- composed mean minimum passing budget: `1728`;
+- composed lower: `8/8`;
+- mean `log2(B_composed/B_componentwise)=-1.0519`;
+- bootstrap95 `[-1.2075,-0.8962]`;
+- geometric mean ratio `0.4823×`;
+- selected-budget test-accuracy difference `+0.583` percentage points, bootstrap95 `[+0.306,+0.806]` pt.
 
-- local component-wise NMSE: **0.1474**;
-- same two-module architecture jointly fit to the span target: **0.0639**;
-- one composed module: **0.0533**.
+Candidate selection used validation only, and learned replacement-parameter counts were exactly matched at each budget.
 
-This supports the interpretation that much of the effect follows the **functional boundary/objective**, not merely the fact that the final replacement uses one module rather than two.
+The 2048-parameter joint-factorized control is **descriptive/mechanistic secondary**. It is consistent with much of the gap following the composed span objective, but it is not a confirmatory causal decomposition.
 
-### Safe wording
+## Training-time consolidation
 
-- "We identify and systematically characterize an empirical phenomenon of compositional simplification in learned neural computation."
-- "Under declared task distributions and replacement grammars, composed learned functions can exhibit subadditive replacement/description complexity."
-- "The core component-wise-versus-composed effect was directly replicated under fresh locked protocols in both a Small Vision Transformer and a residual MLP."
-- "A residual-MLP mechanistic control indicates that much of the gain follows the composed functional objective even when the two-module topology is retained."
+Keep evidence tiers explicit.
 
-### Avoid
+### G7
 
-- "Function composition always reduces complexity."
-- "We measured Kolmogorov complexity."
-- "Canary is the cause or necessary condition of simplification."
-- "Every neural network can be compiled to a tiny program."
-- "The SmallViT or residual-MLP results prove universal Transformer, LLM, or task-universal subadditivity."
+The preregistered primary PASS comparisons were progressive versus **early one-shot** and **late one-shot**. Those passed.
 
-## Secondary discovery: dynamic consolidation
+The small-from-start and large-reference differences are useful **secondary** observations. Do not present “progressive beats small-from-start” as if it were the G7 primary decision rule.
 
-The training-time program extends the static observation:
+### G15 / G17 / G19
 
-> **form → transfer → commit → recontract → transfer again**
+Safe synthesis:
 
-Key evidence:
+> Under the tested small character-LM protocols, staged consolidation with intervening task learning beat the tested direct path, while back-to-back factorized fitting without intervening learning did not reproduce the staged advantage.
 
-- G7: progressive consolidation outperformed one-shot schedules and training the final small architecture from the start.
-- G15: staged `4→3→2` with task learning between commits beat waiting for direct `4→2`.
-- G17: the same two-step compiler factorization without intermediate task learning was equivalent to direct contraction.
-- G19: the staged-path effect replicated on `5→4→2` versus direct `5→2` with equal compiler-update budgets.
+### G18
 
-A defensible interpretation is:
+Safe:
 
-> Structural consolidation changes the subsequent learning trajectory; intervening task learning/recontracting is part of the effect rather than merely post-hoc damage repair.
+> The tested deadline-aware controller improved mean PPL and reduced mean compiler updates relative to the tested static NMSE controller.
 
-## Mechanistic refinement
+Avoid turning this into a universal rule that remaining horizon must determine commit timing.
 
-G20–G26 show that "becomes simpler" needs two axes.
+### G20–G26
 
-### Compiler side
+Safe synthesis:
 
-After intermediate task learning, the next compiler can reach the same normalized functional-error target with fewer optimization updates.
+> Recontracting can make a subsequent compiler easier to optimize at a fixed normalized error target while making residual error more task-sensitive; sensitivity-aware empirical predictors improved task-damage prediction in the tested protocols.
 
-### Task side
+Do not present empirical predictor coefficients as a theorem or universal Taylor law.
 
-The same normalized residual error can become **more** damaging because downstream task sensitivity increases.
+## Phase 2 correction
 
-The strongest current synthesis is:
+### Valid A–C boundary
 
-> Recontracting can make the representation more compiler-friendly while making the task computation sharper with respect to residual approximation error.
+- 2A: 4-bit composed coded-size result — **VALID_PASS** under the declared residual-MLP quantizer/accounting.
+- 2B: capacity-only rescue of naive 3-bit per-matrix PTQ — **VALID_FAIL**.
+- 2C: row-wise scale rescue — **VALID_PASS**, and it rescues both topologies.
 
-Sensitivity-aware quantities outperform error magnitude alone for immediate task-damage prediction, and remaining learning horizon improves future-damage prediction.
+### Phase 2E
 
-Do not present the empirical first/second-order predictor as a proved Taylor law or universal formula.
+Phase 2E is **INVALIDATED_IMPLEMENTATION_BUG**, not negative scientific evidence. Repair used raw `Xt` where the replacement was defined on internal activation `ta[0]`; width 64 made the error silent.
 
-## Important negative results to mention
+The `0/8` result must not be cited as evidence of stochastic repair failure. Preserve it only as correction history.
 
-A credible public account should include at least these boundaries:
+### Later corrected boundary
 
-- Canary is not a necessary local condition.
-- Unlimited recursive collapse is not supported.
-- Teacher-forced PPL can remain nearly unchanged while autoregressive rollouts diverge.
-- v23–v25 tested natural-text post-hoc objectives did not close that rollout boundary.
-- G21 hard task-damage veto could prevent final contraction.
-- G27 fixed risk caps did not yield a cost/utility Pareto improvement.
-- The current runtime PoC did not demonstrate meaningful host-RAM reduction.
-- Both direct core-discovery replications remain small-model and grammar-dependent.
+Corrected later work supports viability of short activation-domain QAT-style repair for coarse per-matrix 3-bit in the tested residual-MLP family.
 
-## Reproducibility statement
+Do **not** claim lower repair-sample complexity for composition: Phase 2O is `UNCERTAIN` (`p=0.1662`; bootstrap95 crosses zero).
 
-A public self-contained runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports.
+Not all later 2D–2O raw per-seed artifacts are checked into this branch. The later correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
 
-In the recorded environment, the complete reproduced JSON exactly matches the archived confirmatory output with SHA256:
+## Reproducibility wording
+
+A self-contained public runner reproduced the archived G7 seed-4300 output exactly in the recorded environment, with SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
-This is a **reproduction/portability result**, not a new independent scientific replication.
+Call this **reproduction/portability evidence for an already-confirmatory seed**, not an independent scientific replication.
 
-## Application framing
+## Systems wording
 
-The systems idea is to move from:
-
-> model as stored parameter tensors
-
- toward:
-
-> model as a compact task-conditioned functional representation that can be serialized, materialized, or compiled for execution.
-
-### What the current PoC supports
-
-A bounded CPU-only PoC on G7 seed 4300 demonstrated:
-
-- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- parameters: **23,138 → 11,042** (`−52.28%`);
-- mean batch-128 CPU inference: **47.05 → 23.11 ms**;
-- direct execution of the compact learned 2-block representation without reconstructing the original 4-block model.
-
-### What it does not support
-
-- meaningful host-RAM reduction: RSS delta was only **4.72 → 4.56 MB**;
-- a general cold-start claim: load/materialization was lower on average but cache-sensitive;
-- GPU/LLM/energy/VRAM/universal runtime gains.
-
-Publication-safe systems statement:
+Publication-safe PoC statement:
 
 > In one small CPU proof of concept, a progressively consolidated learned representation was about 50% smaller as a serialized artifact and about 2× faster for the measured batch-128 inference workload, while meaningful host-RAM reduction was not demonstrated.
 
-## Suggested paper / technical-report structure
+Do not generalize to GPU, VRAM, energy, cold-start, browser/edge, large models, or universal runtime speedup.
 
-1. **Problem:** implementation boundaries may overstate task-effective functional complexity.
-2. **Discovery:** original compositional simplification / subadditivity.
-3. **Direct replication A:** SmallViT component-wise versus composed replacement under a locked fresh protocol.
-4. **Direct replication B:** residual-MLP exact-budget replication plus joint span-objective control.
-5. **Controls:** Canary not necessary; boundary expansion; whole-network accounting; negative recursive results.
-6. **Dynamic extension:** training-time consolidation and staged-vs-direct mechanism separation.
-7. **Recontracting mechanism:** compiler conditioning versus downstream sensitivity.
-8. **Boundaries:** autoregressive rollout failures and controller failures.
-9. **Reproducibility:** public exact reproduction of one confirmatory seed.
-10. **Systems implication:** bounded serialization/materialization/direct-execution PoC with explicit RAM boundary.
-11. **Limitations / handoff:** small models, operational complexity grammars, large-LLM and task-type external validity.
+## Required negative/correction boundaries to mention
 
-## Novelty / priority language
+A credible public account should include at least:
 
-The repository supports claiming that Canaria **identifies and characterizes** this empirical phenomenon and includes direct fresh replications in two additional architecture families beyond the original residual-CNN setting.
+- Canary is not necessary.
+- Unlimited recursive collapse is not supported.
+- Teacher-forced PPL can remain close while autoregressive rollouts diverge.
+- G17 rejects “two compiler fits alone” as the staged-gain explanation under the tested protocol.
+- G21 hard task-damage veto can block contraction.
+- G27 fixed risk caps did not establish a Pareto improvement.
+- Phase 2E is invalidated and excluded from inference.
+- Phase 2O does not confirm a composed repair-sample advantage.
+- The runtime PoC does not demonstrate meaningful host-RAM reduction.
 
-A strict "first ever" priority claim should still be made only after a dedicated literature review covering at least layer fusion, depth pruning, progressive module replacement, distillation, network morphism/surgery, learned program extraction, and function-preserving compression.
+## Publication state
 
-The novelty should be attached to the phenomenon and the controlled characterization—not to the generic act of reducing layer count.
+Do not describe the research branch as publication-ready until the independent review gate is actually closed and the final `repository-audit` passes. Closing Issue #9 completes this quality gate only; PR #7 and the v0.2.0 release/tag boundary remain separate version-control decisions.
 
-## Recommended citation practice
+See `INDEPENDENT_REREVIEW_2026-08-26.md` and `RELEASE_CHECKLIST.md`.
 
-Until a paper exists, cite:
+## Novelty wording
 
-- the exact repository commit or public-snapshot tag;
-- the relevant protocol/result files or recorded SHA256 identifiers;
-- the evidence class (confirmatory/exploratory/negative/reproduction/systems-PoC) when discussing a specific endpoint.
+The repository supports saying that Canaria **identifies and characterizes** this empirical phenomenon and directly tests it in additional small architecture families. A strict “first ever” priority claim still requires a dedicated literature review.
+
+## Citation practice
+
+Until a paper exists, cite the exact commit/tag, the relevant protocol/result artifacts, and the evidence class. Never cite an invalidated artifact as scientific support merely because it remains in the history.
