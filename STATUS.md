@@ -1,163 +1,83 @@
 # Project status
 
-**2026-08-25: release-ready, scientifically closed public snapshot at the current claim scope.**
+**Current mode: public handoff / release preparation. Broad experiment expansion is stopped.**
 
-Broad experiment expansion is stopped for this snapshot. The representative public reproduction, bounded runtime/materialization PoC, and direct cross-family replications of the core compositional-simplification phenomenon are complete. **No additional experiment is required for the present scoped claims.**
+The repository now has enough evidence to be useful as a public research object without requiring a complete theory or exhaustive architecture sweep. New experiments should be limited to small checks that materially improve reproducibility, correct an identified defect, or remove a release blocker.
 
-## Current project-level thesis
+## Core result retained
 
-The central result is **task-conditioned compositional simplification of learned neural computation**:
+The project-level thesis is **task-conditioned compositional simplification of learned neural computation**:
 
-> implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially simpler task-preserving representation when treated as one composed input-output function.
+> implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially smaller task-preserving representation when treated as one composed input-output function.
 
-The static phenomenon is now supported by:
+The core effect has direct locked replications in:
 
-- the original residual-CNN confirmatory composition evidence;
-- a fresh Small Vision Transformer component-wise-versus-composed replication; and
-- a second fresh residual-MLP component-wise-versus-composed replication with exact learned-parameter-budget matching.
+- a Small Vision Transformer; and
+- a residual MLP with exactly matched replacement-parameter budgets.
 
-The dynamic extension is:
+In the residual-MLP replication, the composed condition selected a lower minimum passing budget in **8/8 fresh seeds**; geometric composed/component-wise budget ratio **0.4823×**.
 
-> **form → transfer → commit → recontract → transfer again**
+## Minimal public entry point
 
-Intervening task learning after a structural consolidation changes the subsequent optimization geometry. In the current small real-text LM testbed, later compiler fitting becomes easier in normalized functional-error terms, while downstream sensitivity to residual error increases.
+Run one direct residual-MLP seed:
 
-## Current evidence frontier
+```bash
+python -m pip install numpy torch scikit-learn
+python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
+  --seed 1200 \
+  --out /tmp/canaria_seed1200.json
+```
 
-### Confirmed
+Recorded seed 1200: component-wise `3072` parameters versus composed `1536`.
 
-- original composition subadditivity (`P(G>0)=0.7107`, 95% CI `0.6128–0.8137`) under the declared grammar;
-- direct SmallViT replication: composed/component-wise minimum passing replacement-complexity ratio **0.5199**, paired bootstrap95 **[0.5063, 0.5393]**, composed smaller in **8/8 fresh seeds**, selected composed mean test utility **0.9786**;
-- direct residual-MLP replication: component-wise mean minimum passing budget **3584 params** vs composed **1728 params**, composed lower in **8/8 fresh seeds**, mean `log2(B_comp/B_sep)=-1.0519`, bootstrap95 **[-1.2075,-0.8962]**, with test accuracy difference **+0.583 pt** bootstrap95 **[+0.306,+0.806] pt**;
-- whole-network reductions under declared codecs, including an exact 9,926-byte residual-CNN endpoint;
-- training-time staged consolidation (G7);
-- function-aligned transfer requirement (G8);
-- diminishing returns to transfer fit (G9);
-- inheritance + functional refinement (G10);
-- autonomous consolidation under a locked non-inferiority protocol (G11);
-- staged-vs-direct path effect (G15);
-- factorization-without-learning equivalence control (G17);
-- deadline-aware controller improvement (G18);
-- staged-path replication on `5→4→2` (G19);
-- lower normalized next-compiler fit cost after recontracting (G20d);
-- higher immediate task sensitivity at matched normalized error (G20e, G22);
-- sensitivity-aware immediate-damage prediction (G23–G25);
-- horizon-aware future-damage prediction (G26).
+See [`QUICKSTART.md`](QUICKSTART.md).
 
-### Confirmed negative / boundary results
+## Precision follow-up
 
-- Canary is not a necessary local condition for simplification.
-- Teacher-forced PPL is not sufficient evidence of autoregressive functional equivalence.
-- The tested v23–v25 natural-text post-hoc objectives did not recover rollout-sensitive fidelity.
-- A hard task-damage veto (G21) can prevent final contraction and increase compiler cost.
-- A single fixed risk cap did not produce a cost/utility Pareto improvement in G27 exploration.
-- Unlimited recursive collapse is not supported by the current grammar.
-- The SmallViT and residual-MLP replications do not imply universal Transformer/LLM or task-universal subadditivity.
+Post-snapshot Phase 2 extended the question to quantization.
 
-## Cross-family core-discovery replications — complete
+Current supported boundary:
 
-### Small Vision Transformer
+- 4-bit composed coded-size advantage: retained under the locked residual-MLP experiment;
+- naive 3-bit per-matrix PTQ: not rescued by simply increasing weight count;
+- row-wise scales: can rescue 3-bit PTQ;
+- short correctly implemented activation-domain QAT repair: can also make coarse per-matrix 3-bit viable in this model family;
+- a lower QAT repair sample complexity for the composed condition: **not confirmed** in the 24-seed confirmatory test.
 
-A fresh confirmatory SmallViT experiment compared a fixed two-block span under a common replacement grammar.
+## Critical correction
 
-Result:
+Phase 2E is **INVALIDATED_IMPLEMENTATION_BUG**.
 
-- component-wise minimum passing complexity: **9,808 params** in all 8 seeds;
-- composed minimum passing complexity: **4,904–5,424 params**;
-- mean ratio: **0.51988**;
-- paired bootstrap95: **[0.50634, 0.53926]**;
-- composed smaller: **8/8**;
-- composed mean test utility: **0.97856**, bootstrap95 **[0.97090, 0.98562]**;
-- compiler updates: **640 component-wise vs 320 composed**.
+Its repair code used raw digit inputs `Xt` where the replacement was defined on the internal activation domain `ta[0]`. The tensors happened to have the same width, so the error was silent.
 
-See `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
+The invalid artifact is retained and marked, not erased. Follow-up Phase 2L changed only the intended repair input and restored composed passing from `0/8` to `8/8` under the controlled rerun.
 
-### Residual MLP
+See [`docs/phase2/README.md`](docs/phase2/README.md) and [`results/phase2/precision_composition/CORRECTION_STATUS.json`](results/phase2/precision_composition/CORRECTION_STATUS.json).
 
-A second fresh confirmatory experiment used a four-block residual MLP on sklearn digits and simplified the first two residual blocks.
+## What is not established
 
-For every budget point, component-wise and composed conditions had **exactly the same learned replacement-parameter count**. Fit effort was matched by parameter-update count and approximate linear-layer compute. Candidate selection used validation NMSE/accuracy only; test accuracy was untouched until after budget selection.
+The repository does not claim:
 
-Result across fresh seeds `1200–1207`:
+- universal simplification of arbitrary neural networks;
+- codec-independent Kolmogorov/MDL reduction;
+- large-pretrained-LLM validity;
+- task- or span-universal compositional subadditivity;
+- guaranteed FLOP, wall-clock, energy, RAM, VRAM, or GPU improvements;
+- a confirmed compositional advantage in quantization-repair sample complexity.
 
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed smaller: **8/8**;
-- mean `log2(B_composed/B_componentwise)`: **−1.0519**;
-- paired bootstrap95: **[−1.2075, −0.8962]**;
-- geometric mean budget ratio: **0.4823×**;
-- mean test-accuracy difference at validation-selected budgets: **+0.00583**, bootstrap95 **[+0.00306,+0.00806]**.
+## Stopping rule
 
-At fixed 2048 parameters, a mechanistic control found validation span NMSE:
+Before public release, continue only work in these categories:
 
-- local component-wise: **0.1474**;
-- same two-module architecture jointly fit to the composed span target: **0.0639**;
-- one composed module: **0.0533**.
+1. repository cleanup that makes the core pattern easier to notice or reproduce;
+2. correction/provenance work for already-run experiments;
+3. one-seed or similarly small smoke tests needed to verify a public runner;
+4. release metadata, tags, CI, and repository protection.
 
-Most of the benefit is therefore recovered by changing the **functional objective/boundary** while keeping the two-module topology, strengthening the interpretation that implementation boundaries can overstate task-effective functional complexity.
+Do **not** start a new broad experimental family merely to make the repository feel complete. Unresolved architecture, theory, hardware, and scale questions should remain open for follow-up by other researchers.
 
-See `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md` and `results/core_discovery_digits/`.
+## Release separation
 
-## Reproducibility closure — complete
+The original v0.2.0 scientific snapshot remains the frozen baseline until its tag/release boundary is completed. Post-snapshot precision work is staged separately and should not be back-projected into the v0.2.0 claim registry without an explicit version transition.
 
-A portable public runner reproduces **G7 fresh confirmatory seed 4300** without private `/mnt/data` imports.
-
-In the recorded environment, the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
-
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
-
-See `scripts/reproduce/g7_confirmatory/` and `results/reproduction/g7_seed4300_report.json`.
-
-This is software/reproducibility evidence for an already-confirmatory seed, not a new independent scientific replication.
-
-## Runtime/materialization PoC — complete at small-model scope
-
-Recorded G7 seed-4300 CPU-only PoC:
-
-- serialized artifact + manifest: **110,093 → 54,646 bytes** (**−50.36%**);
-- parameters: **23,138 → 11,042** (**−52.28%**);
-- CPU batch-128 inference: **47.05 → 23.11 ms mean**;
-- load/materialize: **7.85 → 5.86 ms mean**, secondary due cache sensitivity;
-- process RSS delta: **4.72 → 4.56 MB**, so meaningful host-RAM reduction was **not demonstrated**;
-- test PPL: **19.2784 large vs 18.9322 compact**.
-
-See `docs/RUNTIME_POC.md`.
-
-## Release state
-
-All bounded closure tasks are complete. The residual-MLP replication adds a second direct architecture-family confirmation beyond the already-complete SmallViT replication.
-
-The repository should now be treated as a **frozen public research snapshot** at its current claim scope. Future work should start as a new issue/research phase rather than extending the old G-number mainline.
-
-## Future research, not current closure work
-
-Possible future projects include:
-
-- larger pretrained Transformer/LLM external validity;
-- replication across additional task types, spans, widths, and replacement grammars;
-- codec-independent complexity/MDL;
-- hardware-specific functional IR/JIT execution;
-- larger-scale RAM/VRAM/energy/runtime benchmarks;
-- stronger cost-aware autonomous control.
-
-## Current public documentation
-
-- `docs/PUBLIC_SNAPSHOT.md`
-- `docs/CORE_DISCOVERY.md`
-- `docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`
-- `docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`
-- `docs/CLAIMS_AND_EVIDENCE.md`
-- `docs/PUBLICATION_NOTES.md`
-- `docs/TRAINING_TIME_CONSOLIDATION.md`
-- `docs/LATE_STAGE_FINDINGS.md`
-- `docs/NEGATIVE_RESULTS.md`
-- `docs/APPLICATIONS.md`
-- `docs/RUNTIME_POC.md`
-- `docs/REPRODUCIBILITY.md`
-- `docs/TERMINOLOGY.md`
-- `docs/FAQ.md`
-- `docs/ROADMAP.md`
-- `docs/OPEN_QUESTIONS.md`
-- `docs/RELEASE_CHECKLIST.md`
-
-The repository should be read as an auditable **public research snapshot**, not as a production-ready compression/runtime library.
+For the detailed historical record, use the documents under `docs/`, `results/`, and `archives/`; the root README is intentionally kept short.
