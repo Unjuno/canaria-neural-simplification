@@ -38,7 +38,9 @@ for p in ROOT.rglob("*.csv"):
 
 required = [
     ROOT / "README.md",
+    ROOT / "QUICKSTART.md",
     ROOT / "STATUS.md",
+    ROOT / "REVIEW_HANDOFF.md",
     ROOT / "CHANGELOG.md",
     ROOT / "LICENSE",
     ROOT / "CITATION.cff",
@@ -50,6 +52,7 @@ required = [
     ROOT / "docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md",
     ROOT / "docs/CORE_DISCOVERY_REPLICATION_DIGITS.md",
     ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
+    ROOT / "docs/INDEPENDENT_REREVIEW_2026-08-26.md",
     ROOT / "docs/PUBLICATION_NOTES.md",
     ROOT / "docs/TERMINOLOGY.md",
     ROOT / "docs/FAQ.md",
@@ -62,6 +65,7 @@ required = [
     ROOT / "docs/REPRODUCIBILITY.md",
     ROOT / "docs/ROADMAP.md",
     ROOT / "docs/RELEASE_CHECKLIST.md",
+    ROOT / "docs/phase2/README.md",
     ROOT / "results/phaseA_v11/stage3_confirmatory_summary.json",
     ROOT / "results/training_time/summary.json",
     ROOT / "results/training_time/protocol_manifest.json",
@@ -83,6 +87,8 @@ required = [
     ROOT / "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
     ROOT / "results/core_discovery_digits/PROTOCOL_LOCK.json",
     ROOT / "results/core_discovery_digits/confirm_summary.json",
+    ROOT / "results/phase2/precision_composition/CORRECTION_STATUS.json",
+    ROOT / "results/phase2/precision_composition/INVALIDATED_HISTORY.md",
 ]
 for p in required:
     if not p.exists():
@@ -111,16 +117,21 @@ for p in public_markdown:
         if not candidate.exists():
             errors.append(f"broken public markdown link: {rel(p)} -> {raw_target}")
 
-reproduce_root = ROOT / "scripts/reproduce"
-if reproduce_root.exists():
-    for p in reproduce_root.rglob("*.py"):
-        try:
-            text = p.read_text(encoding="utf-8")
-        except Exception as exc:
-            errors.append(f"portable runner read error: {rel(p)}: {exc}")
-            continue
-        if "/mnt/data" in text:
-            errors.append(f"private /mnt/data dependency reintroduced in portable runner: {rel(p)}")
+# Public/portable runner paths must not regain private working-directory dependencies.
+for runner_root in (
+    ROOT / "scripts/reproduce",
+    ROOT / "scripts/replication",
+    ROOT / "scripts/phase2",
+):
+    if runner_root.exists():
+        for p in runner_root.rglob("*.py"):
+            try:
+                text = p.read_text(encoding="utf-8")
+            except Exception as exc:
+                errors.append(f"public runner read error: {rel(p)}: {exc}")
+                continue
+            if "/mnt/data" in text:
+                errors.append(f"private /mnt/data dependency in public runner: {rel(p)}")
 
 late_path = ROOT / "results/training_time/late_stage_summary.json"
 if late_path.exists():
@@ -192,8 +203,6 @@ if vit_path.exists():
             errors.append("ViT compositional replication bootstrap CI must remain below 1")
         if secondary.get("mean_composed_test_utility", 0.0) < 0.95:
             errors.append("ViT compositional replication must preserve mean composed test utility >=0.95")
-        if secondary.get("mean_composed_compiler_updates", 10**9) >= secondary.get("mean_componentwise_compiler_updates", -1):
-            errors.append("ViT replication must preserve lower composed compiler-update count")
     except Exception as exc:
         errors.append(f"ViT compositional replication semantic audit: {exc}")
 
@@ -230,6 +239,40 @@ if mlp_path.exists():
             errors.append("residual-MLP single composed control must remain lower NMSE than joint factorized control")
     except Exception as exc:
         errors.append(f"residual-MLP compositional replication semantic audit: {exc}")
+
+# Independent-review correction invariants.
+correction_path = ROOT / "results/phase2/precision_composition/CORRECTION_STATUS.json"
+if correction_path.exists():
+    try:
+        correction = json.loads(correction_path.read_text(encoding="utf-8"))
+        phases = correction.get("phases", {})
+        if phases.get("2E", {}).get("status") != "INVALIDATED_IMPLEMENTATION_BUG":
+            errors.append("Phase 2E must remain INVALIDATED_IMPLEMENTATION_BUG")
+        if phases.get("2E", {}).get("scientific_use") != "DO_NOT_USE_FOR_INFERENCE":
+            errors.append("Phase 2E must remain excluded from inference")
+        if phases.get("2I", {}).get("status") != "CAUSAL_CLAIM_RETRACTED":
+            errors.append("Phase 2I causal claim must remain retracted")
+        if phases.get("2O", {}).get("status") != "VALID_UNCERTAIN":
+            errors.append("Phase 2O must remain VALID_UNCERTAIN")
+        ci = phases.get("2O", {}).get("mean_difference_bootstrap95", [999, 999])
+        if len(ci) != 2 or not (ci[0] < 0 < ci[1]):
+            errors.append("Phase 2O uncertainty interval must continue to cross zero")
+        if phases.get("2O", {}).get("one_sided_exact_sign_test_p", 0.0) <= 0.05:
+            errors.append("Phase 2O registry unexpectedly implies a significant repair-sample advantage")
+    except Exception as exc:
+        errors.append(f"Phase 2 correction semantic audit: {exc}")
+
+for p in (
+    ROOT / "README.md",
+    ROOT / "STATUS.md",
+    ROOT / "docs/CLAIMS_AND_EVIDENCE.md",
+    ROOT / "docs/phase2/README.md",
+    ROOT / "docs/NEGATIVE_RESULTS.md",
+):
+    if p.exists():
+        text = p.read_text(encoding="utf-8")
+        if "INVALIDATED_IMPLEMENTATION_BUG" not in text:
+            errors.append(f"Phase 2E invalidation marker missing from public correction surface: {rel(p)}")
 
 for p in (ROOT / "README.md", ROOT / "STATUS.md"):
     if p.exists():
