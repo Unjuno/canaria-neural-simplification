@@ -1,0 +1,42 @@
+{
+  "name": "Canaria-Phase3B-stronger-teacher-regression-exploration-v1",
+  "stage": "A_teacher_only_exploration",
+  "status": "LOCKED_BEFORE_STAGE_A_OUTCOMES",
+  "scientific_role": "calibration_only_not_confirmatory_evidence",
+  "parent_issue": 15,
+  "seeds": [2300, 2301, 2302],
+  "dataset": "sklearn.datasets.load_diabetes",
+  "data": {
+    "outer_test_split": "train_test_split(test_size=0.25, random_state=2234)",
+    "inner_val_split": "train_test_split(train_pool, test_size=0.2, random_state=6678)",
+    "normalization": "features and target standardized from training subset only",
+    "test_policy": "test indices are split off but test tensors/targets are not evaluated or used by Stage A"
+  },
+  "architecture": "unchanged from completed Phase 3: input->Linear64+GELU->4 residual MLP blocks (LayerNorm, Linear128, GELU, Linear64)->Linear1",
+  "loss": "MSE on normalized target",
+  "optimizer_family": "AdamW",
+  "recipe_grid": [
+    {"id":"baseline_60","epochs":60,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_15","epochs":15,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_25","epochs":25,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_40","epochs":40,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"reg_40","epochs":40,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_60","epochs":60,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_100","epochs":100,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"strongreg_40","epochs":40,"lr":0.001,"weight_decay":0.01,"batch_size":64},
+    {"id":"strongreg_80","epochs":80,"lr":0.001,"weight_decay":0.01,"batch_size":64},
+    {"id":"low_lr_80","epochs":80,"lr":0.0005,"weight_decay":0.001,"batch_size":64},
+    {"id":"low_lr_120","epochs":120,"lr":0.0005,"weight_decay":0.001,"batch_size":64},
+    {"id":"fullbatch_200","epochs":200,"lr":0.001,"weight_decay":0.01,"batch_size":512},
+    {"id":"fullbatch_400","epochs":400,"lr":0.0005,"weight_decay":0.01,"batch_size":512}
+  ],
+  "metrics": ["train_mse", "validation_mse", "validation_r2"],
+  "selection": {
+    "baseline_recipe": "baseline_60",
+    "candidate_gate": "mean validation R2 >= 0.35 AND mean validation R2 >= baseline mean validation R2 + 0.10",
+    "winner": "eligible recipe with highest mean validation R2; ties within 1e-12 use lower across-seed standard deviation, then earlier recipe_grid order",
+    "test_used": false
+  },
+  "stopping_rule": "If no recipe passes the candidate gate, STOP Phase 3B and record Stage A as a negative calibration result. Do not change architecture or inspect test to rescue the experiment.",
+  "stage_b_boundary": "If Stage A passes, commit a separate confirmatory protocol before generating any fresh Stage B outcomes. Proposed fresh seeds are 2400-2407; they are not confirmatory until that protocol is locked."
+}
