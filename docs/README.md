@@ -1,19 +1,20 @@
 # Canaria documentation index
 
-This directory contains current public-facing documentation, locked phase records, and preserved historical research artifacts. Do not infer current project status from file names or version numbers alone.
+This directory contains reviewed interpretation, locked phase records, current hardening documents, and preserved historical research artifacts. Do not infer current project status from file names or version numbers alone.
 
 Repository-wide path and evidence-lifecycle conventions are in `../REPOSITORY_LAYOUT.md`.
 
-## Start here — authoritative current documents
+## Start here — current authoritative documents
 
-1. `../README.md` — scoped project statement and publication state.
-2. `../STATUS.md` — current reviewed public-baseline state.
-3. `CLAIMS_AND_EVIDENCE.md` — authoritative current public claim registry.
-4. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent `KEEP / EDIT / REMOVE / INVALIDATE` decision ledger.
-5. `CORE_DISCOVERY.md` — central operational compositional-simplification finding.
-6. `PUBLICATION_NOTES.md` — publication-safe wording and evidence tiers.
-7. `phase2/README.md` — Phase 2 precision/quantization correction boundary.
-8. `REPRODUCIBILITY.md` — evidence/reproduction policy and public-runner boundaries.
+1. `../README.md` — scoped project statement and pre-announcement state.
+2. `../STATUS.md` — current research/readiness status.
+3. `ANNOUNCEMENT_READINESS.md` — active announcement gate and blockers.
+4. `CLAIMS_AND_EVIDENCE.md` — reviewed claim registry for the current baseline.
+5. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent `KEEP / EDIT / REMOVE / INVALIDATE` decision ledger.
+6. `CORE_DISCOVERY.md` — central operational compositional-simplification finding.
+7. `PUBLICATION_NOTES.md` — communication-safe wording and evidence tiers; not approval to announce.
+8. `phase2/README.md` — Phase 2 precision/quantization correction boundary.
+9. `REPRODUCIBILITY.md` — evidence/reproduction policy and current pinned-environment gate.
 
 ## Scientific evidence and boundaries
 
@@ -36,18 +37,22 @@ Measured systems evidence is intentionally narrow: smaller serialized artifact a
 
 ## Protocol and history layer
 
-- `phases/` — locked/versioned phase protocols and result narratives. These are evidence records, not automatically current public claims.
+- `phases/` — locked/versioned phase protocols and result narratives. These are evidence records, not automatically current headline claims.
 - `history/` — preserved handoff/theory material from earlier snapshots.
 - `HISTORICAL_INDEX.md` — classification of older planning/status documents that remain at stable paths for provenance.
 - `DATA_DICTIONARY.md` — definitions useful for historical result tables.
+- `PUBLIC_SNAPSHOT.md` — interpretation of the frozen historical v0.2.0 snapshot.
+- `RELEASE_CHECKLIST.md` — historical v0.2.0 checklist, not the current readiness gate.
 
 Historical “next experiment” text is preserved for provenance and is not automatically current project instruction.
 
-## Publication and branch state
+## Current readiness / branch state
 
-The 2026-08-26 independent re-review and the v0.2.0 publication sequence are complete. The frozen `v0.2.0-public-snapshot` tag/release preserves the designated baseline, and current `main` is the reviewed post-snapshot public baseline.
+The repository is **pre-announcement**. `main` is the reviewed evidence baseline used for hardening, not an announcement certificate.
 
-Post-publication research may exist on separate branches or draft PRs. Such work is not part of this authoritative public surface until separately reviewed and merged. Consult open GitHub PRs/issues for work in progress rather than inferring it from `main` documentation.
+Later research may exist on separate branches or draft PRs. Such work is not part of the headline claim set until separately reviewed and merged. A passing locked experiment is necessary evidence, but does not automatically trigger a claim update or announcement.
+
+Use `ANNOUNCEMENT_READINESS.md` / Issue #13 for the current gate rather than the historical v0.2.0 release checklist.
 
 ## Preservation principle
 

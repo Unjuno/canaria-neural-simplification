@@ -1,11 +1,13 @@
-# Public snapshot release checklist
+# Historical v0.2.0 snapshot checklist
 
-This checklist records the completed independent-review and publication sequence. It separates the frozen v0.2.0 release boundary from the reviewed post-snapshot state on `main`.
+This file records the **completed historical v0.2.0 snapshot/review/version-control sequence**. It is not the current announcement-readiness checklist.
 
-## Scientific/public-claim review — Issue #9
+For the active gate, use `ANNOUNCEMENT_READINESS.md` and Issue #13.
+
+## Scientific/claim review — Issue #9
 
 - [x] Root README centered on the bounded operational compositional-simplification claim.
-- [x] Public claim registry separates replacement/description complexity from mathematical/Kolmogorov complexity.
+- [x] Claim registry separated replacement/description complexity from mathematical/Kolmogorov complexity.
 - [x] Residual-MLP direct replication re-reviewed for split isolation, exact learned-budget accounting, seed rules, and statistics.
 - [x] SmallViT direct replication re-reviewed; all-candidate test recording disclosed as a weaker isolation boundary even though test is not a locked selection variable.
 - [x] Training-time primary/secondary and exploratory/confirmatory boundaries re-reviewed.
@@ -17,40 +19,43 @@ This checklist records the completed independent-review and publication sequence
 - [x] Independent re-review ledger added: `INDEPENDENT_REREVIEW_2026-08-26.md`.
 - [x] Issue #9 closed as completed.
 
-## Repository quality gate
+## Repository quality gate at the time
 
-The independently reviewed tree passed GitHub `repository-audit`, including:
+The reviewed tree passed GitHub `repository-audit`, including:
 
 - [x] reusable codec unit tests;
 - [x] `python tools/audit_repo.py` semantic/integrity audit;
-- [x] minimal public residual-MLP runner smoke test for seed 1200;
+- [x] residual-MLP seed-1200 smoke test;
 - [x] recorded smoke endpoint `component-wise=3072`, `composed=1536`.
 
-The release-boundary helper workflow was temporary. After it was deleted, the PR head had **zero file differences** from the independently reviewed head before squash merge.
+This was sufficient for the historical snapshot workflow. It is **not** the stronger current requirement to regenerate the entire `1200–1207` headline cohort under pinned dependencies.
 
-## Release/version-control boundary — Issue #5
+## Version-control boundary — Issue #5
 
 - [x] Create tag `v0.2.0-public-snapshot` at frozen baseline `556dce21c7a5516a16780cb28d528d1ff3968e53`.
 - [x] Verify the tag directly resolves to that commit.
-- [x] Create release `Canaria v0.2.0 — Public Research Snapshot` from that tag.
-- [x] Mark PR #7 ready after Issue #9 closure.
-- [x] Confirm the restored PR tree matches the independently reviewed tree.
-- [x] Confirm PR-head `repository-audit` PASS.
-- [x] Squash-merge PR #7 into `main`.
-- [x] Delete `research/phase2-precision-quantization` and `research-snapshot-2026-08-24`.
-- [x] Confirm `main` is the sole active branch.
-- [x] Confirm final current-`main` `repository-audit` PASS; the immutable run/result is recorded in Issue #5 rather than by making another self-invalidating checklist commit.
+- [x] Create the associated GitHub research-snapshot release.
+- [x] Complete the independent correction/review sequence before merging PR #7.
+- [x] Squash-merge reviewed PR #7 into `main`.
+- [x] Delete stale publication-era research branches.
+- [x] Confirm the post-merge repository audit passed.
 
-## Surviving public claim
+## Historical surviving claim
 
 > Under explicit task distributions, replacement grammars, and passing criteria, some learned spans in the tested networks admit smaller task-preserving replacements when treated as one composed input-output function than when simplified at implementation-component boundaries.
 
 This does **not** justify universal mathematical-complexity, Transformer/LLM, GPU/RAM/energy, or universal runtime claims.
 
+## Why this checklist is no longer the active gate
+
+Since this historical sequence, the repository has continued to be hardened and new candidate external-validity work has been produced on separate research branches. Broad announcement therefore requires another integrated decision over:
+
+- which evidence belongs in the headline claim set;
+- whether representative headline results reproduce from a pinned clean environment;
+- whether release/citation/README language accurately reflects the final evidence state.
+
+Those decisions are tracked only in `ANNOUNCEMENT_READINESS.md` / Issue #13.
+
 ## Preservation rule
 
-Invalidated evidence is retained as provenance and explicitly excluded from inference. The frozen v0.2.0 tag is not rewritten by post-snapshot corrections.
-
-## Citation
-
-Until a paper exists, cite the exact commit/tag and the protocol/result artifacts supporting the specific endpoint. Invalidated artifacts may be cited as correction history, never as scientific support.
+Invalidated evidence is retained as provenance and explicitly excluded from inference. The frozen v0.2.0 tag is not rewritten by later corrections or hardening work.

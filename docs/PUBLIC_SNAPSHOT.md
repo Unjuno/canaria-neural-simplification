@@ -1,36 +1,37 @@
-# Canaria public research snapshot
+# Canaria historical v0.2.0 research snapshot
 
-This file defines how to read the frozen v0.2.0 public-snapshot baseline together with the independently reviewed post-snapshot state on `main`.
+This file explains how to read the frozen v0.2.0 research snapshot together with the later reviewed evidence state on `main`.
+
+**Important:** the existence of this snapshot does **not** mean the current repository is ready for broad announcement. Current readiness is tracked in `ANNOUNCEMENT_READINESS.md` and Issue #13.
 
 ## Read order
 
-1. `../README.md` — scoped project statement and publication state.
-2. `../STATUS.md` — current reviewed public-baseline state.
-3. `../REPOSITORY_LAYOUT.md` — repository/evidence lifecycle and branch conventions.
-4. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
-5. `CLAIMS_AND_EVIDENCE.md` — authoritative current claim registry.
-6. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
-7. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication and isolation caveat.
-8. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget replication.
-9. `TRAINING_TIME_CONSOLIDATION.md` and `LATE_STAGE_FINDINGS.md` — training-time evidence.
-10. `phase2/README.md` — post-snapshot precision/quantization corrections.
-11. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
-12. `REPRODUCIBILITY.md` — integrity/reproduction policy.
-13. `PUBLICATION_NOTES.md` — publication-safe wording.
-14. `RELEASE_CHECKLIST.md` — completed quality/release gate record.
-15. `HISTORICAL_INDEX.md` — preserved historical material.
+1. `../README.md` — scoped project statement and current pre-announcement state.
+2. `../STATUS.md` — current research/readiness status.
+3. `ANNOUNCEMENT_READINESS.md` — active release/communication gate.
+4. `../REPOSITORY_LAYOUT.md` — repository/evidence lifecycle and branch conventions.
+5. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
+6. `CLAIMS_AND_EVIDENCE.md` — reviewed claim registry for the current baseline.
+7. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
+8. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication and isolation caveat.
+9. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget replication.
+10. `TRAINING_TIME_CONSOLIDATION.md` and `LATE_STAGE_FINDINGS.md` — training-time evidence.
+11. `phase2/README.md` — post-snapshot precision/quantization corrections.
+12. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
+13. `REPRODUCIBILITY.md` — integrity/reproduction policy.
+14. `PUBLICATION_NOTES.md` — communication-safe wording, not approval to announce.
+15. `RELEASE_CHECKLIST.md` — historical v0.2.0 snapshot/version-control record.
+16. `HISTORICAL_INDEX.md` — preserved historical material.
 
-## Version boundary
+## Frozen version boundary
 
-The immutable reference baseline is tag `v0.2.0-public-snapshot`, pointing to commit:
+The immutable historical reference is tag `v0.2.0-public-snapshot`, pointing to commit:
 
 `556dce21c7a5516a16780cb28d528d1ff3968e53`
 
-GitHub release title:
+The associated GitHub release was created as a research snapshot. Later evidence and corrections are not back-projected into that tag.
 
-`Canaria v0.2.0 — Public Research Snapshot`
-
-Post-v0.2.0 evidence and corrections were independently re-reviewed, then squash-merged through PR #7. They live on current `main`; they are not back-projected into the frozen tag.
+The 2026-08-26 re-review and PR #7 correction merge are later repository history. They improve the evidence surface but do not, by themselves, certify announcement readiness.
 
 ## Snapshot interpretation
 
@@ -44,7 +45,7 @@ The repository does **not** claim mathematical/Kolmogorov complexity reduction o
 
 ## Direct architecture-family evidence
 
-### Residual MLP — strongest matched-budget public runner
+### Residual MLP — strongest matched-budget baseline experiment
 
 Fresh seeds `1200–1207` used exact learned replacement-parameter matching at every budget point.
 
@@ -57,6 +58,8 @@ Fresh seeds `1200–1207` used exact learned replacement-parameter matching at e
 Validation selects the endpoint; test evaluation follows selection.
 
 The 2048-parameter joint-factorized control is descriptive/mechanistic secondary, not a confirmatory causal decomposition.
+
+Announcement hardening adds a pinned-environment full-cohort reproduction requirement; see `ANNOUNCEMENT_READINESS.md`.
 
 ### Small Vision Transformer
 
@@ -83,7 +86,7 @@ The small real-text character-LM program is retained with evidence tiers explici
 
 Compiler cost in these experiments is generally a proxy, not measured hardware energy/FLOPs/wall-clock equivalence.
 
-## Phase 2 post-snapshot correction
+## Phase 2 correction
 
 Phase 2A–C remain usable under their declared residual-MLP quantizer/accounting.
 
@@ -105,6 +108,8 @@ A self-contained G7 seed-4300 runner exactly matched the archived confirmatory J
 
 This is reproduction/portability evidence for an already-confirmatory seed, not a new independent scientific replication.
 
+The residual-MLP digits headline experiment has a separate pinned-environment cohort-reproduction gate during pre-announcement hardening.
+
 ## Runtime PoC boundary
 
 One small CPU-only PoC reported:
@@ -115,14 +120,8 @@ One small CPU-only PoC reported:
 
 Do not generalize this to GPU/VRAM/energy/large models or universal runtime improvement.
 
-## Closure and later-work state
+## Historical closure versus current readiness
 
-The v0.2.0 publication sequence is complete:
+The v0.2.0 version-control sequence was completed: independent review, frozen tag/release boundary, correction merge, stale-branch cleanup, and repository audit.
 
-1. Issue #9 independent scientific/public-surface re-review completed and closed;
-2. frozen `v0.2.0-public-snapshot` tag/release created at the designated baseline;
-3. reviewed PR #7 squash-merged;
-4. stale publication-era research branches removed;
-5. current-main `repository-audit` used as the final integrity check, with the closing run recorded in Issue #5.
-
-Current `main` remains the reviewed public baseline. Later scientific work may exist on isolated research branches or draft PRs, but it does not update this snapshot or the public claim registry until separately reviewed and merged.
+That sequence is a **historical snapshot record**, not the current announcement gate. Current work must satisfy `ANNOUNCEMENT_READINESS.md`. Candidate later experiments remain isolated until an explicit scientific inclusion/exclusion decision is made.

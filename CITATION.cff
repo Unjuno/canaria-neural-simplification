@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use Canaria in research, please cite this repository snapshot and the specific experiment protocol/result files used."
+message: "Canaria is currently a pre-announcement research repository. If you use it, cite the exact commit or historical snapshot and the specific protocol/result artifacts used."
 title: "Canaria Neural Simplification"
 type: software
 authors:
@@ -9,9 +9,11 @@ license: Apache-2.0
 date-released: 2026-08-25
 version: 0.2.0
 abstract: >-
-  Research snapshot on task-conditioned compositional simplification of learned neural computation,
-  training-time consolidation and recontracting, public reproducibility, and a bounded CPU-only
-  serialization/materialization/direct-execution proof of concept.
+  Historical v0.2.0 research snapshot and ongoing evidence record for task-conditioned
+  compositional simplification of learned neural computation, training-time consolidation,
+  precision/repair studies, reproducibility, and bounded systems proof-of-concept work.
+  The current repository is under pre-announcement hardening; the snapshot version does not
+  certify broad external validity or production readiness.
 keywords:
   - neural-network simplification
   - compositional simplification

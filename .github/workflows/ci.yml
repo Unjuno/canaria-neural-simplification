@@ -12,13 +12,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install reusable package and public-runner dependencies
-        run: python -m pip install -e . numpy torch scikit-learn
+      - name: Install pinned CPU reproduction environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+          python - <<'PY'
+          import importlib.metadata
+          import torch
+          expected = {
+              'numpy': '2.4.6',
+              'torch': '2.13.0',
+              'scikit-learn': '1.9.0',
+          }
+          for name, version in expected.items():
+              got = importlib.metadata.version(name)
+              assert got.split('+', 1)[0] == version, (name, got, version)
+          assert torch.version.cuda is None, torch.version.cuda
+          print('PINNED CPU ENV PASS')
+          PY
       - name: Reusable codec tests
         run: python -m unittest discover -s tests -v
       - name: Syntax, evidence, and correction audit
         run: python tools/audit_repo.py
-      - name: Minimal public runner smoke test
+      - name: Pre-announcement readiness audit
+        run: python tools/audit_readiness.py
+      - name: Representative core-runner smoke test
         run: |
           python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
             --seed 1200 \
@@ -31,5 +50,5 @@ jobs:
           assert result['selected_sep']['budget'] == 3072, result['selected_sep']
           assert result['selected_comp']['budget'] == 1536, result['selected_comp']
           assert result['log2_budget_ratio'] == -1.0, result['log2_budget_ratio']
-          print('PUBLIC RUNNER SMOKE PASS')
+          print('CORE RUNNER SMOKE PASS')
           PY

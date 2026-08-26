@@ -1,12 +1,12 @@
 # Claims and evidence
 
-This is the **public claim registry** for Canaria after the 2026-08-26 independent pre-publication re-review.
+This is the **reviewed baseline claim registry** for Canaria after the 2026-08-26 independent re-review. It is not yet the final broad-announcement claim set; current readiness and later-evidence inclusion decisions are tracked in `ANNOUNCEMENT_READINESS.md` / Issue #13.
 
-For the decision ledger, see `INDEPENDENT_REREVIEW_2026-08-26.md`. Historical documents remain available, but when wording conflicts with this registry, this file defines the current public boundary.
+For the decision ledger, see `INDEPENDENT_REREVIEW_2026-08-26.md`. Historical documents remain available, but when wording conflicts with this registry, this file defines the reviewed baseline until a later explicit scientific review changes it.
 
 ## A. Core discovery — operational compositional simplification
 
-| Claim | Public status | Main evidence | Scope / limitation |
+| Claim | Baseline status | Main evidence | Scope / limitation |
 |---|---|---|---|
 | Some learned spans admit a smaller task-preserving replacement when fitted as one composed input-output function than when simplified at implementation-component boundaries | **KEEP — supported in tested settings** | Original residual-CNN program + fresh SmallViT + fresh residual-MLP direct replications | Operational replacement/description complexity under declared task distributions, grammars, criteria, and accounting; not Kolmogorov complexity |
 | Positive composition gain was frequent under the original declared grammar | **KEEP after wording edit** | Original confirmatory `P(G>0)=0.7107`, 95% CI `0.6128–0.8137` | Do not restate as an intrinsic mathematical law that “composition complexity is subadditive” |
@@ -19,11 +19,13 @@ For the decision ledger, see `INDEPENDENT_REREVIEW_2026-08-26.md`. Historical do
 
 See `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, and `CORE_DISCOVERY_REPLICATION_DIGITS.md`.
 
+Candidate post-snapshot research, including draft regression external-validity work, is **not automatically added to this table**. It requires a separate inclusion/exclusion review.
+
 ## B. Training-time consolidation
 
 The training-time evidence is a separate extension on a **small real-text character-LM testbed**. Compiler cost is generally an optimizer-update or replacement-parameter × update proxy, not measured FLOPs, energy, or wall-clock cost.
 
-| Claim | Public status | Evidence / boundary |
+| Claim | Baseline status | Evidence / boundary |
 |---|---|---|
 | Progressive G7 consolidation beat the preregistered early and late one-shot controls | **KEEP — confirmatory primary** | Progressive − early `-0.3037` PPL, bootstrap95 `[-0.3384,-0.2664]`; progressive − late `-0.4197`, `[-0.5114,-0.3229]` |
 | G7 progressive also outperformed the small-from-start condition in that cohort | **KEEP as secondary observation** | Small-from-start mean PPL `21.3126` versus progressive `19.4478`; this was not the G7 primary PASS comparison |
@@ -40,7 +42,7 @@ The training-time evidence is a separate extension on a **small real-text charac
 
 The authoritative correction registry is `../results/phase2/precision_composition/CORRECTION_STATUS.json`.
 
-| Phase / claim | Public status | Boundary |
+| Phase / claim | Baseline status | Boundary |
 |---|---|---|
 | 2A: 4-bit composed minimum passing coded size is lower | **KEEP — VALID_PASS** | Locked residual-MLP experiment; declared symmetric signed-uniform quantizer and FP16 scale metadata |
 | 2B: increasing weight count alone rescues naive 3-bit per-matrix PTQ | **REJECTED — VALID_FAIL** | No rescue through 16,384 weights in the tested fresh cohort |
@@ -55,7 +57,7 @@ Invalidation history is preserved in `../results/phase2/precision_composition/IN
 
 ## D. Reproducibility and systems boundary
 
-| Claim | Public status | Evidence / limitation |
+| Claim | Baseline status | Evidence / limitation |
 |---|---|---|
 | One representative G7 confirmatory pipeline runs without private `/mnt/data` dependencies | **KEEP** | Portable seed-4300 runner |
 | The portable seed-4300 output exactly matches the archived output in the recorded environment | **KEEP** | Matching JSON SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028` | Software/portability reproduction of an already-confirmatory seed; **not** a new independent scientific replication |
@@ -65,10 +67,13 @@ Invalidation history is preserved in `../results/phase2/precision_composition/IN
 | Meaningful host-RAM reduction was demonstrated | **REJECTED / not demonstrated** | RSS delta `4.72→4.56 MB`; allocator/process overhead dominates at this scale |
 | GPU/VRAM/energy/large-model/general runtime speedup is established | **OPEN / not established** | No direct evidence |
 
+The pre-announcement gate additionally requires a pinned-environment reproduction of the full residual-MLP `1200–1207` cohort. That rerun remains reproduction evidence and does not change the original confirmatory seed count.
+
 ## E. Claims that remain open
 
 - Universality across large pretrained Transformers or LLMs.
 - Replication across substantially different tasks, spans, widths, and replacement grammars.
+- Strong-teacher regression external validity suitable for a broader task-type statement.
 - Codec-independent minimum description length or Kolmogorov complexity.
 - A universal mechanism dictionary or compiler grammar.
 - General FLOP, wall-clock, energy, RAM, VRAM, GPU/NPU, browser, or edge benefits.
@@ -77,8 +82,10 @@ Invalidation history is preserved in `../results/phase2/precision_composition/IN
 
 ## Claim discipline
 
-Safe core statement:
+Safe baseline statement:
 
 > For some trained networks and task distributions, a composed input-output span admits a smaller task-preserving replacement than component-wise treatment under an explicit replacement grammar and decision rule. The effect was observed in the original residual-CNN program and directly tested under fresh locked protocols in a Small Vision Transformer and a residual MLP.
 
 Do **not** translate this into “function composition always reduces mathematical complexity.”
+
+Before broad announcement, rerun the integrated claim review after the final evidence-inclusion decisions described in `ANNOUNCEMENT_READINESS.md`.
