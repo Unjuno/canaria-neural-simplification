@@ -2,21 +2,43 @@
 
 The shortest useful experiment in this repository is the residual-MLP component-wise-versus-composed replacement test on `sklearn.datasets.load_digits`.
 
-## 1. Install the three runtime dependencies
+## Convenience run
+
+For an exploratory local run using your current environment:
 
 ```bash
 python -m pip install numpy torch scikit-learn
+python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
+  --seed 1200 \
+  --out /tmp/canaria_seed1200.json
 ```
 
-Python 3.10+ is recommended.
+This is convenient, but it is **not** the preferred evidence-reproduction path because package versions are unconstrained.
 
-## 2. Run one recorded confirmatory seed
+## Pinned reproduction environment
+
+For reproducibility, use Python 3.11 and the recorded dependency set:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+python -m pip install -e .
+```
+
+Then run one seed:
 
 ```bash
 python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
   --seed 1200 \
   --out /tmp/canaria_seed1200.json
 ```
+
+For the full headline-cohort reproduction, follow [`scripts/reproduce/core_discovery_digits/README.md`](scripts/reproduce/core_discovery_digits/README.md).
+
+## What the runner does
 
 The runner trains a four-block residual MLP, then replaces the first two residual blocks in two ways while matching learned replacement-parameter count at every budget:
 
@@ -56,4 +78,4 @@ It tests the central phenomenon directly and does not depend on the later traini
 - [`docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md)
 - [`docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md`](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md)
 
-For the broader evidence boundary, see [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md).
+For the broader evidence boundary, see [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md). For current announcement-readiness status, see [`docs/ANNOUNCEMENT_READINESS.md`](docs/ANNOUNCEMENT_READINESS.md).

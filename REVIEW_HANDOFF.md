@@ -1,3 +1,5 @@
+> **Historical handoff — completed.** The independent re-review described below was completed on 2026-08-26. This file is preserved at its original path for provenance and is **not current project instruction**. The active pre-announcement gate is `docs/ANNOUNCEMENT_READINESS.md` / Issue #13.
+
 # Independent re-review handoff
 
 This repository is at a **pre-publication independent re-review gate**.

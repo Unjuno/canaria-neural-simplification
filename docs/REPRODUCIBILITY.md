@@ -1,31 +1,24 @@
 # Reproducibility guide
 
-Canaria separates repository integrity, experimental reproduction, and independent scientific replication.
-
-## Evidence classes
-
-- **Confirmatory** — protocol/seed policy/endpoints locked before fresh outcomes were inspected.
-- **Exploratory / pilot** — implementation validation or hypothesis generation.
-- **Negative / boundary** — a valid tested hypothesis failed or exposed a limitation.
-- **Invalidated** — implementation/protocol defect makes the experiment unusable for scientific inference; preserve provenance but do not count it as negative evidence.
-- **Reproduction** — rerun of an already-observed condition to validate software/data portability; not new scientific confirmation by itself.
+Canaria distinguishes **confirmatory science**, **exploration**, **valid negative/boundary evidence**, **invalidated evidence**, and **reproduction**. A rerun of an already-observed seed validates portability; it does not add a new scientific seed.
 
 ## Repository integrity
-
-Run:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 python -m pip install -e .
+python -m unittest discover -s tests -v
 python tools/audit_repo.py
 ```
 
-GitHub CI also runs unit tests and `tools/audit_repo.py`. The independent-review branch additionally requires a minimal public residual-MLP runner smoke test before Issue #9 can close.
+An audit PASS checks repository structure and selected semantic invariants. It is not an announcement-readiness certificate and does not imply every historical experiment is bitwise reproducible.
 
-An integrity PASS means repository syntax, schemas, required files, correction invariants, and selected semantic guards are consistent. It is **not** a claim that every historical experiment is bitwise reproducible.
+## Headline direct experiment — residual MLP on digits
 
-## Preferred minimal scientific entry point — residual MLP
+The original fresh seeds `1200–1207` are confirmatory evidence under `results/core_discovery_digits/PROTOCOL_LOCK.json`.
+
+For a convenience one-seed run:
 
 ```bash
 python -m pip install numpy torch scikit-learn
@@ -34,130 +27,54 @@ python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
   --out /tmp/canaria_seed1200.json
 ```
 
-Recorded seed 1200 selects:
+Recorded seed 1200 selects component-wise budget `3072` and composed budget `1536`. The convenience command resolves current packages and is therefore not the preferred evidence-reproduction path.
 
-- component-wise: `3072` learned replacement parameters;
-- composed: `1536`.
+### Pinned modern reproduction environment
 
-This public runner has the stronger test-isolation pattern: replacements are fitted from training activations, validation selects the minimum passing budget, and test is evaluated only for the selected endpoint.
-
-## SmallViT replication isolation note
-
-The SmallViT protocol locks candidate selection to training-held-out NMSE and validation utility, excluding test accuracy. However, `scripts/replication/vit_compositional.py` records test metrics for every candidate.
-
-Therefore:
-
-- the test metric is **not a selection variable** under the locked rule;
-- the test set was **not operationally hidden** during candidate-result generation;
-- the primary result remains usable because the code hash, selection rule, and fresh-seed policy were locked before fresh outcomes;
-- future runners should delay test evaluation until after selection, as the residual-MLP runner does.
-
-## Portable reproduction — G7 seed 4300
+Use Python 3.11 and:
 
 ```bash
-python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
-python scripts/reproduce/g7_confirmatory/run_seed.py \
-  --seed 4300 \
-  --out g7_seed_4300.json
+python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+python -m pip install -e .
 ```
 
-Recorded reproduction environment:
+Pinned top-level versions are NumPy 2.4.6, PyTorch 2.13.0 CPU, and scikit-learn 1.9.0. The CPU PyTorch index avoids downloading a CUDA stack for this CPU-only reproduction.
 
-- Python 3.13.5
-- PyTorch 2.10.0+cpu
-- NumPy 2.3.5
-- scikit-learn 1.8.0
+For the complete already-observed cohort:
 
-The reproduced JSON exactly matched the archived fresh-confirmatory seed-4300 JSON with SHA256:
+```bash
+python scripts/reproduce/core_discovery_digits/verify_confirmatory.py \
+  --out results/reproduction/core_discovery_digits_pinned_env_report.json
+```
 
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+The verifier reruns `1200–1207`, checks all selected budgets, and reconstructs the aggregate primary statistics and protocol-locked bootstrap interval. A PASS is reproduction of existing confirmatory evidence, not a second independent replication.
 
-This is a **software/portability result for an already-confirmatory seed**, not an independent scientific replication.
+The residual-MLP runner fits replacements on training activations, selects the minimum passing budget using validation data, then evaluates test utility for the selected endpoint.
 
-## Phase 2 reproducibility and invalidation boundary
+## SmallViT isolation note
 
-### Publicly checked-in A–C evidence
+The SmallViT locked selection rule excludes test accuracy, but its runner records test metrics for every candidate. Therefore say **“test was not a selection variable”**, not “test remained operationally hidden until after selection.” Future confirmatory runners should delay test evaluation until selection is frozen.
 
-Phase 2A–C have protocol/result files and portable runners under:
+## G7 portable reproduction
 
-- `results/phase2/precision_composition/`
-- `scripts/phase2/precision_composition/`
+`scripts/reproduce/g7_confirmatory/` contains the recorded portable seed-4300 reproduction. Its output exactly matched the archived result with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`. This is portability evidence for an already-confirmatory seed.
 
-The public runners use internal activation domains consistently and do not rely on `/mnt/data` paths.
+## Phase 2 boundary
 
-### Phase 2E invalidation
+Phase 2A–C have checked-in protocol/result files and portable runners. Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG`: repair used raw `Xt` instead of internal activation `ta[0]`. Its `0/8` outcome is preserved as correction history and must not support inference. Later 2D–2O correction provenance is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`; not all later raw per-seed artifacts are checked into Git.
 
-Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG`: repair used raw `Xt` instead of internal activation `ta[0]`. Because both had width 64, the error was shape-compatible but semantically wrong.
+## Test and statistical discipline
 
-The invalid result remains in correction history and must not support inference.
+For new confirmatory work: train on training/calibration data, select on declared validation/holdout criteria, freeze the endpoint, then evaluate final test outcomes. Unless another hierarchy is preregistered, treat independently initialized training seed/model as the inferential unit.
 
-Authoritative status:
+Keep parameter count, optimizer-update proxies, nominal bits, serialized bytes, FLOPs, wall-clock latency, energy, RAM, and VRAM distinct. A reduction in one does not establish reduction in the others.
 
-- `results/phase2/precision_composition/CORRECTION_STATUS.json`
-- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
+## Current pre-announcement gate
 
-### Later 2D–2O provenance
+The active gate is Issue #13 and `ANNOUNCEMENT_READINESS.md`, not the historical Issue #9/v0.2.0 checklist. Before broad announcement, require:
 
-Not all later raw per-seed artifacts are checked into this Git branch. The correction archive used for the later audit is identified by SHA256:
-
-`1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
-
-Do not describe later 2D–2O results as fully public portable reproductions merely because their correction status is recorded here.
-
-## Test-set discipline
-
-For new confirmatory runners:
-
-1. fit/train on training or calibration data only;
-2. choose candidates using declared validation/holdout criteria;
-3. freeze the selected candidate/budget;
-4. only then evaluate final test outcomes.
-
-Recording test metrics for all candidates is weaker practice even if a locked selection rule formally excludes them.
-
-## Statistical unit
-
-Repeated spans or checkpoints inside one trained model are correlated. Unless another hierarchy is preregistered, use the independently initialized **training seed/model** as the inferential unit. Prefer paired seed analysis, seed-cluster bootstrap, or leave-one-seed-out evaluation over naive event-level intervals.
-
-## Cost/accounting terminology
-
-Keep distinct:
-
-- learned replacement parameter count;
-- optimizer updates / parameter-update proxy;
-- nominal quantized bit count;
-- scale/metadata bytes;
-- serialized bytes;
-- FLOPs;
-- wall-clock latency;
-- energy;
-- RAM/VRAM.
-
-A reduction in one does not prove reduction in the others.
-
-Custom 2/3/4/12-bit research quantizers must not be relabeled FP4/FP8 unless a hardware datatype implementation actually exists.
-
-## Runtime PoC boundary
-
-The G7 runtime PoC is one seed, CPU only, small model, batch-128 workload. It supports the recorded serialized-size and CPU-inference observations. It does not establish meaningful host-RAM reduction, GPU/VRAM/energy benefits, or large-model generalization.
-
-## Historical environment limits
-
-Early experiments did not preserve a complete exact package lock. Do not backfill unknown metadata as if it were contemporaneously recorded. Qualitative/aggregate reproduction may be the appropriate target for older phases.
-
-Historical code may contain environment-specific paths. Preserve such code as provenance; add portable runners instead of silently rewriting history.
-
-## Current publication-quality gate
-
-The 2026-08-26 independent re-review is tracked by Issue #9 and `INDEPENDENT_REREVIEW_2026-08-26.md`.
-
-Before that issue closes, the reviewed branch must have:
-
-1. corrected public claims;
-2. explicit Phase 2E invalidation history;
-3. minimal public-runner smoke PASS;
-4. `python tools/audit_repo.py` PASS;
-5. GitHub `repository-audit` PASS;
-6. root public-surface status updated to the actual completed-review state.
-
-Issues #2 and #3 are historical completed work, not current closure blockers. PR #7 and the v0.2.0 release/tag boundary remain separate repository-state gates after Issue #9.
+1. pinned full-cohort residual-MLP reproduction PASS;
+2. explicit inclusion/exclusion decision for candidate external-validity evidence;
+3. final integrated claim/communication review;
+4. unit tests, `tools/audit_repo.py`, and GitHub `repository-audit` PASS on the final candidate commit.

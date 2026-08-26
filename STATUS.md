@@ -1,25 +1,24 @@
 # Project status
 
-**Current mode: reviewed public baseline with isolated post-publication research.**
+**Current mode: pre-announcement hardening. The repository is not yet ready for broad public announcement.**
 
-## Version and publication boundary
+## Historical snapshot versus current readiness
 
-- Frozen v0.2.0 tag: `v0.2.0-public-snapshot`.
-- Frozen baseline commit: `556dce21c7a5516a16780cb28d528d1ff3968e53`.
-- GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
-- Independent re-review (Issue #9): completed and closed on 2026-08-26.
-- Reviewed post-snapshot release candidate (PR #7): squash-merged into `main`.
-- `main` is the reviewed public baseline. New research may be isolated on research branches/draft PRs and does not change this baseline until separately reviewed and merged.
+- Historical tag: `v0.2.0-public-snapshot`.
+- Historical snapshot commit: `556dce21c7a5516a16780cb28d528d1ff3968e53`.
+- The 2026-08-26 independent re-review and subsequent correction merge remain part of the evidence history.
+- `main` is the reviewed evidence baseline from which current hardening proceeds.
+- The existence of the historical GitHub release/tag does **not** mean the current project has passed an announcement-readiness gate.
 
-The frozen v0.2.0 tag is not rewritten by later corrections or experiments. Current `main` carries the independently reviewed post-snapshot precision/correction work.
+Issue #13 is the active readiness gate. Do not describe the repository as announcement-ready until that issue is closed after a final claim/reproducibility review.
 
-## Core claim retained
+## Core claim retained on the reviewed baseline
 
-The project-level thesis is **task-conditioned compositional simplification under explicit operational rules**:
+The project-level thesis remains **task-conditioned compositional simplification under explicit operational rules**:
 
 > Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
 
-The strongest fresh direct replication on the reviewed public baseline is the residual MLP with exact learned replacement-parameter matching:
+The strongest direct result currently on `main` is the residual MLP with exact learned replacement-parameter matching:
 
 - fresh seeds `1200–1207`;
 - composed lower minimum passing budget in `8/8`;
@@ -27,6 +26,25 @@ The strongest fresh direct replication on the reviewed public baseline is the re
 - validation selects the endpoint; test evaluation follows selection.
 
 The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
+
+## Current announcement blockers
+
+### 1. Full pinned-environment reproduction of the headline cohort
+
+The seed-1200 smoke test is insufficient as the final public reproducibility gate. The complete fresh residual-MLP cohort (`1200–1207`) must be regenerated from a clean checkout using the pinned reproduction environment and checked against the committed primary endpoints/statistics.
+
+### 2. External-validity evidence selection
+
+Draft Phase 3 regression work is not automatically part of the headline claim set. Its protocol/result audit is valid as a completed experiment, but its teacher is weak in absolute predictive performance (confirmatory test R² approximately `0.112–0.255`). Before broad communication, either:
+
+- retain it as a bounded weak-teacher external-validity result with that limitation prominent; or
+- run a separately locked stronger-teacher regression experiment and decide which evidence belongs in the final claim set.
+
+Do not modify the completed Phase 3 protocol post hoc.
+
+### 3. Final communication review
+
+After evidence inclusion/exclusion is settled, re-review `README.md`, `docs/CLAIMS_AND_EVIDENCE.md`, `docs/PUBLICATION_NOTES.md`, `CITATION.cff`, and the announcement-readiness checklist as one surface.
 
 ## Training-time boundary
 
@@ -72,22 +90,23 @@ Not all later 2D–2O raw per-seed artifacts are checked into Git; the correctio
 ## Reproducibility / systems boundary
 
 - G7 seed 4300 exact portable rerun: reproduction/portability evidence, not independent replication.
+- Residual-MLP digits: headline scientific result with a new pinned-environment full-cohort reproduction gate in progress.
 - Runtime PoC: one small CPU/storage/inference result only.
 - Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
 
 ## Repository / research-state boundary
 
-The publication sequence is complete: independent review, frozen tag/release boundary, reviewed post-snapshot merge, and integrity audit.
-
 Repository organization follows `REPOSITORY_LAYOUT.md`:
 
-- `main` contains reviewed public material;
-- unmerged research branches and draft PRs are isolated work-in-progress, not public-claim updates;
+- `main` contains the reviewed baseline plus readiness hardening once merged;
+- unmerged research branches and draft PRs are work-in-progress, not automatic claim updates;
 - maintenance changes should remain science-neutral and separate from fresh experimental outcomes;
 - historical protocols/results are preserved rather than rewritten to match later interpretation.
 
-`repository-audit` on `main` is the continuing integrity check.
+`repository-audit` is an integrity check, not by itself an announcement-readiness certificate.
 
 ## Stopping rule
 
-Do not continue the old publication/closure sequence or broaden a completed protocol after seeing its outcomes. New scientific work should begin from a new issue/research phase with its own hypothesis, protocol/evidence class, inferential-unit policy, and stopping rule.
+Do not broaden a completed protocol after seeing its outcomes. New scientific work must use a new issue/research phase with its own hypothesis, protocol/evidence class, inferential-unit policy, and stopping rule.
+
+For the current release decision, follow `docs/ANNOUNCEMENT_READINESS.md` and Issue #13.

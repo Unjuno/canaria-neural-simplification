@@ -1,72 +1,83 @@
-# Research roadmap — reviewed baseline / future-work handoff
+# Research roadmap — pre-announcement hardening
 
-**Current state:** the publication-quality gate is complete. The frozen v0.2.0 baseline is tagged/released and the independently reviewed post-snapshot state is on `main`. New science proceeds as isolated research phases rather than by extending the completed publication-closure sequence.
+**Current state:** the repository has a historical v0.2.0 research snapshot and a reviewed evidence baseline, but it is **not yet ready for broad announcement**. The active gate is Issue #13 / `ANNOUNCEMENT_READINESS.md`.
 
-## Completed closure — scientific/public review
+## 1. Finish headline reproducibility
 
-The 2026-08-26 independent re-review classified material public claims as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE`.
+The strongest direct result on `main` is the residual-MLP digits cohort `1200–1207` with exact learned replacement-budget matching.
 
-Key corrections retained in the public baseline:
+Before announcement:
 
-- operational replacement/description complexity is kept distinct from mathematical/Kolmogorov complexity;
-- residual-MLP exact-budget replication retained;
-- SmallViT retained with its test-recording isolation caveat;
-- G7/G18 primary-versus-secondary wording narrowed;
-- Phase 2E preserved as `INVALIDATED_IMPLEMENTATION_BUG`, not negative evidence;
-- Phase 2I RNG causal claim retracted;
-- Phase 2O remains `UNCERTAIN`, so no reliable compositional repair-sample advantage is claimed.
+1. install the pinned Python 3.11 CPU environment recorded under `scripts/reproduce/core_discovery_digits/`;
+2. rerun all eight already-observed confirmatory seeds from a clean checkout;
+3. compare per-seed selected budgets and reconstructed aggregate statistics with the committed summary;
+4. retain a machine-readable reproduction report with commit/environment provenance.
 
-See `INDEPENDENT_REREVIEW_2026-08-26.md`.
+This is reproduction evidence, not a new scientific cohort.
 
-## Completed closure — clean-repository reproduction
+## 2. Resolve regression external-validity evidence
 
-A public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` assumptions and exactly matched the archived output in its recorded environment. This is reproduction/portability evidence, not a new independent scientific replication.
+Draft Phase 3 changes task type from digits classification to diabetes regression and passed its locked operational budget rule. However, its confirmatory teacher test R² is weak (`~0.112–0.255`).
 
-## Completed closure — bounded runtime PoC
+Do not change the completed Phase 3 protocol post hoc.
 
-For G7 seed 4300, the small CPU PoC reported a smaller serialized artifact and lower measured batch-128 CPU inference latency. Meaningful host-RAM reduction was not demonstrated; general GPU/VRAM/energy/LLM runtime benefits remain open.
+Before using regression as headline external-validity evidence, choose one of two paths:
 
-## Completed closure — direct compositional replications
+- **bounded inclusion:** keep Phase 3 as evidence that the pattern appears in this weak-teacher tabular-regression regime and make that limitation prominent; or
+- **new stronger-teacher test:** preregister a separate protocol using a better-performing regression teacher while keeping the replacement comparison as controlled as practical.
 
-**Residual MLP:** fresh `1200–1207`, exact learned replacement-parameter matching at every grid point, composed lower minimum passing budget in `8/8`, geometric ratio `0.4823×`. Validation selects the endpoint; test follows selection.
+The second path is preferred if the goal is a stronger announcement-level external-validity statement.
 
-**SmallViT:** fresh locked protocol, composed selected replacement smaller in `8/8`, mean ratio `0.51988`. Re-review caveat: the selection rule excludes test accuracy, but the runner records test metrics for all candidates, so test was not operationally hidden during candidate-result generation.
+## 3. Final integrated claim review
 
-The residual-MLP 2048-parameter joint-factorized result is descriptive/mechanistic secondary and is consistent with an important role for the composed span objective; it is not a confirmatory causal decomposition.
+After the evidence set is fixed, reread together:
 
-## Completed closure — release/version-control boundary
+- `README.md`;
+- `STATUS.md`;
+- `CLAIMS_AND_EVIDENCE.md`;
+- `PUBLICATION_NOTES.md`;
+- `NEGATIVE_RESULTS.md`;
+- `CITATION.cff`;
+- release metadata.
 
-- `v0.2.0-public-snapshot` preserves commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
-- GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
-- PR #7 was squash-merged after the frozen release boundary was established.
-- stale publication-era research branches were removed as part of that closure.
-- `main` is the reviewed public baseline.
+The review must verify that no historical PASS, reproduction result, systems PoC, or invalidated experiment is promoted beyond its evidence class.
 
-## Current research-governance rule
+## 4. Final repository gate
 
-A completed protocol is not reopened or tuned after outcomes merely to strengthen presentation. New scientific work starts from a new issue/research phase with:
+Final candidate must pass:
 
-1. a falsifiable claim;
-2. explicit evidence class and protocol lock where appropriate;
-3. an independently initialized inferential unit/seed policy;
-4. a stopping rule;
-5. explicit separation from the frozen v0.2.0 tag and the reviewed `main` baseline.
+```bash
+python -m unittest discover -s tests -v
+python tools/audit_repo.py
+python tools/audit_readiness.py
+```
 
-Research branches and draft PRs may coexist with `main`; until review/merge, their outcomes are work in progress and do not update the public claim registry. Maintenance/repository-organization work should remain separate from experimental outcome commits. See `../REPOSITORY_LAYOUT.md`.
+and GitHub `repository-audit` under the pinned CPU environment.
 
-## Future research topics
+Remove one-shot execution workflows from the final branch tip after their provenance/output is retained.
 
-Scientifically interesting but separate from the completed publication gate:
+## Historical work that remains closed
+
+The following should not be reopened merely for presentation:
+
+- 2026-08-26 independent re-review and Phase 2E invalidation;
+- v0.2.0 frozen tag boundary;
+- G7 seed-4300 portability reproduction;
+- bounded runtime PoC;
+- completed G7–G27 protocols.
+
+New evidence must use a new protocol rather than modifying a completed one after outcomes are known.
+
+## Longer-term research after announcement readiness
+
+Separate from the current gate:
 
 - larger pretrained Transformer/LLM external validity;
-- different task types and spans;
-- additional replacement grammars and stronger nulls;
-- codec-independent complexity / MDL;
+- additional task types, spans, widths, and replacement grammars;
+- codec-independent MDL/description measures;
 - off-manifold functional complexity;
 - effective repair/tangent dimension;
 - mechanism dictionaries/algebra;
 - sensitivity-aware utility-cost controllers;
 - hardware-specific functional IR/JIT;
 - larger-scale RAM/VRAM/energy/runtime benchmarking.
-
-See `OPEN_QUESTIONS.md` for the durable question inventory. Consult open GitHub issues/PRs for which, if any, of these topics is actively being tested now.

@@ -1,6 +1,8 @@
 # Publication / communication notes
 
-This document defines publication-safe wording after the 2026-08-26 independent re-review. It is not a manuscript.
+This document defines **communication-safe wording**, not approval to announce the project. Current announcement readiness is governed by `ANNOUNCEMENT_READINESS.md` and Issue #13.
+
+The 2026-08-26 independent re-review remains the baseline claim audit, but later candidate evidence and reproducibility hardening require another integrated review before broad communication.
 
 ## One-sentence project statement
 
@@ -25,7 +27,7 @@ Avoid:
 
 ## Direct SmallViT replication
 
-Public result:
+Reviewed baseline result:
 
 - 8/8 fresh eligible seeds selected a smaller composed replacement;
 - mean composed/component-wise replacement-parameter ratio `0.51988`;
@@ -51,6 +53,16 @@ Fresh `1200–1207`:
 Candidate selection used validation only, and learned replacement-parameter counts were exactly matched at each budget.
 
 The 2048-parameter joint-factorized control is **descriptive/mechanistic secondary**. It is consistent with much of the gap following the composed span objective, but it is not a confirmatory causal decomposition.
+
+Before announcement, the already-observed `1200–1207` cohort should be regenerated under the pinned modern reproduction environment. That rerun is reproduction evidence, not an additional scientific cohort.
+
+## Candidate regression external-validity evidence
+
+A post-snapshot draft Phase 3 experiment changes task type to `sklearn.datasets.load_diabetes` regression and passed its locked operational replacement-budget rule. It must **not** be promoted into the headline communication surface merely because the protocol passed.
+
+Important limitation for review: confirmatory teacher test R² is only approximately `0.112–0.255`. Therefore a broad statement such as “the effect generalizes to regression” is premature without explicitly qualifying the weak-teacher regime or adding a separately locked stronger-teacher experiment.
+
+Do not modify the completed Phase 3 protocol after seeing its result. Any stronger-teacher regression test is a new experiment.
 
 ## Training-time consolidation
 
@@ -108,15 +120,17 @@ Not all later 2D–2O raw per-seed artifacts are checked into this branch. The l
 
 ## Reproducibility wording
 
-A self-contained public runner reproduced the archived G7 seed-4300 output exactly in the recorded environment, with SHA256:
+A self-contained runner reproduced the archived G7 seed-4300 output exactly in the recorded environment, with SHA256:
 
 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
 
 Call this **reproduction/portability evidence for an already-confirmatory seed**, not an independent scientific replication.
 
+For the residual-MLP headline cohort, distinguish the original confirmatory result from the new pinned-environment rerun. The latter validates portability/reproducibility of the existing evidence; it does not increase the scientific seed count.
+
 ## Systems wording
 
-Publication-safe PoC statement:
+Communication-safe PoC statement:
 
 > In one small CPU proof of concept, a progressively consolidated learned representation was about 50% smaller as a serialized artifact and about 2× faster for the measured batch-128 inference workload, while meaningful host-RAM reduction was not demonstrated.
 
@@ -124,7 +138,7 @@ Do not generalize to GPU, VRAM, energy, cold-start, browser/edge, large models, 
 
 ## Required negative/correction boundaries to mention
 
-A credible public account should include at least:
+A credible account should include at least:
 
 - Canary is not necessary.
 - Unlimited recursive collapse is not supported.
@@ -136,16 +150,23 @@ A credible public account should include at least:
 - Phase 2O does not confirm a composed repair-sample advantage.
 - The runtime PoC does not demonstrate meaningful host-RAM reduction.
 
-## Publication state
+## Announcement state
 
-Do not describe the research branch as publication-ready until the independent review gate is actually closed and the final `repository-audit` passes. Closing Issue #9 completes this quality gate only; PR #7 and the v0.2.0 release/tag boundary remain separate version-control decisions.
+**Do not broadly announce the repository as a finished research release while Issue #13 remains open.**
 
-See `INDEPENDENT_REREVIEW_2026-08-26.md` and `RELEASE_CHECKLIST.md`.
+The historical v0.2.0 tag/release records an earlier research snapshot and version-control boundary. Current announcement readiness additionally requires:
+
+1. pinned clean-clone reproduction of the full residual-MLP headline cohort;
+2. an explicit inclusion/exclusion decision for candidate external-validity evidence;
+3. a final integrated rereview of claim, README, citation, release metadata, and known negative/correction boundaries;
+4. final unit-test, repository-audit, and CI success.
+
+See `ANNOUNCEMENT_READINESS.md`.
 
 ## Novelty wording
 
-The repository supports saying that Canaria **identifies and characterizes** this empirical phenomenon and directly tests it in additional small architecture families. A strict “first ever” priority claim still requires a dedicated literature review.
+The repository supports saying that Canaria **identifies and characterizes** this empirical phenomenon and directly tests it in several small settings. A strict “first ever” priority claim requires a dedicated literature review and should not be inferred from repository evidence alone.
 
 ## Citation practice
 
-Until a paper exists, cite the exact commit/tag, the relevant protocol/result artifacts, and the evidence class. Never cite an invalidated artifact as scientific support merely because it remains in the history.
+Until a paper exists and the announcement gate closes, cite the exact commit/tag, the relevant protocol/result artifacts, and the evidence class. Never cite an invalidated artifact as scientific support merely because it remains in the history.

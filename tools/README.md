@@ -1,23 +1,40 @@
 # Repository tools
 
-This directory contains verification utilities that audit repository structure, evidence status, and reproducibility invariants. These tools are not themselves scientific evidence; they check that the checked-in evidence and public surface remain internally consistent.
+This directory contains verification utilities for repository structure, evidence status, reproducibility, and pre-announcement readiness. These tools are not themselves scientific evidence; they check that checked-in evidence and communication surfaces remain internally consistent.
 
 ## `audit_repo.py`
 
-The repository-wide integrity audit checks items such as:
+The scientific/evidence integrity audit checks items such as:
 
-- required public/review/correction artifacts exist;
+- required review/correction artifacts exist;
 - invalidated Phase 2 evidence remains marked invalid and is not silently promoted;
-- public runners do not depend on private `/mnt/data` paths;
-- required evidence-status invariants remain consistent.
+- portable/reproduction runners do not depend on private `/mnt/data` paths;
+- selected evidence-status and result invariants remain consistent.
 
-Run from the repository root:
+Run:
 
 ```bash
 python tools/audit_repo.py
 ```
 
-The same audit is part of `.github/workflows/ci.yml` together with reusable-code tests and a minimal public-runner smoke test.
+## `audit_readiness.py`
+
+The pre-announcement state audit checks a different class of invariant:
+
+- `ANNOUNCEMENT_READINESS.md` and the pinned residual-MLP reproduction path exist;
+- README/STATUS retain explicit announcement-state wording while Issue #13 is open;
+- stale “publication complete / reviewed public baseline” state wording does not reappear in selected current surfaces;
+- pinned headline reproduction dependencies remain the recorded versions unless deliberately revised;
+- the historical v0.2.0 checklist remains clearly separated from the current readiness gate;
+- if a pinned cohort-reproduction report is checked in, it must be a PASS and remain labeled as reproduction of existing confirmatory evidence.
+
+Run:
+
+```bash
+python tools/audit_readiness.py
+```
+
+Both audits run in `.github/workflows/ci.yml` together with reusable-code tests and a representative core-runner smoke test.
 
 ## Adding an evidence-specific audit
 
@@ -31,4 +48,4 @@ Such an audit should:
 4. remain separate from the evidence-producing run itself;
 5. not modify result artifacts.
 
-One-shot workflow wrappers used to invoke an audit need not remain on the active branch after the audit has completed; the audit script itself may remain when it is useful for future verification.
+One-shot workflow wrappers used to invoke an experiment, reproduction, audit, or maintenance action need not remain on the active branch after completion; the reusable audit script itself may remain when useful.
