@@ -1,18 +1,32 @@
-# Research roadmap — publication gate / future-work handoff
+# Research roadmap — published snapshot / future-work handoff
 
-**Current state:** broad experiment expansion is stopped. The 2026-08-26 independent scientific re-review has been performed; Issue #9 remains the quality gate until final smoke/audit checks pass and the issue closes. Issue #5 then governs the separate release/tag/merge sequence.
+**Current state:** the publication-quality gate is complete. Broad experiment expansion is stopped. The frozen v0.2.0 baseline is tagged/released, the independently reviewed post-snapshot state is on `main`, and stale research branches have been removed.
 
-## Completed scientific/reproducibility work retained
+## Completed closure — scientific/public review
 
-### Portable G7 reproduction
+The 2026-08-26 independent re-review classified material public claims as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE`.
+
+Key corrections retained in the public baseline:
+
+- operational replacement/description complexity is kept distinct from mathematical/Kolmogorov complexity;
+- residual-MLP exact-budget replication retained;
+- SmallViT retained with its test-recording isolation caveat;
+- G7/G18 primary-versus-secondary wording narrowed;
+- Phase 2E preserved as `INVALIDATED_IMPLEMENTATION_BUG`, not negative evidence;
+- Phase 2I RNG causal claim retracted;
+- Phase 2O remains `UNCERTAIN`, so no reliable compositional repair-sample advantage is claimed.
+
+See `INDEPENDENT_REREVIEW_2026-08-26.md`.
+
+## Completed closure — clean-repository reproduction
 
 A public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` assumptions and exactly matched the archived output in its recorded environment. This is reproduction/portability evidence, not a new independent scientific replication.
 
-### Bounded runtime PoC
+## Completed closure — bounded runtime PoC
 
 For G7 seed 4300, the small CPU PoC reported a smaller serialized artifact and lower measured batch-128 CPU inference latency. Meaningful host-RAM reduction was not demonstrated; general GPU/VRAM/energy/LLM runtime benefits remain open.
 
-### Direct compositional replications
+## Completed closure — direct compositional replications
 
 **Residual MLP:** fresh `1200–1207`, exact learned replacement-parameter matching at every grid point, composed lower minimum passing budget in `8/8`, geometric ratio `0.4823×`. Validation selects the endpoint; test follows selection.
 
@@ -20,34 +34,29 @@ For G7 seed 4300, the small CPU PoC reported a smaller serialized artifact and l
 
 The residual-MLP 2048-parameter joint-factorized result is descriptive/mechanistic secondary and is consistent with an important role for the composed span objective; it is not a confirmatory causal decomposition.
 
-## Phase 2 correction that must remain visible
+## Completed closure — release/version-control boundary
 
-Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`. It used raw `Xt` where the replacement was defined on internal activation `ta[0]`; equal width 64 hid the semantic error.
-
-The invalid result remains provenance, not negative scientific evidence. Phase 2I's RNG explanation is retracted, and Phase 2O did not confirm a reliable composed repair-sample advantage.
+- `v0.2.0-public-snapshot` preserves commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
+- GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
+- PR #7 was squash-merged after the frozen release boundary was established.
+- stale `research/phase2-precision-quantization` and `research-snapshot-2026-08-24` branches were deleted.
+- `main` is the sole active branch.
 
 ## Current stopping rule
 
-Until Issue #9 closes, do only:
+Do not continue the old publication/closure sequence or add broad experiments merely to strengthen the public presentation.
 
-- public claim/provenance corrections;
-- minimal public-runner smoke checks;
-- CI/audit fixes;
-- version/release/PR preparation.
+New scientific work should start from a new issue/research phase with:
 
-After Issue #9, follow Issue #5 for:
-
-1. v0.2.0 baseline tag/release;
-2. PR #7 final review and squash-merge if appropriate;
-3. stale branch cleanup;
-4. final `main` CI/audit;
-5. public posting/sharing.
-
-Do not reopen broad experiments merely to complete publication.
+1. a falsifiable claim;
+2. explicit evidence class and protocol lock where appropriate;
+3. an independently initialized inferential unit/seed policy;
+4. a stopping rule;
+5. explicit separation from the frozen v0.2.0 tag and the reviewed post-snapshot baseline.
 
 ## Future research topics
 
-Scientifically interesting but separate from this gate:
+Scientifically interesting but separate from the completed publication gate:
 
 - larger pretrained Transformer/LLM external validity;
 - different task types and spans;

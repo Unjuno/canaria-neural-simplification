@@ -1,10 +1,10 @@
 # Canaria public research snapshot
 
-This file defines how to read the frozen v0.2.0 public-snapshot baseline together with the current post-snapshot research branch.
+This file defines how to read the frozen v0.2.0 public-snapshot baseline together with the independently reviewed post-snapshot state on `main`.
 
 ## Read order
 
-1. `../README.md` — scoped project statement and current publication gate.
+1. `../README.md` — scoped project statement and publication state.
 2. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
 3. `CLAIMS_AND_EVIDENCE.md` — authoritative current claim registry.
 4. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
@@ -15,8 +15,20 @@ This file defines how to read the frozen v0.2.0 public-snapshot baseline togethe
 9. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
 10. `REPRODUCIBILITY.md` — integrity/reproduction policy.
 11. `PUBLICATION_NOTES.md` — publication-safe wording.
-12. `RELEASE_CHECKLIST.md` — quality and release/version-control gates.
+12. `RELEASE_CHECKLIST.md` — completed quality/release gate record.
 13. `HISTORICAL_INDEX.md` — preserved historical material.
+
+## Version boundary
+
+The immutable reference baseline is tag `v0.2.0-public-snapshot`, pointing to commit:
+
+`556dce21c7a5516a16780cb28d528d1ff3968e53`
+
+GitHub release title:
+
+`Canaria v0.2.0 — Public Research Snapshot`
+
+Post-v0.2.0 evidence and corrections were independently re-reviewed, then squash-merged through PR #7. They live on current `main`; they are not back-projected into the frozen tag.
 
 ## Snapshot interpretation
 
@@ -77,7 +89,7 @@ Phase 2E is **`INVALIDATED_IMPLEMENTATION_BUG`** and `DO_NOT_USE_FOR_INFERENCE` 
 
 The invalid result is retained as history, not negative scientific evidence. Phase 2I's RNG causal explanation is retracted. Phase 2O did not confirm a reliable composed repair-sample advantage.
 
-Not all later 2D–2O raw per-seed artifacts are checked into this branch. Their correction archive is identified by SHA256:
+Not all later 2D–2O raw per-seed artifacts are checked into Git. Their correction archive is identified by SHA256:
 
 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`
 
@@ -101,16 +113,14 @@ One small CPU-only PoC reported:
 
 Do not generalize this to GPU/VRAM/energy/large models or universal runtime improvement.
 
-## Current closure state
+## Closure state
 
-The scientific re-review required by Issue #9 was performed on 2026-08-26, but publication is gated on the final reviewed head passing the public-runner smoke test and `repository-audit`, followed by Issue #9 closure.
+The publication sequence is complete:
 
-After #9 closes, Issue #5 governs the separate release/version-control sequence:
+1. Issue #9 independent scientific/public-surface re-review completed and closed;
+2. frozen `v0.2.0-public-snapshot` tag/release created at the designated baseline;
+3. reviewed PR #7 squash-merged;
+4. stale research branches removed, leaving only `main`;
+5. current-main `repository-audit` used as the final integrity check, with the closing run recorded in Issue #5.
 
-1. create the frozen v0.2.0 tag/release at the specified baseline commit;
-2. re-review and squash-merge PR #7 if its final audit passes;
-3. clean stale research branches;
-4. confirm final `main` CI;
-5. only then post/share the repository.
-
-No broad new experiment is required for this quality gate; new scientific work should begin as a separate question/phase.
+No broad new experiment is required for this snapshot. New scientific work should begin as a separate question/phase.

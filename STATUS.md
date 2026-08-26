@@ -1,21 +1,17 @@
 # Project status
 
-**Current mode: publication-quality gate and repository-state cleanup. Broad experiment expansion is stopped.**
+**Current mode: published research baseline / future-work handoff. Broad experiment expansion is stopped.**
 
-The frozen v0.2.0 **public snapshot** remains the version baseline. Post-snapshot precision work is staged separately on this research branch.
+## Version and publication boundary
 
-## Independent re-review
+- Frozen v0.2.0 tag: `v0.2.0-public-snapshot`.
+- Frozen baseline commit: `556dce21c7a5516a16780cb28d528d1ff3968e53`.
+- GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
+- Independent re-review (Issue #9): completed and closed on 2026-08-26.
+- Reviewed post-snapshot release candidate (PR #7): squash-merged into `main`.
+- Research branch cleanup: completed; `main` is the sole active branch.
 
-The review required by `REVIEW_HANDOFF.md` and Issue #9 was performed on 2026-08-26.
-
-Review record:
-
-- `docs/INDEPENDENT_REREVIEW_2026-08-26.md`
-- `docs/CLAIMS_AND_EVIDENCE.md`
-
-The review classified material claims as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE` and changed the public surface accordingly.
-
-Do not publish/post or mark PR #7 ready while Issue #9 remains open. Closing Issue #9 certifies this scientific quality gate only; the v0.2.0 tag/release boundary and PR #7 merge remain separate repository-state decisions.
+The frozen v0.2.0 tag is not rewritten by later corrections. Current `main` carries the independently reviewed post-snapshot precision/correction work.
 
 ## Core claim retained
 
@@ -28,7 +24,7 @@ The strongest fresh direct replication is the residual MLP with exact learned re
 - fresh seeds `1200–1207`;
 - composed lower minimum passing budget in `8/8`;
 - geometric composed/component-wise budget ratio `0.4823×`;
-- test utility evaluated only after validation-selected endpoint choice.
+- validation selects the endpoint; test evaluation follows selection.
 
 The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
 
@@ -71,33 +67,18 @@ Invalidation history is preserved in:
 - `results/phase2/precision_composition/CORRECTION_STATUS.json`
 - `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
 
-Not all later 2D–2O raw per-seed artifacts are checked into this Git branch; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
+Not all later 2D–2O raw per-seed artifacts are checked into Git; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
 
 ## Reproducibility / systems boundary
 
-- G7 seed 4300 exact portable rerun: retained as reproduction/portability evidence, not independent replication.
-- Runtime PoC: retained only as one small CPU/storage/inference result.
+- G7 seed 4300 exact portable rerun: reproduction/portability evidence, not independent replication.
+- Runtime PoC: one small CPU/storage/inference result only.
 - Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
 
-## Publication gate checks
+## Publication integrity
 
-Issue #9 may close only when the final reviewed branch satisfies:
-
-1. public claim corrections are present;
-2. invalidation history is preserved;
-3. minimal public residual-MLP runner smoke test passes;
-4. `python tools/audit_repo.py` passes;
-5. GitHub `repository-audit` passes for the final reviewed commit.
-
-`docs/RELEASE_CHECKLIST.md` tracks these checks.
+The publication sequence is complete: independent review, frozen tag/release boundary, squash merge, and branch cleanup. `repository-audit` on current `main` is the continuing integrity check; Issue #5 records the final publication-gate run.
 
 ## Stopping rule
 
-Before public release, continue only:
-
-- correction/provenance work;
-- minimal reproducibility smoke checks;
-- CI/audit fixes;
-- release/version-control metadata and PR review.
-
-Do **not** open a broad new experimental family merely to make the repository feel complete.
+Do not continue the old publication/closure sequence or reopen broad experiments merely to strengthen presentation. New scientific work should begin from a new issue/research phase with its own hypothesis, protocol, evidence class, and stopping rule.

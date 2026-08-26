@@ -13,16 +13,16 @@ composed:       simplify(g ∘ f)
 
 This is an **operational replacement/description-complexity** claim. The repository does not claim universal mathematical/Kolmogorov complexity reduction.
 
-The frozen v0.2.0 **public snapshot** remains the version baseline. Post-snapshot precision work is staged on this research branch.
+## Publication state
 
-## Pre-publication review state
+The frozen v0.2.0 baseline is preserved by tag [`v0.2.0-public-snapshot`](https://github.com/Unjuno/canaria-neural-simplification/releases/tag/v0.2.0-public-snapshot), which points to commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
 
-The independent re-review required by `REVIEW_HANDOFF.md` and Issue #9 was performed on 2026-08-26. The decision ledger is:
+The independent pre-publication re-review required by Issue #9 was completed on 2026-08-26. Its decision ledger is:
 
 - [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md)
 - [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md)
 
-Do not publish/post or mark PR #7 ready while Issue #9 remains open. Closing that issue completes the scientific quality gate only; the v0.2.0 release/tag boundary and PR #7 merge remain separate decisions.
+The reviewed post-v0.2.0 release candidate was squash-merged through PR #7. Stale research branches were removed; `main` is the sole active branch. Current `main` therefore contains the reviewed post-snapshot evidence/corrections without retroactively changing the frozen v0.2.0 tag.
 
 ## Try the strongest minimal public experiment
 
@@ -89,7 +89,7 @@ One small CPU PoC produced a smaller serialized artifact and lower measured batc
 - [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical claim and scope.
 - [`docs/phase2/README.md`](docs/phase2/README.md) — precision/quantization corrections.
 - [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — valid negative evidence versus invalidated evidence.
-- [`STATUS.md`](STATUS.md) — publication/release state.
+- [`STATUS.md`](STATUS.md) — current repository/publication state.
 
 ## License
 

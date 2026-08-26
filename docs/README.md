@@ -4,13 +4,13 @@ This directory contains current public-facing documentation and preserved histor
 
 ## Start here — authoritative current documents
 
-1. `../README.md` — scoped project statement and current publication gate.
-2. `INDEPENDENT_REREVIEW_2026-08-26.md` — Issue #9 decision ledger (`KEEP / EDIT / REMOVE / INVALIDATE`).
+1. `../README.md` — scoped project statement and publication state.
+2. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent `KEEP / EDIT / REMOVE / INVALIDATE` decision ledger.
 3. `CLAIMS_AND_EVIDENCE.md` — authoritative current public claim registry.
 4. `CORE_DISCOVERY.md` — central operational compositional-simplification finding.
 5. `PUBLICATION_NOTES.md` — publication-safe wording and evidence tiers.
 6. `phase2/README.md` — Phase 2 precision/quantization correction boundary.
-7. `RELEASE_CHECKLIST.md` — quality-gate and release/version-control checklist.
+7. `RELEASE_CHECKLIST.md` — completed quality/release gate record.
 8. `../STATUS.md` — current repository state.
 
 ## Scientific evidence and boundaries
@@ -33,13 +33,11 @@ Machine-readable evidence lives under `../results/`.
 
 Measured systems evidence is intentionally narrow: smaller serialized artifact and lower measured CPU batch-128 inference latency in one small PoC; meaningful host-RAM reduction was not demonstrated; GPU/LLM/energy/general runtime gains are not established.
 
-## Current publication / stopping state
+## Publication / stopping state
 
-The independent re-review for Issue #9 was performed on 2026-08-26. Before Issue #9 can close, the final reviewed head must pass the public-runner smoke test and `repository-audit`.
+The 2026-08-26 independent re-review is complete. The frozen `v0.2.0-public-snapshot` tag/release preserves the pre-Phase-2 baseline, PR #7 was squash-merged after the release boundary was established, and stale research branches were removed. `main` is the sole active branch.
 
-After Issue #9 closes, Issue #5 governs publication/release operations: establish the frozen v0.2.0 tag/release boundary, re-review and squash-merge PR #7 if appropriate, and verify final `main` CI.
-
-Do not start broad new experiments to complete this gate.
+Current `main` is the reviewed post-snapshot public baseline. Future science should begin as a new question/phase rather than extending the old publication-closure sequence.
 
 ## Historical / frozen documents
 

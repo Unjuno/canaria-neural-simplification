@@ -2,6 +2,28 @@
 
 Canaria is a research repository rather than a conventional production library. Versions mark research snapshots and evidence organization, not API-stability guarantees.
 
+## Post-v0.2.0 reviewed public baseline — 2026-08-26
+
+### Independent re-review and corrections
+
+- Completed the Issue #9 independent pre-publication claim audit under `KEEP / EDIT / REMOVE / INVALIDATE` decisions.
+- Narrowed public complexity wording to operational replacement/description complexity under declared task distributions, grammars, and passing rules.
+- Retained the residual-MLP direct replication with exact learned replacement-parameter matching.
+- Retained the SmallViT replication with an explicit caveat that its runner records test metrics for all candidates even though test is not a selection variable.
+- Clarified G7 primary versus secondary comparisons and limited G18 to the tested controller comparison.
+- Marked Phase 2E `INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE` because repair used raw `Xt` instead of internal activation `ta[0]`.
+- Retracted the Phase 2I repair-RNG causal explanation of Phase 2E and weakened 2H/2J interpretations tied to the invalid comparison.
+- Preserved invalidated evidence as provenance in `CORRECTION_STATUS.json` and `INVALIDATED_HISTORY.md` rather than deleting it.
+- Kept Phase 2O as `UNCERTAIN`; no reliable compositional repair-sample-complexity advantage is claimed.
+
+### Publication/version-control closure
+
+- Created tag `v0.2.0-public-snapshot` at frozen baseline commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
+- Published GitHub release `Canaria v0.2.0 — Public Research Snapshot` from that tag.
+- Squash-merged reviewed PR #7 into `main` as commit `15c152586b79d68546d473913e7742db6ec64cf5`.
+- Deleted stale `research/phase2-precision-quantization` and `research-snapshot-2026-08-24` branches, leaving `main` as the sole active branch.
+- Current-main `repository-audit` remains the integrity gate for the reviewed public baseline.
+
 ## 0.2.0 — 2026-08-25 — public research snapshot
 
 ### Research framing
