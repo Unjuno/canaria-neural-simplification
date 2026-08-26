@@ -34,7 +34,7 @@ jobs:
           PY
 
   phase3b_stage_a:
-    if: github.ref == 'refs/heads/execution/phase3b-run-v2'
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/execution/phase3b-run-v2'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
