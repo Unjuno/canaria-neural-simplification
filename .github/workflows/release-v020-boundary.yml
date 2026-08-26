@@ -31,7 +31,7 @@ jobs:
             ACTUAL=$(git rev-list -n 1 "${TAG}")
             test "${ACTUAL}" = "${BASE}"
           else
-            git tag -a "${TAG}" "${BASE}" -m "Canaria v0.2.0 public research snapshot"
+            git tag "${TAG}" "${BASE}"
             git push origin "refs/tags/${TAG}"
           fi
 
