@@ -1,0 +1,62 @@
+{
+  "status": "LOCKED_BEFORE_CONFIRMATORY_OUTCOMES",
+  "research_issue": 10,
+  "locked_after_exploration_only": true,
+  "exploration_seeds_excluded_from_inference": [2100, 2101, 2102],
+  "confirmatory_seeds": [2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207],
+  "dataset": "sklearn.datasets.load_diabetes",
+  "task": "tabular_regression",
+  "fixed_split_random_states": {"test": 2234, "val": 6678},
+  "normalization": "feature and target mean/std fit on training split only",
+  "teacher": {
+    "architecture": "4-block residual MLP",
+    "internal_width": 64,
+    "teacher_epochs": 60,
+    "loss": "MSE"
+  },
+  "replacement": {
+    "span_blocks": [0, 1],
+    "grammar": "bias-free TinyRes bottleneck",
+    "map_updates": 600,
+    "h_grid": [2, 4, 6, 8, 12, 16, 20, 24, 32],
+    "exact_learned_parameter_matching": "component-wise=256*h; composed=256*h at every grid point"
+  },
+  "selection_rule": {
+    "span_nmse_lte": 0.12,
+    "val_r2_gte_teacher_minus": 0.05,
+    "minimum_passing_budget": true,
+    "test_used_for_selection": false,
+    "test_evaluated_only_after_endpoint_selection": true
+  },
+  "exploration_rationale_for_lock": {
+    "provisional_nmse_0.08": "too strict: neither topology reached a passing endpoint on any exploration seed",
+    "nmse_0.12": "chosen before confirmatory runs because all three exploration component-wise curves reached 0.104-0.115 by h=24 while composed reached <=0.12 at smaller widths; threshold is shared by both conditions",
+    "r2_tolerance_0.05": "retained from the provisional rule; exploration replacement R2 values remained within this tolerance at the relevant high-fidelity endpoints",
+    "grid_extension": "h=20 improves resolution between 16 and 24; h=32 is a preregistered ceiling guard so a confirmatory component-wise endpoint slightly above exploration does not become silently censored"
+  },
+  "primary_endpoint": "paired log2(B_composed / B_componentwise) at minimum validation-passing learned-replacement budget",
+  "primary_decision_rule": {
+    "coverage": "both endpoints must exist for all 8 confirmatory seeds for VALID_PASS or VALID_FAIL",
+    "pass_if": [
+      "all 8 seeds have both endpoints",
+      "composed budget is strictly lower in at least 7 of 8 seeds",
+      "paired seed-bootstrap 95% CI upper bound for mean log2 budget ratio is < 0"
+    ],
+    "valid_fail_if": "all 8 seeds have both endpoints but one or more PASS criteria fail",
+    "valid_inconclusive_censoring_if": "one or more seeds lack either passing endpoint on the locked grid; such seeds are retained and not dropped"
+  },
+  "statistics": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_rng_seed": 20260826,
+    "bootstrap_statistic": "mean paired log2 budget ratio",
+    "ci": "percentile 2.5%, 97.5%",
+    "secondary": [
+      "composed-lower / tie / component-wise-lower counts",
+      "geometric mean composed/component-wise budget ratio",
+      "one-sided exact sign test on non-tied comparable seeds",
+      "selected-endpoint test R2 difference, composed minus component-wise"
+    ]
+  },
+  "interpretation_boundary": "A PASS supports this operational effect for one built-in tabular regression dataset and this residual-MLP/replacement protocol. It does not establish universal regression, task-universal, grammar-independent, or mathematical complexity subadditivity.",
+  "stopping_rule": "Run seeds 2200-2207 exactly once under this locked protocol. Do not tune thresholds, grid, teacher training, or map updates after viewing outcomes. Any revision is a new protocol version and cannot replace this result."
+}
