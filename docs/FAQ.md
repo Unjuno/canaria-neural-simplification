@@ -2,138 +2,82 @@
 
 ## Is Canaria just pruning or layer dropping?
 
-No. Canaria includes compression-like interventions, but the central empirical question is whether a **composed learned input-output function** can admit a smaller task-preserving representation than component-wise treatment suggests. Reducing layer count is one possible implementation outcome, not the discovery itself.
+No. The central empirical question is whether a **composed learned input-output function** can admit a smaller task-preserving replacement than component-wise treatment under a declared experimental grammar. Layer reduction is one possible implementation outcome.
 
-## Is Canaria the same as layer fusion?
+## Does Canaria prove that function composition reduces mathematical complexity?
 
-Not exactly. Layer fusion is an important neighboring idea. Canaria's central claim is about the **measured simplifiability of composed learned computation**, including cases where implementation boundaries are poor functional boundaries and where wider-span replacement succeeds despite weaker local replacement.
+No. The evidence is operational and task-conditioned. “Simpler” means lower replacement/description cost under explicit tasks, candidate grammars, fidelity/utility rules, and accounting schemes. No Kolmogorov-complexity claim is made.
+
+## What does “compositional simplification” mean here?
+
+In the tested settings, the minimum passing replacement for a composed span can be smaller than the replacement required when source components are fitted separately. The original residual-CNN program, a fresh SmallViT experiment, and a fresh residual-MLP experiment provide the main evidence.
+
+## What is strongest about the residual-MLP replication?
+
+For fresh seeds `1200–1207`, component-wise and composed conditions had **exactly the same learned replacement-parameter budget at every grid point**. Validation alone selected the minimum passing budget; test evaluation followed selection. Composed selected a lower budget in 8/8 seeds, with geometric budget ratio `0.4823×`.
+
+A 2048-parameter joint-factorized control is descriptive/mechanistic secondary. It is consistent with much of the local gap following the composed span objective, but it is not a confirmatory causal decomposition.
+
+## What is the SmallViT boundary?
+
+The locked selection rule used training-held-out NMSE and validation utility, not test accuracy. Across 8/8 fresh eligible seeds the selected composed replacement was smaller, with mean replacement-parameter ratio `0.5199`.
+
+However, the public runner records test accuracy for every candidate. Test was therefore excluded from the preregistered selection criterion but was **not operationally hidden during result generation**. This is weaker isolation practice than the residual-MLP runner and is disclosed in the public replication document.
 
 ## Does high Canary identify what can be simplified?
 
-Not reliably enough to make that the project thesis. Strong simplification occurred frequently in low-Canary regions. The current interpretation treats Canary as a partial sensor of boundary stress/sensitivity rather than a necessary condition or causal mechanism.
-
-## Does the project prove that function composition reduces mathematical complexity?
-
-No. The evidence is operational and task-conditioned. Complexity depends on the task/data distribution, candidate replacement grammar, fidelity/utility criterion, and accounting scheme.
-
-## What does "compositional subadditivity" mean here?
-
-Under a declared replacement/description grammar, the composed span can require less replacement complexity than component-wise treatment would suggest. The original confirmatory setting observed this frequently.
-
-The core phenomenon was later tested directly in a fresh Small Vision Transformer experiment. For a fixed central two-block span, component-wise and composed replacement used the same declared one-block grammar and the same locked task/fidelity criteria. Across 8/8 fresh eligible seeds, the minimum passing composed representation required only **4,904–5,424 parameters** versus **9,808** for component-wise treatment. The mean complexity ratio was **0.5199**, bootstrap95 **[0.5063,0.5393]**, with mean selected composed test utility **0.9786**.
-
-This strengthens cross-family evidence but still does not imply universal Transformer or LLM subadditivity.
+Not reliably enough to make that the project thesis. Strong simplification was observed frequently in low-Canary regions. Treat Canary as a partial sensor, not a necessary condition or established cause.
 
 ## Why not simply train the final small model from the start?
 
-In the G7 testbed, training the final small architecture from the start was worse than allowing a larger computation to form and consolidating it during learning. This supports separating **learning-time capacity** from **final description capacity** in that setting.
+In G7, the small-from-start condition was worse than the progressive condition in that cohort. This is a **secondary G7 observation**. The preregistered G7 primary decision compared progressive consolidation against the early and late one-shot controls, and those primary comparisons passed.
 
 ## Is progressive consolidation better merely because it uses two compiler fits?
 
-The G17 equivalence control argues against that explanation. Back-to-back `4→3→2` fitting without task learning between fits was equivalent to direct `4→2`, while G15 staged consolidation with intervening task learning was better.
+G17 argues against that explanation under the tested protocol. Back-to-back `4→3→2` fitting without task learning between fits was equivalent to direct `4→2`, whereas staged consolidation with intervening task learning was better in G15.
 
-## What is recontracting?
+## Does remaining learning horizon universally determine commit timing?
 
-Continued task learning after structural consolidation. It reorganizes the remaining system around the new mechanism. Later experiments show a two-sided effect: the next compiler can become easier to optimize while residual errors become more task-sensitive.
+No. G18 supports a narrower claim: the tested deadline-aware controller improved mean PPL and reduced mean compiler updates relative to the tested static NMSE controller. This does not establish a universal commit policy.
 
-## If the next compiler is easier to fit, is the model automatically more robust to replacement error?
+## What happened in Phase 2E?
 
-No. G20e/G22 show the opposite can occur: matched normalized internal error can cause more immediate task damage after recontracting because downstream sensitivity increases.
+Phase 2E is **not a valid negative result**. It is `INVALIDATED_IMPLEMENTATION_BUG`.
 
-## Does teacher-forced perplexity prove an autoregressive replacement is faithful?
+Repair used raw digit input `Xt` where the replacement was defined on internal activation `ta[0]`. Both happened to have width 64, so shape checks did not catch the semantic error. The bugged `0/8` result is retained as history but must not support inference.
 
-No. v22–v25 showed that teacher-forced likelihood can remain close while free-running rollouts diverge substantially. Autoregressive evaluation needs trajectory-sensitive checks when teacher fidelity is the claim.
+See `phase2/README.md` and `../results/phase2/precision_composition/INVALIDATED_HISTORY.md`.
 
-## Does Canaria work on large pretrained LLMs?
+## Did later correction prove that composition needs fewer QAT repair samples?
 
-Not established. The project contains small Transformer/decoder/generalization evidence and a direct SmallViT compositional replication, but the strongest training-time mechanism experiments use a small real-text character-LM testbed. Large pretrained LLM validity remains open.
+No. Phase 2O was `UNCERTAIN`: one-sided exact sign-test `p=0.1662`, and the bootstrap95 mean difference crossed zero. A reliable composed repair-sample advantage is not a public claim.
 
-## Can the public repository reproduce any confirmatory result without private files?
+## Are all later Phase 2 raw artifacts in this repository?
 
-Yes. G7 fresh confirmatory seed 4300 has a self-contained runner under `scripts/reproduce/g7_confirmatory/`.
+No. Phase 2A–C raw protocol/result files and portable runners are in Git. Later 2D–2O correction status is preserved through the correction registry and a correction archive SHA256, but not all later raw per-seed artifacts are checked into this branch. Do not describe those later phases as fully public portable reproductions.
 
-In the recorded environment, the complete reproduced JSON exactly matched the archived confirmatory output with SHA256:
+## Can the repository reproduce a confirmatory result without private files?
 
-`68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`
+Yes. G7 seed 4300 has a self-contained runner under `scripts/reproduce/g7_confirmatory/`. In the recorded environment its output exactly matched the archived JSON SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
 
-This validates portability of an already-confirmatory seed; it is not a new independent scientific replication.
+That is software/portability reproduction of an already-confirmatory seed, **not a new independent scientific replication**.
 
-## Has Canaria demonstrated real runtime speed or storage savings?
+## Has Canaria demonstrated runtime or storage savings?
 
-At a **small CPU-only PoC scope**, yes for some metrics.
+Only at a bounded small CPU PoC scope. For G7 seed 4300, serialized artifact+manifest size changed `110,093→54,646 B`, and mean batch-128 CPU inference changed `47.05→23.11 ms` across five fresh-process probes.
 
-For G7 seed 4300:
+Meaningful host-RAM reduction was not demonstrated, and GPU/VRAM/energy/LLM/general runtime benefits remain open.
 
-- serialized artifact + manifest: `110,093 → 54,646 B` (`−50.36%`);
-- batch-128 CPU inference: `47.05 → 23.11 ms mean` over five fresh-process probes;
-- the compact 2-block learned representation executes directly and does not reconstruct the original 4-block model.
+## Is the current branch publication-ready?
 
-See `RUNTIME_POC.md`.
+Not merely because the experiments exist. The 2026-08-26 independent re-review is a required quality gate. The review must finish with the public-runner smoke test, repository audit, final public-surface update, and closure of Issue #9. PR #7 and the v0.2.0 tag/release boundary are separate repository-state gates.
 
-## Has Canaria demonstrated RAM/VRAM savings?
+See `INDEPENDENT_REREVIEW_2026-08-26.md` and `RELEASE_CHECKLIST.md`.
 
-No meaningful host-RAM reduction was demonstrated in the current PoC. Process RSS delta changed only `4.72 → 4.56 MB` (`0.966×`). GPU VRAM has not been benchmarked.
+## What should a contributor work on now?
 
-This is why the repository keeps storage size, runtime latency, and memory as separate claims.
+Do not open a broad new experiment family to “complete” the current review. During the quality gate, only fix claim scope, provenance, reproducibility defects, and minimal runner/audit failures. New architecture, scale, theory, and systems questions should begin as explicitly separate follow-up work.
 
-## Is load/materialization definitely faster?
+## Safest one-sentence summary
 
-Not as a general claim. The five-process benchmark averaged `7.85 → 5.86 ms`, but auxiliary runs showed cache/filesystem sensitivity. It remains secondary evidence rather than a headline claim.
-
-## Does the runtime PoC prove universal speedup?
-
-No. It is one small model, one seed, CPU-only, and one batch-size workload. It does not establish GPU, LLM, energy, browser, edge, or universal runtime benefits.
-
-## Why call the replacement procedure a compiler?
-
-Because it translates a learned computation into another functional representation under a declared grammar and budget. It is broader than a conventional source-code compiler and should not be confused with a claim that every neural module can be compiled losslessly.
-
-## Is the 9,926-byte result the entire network?
-
-Yes, for the specific residual-CNN endpoint and declared exact codec, 9,926 bytes is a real round-tripped whole-network serialization. Historical 44.5-byte / ~28-byte figures refer to the compiled core only, not the complete network.
-
-## Is 9,926 bytes a universal minimum?
-
-No. It is an achieved serialized endpoint under one task/architecture/codec, not a codec-independent minimum description length.
-
-## Is there an autonomous Canaria controller?
-
-There are confirmed small-model autonomous-controller experiments. G11 reached the target architecture under a locked non-inferiority protocol, and G18 improved commit timing using remaining learning horizon. Later G21/G27 controls also show that naive safety gates or one fixed risk cap do not automatically solve the cost/utility trade-off.
-
-## Why preserve failed experiments?
-
-Because many of the strongest current conclusions depend on them. Examples include:
-
-- Canary is not necessary;
-- unlimited recursive collapse is not supported;
-- PPL alone is insufficient for rollout fidelity;
-- factorized fitting alone does not explain staged gains;
-- matched internal error is not matched task safety;
-- a hard damage veto can block contraction;
-- the current compact runtime PoC does not demonstrate meaningful host-RAM reduction.
-
-Removing these failures would make the theory look stronger but less credible.
-
-## Is the current project scientifically complete?
-
-At the **current scoped claim**, yes: v0.2.0 is intended to be a frozen public research snapshot. The representative clean reproduction, direct cross-family compositional replication, and minimal runtime PoC are complete. No additional experiment is required before freezing the present claims.
-
-This does not mean the scientific topic is exhausted. It means future work should begin as a new research question/phase rather than silently extending this snapshot.
-
-## What happened to the proposed cross-family replication?
-
-It was completed.
-
-The fresh SmallViT confirmatory experiment found a mean composed/component-wise minimum-passing complexity ratio of **0.5199**, bootstrap95 **[0.5063,0.5393]**, with 8/8 fresh seeds favoring the composed representation and mean selected composed test utility **0.9786**.
-
-See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `results/replication/vit_compositional/`.
-
-## What should a new contributor work on?
-
-There is no required closure task left for v0.2.0.
-
-Choose a question from `OPEN_QUESTIONS.md` as a **new research project**. High-value directions include large pretrained models, additional task/span/grammar replication, grammar-independent complexity, hardware-specific functional IR/JIT execution, and larger-scale memory/energy/runtime benchmarking.
-
-## What is the safest one-sentence summary?
-
-> Canaria identifies and characterizes task-conditioned compositional simplification in learned neural computation, directly replicates the core component-wise-versus-composed effect in a Small Vision Transformer, shows in small-model experiments that consolidation followed by continued learning changes both the ease and task-risk of later consolidation, and provides a bounded CPU PoC showing that one compact learned representation can be serialized and executed directly without reconstructing its larger predecessor.
+> Canaria reports an operational phenomenon in which some learned spans, under explicit tasks and replacement rules, admit smaller task-preserving replacements when fitted as composed functions than when simplified component-wise; the repository also studies bounded training-time consolidation and a small CPU execution PoC, without claiming universal mathematical complexity reduction or large-model systems benefits.
