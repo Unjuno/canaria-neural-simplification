@@ -13,7 +13,7 @@ composed treatment:   simplify(g ∘ f)
 
 In several small-model experiments, the second route needed substantially less task-preserving replacement capacity than simplifying the two implementation blocks separately.
 
-This repository is an auditable research handoff: a minimal runnable experiment first, machine-readable evidence next, and the full exploration history behind that.
+This repository is an auditable research handoff: a minimal runnable experiment first, machine-readable evidence next, and the full exploration history behind that. The original v0.2.0 **public snapshot** remains the frozen baseline while post-snapshot work is staged separately.
 
 ## Run the smallest direct experiment
 
