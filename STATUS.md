@@ -4,6 +4,8 @@
 
 The repository now has enough evidence to be useful as a public research object without requiring a complete theory or exhaustive architecture sweep. New experiments should be limited to small checks that materially improve reproducibility, correct an identified defect, or remove a release blocker.
 
+The original v0.2.0 **public snapshot** remains the frozen baseline while post-snapshot precision work is staged separately.
+
 ## Core result retained
 
 The project-level thesis is **task-conditioned compositional simplification of learned neural computation**:
