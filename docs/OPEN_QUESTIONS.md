@@ -1,75 +1,69 @@
 # Open research questions
 
-**Project mode: frozen public-snapshot / handoff.**
+**Project mode: publication-quality gate / handoff.**
 
-The purpose of this file is to leave bounded questions that another researcher can pick up. It is not a commitment to continue expanding the current project.
+This file lists future questions. It is not a reason to open broad new experiments before Issue #9 and Issue #5 are completed.
 
-## Completed closure tasks
+## Evidence already retained
 
-### Clean-repository reproduction
+### Public reproduction / runtime
 
-A portable public runner reproduces G7 fresh confirmatory seed 4300 without private `/mnt/data` imports. In the recorded environment, the complete output exactly matched the archived confirmatory JSON with SHA256 `68265c044f51338f616fc6b43380cf0edb44ea142e10f80c66dea5394ded0028`.
+- G7 seed 4300 has an exact recorded-environment public reproduction; this is software/portability evidence, not independent replication.
+- One small CPU PoC showed a smaller serialized artifact and lower measured batch-128 CPU inference latency; meaningful host-RAM reduction was not demonstrated.
 
-### Minimal runtime/materialization proof of concept
+### Direct compositional replications
 
-A bounded CPU-only PoC serializes, materializes, and directly executes the G7 seed-4300 compact learned representation without reconstructing the original 4-block model.
+**Residual MLP — strongest matched-budget public comparison:**
 
-Headline result:
+- fresh `1200–1207`;
+- exact learned replacement-parameter matching at every grid point;
+- component-wise mean minimum passing budget `3584`;
+- composed `1728`;
+- composed lower `8/8`;
+- geometric ratio `0.4823×`;
+- validation chooses the endpoint; test follows selection.
 
-- serialized artifact + manifest: **110,093 → 54,646 bytes** (`−50.36%`);
-- batch-128 CPU inference: **47.05 → 23.11 ms mean**;
-- meaningful host-RAM reduction was **not demonstrated** (`4.72 → 4.56 MB` RSS delta).
-
-### Direct cross-family replication of compositional simplification
-
-The core phenomenon now has two direct fresh architecture-family replications beyond the original residual-CNN setting.
+At fixed 2048 parameters, the same two-module topology fitted jointly to the span target recovered most of the local component-wise NMSE gap. This is **descriptive/mechanistic secondary** and is consistent with an important role for the composed span objective; it is not a confirmatory causal decomposition.
 
 **SmallViT:**
 
-- component-wise minimum passing complexity: **9,808 replacement params**;
-- composed minimum passing complexity: **4,904–5,424 params**;
-- mean complexity ratio: **0.51988**;
-- paired bootstrap95: **[0.50634, 0.53926]**;
-- composed smaller: **8/8**;
-- selected composed mean test utility: **0.97856**.
+- composed selected replacement smaller in `8/8` fresh eligible seeds;
+- mean replacement-parameter ratio `0.51988`;
+- bootstrap95 `[0.50634,0.53926]`.
 
-**Residual MLP:**
+Re-review caveat: the locked selection rule excludes test accuracy, but the runner records test metrics for all candidates. Test was not a selection variable, yet it was not operationally hidden during candidate-result generation.
 
-- component-wise mean minimum passing budget: **3584 params**;
-- composed mean minimum passing budget: **1728 params**;
-- composed lower-budget: **8/8 fresh seeds**;
-- mean `log2(B_composed/B_componentwise) = -1.0519`, bootstrap95 **[-1.2075,-0.8962]**;
-- untouched-test accuracy difference at validation-selected budgets: **+0.583 pt**, bootstrap95 **[+0.306,+0.806] pt**.
+### Phase 2 correction
 
-At fixed 2048 params, local component-wise NMSE was **0.1474**, the same two-module architecture jointly fit to the composed span target reached **0.0639**, and one composed module reached **0.0533**. This strengthens the functional-boundary/objective interpretation.
+Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG`, not valid negative evidence. Its raw-`Xt` versus internal-activation-domain error invalidates the `0/8` result for inference. Phase 2I's RNG explanation is retracted. Phase 2O did not confirm a reliable composed repair-sample advantage.
 
-See `CROSS_FAMILY_COMPOSITION_REPLICATION.md` and `CORE_DISCOVERY_REPLICATION_DIGITS.md`.
+## Scientific questions left for future work
 
-## Scientific questions left for future researchers
-
-- Grammar-independent description complexity.
+- Grammar-independent description complexity / MDL.
 - Larger pretrained Transformer/LLM external validity.
-- Replication across genuinely different **task types** rather than only additional architecture families.
-- Replication across additional spans, widths, and replacement grammars.
+- Replication across genuinely different task types, spans, widths, and replacement grammars.
+- Stronger SmallViT-style replication with operationally hidden test evaluation.
 - Automatic detection of useful functional boundaries.
-- Why recontracting reduces later compiler optimization cost.
-- Why downstream task sensitivity can rise at the same time.
-- Risk-model transfer across widths, heads, tasks, and architectures.
+- Which mechanisms explain the gap between local component targets and composed span objectives?
+- Why recontracting can reduce later compiler optimization cost while increasing downstream task sensitivity.
+- Risk-model transfer across architectures/tasks.
 - Cost-aware autonomous control beyond fixed risk caps.
 - Off-manifold versus task-manifold simplification.
 - Stronger null models and synthetic teachers with known complexity.
 - Stable recursive complexity floors/fixed points.
+- Whether a compositional QAT repair-sample advantage exists under stronger preregistered designs; current Phase 2O is uncertain.
 - Functional IRs and hardware-specific JIT/runtime compilation beyond the current small CPU PoC.
 
-## Questions that are not open in the tested settings
+## Questions already constrained in the tested settings
 
-- Canary is not a necessary local condition for simplification.
-- Teacher-forced PPL is not enough to certify autoregressive functional equivalence.
-- Merely splitting a direct compiler fit into two stages without task learning does not reproduce the staged benefit.
-- Hard shadow-damage vetoes can block successful final contraction.
-- The same normalized functional-error threshold is not equally task-safe before and after recontracting.
-- A fixed future-risk cap is not enough to produce an automatic cost/utility Pareto improvement.
+- Canary is not a necessary local condition.
+- Teacher-forced PPL does not certify autoregressive trajectory equivalence.
+- Back-to-back factorized compiler fitting without intervening task learning does not reproduce the tested staged benefit.
+- Hard shadow-damage vetoes can block final contraction.
+- Matched normalized functional error is not matched task safety before versus after recontracting.
+- A fixed future-risk cap did not establish an automatic cost/utility Pareto improvement.
 - The current runtime PoC does not demonstrate meaningful host-RAM reduction.
-- The SmallViT and residual-MLP replications do not establish universal Transformer, LLM, task-universal, or grammar-independent compositional subadditivity.
+- The SmallViT/residual-MLP results do not establish universal mathematical, Transformer, LLM, task-universal, or grammar-independent subadditivity.
+- The bugged Phase 2E result cannot be used as a negative result.
 
-Before starting new work, read `CORE_DISCOVERY.md`, `CROSS_FAMILY_COMPOSITION_REPLICATION.md`, `CORE_DISCOVERY_REPLICATION_DIGITS.md`, `CLAIMS_AND_EVIDENCE.md`, `NEGATIVE_RESULTS.md`, `TRAINING_TIME_CONSOLIDATION.md`, and `LATE_STAGE_FINDINGS.md`.
+Before starting new work, read `INDEPENDENT_REREVIEW_2026-08-26.md`, `CLAIMS_AND_EVIDENCE.md`, `CORE_DISCOVERY.md`, `phase2/README.md`, and `NEGATIVE_RESULTS.md`.
