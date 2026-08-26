@@ -1,23 +1,33 @@
 # Project status
 
-**Current mode: public handoff / release preparation. Broad experiment expansion is stopped.**
+**Current mode: independent re-review before publication. Broad experiment expansion is stopped.**
 
 The repository now has enough evidence to be useful as a public research object without requiring a complete theory or exhaustive architecture sweep. New experiments should be limited to small checks that materially improve reproducibility, correct an identified defect, or remove a release blocker.
 
 The original v0.2.0 **public snapshot** remains the frozen baseline while post-snapshot precision work is staged separately.
 
-## Core result retained
+## Publication gate
+
+Before publication/posting, complete the independent review tracked in Issue #9 using [`REVIEW_HANDOFF.md`](REVIEW_HANDOFF.md).
+
+The reviewer should classify each material public claim as `KEEP`, `EDIT`, `REMOVE`, or `INVALIDATE`.
+
+Incorrect or unsupported statements should be removed from the public-facing surface. Invalidated raw evidence should remain preserved with an explicit invalidation marker so the correction history is auditable.
+
+## Core result retained pending re-review
 
 The project-level thesis is **task-conditioned compositional simplification of learned neural computation**:
 
 > implementation-level components that are difficult or expensive to simplify separately can sometimes admit a substantially smaller task-preserving representation when treated as one composed input-output function.
 
-The core effect has direct locked replications in:
+The core effect currently has direct locked replications in:
 
 - a Small Vision Transformer; and
 - a residual MLP with exactly matched replacement-parameter budgets.
 
 In the residual-MLP replication, the composed condition selected a lower minimum passing budget in **8/8 fresh seeds**; geometric composed/component-wise budget ratio **0.4823×**.
+
+These statements remain subject to the final independent re-review rather than being treated as publication-final wording.
 
 ## Minimal public entry point
 
@@ -38,7 +48,7 @@ See [`QUICKSTART.md`](QUICKSTART.md).
 
 Post-snapshot Phase 2 extended the question to quantization.
 
-Current supported boundary:
+Current supported boundary, pending independent re-review:
 
 - 4-bit composed coded-size advantage: retained under the locked residual-MLP experiment;
 - naive 3-bit per-matrix PTQ: not rescued by simply increasing weight count;
@@ -71,10 +81,11 @@ The repository does not claim:
 
 Before public release, continue only work in these categories:
 
-1. repository cleanup that makes the core pattern easier to notice or reproduce;
-2. correction/provenance work for already-run experiments;
-3. one-seed or similarly small smoke tests needed to verify a public runner;
-4. release metadata, tags, CI, and repository protection.
+1. independent re-review and removal/narrowing of unsupported public claims;
+2. repository cleanup that makes the core pattern easier to notice or reproduce;
+3. correction/provenance work for already-run experiments;
+4. one-seed or similarly small smoke tests needed to verify a public runner;
+5. release metadata, tags, CI, and repository protection.
 
 Do **not** start a new broad experimental family merely to make the repository feel complete. Unresolved architecture, theory, hardware, and scale questions should remain open for follow-up by other researchers.
 
