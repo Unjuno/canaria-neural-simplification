@@ -5,18 +5,20 @@ This file defines how to read the frozen v0.2.0 public-snapshot baseline togethe
 ## Read order
 
 1. `../README.md` — scoped project statement and publication state.
-2. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
-3. `CLAIMS_AND_EVIDENCE.md` — authoritative current claim registry.
-4. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
-5. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication and isolation caveat.
-6. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget replication.
-7. `TRAINING_TIME_CONSOLIDATION.md` and `LATE_STAGE_FINDINGS.md` — training-time evidence.
-8. `phase2/README.md` — post-snapshot precision/quantization corrections.
-9. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
-10. `REPRODUCIBILITY.md` — integrity/reproduction policy.
-11. `PUBLICATION_NOTES.md` — publication-safe wording.
-12. `RELEASE_CHECKLIST.md` — completed quality/release gate record.
-13. `HISTORICAL_INDEX.md` — preserved historical material.
+2. `../STATUS.md` — current reviewed public-baseline state.
+3. `../REPOSITORY_LAYOUT.md` — repository/evidence lifecycle and branch conventions.
+4. `INDEPENDENT_REREVIEW_2026-08-26.md` — independent re-review decision ledger.
+5. `CLAIMS_AND_EVIDENCE.md` — authoritative current claim registry.
+6. `CORE_DISCOVERY.md` — central operational compositional-simplification claim.
+7. `CROSS_FAMILY_COMPOSITION_REPLICATION.md` — SmallViT direct replication and isolation caveat.
+8. `CORE_DISCOVERY_REPLICATION_DIGITS.md` — residual-MLP exact-budget replication.
+9. `TRAINING_TIME_CONSOLIDATION.md` and `LATE_STAGE_FINDINGS.md` — training-time evidence.
+10. `phase2/README.md` — post-snapshot precision/quantization corrections.
+11. `NEGATIVE_RESULTS.md` — valid negative evidence versus invalidated evidence.
+12. `REPRODUCIBILITY.md` — integrity/reproduction policy.
+13. `PUBLICATION_NOTES.md` — publication-safe wording.
+14. `RELEASE_CHECKLIST.md` — completed quality/release gate record.
+15. `HISTORICAL_INDEX.md` — preserved historical material.
 
 ## Version boundary
 
@@ -113,14 +115,14 @@ One small CPU-only PoC reported:
 
 Do not generalize this to GPU/VRAM/energy/large models or universal runtime improvement.
 
-## Closure state
+## Closure and later-work state
 
-The publication sequence is complete:
+The v0.2.0 publication sequence is complete:
 
 1. Issue #9 independent scientific/public-surface re-review completed and closed;
 2. frozen `v0.2.0-public-snapshot` tag/release created at the designated baseline;
 3. reviewed PR #7 squash-merged;
-4. stale research branches removed, leaving only `main`;
+4. stale publication-era research branches removed;
 5. current-main `repository-audit` used as the final integrity check, with the closing run recorded in Issue #5.
 
-No broad new experiment is required for this snapshot. New scientific work should begin as a separate question/phase.
+Current `main` remains the reviewed public baseline. Later scientific work may exist on isolated research branches or draft PRs, but it does not update this snapshot or the public claim registry until separately reviewed and merged.
