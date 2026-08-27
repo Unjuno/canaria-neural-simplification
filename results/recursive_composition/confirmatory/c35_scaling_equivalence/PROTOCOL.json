@@ -1,0 +1,29 @@
+{
+  "stage": "C35",
+  "scientific_role": "confirmatory_practical_equivalence_of_scaling_explanations",
+  "preregistered_before_outcomes": true,
+  "motivation": "C33 directional comparison was unresolved; C34 was frozen infrastructure-incomplete after repeated local-container resets. C35 repeats the same equivalence question on wholly fresh seeds using a GitHub-Actions-locked runner.",
+  "seeds": [2500,2501,2502,2503,2504,2505,2506,2507,2508,2509,2510,2511,2512,2513,2514,2515,2516,2517,2518,2519,2520,2521,2522,2523],
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible_seeds": 16,
+  "test_evaluated": false,
+  "fit_pool_intervention": {
+    "pool_512": {"samples":512,"calibration_counts":[128,256,384,512]},
+    "pool_1024": {"samples":1024,"calibration_counts":[128,256,384,512,768,1024]}
+  },
+  "matched_absolute_counts": [256,384,512],
+  "matched_fraction_pairs": [
+    {"fraction":0.50,"pool512_count":256,"pool1024_count":512},
+    {"fraction":0.75,"pool512_count":384,"pool1024_count":768},
+    {"fraction":1.00,"pool512_count":512,"pool1024_count":1024}
+  ],
+  "scaling_metric": "recovery=(NMSE_frozen-NMSE_self)/(NMSE_frozen-NMSE_full32)",
+  "primary_contrast": "Delta=E_abs-E_frac",
+  "bootstrap": {"resamples":100000,"rng_seed":20261335,"method":"paired eligible model-seed percentile bootstrap"},
+  "equivalence_margin": {"lower":-0.02,"upper":0.02,"units":"recovery fraction"},
+  "primary_gate": "CONFIRMATORY_EQUIVALENCE_PASS iff eligible>=16, all eligible recovery denominators positive, no held-out test evaluation, exact parameter budgets, and 95% paired-bootstrap CI(Delta) lies strictly inside [-0.02,+0.02]. No rescue seeds, margins, pools, counts, or bootstrap changes.",
+  "runner_git_blob_sha": "ca4708bd371a7f7a0bc053652ff592735d620c44",
+  "summary_git_blob_sha": "bca42c95a2ed83fbaebd0714bd6a91c9d460ee0a",
+  "execution": "GitHub Actions matrix, one job per pre-registered seed; summary only after all seed jobs finish",
+  "claim_boundary": "Only practical indistinguishability of the two pre-specified scaling heuristics in this SmallViT/digits intervention; not mechanism truth or universal scaling law."
+}
