@@ -1,0 +1,53 @@
+{
+  "experiment": "C1 freeze-schedule composition of adjacent Canaria candidates",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 32,
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "4-block residual MLP from core discovery reproduction",
+    "span": "first three residual blocks",
+    "splits": {"outer_test_size": 0.25, "outer_random_state": 1234, "inner_val_size": 0.2, "inner_random_state": 5678},
+    "test_evaluation": false
+  },
+  "seeds": [1310, 1311, 1312],
+  "candidate_grammar": {
+    "local_cluster": "3 x TinyRes(d=64,w=8)",
+    "local_params_each": 1024,
+    "cluster_total_params": 3072,
+    "single_composed": "TinyRes(d=64,w=24)",
+    "single_composed_params": 3072,
+    "budget_match": "exact"
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "teacher_lr": 0.002,
+    "teacher_weight_decay": 0.0001,
+    "candidate_updates": 600,
+    "candidate_batch": 128,
+    "candidate_lr": 0.008,
+    "candidate_weight_decay": 0.00001
+  },
+  "stage1": ["C1:a0->a1", "C2:a1->a2", "C3:a2->a3"],
+  "stage2_freeze_schedules": {
+    "all_frozen": [],
+    "middle_only": [1],
+    "edges_only": [0, 2],
+    "all_unfrozen": [0, 1, 2]
+  },
+  "stage2_target": "original frozen teacher a3",
+  "stage3": "freeze each adapted cluster and fit fresh TinyRes(64,24) on a0 -> cluster(a0); original a3 forbidden as Stage-3 target",
+  "direct_control": "fresh TinyRes(64,24) on original a0 -> a3",
+  "endpoints": [
+    "cluster validation NMSE versus original teacher",
+    "cluster replacement-network validation accuracy",
+    "recompiled single validation NMSE versus cluster teacher",
+    "recompiled single validation NMSE versus original teacher",
+    "recompiled replacement-network validation accuracy",
+    "direct-original single validation NMSE and accuracy",
+    "cross-seed freeze-schedule ordering"
+  ],
+  "stopping_rule": "Run exactly seeds 1310-1312. Do not add seeds or alter schedules after outcomes. Use results only to design a later confirmatory protocol.",
+  "interpretation_boundary": "Tests recursive Canaria-to-Canaria recompilation and freeze scheduling on one residual-MLP digits span. No test-set utility, universality, or public hierarchical-compiler claim."
+}
