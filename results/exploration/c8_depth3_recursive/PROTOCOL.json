@@ -1,0 +1,20 @@
+{
+  "experiment": "C8 exploratory depth-3 recursive hierarchy and error scaling",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_DEPTH3",
+  "issue": 45,
+  "source_confirmatory": "C7",
+  "fresh_seeds": [1390, 1391, 1392],
+  "testbed": {"dataset": "sklearn digits", "teacher": "8-block residual MLP d=64", "span": "all eight residual blocks", "test_evaluated": false},
+  "budget": {"level0": "8 x TinyRes(64,4) = 4096", "level1": "4 x TinyRes(64,8) = 4096", "level2": "2 x TinyRes(64,16) = 4096", "level3": "1 x TinyRes(64,32) = 4096", "exact_match_each_level": true},
+  "optimization": {"teacher_epochs": 60, "updates_each_stage": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128},
+  "paths": {
+    "strict": "pair-align at Level1, then recursive compile Level1->Level2->Level3 with no original 4-block or 8-block targets after Level1 pair compilation",
+    "realign_each_level": "same Level1; before each Level2 compile jointly align child Level1 units to original 4-block span, freeze, compile; before Level3 compile jointly align two Level2 units to original 8-block span, freeze, compile",
+    "single_level_recursive": "jointly align all 8 local candidates directly to original 8-block span, freeze, compile final from cluster outputs only",
+    "direct_original_single": "fit matched final directly to original 8-block span"
+  },
+  "fairness": {"same_final_initialization_within_seed": true, "same_final_fit_rng_within_seed": true, "no_test_evaluation": true},
+  "endpoints": ["depthwise hierarchy NMSE vs original", "final NMSE vs immediate recursive teacher", "final NMSE vs original", "final/direct ratio", "realigned-vs-strict delta", "realigned-vs-single-level delta", "validation accuracy"],
+  "interpretation_boundary": "Exploratory depth-3 only; not a general scaling law or unlimited recursion claim."
+}
