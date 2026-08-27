@@ -1,0 +1,43 @@
+{
+  "experiment": "C18 exploratory self-anchored compressed-interface transfer to SmallViT hierarchy",
+  "status": "EXPLORATORY_MIXED_MECHANISM_POSITIVE_UTILITY_FAILURE",
+  "issue": 57,
+  "protocol_commit": "03afa85e17a8736ef8ff57e9a0580b3e04ee47a3",
+  "runner_commit": "0c6ba2e13b44b0283c6569c9ffc9dcec49177c1f",
+  "runner_git_blob_sha": "c24e21703e19698b23511a9fc2714cffae213b86",
+  "seeds": [1490,1491,1492],
+  "eligible_seeds": [1490,1492],
+  "ineligible_seeds": [{"seed":1491,"teacher_val_acc":0.9444444444444444,"reason":"locked teacher eligibility < 0.95"}],
+  "test_evaluated": false,
+  "exact_parameter_match_on_eligible_seeds": true,
+  "eligible_seed_ordering": "full_32 < anchored_16 < anchored_8 < frozen < sketch_only_16",
+  "ordering_reproduced": "2/2 eligible seeds",
+  "anchored_16": {
+    "difference_final_nmse_vs_frozen": [-0.019930688336702196,-0.013509663131261451],
+    "ratio_final_nmse_over_full32": [1.0228711249230324,1.0213804499010746]
+  },
+  "anchored_8": {
+    "difference_final_nmse_vs_frozen": [-0.009895730943362602,-0.005182952227706483],
+    "ratio_final_nmse_over_full32": [1.0374754905380745,1.0332713618865377]
+  },
+  "naive_sketch_16": {
+    "difference_final_nmse_vs_frozen": [0.0437990514081279,0.06930754189441912],
+    "interpretation": "unanchored partial sketch worsened functional fidelity in both eligible seeds"
+  },
+  "absolute_utility_failure": {
+    "direct_original_single_validation_accuracy": [0.1,0.1],
+    "full_32_recursive_validation_accuracy": [0.1,0.1],
+    "interpretation": "the tested 4096-parameter token-wise grammar cannot preserve the full four-block SmallViT task function; therefore C18 is not evidence for useful full-span Transformer compression"
+  },
+  "execution_provenance": {
+    "committed_protocol_and_runner_locked_before_outcome": true,
+    "local_execution": "logic-equivalent standalone mirror of the committed runner because the connector and execution container do not share a filesystem",
+    "byte_identical_committed_runner_execution": false,
+    "use_for_confirmatory_inference": false
+  },
+  "interpretation": [
+    "The qualitative self-anchor ordering transferred to both eligible SmallViT teacher seeds: full hidden alignment was best, anchored half-interface next, anchored quarter-interface next, frozen next, and naive unanchored sketch worst.",
+    "This is a relative mechanism signal only. The full four-block token-wise replacement grammar collapsed task accuracy to chance even for the direct-original control.",
+    "Do not promote C18 to confirmatory cross-architecture interface-compression evidence. A better-utility SmallViT span/grammar is required for the next experiment."
+  ]
+}
