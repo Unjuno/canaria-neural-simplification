@@ -1,0 +1,34 @@
+{
+  "experiment": "C5 confirmatory cross-family recursive Canaria composition on SmallViT",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_CROSS_FAMILY",
+  "issue": 38,
+  "protocol_commit": "2bcb639f243d202757a202869266b46c7ac41649",
+  "runner_commit": "98e101b0bce5514a3c8f1796ac59a26a841179b5",
+  "runner_git_blob_sha": "720844fbf5db24142579dccf66b9237b70f61a32",
+  "attempted_seeds": [1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361],
+  "eligible_seeds": [1350, 1351, 1352, 1353, 1354, 1355, 1357, 1359, 1360],
+  "ineligible_seeds": [1356, 1358, 1361],
+  "eligible_count": 9,
+  "minimum_eligible_required": 8,
+  "budget": {"cluster_params": 4096, "single_params": 4096, "exact_match": true},
+  "teacher": {"mean_val_acc_eligible": 0.9613168724279836, "mean_test_acc_eligible": 0.9670781893004116},
+  "aggregate_conditions": {
+    "all_frozen_recursive": {"mean_val_nmse_vs_original": 0.24062407137086955, "mean_val_acc": 0.7794238683127572, "mean_test_acc": 0.8205761316872429},
+    "all_unfrozen_recursive": {"mean_val_nmse_vs_original": 0.218843830492211, "mean_val_acc": 0.8251028806584362, "mean_test_acc": 0.8559670781893005},
+    "direct_original_single": {"mean_val_nmse_vs_original": 0.20790634753468754, "mean_val_acc": 0.831275720164609, "mean_test_acc": 0.865432098765432}
+  },
+  "confirmatory_endpoints": {
+    "P1_joint_vs_frozen": {"mean_D": -0.021780240878658527, "bootstrap95": [-0.026997646446874756, -0.01698799172926123], "rule": "upper < 0", "pass": true, "all_eligible_negative": true},
+    "P2_recursive_over_direct": {"geometric_mean_ratio": 1.0558830523854552, "bootstrap95": [1.041550910218523, 1.0708104548423092], "rule": "upper < 1.20", "pass": true, "range": [1.01331230762121, 1.1031648814018382]},
+    "P3_validation_utility": {"mean_accuracy_difference": -0.006172839506172843, "bootstrap95": [-0.014814814814814824, 0.0032921810699588524], "rule": "lower > -0.03", "pass": true},
+    "test_safeguard": {"mean_accuracy_difference": -0.009465020576131682, "bootstrap95": [-0.019753086419753114, 0.0020576131687242765], "rule": "lower > -0.03", "pass": true}
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260828, "unit": "paired eligible seed", "method": "percentile 95%"},
+  "interpretation": [
+    "Joint adaptation improved recursive validation NMSE over an unadapted cluster in all 9 eligible fresh SmallViT seeds.",
+    "Recursive recompilation from adapted-cluster outputs stayed within the preregistered 1.20x functional-NMSE bound relative to direct original-teacher recompilation.",
+    "Validation and held-out test accuracy of recursive versus direct replacements passed the preregistered -0.03 guardrails.",
+    "Because both replacement conditions use the intentionally restricted token-wise grammar and remain below teacher utility, C5 confirms the recursive mechanism across architecture family, not high-utility Transformer compression."
+  ]
+}
