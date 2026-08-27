@@ -14,17 +14,23 @@ A historical tag, `v0.2.0-public-snapshot`, exists at commit `556dce21c7a5516a16
 
 Current hardening is tracked in Issue #13. The active gate is [`docs/ANNOUNCEMENT_READINESS.md`](docs/ANNOUNCEMENT_READINESS.md).
 
-## Strongest reviewed evidence
+## Evidence map
 
-| Evidence | Current interpretation |
+| Evidence line | Current interpretation |
 | --- | --- |
-| residual MLP, sklearn digits, seeds 1200–1207 | direct matched-budget replication; composed minimum validation-passing replacement budget was lower in 8/8 seeds |
-| SmallViT, sklearn digits | direct cross-architecture replication; retained with an explicit test-recording caveat |
+| residual MLP, sklearn digits, seeds 1200–1207 | reviewed direct matched-budget replication; composed minimum validation-passing replacement budget was lower in 8/8 seeds |
+| SmallViT, sklearn digits | reviewed direct cross-architecture replication; retained with an explicit test-recording caveat |
 | training-time consolidation/recontracting | bounded positive and negative evidence within the tested training regimes |
 | Phase 2 precision/quantization | reviewed Phase 2A–C evidence plus explicit correction history; later claims are more limited |
-| CPU materialization PoC | one small CPU systems example only; not general runtime/RAM/GPU evidence |
+| recursive Canaria composition | integrated C-series research line: joint boundary re-alignment, recursive recompilation, depth-2/depth-3 confirmation, and self-anchored compressed-interface controls; not automatically in the headline set |
+| systems/runtime | integrated S1–S7 evidence: learned streaming, memory-ceiling control, independent/native execution, and a 43,808-B explicit application-arena result for one locked prototype; not a physical-MCU claim |
 
-The reviewed claim baseline is [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md). Candidate research on open/draft branches is not part of the headline claim set merely because its own protocol passed.
+The reviewed baseline claim registry is [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md). Current research lines have their own strict maps:
+
+- [`docs/RECURSIVE_COMPOSITION.md`](docs/RECURSIVE_COMPOSITION.md)
+- [`docs/SYSTEMS_RUNTIME.md`](docs/SYSTEMS_RUNTIME.md)
+
+Passing research protocols do not enter the final announcement claim set until the release/readiness review explicitly promotes them.
 
 ## Representative reproduction
 
@@ -73,8 +79,11 @@ The active surface is deliberately small:
 
 - `docs/` — current interpretation, evidence summaries, readiness, corrections, and reference material;
 - `results/` — current machine-readable evidence and reproduction/correction records;
+- `results/recursive_composition/` — integrated C-series composition evidence;
+- `results/systems/` — integrated S1–S7 runtime evidence;
 - `scripts/reproduce/` — supported clean-clone reproduction paths;
 - `scripts/replication/` — direct replication runners;
+- `scripts/recursive_composition/` and `scripts/systems/` — current research-line runners retained for audit/reuse;
 - `scripts/phase2/` and `scripts/phases/training_time/` — active evidence-producing research code still referenced by reviewed results;
 - `src/canaria/` — reusable cleaned code;
 - `tools/` — integrity/readiness audits;
@@ -88,7 +97,9 @@ Current evidence does not establish:
 
 - universal subadditivity of mathematical/Kolmogorov complexity;
 - general LLM-scale validity;
-- general FLOP, RAM, VRAM, GPU, energy, wall-clock, or latency improvement;
+- arbitrary or lossless recursive composition;
+- arbitrary-subspace invariance or a universal minimum hidden-interface dimension;
+- general RAM/VRAM/GPU/energy improvement or a demonstrated physical 44-KiB device;
 - a universal quantization or repair advantage;
 - that every passing exploratory or draft experiment belongs in the final announcement claim set.
 
@@ -97,9 +108,10 @@ Current evidence does not establish:
 1. [`docs/ANNOUNCEMENT_READINESS.md`](docs/ANNOUNCEMENT_READINESS.md)
 2. [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md)
 3. [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md)
-4. [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md)
-5. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md)
-6. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
+4. [`docs/RECURSIVE_COMPOSITION.md`](docs/RECURSIVE_COMPOSITION.md)
+5. [`docs/SYSTEMS_RUNTIME.md`](docs/SYSTEMS_RUNTIME.md)
+6. [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md)
+7. [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
 
 ## License and citation
 
