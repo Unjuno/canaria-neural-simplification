@@ -1,6 +1,6 @@
 # Recursive Canaria composition
 
-Status: **active research line; C1–C16 completed, C17 confirmatory execution in progress**.
+Status: **C1–C17 completed; current recursive-composition line is at a release-review stopping point.**
 
 This document is the current navigation surface for experiments on composing already-learned Canaria candidates into larger replacements.
 
@@ -24,7 +24,7 @@ The important empirical failure mode is boundary/distribution mismatch. Strictly
 | C9 | residual MLP, depth-3 hierarchy | CONFIRMATORY PASS | repeated re-alignment at each hierarchy level controls depth-3 error; strict no-return recursion degrades strongly |
 | C13 | 32/64-dimensional self-anchored interface | CONFIRMATORY PASS | half-dimensional teacher correction plus Canaria self-anchor repairs the recursive boundary with bounded loss vs full hidden alignment |
 | C15 | fresh model seeds and fresh basis family | CONFIRMATORY PASS | C13 is not specific to one favorable 32D basis; worst tested basis remains bounded and improves frozen hierarchy |
-| C17 | 16/64-dimensional self-anchored interface | ACTIVE | protocol and runner are locked; formal bootstrap decision and durable result are not yet recorded |
+| C17 | 16/64-dimensional self-anchored interface | CONFIRMATORY PASS | quarter-dimensional teacher correction plus a 48D Canaria self-anchor repaired the boundary across fresh model seeds and fresh bases; worst-basis/full-64 geometric NMSE ratio 1.3415× [1.3024, 1.3820] |
 
 ## Exploratory chain
 
@@ -43,7 +43,7 @@ The important empirical failure mode is boundary/distribution mismatch. Strictly
 
 A communication-safe statement is:
 
-> In the tested residual-MLP and SmallViT-family settings, already learned Canaria replacements can be recursively composed by temporarily re-opening newly formed composition boundaries for joint alignment, freezing them again, and compiling a new replacement from the frozen Canaria cluster. Strict recursive chaining accumulates substantially more error. In the residual-MLP hierarchy, the boundary-repair signal can also be compressed: a 32/64-dimensional teacher correction plus a complementary Canaria self-anchor remained effective across fresh model seeds and fresh coordinate/random basis choices.
+> In the tested residual-MLP and SmallViT-family settings, already learned Canaria replacements can be recursively composed by temporarily re-opening newly formed composition boundaries for joint alignment, freezing them again, and compiling a new replacement from the frozen Canaria cluster. Strict recursive chaining accumulates substantially more error. In the residual-MLP hierarchy, the boundary-repair signal can also be compressed: 32/64 and 16/64-dimensional teacher corrections combined with a complementary Canaria self-anchor remained effective across fresh model seeds and prospectively fixed coordinate/random basis families.
 
 Do **not** convert this into claims of lossless composition, unlimited recursive depth, arbitrary-subspace invariance, universal minimum interface dimension, LLM-scale behavior, or teacher-free compilation.
 
