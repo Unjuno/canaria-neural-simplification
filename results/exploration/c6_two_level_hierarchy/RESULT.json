@@ -1,0 +1,38 @@
+{
+  "experiment": "C6 exploratory two-level hierarchical Canaria recompilation",
+  "status": "EXPLORATORY_POSITIVE",
+  "evidence_class": "EXPLORATORY",
+  "issue": 39,
+  "protocol_commit": "1457f485ce69e603389027068d25341ed97ef002",
+  "runner_commit": "b4e4da485983357461c04b37568b40b0f3cc9db1",
+  "runner_git_blob_sha": "ff010d43dc0d712ea4fdc8e0a516e0a9f4a22441",
+  "seeds": [1370, 1371, 1372],
+  "eligible_seeds": [1370, 1371, 1372],
+  "test_evaluated": false,
+  "budget": {"level0_total_params": 4096, "level1_total_params": 4096, "level2_params": 4096, "exact_match": true},
+  "aggregate": {
+    "mean_teacher_val_acc": 0.9814814925193787,
+    "mean_lower_ir_nmse_vs_original": 0.06427430854623682,
+    "mean_pre_level2_pair_nmse_vs_original": 0.06785775052043343,
+    "mean_post_level2_joint_pair_nmse_vs_original": 0.06287268477999124,
+    "mean_hierarchical_no_level2_adapt_final_nmse": 0.06986863595999761,
+    "mean_hierarchical_level2_joint_adapt_final_nmse": 0.06601924203296272,
+    "mean_flat_lower_ir_final_nmse": 0.06489142117439667,
+    "mean_direct_original_final_nmse": 0.03900000078915228,
+    "mean_level2_joint_improvement_nmse": -0.003849393927034886,
+    "mean_depth2_ratio_vs_flat_lower_ir": 1.0174898568433326,
+    "mean_depth2_ratio_vs_direct_original": 1.6921774206261155,
+    "mean_hierarchical_joint_val_acc": 0.9543209870656332,
+    "mean_flat_lower_ir_val_acc": 0.9580246806144714
+  },
+  "per_seed_depth2_ratio_vs_flat_lower_ir": [1.0070249953706096, 1.0185828213235828, 1.0268617538358058],
+  "per_seed_depth2_ratio_vs_direct_original": [1.697499010054472, 1.7242394736961217, 1.6547937781277529],
+  "per_seed_level2_joint_improvement_nmse": [-0.0059401086765426825, -0.0027121724628415, -0.0028959006417204752],
+  "interpretation": [
+    "Level-2 joint adaptation using only lower-level Canaria IR targets improved the final depth-two recursive single relative to no Level-2 adaptation in all three exploratory seeds.",
+    "The incremental depth-two cost relative to a flat single compiled directly from the same lower-level Canaria IR was small: 1.007x to 1.027x NMSE ratio.",
+    "Direct original-teacher compilation remained materially better, with depth-two/direct ratios around 1.65x to 1.72x.",
+    "The dominant error therefore appears to be inherited from the lower-level Canaria IR rather than created by the extra hierarchy level itself.",
+    "No held-out test data was evaluated; this result only motivates a fresh confirmatory depth-two cohort."
+  ]
+}
