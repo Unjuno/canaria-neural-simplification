@@ -1,0 +1,46 @@
+{
+  "name": "Canaria-Systems-S3-constrained-memory-feasibility-v1",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "parent_issue": 23,
+  "calibration_source": {
+    "experiment": "Systems S2",
+    "full_resident_peak_rss_delta_bytes": 112107520,
+    "streaming_peak_rss_delta_bytes": 1548288,
+    "note": "S2 is calibration only; S3 outcomes are newly generated under an explicit memory ceiling"
+  },
+  "source_payload": {
+    "description": "G7 seed-4300 learned Canaria compiler block chunks generated in S2",
+    "block0_sha256": "abb2ac470084721948a3521075f1a7f18d08ea61611a3f8a379f8b77d6719daa",
+    "block1_sha256": "7bd667e433e93d9b6e18484bf7d668c95dd5c317c139480a47c1edd20e3c35ca",
+    "logical_block_chunks": 4096,
+    "sequence": "alternate block0/block1",
+    "expected_checksum": 234473.0256500244
+  },
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "platform": "Linux x86_64",
+    "torch_threads": 1
+  },
+  "memory_limit": {
+    "mechanism": "resource.RLIMIT_AS",
+    "warmup_before_limit": "load/touch one learned block, release, gc, start RSS sampler, then record current VMS",
+    "extra_address_space_headroom_bytes": 67108864,
+    "rule": "limit = post-warmup baseline VMS + 64 MiB; do not change after outcomes"
+  },
+  "modes": [
+    "full_unconstrained_control",
+    "full_constrained",
+    "streaming_constrained"
+  ],
+  "pass_rule": {
+    "full_unconstrained_control": "must complete all 4096 chunks and match expected checksum",
+    "streaming_constrained": "must complete all 4096 chunks and match expected checksum under unchanged limit",
+    "full_constrained": "must fail from allocation/address-space exhaustion before retaining all 4096 chunks",
+    "failure_validation": "arbitrary crashes or unrelated errors do not count as expected memory failure"
+  },
+  "interpretation_boundary": "Constrained Linux process feasibility test for a learned payload harness only. Not a specific MCU/mobile/SBC deployment and not scientific composition evidence."
+}
