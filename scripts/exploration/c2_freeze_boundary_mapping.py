@@ -65,8 +65,8 @@ class Cluster(nn.Module):
         self.modules3 = nn.ModuleList(modules)
 
     def forward(self, x):
-        for module in self.modules3:
-            x = module(x)
+        for m in self.modules3:
+            x = m(x)
         return x
 
 
@@ -77,9 +77,12 @@ class TripleReplacedNet(nn.Module):
         self.block3 = copy.deepcopy(teacher.blocks[3])
         self.head = copy.deepcopy(teacher.head)
         self.replacement = replacement
-        for module in (self.stem, self.block3, self.head):
-            for p in module.parameters():
-                p.requires_grad_(False)
+        for p in self.stem.parameters():
+            p.requires_grad_(False)
+        for p in self.block3.parameters():
+            p.requires_grad_(False)
+        for p in self.head.parameters():
+            p.requires_grad_(False)
 
     def forward(self, x):
         h = F.gelu(self.stem(x))
@@ -101,7 +104,6 @@ def datasets():
         random_state=5678,
         stratify=y[train_idx],
     )
-    # C2 deliberately does not materialize held-out test features or labels.
     _ = test_idx
     return (
         torch.tensor(X[train_idx]),
@@ -177,22 +179,10 @@ def evaluate_cluster(cluster, teacher, Xv, yv, val_in, val_target, teacher_denom
     }
 
 
-def evaluate_single(
-    single,
-    teacher,
-    Xv,
-    yv,
-    val_in,
-    val_cluster_target,
-    val_original_target,
-    teacher_denom,
-):
+def evaluate_single(single, teacher, Xv, yv, val_in, val_cluster_target, val_original_target, teacher_denom):
     with torch.no_grad():
         out = single(val_in)
-    cluster_denom = (
-        float(((val_cluster_target - val_cluster_target.mean(0, keepdim=True)) ** 2).mean())
-        + 1e-12
-    )
+    cluster_denom = float(((val_cluster_target - val_cluster_target.mean(0, keepdim=True)) ** 2).mean()) + 1e-12
     net = TripleReplacedNet(teacher, copy.deepcopy(single))
     return {
         "nmse_vs_cluster_teacher": nmse(out, val_cluster_target, cluster_denom),
@@ -227,7 +217,6 @@ def run(seed):
         "edges_only": [0, 2],
         "all_unfrozen": [0, 1, 2],
     }
-
     conditions = {}
     stage2_seed = seed + 120000
     recompile_init_seed = seed + 130000
@@ -239,25 +228,14 @@ def run(seed):
         if trainable:
             fit_map(cluster, a0t, a3t, 600, stage2_seed)
         set_trainable(cluster, [])
-
-        cluster_metrics = evaluate_cluster(
-            cluster, teacher, Xv, yv, a0v, a3v, teacher_denom
-        )
+        cluster_metrics = evaluate_cluster(cluster, teacher, Xv, yv, a0v, a3v, teacher_denom)
         with torch.no_grad():
             cluster_train_target = cluster(a0t).detach()
             cluster_val_target = cluster(a0v).detach()
-
         single = TinyRes(64, 24, recompile_init_seed)
         single = fit_map(single, a0t, cluster_train_target, 600, recompile_fit_seed)
         single_metrics = evaluate_single(
-            single,
-            teacher,
-            Xv,
-            yv,
-            a0v,
-            cluster_val_target,
-            a3v,
-            teacher_denom,
+            single, teacher, Xv, yv, a0v, cluster_val_target, a3v, teacher_denom
         )
         conditions[name] = {
             "trainable_candidate_indices_stage2": trainable,
@@ -274,7 +252,6 @@ def run(seed):
         "nmse_vs_original_teacher": nmse(direct_out, a3v, teacher_denom),
         "replacement_val_acc": accuracy(direct_net, Xv, yv),
     }
-
     for rec in conditions.values():
         rec["recompiled_single"]["excess_original_nmse_vs_direct"] = (
             rec["recompiled_single"]["nmse_vs_original_teacher"]
