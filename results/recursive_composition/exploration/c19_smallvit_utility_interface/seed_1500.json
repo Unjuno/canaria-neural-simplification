@@ -1,0 +1,18 @@
+{
+  "seed": 1500,
+  "status": "EXPLORATORY_OUTCOME",
+  "test_evaluated": false,
+  "teacher_val_acc": 0.9592592592592593,
+  "eligible": true,
+  "exact_parameter_match": true,
+  "basis": {"rng_seed": 20261030, "nested_dimensions": [8,16]},
+  "conditions": {
+    "frozen": {"cluster_nmse_vs_original": 0.229520, "cluster_replacement_val_acc": 0.8444444444444444, "final_nmse_vs_cluster": 0.014081, "final_nmse_vs_original": 0.238849, "final_replacement_val_acc": 0.8592592592592593, "difference_final_vs_frozen": 0.0, "ratio_final_over_full32": 1.093585, "ratio_final_over_direct": 1.131843},
+    "sketch_only_16": {"cluster_nmse_vs_original": 0.329147, "cluster_replacement_val_acc": 0.8666666666666667, "final_nmse_vs_cluster": 0.043142, "final_nmse_vs_original": 0.348753, "final_replacement_val_acc": 0.8592592592592593, "difference_final_vs_frozen": 0.109904, "ratio_final_over_full32": 1.596785, "ratio_final_over_direct": 1.652647},
+    "anchored_8": {"cluster_nmse_vs_original": 0.221411, "cluster_replacement_val_acc": 0.8666666666666667, "final_nmse_vs_cluster": 0.018500, "final_nmse_vs_original": 0.234935, "final_replacement_val_acc": 0.8740740740740741, "difference_final_vs_frozen": -0.003914, "ratio_final_over_full32": 1.075664, "ratio_final_over_direct": 1.113295},
+    "anchored_16": {"cluster_nmse_vs_original": 0.207571, "cluster_replacement_val_acc": 0.8777777777777778, "final_nmse_vs_cluster": 0.026995, "final_nmse_vs_original": 0.227498, "final_replacement_val_acc": 0.8888888888888888, "difference_final_vs_frozen": -0.011351, "ratio_final_over_full32": 1.041612, "ratio_final_over_direct": 1.078051},
+    "full_32": {"cluster_nmse_vs_original": 0.189227, "cluster_replacement_val_acc": 0.8777777777777778, "final_nmse_vs_cluster": 0.040835, "final_nmse_vs_original": 0.218409, "final_replacement_val_acc": 0.8814814814814815, "difference_final_vs_frozen": -0.020440, "ratio_final_over_full32": 1.0, "ratio_final_over_direct": 1.034984}
+  },
+  "direct_original_single": {"final_nmse_vs_original": 0.211027, "replacement_val_acc": 0.8481481481481481},
+  "ordering_final_nmse_best_to_worst": ["full_32","anchored_16","anchored_8","frozen","sketch_only_16"]
+}
