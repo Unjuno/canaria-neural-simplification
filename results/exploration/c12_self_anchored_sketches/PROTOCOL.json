@@ -1,0 +1,18 @@
+{
+  "experiment": "C12 exploratory self-anchored compressed interface sketches",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY",
+  "issue": 49,
+  "fresh_seeds": [1430, 1431, 1432],
+  "test_evaluated": false,
+  "testbed": "C11/C10 residual-MLP depth-2 recursive hierarchy",
+  "budget": {"params_each_level": 4096, "exact_match": true},
+  "basis": {"rng_seed": 20260831, "nested_dimensions": [8, 16, 32, 64]},
+  "conditions": ["frozen", "sketch_only_16", "sketch_only_32", "anchored_8", "anchored_16", "anchored_32", "full_64"],
+  "anchored_target": "baseline + ((original-baseline) @ P_k) @ P_k.T",
+  "optimization": {"updates": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128, "same_minibatch_rng_across_conditions": true},
+  "final_recursive_compile": "freeze hierarchy and fit matched TinyRes(64,32) from hierarchy outputs only; original hidden target forbidden as final fit target",
+  "direct_control": "matched TinyRes(64,32) directly fit to original a0->a4",
+  "endpoints": ["hierarchy NMSE", "final NMSE vs hierarchy", "final NMSE vs original", "final/direct ratio", "final/full64 ratio", "validation accuracy", "anchored vs sketch-only at matched dimensions"],
+  "boundary": "Exploratory only; compressed teacher supervision with full-dimensional Canaria self-anchor, not a universal low-information interface code."
+}
