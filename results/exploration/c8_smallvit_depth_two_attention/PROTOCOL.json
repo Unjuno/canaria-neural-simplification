@@ -1,0 +1,32 @@
+{
+  "experiment": "C8 exploratory cross-family depth-two hierarchy with attention-aware Canaria grammar",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_CROSS_FAMILY_DEPTH_TWO",
+  "issue": 41,
+  "source_confirmatory": ["C5", "C7"],
+  "fresh_seeds": [1390,1391,1392],
+  "eligibility": {"teacher_validation_accuracy_min": 0.95, "ineligible_action": "retain_and_do_not_replace"},
+  "testbed": {"dataset": "sklearn digits images", "teacher": "SmallViT depth=4 d=32 heads=4 mlp=64", "teacher_epochs": 45, "span": "all four transformer blocks", "split_random_states": [24680,13579], "test_evaluated": false},
+  "grammar": {
+    "candidate": "TinyAttnRes(d,w) = x + Wo(softmax(QK^T/sqrt(w))V), all projections bias-free",
+    "params_formula": "4*d*w",
+    "level0": "4 x TinyAttnRes(32,16)",
+    "level0_total_params": 8192,
+    "level1": "2 x TinyAttnRes(32,32)",
+    "level1_total_params": 8192,
+    "level2": "TinyAttnRes(32,64)",
+    "level2_params": 8192,
+    "exact_aggregate_parameter_match": true
+  },
+  "optimization": {"updates_per_fit_or_adaptation": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 64},
+  "information_isolation": {"lower_pair_clusters": "may use original pair-span targets during lower-IR construction", "level1_pair_units": "fit only from frozen lower-pair outputs", "lower_ir_full_teacher": "pair34(pair12(a0))", "after_lower_ir_definition": "original a4 forbidden as target for all hierarchical fits/adaptations; direct-original reference only"},
+  "conditions": {
+    "hierarchical_no_level2_adapt": "fit final width64 only from independently recompiled C12+C34 outputs",
+    "hierarchical_level2_joint_adapt": "jointly adapt C12+C34 to lower IR only, freeze, then fit final width64 only from adapted pair outputs",
+    "flat_lower_ir_single": "fit final width64 directly to lower IR",
+    "direct_original_single": "fit matched width64 directly to original a4 reference"
+  },
+  "final_single_fairness": "identical initialization and minibatch RNG across final conditions within seed",
+  "endpoints": ["lower IR NMSE vs original", "pre/post Level-2 pair NMSE vs lower IR and original", "final NMSE vs immediate Canaria teacher and original", "replacement validation accuracy", "joint-vs-no-adapt difference", "depth-two/flat-lower-IR ratio", "depth-two/direct-original ratio", "exact budget verification"],
+  "claim_boundary": "Exploratory cross-family depth-two evidence only; no held-out test, no arbitrary-depth, no lossless, no large-model claim."
+}
