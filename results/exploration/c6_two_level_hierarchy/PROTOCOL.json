@@ -1,0 +1,68 @@
+{
+  "experiment": "C6 exploratory two-level hierarchical Canaria recompilation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY",
+  "issue": 39,
+  "source_confirmatory": ["C3", "C5"],
+  "fresh_seeds": [1370, 1371, 1372],
+  "eligibility": {"teacher_validation_accuracy_min": 0.95, "ineligible_action": "retain_and_do_not_replace"},
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "4-block residual MLP, d=64, block hidden=128",
+    "span": "all four residual blocks",
+    "outer_test_size": 0.25,
+    "outer_random_state": 1234,
+    "inner_val_size": 0.2,
+    "inner_random_state": 5678,
+    "test_evaluated": false
+  },
+  "grammar": {
+    "local": "4 x TinyRes(64,8)",
+    "local_params_each": 1024,
+    "level0_total_params": 4096,
+    "level1": "2 x TinyRes(64,16)",
+    "level1_params_each": 2048,
+    "level1_total_params": 4096,
+    "level2": "TinyRes(64,32)",
+    "level2_params": 4096,
+    "exact_aggregate_parameter_match": true
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "teacher_lr": 0.002,
+    "teacher_weight_decay": 0.0001,
+    "teacher_batch": 64,
+    "canaria_updates": 600,
+    "canaria_lr": 0.008,
+    "canaria_weight_decay": 0.00001,
+    "canaria_batch": 128
+  },
+  "construction": {
+    "level0_local_targets": ["a0->a1", "a1->a2", "a2->a3", "a3->a4"],
+    "pair12_joint_adaptation": "[C1,C2] on a0->a2, then freeze",
+    "pair34_joint_adaptation": "[C3,C4] on a2->a4, then freeze",
+    "level1_C12": "a0 -> frozen_pair12(a0) only",
+    "level1_C34": "a2 -> frozen_pair34(a2) only",
+    "lower_ir_full_teacher": "frozen_pair34(frozen_pair12(a0))",
+    "original_a4_forbidden_after_lower_ir_definition": true
+  },
+  "conditions": {
+    "hierarchical_no_level2_adapt": "freeze independently recompiled C12,C34 and fit C1234 on C34(C12(a0)) only",
+    "hierarchical_level2_joint_adapt": "jointly adapt [C12,C34] to lower_ir_full_teacher only, freeze, then fit C1234 on adapted pair outputs only",
+    "flat_lower_ir_single": "fit C1234 directly to lower_ir_full_teacher",
+    "direct_original_single": "fit matched C1234 directly to original a0->a4 reference"
+  },
+  "final_single_fairness": "all final C1234 conditions use identical initialization seed and minibatch RNG seed within a teacher seed",
+  "endpoints": [
+    "lower IR full teacher validation NMSE vs original a4",
+    "C12 and C34 NMSE vs immediate frozen pair-cluster teachers",
+    "pre-level2 pair composition NMSE vs lower IR and original",
+    "post-level2 joint-adapted pair composition NMSE vs lower IR and original",
+    "final C1234 NMSE vs immediate Canaria teacher",
+    "final C1234 NMSE vs original a4",
+    "replacement-network validation accuracy",
+    "hierarchical/flat-lower-IR and hierarchical/direct-original NMSE ratios",
+    "schedule ordering across eligible seeds"
+  ],
+  "claim_boundary": "Exploratory depth-two evidence only. No held-out test, no arbitrary-depth claim, no lossless claim, no architecture universality claim."
+}
