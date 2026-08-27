@@ -1,0 +1,33 @@
+{
+  "format": "canaria-s6-static-arena-v1",
+  "source_tensor_content_sha256": {
+    "compiler_block0.pt": "78fd7f52ef6f019f6ede72c73b4928b0482d61e7f7914de532ebc084779fce56",
+    "compiler_block1.pt": "d70098af827694a42e7bb31958cf9959ec3aceef0d432941960c15d0cb5091c8"
+  },
+  "source_block_float_sums": {
+    "compiler_block0.pt": 57.7515073120594,
+    "compiler_block1.pt": 56.73727474361658
+  },
+  "packing_order": [
+    "n1.weight", "n1.bias", "attn.in_proj_weight", "attn.in_proj_bias",
+    "attn.out_proj.weight", "attn.out_proj.bias", "n2.weight", "n2.bias",
+    "mlp.0.weight", "mlp.0.bias", "mlp.2.weight", "mlp.2.bias"
+  ],
+  "block_float_count": 3696,
+  "block_bytes": 14784,
+  "input_shape": [2, 48, 24],
+  "input_bytes": 9216,
+  "reference_bytes": 9216,
+  "reference_sum": 333.3709716796875,
+  "raw_sha256": {
+    "block0.bin": "4102665dc12f93456380da69b15a9b25095ee82c8c8cca30a4d6dc698656996a",
+    "block1.bin": "d5b8d7d4a90b503a82913c003adcc3bec876ef99307d9cf391117144e0b4c895",
+    "input.bin": "9645ec44e670c01da2be089da499ffeb1c284896e0f8a688ca66b26a4c109d7a",
+    "reference.bin": "2cd05a9b3aceca260fe72fe57516964ee1949f61f590fe66130c58a745674d48"
+  },
+  "export_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "torch": "2.10.0+cpu"
+  }
+}
