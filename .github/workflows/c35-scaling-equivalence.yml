@@ -1,0 +1,63 @@
+name: c35-scaling-equivalence
+
+on:
+  push:
+    branches:
+      - research/c35-scaling-equivalence-actions
+    paths:
+      - 'scripts/recursive_composition/confirmatory/c35_scaling_equivalence.py'
+      - 'scripts/recursive_composition/confirmatory/summarize_c35.py'
+      - 'results/recursive_composition/confirmatory/c35_scaling_equivalence/PROTOCOL.json'
+      - '.github/workflows/c35-scaling-equivalence.yml'
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 24
+      matrix:
+        seed: [2500,2501,2502,2503,2504,2505,2506,2507,2508,2509,2510,2511,2512,2513,2514,2515,2516,2517,2518,2519,2520,2521,2522,2523]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: python -m pip install numpy==2.3.5 torch==2.10.0 scikit-learn==1.8.0
+      - name: Run locked C35 seed
+        run: |
+          mkdir -p /tmp/c35
+          python scripts/recursive_composition/confirmatory/c35_scaling_equivalence.py --seed ${{ matrix.seed }} --out /tmp/c35/seed_${{ matrix.seed }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c35-seed-${{ matrix.seed }}
+          path: /tmp/c35/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+
+  summarize:
+    needs: seed
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install summary dependency
+        run: python -m pip install numpy==2.3.5
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c35-seed-*
+          path: /tmp/c35
+          merge-multiple: true
+      - name: Verify all 24 outcomes exist
+        run: |
+          test "$(find /tmp/c35 -maxdepth 1 -name 'seed_*.json' | wc -l)" -eq 24
+      - name: Summarize locked C35
+        run: python scripts/recursive_composition/confirmatory/summarize_c35.py --indir /tmp/c35 --out /tmp/c35/C35_SUMMARY.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c35-summary
+          path: /tmp/c35
+          if-no-files-found: error
