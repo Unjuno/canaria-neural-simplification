@@ -193,7 +193,6 @@ def run(seed):
         fit_map(TinyRes(64, 8, seed + 101004), a3t, a4t, 600, seed + 102004),
     ]
 
-    # Level 1: jointly adapt each local pair against its original two-block span.
     pair12 = Chain([copy.deepcopy(locals4[0]), copy.deepcopy(locals4[1])])
     set_all_trainable(pair12, True)
     fit_map(pair12, a0t, a2t, 600, seed + 110001)
@@ -204,7 +203,6 @@ def run(seed):
     fit_map(pair34, a2t, a4t, 600, seed + 110002)
     set_all_trainable(pair34, False)
 
-    # Recursive Level-1 compilation: only pair-cluster outputs are fit targets.
     with torch.no_grad():
         pair12_t = pair12(a0t).detach()
         pair34_t = pair34(a2t).detach()
@@ -230,7 +228,6 @@ def run(seed):
     final_fit_seed = seed + 140000
     conditions = {}
 
-    # A: strict depth-2 recursion: no return to original full-span target at Level 2.
     hierarchy_frozen = copy.deepcopy(base_hierarchy)
     final_hf, m_hf = final_from_recursive_teacher(
         seed, hierarchy_frozen, a0t, a0v, a4v, denom_full, final_init_seed, final_fit_seed
@@ -238,7 +235,6 @@ def run(seed):
     m_hf["replacement_val_acc"] = accuracy(FullSpanReplacedNet(teacher, copy.deepcopy(final_hf)), Xv, yv)
     conditions["hierarchical_frozen"] = m_hf
 
-    # B: adapt recursively generated C12+C34 jointly to original full span, then freeze and recurse.
     hierarchy_joint = copy.deepcopy(base_hierarchy)
     set_all_trainable(hierarchy_joint, True)
     fit_map(hierarchy_joint, a0t, a4t, 600, seed + 150000)
@@ -249,7 +245,6 @@ def run(seed):
     m_hj["replacement_val_acc"] = accuracy(FullSpanReplacedNet(teacher, copy.deepcopy(final_hj)), Xv, yv)
     conditions["hierarchical_joint"] = m_hj
 
-    # C: one-level recursive baseline from all four separately fitted local candidates.
     single_level_cluster = Chain([copy.deepcopy(m) for m in locals4])
     set_all_trainable(single_level_cluster, True)
     fit_map(single_level_cluster, a0t, a4t, 600, seed + 160000)
@@ -260,7 +255,6 @@ def run(seed):
     m_sl["replacement_val_acc"] = accuracy(FullSpanReplacedNet(teacher, copy.deepcopy(final_sl)), Xv, yv)
     conditions["single_level_recursive"] = m_sl
 
-    # D: matched direct-original control.
     direct = TinyRes(64, 32, final_init_seed)
     direct = fit_map(direct, a0t, a4t, 600, final_fit_seed)
     with torch.no_grad():
