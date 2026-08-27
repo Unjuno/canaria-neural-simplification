@@ -1,0 +1,28 @@
+{
+  "stage": "C25",
+  "status": "CONFIRMATORY_PASS",
+  "scientific_role": "confirmatory",
+  "execution": "local_container",
+  "environment": {"python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","scikit_learn":"1.8.0"},
+  "runner_git_blob_sha": "1a75b138a40415ff401e12591bf38735f3941498",
+  "c4_dependency_git_blob_sha": "9cb59691b1f310d563c7e03cd49f39ee40d02e70",
+  "seeds": [1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1591],
+  "eligible_seeds": [1581,1582,1584,1585,1586,1587,1588,1589,1590,1591],
+  "ineligible_seeds": [1580,1583],
+  "eligibility_count": 10,
+  "minimum_required_eligible": 8,
+  "bootstrap": {"resamples":100000,"rng_seed":20261330,"method":"paired model-seed percentile bootstrap"},
+  "endpoints": {
+    "P1": {"estimate_mean_D_frozen":-0.00752443893073299,"ci95":[-0.009163308789704113,-0.00594842595911634],"pass":true},
+    "P2": {"estimate_mean_D_sketch":-0.24044139748301724,"ci95":[-0.25941230210455324,-0.2217887304478404],"pass":true},
+    "P3": {"estimate_mean_D_generic":-0.38228028040983986,"ci95":[-0.4081922792990159,-0.3556204842881469],"pass":true},
+    "P4": {"estimate_geomean_R_full":1.0708985539203202,"ci95":[1.0564929564070882,1.0836193628059572],"pass":true},
+    "validation_safeguard": {"estimate_mean_difference":-0.004444444444444462,"ci95":[-0.017407407407407427,0.009259259259259234],"pass":true},
+    "test_safeguard": {"estimate_mean_difference":-0.011111111111111127,"ci95":[-0.023703703703703706,-3.3306690738754695e-17],"pass":true}
+  },
+  "all_locked_gates_pass": true,
+  "all_eligible_self_better_than_frozen": true,
+  "all_eligible_self_better_than_sketch": true,
+  "all_eligible_self_better_than_best_generic": true,
+  "claim_boundary": "Scoped SmallViT central-two-block anchor-identity mechanism only; not mathematical necessity, arbitrary architectures, full-model Transformer compression, LLM behavior, or teacher-free composition."
+}
