@@ -1,0 +1,33 @@
+{
+  "experiment": "C8 exploratory cross-family depth-two hierarchy with attention-aware Canaria grammar",
+  "status": "EXPLORATORY_GRAMMAR_LIMITATION",
+  "evidence_class": "EXPLORATORY_CROSS_FAMILY_DEPTH_TWO",
+  "issue": 41,
+  "protocol_commit": "2819513f46ef20962f2b66024abe25c6501eb728",
+  "runner_commit": "6f959ab2bf9c6ac3b780f42ea170efd8c309abee",
+  "seeds": [1390,1391,1392],
+  "eligible_seeds": [1390,1391,1392],
+  "test_evaluated": false,
+  "budget": {"level0_total_params": 8192, "level1_total_params": 8192, "level2_params": 8192, "exact_match": true},
+  "aggregate": {
+    "mean_lower_ir_nmse_vs_original": 0.44919071588690135,
+    "mean_hierarchical_no_level2_adapt_nmse": 0.7043435841952039,
+    "mean_hierarchical_level2_joint_adapt_nmse": 0.671557434419582,
+    "mean_flat_lower_ir_nmse": 0.659447401329146,
+    "mean_direct_original_nmse": 0.5776637283646485,
+    "mean_joint_minus_no_adapt_nmse": -0.03278614977562185,
+    "mean_depth2_ratio_vs_flat_lower_ir": 1.0202228364597317,
+    "mean_depth2_ratio_vs_direct_original": 1.162905233005958,
+    "mean_joint_val_acc": 0.24197530864197528,
+    "mean_flat_val_acc": 0.2493827160493827,
+    "mean_direct_val_acc": 0.3333333333333333
+  },
+  "per_seed_depth2_ratio_vs_flat": [1.0263973458530733,0.987980585235158,1.046290578290964],
+  "per_seed_joint_minus_no_adapt": [-0.04516253560189876,-0.019635897213838516,-0.03356001651112828],
+  "interpretation": [
+    "Level-2 joint adaptation improved over no Level-2 adaptation in all three exploratory seeds, so the relative hierarchy mechanism remained visible.",
+    "However, the attention-only candidate grammar did not preserve the four-block SmallViT teacher sufficiently: lower-IR NMSE averaged about 0.449 and replacement validation accuracy was poor.",
+    "Therefore C8 does not support a cross-family depth-two claim. The limiting factor is the candidate grammar, not evidence of uncontrolled extra hierarchy cost.",
+    "A richer exact-matched grammar containing both token mixing and feed-forward nonlinearity should be explored before any fresh confirmatory cross-family depth-two test."
+  ]
+}
