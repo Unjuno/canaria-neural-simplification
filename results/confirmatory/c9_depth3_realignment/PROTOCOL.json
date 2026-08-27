@@ -1,0 +1,21 @@
+{
+  "experiment": "C9 confirmatory depth-3 hierarchy with repeated boundary re-alignment",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_DEPTH3",
+  "issue": 46,
+  "source_exploration": "C8",
+  "fresh_seeds": [1400,1401,1402,1403,1404,1405,1406,1407],
+  "testbed": {"dataset":"sklearn digits","teacher":"8-block residual MLP d=64","span":"all eight residual blocks","split_random_states":[1234,5678]},
+  "budget": {"level0":"8 x TinyRes(64,4)=4096","level1":"4 x TinyRes(64,8)=4096","level2":"2 x TinyRes(64,16)=4096","level3":"TinyRes(64,32)=4096","exact_match_each_level":true},
+  "optimization": {"teacher_epochs":60,"updates_each_stage":600,"optimizer":"AdamW","lr":0.008,"weight_decay":0.00001,"batch":128},
+  "conditions": ["strict_depth3","realign_each_level","single_level_recursive","direct_original_single"],
+  "P1": {"statistic":"mean D_strict = NMSE(realign_each_level)-NMSE(strict_depth3)","pass":"paired bootstrap95 upper < 0"},
+  "P2": {"statistic":"geometric mean R = NMSE(realign_each_level)/NMSE(direct_original_single)","pass":"paired bootstrap95 upper < 1.40"},
+  "P3": {"statistic":"mean D_single = NMSE(realign_each_level)-NMSE(single_level_recursive)","pass":"paired bootstrap95 upper < 0"},
+  "P4": {"statistic":"mean D_level2 = NMSE(realign Level2 full chain)-NMSE(strict Level2 full chain)","pass":"paired bootstrap95 upper < 0"},
+  "validation_guardrail": {"statistic":"realign_each_level validation accuracy - direct validation accuracy","pass":"paired bootstrap95 lower > -0.02"},
+  "test_safeguard": {"materialization":"after all locked fitting and validation metrics for each seed","statistic":"realign_each_level test accuracy - direct test accuracy","pass":"paired bootstrap95 lower > -0.02"},
+  "bootstrap": {"resamples":100000,"rng_seed":20260830,"method":"paired seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff P1-P4 and both utility safeguards pass; all seeds retained; no rescue tuning",
+  "claim_boundary_if_pass": "Scoped depth-3 evidence in this 8-block residual-MLP testbed; not unlimited recursion, losslessness, universality, or LLM-scale evidence."
+}
