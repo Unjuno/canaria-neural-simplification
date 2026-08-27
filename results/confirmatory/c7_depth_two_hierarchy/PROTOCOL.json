@@ -1,0 +1,27 @@
+{
+  "experiment": "C7 confirmatory depth-two hierarchical Canaria recompilation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_DEPTH_TWO",
+  "issue": 40,
+  "source_exploration": "C6",
+  "attempted_seeds": [1380,1381,1382,1383,1384,1385,1386,1387,1388,1389],
+  "eligibility": {"teacher_validation_accuracy_min": 0.95, "minimum_eligible_seeds": 8, "if_fewer": "STOP_INSUFFICIENT_ELIGIBLE_NO_RESCUE"},
+  "testbed": {"dataset": "sklearn digits", "teacher": "4-block residual MLP d=64 hidden=128", "span": "all four residual blocks", "split_random_states": [1234,5678], "teacher_epochs": 60},
+  "grammar": {"level0": "4 x TinyRes(64,8)", "level0_total_params": 4096, "level1": "2 x TinyRes(64,16)", "level1_total_params": 4096, "level2": "TinyRes(64,32)", "level2_params": 4096, "exact_aggregate_parameter_match": true},
+  "optimization": {"updates_per_canaria_fit_or_adaptation": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128},
+  "information_isolation": {"lower_pair_clusters": "may use original pair-span targets during lower-IR construction", "level1_pair_units": "fit only from frozen lower-pair outputs", "lower_ir_full_teacher": "pair34(pair12(a0))", "after_lower_ir_definition": "original a4 forbidden as target for hierarchical fits/adaptations; allowed only for validation measurement and direct-original reference"},
+  "conditions": {
+    "hierarchical_no_level2_adapt": "final C1234 fitted only from independently recompiled C12+C34 outputs",
+    "hierarchical_level2_joint_adapt": "jointly adapt C12+C34 to lower IR only, freeze, then fit final C1234 only from adapted pair outputs",
+    "flat_lower_ir_single": "fit final C1234 directly from lower IR",
+    "direct_original_single": "fit matched final C1234 directly from original teacher; reference only"
+  },
+  "final_single_fairness": "identical final initialization and minibatch RNG across final conditions within seed",
+  "P1": {"statistic": "mean paired D = joint-depth-two original-NMSE - no-level2-adapt original-NMSE", "pass": "paired eligible-seed bootstrap95 upper < 0"},
+  "P2": {"statistic": "geometric mean R = joint-depth-two original-NMSE / flat-lower-IR original-NMSE", "pass": "paired eligible-seed bootstrap95 upper < 1.10"},
+  "P3": {"statistic": "joint-depth-two validation accuracy - flat-lower-IR validation accuracy", "pass": "paired eligible-seed bootstrap95 lower > -0.02"},
+  "test_safeguard": {"evaluation": "materialize/evaluate only after all fitting and validation metrics for seed", "statistic": "joint-depth-two test accuracy - flat-lower-IR test accuracy", "pass": "paired eligible-seed bootstrap95 lower > -0.02"},
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260828, "method": "paired eligible-seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff eligible_count>=8 and P1/P2/P3/test safeguard all pass; otherwise exact fail/stop without rescue",
+  "claim_boundary_if_pass": "Scoped residual-MLP depth-two evidence only; not arbitrary-depth, lossless, cross-family depth-two, or LLM-scale."
+}
