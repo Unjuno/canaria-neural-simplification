@@ -2,7 +2,7 @@
 
 `results/` contains the **current machine-readable evidence surface**. The older v10–v25 research sequence is preserved under `../archives/research-history/results/` and is no longer first-class current navigation.
 
-## Reviewed evidence
+## Reviewed baseline evidence
 
 - `core_discovery_digits/`
   - residual-MLP direct component-wise/composed replication;
@@ -17,8 +17,22 @@
   - reviewed precision/quantization evidence;
   - **read `CORRECTION_STATUS.json` and `INVALIDATED_HISTORY.md` before using later Phase 2 material**.
 - `reproduction/`
-  - portability/reproduction and bounded systems reports;
+  - portability/reproduction reports;
   - reproduction does not add new confirmatory scientific seeds.
+
+## Integrated current research lines
+
+These are organized for review and reuse but are **not automatically part of the final announcement claim set**.
+
+- `recursive_composition/`
+  - C-series work on composing already-learned Canaria candidates;
+  - confirmatory stages include C3, C5, C7, C9, C13 and C15;
+  - C17 is active until its RESULT/audit record is added;
+  - read `../docs/RECURSIVE_COMPOSITION.md` before quoting results.
+- `systems/`
+  - S1–S7 streaming/native-runtime evidence;
+  - includes the constrained-memory and fixed-arena experiments;
+  - read `../docs/SYSTEMS_RUNTIME.md` for the strict systems claim boundary.
 
 ## Status rule
 
@@ -26,6 +40,7 @@ A file in `results/` is not automatically a headline claim. Interpretation is co
 
 - `../docs/CLAIMS_AND_EVIDENCE.md`;
 - `../docs/ANNOUNCEMENT_READINESS.md`;
+- `../docs/RECURSIVE_COMPOSITION.md` and `../docs/SYSTEMS_RUNTIME.md` for those research lines;
 - relevant protocol locks, correction records, and review documents.
 
 Likewise, a historical result under `../archives/research-history/results/` may be valid evidence for a narrow historical question while not belonging in the current announcement claim set.
