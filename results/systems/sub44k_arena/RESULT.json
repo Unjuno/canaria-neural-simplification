@@ -1,0 +1,87 @@
+{
+  "experiment": "Canaria Systems S7 sub-44-KiB native execution arena via recomputation",
+  "status": "PASS",
+  "evidence_class": "systems_native_sub44k_application_arena",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "issue": 31,
+  "protocol_commit": "315c4f48ceea41aa72b180d6616fabfa47b1a025",
+  "runtime_commit": "d11804a91b93bc5e38c36fbe5f7f5b2749f4dfea",
+  "verifier_commit": "d0b779bb5555ecdda31d5cdf2c2681100708ad8b",
+  "source": {
+    "learned_object": "G7 seed-4300 two-block compact compiler",
+    "raw_sha256": {
+      "block0.bin": "4102665dc12f93456380da69b15a9b25095ee82c8c8cca30a4d6dc698656996a",
+      "block1.bin": "d5b8d7d4a90b503a82913c003adcc3bec876ef99307d9cf391117144e0b4c895",
+      "input.bin": "9645ec44e670c01da2be089da499ffeb1c284896e0f8a688ca66b26a4c109d7a",
+      "reference.bin": "2cd05a9b3aceca260fe72fe57516964ee1949f61f590fe66130c58a745674d48"
+    }
+  },
+  "build": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "flags": "-std=c++17 -O2 -static -s -fno-exceptions -fno-rtti -fstack-usage -Wframe-larger-than=512 -Wl,--wrap=malloc -Wl,--wrap=calloc -Wl,--wrap=realloc",
+    "binary_bytes": 684488,
+    "binary_sha256": "c10b63d9859b813b20ffff08cc58fd7e31cf142d2d3b15c333cf3d820a142962",
+    "linkage": "statically linked; ldd reports not a dynamic executable",
+    "compiler_reported_main_stack_bytes": 2416
+  },
+  "execution_isolation": {
+    "mechanism": "minimal chroot",
+    "initial_rootfs_files": {
+      "bin/canaria_s7": 684488,
+      "data/block0.bin": 14784,
+      "data/block1.bin": 14784,
+      "data/input.bin": 9216
+    },
+    "output_created_during_execution": "data/output.bin",
+    "python_pytorch_numpy_scipy_present": false
+  },
+  "memory_schedule": {
+    "arena_capacity_bytes": 45056,
+    "arena_high_water_bytes": 43808,
+    "arena_fraction": 0.9723011363636364,
+    "weights_bytes": 14784,
+    "x_bytes": 9216,
+    "k_bytes": 9216,
+    "v_bytes": 9216,
+    "score_row_bytes": 768,
+    "full_z_tensor_created": false,
+    "full_attention_score_tensor_created": false,
+    "reference_tensor_in_execution_arena": false,
+    "post_guard_heap_allocation_violations": 0
+  },
+  "numerical_equivalence": {
+    "max_absolute_output_difference": 9.5367431640625e-7,
+    "relative_l2_output_difference": 1.2255255243296686e-7,
+    "output_sha256": "7021dfd394d0820fb3bdc65e90b00eb83e5191cfb7371e42a7ddf822da02372f",
+    "runtime_output_sum": 333.370965779,
+    "float32_output_sum_external_verifier": 333.3709716796875,
+    "reference_sum": 333.3709716796875
+  },
+  "five_run_robustness": {
+    "all_runtime_status_pass": true,
+    "all_external_verifiers_pass": true,
+    "unique_output_sha256_count": 1,
+    "output_sha256": "7021dfd394d0820fb3bdc65e90b00eb83e5191cfb7371e42a7ddf822da02372f",
+    "elapsed_seconds": [0.000474218, 0.000471855, 0.000499176, 0.00049536, 0.000472396],
+    "median_elapsed_seconds": 0.000474218
+  },
+  "comparison_to_s6": {
+    "s6_arena_high_water_bytes_including_verification_reference": 62272,
+    "s7_arena_high_water_bytes": 43808,
+    "reduction_bytes": 18464,
+    "s7_over_s6_ratio": 0.7034943473792394,
+    "note": "S7 differs from S6 by removing the verification-only reference tensor from the execution arena and recomputing pre-attention LayerNorm rows rather than retaining full z. This is not a pure algorithm-only comparison because both changes are intentional parts of the S7 production-oriented memory schedule."
+  },
+  "checks": {
+    "static_binary_executes_in_minimal_chroot": true,
+    "arena_high_water_lte_45056": true,
+    "post_guard_heap_allocation_violations_zero": true,
+    "no_full_z_tensor": true,
+    "no_full_attention_score_matrix": true,
+    "both_locked_learned_blocks_executed": true,
+    "max_abs_lte_5e_5": true,
+    "relative_l2_lte_1e_5": true,
+    "repeated_outputs_identical": true
+  },
+  "interpretation_boundary": "Application-arena result for one learned G7 compiler and fixed [2,48,24] activation. The 43,808-byte high-water is not total process RAM and is not a physical 44-KiB-device deployment result. Executable text, libc/process state, OS state and stack/control locals are outside the arena."
+}
