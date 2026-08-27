@@ -1,0 +1,36 @@
+{
+  "name": "Canaria-Systems-S5-row-streamed-attention-v1",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "parent_issue": 26,
+  "source": "S4 raw learned G7 compiler tensors and fixed S4 activation/reference",
+  "input_shape": [2, 48, 24],
+  "dtype": "float32",
+  "heads": 4,
+  "head_dim": 6,
+  "blocks": 2,
+  "algorithm": "For each block retain x and pre-attention LayerNorm z, compute full K and V only, compute Q one query row at a time, attend only to causal prefix, softmax scores in-place, update x row in-place, then release z/K/V before MLP. Never allocate BxHxTxT scores.",
+  "memory_accounting": {
+    "scope": "explicit managed float32 tensor payload; excludes Python/NumPy/SciPy code, ndarray metadata, OS page cache, .npy headers, and opaque library temporaries",
+    "one_block_weights_bytes": 14784,
+    "x_bytes": 9216,
+    "z_bytes": 9216,
+    "k_bytes": 9216,
+    "v_bytes": 9216,
+    "max_score_row_bytes": 1536,
+    "q_context_and_reduction_row_scratch_budget_bytes": 1024,
+    "locked_peak_managed_tensor_upper_bound_bytes": 54208,
+    "capacity_target_bytes": 65536,
+    "conventional_full_score_bytes": 73728,
+    "conventional_weights_plus_x_plus_scores_lower_bound_bytes": 97728
+  },
+  "pass_rule": {
+    "torch_not_imported": true,
+    "max_absolute_output_difference_lte": 0.00005,
+    "relative_l2_output_difference_lte": 0.00001,
+    "max_score_row_bytes_lte": 1536,
+    "peak_managed_tensor_upper_bound_bytes_lte": 65536,
+    "full_score_tensor_created": false
+  },
+  "latency_role": "secondary; regression is allowed",
+  "interpretation_boundary": "Logical tensor-memory prototype only. Passing does not mean the Python process fits in 64 KiB or that a 64-KiB MCU can execute it."
+}
