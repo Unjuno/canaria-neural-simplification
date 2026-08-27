@@ -1,0 +1,22 @@
+{
+  "experiment": "C7 confirmatory depth-2 hierarchical recursive Canaria recompilation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_DEPTH2",
+  "issue": 44,
+  "source_exploration": "C6",
+  "fresh_seeds": [1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387],
+  "testbed": {"dataset": "sklearn digits", "teacher": "4-block residual MLP d=64", "span": "all four residual blocks", "split_random_states": [1234, 5678]},
+  "budget": {"local": "4 x TinyRes(64,8)", "local_total": 4096, "level1": "2 x TinyRes(64,16)", "level1_total": 4096, "final": "TinyRes(64,32)", "final_total": 4096, "exact_match_each_level": true},
+  "optimization": {"teacher_epochs": 60, "updates_each_stage": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128},
+  "conditions": ["hierarchical_frozen", "hierarchical_joint", "single_level_recursive", "direct_original_single"],
+  "recursive_target_rules": {"level1_C12_C34": "pair cluster outputs only", "hierarchical_frozen_final": "C12->C34 hierarchy outputs only; no original full-span target after Level1", "hierarchical_joint_final": "adapt C12+C34 to original full span, freeze, then hierarchy outputs only", "single_level_final": "adapt four-local cluster to original full span, freeze, then cluster outputs only"},
+  "P1": {"statistic": "mean D_frozen = NMSE(hierarchical_joint)-NMSE(hierarchical_frozen)", "pass": "paired bootstrap95 upper < 0"},
+  "P2": {"statistic": "geometric mean R_joint = NMSE(hierarchical_joint)/NMSE(direct)", "pass": "paired bootstrap95 upper < 1.40"},
+  "P3": {"statistic": "mean D_single = NMSE(hierarchical_joint)-NMSE(single_level_recursive)", "pass": "paired bootstrap95 upper < 0"},
+  "P4": {"statistic": "geometric mean R_strict = NMSE(hierarchical_frozen)/NMSE(direct)", "pass": "paired bootstrap95 upper < 2.25"},
+  "validation_guardrail": {"statistic": "hierarchical_joint val acc - direct val acc", "pass": "paired bootstrap95 lower > -0.02"},
+  "test_safeguard": {"materialization": "after all locked fitting and validation metrics for seed", "statistic": "hierarchical_joint test acc - direct test acc", "pass": "paired bootstrap95 lower > -0.02"},
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260829, "method": "paired seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff all P1-P4 and both utility safeguards pass; retain all seeds; no rescue tuning",
+  "claim_boundary_if_pass": "Scoped depth-2 evidence in this residual-MLP testbed. Not unlimited recursion, losslessness, universality, or LLM-scale evidence."
+}
