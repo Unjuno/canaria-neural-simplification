@@ -1,0 +1,89 @@
+{
+  "experiment": "Canaria Systems S6 static C++ fixed-arena runtime",
+  "status": "PASS",
+  "evidence_class": "systems_native_fixed_arena_runtime",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "issue": 29,
+  "protocol_commit": "6a151a17521d061d34ae6a2195d688cdf730377c",
+  "exporter_commit": "b36dbc1e0e6ec175c7a6caa7d71a04231fb32352",
+  "runtime_commit": "f1806d82e36b2c1816afa91305777dc4c54e1876",
+  "exporter_blob": "51d6f1a344ac80befaf73989d03b107dbfc9e4fb",
+  "runtime_blob": "7bf4417bc5b6a15a15d20ebdca874304c865524c",
+  "build": {
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "flags": "-std=c++17 -O2 -static -s -fno-exceptions -fno-rtti -fstack-usage -Wframe-larger-than=512 -Wl,--wrap=malloc -Wl,--wrap=calloc -Wl,--wrap=realloc",
+    "binary_bytes": 684488,
+    "binary_sha256": "8cdc048365b9dc8008bbc9797b30b98e43cc8765502045d26677764a630fb75a",
+    "linkage": "statically linked; ldd reports not a dynamic executable",
+    "compiler_reported_main_stack_bytes": 2448
+  },
+  "execution_isolation": {
+    "mechanism": "chroot",
+    "rootfs_files": {
+      "bin/canaria_s6": 684488,
+      "data/block0.bin": 14784,
+      "data/block1.bin": 14784,
+      "data/input.bin": 9216,
+      "data/reference.bin": 9216
+    },
+    "python_pytorch_numpy_scipy_present": false
+  },
+  "raw_sha256": {
+    "block0.bin": "4102665dc12f93456380da69b15a9b25095ee82c8c8cca30a4d6dc698656996a",
+    "block1.bin": "d5b8d7d4a90b503a82913c003adcc3bec876ef99307d9cf391117144e0b4c895",
+    "input.bin": "9645ec44e670c01da2be089da499ffeb1c284896e0f8a688ca66b26a4c109d7a",
+    "reference.bin": "2cd05a9b3aceca260fe72fe57516964ee1949f61f590fe66130c58a745674d48"
+  },
+  "primary_run": {
+    "returncode": 0,
+    "max_absolute_output_difference": 9.53674316e-7,
+    "relative_l2_output_difference": 1.22552552433e-7,
+    "output_sum": 333.370965779,
+    "reference_sum": 333.3709716796875,
+    "arena_high_water_bytes": 62272,
+    "arena_capacity_bytes": 65536,
+    "arena_fraction": 0.9501953125,
+    "heap_allocation_violations_after_guard": 0,
+    "block0_sum": 57.7515106,
+    "block1_sum": 56.7372742,
+    "block_sums_ok": true,
+    "full_attention_score_tensor_created": false,
+    "elapsed_seconds": 0.000650229
+  },
+  "arena_layout_bytes": {
+    "weights": [0, 14784],
+    "x": [14784, 24000],
+    "z": [24000, 33216],
+    "k": [33216, 42432],
+    "v": [42432, 51648],
+    "score_row": [51648, 52416],
+    "q": [52416, 52512],
+    "ctx": [52544, 52640],
+    "out": [52672, 52768],
+    "ln": [52800, 52896],
+    "hidden": [52928, 53024],
+    "reference": [53056, 62272]
+  },
+  "instrumentation_negative_control": {
+    "intentional_post_guard_malloc_detected": true,
+    "observed_violation_count": 1
+  },
+  "five_run_robustness": {
+    "all_status_pass": true,
+    "all_numeric_outputs_identical": true,
+    "elapsed_seconds": [0.000493187, 0.000462152, 0.000553155, 0.000537973, 0.000606153],
+    "median_elapsed_seconds": 0.000537973
+  },
+  "checks": {
+    "static_binary_executes_in_minimal_chroot": true,
+    "no_python_pytorch_numpy_runtime_in_execution_root": true,
+    "both_locked_learned_blocks_executed": true,
+    "max_abs_lte_5e_5": true,
+    "relative_l2_lte_1e_5": true,
+    "arena_high_water_lte_65536": true,
+    "no_full_attention_score_matrix": true,
+    "post_guard_heap_allocation_violations_zero": true,
+    "raw_identity_recorded": true
+  },
+  "interpretation_boundary": "Native fixed-arena execution prototype for the learned G7 compiler. The 62,272-byte high-water mark covers the explicitly managed arena, including the verification reference tensor. It is not a total-process or physical-device 64-KiB RAM claim; executable text, libc process state, OS state and small stack/control locals are outside the arena."
+}
