@@ -1,0 +1,44 @@
+{
+  "experiment": "C18 exploratory self-anchored compressed-interface transfer to SmallViT hierarchy",
+  "status": "LOCKED_BEFORE_OUTCOME",
+  "issue": 57,
+  "evidence_class": "EXPLORATORY_ONLY",
+  "test_evaluated": false,
+  "teacher": {
+    "family": "SmallViT from C4/C5",
+    "dataset": "sklearn digits",
+    "depth": 4,
+    "token_dim": 32,
+    "eligibility_validation_accuracy_min": 0.95,
+    "ineligible_seed_policy": "retain_and_report_no_replacement_outcome"
+  },
+  "seeds": [1490,1491,1492],
+  "fit_subset": 512,
+  "updates_per_fit_or_alignment": 600,
+  "optimizer": {"name":"AdamW","lr":0.008,"weight_decay":0.00001,"batch_size":64},
+  "budget": {
+    "level0": "4 x TinyTokenRes(32,16) = 4096",
+    "level1": "2 x TinyTokenRes(32,32) = 4096",
+    "final": "1 x TinyTokenRes(32,64) = 4096",
+    "exact_match_required": true
+  },
+  "basis": {
+    "rng_seed": 20261020,
+    "construction": "Gaussian 32x32 -> QR -> sign-fix R diagonal",
+    "nested_dimensions": [8,16]
+  },
+  "top_conditions": ["frozen","sketch_only_16","anchored_8","anchored_16","full_32"],
+  "self_anchor_target": "baseline + ((original-baseline) @ P_k) @ P_k.T",
+  "final_recursive_rule": "fit final candidate only to frozen hierarchy outputs; original full-span hidden target forbidden as final recursive target",
+  "direct_control": "matched TinyTokenRes(32,64) fitted directly to original full 4-block hidden target",
+  "endpoints": [
+    "hierarchy_nmse_vs_original",
+    "final_nmse_vs_hierarchy",
+    "final_nmse_vs_original",
+    "ratio_final_over_direct",
+    "ratio_final_over_full32",
+    "validation_accuracy",
+    "ordering_of_alignment_conditions"
+  ],
+  "claim_boundary": "Exploratory relative mechanism test only; not high-utility Transformer compression, universal Transformer behavior, LLM behavior, or universal interface dimension."
+}
