@@ -1,0 +1,23 @@
+{
+  "experiment": "C11 exploratory compressed hidden-interface sketches",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY",
+  "issue": 48,
+  "fresh_seeds": [1420, 1421, 1422],
+  "test_evaluated": false,
+  "testbed": "C10 residual-MLP depth-2 recursive hierarchy",
+  "budget": {"params_each_level": 4096, "exact_match": true},
+  "sketch_basis": {
+    "dimension": 64,
+    "rng": "numpy.default_rng(20260831)",
+    "construction": "64x64 Gaussian matrix -> QR -> flip each Q column so corresponding R diagonal is nonnegative",
+    "nested_dimensions": [4, 8, 16, 32, 64]
+  },
+  "conditions": ["frozen", "sketch_4", "sketch_8", "sketch_16", "sketch_32", "full_64"],
+  "alignment_loss": "MSE(hierarchy(a0) @ P_k, original_a4 @ P_k)",
+  "optimization": {"updates": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128, "same_minibatch_rng_across_dimensions": true},
+  "final_recursive_compile": "freeze aligned hierarchy; fit matched TinyRes(64,32) using hierarchy outputs only; original a4 forbidden as final fit target",
+  "direct_control": "matched TinyRes(64,32) directly fitted to original a0->a4",
+  "endpoints": ["hierarchy NMSE vs original", "final NMSE vs hierarchy", "final NMSE vs original", "final/direct NMSE ratio", "validation accuracy", "dimension ordering"],
+  "boundary": "Exploratory only; no universal sufficient interface dimension claim."
+}
