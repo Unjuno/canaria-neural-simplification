@@ -1,0 +1,39 @@
+{
+  "experiment": "C7 confirmatory depth-two hierarchical Canaria recompilation",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_DEPTH_TWO",
+  "issue": 40,
+  "protocol_commit": "d1ccb53aeb1efd843f8749590df433f4b18ecdfe",
+  "runner_commit": "8ea05a0c846dc20f21b04288b165844ecd6eb66a",
+  "runner_git_blob_sha": "ca288f40f79ddb1aaa035f4a798bb21c29f80f61",
+  "attempted_seeds": [1380,1381,1382,1383,1384,1385,1386,1387,1388,1389],
+  "eligible_seeds": [1380,1381,1382,1383,1384,1385,1386,1387,1388,1389],
+  "eligible_count": 10,
+  "minimum_eligible_required": 8,
+  "all_attempted_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "budget": {"level0_total_params": 4096, "level1_total_params": 4096, "level2_params": 4096, "exact_match": true},
+  "teacher": {"mean_val_acc": 0.9792592644691467, "mean_test_acc": 0.9842222154140472},
+  "structural": {"mean_lower_ir_nmse_vs_original": 0.06226255699710044, "mean_post_level2_pair_nmse_vs_lower_ir": 0.007192034564852784, "mean_post_level2_pair_nmse_vs_original": 0.06244284405033057},
+  "aggregate_conditions": {
+    "hierarchical_no_level2_adapt": {"mean_val_nmse_vs_original": 0.07261956885977024, "mean_val_acc": 0.9603703796863556, "mean_test_acc": 0.9684444427490234},
+    "hierarchical_level2_joint_adapt": {"mean_val_nmse_vs_original": 0.0676750862187051, "mean_val_acc": 0.959629625082016, "mean_test_acc": 0.9713333189487457},
+    "flat_lower_ir_single": {"mean_val_nmse_vs_original": 0.0663264557685021, "mean_val_acc": 0.9596296310424804, "mean_test_acc": 0.9717777669429779},
+    "direct_original_single": {"mean_val_nmse_vs_original": 0.04276329330750399, "mean_val_acc": 0.9685185074806213, "mean_test_acc": 0.9786666691303253}
+  },
+  "confirmatory_endpoints": {
+    "P1_level2_joint_effect": {"mean_D": -0.0049444826410651194, "bootstrap95": [-0.006137552458033433, -0.003735719879212033], "rule": "upper < 0", "pass": true, "all_10_negative": true},
+    "P2_incremental_depth_two_cost": {"geometric_mean_ratio": 1.0202960087919113, "bootstrap95": [1.0140558884527957, 1.0270697213899078], "rule": "upper < 1.10", "pass": true, "range": [1.0074992767068305, 1.0413913827895735]},
+    "P3_validation_utility": {"mean_accuracy_difference": -5.960464477539063e-09, "bootstrap95": [-0.0022222280502319338, 0.0018518507480621339], "rule": "lower > -0.02", "pass": true},
+    "test_safeguard": {"mean_accuracy_difference": -0.00044444799423217776, "bootstrap95": [-0.0017777860164642334, 0.0008888840675354004], "rule": "lower > -0.02", "pass": true}
+  },
+  "direct_original_reference": {"geometric_mean_depth_two_over_direct_nmse_ratio": 1.5826103460330898, "range": [1.4597356666149075, 1.7900969637518782]},
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260828, "unit": "paired eligible seed", "method": "percentile 95%"},
+  "interpretation": [
+    "Level-2 joint adaptation using only lower-level Canaria IR targets improved final depth-two functional NMSE in all 10 fresh eligible seeds.",
+    "The extra hierarchy level added only a small bounded penalty relative to flat compilation from the same lower-level Canaria IR: geometric-mean ratio 1.0203x with a preregistered 95% upper bound below 1.10x.",
+    "Validation and held-out test task utility of the depth-two recursive single were effectively indistinguishable from the flat-lower-IR comparator under the preregistered 2 percentage-point guardrails.",
+    "Direct original-teacher compilation remained materially better, so the result is not lossless; the dominant error is inherited from the lower-level Canaria IR rather than caused by the second hierarchy level.",
+    "The supported claim is scoped to this residual-MLP digits testbed and exact matched grammar; arbitrary-depth and cross-family depth-two behavior remain untested."
+  ]
+}
