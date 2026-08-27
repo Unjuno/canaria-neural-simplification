@@ -1,0 +1,34 @@
+{
+  "stage": "C21",
+  "scientific_role": "exploratory_not_confirmatory",
+  "question": "Does 8/32-dimensional teacher correction plus a 24D Canaria self-anchor repair the SmallViT central two-block recursive boundary across fresh models and fresh bases?",
+  "model_seeds": [1530,1531,1532],
+  "teacher_eligibility_val_acc_min": 0.95,
+  "basis_family": ["identity_first8","random_20261120","random_20261121","random_20261122"],
+  "random_basis_construction": "numpy.default_rng(seed) Gaussian 32x32 -> QR -> sign-fix R diagonal -> first 8 columns",
+  "testbed": {
+    "dataset": "sklearn digits",
+    "teacher": "SmallViT depth=4 d=32",
+    "target_span": "central two blocks start=1",
+    "local_candidates": "2 x TinyTokenRes(32,32)",
+    "final_candidate": "TinyTokenRes(32,64)",
+    "learned_parameter_budget": 4096,
+    "exact_parameter_match_required": true,
+    "updates": 600,
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch_size": 64
+  },
+  "conditions": ["frozen","full_32","direct","sketch_only_8_per_basis","anchored_8_per_basis"],
+  "final_recursive_target_rule": "frozen cluster outputs only; original span target forbidden",
+  "test_evaluated": false,
+  "endpoints": [
+    "per-basis anchored8 final NMSE minus frozen final NMSE",
+    "per-basis anchored8/full32 final NMSE ratio",
+    "within-seed anchored8 worst/best basis sensitivity",
+    "per-basis anchored8 validation accuracy minus full32 validation accuracy",
+    "same-basis anchored8 minus sketch-only8 final NMSE",
+    "ordering consistency across eligible seeds and fresh bases"
+  ],
+  "decision_boundary": "Exploratory only. No threshold rescue, seed replacement, basis replacement, or test inspection."
+}
