@@ -1,0 +1,22 @@
+{
+  "experiment": "C13 confirmatory half-dimensional self-anchored teacher interface",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_INTERFACE_COMPRESSION",
+  "issue": 50,
+  "fresh_seeds": [1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447],
+  "all_seeds_retained": true,
+  "testbed": "C12 residual-MLP depth-2 recursive hierarchy",
+  "budget": {"params_each_level": 4096, "exact_match": true},
+  "basis": {"rng_seed": 20260831, "teacher_correction_dims": 32, "hidden_dim": 64},
+  "conditions": ["frozen", "sketch_only_32", "anchored_32", "full_64", "direct_original_single"],
+  "optimization": {"updates": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128, "same_top_rng": true, "same_final_init_and_rng": true},
+  "final_recursive_target_rule": "recursive final fits may use frozen hierarchy outputs only; original hidden target forbidden",
+  "P1": {"statistic": "mean anchored32_final_nmse - frozen_final_nmse", "pass": "paired seed-bootstrap95 upper < 0"},
+  "P2": {"statistic": "mean anchored32_final_nmse - sketchonly32_final_nmse", "pass": "paired seed-bootstrap95 upper < 0"},
+  "P3": {"statistic": "geometric mean anchored32_final_nmse / full64_final_nmse", "pass": "paired seed-bootstrap95 upper < 1.35"},
+  "validation_guardrail": {"statistic": "anchored32 validation accuracy - full64 validation accuracy", "pass": "paired seed-bootstrap95 lower > -0.02"},
+  "test_safeguard": {"evaluation": "materialize/evaluate only after all locked fitting and validation metrics for seed", "statistic": "anchored32 test accuracy - full64 test accuracy", "pass": "paired seed-bootstrap95 lower > -0.02"},
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260901, "method": "paired seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff P1/P2/P3/validation/test all pass; no rescue tuning",
+  "claim_boundary_if_pass": "Scoped evidence that half-dimensional teacher correction plus full-dimensional Canaria self-anchor can repair this tested recursive boundary with bounded loss relative to full hidden alignment; not universal, not teacher-free, not information-theoretic, not LLM-scale."
+}
