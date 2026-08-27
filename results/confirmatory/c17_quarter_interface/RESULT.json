@@ -1,0 +1,70 @@
+{
+  "experiment": "C17 confirmatory quarter-dimensional self-anchored teacher interface",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_QUARTER_INTERFACE",
+  "issue": 54,
+  "protocol_commit": "57ea2191a7f0471581f1c86153b24f8b0bb4bf79",
+  "runner_commit": "4e1a03019919f58694a089bc7a08e6374f2e6821",
+  "runner_git_blob_sha": "5097115aef9152a56029da5e29dd3a796e3ad570",
+  "seeds": [1480,1481,1482,1483,1484,1485,1486,1487],
+  "all_seeds_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "teacher_interface": {
+    "hidden_dim": 64,
+    "teacher_correction_dim": 16,
+    "self_anchor_dim": 48,
+    "basis_family": ["identity_first16","random_20261010","random_20261011","random_20261012"]
+  },
+  "budget": {
+    "local_total_params": 4096,
+    "level1_total_params": 4096,
+    "final_total_params": 4096,
+    "exact_match_each_level": true
+  },
+  "confirmatory_endpoints": {
+    "P1_worst_basis_repairs_frozen": {
+      "mean_D_worst": -0.006993954025740324,
+      "bootstrap95": [-0.007557225198851206,-0.006516477329597443],
+      "rule": "upper < 0",
+      "pass": true,
+      "all_8_negative": true
+    },
+    "P2_worst_basis_over_full64": {
+      "geometric_mean_ratio": 1.341455861429567,
+      "bootstrap95": [1.302358887305936,1.3819820745359006],
+      "rule": "upper < 1.50",
+      "pass": true
+    },
+    "P3_basis_sensitivity": {
+      "geometric_mean_spread": 1.0224564590627645,
+      "bootstrap95": [1.0172723573978502,1.0281206191635084],
+      "rule": "upper < 1.15",
+      "pass": true
+    },
+    "validation_utility_guardrail": {
+      "mean_accuracy_difference": -0.006944432854652405,
+      "bootstrap95": [-0.011574052274227142,-0.0023148134350776672],
+      "rule": "lower > -0.03",
+      "pass": true
+    },
+    "test_safeguard": {
+      "mean_accuracy_difference": -0.009722217917442322,
+      "bootstrap95": [-0.014166660606861115,-0.005277782678604126],
+      "rule": "lower > -0.03",
+      "pass": true
+    }
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "rng_seed": 20261013,
+    "unit": "paired model seed",
+    "method": "percentile 95%"
+  },
+  "interpretation": [
+    "Across eight fresh model seeds, even the worst of four prospectively fixed 16D bases improved the frozen recursive hierarchy.",
+    "The quarter-interface condition remained within the preregistered 1.50x functional-NMSE bound relative to full-64 alignment.",
+    "Sensitivity across the four tested bases was small under the preregistered 1.15x spread bound.",
+    "Worst-basis validation and held-out test utility remained within the preregistered -3pp safeguards.",
+    "The supported claim is scoped to this residual-MLP hierarchy and tested basis family; it is not a universal 16D interface or arbitrary-subspace guarantee."
+  ]
+}
