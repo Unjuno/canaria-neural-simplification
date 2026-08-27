@@ -1,0 +1,53 @@
+{
+  "experiment": "Canaria Systems S7 sub-44-KiB native execution arena via recomputation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "issue": 31,
+  "source": {
+    "s6_branch": "research/systems-s6-static-arena",
+    "s6_result_status": "PASS",
+    "source_seed": 4300,
+    "input_shape": [2, 48, 24],
+    "dtype": "float32"
+  },
+  "locked_runtime": {
+    "language": "C++17",
+    "compiler": "GCC 14.2.0",
+    "static_link": true,
+    "execution_isolation": "minimal chroot",
+    "arena_capacity_bytes": 45056,
+    "one_learned_block_at_a_time": true,
+    "row_streamed_causal_attention": true,
+    "full_attention_score_tensor_forbidden": true,
+    "full_layernorm_z_tensor_forbidden": true,
+    "reference_tensor_outside_execution_arena": true,
+    "post_guard_heap_allocation_forbidden": true,
+    "exact_gelu_erff": true
+  },
+  "memory_schedule": {
+    "weights_bytes": 14784,
+    "x_bytes": 9216,
+    "k_bytes": 9216,
+    "v_bytes": 9216,
+    "score_row_bytes": 768,
+    "scratch_buffers": 5,
+    "scratch_each_bytes": 96,
+    "expected_aligned_high_water_bytes": 43808,
+    "gate_high_water_bytes": 45056
+  },
+  "numerical_gates": {
+    "max_absolute_output_difference_lte": 0.00005,
+    "relative_l2_output_difference_lte": 0.00001,
+    "repeated_outputs_identical": true
+  },
+  "pass_rule": [
+    "static binary executes successfully inside minimal chroot",
+    "arena high-water <= 45056 bytes",
+    "post-guard heap allocation violations = 0",
+    "no full LayerNorm z tensor is materialized",
+    "no full [B,H,T,T] score tensor is materialized",
+    "both learned blocks execute in order from locked raw payload",
+    "external output comparison passes locked numerical tolerances",
+    "repeated runs produce identical output"
+  ],
+  "interpretation_boundary": "Application-arena result for one learned G7 compiler and fixed [2,48,24] activation; not total-process RAM, not physical 44-KiB-device deployment, not scientific composition-generalization evidence."
+}

@@ -1,0 +1,24 @@
+{
+  "stage": "C20",
+  "status": "CONFIRMATORY_PASS",
+  "scientific_role": "confirmatory",
+  "seeds": [1510,1511,1512,1513,1514,1515,1516,1517,1518,1519,1520,1521],
+  "eligible_seeds": [1510,1512,1514,1515,1517,1518,1519,1520,1521],
+  "ineligible_seeds": [1511,1513,1516],
+  "eligibility_count": 9,
+  "minimum_required_eligible": 8,
+  "bootstrap": {"resamples":100000,"rng_seed":20261110,"method":"paired model-seed percentile bootstrap"},
+  "runner_git_blob_sha": "f812b3f02a0d161d20d14ae36814b7fdaf273f6d",
+  "c4_dependency_git_blob_sha": "9cb59691b1f310d563c7e03cd49f39ee40d02e70",
+  "environment": {"python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","scikit_learn":"1.8.0"},
+  "endpoints": {
+    "P1": {"name":"worst anchored basis repairs frozen","estimate_mean_D_worst":-0.009829451953787136,"ci95":[-0.01376598527694253,-0.006458923562811701],"pass":true,"margin":"upper<0"},
+    "P2": {"name":"worst anchored fidelity bounded vs full32","estimate_geomean_R_worst":1.0609156315007635,"ci95":[1.045745243095574,1.0754936017180767],"pass":true,"margin":"upper<1.25"},
+    "P3": {"name":"basis sensitivity bounded","estimate_geomean_S":1.01462007869108,"ci95":[1.0113594376482482,1.0178933767727585],"pass":true,"margin":"upper<1.15"},
+    "validation_safeguard": {"estimate_mean_difference":-0.018930041152263363,"ci95":[-0.02880658436213991,-0.009053497942386832],"pass":true,"margin":"lower>-0.03"},
+    "test_safeguard": {"estimate_mean_difference":-0.016049382716049363,"ci95":[-0.023456790123456757,-0.00864197530864197],"pass":true,"margin":"lower>-0.03"}
+  },
+  "all_locked_gates_pass": true,
+  "informative_anchored_vs_sketch": {"same_basis_pairs":36,"anchored_better_count":36,"mean_nmse_difference":-0.12555981660624782,"range":[-0.1760126809250713,-0.07915818469234465]},
+  "claim_boundary": "Scoped SmallViT central-two-block result only; not full-model Transformer compression, arbitrary architectures/subspaces, LLM behavior, or a universal 16D interface."
+}

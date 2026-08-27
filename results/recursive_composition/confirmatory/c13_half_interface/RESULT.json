@@ -1,0 +1,33 @@
+{
+  "experiment": "C13 confirmatory half-dimensional self-anchored teacher interface",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_HALF_INTERFACE",
+  "issue": 50,
+  "protocol_commit": "6ed7dc1716cb1f354906d31b9e56adf2781b38d2",
+  "runner_commit": "d3b46e72e8b1cc1c630989374798e04b96636dea",
+  "runner_git_blob_sha": "2f8dedd9418722d507607d8324d6094f333b7fb7",
+  "seeds": [1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447],
+  "all_seeds_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "budget": {"interface_dim": 64, "teacher_correction_dim": 32, "anchor_dim": 32, "learned_params_each_level": 4096},
+  "aggregate_conditions": {
+    "frozen": {"mean_val_nmse": 0.07047122971679609},
+    "sketch_only_32": {"mean_val_nmse": 0.10204067003498254},
+    "anchored_32": {"mean_val_nmse": 0.05764040022571515, "mean_val_acc": 0.9634259268641472, "mean_test_acc": 0.9769444540143013},
+    "full_64": {"mean_val_nmse": 0.048266653424068454, "mean_val_acc": 0.968518503010273, "mean_test_acc": 0.9808333292603493}
+  },
+  "confirmatory_endpoints": {
+    "P1_anchored_vs_frozen": {"mean_D": -0.012830829491080952, "bootstrap95": [-0.013964312993512897, -0.011695695785148005], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "P2_anchored_vs_sketch": {"mean_D": -0.0444002698092674, "bootstrap95": [-0.04940807512159151, -0.03958119753844108], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "P3_half_over_full": {"geometric_mean_ratio": 1.1936770100487237, "bootstrap95": [1.1626658742473481, 1.2282201711346923], "range": [1.133244597963243, 1.2774488280542542], "rule": "upper < 1.35", "pass": true},
+    "validation_guardrail": {"mean_accuracy_difference": -0.0050925761461257935, "bootstrap95": [-0.007407397031784058, -0.0027777478098869324], "rule": "lower > -0.02", "pass": true},
+    "test_safeguard": {"mean_accuracy_difference": -0.0038888752460479736, "bootstrap95": [-0.0058333054184913635, -0.002222210168838501], "rule": "lower > -0.02", "pass": true}
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260901, "unit": "paired seed", "method": "percentile 95%"},
+  "interpretation": [
+    "Anchored 32-dimensional teacher correction improved over both frozen and naive 32-dimensional sketch conditions in all 8 fresh seeds.",
+    "The half-interface anchored condition remained within the preregistered 1.35x NMSE bound relative to full 64-dimensional hidden alignment.",
+    "Validation and held-out test utility differences relative to full-64 alignment remained within the preregistered -0.02 guardrails.",
+    "The supported claim is scoped to this residual-MLP recursive hierarchy and this fixed basis; it is not a universal 32-dimensional interface claim."
+  ]
+}

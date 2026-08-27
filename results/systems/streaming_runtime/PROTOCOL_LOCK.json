@@ -1,0 +1,57 @@
+{
+  "name": "Canaria-Systems-S1-streaming-compact-runtime-v1",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "parent_issue": 19,
+  "scientific_role": "systems_runtime_format_experiment_not_scientific_composition_evidence",
+  "question": "Can direct streaming execution of a compact low-rank functional representation reduce peak resident model memory relative to full dense materialization while preserving the represented function?",
+  "environment_policy": "Record the exact runtime used. This exploratory systems result is environment-specific; do not generalize hardware performance.",
+  "operator": {
+    "form": "x <- x + alpha * (x @ U) @ V; dense equivalent W = U @ V and x <- x + alpha * x @ W",
+    "dtype": "float32",
+    "width_d": 1024,
+    "rank_r": 64,
+    "blocks": 32,
+    "batch": 8,
+    "rng_seed": 20260827,
+    "u_std": "1/sqrt(d)",
+    "v_std": "1/sqrt(r)",
+    "residual_scale_alpha": 0.05
+  },
+  "modes": [
+    "dense_resident: load all 32 expanded W matrices before inference",
+    "dense_streaming: memory-map one expanded W at a time, execute, release",
+    "factor_streaming: memory-map one compact U,V pair at a time and execute directly without constructing W"
+  ],
+  "measurement": {
+    "fresh_process_per_mode": true,
+    "input_loaded_before_rss_baseline": true,
+    "rss_sampling_interval_seconds": 0.001,
+    "inference_repeats_per_process": 3,
+    "blas_thread_env": 1,
+    "primary": ["peak_rss_delta_bytes", "peak_model_payload_bytes_by_construction", "output_agreement"],
+    "secondary": ["serialized_bytes", "median_end_to_end_inference_seconds", "activation_and_scratch_bytes"]
+  },
+  "output_tolerance": {
+    "factor_vs_dense_max_abs_lte": 0.001,
+    "factor_vs_dense_relative_l2_lte": 0.0001,
+    "dense_streaming_vs_dense_resident_max_abs_lte": 1e-6
+  },
+  "capacity_witness": {
+    "model_payload_budget_bytes": 33554432,
+    "interpretation": "A logical model-payload budget only; not an OS-enforced RAM limit. dense_resident must exceed it and factor_streaming peak model payload must fit below it."
+  },
+  "pass_rule": [
+    "factor_streaming peak model payload <= 0.20 * dense_resident peak model payload",
+    "factor_streaming measured peak RSS delta < dense_resident measured peak RSS delta",
+    "factor_streaming output passes both locked float32 tolerances against dense_resident",
+    "dense_streaming output passes locked max-abs tolerance against dense_resident",
+    "dense_resident model payload exceeds 32 MiB capacity witness while factor_streaming peak model payload is below it"
+  ],
+  "boundaries": [
+    "This does not show that arbitrary trained neural operators admit the low-rank representation.",
+    "This does not establish MCU, GPU, mobile, browser, or general edge deployment.",
+    "This does not strengthen the scientific compositional-simplification claim.",
+    "Measured latency is secondary and hardware/runtime-specific.",
+    "A later experiment must connect an actually learned Canaria replacement to a streaming runtime before making deployment claims."
+  ]
+}

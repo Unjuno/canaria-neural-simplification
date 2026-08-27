@@ -1,0 +1,63 @@
+{
+  "experiment": "C2 freeze-boundary mapping for recursive Canaria composition",
+  "status": "EXPLORATORY_COMPLETE",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 33,
+  "protocol_commit": "778dda8f90cea0dce46f301589bdd9836d7a55d3",
+  "runner_commit_initial": "94258ee9874bff19757ad416182ab26e1e0bbad9",
+  "runner_execution_alignment_commit": "afc628b910f4636aed297462f30ed421ed025528",
+  "runner_git_blob_sha": "c78f1134ad5286aecc7148d3f4589a423b17da06",
+  "seeds": [1320, 1321, 1322],
+  "test_evaluated": false,
+  "environment": {"python": "3.13.5", "torch": "2.10.0+cpu", "numpy": "2.3.5", "sklearn": "1.8.0"},
+  "budget": {"three_candidate_cluster_params": 3072, "single_composed_params": 3072, "exact_match": true},
+  "direct_original_single": {"mean_nmse_vs_original_teacher": 0.046253505750575935, "mean_val_acc": 0.9666666785875956},
+  "aggregate": {
+    "all_frozen": {"mean_cluster_nmse_vs_original_teacher": 0.16713981553712554, "mean_cluster_val_acc": 0.9419753154118856, "mean_recompiled_nmse_vs_cluster_teacher": 0.011417639603480087, "mean_recompiled_nmse_vs_original_teacher": 0.1668884461151716, "mean_recompiled_excess_original_nmse_vs_direct": 0.12063494036459566, "mean_recompiled_val_acc": 0.9444444378217062},
+    "left_only": {"mean_cluster_nmse_vs_original_teacher": 0.10561692391501046, "mean_cluster_val_acc": 0.9592592517534891, "mean_recompiled_nmse_vs_cluster_teacher": 0.022954214011952186, "mean_recompiled_nmse_vs_original_teacher": 0.1029560028588362, "mean_recompiled_excess_original_nmse_vs_direct": 0.056702497108260266, "mean_recompiled_val_acc": 0.9617283940315247},
+    "middle_only": {"mean_cluster_nmse_vs_original_teacher": 0.1070351629956978, "mean_cluster_val_acc": 0.9592592517534891, "mean_recompiled_nmse_vs_cluster_teacher": 0.01864184564855923, "mean_recompiled_nmse_vs_original_teacher": 0.10824230018413182, "mean_recompiled_excess_original_nmse_vs_direct": 0.061988794433555885, "mean_recompiled_val_acc": 0.960493822892507},
+    "right_only": {"mean_cluster_nmse_vs_original_teacher": 0.1015764880212102, "mean_cluster_val_acc": 0.9530864357948303, "mean_recompiled_nmse_vs_cluster_teacher": 0.021030011286324847, "mean_recompiled_nmse_vs_original_teacher": 0.10285773976985609, "mean_recompiled_excess_original_nmse_vs_direct": 0.05660423401928015, "mean_recompiled_val_acc": 0.9530864159266154},
+    "left_middle": {"mean_cluster_nmse_vs_original_teacher": 0.06507010627989039, "mean_cluster_val_acc": 0.9654320875803629, "mean_recompiled_nmse_vs_cluster_teacher": 0.026746889477312245, "mean_recompiled_nmse_vs_original_teacher": 0.0699255405528115, "mean_recompiled_excess_original_nmse_vs_direct": 0.023672034802235554, "mean_recompiled_val_acc": 0.9629629651705424},
+    "middle_right": {"mean_cluster_nmse_vs_original_teacher": 0.06230777262213548, "mean_cluster_val_acc": 0.9666666587193807, "mean_recompiled_nmse_vs_cluster_teacher": 0.02357784167738808, "mean_recompiled_nmse_vs_original_teacher": 0.06820617537922771, "mean_recompiled_excess_original_nmse_vs_direct": 0.021952669628651774, "mean_recompiled_val_acc": 0.9629629651705424},
+    "edges_only": {"mean_cluster_nmse_vs_original_teacher": 0.06382470578798292, "mean_cluster_val_acc": 0.9691358009974161, "mean_recompiled_nmse_vs_cluster_teacher": 0.027047440548365217, "mean_recompiled_nmse_vs_original_teacher": 0.06812519832050372, "mean_recompiled_excess_original_nmse_vs_direct": 0.02187169256992778, "mean_recompiled_val_acc": 0.9641975363095602},
+    "all_unfrozen": {"mean_cluster_nmse_vs_original_teacher": 0.05177366996704963, "mean_cluster_val_acc": 0.9679012298583984, "mean_recompiled_nmse_vs_cluster_teacher": 0.0295355618369547, "mean_recompiled_nmse_vs_original_teacher": 0.06165816773203728, "mean_recompiled_excess_original_nmse_vs_direct": 0.015404661981461341, "mean_recompiled_val_acc": 0.960493822892507}
+  },
+  "per_seed_cluster_order_best_to_worst": [
+    ["all_unfrozen", "edges_only", "middle_right", "left_middle", "right_only", "left_only", "middle_only", "all_frozen"],
+    ["all_unfrozen", "edges_only", "middle_right", "left_middle", "right_only", "middle_only", "left_only", "all_frozen"],
+    ["all_unfrozen", "middle_right", "left_middle", "edges_only", "middle_only", "right_only", "left_only", "all_frozen"]
+  ],
+  "per_seed_recursive_order_best_to_worst": [
+    ["all_unfrozen", "middle_right", "edges_only", "left_middle", "left_only", "right_only", "middle_only", "all_frozen"],
+    ["all_unfrozen", "edges_only", "middle_right", "left_middle", "right_only", "middle_only", "left_only", "all_frozen"],
+    ["all_unfrozen", "middle_right", "edges_only", "left_middle", "left_only", "right_only", "middle_only", "all_frozen"]
+  ],
+  "pairwise_counts_out_of_3": {
+    "left_only_better_than_middle_only_cluster": 1,
+    "left_only_better_than_middle_only_recursive": 2,
+    "right_only_better_than_middle_only_cluster": 2,
+    "right_only_better_than_middle_only_recursive": 3,
+    "left_only_better_than_right_only_cluster": 0,
+    "left_only_better_than_right_only_recursive": 2,
+    "edges_only_better_than_left_middle_cluster": 2,
+    "edges_only_better_than_left_middle_recursive": 3,
+    "edges_only_better_than_middle_right_cluster": 2,
+    "edges_only_better_than_middle_right_recursive": 1,
+    "middle_right_better_than_left_middle_cluster": 3,
+    "middle_right_better_than_left_middle_recursive": 3,
+    "all_unfrozen_better_than_edges_only_cluster": 3,
+    "all_unfrozen_better_than_edges_only_recursive": 3,
+    "all_unfrozen_better_than_middle_right_cluster": 3,
+    "all_unfrozen_better_than_middle_right_recursive": 3
+  },
+  "interpretation": [
+    "All-unfrozen was the best cluster-original-teacher NMSE schedule in all 3 fresh exploratory seeds.",
+    "All-unfrozen was also the best recursive-single original-teacher NMSE schedule in all 3 seeds.",
+    "Among two-candidate schedules, edges-only and middle-right were nearly tied on the aggregate recursive endpoint; left-middle was consistently weaker on the mean.",
+    "Single-candidate left/right superiority was not stable across seeds; middle-only was generally weak, but there was no robust left-versus-right asymmetry.",
+    "The mean all-unfrozen recursive-single original-teacher NMSE was 0.06166 versus 0.04625 for direct-original recompilation, leaving a mean excess of 0.01540.",
+    "Together with C1, the stable result is not a special edge-only rule but that jointly adapting the full already-fitted candidate cluster before freezing and recursively recompiling it gives the best tested fidelity.",
+    "Fresh confirmatory seeds are required before public claim use."
+  ]
+}

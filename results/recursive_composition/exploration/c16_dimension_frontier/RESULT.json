@@ -1,0 +1,23 @@
+{
+  "experiment":"C16 exploratory teacher-correction dimension frontier",
+  "status":"EXPLORATORY_COMPLETE",
+  "issue":53,
+  "protocol_commit":"53ab460b2986dd0ce320fc8b53f43771d94fac87",
+  "runner_commit":"e6faa2e987608ae8f05518539d265002f2fad137",
+  "runner_git_blob_sha":"e7627da7a9ed46b3cb0a9f04ed32f4027fbb23a4",
+  "model_seeds":[1470,1471,1472],
+  "test_evaluated":false,
+  "dimensions":{
+    "8":{"all_9_improve_frozen":true,"difference_vs_frozen_range":[-0.0054737689330090905,-0.003338645145184241],"ratio_over_full64_range":[1.3591334647950166,1.4761414065370588],"per_seed_worst_over_full64":[1.3848813187080373,1.3933033116504436,1.4761414065370588]},
+    "16":{"all_9_improve_frozen":true,"difference_vs_frozen_range":[-0.009052422523504217,-0.006901371918796806],"ratio_over_full64_range":[1.2917773269332913,1.4101416404411131],"per_seed_worst_over_full64":[1.3120560866529516,1.319748414089328,1.4101416404411131]},
+    "24":{"all_9_improve_frozen":true,"difference_vs_frozen_range":[-0.013783721009118122,-0.009363556978863805],"ratio_over_full64_range":[1.2121559661562828,1.3099531977744439],"per_seed_worst_over_full64":[1.26172688383841,1.250548092806875,1.3099531977744439]},
+    "32":{"all_9_improve_frozen":true,"difference_vs_frozen_range":[-0.01643624712597904,-0.012448759082768317],"ratio_over_full64_range":[1.1634235272714268,1.2225892736685033],"per_seed_worst_over_full64":[1.1986626711073671,1.1958688562240745,1.2225892736685033]}
+  },
+  "interpretation":[
+    "All 36 tested basis x dimension x model-seed self-anchored conditions improved over the frozen hierarchy.",
+    "Teacher-correction fidelity improved smoothly as interface dimension increased from 8 to 32.",
+    "Even 8/64 dimensions carried a reproducible repair signal, but worst-basis fidelity remained about 1.38-1.48x full-64.",
+    "At 16/64 dimensions, worst-basis/full-64 was about 1.31-1.41x, motivating a fresh quarter-interface confirmatory study.",
+    "Exploratory only; no universal minimum-dimension claim."
+  ]
+}

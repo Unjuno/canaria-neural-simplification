@@ -1,0 +1,41 @@
+{
+  "stage": "C25",
+  "scientific_role": "confirmatory",
+  "question": "Does quarter-interface repair in the SmallViT central-two-block regime specifically require the sample-specific pre-alignment Canaria complement rather than generic anchors?",
+  "seeds": [1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1591],
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible_seeds": 8,
+  "testbed": {
+    "dataset": "sklearn digits",
+    "architecture": "SmallViT depth4 d32",
+    "span": "central two transformer blocks start=1",
+    "local_candidates": "2 x TinyTokenRes(32,32)",
+    "final_candidate": "TinyTokenRes(32,64)",
+    "exact_learned_parameter_budget": 4096,
+    "updates": 600,
+    "optimizer": "AdamW",
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch_size": 64
+  },
+  "projection": {
+    "dimension": 8,
+    "ambient_dimension": 32,
+    "rng_seed": 20261320,
+    "construction": "Gaussian 32x32 -> QR -> sign-fix R diagonal -> first 8 columns"
+  },
+  "conditions": ["frozen","sketch_only_8","anchor_self","anchor_input","anchor_mean","anchor_shuffled","anchor_zero","full_32","direct"],
+  "anchor_formula": "A + ((original-A) @ P8) @ P8.T",
+  "generic_best": ["anchor_input","anchor_mean","anchor_shuffled","anchor_zero"],
+  "test_isolation": "held-out test materialized only after all fitting and validation metrics within seed complete",
+  "bootstrap": {"resamples": 100000, "rng_seed": 20261330, "method": "paired model-seed percentile bootstrap"},
+  "gates": {
+    "P1": "upper95(mean(self-frozen NMSE)) < 0",
+    "P2": "upper95(mean(self-sketch NMSE)) < 0",
+    "P3": "upper95(mean(self-best_generic NMSE)) < 0",
+    "P4": "upper95(geomean(self/full32 NMSE ratio)) < 1.30",
+    "validation_safeguard": "lower95(mean(self-full32 validation accuracy)) > -0.04",
+    "test_safeguard": "lower95(mean(self-full32 test accuracy)) > -0.04"
+  },
+  "overall_decision": "CONFIRMATORY_PASS iff >=8 eligible seeds and all six gates pass; no rescue seeds/projection/margins/updates/aggregation/bootstrap"
+}

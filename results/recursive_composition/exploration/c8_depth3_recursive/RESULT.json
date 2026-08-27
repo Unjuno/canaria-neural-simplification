@@ -1,0 +1,34 @@
+{
+  "experiment": "C8 exploratory depth-3 recursive hierarchy and error scaling",
+  "status": "EXPLORATORY_POSITIVE_FOR_REALIGNMENT_STRICT_PATH_DEGRADES",
+  "evidence_class": "EXPLORATORY_DEPTH3",
+  "issue": 45,
+  "protocol_commit": "94298550d1a022c4e4196edca09371643a547ca3",
+  "runner_commit": "f2d480c3253d3e6c57551252d5f0efab523cce3b",
+  "runner_git_blob_sha": "714e9ead6026c5acb06113ce0e29ca2422eae823",
+  "seeds": [1390,1391,1392],
+  "test_evaluated": false,
+  "budget": {"level0":4096,"level1":4096,"level2":4096,"level3":4096,"exact_match_each_level":true},
+  "aggregate_conditions": {
+    "strict_depth3": {"mean_val_nmse_vs_original": 0.21936955695093494, "geometric_mean_ratio_vs_direct": 4.576192601572021, "mean_val_acc": 0.9259259104728699},
+    "realign_each_level": {"mean_val_nmse_vs_original": 0.05627460498667411, "geometric_mean_ratio_vs_direct": 1.1739710754287247, "mean_val_acc": 0.9666666785875956},
+    "single_level_recursive": {"mean_val_nmse_vs_original": 0.06917113380910744, "geometric_mean_ratio_vs_direct": 1.4430840081284728, "mean_val_acc": 0.9617283940315247},
+    "direct_original_single": {"mean_val_nmse_vs_original": 0.04793411454994706, "mean_val_acc": 0.9666666587193807}
+  },
+  "mean_depth_trajectory": {
+    "strict_level1_full_chain_nmse": 0.2209515229690895,
+    "strict_level2_full_chain_nmse": 0.2182623231227676,
+    "strict_level3_final_nmse": 0.21936955695093494,
+    "realign_level1_full_chain_nmse": 0.2209515229690895,
+    "realign_level2_full_chain_nmse": 0.08674400601353571,
+    "realign_level3_final_nmse": 0.05627460498667411
+  },
+  "observations": [
+    "Strict depth-3 recursion produced large error in all three exploratory seeds, with final/direct NMSE ratios 4.46x to 4.67x.",
+    "The strict path's large error was already present when four Level-1 recursive pair units were chained; subsequent strict recompilation largely preserved rather than repaired it.",
+    "Re-aligning each new hierarchy boundary to the corresponding original wider span before freezing and recursively compiling reduced Level-2 full-chain NMSE from about 0.22 to about 0.087 on average and Level-3 final NMSE to about 0.056.",
+    "Realign-each-level final/direct ratios were 1.11x to 1.23x and beat the single-level recursive control in all three seeds.",
+    "No held-out test data was evaluated."
+  ],
+  "interpretation": "The exploratory depth-3 result suggests that recursive depth itself is not the only driver of error. Distribution mismatch at newly composed frozen boundaries dominates in the strict path, while repeated joint re-alignment at each hierarchy boundary can repair much of that mismatch before the next recursive compile. Fresh confirmatory testing is required."
+}

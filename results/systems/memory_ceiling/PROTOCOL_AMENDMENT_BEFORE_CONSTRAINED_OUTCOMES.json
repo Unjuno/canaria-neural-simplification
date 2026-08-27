@@ -1,0 +1,27 @@
+{
+  "name": "Canaria-Systems-S3-payload-identity-amendment-v1",
+  "status": "LOCKED_BEFORE_CONSTRAINED_OUTCOMES",
+  "parent_issue": 23,
+  "parent_protocol_commit": "79009b3da4451e10e06f52b63f505e9e05f359d7",
+  "scope": "payload identity verification only",
+  "reason": "The original S3 protocol fixed SHA256 of torch.save container bytes. Reconstructing the exact G7 seed-4300 learned compiler reproduced the recorded source test PPL 18.932213342799887 and the S2 aggregate learned-payload checksum 234473.0256500244 exactly, but re-saving identical learned tensors produced different torch.save container bytes. Therefore file-container SHA is not a suitable deterministic identity check for regenerated payloads.",
+  "unchanged_conditions": {
+    "logical_block_chunks": 4096,
+    "expected_checksum": 234473.0256500244,
+    "extra_address_space_headroom_bytes": 67108864,
+    "modes": ["full_unconstrained_control", "full_constrained", "streaming_constrained"],
+    "pass_rule": "unconstrained full completes and checksum matches; constrained streaming completes and checksum matches; constrained full fails for a memory/allocation condition before 4096 chunks; both constrained modes use exactly the same 64 MiB extra address-space headroom"
+  },
+  "source_reconstruction_checks_before_lock": {
+    "source_test_ppl": 18.932213342799887,
+    "expected_source_test_ppl": 18.932213342799887,
+    "aggregate_4096_chunk_checksum": 234473.0256500244,
+    "expected_aggregate_4096_chunk_checksum": 234473.0256500244
+  },
+  "deterministic_tensor_content_hash_definition": "For each block state_dict: iterate keys in sorted order and SHA256-update key UTF-8 + NUL, dtype string + NUL, shape tuple string + NUL, then contiguous CPU tensor raw bytes in C order.",
+  "locked_tensor_content_sha256": {
+    "compiler_block0.pt": "78fd7f52ef6f019f6ede72c73b4928b0482d61e7f7914de532ebc084779fce56",
+    "compiler_block1.pt": "d70098af827694a42e7bb31958cf9959ec3aceef0d432941960c15d0cb5091c8"
+  },
+  "outcome_policy": "No constrained S3 outcome was inspected before this amendment was locked. The original file-container-hash implementation is retained as provenance but is superseded only for payload identity verification."
+}

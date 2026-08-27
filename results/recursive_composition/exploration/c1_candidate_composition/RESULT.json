@@ -1,0 +1,32 @@
+{
+  "experiment": "C1 freeze-schedule composition of adjacent Canaria candidates",
+  "status": "EXPLORATORY_COMPLETE",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 32,
+  "protocol_commit": "f69010136a7d5c1b9c0345a90e2f3a3b62c4bb75",
+  "runner_commit": "96211f35499e7dd5a9f20d4adede49623c1cefcd",
+  "seeds": [1310, 1311, 1312],
+  "test_evaluated": false,
+  "environment": {"python": "3.13.5", "torch": "2.10.0+cpu", "numpy": "2.3.5", "sklearn": "1.8.0"},
+  "budget": {"three_candidate_cluster_params": 3072, "single_composed_params": 3072, "exact_match": true},
+  "direct_original_single": {"mean_nmse_vs_original_teacher": 0.0440453983565272, "mean_val_acc": 0.9691358009974161},
+  "aggregate": {
+    "all_frozen": {"mean_cluster_nmse_vs_original_teacher": 0.155331447987208, "mean_cluster_val_acc": 0.954321006933848, "mean_recompiled_nmse_vs_cluster_teacher": 0.009710641343892915, "mean_recompiled_nmse_vs_original_teacher": 0.15626765280322466, "mean_recompiled_excess_original_nmse_vs_direct": 0.11222225444669744, "mean_recompiled_val_acc": 0.9481481512387594},
+    "middle_only": {"mean_cluster_nmse_vs_original_teacher": 0.09846589615011875, "mean_cluster_val_acc": 0.9654320875803629, "mean_recompiled_nmse_vs_cluster_teacher": 0.014493911355254916, "mean_recompiled_nmse_vs_original_teacher": 0.10078038898600049, "mean_recompiled_excess_original_nmse_vs_direct": 0.05673499062947328, "mean_recompiled_val_acc": 0.9567901293436686},
+    "edges_only": {"mean_cluster_nmse_vs_original_teacher": 0.05771401553173774, "mean_cluster_val_acc": 0.9679012298583984, "mean_recompiled_nmse_vs_cluster_teacher": 0.021433249401617244, "mean_recompiled_nmse_vs_original_teacher": 0.06302920022553415, "mean_recompiled_excess_original_nmse_vs_direct": 0.018983801869006944, "mean_recompiled_val_acc": 0.9629629651705424},
+    "all_unfrozen": {"mean_cluster_nmse_vs_original_teacher": 0.04628964819933287, "mean_cluster_val_acc": 0.9716049234072367, "mean_recompiled_nmse_vs_cluster_teacher": 0.02520203170263902, "mean_recompiled_nmse_vs_original_teacher": 0.05755307632959818, "mean_recompiled_excess_original_nmse_vs_direct": 0.013507677973070968, "mean_recompiled_val_acc": 0.9641975363095602}
+  },
+  "ordering": {
+    "cluster_nmse_all_three_seeds": ["all_unfrozen", "edges_only", "middle_only", "all_frozen"],
+    "recompiled_original_nmse_all_three_seeds": ["all_unfrozen", "edges_only", "middle_only", "all_frozen"],
+    "consistent_full_order": true
+  },
+  "interpretation": [
+    "Jointly unfreezing all three already-fitted local Canaria candidates produced the lowest cluster NMSE to the original teacher in all 3 exploratory seeds.",
+    "After re-freezing that cluster, a matched-budget single Canaria trained only on cluster outputs preserved most of the gain and was the best recursive-recompilation schedule in all 3 seeds.",
+    "Direct recompilation from the original teacher remained better in NMSE, so recursive Canaria-to-Canaria recompilation is not lossless in C1.",
+    "The frozen local cluster was easiest to imitate relative to itself but was a poor approximation to the original teacher; better joint adaptation increased the difficulty of imitating the cluster while substantially improving original-teacher fidelity.",
+    "Freeze schedule therefore appears to control a fidelity-versus-recompilability tradeoff. Fresh confirmatory seeds are required before public claim use."
+  ]
+}

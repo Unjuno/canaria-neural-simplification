@@ -1,0 +1,41 @@
+{
+  "stage": "C21",
+  "scientific_role": "confirmatory",
+  "question": "On the established SmallViT central two-block span, can an 8/32-dimensional teacher correction plus a complementary 24D Canaria self-anchor robustly repair the recursive boundary across fresh model seeds and fresh bases with bounded loss relative to full 32D hidden alignment?",
+  "testbed": {
+    "dataset": "sklearn digits",
+    "teacher": "SmallViT depth=4 d=32",
+    "span": "central two Transformer blocks start=1",
+    "local_candidates": "2 x TinyTokenRes(32,32)",
+    "final_candidate": "TinyTokenRes(32,64)",
+    "exact_learned_parameter_budget": 4096,
+    "fit_updates": 600,
+    "optimizer": "AdamW",
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch_size": 64
+  },
+  "fresh_model_seeds": [1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541],
+  "teacher_eligibility": {"validation_accuracy_min": 0.95, "minimum_eligible_seeds": 8, "no_replacement_seeds": true},
+  "basis_family": [
+    {"name":"identity_first8","seed":null},
+    {"name":"random_20261121","seed":20261121},
+    {"name":"random_20261122","seed":20261122},
+    {"name":"random_20261123","seed":20261123}
+  ],
+  "correction_dimension": 8,
+  "self_anchor_dimension": 24,
+  "conditions": ["frozen","full_32","direct","sketch_only_8 per basis","anchored_8 per basis"],
+  "recursive_target_rule": "After alignment, freeze cluster and fit final candidate from cluster outputs only; original hidden targets forbidden as final recursive target.",
+  "test_isolation": "Held-out test dataset is materialized for endpoint evaluation only after all fitting and validation metrics for the seed are complete.",
+  "endpoints": {
+    "P1": "paired bootstrap95 upper(mean anchored8_worst_nmse - frozen_nmse) < 0",
+    "P2": "paired bootstrap95 upper(geomean anchored8_worst_nmse/full32_nmse) < 1.40",
+    "P3": "paired bootstrap95 upper(geomean worst_basis_nmse/best_basis_nmse) < 1.20",
+    "validation_safeguard": "paired bootstrap95 lower(min_basis anchored8 val accuracy - full32 val accuracy) > -0.04",
+    "test_safeguard": "paired bootstrap95 lower(min_basis anchored8 test accuracy - full32 test accuracy) > -0.04"
+  },
+  "bootstrap": {"resamples":100000,"rng_seed":20261130,"percentile_ci":0.95},
+  "overall_decision": "CONFIRMATORY_PASS requires >=8 eligible seeds and all five locked gates PASS. No rescue seeds, bases, margins, update counts, or alternate aggregations.",
+  "claim_boundary_if_pass": "Scoped SmallViT central-two-block quarter-interface result only; not full-model Transformer compression, arbitrary architectures/subspaces, LLM behavior, or a universal 8D interface."
+}

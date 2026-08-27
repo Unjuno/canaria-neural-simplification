@@ -1,6 +1,6 @@
 # Scripts
 
-The active script surface is intentionally limited to code that is still needed to reproduce, replicate, or audit the reviewed evidence.
+The active script surface is intentionally limited to code that is still needed to reproduce, replicate, audit, or review current evidence.
 
 ## Active paths
 
@@ -10,6 +10,8 @@ The active script surface is intentionally limited to code that is still needed 
 - `replication/` — direct replication runners, including the SmallViT compositional experiment.
 - `phase2/` — Phase 2 precision/quantization runners associated with the reviewed correction boundary.
 - `phases/training_time/` — training-time evidence-producing runners still referenced by current reviewed results.
+- `systems/` — S1–S7 streaming/native-runtime runners. Interpret them through `../docs/SYSTEMS_RUNTIME.md`.
+- `recursive_composition/` — C-series exploration and confirmatory runners. Interpret them through `../docs/RECURSIVE_COMPOSITION.md`; script presence alone does not imply confirmatory status.
 
 ## Historical experiment code
 
@@ -27,14 +29,15 @@ Do not silently patch archived code and call the output an exact reproduction. A
 - Prefer `reproduce/` when a supported reproduction path exists.
 - Keep portability changes separate from scientific protocol changes.
 - Reusable code belongs in `../src/canaria/` only when it can be separated from historical experiment semantics and tested independently.
+- Preserve exploratory failures and correction records when they constrain interpretation; do not keep only positive outcomes.
 
 ## Reading order
 
 1. `../REPOSITORY_LAYOUT.md`
 2. `../docs/REPRODUCIBILITY.md`
-3. the relevant current protocol/result documentation
-4. the matching result artifact under `../results/`
-5. a runner under `reproduce/`, `replication/`, `phase2/`, or `phases/training_time/`
+3. the relevant evidence map (`CLAIMS_AND_EVIDENCE.md`, `RECURSIVE_COMPOSITION.md`, or `SYSTEMS_RUNTIME.md`)
+4. the matching protocol/result artifact under `../results/`
+5. the corresponding runner
 
 For older version-number experiments, use `../archives/README.md` and the archived protocol/result/runner together.
 

@@ -1,0 +1,22 @@
+{
+  "experiment":"C17 confirmatory quarter-dimensional self-anchored teacher interface",
+  "status":"LOCKED_BEFORE_OUTCOMES",
+  "issue":54,
+  "model_seeds":[1480,1481,1482,1483,1484,1485,1486,1487],
+  "teacher_correction_dim":16,
+  "anchor_dim":48,
+  "basis_conditions":[
+    {"name":"identity_first16","type":"coordinate"},
+    {"name":"random_20261010","type":"orthogonal_qr","rng_seed":20261010},
+    {"name":"random_20261011","type":"orthogonal_qr","rng_seed":20261011},
+    {"name":"random_20261012","type":"orthogonal_qr","rng_seed":20261012}
+  ],
+  "P1":{"statistic":"max basis NMSE - frozen NMSE","pass":"paired seed bootstrap95 upper < 0"},
+  "P2":{"statistic":"max basis NMSE / full64 NMSE geometric mean","pass":"bootstrap95 upper < 1.50"},
+  "P3":{"statistic":"max basis NMSE / min basis NMSE geometric mean","pass":"bootstrap95 upper < 1.15"},
+  "validation_guardrail":{"statistic":"min basis validation accuracy - full64 validation accuracy","pass":"bootstrap95 lower > -0.03"},
+  "test_safeguard":{"statistic":"min basis test accuracy - full64 test accuracy","pass":"bootstrap95 lower > -0.03","materialization":"after all fitting and validation metrics within seed"},
+  "bootstrap":{"resamples":100000,"rng_seed":20261013,"method":"paired model-seed percentile 95%"},
+  "overall":"CONFIRMATORY_PASS iff P1/P2/P3/validation/test pass; no rescue.",
+  "boundary":"Scoped quarter-interface result in this residual-MLP recursive hierarchy only."
+}

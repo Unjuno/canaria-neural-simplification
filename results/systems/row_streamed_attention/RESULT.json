@@ -1,0 +1,33 @@
+{
+  "experiment": "Canaria Systems S5 row-streamed attention",
+  "status": "PASS",
+  "evidence_class": "systems_logical_tensor_working_set",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "issue": 26,
+  "protocol_commit": "425b92893f39d3dd99a440a00b6dce80ae78d911",
+  "initial_runner_commit": "a60b045769dde27a6470f1abdf96fc6ec52e9151",
+  "status_bug_note_commit": "3affae60e019ead5819ae04ccbd8088493be0c33",
+  "bugfix_runner_commit": "53390278579dfc1b6fd618cd85524126754ad5a8",
+  "bugfix_runner_blob": "9d2b9bf21dbe724aa9dc879f8fdb7644c97a0583",
+  "post_outcome_bug_scope": "top-level status aggregation only; no algorithm, threshold, input, weight, memory accounting, or measured value changed",
+  "torch_imported": false,
+  "max_absolute_output_difference": 7.152557373046875e-07,
+  "relative_l2_output_difference": 1.1762955608091765e-07,
+  "output_sum": 333.3709716796875,
+  "reference_sum": 333.3709716796875,
+  "observed_max_score_row_bytes": 1536,
+  "locked_peak_managed_tensor_upper_bound_bytes": 54208,
+  "capacity_target_bytes": 65536,
+  "conventional_full_score_bytes": 73728,
+  "conventional_weights_plus_x_plus_scores_lower_bound_bytes": 97728,
+  "median_execution_seconds": 0.004662207999899692,
+  "checks": {
+    "torch_not_imported": true,
+    "max_abs_lte_5e_5": true,
+    "relative_l2_lte_1e_5": true,
+    "max_score_row_lte_1536": true,
+    "peak_managed_tensor_upper_bound_lte_65536": true,
+    "no_full_score_tensor_created": true
+  },
+  "interpretation_boundary": "Logical managed tensor working-set accounting only. Python/NumPy/SciPy runtime overhead, ndarray metadata, OS page cache, .npy headers, and opaque library temporaries are excluded. This is not evidence that the Python process or a physical MCU fits in 64 KiB."
+}

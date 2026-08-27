@@ -1,0 +1,53 @@
+{
+  "experiment": "C10 exploratory boundary re-alignment signal ablation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY",
+  "issue": 47,
+  "fresh_seeds": [1410, 1411, 1412],
+  "testbed": {
+    "dataset": "sklearn digits",
+    "teacher": "4-block residual MLP d=64",
+    "span": "all four residual blocks",
+    "test_evaluated": false
+  },
+  "budget": {
+    "local": "4 x TinyRes(64,8)",
+    "level1": "2 x TinyRes(64,16)",
+    "final": "TinyRes(64,32)",
+    "learned_params_each_level": 4096,
+    "exact_match": true
+  },
+  "optimization": {
+    "updates_each_stage": 600,
+    "optimizer": "AdamW",
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch": 128,
+    "same_top_boundary_minibatch_rng_across_signal_conditions": true,
+    "same_final_init_and_minibatch_rng_across_conditions": true
+  },
+  "shared_lower_hierarchy": [
+    "fit 4 local candidates to individual original blocks",
+    "jointly align C1+C2 to original a0->a2 and C3+C4 to original a2->a4",
+    "freeze each pair",
+    "recursively compile C12/C34 using pair-cluster outputs only"
+  ],
+  "top_boundary_conditions": {
+    "frozen": "no top-boundary adaptation",
+    "hidden_mse": "joint C12+C34 adaptation using original hidden a4 MSE target",
+    "logit_distill": "original hidden a4 forbidden as loss target; joint adaptation minimizes MSE between frozen teacher-head logits of hierarchy output and original teacher logits",
+    "label_ce": "original hidden a4 and teacher logits forbidden as loss targets; joint adaptation uses labels only through frozen teacher head with cross entropy"
+  },
+  "final_recursive_compile": "freeze each top hierarchy; fit matched TinyRes(64,32) only to a0 -> frozen_hierarchy(a0); original a4 forbidden as fit target",
+  "direct_control": "matched TinyRes(64,32) directly fit to original a0->a4",
+  "endpoints": [
+    "pre-final hierarchy NMSE vs original a4",
+    "pre-final replacement validation accuracy",
+    "final NMSE vs immediate hierarchy teacher",
+    "final NMSE vs original a4",
+    "final replacement validation accuracy",
+    "final/direct NMSE ratio",
+    "signal ordering across fresh seeds"
+  ],
+  "claim_boundary": "Exploratory only; no test outcomes; does not establish teacher-free recursive compilation."
+}

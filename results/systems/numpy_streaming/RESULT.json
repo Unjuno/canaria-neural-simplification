@@ -1,0 +1,41 @@
+{
+  "experiment": "Canaria Systems S4 framework-independent learned compiler streaming",
+  "status": "PASS",
+  "evidence_class": "systems_framework_independent_kernel_equivalence",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "issue": 25,
+  "protocol_commit": "384c3e2cad3d2d14ddabfd1090ca658c054df3d7",
+  "exporter_commit": "103a3ad0b9fbc36bbd4317c0785b822c6bb5b3e7",
+  "exporter_blob": "f6ec910f0e4287066fa859f94b93d46c716b79fc",
+  "runtime_commit": "a60b8ec6658199d32557fd1e518da7b0660dac2d",
+  "runtime_blob": "7cf6a4b6b2a6fc4adf6638b7f02a3731e5f3aebd",
+  "source_tensor_content_sha256": {
+    "compiler_block0.pt": "78fd7f52ef6f019f6ede72c73b4928b0482d61e7f7914de532ebc084779fce56",
+    "compiler_block1.pt": "d70098af827694a42e7bb31958cf9959ec3aceef0d432941960c15d0cb5091c8"
+  },
+  "input": {
+    "shape": [2, 48, 24],
+    "dtype": "float32",
+    "numpy_rng_seed": 20260827
+  },
+  "runtime": "NumPy 2.3.5 + SciPy 1.17.0; torch absent from execution child",
+  "torch_imported_in_execution_child": false,
+  "max_absolute_output_difference": 7.152557373046875e-07,
+  "relative_l2_output_difference": 1.1290824365657844e-07,
+  "output_sum_numpy": 333.3709716796875,
+  "output_sum_pytorch_reference": 333.3709716796875,
+  "one_block_learned_tensor_payload_bytes": 14784,
+  "two_block_learned_tensor_payload_bytes": 29568,
+  "raw_npy_serialized_bytes": 32640,
+  "input_activation_bytes": 9216,
+  "attention_score_scratch_bytes": 73728,
+  "median_execution_seconds": 0.0030393150000236346,
+  "checks": {
+    "torch_not_imported": true,
+    "max_abs_lte_5e_5": true,
+    "relative_l2_lte_1e_5": true,
+    "two_blocks_executed": true,
+    "one_block_payload_lte_14784": true
+  },
+  "interpretation_boundary": "Fixed synthetic activation kernel-equivalence test using actual learned G7 compiler weights. Demonstrates framework-independent block-streamed execution only; not task evidence, physical-device deployment evidence, or scientific composition evidence."
+}
