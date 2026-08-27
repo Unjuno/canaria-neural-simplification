@@ -1,0 +1,36 @@
+{
+  "stage": "C20",
+  "scientific_role": "confirmatory",
+  "question": "Does a 16/32-dimensional teacher correction plus 16D Canaria self-anchor robustly repair the SmallViT central two-block recursive boundary across fresh models and fresh bases?",
+  "model_seeds": [1510,1511,1512,1513,1514,1515,1516,1517,1518,1519,1520,1521],
+  "teacher_eligibility_val_acc_min": 0.95,
+  "minimum_eligible_seeds": 8,
+  "basis_family": ["identity_first16","random_20261101","random_20261102","random_20261103"],
+  "random_basis_construction": "numpy.default_rng(seed) Gaussian 32x32 -> QR -> sign-fix R diagonal -> first 16 columns",
+  "testbed": {
+    "dataset": "sklearn digits",
+    "teacher": "SmallViT depth=4 d=32",
+    "target_span": "central two blocks start=1",
+    "local_candidates": "2 x TinyTokenRes(32,32)",
+    "final_candidate": "TinyTokenRes(32,64)",
+    "learned_parameter_budget": 4096,
+    "exact_parameter_match_required": true,
+    "updates": 600,
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch_size": 64
+  },
+  "conditions": ["frozen","full_32","direct","sketch_only_16_per_basis","anchored_16_per_basis"],
+  "final_recursive_target_rule": "cluster outputs only; original span target forbidden",
+  "held_out_test_rule": "evaluate test only after all fitting and validation metrics within seed are complete",
+  "endpoints": {
+    "P1": "bootstrap95 upper(mean(max_basis anchored16_final_nmse - frozen_final_nmse)) < 0",
+    "P2": "bootstrap95 upper(geomean(max_basis anchored16_final_nmse / full32_final_nmse)) < 1.25",
+    "P3": "bootstrap95 upper(geomean(max_basis anchored16_final_nmse / min_basis anchored16_final_nmse)) < 1.15",
+    "validation_safeguard": "bootstrap95 lower(mean(min_basis anchored16_val_acc - full32_val_acc)) > -0.03",
+    "test_safeguard": "bootstrap95 lower(mean(min_basis anchored16_test_acc - full32_test_acc)) > -0.03"
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20261110, "ci": 0.95},
+  "overall_pass": "eligible>=8 AND P1 AND P2 AND P3 AND validation_safeguard AND test_safeguard",
+  "no_rescue": true
+}
