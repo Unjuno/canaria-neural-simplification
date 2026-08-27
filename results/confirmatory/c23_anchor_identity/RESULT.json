@@ -1,0 +1,20 @@
+{
+  "stage": "C23",
+  "status": "CONFIRMATORY_PASS",
+  "scientific_role": "confirmatory",
+  "seeds": [1560,1561,1562,1563,1564,1565,1566,1567],
+  "test_evaluated": false,
+  "bootstrap": {"resamples":100000,"rng_seed":20261230,"method":"paired model-seed percentile bootstrap"},
+  "runner_git_blob_sha": "8afe58f0c19cbacccc423dc241023b91b005807d",
+  "dependencies": {"c10_git_blob_sha":"efc14979a65d6761ea4ff1059f3bda1e13451561","c11_git_blob_sha":"e207a5b06eeddb2557e2075f79596aa849412c89"},
+  "endpoints": {
+    "P1": {"estimate_mean_D_frozen":-0.007129096312710058,"ci95":[-0.007852227081522197,-0.006517757555493135],"pass":true,"margin":"upper<0"},
+    "P2": {"estimate_mean_D_sketch":-0.09011907239495398,"ci95":[-0.09706728256926436,-0.08367978501608789],"pass":true,"margin":"upper<0"},
+    "P3": {"estimate_mean_D_best_generic":-0.7206639569074018,"ci95":[-0.7367820363144987,-0.7054081135083472],"pass":true,"margin":"upper<0"},
+    "P4": {"estimate_geomean_R_full":1.2915227401830527,"ci95":[1.2662152855898081,1.3201528721127431],"pass":true,"margin":"upper<1.50"},
+    "validation_safeguard": {"estimate_mean_difference":-0.004166662693023682,"ci95":[-0.007407419383525848,0.0],"pass":true,"margin":"lower>-0.02"}
+  },
+  "all_locked_gates_pass": true,
+  "direction_counts": {"self_better_frozen":8,"self_better_sketch":8,"self_better_best_generic":8},
+  "claim_boundary": "Scoped residual-MLP anchor-identity mechanism result only; not proof of mathematical necessity, universal causality, arbitrary architectures, or teacher-free composition."
+}
