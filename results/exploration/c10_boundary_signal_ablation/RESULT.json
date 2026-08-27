@@ -1,0 +1,31 @@
+{
+  "experiment": "C10 exploratory boundary re-alignment signal ablation",
+  "status": "EXPLORATORY_COMPLETE",
+  "issue": 47,
+  "protocol_commit": "9de3d474b1e1a711743bf52b0b591e68767485b5",
+  "runner_commit": "430988860c23c67e7fb1af06bf29f3e41370ce03",
+  "runner_git_blob_sha": "efc14979a65d6761ea4ff1059f3bda1e13451561",
+  "seeds": [1410, 1411, 1412],
+  "test_evaluated": false,
+  "budget": {"params_each_level": 4096, "exact_match": true},
+  "aggregate": {
+    "frozen": {"mean_hierarchy_nmse_vs_original": 0.06951235114736591, "mean_final_nmse_vs_hierarchy": 0.005759797021637865, "mean_final_nmse_vs_original": 0.07216609534079732, "mean_hierarchy_val_acc": 0.9580247004826864, "mean_final_val_acc": 0.9580247004826864, "mean_ratio_final_nmse_over_direct": 1.7422732469158906},
+    "hidden_mse": {"mean_hierarchy_nmse_vs_original": 0.03411983795718232, "mean_final_nmse_vs_hierarchy": 0.022806918374392842, "mean_final_nmse_vs_original": 0.048620890364329074, "mean_hierarchy_val_acc": 0.9716049432754517, "mean_final_val_acc": 0.9654320875803629, "mean_ratio_final_nmse_over_direct": 1.1730811677597315},
+    "logit_distill": {"mean_hierarchy_nmse_vs_original": 0.0686959966240242, "mean_final_nmse_vs_hierarchy": 0.025216138563970387, "mean_final_nmse_vs_original": 0.08045757690674386, "mean_hierarchy_val_acc": 0.9716049432754517, "mean_final_val_acc": 0.9654321074485779, "mean_ratio_final_nmse_over_direct": 1.9465376849531468},
+    "label_ce": {"mean_hierarchy_nmse_vs_original": 1.3947951935328857, "mean_final_nmse_vs_hierarchy": 0.015371541648586602, "mean_final_nmse_vs_original": 1.3697780465950966, "mean_hierarchy_val_acc": 0.9641975363095602, "mean_final_val_acc": 0.9604938427607218, "mean_ratio_final_nmse_over_direct": 33.260443143147235},
+    "direct_original_single": {"mean_final_nmse_vs_original": 0.04145563124649854, "mean_replacement_val_acc": 0.9679012298583984},
+    "teacher": {"mean_val_acc": 0.9753086169560751}
+  },
+  "per_seed_final_nmse_ordering": [
+    ["hidden_mse", "frozen", "logit_distill", "label_ce"],
+    ["hidden_mse", "frozen", "logit_distill", "label_ce"],
+    ["hidden_mse", "frozen", "logit_distill", "label_ce"]
+  ],
+  "observations": [
+    "hidden_mse was the best recursive-fidelity alignment signal in all 3 seeds",
+    "logit_distill preserved validation accuracy similarly to hidden_mse but did not improve hidden-space functional fidelity over the frozen hierarchy",
+    "label_ce preserved validation accuracy while strongly changing hidden representation, producing very large final hidden-space NMSE",
+    "downstream task utility and recursively composable hidden-state fidelity are distinct objectives in this testbed"
+  ],
+  "boundary": "Exploratory only; no held-out test; no claim of general teacher-free composition."
+}
