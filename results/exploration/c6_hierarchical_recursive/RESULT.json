@@ -1,0 +1,26 @@
+{
+  "experiment": "C6 exploratory two-level hierarchical recursive Canaria recompilation",
+  "status": "EXPLORATORY_POSITIVE_WITH_DEPTH_PENALTY",
+  "evidence_class": "EXPLORATORY",
+  "issue": 43,
+  "protocol_commit": "717bc8c860bddce4f76de8277e1c7092c63eac85",
+  "runner_commit": "d6fdeee3dd2a2e79e761bdf59b84491181738db6",
+  "runner_git_blob_sha": "15ead73b1b4a3227564be46ac9abcb4846e27d73",
+  "seeds": [1370, 1371, 1372],
+  "test_evaluated": false,
+  "budget": {"local_total_params": 4096, "level1_total_params": 4096, "final_params": 4096, "exact_match_each_level": true},
+  "aggregate": {
+    "hierarchical_frozen": {"mean_recursive_teacher_nmse_vs_original": 0.0701301265573575, "mean_final_nmse_vs_recursive_teacher": 0.005424225460541427, "mean_final_nmse_vs_original": 0.0713794355296858, "geometric_mean_ratio_vs_direct": 1.8498914473393147, "mean_val_acc": 0.9555555582046509},
+    "hierarchical_joint": {"mean_recursive_teacher_nmse_vs_original": 0.032770999338953666, "mean_final_nmse_vs_recursive_teacher": 0.02102534022235157, "mean_final_nmse_vs_original": 0.046216211991803986, "geometric_mean_ratio_vs_direct": 1.1991717453138224, "mean_val_acc": 0.9654320875803629},
+    "single_level_recursive": {"mean_recursive_teacher_nmse_vs_original": 0.04036736201694264, "mean_final_nmse_vs_recursive_teacher": 0.02607610864004839, "mean_final_nmse_vs_original": 0.050366929508441016, "geometric_mean_ratio_vs_direct": 1.306340033433104, "mean_val_acc": 0.9641975164413452},
+    "direct_original_single": {"mean_final_nmse_vs_original": 0.038530825879855936, "mean_val_acc": 0.9629629453023275}
+  },
+  "observations": [
+    "Strict depth-2 recursion without returning to the original full-span target completed in all 3 seeds but accumulated a substantial functional penalty: per-seed final/direct NMSE ratios 1.7433x to 1.9637x.",
+    "Jointly adapting the recursively generated C12+C34 hierarchy to the original full span before re-freezing reduced final/direct ratios to 1.1812x to 1.2315x.",
+    "Hierarchical joint adaptation beat the single-level recursive baseline in final original-teacher NMSE in all 3 exploratory seeds.",
+    "The hierarchy retained the same 4096 learned-parameter budget at the local, pair, and final levels.",
+    "No held-out test outcome was evaluated."
+  ],
+  "interpretation": "Two-level recursive Canaria compilation is numerically viable in this residual-MLP testbed, but strict recursion accumulates error. A freeze/unfreeze boundary operation at the second hierarchy level substantially repairs that accumulation and, in these exploratory seeds, outperforms a one-level recursive baseline. Fresh confirmatory testing is required before a depth-2 public claim."
+}
