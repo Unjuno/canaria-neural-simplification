@@ -1,0 +1,26 @@
+{
+  "experiment": "C14 exploratory basis robustness of half-interface self-anchored Canaria alignment",
+  "status": "EXPLORATORY_COMPLETE",
+  "issue": 51,
+  "protocol_commit": "9689102af603efbad3e4627112cd49a85c5c7f37",
+  "runner_commit": "d99d43939bf9d277d063daf732ab5098a12ff32a",
+  "runner_git_blob_sha": "8b1357a008f76329f84f43673c5525658c9abf80",
+  "model_seeds": [1450, 1451, 1452],
+  "basis_names": ["identity_first32", "random_20260910", "random_20260911", "random_20260912"],
+  "test_evaluated": false,
+  "aggregate": {
+    "basis_seed_combinations": 12,
+    "all_12_improve_frozen": true,
+    "difference_vs_frozen_range": [-0.01676364873222099, -0.011264242783021017],
+    "ratio_over_full64_range": [1.091648448905777, 1.1644158058256782],
+    "per_model_worst_over_best_basis_spread": {"1450": 1.0212664528695379, "1451": 1.0241631614169038, "1452": 1.0500441559702862},
+    "max_basis_spread": 1.0500441559702862
+  },
+  "interpretation": [
+    "All 12 prospectively fixed model-seed x basis combinations improved over the frozen hierarchy.",
+    "Identity-coordinate and three independent random orthogonal half-interface bases showed the same qualitative behavior.",
+    "Final NMSE relative to full-64 alignment ranged from about 1.092x to 1.165x.",
+    "Within-model basis sensitivity was small in this exploratory cohort: worst/best NMSE spread was at most about 1.050x.",
+    "This is exploratory and does not establish arbitrary-subspace invariance."
+  ]
+}
