@@ -1,0 +1,1 @@
+Independent recomputation from `seed_rows.csv` reproduced all stored C5 confirmatory endpoint summaries and PASS decisions exactly. See `AUDIT_RECOMPUTED.json` and `tools/audit_c5_smallvit_recursive.py`.
