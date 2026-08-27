@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/recursive_composition/confirmatory/c35_scaling_equivalence.py'
       - 'scripts/recursive_composition/confirmatory/summarize_c35.py'
+      - 'scripts/recursive_composition/exploration/c4_smallvit_recursive.py'
       - 'results/recursive_composition/confirmatory/c35_scaling_equivalence/PROTOCOL.json'
       - '.github/workflows/c35-scaling-equivalence.yml'
 
@@ -23,8 +24,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install dependencies
-        run: python -m pip install numpy==2.3.5 torch==2.10.0 scikit-learn==1.8.0
+      - name: Install CPU PyTorch
+        run: python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0
+      - name: Install scientific dependencies
+        run: python -m pip install numpy==2.3.5 scikit-learn==1.8.0
       - name: Run locked C35 seed
         run: |
           mkdir -p /tmp/c35
