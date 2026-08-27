@@ -1,0 +1,37 @@
+{
+  "stage": "C22",
+  "status": "EXPLORATORY_COMPLETE",
+  "scientific_role": "exploratory_mechanistic",
+  "seeds": [1550, 1551, 1552],
+  "test_evaluated": false,
+  "all_exact_4096": true,
+  "mean_final_nmse": {
+    "full_64": 0.050892841019721295,
+    "anchor_self": 0.0646780118160999,
+    "frozen": 0.07315684654774504,
+    "sketch_only_16": 0.13774226664588363,
+    "anchor_input": 0.7487630209710402,
+    "anchor_mean": 0.7475843741307933,
+    "anchor_shuffled": 0.7786661091196525,
+    "anchor_zero": 0.7591737555228432
+  },
+  "mean_final_val_acc": {
+    "full_64": 0.9604938427607218,
+    "anchor_self": 0.9580247004826864,
+    "frozen": 0.9592592716217041,
+    "sketch_only_16": 0.9604938427607218,
+    "anchor_input": 0.9185185233751932,
+    "anchor_mean": 0.9172839323679606,
+    "anchor_shuffled": 0.7814814647038778,
+    "anchor_zero": 0.9086419741312662
+  },
+  "self_better_than_frozen_count": 3,
+  "self_better_than_sketch_count": 3,
+  "self_better_than_input_count": 3,
+  "self_better_than_mean_count": 3,
+  "self_better_than_shuffled_count": 3,
+  "self_better_than_zero_count": 3,
+  "mean_self_over_full64_ratio": 1.2703070215429975,
+  "mean_self_over_frozen_ratio": 0.8867014629697909,
+  "interpretation": "Only the sample-specific pre-alignment Canaria anchor preserved low functional error. Generic, distribution-matched-but-shuffled, zero, and sample-specific input anchors failed strongly; this supports preservation of the correct recursive interface state rather than generic complement regularization."
+}
