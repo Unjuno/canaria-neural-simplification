@@ -1,0 +1,34 @@
+{
+  "experiment": "C4 two-level recursive Canaria composition tree",
+  "status": "EXPLORATORY_COMPLETE",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 35,
+  "protocol_commit": "e865f3a810e09b822049fe4ae23e0746f706f060",
+  "runner_commit": "1d95945e8751a6a055f546913897285f71ad3cf5",
+  "runner_git_blob_sha": "3d9d444b9bd60c735e0a256fdc10dca9d941bc69",
+  "seeds": [1350, 1351, 1352],
+  "test_evaluated": false,
+  "environment": {"python": "3.13.5", "torch": "2.10.0+cpu", "numpy": "2.3.5", "sklearn": "1.8.0"},
+  "parameter_budgets": {"local_cluster": 3072, "adapted_six_cluster": 3072, "pair_cluster": 3072, "one_level_single": 3072, "two_level_single": 3072, "direct_single": 3072, "exact_match": true},
+  "aggregate": {
+    "adapted_six_cluster": {"mean_nmse_vs_original_teacher": 0.06313751546896645, "mean_val_acc": 0.9629629651705424},
+    "one_level_recursive_single": {"mean_nmse_vs_original_teacher": 0.07161923521695143, "mean_val_acc": 0.960493822892507, "mean_nmse_vs_adapted_six": 0.041085766343632694},
+    "pair_cluster_recursive_level1": {"mean_nmse_vs_original_teacher": 0.07015502660600069, "mean_val_acc": 0.9617284138997396, "mean_nmse_vs_adapted_six": 0.022277603665128206},
+    "two_level_recursive_single": {"mean_nmse_vs_original_teacher": 0.07700117654844475, "mean_val_acc": 0.960493822892507, "mean_nmse_vs_pair_cluster": 0.03272697158351874, "mean_nmse_vs_adapted_six": 0.04433721608597594},
+    "direct_original_single": {"mean_nmse_vs_original_teacher": 0.052740640040758166, "mean_val_acc": 0.9641975164413452}
+  },
+  "ratios": {
+    "two_level_over_one_level_original_nmse": {"values": [1.054014104363913, 1.090099598463231, 1.079588130362886], "arithmetic_mean": 1.07456727773001, "geometric_mean": 1.0744599558883052},
+    "two_level_over_direct_original_nmse": {"values": [1.4730948372795274, 1.515769547009527, 1.4010453313521136], "arithmetic_mean": 1.463303238547056, "geometric_mean": 1.462531933486658},
+    "one_level_over_direct_original_nmse": {"values": [1.3976044828816834, 1.3904872079086947, 1.297759110116536], "arithmetic_mean": 1.3619502669689716, "geometric_mean": 1.3611786325508202}
+  },
+  "interpretation": [
+    "After the six-local-candidate cluster was jointly adapted and frozen, both recursive compilation levels used only adapted-cluster or pair-cluster behavior as fit targets; original teacher a6 was not used.",
+    "The second recursive level increased original-teacher NMSE relative to one-level recursion in all 3 seeds, but the increase was modest: 1.054x, 1.090x, and 1.080x; geometric mean 1.0745x.",
+    "The two-level final's geometric-mean NMSE ratio relative to direct original-teacher recompilation was 1.4625x across the 3 exploratory seeds.",
+    "Mean validation accuracy was identical for one-level and two-level recursive singles at 0.96049, versus 0.96420 for direct original recompilation.",
+    "The pair-cluster intermediate itself remained close to the adapted-six teacher and did not show catastrophic compounding.",
+    "C4 supports a hypothesis of controlled error accumulation across two recursive compilation levels, but fresh confirmatory seeds are required before any recursive-depth public claim."
+  ]
+}
