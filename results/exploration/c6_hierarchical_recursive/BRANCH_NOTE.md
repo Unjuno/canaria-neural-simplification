@@ -1,0 +1,1 @@
+C6 protocol was first committed immediately after C5 audit completion and before any C6 outcome. This branch is the dedicated continuation point for all C6 runner and outcome commits.
