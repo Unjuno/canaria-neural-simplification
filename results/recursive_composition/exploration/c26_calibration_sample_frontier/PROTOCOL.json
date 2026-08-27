@@ -1,0 +1,34 @@
+{
+  "stage": "C26",
+  "scientific_role": "exploratory_not_confirmatory",
+  "question": "How many unique original-teacher hidden correction samples are needed specifically for top-boundary 16/64 self-anchored re-alignment?",
+  "seeds": [1600, 1601, 1602],
+  "test_evaluated": false,
+  "testbed": "residual-MLP depth-2 recursive hierarchy from C17",
+  "exact_learned_parameter_budget_each_aggregate_level": 4096,
+  "correction": {
+    "dimension": 16,
+    "ambient_dimension": 64,
+    "basis_rng_seed": 20261410,
+    "basis_construction": "Gaussian 64x64 -> QR -> sign-fix R diagonal -> first 16 columns",
+    "target": "baseline + ((original-baseline) @ P16) @ P16.T"
+  },
+  "calibration_order": "torch.randperm(N, generator=seed+190000)",
+  "nested_unique_sample_counts": [8, 16, 32, 64, 128, 256, 512, "all"],
+  "top_alignment": {"updates":600,"optimizer":"AdamW","lr":0.008,"weight_decay":0.00001,"batch_size":128,"same_rng_seed_within_seed":"seed+150000"},
+  "final_recursive_fit": "all training span inputs, hierarchy outputs only; original full-span targets forbidden",
+  "controls": ["frozen", "full_64", "direct"],
+  "endpoints": [
+    "final NMSE vs original teacher",
+    "hierarchy NMSE vs original teacher",
+    "final NMSE vs hierarchy teacher",
+    "difference vs frozen",
+    "ratio vs full_64",
+    "ratio vs direct",
+    "validation accuracy",
+    "ordering/monotonicity over calibration counts",
+    "smallest tested count improving frozen in all seeds",
+    "smallest tested count with final/full64 ratio <=1.50 in all seeds"
+  ],
+  "boundary": "Top-boundary calibration sample-complexity only; lower-level Canaria construction still uses original teacher activations. Any threshold selected here is exploratory."
+}
