@@ -1,0 +1,57 @@
+{
+  "name": "Canaria-Phase3B-StageA-diagnostic-env-mismatch-2026-08-27",
+  "status": "DIAGNOSTIC_PASS_SELECT_RECIPE_FORMAL_STAGE_A_NOT_EVALUATED",
+  "scientific_use": "DIAGNOSTIC_ONLY_NOT_FORMAL_STAGE_A_NOT_CONFIRMATORY_EVIDENCE",
+  "parent_issue": 15,
+  "source_protocol_blob_sha": "a6ca028c46f4134e8c2ea7265f9f26fa08c671b2",
+  "source_runner_blob_sha": "b6518c84b0057d2da77a02432024c58c07815587",
+  "execution_note": "Locked Stage A logic was executed in the available isolated runtime. The required pinned Python/package environment could not be materialized because external package/runtime download was unavailable. This result therefore must not satisfy the formal Stage A gate.",
+  "test_evaluated": false,
+  "replacement_fitting_performed": false,
+  "seeds": [2300, 2301, 2302],
+  "required_environment": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0 CPU wheel",
+    "torch_threads": 1
+  },
+  "observed_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0+cpu",
+    "training_torch_threads": 1
+  },
+  "selection_gate": {
+    "mean_validation_r2_gte": 0.35,
+    "improvement_over_baseline_mean_validation_r2_gte": 0.10
+  },
+  "baseline_mean_validation_r2": 0.3180711297400139,
+  "diagnostic_chosen_recipe": {
+    "id": "short_25",
+    "epochs": 25,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "batch_size": 64
+  },
+  "diagnostic_chosen_recipe_mean_validation_r2": 0.4915362288507126,
+  "diagnostic_chosen_recipe_improvement_over_baseline": 0.17346509911069868,
+  "eligible_recipes": ["short_25", "short_15"],
+  "recipe_aggregates": [
+    {"recipe_id":"baseline_60","mean_validation_r2":0.3180711297400139,"std_validation_r2":0.07754970599715222,"improvement_over_baseline":0.0,"eligible":false},
+    {"recipe_id":"short_15","mean_validation_r2":0.48796782388817975,"std_validation_r2":0.09022032105541458,"improvement_over_baseline":0.16989669414816585,"eligible":true},
+    {"recipe_id":"short_25","mean_validation_r2":0.4915362288507126,"std_validation_r2":0.07527261525837742,"improvement_over_baseline":0.17346509911069868,"eligible":true},
+    {"recipe_id":"short_40","mean_validation_r2":0.32220558527092396,"std_validation_r2":0.09511375778380767,"improvement_over_baseline":0.004134455530910075,"eligible":false},
+    {"recipe_id":"reg_40","mean_validation_r2":0.38738725839280173,"std_validation_r2":0.05760198426825453,"improvement_over_baseline":0.06931612865278784,"eligible":false},
+    {"recipe_id":"reg_60","mean_validation_r2":0.34474348375936385,"std_validation_r2":0.04645738344241691,"improvement_over_baseline":0.02667235401934995,"eligible":false},
+    {"recipe_id":"reg_100","mean_validation_r2":0.39611183147637147,"std_validation_r2":0.04257690643824852,"improvement_over_baseline":0.07804070173635758,"eligible":false},
+    {"recipe_id":"strongreg_40","mean_validation_r2":0.3872701844167884,"std_validation_r2":0.05816672318985479,"improvement_over_baseline":0.06919905467677449,"eligible":false},
+    {"recipe_id":"strongreg_80","mean_validation_r2":0.3700529752722723,"std_validation_r2":0.06929425945163388,"improvement_over_baseline":0.0519818455322584,"eligible":false},
+    {"recipe_id":"low_lr_80","mean_validation_r2":0.37178134301258035,"std_validation_r2":0.03684692557535501,"improvement_over_baseline":0.05371021327256646,"eligible":false},
+    {"recipe_id":"low_lr_120","mean_validation_r2":0.3841763221112257,"std_validation_r2":0.02857572943052274,"improvement_over_baseline":0.0661051923712118,"eligible":false},
+    {"recipe_id":"fullbatch_200","mean_validation_r2":0.19428429828821827,"std_validation_r2":0.13236612083085014,"improvement_over_baseline":-0.12378683145179562,"eligible":false},
+    {"recipe_id":"fullbatch_400","mean_validation_r2":0.21031704587265484,"std_validation_r2":0.10257682756212079,"improvement_over_baseline":-0.10775408386735905,"eligible":false}
+  ],
+  "interpretation": "The available-runtime diagnostic supports the hypothesis that the completed Phase 3 teacher recipe was overtrained for this small regression dataset: 15-25 epochs materially improved validation R2 while longer/full-batch recipes did not. This is not sufficient to select the formal Stage B recipe until the pinned Stage A environment is executed."
+}
