@@ -1,0 +1,20 @@
+{
+  "experiment": "C19 exploratory self-anchored interface transfer on utility-preserving SmallViT two-block span",
+  "status": "LOCKED_BEFORE_OUTCOME",
+  "issue": 58,
+  "evidence_class": "EXPLORATORY_ONLY",
+  "test_evaluated": false,
+  "teacher": {"family":"C4/C5 SmallViT","span_start":1,"span_blocks":2,"token_dim":32,"eligibility_val_acc_min":0.95},
+  "seeds": [1500,1501,1502],
+  "fit_subset": 512,
+  "updates": 600,
+  "optimizer": {"name":"AdamW","lr":0.008,"weight_decay":0.00001,"batch_size":64},
+  "parameter_budget": {"cluster":"2 x TinyTokenRes(32,32) = 4096","final":"TinyTokenRes(32,64) = 4096","exact_match_required":true},
+  "basis": {"rng_seed":20261030,"construction":"Gaussian 32x32 -> QR -> sign-fix R diagonal","nested_dimensions":[8,16]},
+  "conditions": ["frozen","sketch_only_16","anchored_8","anchored_16","full_32"],
+  "self_anchor_target": "baseline + ((original-baseline) @ P_k) @ P_k.T",
+  "final_recursive_rule": "fit matched final only to frozen cluster outputs; original span output forbidden as final recursive target",
+  "direct_control": "matched final fitted directly to original two-block output",
+  "endpoints": ["cluster_nmse_vs_original","final_nmse_vs_cluster","final_nmse_vs_original","final_over_full32","final_over_direct","replacement_validation_accuracy"],
+  "claim_boundary": "Exploratory relative mechanism evidence only; not arbitrary Transformer or LLM compression."
+}
