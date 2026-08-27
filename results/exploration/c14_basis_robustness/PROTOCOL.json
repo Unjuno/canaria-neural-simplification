@@ -1,0 +1,22 @@
+{
+  "experiment": "C14 exploratory basis robustness of half-interface self-anchored Canaria alignment",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_BASIS_ROBUSTNESS",
+  "issue": 51,
+  "model_seeds": [1450, 1451, 1452],
+  "test_evaluated": false,
+  "testbed": {"dataset": "sklearn digits", "teacher": "4-block residual MLP d=64", "teacher_epochs": 60},
+  "hierarchy": {"local": "4 x TinyRes(64,8)", "level1": "C12+C34, each TinyRes(64,16)", "final": "TinyRes(64,32)", "learned_params_each_level": 4096},
+  "basis_conditions": [
+    {"name": "identity_first32", "type": "coordinate", "columns": "e0..e31"},
+    {"name": "random_20260910", "type": "orthogonal_qr", "rng_seed": 20260910, "columns": "first32"},
+    {"name": "random_20260911", "type": "orthogonal_qr", "rng_seed": 20260911, "columns": "first32"},
+    {"name": "random_20260912", "type": "orthogonal_qr", "rng_seed": 20260912, "columns": "first32"}
+  ],
+  "random_basis_construction": "numpy.default_rng(seed) Gaussian 64x64 -> QR -> multiply columns by sign(diag(R)) so R diagonal nonnegative",
+  "self_anchor_target": "baseline + ((original-baseline) @ P) @ P.T",
+  "optimization": {"top_updates": 600, "final_updates": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 128, "same_rng_across_basis_within_seed": true},
+  "controls": ["frozen", "full_64", "direct_original_single"],
+  "endpoints": ["final_nmse_vs_original", "ratio_over_full64", "difference_vs_frozen", "final_validation_accuracy", "per_seed_best_worst_basis_spread"],
+  "boundary": "Exploratory only; no basis-invariance claim, no held-out test evaluation."
+}
