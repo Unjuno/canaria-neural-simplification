@@ -1,0 +1,71 @@
+{
+  "experiment": "C2 freeze-boundary mapping for recursive Canaria composition",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 33,
+  "source_experiment": "C1 freeze-schedule composition",
+  "test_evaluated": false,
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "4-block residual MLP, d=64, block hidden=128",
+    "span": "first three residual blocks",
+    "data_split": {
+      "outer_test_size": 0.25,
+      "outer_random_state": 1234,
+      "inner_val_size": 0.2,
+      "inner_random_state": 5678,
+      "note": "held-out test indices are never materialized as C2 features/labels"
+    }
+  },
+  "candidate_grammar": {
+    "local_candidate": "TinyRes(64,8), bias-free residual bottleneck",
+    "local_candidate_params": 1024,
+    "cluster_candidates": 3,
+    "cluster_params": 3072,
+    "single_candidate": "TinyRes(64,24), bias-free residual bottleneck",
+    "single_params": 3072,
+    "exact_parameter_match": true
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "teacher_lr": 0.002,
+    "teacher_weight_decay": 0.0001,
+    "teacher_batch": 64,
+    "local_fit_updates_each": 600,
+    "stage2_updates": 600,
+    "stage3_updates": 600,
+    "replacement_lr": 0.008,
+    "replacement_weight_decay": 0.00001,
+    "replacement_batch": 128
+  },
+  "exploratory_seeds": [1320, 1321, 1322],
+  "freeze_schedules": {
+    "all_frozen": [],
+    "left_only": [0],
+    "middle_only": [1],
+    "right_only": [2],
+    "left_middle": [0, 1],
+    "middle_right": [1, 2],
+    "edges_only": [0, 2],
+    "all_unfrozen": [0, 1, 2]
+  },
+  "stage2_target": "original frozen teacher a0 -> a3",
+  "stage3_target": "a0 -> frozen Stage-2 cluster(a0), never original a3",
+  "direct_control": "matched TinyRes(64,24) fit directly on original a0 -> a3 with same initialization and fit seed as recursive singles",
+  "endpoints": [
+    "cluster validation NMSE vs original teacher",
+    "cluster replacement-network validation accuracy",
+    "recursive single validation NMSE vs cluster teacher",
+    "recursive single validation NMSE vs original teacher",
+    "recursive replacement-network validation accuracy",
+    "excess recursive original-teacher NMSE vs direct-original single"
+  ],
+  "primary_exploratory_contrasts": [
+    "left_only vs middle_only vs right_only",
+    "left_middle vs middle_right vs edges_only",
+    "all_unfrozen vs best two-candidate schedule",
+    "full schedule ordering consistency across seeds"
+  ],
+  "interpretation_boundary": "Exploratory freeze-boundary mechanism mapping only. No test-set inspection and no public claim promotion without a fresh confirmatory protocol."
+}
