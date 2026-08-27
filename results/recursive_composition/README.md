@@ -11,8 +11,9 @@ Current confirmed stages:
 - `c9_depth3_realignment/`
 - `c13_half_interface/`
 - `c15_basis_robustness/`
+- `c17_quarter_interface/`
 
-`c17_quarter_interface/` currently contains the locked protocol only; do not treat C17 as confirmed until a durable RESULT/audit record is added.
+C17 contains the locked protocol, machine-derived seed rows, preregistered aggregate RESULT, report and independent bootstrap audit.
 
 ## Exploration
 
