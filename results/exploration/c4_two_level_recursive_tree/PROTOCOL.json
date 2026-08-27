@@ -1,0 +1,57 @@
+{
+  "experiment": "C4 two-level recursive Canaria composition tree",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_MECHANISM_ONLY",
+  "issue": 35,
+  "fresh_seeds": [1350, 1351, 1352],
+  "test_evaluated": false,
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "7-block residual MLP, d=64, block hidden=128",
+    "span": "first six residual blocks",
+    "downstream": "seventh residual block + head",
+    "data_split": {
+      "outer_test_size": 0.25,
+      "outer_random_state": 1234,
+      "inner_val_size": 0.2,
+      "inner_random_state": 5678
+    }
+  },
+  "matched_representation_budgets": {
+    "local_cluster": "6 x TinyRes(64,4) = 6 x 512 = 3072 params",
+    "pair_cluster": "3 x TinyRes(64,8) = 3 x 1024 = 3072 params",
+    "final_single": "1 x TinyRes(64,24) = 3072 params",
+    "direct_single": "1 x TinyRes(64,24) = 3072 params",
+    "exact_match": true
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "teacher_lr": 0.002,
+    "teacher_weight_decay": 0.0001,
+    "teacher_batch": 64,
+    "all_replacement_fit_updates": 600,
+    "replacement_lr": 0.008,
+    "replacement_weight_decay": 0.00001,
+    "replacement_batch": 128
+  },
+  "procedure": [
+    "fit six local candidates to original local teacher activations",
+    "jointly adapt all six local candidates to original a0->a6 span and freeze",
+    "one-level control: fit matched single only to adapted-six-cluster outputs",
+    "fit three pair Canarias only to internal activation maps of the frozen adapted-six cluster",
+    "jointly adapt the three pair Canarias only to adapted-six-cluster final outputs and freeze",
+    "fit final matched single only to frozen pair-cluster outputs",
+    "fit direct matched single on original a0->a6 as control"
+  ],
+  "recursive_teacher_isolation": "After the six-candidate cluster is jointly adapted and frozen, original a6 is forbidden as a fit target for pair-local fits, pair-cluster joint adaptation, one-level recursive single, and two-level final single.",
+  "validation_endpoints": [
+    "adapted six-cluster NMSE vs original teacher and validation accuracy",
+    "one-level recursive single NMSE vs adapted-six teacher and original teacher, validation accuracy",
+    "pair-cluster NMSE vs adapted-six teacher and original teacher, validation accuracy",
+    "two-level final single NMSE vs pair-cluster teacher, adapted-six teacher, original teacher, validation accuracy",
+    "direct original single NMSE and validation accuracy",
+    "two_level_original_nmse / one_level_original_nmse",
+    "two_level_original_nmse / direct_original_nmse"
+  ],
+  "interpretation_boundary": "Exploratory recursive-depth test only. No held-out test evaluation, no confirmatory PASS rule, and no arbitrary-depth hierarchical-compiler claim."
+}
