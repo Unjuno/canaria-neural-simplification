@@ -1,0 +1,67 @@
+{
+  "experiment": "C6 exploratory two-level hierarchical recursive Canaria recompilation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY",
+  "source_evidence": ["C3", "C5"],
+  "fresh_seeds": [1370, 1371, 1372],
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "4-block residual MLP, d=64, block hidden=128",
+    "span": "all four residual blocks",
+    "data_split": {"outer_test_size": 0.25, "outer_random_state": 1234, "inner_val_size": 0.2, "inner_random_state": 5678},
+    "test_evaluated": false
+  },
+  "grammar": {
+    "local": "4 x TinyRes(64,8)",
+    "local_params_each": 1024,
+    "local_total_params": 4096,
+    "level1_pair": "TinyRes(64,16)",
+    "level1_pair_params_each": 2048,
+    "level1_pair_total_params": 4096,
+    "final": "TinyRes(64,32)",
+    "final_params": 4096,
+    "exact_budget_match_at_each_tree_level": true
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "local_fit_updates_each": 600,
+    "level1_pair_adapt_updates": 600,
+    "level1_recompile_updates": 600,
+    "level2_adapt_updates": 600,
+    "level2_recompile_updates": 600,
+    "replacement_optimizer": "AdamW",
+    "replacement_lr": 0.008,
+    "replacement_weight_decay": 0.00001,
+    "replacement_batch": 128
+  },
+  "procedure": {
+    "stage1_local": "fit C1..C4 separately to a0->a1, a1->a2, a2->a3, a3->a4",
+    "stage2_level1_pairs": "jointly adapt [C1,C2] to original a0->a2 and [C3,C4] to original a2->a4, then freeze each pair",
+    "stage3_level1_recursive": "fit C12 only to frozen pair12 outputs and C34 only to frozen pair34 outputs; original pair targets forbidden for recursive fits",
+    "stage4_level2_conditions": {
+      "hierarchical_frozen": "compose C12->C34 with no original-full-span adaptation, freeze, then fit C1234 only to hierarchy outputs",
+      "hierarchical_joint": "jointly adapt C12+C34 to original a0->a4, freeze, then fit C1234 only to adapted hierarchy outputs",
+      "single_level_recursive": "start from the four separately fitted locals, jointly adapt all four to original a0->a4, freeze, then fit matched C1234 only to four-local cluster outputs",
+      "direct_original_single": "fit matched C1234 directly to original a0->a4"
+    }
+  },
+  "fairness": {
+    "all_level2_final_candidates_same_initialization_within_seed": true,
+    "all_level2_final_candidates_same_minibatch_rng_within_seed": true,
+    "hierarchical_frozen_stage4_original_target_forbidden": true,
+    "hierarchical_joint_final_recompile_original_target_forbidden": true,
+    "single_level_recursive_final_recompile_original_target_forbidden": true
+  },
+  "validation_endpoints": [
+    "level1 C12 and C34 NMSE vs their original pair spans",
+    "pre-final hierarchy NMSE vs original full span",
+    "final C1234 NMSE vs its immediate recursive teacher",
+    "final C1234 NMSE vs original full-span teacher",
+    "replacement-network validation accuracy",
+    "ratio hierarchical_frozen/direct",
+    "ratio hierarchical_joint/direct",
+    "ratio hierarchical_frozen/single_level_recursive",
+    "ordering across fresh seeds"
+  ],
+  "interpretation_boundary": "Exploratory only. No held-out test evaluation. Positive results can justify fresh confirmatory arbitrary-depth/bounded-error testing, but do not establish universal or unlimited recursive depth."
+}

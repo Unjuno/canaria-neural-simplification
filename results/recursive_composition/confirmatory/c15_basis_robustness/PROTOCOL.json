@@ -1,0 +1,22 @@
+{
+  "experiment": "C15 confirmatory basis robustness of half-interface self-anchored Canaria alignment",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_BASIS_ROBUSTNESS",
+  "issue": 52,
+  "model_seeds": [1460,1461,1462,1463,1464,1465,1466,1467],
+  "basis_conditions": [
+    {"name":"identity_first32","type":"coordinate"},
+    {"name":"random_20260920","type":"orthogonal_qr","rng_seed":20260920},
+    {"name":"random_20260921","type":"orthogonal_qr","rng_seed":20260921},
+    {"name":"random_20260922","type":"orthogonal_qr","rng_seed":20260922}
+  ],
+  "controls": ["frozen","full_64","direct_original_single"],
+  "P1": {"statistic":"per-seed max basis NMSE - frozen NMSE","pass":"paired seed bootstrap95 upper < 0"},
+  "P2": {"statistic":"per-seed max basis NMSE / full64 NMSE, geometric mean","pass":"bootstrap95 upper < 1.30"},
+  "P3": {"statistic":"per-seed max basis NMSE / min basis NMSE, geometric mean","pass":"bootstrap95 upper < 1.15"},
+  "validation_guardrail": {"statistic":"per-seed min basis validation accuracy - full64 validation accuracy","pass":"bootstrap95 lower > -0.02"},
+  "test_safeguard": {"statistic":"per-seed min basis test accuracy - full64 test accuracy","pass":"bootstrap95 lower > -0.02","materialization":"after all fitting and validation metrics within seed"},
+  "bootstrap": {"resamples":100000,"rng_seed":20260923,"method":"paired model-seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff P1/P2/P3/validation/test all pass; no rescue.",
+  "boundary": "Scoped to coordinate + three fresh random orthogonal 32D subspaces in this residual-MLP hierarchy."
+}

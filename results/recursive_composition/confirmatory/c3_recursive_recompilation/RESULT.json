@@ -1,0 +1,36 @@
+{
+  "experiment": "C3 confirmatory recursive Canaria recompilation after joint cluster adaptation",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY",
+  "issue": 34,
+  "protocol_commit": "78914363b56d2a54f748168001994b05ef1300ca",
+  "runner_commit": "f2f15626d138d4265d60080a58e283579811da8a",
+  "runner_git_blob_sha": "ebf01a6f22ef6557f9153e27e772ce94c3c0e809",
+  "seeds": [1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337],
+  "all_seeds_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "environment": {"python": "3.13.5", "torch": "2.10.0+cpu", "numpy": "2.3.5", "sklearn": "1.8.0"},
+  "budget": {"cluster_params": 3072, "single_params": 3072, "exact_match": true},
+  "teacher": {"mean_val_acc": 0.9777777716517448, "mean_test_acc": 0.9841666743159294},
+  "aggregate_conditions": {
+    "all_frozen_recursive": {"mean_cluster_val_nmse_vs_original": 0.17297363655612835, "mean_cluster_val_acc": 0.9430555552244186, "mean_recursive_val_nmse_vs_cluster": 0.01129644645798597, "mean_recursive_val_nmse_vs_original": 0.17193608761436432, "mean_recursive_val_acc": 0.9398148134350777, "mean_recursive_test_acc": 0.9494444504380226},
+    "edges_only_recursive": {"mean_cluster_val_nmse_vs_original": 0.0607625451056476, "mean_cluster_val_acc": 0.9662037044763565, "mean_recursive_val_nmse_vs_cluster": 0.02483766425054203, "mean_recursive_val_nmse_vs_original": 0.06488266022018857, "mean_recursive_val_acc": 0.9648148193955421, "mean_recursive_test_acc": 0.9733333438634872},
+    "all_unfrozen_recursive": {"mean_cluster_val_nmse_vs_original": 0.04860946342395429, "mean_cluster_val_acc": 0.9689814671874046, "mean_recursive_val_nmse_vs_cluster": 0.02582814385714824, "mean_recursive_val_nmse_vs_original": 0.05859413036684465, "mean_recursive_val_acc": 0.9638888984918594, "mean_recursive_test_acc": 0.976666659116745}
+  },
+  "direct_original_single": {"mean_val_nmse_vs_original": 0.04487268668272428, "mean_val_acc": 0.9689814671874046, "mean_test_acc": 0.9788888841867447},
+  "confirmatory_endpoints": {
+    "P1_joint_vs_frozen": {"mean_D_frozen": -0.11334195724751966, "bootstrap95": [-0.12733534969757845, -0.09990687931361636], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "P2_recursive_over_direct_ratio": {"geometric_mean_ratio": 1.3038317007569526, "bootstrap95": [1.2749454561031577, 1.3399119599212195], "rule": "upper < 1.50", "pass": true, "range": [1.2619560093928903, 1.4088684294220866]},
+    "P3_joint_vs_edges": {"mean_D_edges": -0.006288529853343919, "bootstrap95": [-0.00810908350340257, -0.004331001914307064], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "test_utility_safeguard": {"mean_accuracy_difference": -0.002222225069999695, "bootstrap95": [-0.005000017583370209, 0.0005555599927902222], "rule": "lower > -0.02", "pass": true}
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260827, "unit": "paired seed", "method": "percentile"},
+  "interpretation": [
+    "Joint span-level adaptation of the already-fitted three-candidate cluster improved subsequent recursive recompilation relative to leaving the cluster frozen in all 8 confirmatory seeds.",
+    "Full joint adaptation also beat the preregistered edges-only partial-adaptation control in all 8 seeds.",
+    "A matched single Canaria trained only on outputs of the jointly adapted frozen cluster had a geometric-mean original-teacher NMSE ratio of about 1.304x relative to direct original-teacher recompilation, with the preregistered 95% upper bound below 1.50.",
+    "Held-out task accuracy of the recursively recompiled all-unfrozen condition was not meaningfully worse than the direct-original control under the preregistered -0.02 safeguard.",
+    "Recursive recompilation is not lossless and direct access to the original teacher remains better in functional NMSE.",
+    "The supported claim is scoped to this residual-MLP digits testbed and matched grammar; it does not establish arbitrary-depth or universal hierarchical compilation."
+  ]
+}

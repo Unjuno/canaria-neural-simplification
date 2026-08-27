@@ -1,0 +1,56 @@
+{
+  "experiment": "C4 exploratory cross-family recursive Canaria composition on SmallViT",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_CROSS_FAMILY",
+  "issue": 37,
+  "fresh_seeds": [1340, 1341, 1342],
+  "test_evaluated": false,
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits images",
+    "teacher": "SmallViT depth=4 d=32 heads=4 mlp=64",
+    "teacher_epochs": 45,
+    "span": "central blocks 1 and 2, zero-indexed",
+    "split": {"train_fraction": 0.70, "val_fraction": 0.15, "test_fraction": 0.15, "random_states": [24680, 13579]},
+    "eligibility": "baseline validation accuracy >= 0.95"
+  },
+  "replacement_grammar": {
+    "module": "TinyTokenRes(d,h) = x + W2 GELU(W1 x), both linear maps bias-free",
+    "local_width": 32,
+    "local_params_each": 2048,
+    "cluster_count": 2,
+    "cluster_params": 4096,
+    "single_width": 64,
+    "single_params": 4096,
+    "exact_parameter_match": true
+  },
+  "optimization": {
+    "fit_examples": 512,
+    "local_updates_each": 600,
+    "stage2_updates": 600,
+    "stage3_updates": 600,
+    "optimizer": "AdamW",
+    "lr": 0.008,
+    "weight_decay": 0.00001,
+    "batch": 64
+  },
+  "stage1": ["C1: a0 -> a1", "C2: a1 -> a2"],
+  "stage2_schedules": {
+    "all_frozen": [],
+    "left_only": [0],
+    "right_only": [1],
+    "all_unfrozen": [0, 1]
+  },
+  "stage2_target": "original frozen teacher span a0 -> a2",
+  "stage3_rule": "freeze Stage-2 cluster, then fit fresh matched single using a0 -> frozen_cluster(a0) only; original a2 forbidden as recursive fit target",
+  "direct_control": "same single initialization and fit RNG, fit a0 -> original a2",
+  "endpoints": [
+    "validation cluster NMSE vs original teacher",
+    "validation cluster replacement-network accuracy",
+    "validation recursive single NMSE vs cluster teacher",
+    "validation recursive single NMSE vs original teacher",
+    "validation recursive replacement-network accuracy",
+    "validation direct-original single NMSE and accuracy",
+    "schedule ordering across eligible seeds"
+  ],
+  "interpretation_boundary": "Exploratory validation-only cross-family mechanism test. No held-out test evaluation and no cross-family public recursive-compilation claim without fresh confirmation."
+}

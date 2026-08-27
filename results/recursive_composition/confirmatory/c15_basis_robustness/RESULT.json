@@ -1,0 +1,27 @@
+{
+  "experiment": "C15 confirmatory basis robustness of half-interface self-anchored Canaria alignment",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_BASIS_ROBUSTNESS",
+  "issue": 52,
+  "protocol_commit": "6da317dce81325a5bcae5cdf403d19e3e5a73ad8",
+  "runner_commit": "7a5e28cadc723bc167b6066ab3b32bb850975de8",
+  "runner_git_blob_sha": "c724b233cfceddcccc0cf00fca64c2cab446fc1b",
+  "model_seeds": [1460,1461,1462,1463,1464,1465,1466,1467],
+  "basis_names": ["identity_first32","random_20260920","random_20260921","random_20260922"],
+  "test_evaluated_after_validation_only": true,
+  "confirmatory_endpoints": {
+    "P1_worst_basis_vs_frozen": {"mean_D": -0.013427901954062843, "bootstrap95": [-0.014949482926098514, -0.011857321280462161], "all_8_negative": true, "rule": "upper < 0", "pass": true},
+    "P2_worst_basis_over_full64": {"geometric_mean_ratio": 1.217617391604517, "bootstrap95": [1.1916720987612919, 1.2418449512894594], "range": [1.1546817280022879, 1.2675637862468891], "rule": "upper < 1.30", "pass": true},
+    "P3_basis_spread": {"geometric_mean_spread": 1.0353146082752132, "bootstrap95": [1.025117512626177, 1.0430885805824905], "range": [1.0041245172265603, 1.0469332833423826], "rule": "upper < 1.15", "pass": true},
+    "validation_guardrail": {"mean_accuracy_difference": -0.005555547773838043, "bootstrap95": [-0.010648146271705627, -0.0009259209036827087], "rule": "lower > -0.02", "pass": true},
+    "test_safeguard": {"mean_accuracy_difference": -0.005000002682209015, "bootstrap95": [-0.006666660308837891, -0.003333345055580139], "rule": "lower > -0.02", "pass": true}
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260923, "unit": "paired model seed", "method": "percentile 95%"},
+  "interpretation": [
+    "Even the worst of four prospectively fixed half-interface bases improved over the frozen hierarchy in all 8 fresh model seeds.",
+    "Worst-basis fidelity remained within the preregistered 1.30x bound relative to full-64 hidden alignment.",
+    "Within-model basis sensitivity was small under the preregistered 1.15x spread bound.",
+    "Worst-basis validation and held-out test utility remained within the preregistered -0.02 guardrails.",
+    "The supported basis-robustness claim is limited to one coordinate subspace plus three fresh random orthogonal subspaces in this testbed."
+  ]
+}

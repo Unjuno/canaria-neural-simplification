@@ -1,0 +1,19 @@
+{
+  "experiment": "C16 exploratory teacher-correction dimension frontier",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "issue": 53,
+  "model_seeds": [1470,1471,1472],
+  "test_evaluated": false,
+  "dimensions": [8,16,24,32],
+  "basis_families": [
+    {"name":"identity","type":"coordinate"},
+    {"name":"random_20261001","type":"orthogonal_qr","rng_seed":20261001},
+    {"name":"random_20261002","type":"orthogonal_qr","rng_seed":20261002}
+  ],
+  "self_anchor_target": "baseline + ((original-baseline) @ P_k) @ P_k.T",
+  "hierarchy": {"local_total_params":4096,"level1_total_params":4096,"final_params":4096},
+  "optimization": {"top_updates":600,"final_updates":600,"optimizer":"AdamW","lr":0.008,"weight_decay":0.00001,"batch":128,"same_rng_within_seed":true},
+  "controls": ["frozen","full_64","direct_original_single"],
+  "endpoints": ["final_nmse_vs_original","difference_vs_frozen","ratio_over_full64","validation_accuracy","worst_basis_by_dimension","smallest_dimension_all_bases_improve_all_seeds"],
+  "boundary": "Exploratory only; no universal minimum-dimension or information-theoretic sufficiency claim."
+}

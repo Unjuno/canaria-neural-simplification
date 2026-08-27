@@ -1,0 +1,35 @@
+{
+  "experiment": "C7 confirmatory depth-2 hierarchical recursive Canaria recompilation",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_DEPTH2",
+  "issue": 44,
+  "protocol_commit": "7ea3f86426b7189576604f51d693fa56b35a2567",
+  "runner_commit": "9d1c98855f7deb61ed0f846a40dc8670494cc0f7",
+  "runner_git_blob_sha": "86ebab7d234e37cc588f393f9592edf915f456d7",
+  "seeds": [1380,1381,1382,1383,1384,1385,1386,1387],
+  "all_seeds_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "budget": {"local_total_params": 4096, "level1_total_params": 4096, "final_params": 4096, "exact_match_each_level": true},
+  "aggregate_conditions": {
+    "hierarchical_frozen": {"mean_val_nmse_vs_original": 0.07312297915014554, "mean_val_acc": 0.9574074149131775, "mean_test_acc": 0.9725000038743019},
+    "hierarchical_joint": {"mean_val_nmse_vs_original": 0.050028711175518895, "mean_val_acc": 0.9643518403172493, "mean_test_acc": 0.9786111041903496},
+    "single_level_recursive": {"mean_val_nmse_vs_original": 0.05441866901426339, "mean_val_acc": 0.9666666612029076, "mean_test_acc": 0.9774999991059303},
+    "direct_original_single": {"mean_val_nmse_vs_original": 0.042021599265949464, "mean_val_acc": 0.966666653752327, "mean_test_acc": 0.9777777791023254}
+  },
+  "confirmatory_endpoints": {
+    "P1_joint_repairs_strict": {"mean_D_frozen": -0.02309426797462665, "bootstrap95": [-0.025605457897087028, -0.02100094180311729], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "P2_joint_over_direct": {"geometric_mean_ratio": 1.1903827776757605, "bootstrap95": [1.1568046115201682, 1.225508204348103], "rule": "upper < 1.40", "pass": true},
+    "P3_joint_vs_single_level": {"mean_D_single": -0.004389957838744494, "bootstrap95": [-0.005573895900841755, -0.0033082901084843363], "rule": "upper < 0", "pass": true, "all_8_negative": true},
+    "P4_strict_over_direct": {"geometric_mean_ratio": 1.7406581830392405, "bootstrap95": [1.675232590949083, 1.7958968402494404], "rule": "upper < 2.25", "pass": true},
+    "validation_utility_guardrail": {"mean_accuracy_difference": -0.0023148134350776672, "bootstrap95": [-0.004166662693023682, -0.00046296417713165283], "rule": "lower > -0.02", "pass": true},
+    "test_safeguard": {"mean_accuracy_difference": 0.0008333250880241394, "bootstrap95": [-0.0011111274361610413, 0.002499990165233612], "rule": "lower > -0.02", "pass": true}
+  },
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260829, "unit": "paired seed", "method": "percentile 95%"},
+  "interpretation": [
+    "Depth-2 strict recursive composition remained bounded relative to direct recompilation under the preregistered 2.25x criterion.",
+    "Re-opening the Level-2 hierarchy boundary for joint adaptation before re-freezing substantially reduced accumulated error in all 8 fresh seeds.",
+    "The joint-adapted depth-2 condition also beat the single-level recursive baseline in all 8 seeds.",
+    "Validation and held-out test accuracy remained within the preregistered direct-replacement guardrails.",
+    "The supported claim is scoped to this residual-MLP testbed; it is not evidence for unlimited recursion or lossless hierarchical compilation."
+  ]
+}

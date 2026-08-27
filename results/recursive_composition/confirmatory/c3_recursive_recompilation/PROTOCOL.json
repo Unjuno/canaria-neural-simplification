@@ -1,0 +1,79 @@
+{
+  "experiment": "C3 confirmatory recursive Canaria recompilation after joint cluster adaptation",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY",
+  "issue": 34,
+  "source_exploration": ["C1", "C2"],
+  "fresh_seeds": [1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337],
+  "testbed": {
+    "dataset": "sklearn.datasets.load_digits",
+    "teacher": "4-block residual MLP, d=64, block hidden=128",
+    "span": "first three residual blocks",
+    "data_split": {
+      "outer_test_size": 0.25,
+      "outer_random_state": 1234,
+      "inner_val_size": 0.2,
+      "inner_random_state": 5678
+    }
+  },
+  "candidate_grammar": {
+    "local_candidate": "TinyRes(64,8), bias-free residual bottleneck",
+    "local_candidate_params": 1024,
+    "cluster_candidate_count": 3,
+    "cluster_params": 3072,
+    "single_candidate": "TinyRes(64,24), bias-free residual bottleneck",
+    "single_params": 3072,
+    "exact_parameter_match": true
+  },
+  "optimization": {
+    "teacher_epochs": 60,
+    "teacher_lr": 0.002,
+    "teacher_weight_decay": 0.0001,
+    "teacher_batch": 64,
+    "local_fit_updates_each": 600,
+    "stage2_updates": 600,
+    "stage3_updates": 600,
+    "replacement_lr": 0.008,
+    "replacement_weight_decay": 0.00001,
+    "replacement_batch": 128
+  },
+  "conditions": {
+    "all_frozen_recursive": [],
+    "edges_only_recursive": [0, 2],
+    "all_unfrozen_recursive": [0, 1, 2],
+    "direct_original_single": "direct a0 -> original a3"
+  },
+  "recursive_stage3_target_rule": "a0 -> frozen Stage-2 cluster(a0) only; original a3 forbidden as Stage-3 fit target",
+  "data_isolation": {
+    "train": "teacher and all candidate fitting",
+    "validation": "confirmatory functional endpoints",
+    "selection": "none; conditions and budgets are locked",
+    "test": "materialize/evaluate only after all locked models are fitted and validation metrics recorded"
+  },
+  "primary_endpoints": {
+    "P1": {
+      "statistic": "mean paired D_frozen = NMSE(all_unfrozen_recursive, original) - NMSE(all_frozen_recursive, original)",
+      "pass": "paired seed-bootstrap 95% CI upper bound < 0"
+    },
+    "P2": {
+      "statistic": "geometric mean R = NMSE(all_unfrozen_recursive, original) / NMSE(direct_original_single, original)",
+      "pass": "paired seed-bootstrap 95% CI upper bound < 1.50"
+    },
+    "P3": {
+      "statistic": "mean paired D_edges = NMSE(all_unfrozen_recursive, original) - NMSE(edges_only_recursive, original)",
+      "pass": "paired seed-bootstrap 95% CI upper bound < 0"
+    }
+  },
+  "secondary_required_safeguard": {
+    "statistic": "held-out test accuracy all_unfrozen_recursive - direct_original_single",
+    "pass": "paired seed-bootstrap 95% CI lower bound > -0.02"
+  },
+  "bootstrap": {
+    "unit": "seed-level paired",
+    "resamples": 100000,
+    "rng_seed": 20260827,
+    "ci": "percentile 95%"
+  },
+  "overall_decision": "CONFIRMATORY_PASS iff P1, P2, P3, and test safeguard all pass; otherwise CONFIRMATORY_FAIL; retain all seeds",
+  "claim_boundary_if_pass": "Scoped evidence that, in this residual-MLP digits testbed and matched replacement grammar, an already-fitted three-Canaria cluster can be jointly adapted, frozen, and recursively recompiled from cluster outputs alone with a preregistered bounded fidelity penalty relative to direct original-teacher recompilation. Not universal, not lossless, not arbitrary-depth, not LLM-scale."
+}

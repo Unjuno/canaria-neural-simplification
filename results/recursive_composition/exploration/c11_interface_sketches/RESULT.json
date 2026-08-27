@@ -1,0 +1,33 @@
+{
+  "experiment": "C11 exploratory compressed hidden-interface sketches",
+  "status": "EXPLORATORY_COMPLETE",
+  "issue": 48,
+  "protocol_commit": "e162c93298acb11df76c338ded30c74678f33e18",
+  "runner_commit": "4bf0494e179104136b8915af81833701270767e5",
+  "runner_git_blob_sha": "e207a5b06eeddb2557e2075f79596aa849412c89",
+  "seeds": [1420, 1421, 1422],
+  "test_evaluated": false,
+  "basis": {"rng_seed": 20260831, "nested_dimensions": [4, 8, 16, 32, 64]},
+  "aggregate": {
+    "frozen": {"mean_hierarchy_nmse_vs_original": 0.06795866149985251, "mean_final_nmse_vs_hierarchy": 0.00640886495295617, "mean_final_nmse_vs_original": 0.07137420775581949, "mean_hierarchy_val_acc": 0.9617283940315247, "mean_final_val_acc": 0.9580246806144714, "mean_ratio_final_nmse_over_direct": 1.64534125551394, "mean_ratio_final_nmse_over_full64": 1.4238851543321427},
+    "sketch_4": {"mean_hierarchy_nmse_vs_original": 0.23728894903068218, "mean_final_nmse_vs_hierarchy": 0.02427846340853548, "mean_final_nmse_vs_original": 0.24066395846759203, "mean_hierarchy_val_acc": 0.9530864159266154, "mean_final_val_acc": 0.9432098865509033, "mean_ratio_final_nmse_over_direct": 5.561309246159884, "mean_ratio_final_nmse_over_full64": 4.813656423988271},
+    "sketch_8": {"mean_hierarchy_nmse_vs_original": 0.1719042951348205, "mean_final_nmse_vs_hierarchy": 0.02466498537049827, "mean_final_nmse_vs_original": 0.18018652244148134, "mean_hierarchy_val_acc": 0.9691358009974161, "mean_final_val_acc": 0.9629629651705424, "mean_ratio_final_nmse_over_direct": 4.201250992119491, "mean_ratio_final_nmse_over_full64": 3.638922716133649},
+    "sketch_16": {"mean_hierarchy_nmse_vs_original": 0.11590266953012267, "mean_final_nmse_vs_hierarchy": 0.024804120072509428, "mean_final_nmse_vs_original": 0.12601470967480236, "mean_hierarchy_val_acc": 0.9790123502413431, "mean_final_val_acc": 0.970370372136434, "mean_ratio_final_nmse_over_direct": 2.9250058607839544, "mean_ratio_final_nmse_over_full64": 2.5326364750506145},
+    "sketch_32": {"mean_hierarchy_nmse_vs_original": 0.0773745114172826, "mean_final_nmse_vs_hierarchy": 0.025112537465058187, "mean_final_nmse_vs_original": 0.09238844850482004, "mean_hierarchy_val_acc": 0.9814814925193787, "mean_final_val_acc": 0.9765432079633077, "mean_ratio_final_nmse_over_direct": 2.1391664652204607, "mean_ratio_final_nmse_over_full64": 1.851864136593246},
+    "full_64": {"mean_hierarchy_nmse_vs_original": 0.03250189055940438, "mean_final_nmse_vs_hierarchy": 0.025373256359084956, "mean_final_nmse_vs_original": 0.05011110942690428, "mean_hierarchy_val_acc": 0.9790123502413431, "mean_final_val_acc": 0.970370352268219, "mean_ratio_final_nmse_over_direct": 1.1555049967971402, "mean_ratio_final_nmse_over_full64": 1.0},
+    "direct_original_single": {"mean_final_nmse_vs_original": 0.04334757605600147, "mean_val_acc": 0.9728394945462545},
+    "teacher": {"mean_val_acc": 0.9827160437901815}
+  },
+  "per_seed_final_nmse_ordering": [
+    ["full_64", "frozen", "sketch_32", "sketch_16", "sketch_8", "sketch_4"],
+    ["full_64", "frozen", "sketch_32", "sketch_16", "sketch_8", "sketch_4"],
+    ["full_64", "frozen", "sketch_32", "sketch_16", "sketch_8", "sketch_4"]
+  ],
+  "observations": [
+    "full_64 was best among hierarchy-alignment conditions in all 3 seeds",
+    "every partial sketch dimension 4/8/16/32 produced worse final hidden-space NMSE than leaving the hierarchy frozen in all 3 seeds",
+    "partial-sketch validation accuracy could remain high despite poor hidden-space fidelity",
+    "unobserved interface directions appear to require an additional preservation constraint in this setup"
+  ],
+  "boundary": "Exploratory only; one fixed orthogonal sketch family; does not prove compressed interface supervision is impossible."
+}

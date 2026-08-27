@@ -1,0 +1,33 @@
+{
+  "experiment": "C12 exploratory self-anchored compressed interface sketches",
+  "status": "EXPLORATORY_COMPLETE",
+  "issue": 49,
+  "protocol_commit": "a5941e42b9e99bd8f091eae3d0b74c7b22849cdd",
+  "runner_commit": "6cfb995b099287a92aa2e488956cfe82919d3dc4",
+  "runner_git_blob_sha": "00bbe68f7e99c588148c273fe697d804db41a937",
+  "seeds": [1430, 1431, 1432],
+  "test_evaluated": false,
+  "aggregate": {
+    "frozen": {"mean_hierarchy_nmse_vs_original": 0.06594123699192604, "mean_final_nmse_vs_hierarchy": 0.005586846137326255, "mean_final_nmse_vs_original": 0.06986071895898473, "mean_hierarchy_val_acc": 0.9592592716217041, "mean_final_val_acc": 0.9580247004826864, "mean_ratio_final_nmse_over_direct": 1.7433164038531637, "mean_ratio_final_nmse_over_full64": 1.4502086790683595, "mean_ratio_final_nmse_over_frozen": 1.0},
+    "sketch_only_16": {"mean_hierarchy_nmse_vs_original": 0.1514279588097224, "mean_final_nmse_vs_hierarchy": 0.022977924895709902, "mean_final_nmse_vs_original": 0.16159655452354768, "mean_hierarchy_val_acc": 0.9641975164413452, "mean_final_val_acc": 0.9592592716217041, "mean_ratio_final_nmse_over_direct": 4.030054014820085, "mean_ratio_final_nmse_over_full64": 3.3498541726097284, "mean_ratio_final_nmse_over_frozen": 2.3061783352285707},
+    "sketch_only_32": {"mean_hierarchy_nmse_vs_original": 0.09650223064480327, "mean_final_nmse_vs_hierarchy": 0.024032741841642048, "mean_final_nmse_vs_original": 0.10994612905331502, "mean_hierarchy_val_acc": 0.9691357811292013, "mean_final_val_acc": 0.9641975164413452, "mean_ratio_final_nmse_over_direct": 2.7425640063645473, "mean_ratio_final_nmse_over_full64": 2.2802189533915924, "mean_ratio_final_nmse_over_frozen": 1.5705222019486706},
+    "anchored_8": {"mean_hierarchy_nmse_vs_original": 0.060504888273125695, "mean_final_nmse_vs_hierarchy": 0.007569452800592374, "mean_final_nmse_vs_original": 0.06655921064619119, "mean_hierarchy_val_acc": 0.9604938427607218, "mean_final_val_acc": 0.9617284138997396, "mean_ratio_final_nmse_over_direct": 1.6609329099277625, "mean_ratio_final_nmse_over_full64": 1.3820209442309153, "mean_ratio_final_nmse_over_frozen": 0.9536560303075046},
+    "anchored_16": {"mean_hierarchy_nmse_vs_original": 0.054852406252984064, "mean_final_nmse_vs_hierarchy": 0.009047640064080325, "mean_final_nmse_vs_original": 0.06300267130203646, "mean_hierarchy_val_acc": 0.9592592716217041, "mean_final_val_acc": 0.9592592716217041, "mean_ratio_final_nmse_over_direct": 1.5716629071018422, "mean_ratio_final_nmse_over_full64": 1.3073797665134022, "mean_ratio_final_nmse_over_frozen": 0.9017380189538505},
+    "anchored_32": {"mean_hierarchy_nmse_vs_original": 0.04676295196271035, "mean_final_nmse_vs_hierarchy": 0.01258408167563009, "mean_final_nmse_vs_original": 0.05792452716563306, "mean_hierarchy_val_acc": 0.9641975363095602, "mean_final_val_acc": 0.9617284138997396, "mean_ratio_final_nmse_over_direct": 1.4448078542739877, "mean_ratio_final_nmse_over_full64": 1.201662738140893, "mean_ratio_final_nmse_over_frozen": 0.8285431603800385},
+    "full_64": {"mean_hierarchy_nmse_vs_original": 0.03359405306554269, "mean_final_nmse_vs_hierarchy": 0.021933656400569993, "mean_final_nmse_vs_original": 0.04816417421149377, "mean_hierarchy_val_acc": 0.9666666388511658, "mean_final_val_acc": 0.9666666388511658, "mean_ratio_final_nmse_over_direct": 1.2016446720486484, "mean_ratio_final_nmse_over_full64": 1.0, "mean_ratio_final_nmse_over_frozen": 0.690468727661531},
+    "direct_original_single": {"mean_final_nmse_vs_original": 0.040055897468323644, "mean_val_acc": 0.970370352268219},
+    "teacher": {"mean_val_acc": 0.9777777791023254}
+  },
+  "per_seed_final_nmse_ordering": [
+    ["full_64", "anchored_32", "anchored_16", "anchored_8", "frozen", "sketch_only_32", "sketch_only_16"],
+    ["full_64", "anchored_32", "anchored_16", "anchored_8", "frozen", "sketch_only_32", "sketch_only_16"],
+    ["full_64", "anchored_32", "anchored_16", "anchored_8", "frozen", "sketch_only_32", "sketch_only_16"]
+  ],
+  "observations": [
+    "self-anchoring reversed the C11 sketch failure: anchored_8, anchored_16, and anchored_32 all beat frozen in all 3 seeds",
+    "anchored_16 and anchored_32 strongly beat matched sketch-only controls in all 3 seeds",
+    "anchored_32 reached 1.135-1.242x the full-64 final NMSE across seeds while using teacher correction in only 32 of 64 interface dimensions",
+    "full-64 remained best, so compressed teacher supervision is not lossless"
+  ],
+  "boundary": "Exploratory only; self-anchor uses full-dimensional pre-alignment Canaria outputs and one fixed orthogonal basis."
+}

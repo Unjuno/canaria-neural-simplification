@@ -1,0 +1,25 @@
+{
+  "experiment": "C5 confirmatory cross-family recursive Canaria composition on SmallViT",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "CONFIRMATORY_CROSS_FAMILY",
+  "issue": 38,
+  "source_exploration": "C4",
+  "attempted_seeds": [1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361],
+  "eligibility": {"teacher_validation_accuracy_min": 0.95, "minimum_eligible_seeds": 8, "if_fewer": "STOP_INSUFFICIENT_ELIGIBLE_NO_RESCUE"},
+  "testbed": {"dataset": "sklearn digits images", "teacher": "SmallViT depth=4 d=32 heads=4 mlp=64", "teacher_epochs": 45, "span": "central blocks 1 and 2", "split_random_states": [24680, 13579]},
+  "grammar": {"local": "2 x TinyTokenRes(32,32)", "local_cluster_params": 4096, "single": "TinyTokenRes(32,64)", "single_params": 4096, "exact_parameter_match": true},
+  "optimization": {"fit_examples": 512, "local_updates_each": 600, "stage2_updates": 600, "stage3_updates": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 64},
+  "conditions": {
+    "all_frozen_recursive": "no Stage-2 update; Stage-3 target = frozen cluster outputs only",
+    "all_unfrozen_recursive": "jointly update both local candidates against original span for 600 updates, freeze, Stage-3 target = adapted cluster outputs only",
+    "direct_original_single": "matched single directly fit to original span output"
+  },
+  "recursive_original_target_forbidden_in_stage3": true,
+  "P1": {"statistic": "mean paired D = all_unfrozen_recursive validation NMSE - all_frozen_recursive validation NMSE", "pass": "paired eligible-seed bootstrap95 upper < 0"},
+  "P2": {"statistic": "geometric mean R = all_unfrozen_recursive validation NMSE / direct_original_single validation NMSE", "pass": "paired eligible-seed bootstrap95 upper < 1.20"},
+  "P3": {"statistic": "all_unfrozen_recursive validation accuracy - direct_original_single validation accuracy", "pass": "paired eligible-seed bootstrap95 lower > -0.03"},
+  "test_safeguard": {"evaluation": "materialize test only after all locked fitting and validation metrics for seed", "statistic": "all_unfrozen_recursive test accuracy - direct_original_single test accuracy", "pass": "paired eligible-seed bootstrap95 lower > -0.03"},
+  "bootstrap": {"resamples": 100000, "rng_seed": 20260828, "method": "paired eligible-seed percentile 95%"},
+  "overall": "CONFIRMATORY_PASS iff eligible_count >= 8 and P1/P2/P3/test_safeguard all pass; otherwise fail/stop without rescue",
+  "claim_boundary_if_pass": "Cross-family evidence for the recursive joint-adapt/freeze/cluster-only-recompile mechanism on this SmallViT span under this exactly matched grammar; not high-utility Transformer replacement, universal recursion, arbitrary-depth hierarchy, or LLM-scale evidence."
+}

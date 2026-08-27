@@ -1,0 +1,43 @@
+{
+  "experiment": "C9 confirmatory depth-3 hierarchy with repeated boundary re-alignment",
+  "status": "CONFIRMATORY_PASS",
+  "evidence_class": "CONFIRMATORY_DEPTH3",
+  "issue": 46,
+  "protocol_commit": "21ee151b7a0ddca0dd3968aa76a68f4fdadfdbf8",
+  "runner_commit": "c93f832baeec06fb22a3c1475150bcd8f4e3ded1",
+  "runner_git_blob_sha": "8f4d0081aaf69993fb52e8dbb01c55a4ca8551f1",
+  "seeds": [1400,1401,1402,1403,1404,1405,1406,1407],
+  "all_seeds_retained": true,
+  "test_evaluated_after_validation_only": true,
+  "budget": {"level0_total_params":4096,"level1_total_params":4096,"level2_total_params":4096,"level3_total_params":4096,"exact_match_each_level":true},
+  "aggregate_conditions": {
+    "strict_depth3": {"mean_val_nmse_vs_original":0.21273180354847962,"mean_val_acc":0.9180555567145348,"mean_test_acc":0.9319444373250008},
+    "realign_each_level": {"mean_val_nmse_vs_original":0.05196956006446529,"mean_val_acc":0.9662036895751953,"mean_test_acc":0.9799999967217445},
+    "single_level_recursive": {"mean_val_nmse_vs_original":0.06364243882559195,"mean_val_acc":0.9662036895751953,"mean_test_acc":0.9774999991059303},
+    "direct_original_single": {"mean_val_nmse_vs_original":0.04454432849917962,"mean_val_acc":0.9712962806224823,"mean_test_acc":0.983055554330349}
+  },
+  "mean_depth_trajectory": {
+    "level1_full_chain_nmse":0.21208787188618589,
+    "strict_level2_full_chain_nmse":0.21127750869792933,
+    "realign_level2_full_chain_nmse":0.07425809104557671,
+    "strict_level3_final_nmse":0.21273180354847962,
+    "realign_level3_final_nmse":0.05196956006446529
+  },
+  "confirmatory_endpoints": {
+    "P1_realign_repairs_strict": {"mean_D_strict":-0.16076224348401436,"bootstrap95":[-0.1753466953211674,-0.14739340848047688],"rule":"upper < 0","pass":true,"all_8_negative":true},
+    "P2_realign_over_direct": {"geometric_mean_ratio":1.1672895760841264,"bootstrap95":[1.1439065403438227,1.1906318067889128],"rule":"upper < 1.40","pass":true},
+    "P3_realign_vs_single_level": {"mean_D_single":-0.01167287876112667,"bootstrap95":[-0.014812643234531558,-0.008806817138635493],"rule":"upper < 0","pass":true,"all_8_negative":true},
+    "P4_level2_boundary_repair": {"mean_D_level2":-0.13701941765235265,"bootstrap95":[-0.15001778632400323,-0.12462766626687352],"rule":"upper < 0","pass":true,"all_8_negative":true},
+    "validation_utility_guardrail": {"mean_accuracy_difference":-0.005092591047286987,"bootstrap95":[-0.007870376110076904,-0.0023148134350776672],"rule":"lower > -0.02","pass":true},
+    "test_safeguard": {"mean_accuracy_difference":-0.003055557608604431,"bootstrap95":[-0.004444457590579987,-0.0016666650772094727],"rule":"lower > -0.02","pass":true}
+  },
+  "bootstrap": {"resamples":100000,"rng_seed":20260830,"unit":"paired seed","method":"percentile 95%"},
+  "interpretation": [
+    "Repeated re-alignment at newly formed hierarchy boundaries repaired strict depth-3 recursion in all 8 fresh seeds.",
+    "The re-aligned depth-3 final remained within the preregistered 1.40x functional-NMSE bound relative to a matched direct-original replacement, with a geometric mean ratio of about 1.167x.",
+    "The re-aligned depth-3 path beat the single-level recursive baseline in all 8 seeds.",
+    "The intermediate Level-2 boundary repair was strongly reproducible in all 8 seeds, supporting boundary/distribution mismatch as a dominant failure mode in the strict hierarchy.",
+    "Validation and held-out test utility stayed within the preregistered direct-replacement guardrails.",
+    "The supported claim is scoped to this 8-block residual-MLP digits testbed; it is not evidence for unlimited recursion, losslessness, architecture universality, or LLM-scale behavior."
+  ]
+}

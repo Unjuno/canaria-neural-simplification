@@ -1,0 +1,31 @@
+{
+  "experiment": "C4 exploratory cross-family recursive Canaria composition on SmallViT",
+  "status": "EXPLORATORY_COMPLETE",
+  "evidence_class": "EXPLORATORY_CROSS_FAMILY",
+  "public_claim_use": "DO_NOT_PROMOTE_WITHOUT_FRESH_CONFIRMATION",
+  "issue": 37,
+  "protocol_commit": "c8f4c7477b4d7a030c8526f7a8232609b641f131",
+  "runner_commit": "ca9bf7414d141c0986c05a246b9fc41e7ed6025a",
+  "runner_git_blob_sha": "9cb59691b1f310d563c7e03cd49f39ee40d02e70",
+  "seeds": [1340, 1341, 1342],
+  "eligible_seeds": [1340, 1341, 1342],
+  "test_evaluated": false,
+  "budget": {"cluster_params": 4096, "single_params": 4096, "exact_match": true},
+  "teacher": {"mean_val_acc": 0.95679012345679},
+  "aggregate": {
+    "all_frozen": {"mean_cluster_nmse_vs_original": 0.25045885331976653, "mean_cluster_val_acc": 0.7901234567901234, "mean_recursive_nmse_vs_cluster": 0.01611008421502605, "mean_recursive_nmse_vs_original": 0.25781699355392074, "mean_recursive_val_acc": 0.7728395061728395},
+    "left_only": {"mean_cluster_nmse_vs_original": 0.22429953984343132, "mean_cluster_val_acc": 0.834567901234568, "mean_recursive_nmse_vs_cluster": 0.023425377251121426, "mean_recursive_nmse_vs_original": 0.23868587672117994, "mean_recursive_val_acc": 0.8148148148148149},
+    "right_only": {"mean_cluster_nmse_vs_original": 0.2228982822985802, "mean_cluster_val_acc": 0.8172839506172839, "mean_recursive_nmse_vs_cluster": 0.027178575837898605, "mean_recursive_nmse_vs_original": 0.2381568550910553, "mean_recursive_val_acc": 0.7962962962962963},
+    "all_unfrozen": {"mean_cluster_nmse_vs_original": 0.205157529772009, "mean_cluster_val_acc": 0.8432098765432098, "mean_recursive_nmse_vs_cluster": 0.03875418360253827, "mean_recursive_nmse_vs_original": 0.22920228654333297, "mean_recursive_val_acc": 0.8246913580246913}
+  },
+  "direct_original_single": {"mean_nmse_vs_original": 0.2174540848633895, "mean_val_acc": 0.825925925925926},
+  "recursive_over_direct": {"per_seed_ratios": [1.037314736623772, 1.0605444907229664, 1.0580374964757573], "geometric_mean_ratio": 1.0519138333557994},
+  "per_seed_recursive_orders": [["all_unfrozen", "right_only", "left_only", "all_frozen"], ["all_unfrozen", "left_only", "right_only", "all_frozen"], ["all_unfrozen", "right_only", "left_only", "all_frozen"]],
+  "interpretation": [
+    "Full joint adaptation produced the best recursive-single original-teacher NMSE in all 3 eligible exploratory SmallViT seeds.",
+    "The same qualitative freeze-schedule mechanism seen in residual-MLP C1-C3 therefore appeared in a Transformer-family teacher under a different exactly matched replacement grammar.",
+    "The recursively recompiled all-unfrozen single remained close to the direct-original single in functional NMSE (geometric mean ratio about 1.052x).",
+    "Absolute replacement task utility was materially below the SmallViT teacher for this token-wise grammar, so C4 supports a mechanism signal but not a high-utility Transformer replacement claim.",
+    "Fresh confirmatory cross-family seeds are required before public claim use."
+  ]
+}
