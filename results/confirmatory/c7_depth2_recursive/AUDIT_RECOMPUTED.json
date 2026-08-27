@@ -1,0 +1,13 @@
+{
+  "status": "CONFIRMATORY_PASS_RECOMPUTED",
+  "source": "seed_rows.csv",
+  "bootstrap_seed": 20260829,
+  "bootstrap_resamples": 100000,
+  "P1": {"mean": -0.02309426797462665, "bootstrap95": [-0.025605457897087028, -0.02100094180311729], "pass": true},
+  "P2": {"geometric_mean_ratio": 1.1903827776757605, "bootstrap95": [1.1568046115201682, 1.225508204348103], "pass": true},
+  "P3": {"mean": -0.004389957838744494, "bootstrap95": [-0.005573895900841755, -0.0033082901084843363], "pass": true},
+  "P4": {"geometric_mean_ratio": 1.7406581830392405, "bootstrap95": [1.675232590949083, 1.7958968402494404], "pass": true},
+  "validation_guardrail": {"mean": -0.0023148134350776672, "bootstrap95": [-0.004166662693023682, -0.00046296417713165283], "pass": true},
+  "test_safeguard": {"mean": 0.0008333250880241394, "bootstrap95": [-0.0011111274361610413, 0.002499990165233612], "pass": true},
+  "matches_RESULT_json": true
+}
