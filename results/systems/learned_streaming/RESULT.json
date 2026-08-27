@@ -1,0 +1,71 @@
+{
+  "experiment": "Canaria Systems S2 learned compiler streaming",
+  "status": "PASS",
+  "evidence_class": "systems_runtime_format_bridge",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "torch_threads": 1
+  },
+  "provenance": {
+    "issue": 21,
+    "protocol_commit": "65517be663de26243809ffe4c2a9398eaac71b4c",
+    "protocol_blob": "e98af89686b146d3e17e031ac32770a1e395dc32",
+    "s2_runner_blob": "17fb712bd30c2dded1671d47f5cfe10a13c348f5",
+    "g7_run_seed_blob": "61d8f2c4acce2d9e21daae7680be250ed21a27a9",
+    "g7_runtime_poc_blob": "5911bbfbcd9d26d36d95426147c5fedf79ee2c2c",
+    "local_git_blob_hashes_verified_before_execution": true,
+    "reconstruction_note": "The exact G7 seed-4300 training sequence was split into three checkpointed invocations only to stay within tool execution limits. Training steps, seeds, optimizer logic, replacement fitting, and continuation logic were unchanged.",
+    "reconstructed_source_test_ppl": 18.932213342799887,
+    "generated_artifact_sha256": {
+      "compact_full.pt": "77e86d56abc5f0662dbc8d7509a593d82137e158e533297635f90c7c1d1de44a",
+      "shell.pt": "778c3c18cf18d3ba576107d9ed0cc7901e6884759eae909953c2034b8fa45b99",
+      "compiler_block0.pt": "abb2ac470084721948a3521075f1a7f18d08ea61611a3f8a379f8b77d6719daa",
+      "compiler_block1.pt": "7bd667e433e93d9b6e18484bf7d668c95dd5c317c139480a47c1edd20e3c35ca",
+      "manifest.json": "c89e51f19f9ae4a0e660e3fb8c9f97803c8a133fe4bb11f262b7f6afe3e8e8d8"
+    },
+    "execution_scaffold_note": "The committed S2 runner was used for packaging/equivalence/probe logic. G7 weight reconstruction was checkpointed across three invocations solely to remain within tool-call execution limits; the exact committed G7 functions and seeds were used, and the reconstructed test PPL matched the existing G7 record."
+  },
+  "manifest": {
+    "format": "canaria-systems-s2-learned-stream-v1",
+    "source_seed": 4300,
+    "source": "G7 progressive 4->3->2 learned compact compiler",
+    "full_state_file": "compact_full.pt",
+    "shell_file": "shell.pt",
+    "block_files": ["compiler_block0.pt", "compiler_block1.pt"],
+    "full_tensor_payload_bytes": 44168,
+    "shell_tensor_payload_bytes": 14600,
+    "compiler_block_tensor_payload_bytes": [14784, 14784],
+    "compiler_total_tensor_payload_bytes": 29568,
+    "serialized_bytes": {"full": 53309, "shell": 17213, "blocks": [19151, 19151]},
+    "source_compact_test_metrics": {"nll": 2.94086488087972, "ppl": 18.932213342799887, "token_acc": 0.22273763020833334}
+  },
+  "s2a_original_learned_model": {
+    "max_absolute_logit_difference": 0.0,
+    "relative_l2_logit_difference": 0.0,
+    "full_metrics": {"nll": 2.9408648014068604, "ppl": 18.932211838202807, "token_acc": 0.22273763020833334},
+    "streamed_metrics": {"nll": 2.9408648014068604, "ppl": 18.932211838202807, "token_acc": 0.22273763020833334},
+    "differences": {"nll": 0.0, "ppl": 0.0, "token_acc": 0.0},
+    "compiler_payload_bytes_by_construction": {"full_compact_resident": 29568, "chunk_streamed_compiler": 14784, "ratio": 0.5},
+    "checks": {"max_abs_lte_1e_5": true, "relative_l2_lte_1e_6": true, "abs_ppl_diff_lte_1e_5": true},
+    "fresh_process_secondary": {
+      "full_compact_resident": {"baseline_rss_bytes": 313110528, "peak_rss_bytes": 337838080, "peak_rss_delta_bytes": 24727552, "median_batch128_seconds": 0.05882552849999456, "checksum": -84803.78125},
+      "chunk_streamed_compiler": {"baseline_rss_bytes": 313114624, "peak_rss_bytes": 337240064, "peak_rss_delta_bytes": 24125440, "median_batch128_seconds": 0.03970232550000219, "checksum": -84803.78125}
+    },
+    "secondary_boundary": "The real compiler is only 29,568 tensor bytes, so process RSS and latency are dominated by framework/runtime effects and are not stable deployment-memory or speed claims."
+  },
+  "s2b_learned_payload_amplification": {
+    "logical_block_chunks": 4096,
+    "full_resident": {"baseline_rss_bytes": 313106432, "peak_rss_bytes": 425213952, "peak_rss_delta_bytes": 112107520, "logical_tensor_payload_bytes": 60555264, "one_chunk_max_tensor_payload_bytes": 14784, "elapsed_seconds": 10.173456854000051, "checksum": 234473.0256500244},
+    "streaming": {"baseline_rss_bytes": 313098240, "peak_rss_bytes": 314646528, "peak_rss_delta_bytes": 1548288, "logical_tensor_payload_bytes": 60555264, "one_chunk_max_tensor_payload_bytes": 14784, "elapsed_seconds": 19.49785830799999, "checksum": 234473.0256500244},
+    "streaming_over_full_peak_rss_delta_ratio": 0.01381074168797954,
+    "checks": {"streaming_rss_ratio_lt_0_20": true, "payload_checksums_agree": true},
+    "boundary": "4096 logical chunks repeat the two already learned G7 compiler block states only to amplify memory measurement. This is not a trained 4096-block model and carries no task-utility claim."
+  },
+  "interpretation_boundary": "S2 demonstrates exact chunked execution of an actually learned Canaria compiler and bounded-memory loading of that learned payload. It does not demonstrate deployment on a particular MCU/mobile/edge device, and it does not establish that arbitrary neural models admit the same compact representation."
+}
