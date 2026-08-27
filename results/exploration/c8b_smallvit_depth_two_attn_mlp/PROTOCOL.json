@@ -1,0 +1,16 @@
+{
+  "experiment": "C8B exploratory SmallViT depth-two hierarchy with attention+MLP Canaria grammar",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "evidence_class": "EXPLORATORY_GRAMMAR_CONTROL",
+  "issue": 42,
+  "paired_exploration_seeds": [1390,1391,1392],
+  "paired_with": "C8 attention-only grammar",
+  "test_evaluated": false,
+  "testbed": {"dataset": "sklearn digits images", "teacher": "SmallViT depth=4 d=32 heads=4 mlp=64", "teacher_epochs": 45, "span": "all four transformer blocks", "split_random_states": [24680,13579], "fit_examples": 512, "eligibility_val_acc_min": 0.95},
+  "grammar": {"candidate": "TinyAttnMLPRes: fixed nonlearned LayerNorm, bias-free Q/K/V/O self-attention residual, fixed nonlearned LayerNorm, bias-free GELU MLP residual", "params_formula": "6*d*w", "level0": "4 x TinyAttnMLPRes(32,32)", "level0_total_params": 24576, "level1": "2 x TinyAttnMLPRes(32,64)", "level1_total_params": 24576, "level2": "TinyAttnMLPRes(32,128)", "level2_params": 24576, "exact_aggregate_parameter_match": true},
+  "optimization": {"updates_per_fit_or_adaptation": 600, "optimizer": "AdamW", "lr": 0.008, "weight_decay": 0.00001, "batch": 64},
+  "information_isolation": {"lower_pair_clusters": "may use original pair-span targets", "level1_pair_units": "fit only frozen lower-pair outputs", "lower_ir_full_teacher": "pair34(pair12(a0))", "after_lower_ir_definition": "original a4 forbidden as target for hierarchy; direct-original reference allowed"},
+  "conditions": ["hierarchical_no_level2_adapt", "hierarchical_level2_joint_adapt", "flat_lower_ir_single", "direct_original_single"],
+  "main_comparison": "paired grammar improvement over C8 in lower-IR NMSE and replacement validation accuracy, while tracking hierarchy relative cost",
+  "claim_boundary": "Exploratory grammar control only; reused exploration seeds prevent confirmatory inference."
+}
