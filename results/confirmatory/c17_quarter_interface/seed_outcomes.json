@@ -1,0 +1,33 @@
+[
+  {
+    "seed": 1480,
+    "status": "CONFIRMATORY_SEED_OUTCOME",
+    "test_evaluated_after_validation_only": true,
+    "teacher_val_acc": 0.9777777791023254,
+    "teacher_test_acc": 0.9822221994400024,
+    "budget": {
+      "local_total_params": 4096,
+      "level1_total_params": 4096,
+      "final_params": 4096,
+      "exact_4096_each_level": true
+    },
+    "basis_names": ["identity_first16","random_20261010","random_20261011","random_20261012"],
+    "conditions": {
+      "frozen": {"hierarchy_nmse_vs_original":0.06928301911457942,"final_nmse_vs_hierarchy":0.006866115599193803,"final_nmse_vs_original":0.0738515530293803,"final_replacement_val_acc":0.9592592716217041},
+      "identity_first16": {"hierarchy_nmse_vs_original":0.059286316695218975,"final_nmse_vs_hierarchy":0.006706372896762369,"final_nmse_vs_original":0.06720408022141314,"final_replacement_val_acc":0.9629629850387573,"final_replacement_test_acc":0.9733333587646484},
+      "random_20261010": {"hierarchy_nmse_vs_original":0.0616186613430378,"final_nmse_vs_hierarchy":0.006516185318279738,"final_nmse_vs_original":0.06742893611027134,"final_replacement_val_acc":0.9629629850387573,"final_replacement_test_acc":0.9688888788223267},
+      "random_20261011": {"hierarchy_nmse_vs_original":0.05856279619281899,"final_nmse_vs_hierarchy":0.006738148154247652,"final_nmse_vs_original":0.0669309294441431,"final_replacement_val_acc":0.9629629850387573,"final_replacement_test_acc":0.9733333587646484},
+      "random_20261012": {"hierarchy_nmse_vs_original":0.05899381928780995,"final_nmse_vs_hierarchy":0.006598128439720339,"final_nmse_vs_original":0.06722893599908643,"final_replacement_val_acc":0.9629629850387573,"final_replacement_test_acc":0.9711111187934875},
+      "full_64": {"hierarchy_nmse_vs_original":0.03181319826169198,"final_nmse_vs_hierarchy":0.022076123265458,"final_nmse_vs_original":0.04686900525986241,"final_replacement_val_acc":0.9777777791023254,"final_replacement_test_acc":0.9888888597488403}
+    },
+    "direct_original_single": {"final_nmse_vs_original":0.04108483134815958,"replacement_val_acc":0.9740740656852722},
+    "derived": {"D_worst":-0.00642261703029387,"R_worst":1.4386482097654332,"basis_spread":1.0329764252000975,"val_acc_diff_worst_minus_full":-0.014814794063568115,"test_acc_diff_worst_minus_full":-0.019999980926513672}
+  },
+  {"seed":1481,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9851852059364319,"teacher_test_acc":0.9866666793823242,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.005992513258940499,"R_worst":1.2825648339482054,"basis_spread":1.0185442881124684,"val_acc_diff_worst_minus_full":-0.011111080646514893,"test_acc_diff_worst_minus_full":-0.00888890027999878}},
+  {"seed":1482,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9851852059364319,"teacher_test_acc":0.9888888597488403,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.007047741375753716,"R_worst":1.3374497298226518,"basis_spread":1.0204838226912074,"val_acc_diff_worst_minus_full":0.0037037134170532227,"test_acc_diff_worst_minus_full":-0.011111140251159668}},
+  {"seed":1483,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9814814925193787,"teacher_test_acc":0.9844444394111633,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.007447351907525018,"R_worst":1.3841185884042448,"basis_spread":1.019268050726542,"val_acc_diff_worst_minus_full":-0.011111080646514893,"test_acc_diff_worst_minus_full":-0.017777740955352783}},
+  {"seed":1484,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9814814925193787,"teacher_test_acc":0.9866666793823242,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.006799888470929716,"R_worst":1.3478144514505537,"basis_spread":1.0361761415764916,"val_acc_diff_worst_minus_full":-0.014814794063568115,"test_acc_diff_worst_minus_full":-0.0022222399711608887}},
+  {"seed":1485,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9814814925193787,"teacher_test_acc":0.9866666793823242,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.006461582893292843,"R_worst":1.2526381155596773,"basis_spread":1.0110068444101483,"val_acc_diff_worst_minus_full":0.0,"test_acc_diff_worst_minus_full":-0.011111080646514893}},
+  {"seed":1486,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9851852059364319,"teacher_test_acc":0.9888888597488403,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.008649285557378636,"R_worst":1.392213236108361,"basis_spread":1.016514640937623,"val_acc_diff_worst_minus_full":-0.0037037134170532227,"test_acc_diff_worst_minus_full":0.0}},
+  {"seed":1487,"status":"CONFIRMATORY_SEED_OUTCOME","test_evaluated_after_validation_only":true,"teacher_val_acc":0.9814814925193787,"teacher_test_acc":0.9866666793823242,"budget":{"local_total_params":4096,"level1_total_params":4096,"final_params":4096,"exact_4096_each_level":true},"basis_names":["identity_first16","random_20261010","random_20261011","random_20261012"],"conditions":{},"direct_original_single":{},"derived":{"D_worst":-0.007130651711808295,"R_worst":1.306065338696282,"basis_spread":1.02492573204642,"val_acc_diff_worst_minus_full":-0.0037037134170532227,"test_acc_diff_worst_minus_full":-0.006666660308837891}}
+]
