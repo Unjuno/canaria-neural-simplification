@@ -1,0 +1,24 @@
+{
+  "stage": "C21",
+  "status": "CONFIRMATORY_PASS",
+  "scientific_role": "confirmatory",
+  "seeds": [1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541],
+  "eligible_seeds": [1530,1531,1533,1534,1535,1536,1537,1538,1539,1540,1541],
+  "ineligible_seeds": [1532],
+  "eligibility_count": 11,
+  "minimum_required_eligible": 8,
+  "bootstrap": {"resamples":100000,"rng_seed":20261130,"method":"paired model-seed percentile bootstrap"},
+  "runner_git_blob_sha": "fb765df24aaf1cbe3004815839f800b823d903ff",
+  "c4_dependency_git_blob_sha": "9cb59691b1f310d563c7e03cd49f39ee40d02e70",
+  "environment": {"python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","scikit_learn":"1.8.0"},
+  "endpoints": {
+    "P1": {"estimate_mean_D_worst":-0.005921180640201726,"ci95":[-0.006762735831582167,-0.005026688372801649],"pass":true,"margin":"upper<0"},
+    "P2": {"estimate_geomean_R_worst":1.0962402073764015,"ci95":[1.0838077037351674,1.1089207519422575],"pass":true,"margin":"upper<1.40"},
+    "P3": {"estimate_geomean_S":1.014458924985509,"ci95":[1.0103685412341903,1.0188533924687444],"pass":true,"margin":"upper<1.20"},
+    "validation_safeguard": {"estimate_mean_difference":-0.025589225589225575,"ci95":[-0.03333333333333333,-0.0158249158249158],"pass":true,"margin":"lower>-0.04"},
+    "test_safeguard": {"estimate_mean_difference":-0.024915824915824922,"ci95":[-0.03670033670033668,-0.014478114478114474],"pass":true,"margin":"lower>-0.04"}
+  },
+  "all_locked_gates_pass": true,
+  "informative_anchored_vs_sketch": {"same_basis_pairs":44,"anchored_better_count":44,"mean_nmse_difference":-0.22825633610382837,"range":[-0.33483689235670205,-0.15144738387336337]},
+  "claim_boundary": "Scoped SmallViT central-two-block quarter-interface result only; not full-model Transformer compression, arbitrary architectures/subspaces, LLM behavior, or a universal 8D interface."
+}
