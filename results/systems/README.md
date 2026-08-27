@@ -9,6 +9,7 @@ Current stages:
 - `memory_ceiling/` — S3 explicit Linux memory-ceiling feasibility boundary;
 - `numpy_streaming/` — S4 framework-independent learned compiler kernel;
 - `row_streamed_attention/` — S5 sub-64-KiB logical managed-tensor schedule;
-- `static_arena/` — S6 statically linked C++ fixed-arena prototype.
+- `static_arena/` — S6 statically linked C++ fixed-arena prototype;
+- `sub44k_arena/` — S7 production-oriented native schedule with 43,808-B measured application-arena high-water under the locked fixed activation.
 
 Each stage preserves its own protocol/result/provenance. Later stages strengthen the runtime mechanism but do not retroactively change earlier protocols or turn systems evidence into scientific composition-generalization evidence.
