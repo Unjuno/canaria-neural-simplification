@@ -1,0 +1,95 @@
+{
+  "experiment": "Canaria Systems S1 streaming compact runtime",
+  "status": "PASS",
+  "evidence_class": "systems_runtime_format_poc",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "numpy": "2.3.5",
+    "psutil": "7.2.2",
+    "blas_thread_env_for_probes": 1
+  },
+  "manifest": {
+    "format": "canaria-systems-s1-v1",
+    "d": 1024,
+    "r": 64,
+    "blocks": 32,
+    "batch": 8,
+    "seed": 20260827,
+    "alpha": 0.05000000074505806,
+    "dtype": "float32",
+    "dense_serialized_bytes": 134221824,
+    "factor_serialized_bytes": 16785408,
+    "input_sha256": "4c65392a6dd8ac3360585c8b92c23d768fb94e3cfe23f81bb7a86f00ede068aa"
+  },
+  "probes": {
+    "dense_resident": {
+      "mode": "dense_resident",
+      "baseline_rss_bytes": 114827264,
+      "peak_rss_bytes": 250441728,
+      "peak_rss_delta_bytes": 135614464,
+      "peak_model_payload_bytes_by_construction": 134217728,
+      "inference_seconds": [
+        0.04376861900000506,
+        0.04108809699999938,
+        0.040291400000000976
+      ],
+      "median_inference_seconds": 0.04108809699999938,
+      "output_sha256": "3913ce5fd955d99e782f281013546823aa1665be9258a1dda1d3c64a77eba866"
+    },
+    "dense_streaming": {
+      "mode": "dense_streaming",
+      "baseline_rss_bytes": 114634752,
+      "peak_rss_bytes": 120156160,
+      "peak_rss_delta_bytes": 5521408,
+      "peak_model_payload_bytes_by_construction": 4194304,
+      "inference_seconds": [
+        0.049642801999993935,
+        0.04856735400001355,
+        0.059597187999997914
+      ],
+      "median_inference_seconds": 0.049642801999993935,
+      "output_sha256": "3913ce5fd955d99e782f281013546823aa1665be9258a1dda1d3c64a77eba866"
+    },
+    "factor_streaming": {
+      "mode": "factor_streaming",
+      "baseline_rss_bytes": 114561024,
+      "peak_rss_bytes": 115511296,
+      "peak_rss_delta_bytes": 950272,
+      "peak_model_payload_bytes_by_construction": 524288,
+      "inference_seconds": [
+        0.010248821999994107,
+        0.008913319000001252,
+        0.008054170999997723
+      ],
+      "median_inference_seconds": 0.008913319000001252,
+      "output_sha256": "fe489d80e6d99ce3df8a596312fc31436e2a37771784da881874a4822b30f4d4"
+    }
+  },
+  "output_agreement": {
+    "dense_streaming_vs_dense_resident_max_abs": 0.0,
+    "factor_streaming_vs_dense_resident_max_abs": 1.430511474609375e-06,
+    "factor_streaming_vs_dense_resident_relative_l2": 2.6999282802136666e-07
+  },
+  "derived": {
+    "factor_peak_model_payload_ratio_vs_dense_resident": 0.00390625,
+    "factor_peak_rss_delta_ratio_vs_dense_resident": 0.007007158174514482,
+    "dense_streaming_peak_rss_delta_ratio_vs_dense_resident": 0.040714005255368634,
+    "factor_serialized_ratio_vs_dense": 0.12505721871280784
+  },
+  "capacity_witness": {
+    "budget_bytes": 33554432,
+    "dense_resident_exceeds_budget": true,
+    "factor_streaming_fits_budget": true
+  },
+  "checks": {
+    "factor_payload_ratio_lte_0_20": true,
+    "factor_rss_delta_lt_dense_resident": true,
+    "factor_max_abs_lte_0_001": true,
+    "factor_relative_l2_lte_0_0001": true,
+    "dense_stream_max_abs_lte_1e_6": true,
+    "capacity_witness": true
+  },
+  "interpretation_boundary": "Synthetic exact low-rank operator stack. Demonstrates a runtime representation/materialization mechanism only; it does not establish that arbitrary trained neural spans admit this representation or that any specific MCU/edge device can run it."
+}

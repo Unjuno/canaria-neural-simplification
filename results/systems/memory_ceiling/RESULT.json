@@ -1,0 +1,87 @@
+{
+  "experiment": "Canaria Systems S3 constrained-memory feasibility",
+  "status": "PASS",
+  "evidence_class": "systems_constrained_process_feasibility",
+  "scientific_claim_use": "DO_NOT_USE_AS_COMPOSITION_GENERALIZATION_EVIDENCE",
+  "issue": 23,
+  "original_protocol_commit": "79009b3da4451e10e06f52b63f505e9e05f359d7",
+  "identity_amendment_commit": "8c8a315cee24dddd69c701a601b0152763e0349f",
+  "runner_commit": "1a5bf2f231244b40eab1bcf9f93ab7f03d235ba3",
+  "runner_blob": "985b829a7a805c860e056b2dfcac5776dc5bd6e8",
+  "identity_amendment": {
+    "reason": "torch.save container bytes were not deterministic across exact source reconstruction; constrained outcomes were not inspected before replacing only the payload identity precondition with deterministic tensor-content SHA256.",
+    "source_test_ppl_reconstructed": 18.932213342799887,
+    "aggregate_payload_checksum": 234473.0256500244,
+    "tensor_content_sha256": {
+      "compiler_block0.pt": "78fd7f52ef6f019f6ede72c73b4928b0482d61e7f7914de532ebc084779fce56",
+      "compiler_block1.pt": "d70098af827694a42e7bb31958cf9959ec3aceef0d432941960c15d0cb5091c8"
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "torch_threads": 1
+  },
+  "locked_conditions": {
+    "logical_block_chunks": 4096,
+    "expected_checksum": 234473.0256500244,
+    "extra_address_space_headroom_bytes": 67108864
+  },
+  "runs": {
+    "full_unconstrained_control": {
+      "status": "SUCCESS",
+      "completed_chunks": 4096,
+      "checksum": 234473.0256500244,
+      "elapsed_seconds": 4.761883307000005,
+      "baseline_rss_bytes": 371175424,
+      "peak_rss_bytes": 498241536,
+      "peak_rss_delta_bytes": 127066112,
+      "baseline_vms_bytes": 1317900288,
+      "final_vms_bytes": 1445163008
+    },
+    "full_constrained": {
+      "status": "MEMORY_ALLOCATION_FAILURE",
+      "completed_chunks": 2181,
+      "checksum_before_failure": 124850.52394799888,
+      "elapsed_seconds": 2.4298620970000115,
+      "baseline_rss_bytes": 371159040,
+      "peak_rss_bytes": 441036800,
+      "peak_rss_delta_bytes": 69877760,
+      "baseline_vms_bytes": 1317916672,
+      "final_vms_bytes": 1384984576,
+      "headroom_bytes": 67108864,
+      "rlimit_as_bytes": 1385025536,
+      "error": "RuntimeError: [enforce fail at alloc_cpu.cpp:127] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2304 bytes. Error code 12 (Cannot allocate memory)"
+    },
+    "streaming_constrained": {
+      "status": "SUCCESS",
+      "completed_chunks": 4096,
+      "checksum": 234473.0256500244,
+      "elapsed_seconds": 8.966339223000034,
+      "baseline_rss_bytes": 370991104,
+      "peak_rss_bytes": 371441664,
+      "peak_rss_delta_bytes": 450560,
+      "baseline_vms_bytes": 1317904384,
+      "final_vms_bytes": 1318158336,
+      "headroom_bytes": 67108864,
+      "rlimit_as_bytes": 1385013248
+    }
+  },
+  "checks": {
+    "unconstrained_full_control_completes": true,
+    "unconstrained_full_checksum_matches": true,
+    "constrained_full_fails_for_memory_before_4096": true,
+    "constrained_streaming_completes_4096": true,
+    "constrained_streaming_checksum_matches": true,
+    "same_64_mib_headroom_used_for_both_constrained_modes": true
+  },
+  "derived": {
+    "full_constrained_fraction_completed_before_failure": 0.532470703125,
+    "streaming_peak_rss_delta_over_unconstrained_full_control": 0.0035458706724260203
+  },
+  "interpretation_boundary": "PASS establishes an explicit Linux RLIMIT_AS feasibility boundary for the S2 learned-payload amplification harness: under the locked +64 MiB address-space headroom, one-chunk streaming completes while retaining all logical learned chunks does not. The 4096 chunks are a memory-measurement amplification harness, not a trained 4096-block network, and this is not direct deployment evidence for a particular MCU, phone, or SBC."
+}

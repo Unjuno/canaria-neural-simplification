@@ -1,0 +1,58 @@
+{
+  "name": "Canaria-Systems-S2-learned-compiler-streaming-v1",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "parent_issue": 21,
+  "source_learned_object": {
+    "experiment": "G7 fresh confirmatory progressive 4->3->2 compact result",
+    "seed": 4300,
+    "source_runner": "scripts/reproduce/g7_confirmatory/run_seed.py",
+    "reconstruction": "scripts/reproduce/g7_confirmatory/runtime_poc.py::build_models",
+    "retuning_allowed": false
+  },
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "torch_threads": 1
+  },
+  "s2a": {
+    "purpose": "original learned compact model functional equivalence",
+    "modes": ["full_compact_resident", "chunk_streamed_compiler"],
+    "chunking": "resident shell plus two separately serialized learned compiler blocks; streamed mode reuses one CausalBlock module and never materializes both compiler blocks simultaneously",
+    "test_set": "fixed G7 test set from committed reproduction runner",
+    "endpoints": [
+      "max_absolute_logit_difference",
+      "relative_l2_logit_difference",
+      "test_nll_difference",
+      "test_ppl_difference",
+      "test_token_accuracy_difference",
+      "compiler_payload_bytes_resident_by_construction",
+      "fresh_process_peak_rss_delta_secondary",
+      "fresh_process_latency_secondary"
+    ],
+    "pass_rule": {
+      "max_absolute_logit_difference_lte": 1e-5,
+      "relative_l2_logit_difference_lte": 1e-6,
+      "absolute_ppl_difference_lte": 1e-5
+    }
+  },
+  "s2b": {
+    "purpose": "RSS amplification harness using only already learned compiler block states",
+    "logical_block_chunks": 4096,
+    "sequence": "repeat learned block0, block1 alternation 2048 times",
+    "modes": ["payload_full_resident", "payload_streaming"],
+    "full_resident": "torch.load each logical chunk into an independent state_dict, retain all, touch every tensor",
+    "streaming": "torch.load one logical chunk, touch tensors, release before next logical chunk",
+    "primary_endpoint": "fresh_process_peak_rss_delta_bytes",
+    "pass_rule": "payload_streaming peak RSS delta < 0.20 * payload_full_resident peak RSS delta",
+    "interpretation": "measurement amplification only; not a 4096-block trained model and no task-utility claim"
+  },
+  "global_boundaries": [
+    "systems/runtime-format evidence only",
+    "does not strengthen scientific compositional-generalization claim",
+    "does not demonstrate a particular MCU/mobile/edge deployment",
+    "if exact locked environment is unavailable, record ENVIRONMENT_MISMATCH rather than silently changing versions"
+  ]
+}

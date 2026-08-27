@@ -1,0 +1,44 @@
+{
+  "name": "Canaria-Systems-S4-framework-independent-learned-streaming-v1",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "parent_issue": 25,
+  "source": "G7 seed-4300 learned two-block compiler, as reconstructed and tensor-hash locked in S3",
+  "source_tensor_content_sha256": {
+    "block0": "78fd7f52ef6f019f6ede72c73b4928b0482d61e7f7914de532ebc084779fce56",
+    "block1": "d70098af827694a42e7bb31958cf9959ec3aceef0d432941960c15d0cb5091c8"
+  },
+  "input": {
+    "shape": [2, 48, 24],
+    "dtype": "float32",
+    "numpy_rng_seed": 20260827,
+    "distribution": "standard_normal"
+  },
+  "operator": {
+    "blocks": 2,
+    "d": 24,
+    "heads": 4,
+    "head_dim": 6,
+    "mlp": 24,
+    "layernorm_eps": 0.00001,
+    "attention": "causal self-attention matching torch.nn.MultiheadAttention semantics used by G7 CausalBlock",
+    "gelu": "exact erf GELU"
+  },
+  "comparison": [
+    "pytorch_reference: materialize the two learned CausalBlock modules and execute block0 then block1",
+    "numpy_streaming: independently implement LayerNorm, QKV projection, causal multi-head attention, residuals, exact GELU MLP; mmap/load one learned block's raw NumPy tensors at a time"
+  ],
+  "pass_rule": {
+    "numpy_child_torch_not_imported": true,
+    "max_absolute_output_difference_lte": 0.00005,
+    "relative_l2_output_difference_lte": 0.00001,
+    "blocks_execute_in_order": 2,
+    "one_block_learned_tensor_payload_bytes_lte": 14784
+  },
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pytorch_reference_only": "2.10.0+cpu"
+  },
+  "interpretation_boundary": "Kernel/runtime portability only. Fixed synthetic activation is not task evidence. No MCU/phone/SBC deployment, energy, or scientific composition claim."
+}
