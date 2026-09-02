@@ -15,8 +15,8 @@ Expected input JSON:
       "p8_validation_accuracy": 0.971,
       "p4_nmse": 0.012,
       "p8_nmse": 0.0118,
-      "frozen_nmse": 0.023,              # optional/informative
-      "teacher_shift_safeguard": true    # optional/informative
+      "frozen_nmse": 0.023,
+      "teacher_shift_safeguard": true
     }
   ]
 }
@@ -63,6 +63,10 @@ def paired_bootstrap(
         batch = x[idx]
         if statistic is np.mean:
             vals = batch.mean(axis=1)
+        elif statistic is geometric_mean:
+            if np.any(batch <= 0):
+                raise ValueError("geometric mean requires strictly positive values")
+            vals = np.exp(np.log(batch).mean(axis=1))
         else:
             vals = np.asarray([statistic(row) for row in batch], dtype=np.float64)
         out[cursor : cursor + m] = vals
