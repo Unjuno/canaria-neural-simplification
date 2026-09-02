@@ -1,0 +1,59 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 2237321090,
+  "decision": "C65R_CONFIRMATORY_PASS",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "expected_seeds": [
+    63400,
+    63401,
+    63402,
+    63403,
+    63404,
+    63405,
+    63406,
+    63407,
+    63408,
+    63409,
+    63410,
+    63411,
+    63412,
+    63413,
+    63414,
+    63415
+  ],
+  "experiment": "C65R_P0_VS_P2_CONFIRMATION",
+  "interpretation_boundary": [
+    "A PASS is non-inferiority under the exact locked C65R protocol, not equality or superiority of P0.",
+    "P0 means no teacher-residual correction and no top-boundary adaptation before compilation; it does not imply zero teacher residual or representation equivalence.",
+    "A PASS does not establish that teacher correction is universally unnecessary or that zero is a universal minimum interface.",
+    "This C65R evidence belongs to the Residual-MLP testbed and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "nmse_ratio": {
+    "bootstrap95": [
+      0.9737597230365364,
+      0.9993601146736929
+    ],
+    "geometric_mean_p0_over_p2": 0.9871080468113188,
+    "margin": 1.25,
+    "pass": true
+  },
+  "validation_noninferiority": {
+    "bootstrap95_fraction": [
+      -0.005787033587694168,
+      -0.0016203708946704865
+    ],
+    "bootstrap95_pp": [
+      -0.5787033587694168,
+      -0.16203708946704865
+    ],
+    "margin_fraction": -0.02,
+    "margin_pp": -2.0,
+    "mean_difference_fraction": -0.0037037022411823273,
+    "mean_difference_pp": -0.3703702241182327,
+    "pass": true
+  }
+}
