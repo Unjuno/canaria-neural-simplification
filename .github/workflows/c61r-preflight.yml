@@ -1,0 +1,55 @@
+name: c61r-preflight
+
+on:
+  push:
+    branches:
+      - research/c61r-prospective-replication
+    paths:
+      - '.github/workflows/c61r-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c61r_seed.py'
+      - 'results/gaussian_shift_interface/c61r/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax check
+        run: python -m py_compile scripts/gaussian_shift_interface/run_c61r_seed.py
+      - name: Run implementation verification seed 58400
+        run: |
+          mkdir -p c61r-preflight
+          python scripts/gaussian_shift_interface/run_c61r_seed.py \
+            --seed 58400 \
+            --allow-verification-seed \
+            --out c61r-preflight/seed_58400.json
+      - name: Verify no held-out test and required metrics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('c61r-preflight/seed_58400.json').read_text())
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME', r['status']
+          assert r['test_evaluated'] is False
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['p4']['dimension'] == 4
+          assert r['p8']['dimension'] == 8
+          assert r['decision_row']['seed'] == 58400
+          assert r['decision_row']['eligible'] is True
+          print('C61R PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c61r-preflight-seed-58400
+          path: c61r-preflight/seed_58400.json
+          if-no-files-found: error
+          retention-days: 90
