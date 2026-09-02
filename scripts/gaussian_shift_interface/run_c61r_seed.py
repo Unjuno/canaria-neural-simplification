@@ -12,12 +12,13 @@ from pathlib import Path
 
 import numpy as np
 import torch
+import torch.nn.functional as F
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.exploration.c10_boundary_signal_ablation import (
+from scripts.recursive_composition.exploration.c10_boundary_signal_ablation import (
     Chain,
     FullSpanReplacedNet,
     TinyRes,
@@ -30,7 +31,6 @@ from scripts.exploration.c10_boundary_signal_ablation import (
     split_data,
     train_teacher,
 )
-from scripts.exploration.c12_self_anchored_sketches import adapt_anchored
 
 
 FRESH_SEEDS = tuple(range(59400, 59416))
@@ -39,6 +39,22 @@ CALIBRATION_SAMPLES = 192
 CALIBRATION_INDEX_SEED = 20260903
 GAUSSIAN_SIGMA = 0.04
 FIT_UPDATES = 600
+
+
+def adapt_anchored(module, a0t, hybrid_target, updates, seed):
+    set_all_trainable(module, True)
+    params = [p for p in module.parameters() if p.requires_grad]
+    opt = torch.optim.AdamW(params, lr=8e-3, weight_decay=1e-5)
+    gen = torch.Generator().manual_seed(seed)
+    n = len(a0t)
+    for _ in range(updates):
+        ix = torch.randint(0, n, (128,), generator=gen)
+        opt.zero_grad()
+        loss = F.mse_loss(module(a0t[ix]), hybrid_target[ix])
+        loss.backward()
+        opt.step()
+    set_all_trainable(module, False)
+    return module
 
 
 def sha256_tensor(x: torch.Tensor) -> str:
@@ -63,9 +79,7 @@ def fixed_calibration_indices(n_train: int) -> np.ndarray:
 
 
 def canonical_nested_qr(residual: torch.Tensor) -> torch.Tensor:
-    # residual: [n_calibration, 64]. QR is applied to residual^T: [64, n].
     q, _r = torch.linalg.qr(residual.T, mode="reduced")
-    # With n=192 and d=64, q is [64,64]. Canonicalize QR column signs.
     for j in range(q.shape[1]):
         col = q[:, j]
         pivot = int(torch.argmax(torch.abs(col)).item())
@@ -166,11 +180,9 @@ def run(seed: int, allow_verification_seed: bool = False) -> dict:
     Xt, yt, Xv, yv = split_data()
     teacher = train_teacher(seed, Xt, yt, 60)
 
-    # Build the recursive hierarchy entirely from the clean training split.
     a0t, a1t, a2t, a3t, a4t = acts(teacher, Xt)
     base_hierarchy, budget = build_base_hierarchy(seed, a0t, a1t, a2t, a3t, a4t)
 
-    # The protocol-fixed calibration subset is reused across dimensions and model seeds.
     cal_idx = fixed_calibration_indices(len(Xt))
     Xc_clean = Xt[torch.tensor(cal_idx, dtype=torch.long)]
     Xc_shift = shifted_input(Xc_clean, seed + 610100)
@@ -187,7 +199,6 @@ def run(seed: int, allow_verification_seed: bool = False) -> dict:
         residual_c = a4c - baseline_c
     q = canonical_nested_qr(residual_c)
 
-    # Frozen reference is informative; primary comparison is P4 vs P8.
     frozen_final, frozen_metrics = compile_final_from_hierarchy(
         copy.deepcopy(base_hierarchy),
         a0c,
