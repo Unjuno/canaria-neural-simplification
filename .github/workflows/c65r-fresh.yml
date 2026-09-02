@@ -1,0 +1,141 @@
+name: c65r-fresh-confirmatory
+
+on:
+  push:
+    branches:
+      - research/c65r-p0-confirmation
+    paths:
+      - '.github/workflows/c65r-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [63400, 63401, 63402, 63403, 63404, 63405, 63406, 63407, 63408, 63409, 63410, 63411, 63412, 63413, 63414, 63415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh confirmatory seed
+        run: |
+          mkdir -p c65r-seed
+          python scripts/gaussian_shift_interface/run_c65r_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c65r-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh confirmatory provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c65r-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C65R_P0_VS_P2_CONFIRMATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigma'] == 0.04
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['conditions'] == ['p0', 'p2']
+          assert r['protocol']['p2_top_adaptation_seed'] == seed + 655000
+          assert r['protocol']['final_init_seed'] == seed + 656000
+          assert r['protocol']['final_fit_seed'] == seed + 657000
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['conditions']['p0']['dimension'] == 0
+          assert r['conditions']['p0']['teacher_correction_applied'] is False
+          assert r['conditions']['p0']['top_boundary_adaptation_skipped'] is True
+          assert r['conditions']['p2']['dimension'] == 2
+          assert r['conditions']['p2']['teacher_correction_applied'] is True
+          assert r['conditions']['p2']['top_boundary_adaptation_skipped'] is False
+          assert r['eligible'] is True
+          for key in ('p0_validation_accuracy','p2_validation_accuracy','p0_nmse','p2_nmse'):
+              assert math.isfinite(float(r['decision_row'][key]))
+          assert r['decision_row']['p0_nmse'] > 0
+          assert r['decision_row']['p2_nmse'] > 0
+          print('C65R FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c65r-seed-${{ matrix.seed }}
+          path: c65r-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-confirmatory-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c65r-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(63400, 63416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c65r-aggregate').mkdir(exist_ok=True)
+          Path('c65r-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          print(Path('c65r-aggregate/rows.json').read_text())
+          PY
+      - name: Apply prospectively locked confirmatory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c65r.py \
+            c65r-aggregate/rows.json \
+            --out c65r-aggregate/decision.json
+          cat c65r-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c65r-aggregate/decision.json').read_text())
+          assert d['decision'] in {
+              'C65R_CONFIRMATORY_PASS',
+              'C65R_CONFIRMATORY_FAIL',
+              'STOP_INSUFFICIENT_ELIGIBLE',
+          }
+          print('C65R TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c65r-aggregate-decision
+          path: c65r-aggregate/
+          if-no-files-found: error
+          retention-days: 90
