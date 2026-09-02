@@ -1,0 +1,996 @@
+{
+  "rows": [
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07689137147125699,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.07583584469688824,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p2": {
+          "nmse": 0.07549724359274458,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.16695961356163025,
+              "fisher_retained_ratio": 0.9385396242141724,
+              "logit_l2_retained_ratio": 0.8099368810653687
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.3041359782218933,
+              "fisher_retained_ratio": 0.45998603105545044,
+              "logit_l2_retained_ratio": 0.6477733254432678
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.12973113358020782,
+              "fisher_retained_ratio": 0.9655619263648987,
+              "logit_l2_retained_ratio": 0.8518974781036377
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2552454471588135,
+              "fisher_retained_ratio": 1.0132973194122314,
+              "logit_l2_retained_ratio": 0.708760678768158
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62400
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.08168265028014911,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "p1": {
+          "nmse": 0.07906591015254909,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p2": {
+          "nmse": 0.07646904354003145,
+          "validation_accuracy": 0.9666666388511658
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1479671597480774,
+              "fisher_retained_ratio": 0.8738925457000732,
+              "logit_l2_retained_ratio": 0.8053498864173889
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.23657648265361786,
+              "fisher_retained_ratio": 0.7435570955276489,
+              "logit_l2_retained_ratio": 0.6682336330413818
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.13598579168319702,
+              "fisher_retained_ratio": 1.5558412075042725,
+              "logit_l2_retained_ratio": 0.8200473189353943
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2635624408721924,
+              "fisher_retained_ratio": 1.0045500993728638,
+              "logit_l2_retained_ratio": 0.6242948770523071
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62401
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.08665498858408024,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "p1": {
+          "nmse": 0.08658548591848828,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "p2": {
+          "nmse": 0.08568017346883376,
+          "validation_accuracy": 0.9481481313705444
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.16963347792625427,
+              "fisher_retained_ratio": 1.0604864358901978,
+              "logit_l2_retained_ratio": 0.8106708526611328
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.25690966844558716,
+              "fisher_retained_ratio": 1.0750788450241089,
+              "logit_l2_retained_ratio": 0.6894896626472473
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.15207034349441528,
+              "fisher_retained_ratio": 0.5454840660095215,
+              "logit_l2_retained_ratio": 0.8285049200057983
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.23356619477272034,
+              "fisher_retained_ratio": 0.48369094729423523,
+              "logit_l2_retained_ratio": 0.7136633992195129
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62402
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07892520390638708,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "p1": {
+          "nmse": 0.07767124824579884,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p2": {
+          "nmse": 0.07794491687802209,
+          "validation_accuracy": 0.9481481313705444
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.20212939381599426,
+              "fisher_retained_ratio": 0.872921347618103,
+              "logit_l2_retained_ratio": 0.7470600605010986
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.3464890420436859,
+              "fisher_retained_ratio": 0.752545952796936,
+              "logit_l2_retained_ratio": 0.5622400641441345
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.17456211149692535,
+              "fisher_retained_ratio": 1.0469313859939575,
+              "logit_l2_retained_ratio": 0.774864137172699
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.28730693459510803,
+              "fisher_retained_ratio": 0.8518742322921753,
+              "logit_l2_retained_ratio": 0.6194159984588623
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62403
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07322769154542441,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p1": {
+          "nmse": 0.07501998399667266,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "p2": {
+          "nmse": 0.07407209097493662,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1527705192565918,
+              "fisher_retained_ratio": 0.7823331952095032,
+              "logit_l2_retained_ratio": 0.8376128077507019
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2821069359779358,
+              "fisher_retained_ratio": 0.6181833744049072,
+              "logit_l2_retained_ratio": 0.6784052848815918
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.11771215498447418,
+              "fisher_retained_ratio": 0.800644040107727,
+              "logit_l2_retained_ratio": 0.8690761923789978
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.25369948148727417,
+              "fisher_retained_ratio": 0.46066373586654663,
+              "logit_l2_retained_ratio": 0.7034129500389099
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62404
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07669367118995025,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "p1": {
+          "nmse": 0.0781968000514065,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p2": {
+          "nmse": 0.07959946237479167,
+          "validation_accuracy": 0.9370370507240295
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.17837092280387878,
+              "fisher_retained_ratio": 0.6294000148773193,
+              "logit_l2_retained_ratio": 0.780931293964386
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.3015972375869751,
+              "fisher_retained_ratio": 0.4531411826610565,
+              "logit_l2_retained_ratio": 0.6160507798194885
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.16089357435703278,
+              "fisher_retained_ratio": 1.00933039188385,
+              "logit_l2_retained_ratio": 0.8001985549926758
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.27048400044441223,
+              "fisher_retained_ratio": 0.7155306339263916,
+              "logit_l2_retained_ratio": 0.650524377822876
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62405
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.0880714754153939,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.08632707858472366,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p2": {
+          "nmse": 0.08464316981092031,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.142835333943367,
+              "fisher_retained_ratio": 0.8085336089134216,
+              "logit_l2_retained_ratio": 0.8344634175300598
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.24465520679950714,
+              "fisher_retained_ratio": 0.42667847871780396,
+              "logit_l2_retained_ratio": 0.717854917049408
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.11691786348819733,
+              "fisher_retained_ratio": 0.640201210975647,
+              "logit_l2_retained_ratio": 0.8640604615211487
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.19941486418247223,
+              "fisher_retained_ratio": 0.5967825055122375,
+              "logit_l2_retained_ratio": 0.7711643576622009
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62406
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.08130081255412212,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p1": {
+          "nmse": 0.08018893237723776,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "p2": {
+          "nmse": 0.07759365648241498,
+          "validation_accuracy": 0.9518518447875977
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.15836867690086365,
+              "fisher_retained_ratio": 0.8740691542625427,
+              "logit_l2_retained_ratio": 0.7942407131195068
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.24997578561306,
+              "fisher_retained_ratio": 0.5430296659469604,
+              "logit_l2_retained_ratio": 0.683143138885498
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.12614025175571442,
+              "fisher_retained_ratio": 1.0313092470169067,
+              "logit_l2_retained_ratio": 0.8337535262107849
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.22938978672027588,
+              "fisher_retained_ratio": 0.893537700176239,
+              "logit_l2_retained_ratio": 0.7079005837440491
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62407
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.0776615731523693,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p1": {
+          "nmse": 0.078440915874867,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p2": {
+          "nmse": 0.07989830498591649,
+          "validation_accuracy": 0.9407407641410828
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.10684949904680252,
+              "fisher_retained_ratio": 0.9860492944717407,
+              "logit_l2_retained_ratio": 0.8787871599197388
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.20614007115364075,
+              "fisher_retained_ratio": 0.8683838248252869,
+              "logit_l2_retained_ratio": 0.7509482502937317
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.0934981107711792,
+              "fisher_retained_ratio": 0.9624558091163635,
+              "logit_l2_retained_ratio": 0.884903073310852
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2072771191596985,
+              "fisher_retained_ratio": 0.7371025681495667,
+              "logit_l2_retained_ratio": 0.7354649305343628
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62408
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.0817346522625419,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "p1": {
+          "nmse": 0.07879244669997093,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "p2": {
+          "nmse": 0.0781714227180121,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.13523809611797333,
+              "fisher_retained_ratio": 0.9984798431396484,
+              "logit_l2_retained_ratio": 0.8662901520729065
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.33737123012542725,
+              "fisher_retained_ratio": 0.6418553590774536,
+              "logit_l2_retained_ratio": 0.6218355298042297
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1273856908082962,
+              "fisher_retained_ratio": 0.45033395290374756,
+              "logit_l2_retained_ratio": 0.8727080821990967
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.29338669776916504,
+              "fisher_retained_ratio": 0.304948091506958,
+              "logit_l2_retained_ratio": 0.6673746109008789
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62409
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07951748116820546,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p1": {
+          "nmse": 0.08013468722892103,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p2": {
+          "nmse": 0.07862287177398689,
+          "validation_accuracy": 0.9629629850387573
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1400124728679657,
+              "fisher_retained_ratio": 0.8934389352798462,
+              "logit_l2_retained_ratio": 0.8391417860984802
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.24054686725139618,
+              "fisher_retained_ratio": 0.683060348033905,
+              "logit_l2_retained_ratio": 0.708484411239624
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.11110640317201614,
+              "fisher_retained_ratio": 0.635833740234375,
+              "logit_l2_retained_ratio": 0.8755236268043518
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.21065786480903625,
+              "fisher_retained_ratio": 0.5722301006317139,
+              "logit_l2_retained_ratio": 0.742475688457489
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62410
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07925777052436252,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p1": {
+          "nmse": 0.08149221012301375,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p2": {
+          "nmse": 0.08210834137825035,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1525813639163971,
+              "fisher_retained_ratio": 0.8766528964042664,
+              "logit_l2_retained_ratio": 0.7851387858390808
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.26132044196128845,
+              "fisher_retained_ratio": 0.7536869049072266,
+              "logit_l2_retained_ratio": 0.6770521402359009
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.12480787187814713,
+              "fisher_retained_ratio": 1.24154794216156,
+              "logit_l2_retained_ratio": 0.8151010274887085
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2070341259241104,
+              "fisher_retained_ratio": 1.5556433200836182,
+              "logit_l2_retained_ratio": 0.7293305397033691
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62411
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07815355418346624,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.07960651434803658,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "p2": {
+          "nmse": 0.07946101825036138,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.11552171409130096,
+              "fisher_retained_ratio": 0.8928307890892029,
+              "logit_l2_retained_ratio": 0.862708568572998
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2687302827835083,
+              "fisher_retained_ratio": 0.7109332084655762,
+              "logit_l2_retained_ratio": 0.6729705929756165
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.10688473284244537,
+              "fisher_retained_ratio": 0.9467389583587646,
+              "logit_l2_retained_ratio": 0.8777486085891724
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.23474577069282532,
+              "fisher_retained_ratio": 0.8768225908279419,
+              "logit_l2_retained_ratio": 0.7167264223098755
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62412
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07180320151737024,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.06850731013533122,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "p2": {
+          "nmse": 0.06809392187518294,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.1745721995830536,
+              "fisher_retained_ratio": 1.054726243019104,
+              "logit_l2_retained_ratio": 0.7821053266525269
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2329188585281372,
+              "fisher_retained_ratio": 0.9651082754135132,
+              "logit_l2_retained_ratio": 0.7128063440322876
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.16028520464897156,
+              "fisher_retained_ratio": 0.6961204409599304,
+              "logit_l2_retained_ratio": 0.8002794981002808
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.2190425544977188,
+              "fisher_retained_ratio": 0.6051539778709412,
+              "logit_l2_retained_ratio": 0.7276504039764404
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62413
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07790896693877469,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.07927510189689634,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "p2": {
+          "nmse": 0.07931368975411796,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.14857634902000427,
+              "fisher_retained_ratio": 0.6885483264923096,
+              "logit_l2_retained_ratio": 0.8591293692588806
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.24312521517276764,
+              "fisher_retained_ratio": 0.6622273921966553,
+              "logit_l2_retained_ratio": 0.7388386726379395
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.13547208905220032,
+              "fisher_retained_ratio": 0.6673546433448792,
+              "logit_l2_retained_ratio": 0.8615643382072449
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.21831445395946503,
+              "fisher_retained_ratio": 0.6591057181358337,
+              "logit_l2_retained_ratio": 0.7537367343902588
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62414
+    },
+    {
+      "conditions": {
+        "p0": {
+          "nmse": 0.07413358753428083,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "p1": {
+          "nmse": 0.07407609292421911,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "p2": {
+          "nmse": 0.07388447878021609,
+          "validation_accuracy": 0.9666666388511658
+        }
+      },
+      "diagnostics": {
+        "task_weighted_geometry": {
+          "shifted_calibration": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.17149436473846436,
+              "fisher_retained_ratio": 0.9923460483551025,
+              "logit_l2_retained_ratio": 0.7834092378616333
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.25650230050086975,
+              "fisher_retained_ratio": 0.9634966254234314,
+              "logit_l2_retained_ratio": 0.6926714777946472
+            }
+          },
+          "shifted_validation": {
+            "p0": {
+              "dimension": 0,
+              "euclidean_capture_fraction": 0.0,
+              "fisher_retained_ratio": 1.0,
+              "logit_l2_retained_ratio": 1.0
+            },
+            "p1": {
+              "dimension": 1,
+              "euclidean_capture_fraction": 0.16218237578868866,
+              "fisher_retained_ratio": 1.0094751119613647,
+              "logit_l2_retained_ratio": 0.7956336736679077
+            },
+            "p2": {
+              "dimension": 2,
+              "euclidean_capture_fraction": 0.23658756911754608,
+              "fisher_retained_ratio": 0.8599434494972229,
+              "logit_l2_retained_ratio": 0.7191697955131531
+            }
+          }
+        }
+      },
+      "eligible": true,
+      "seed": 62415
+    }
+  ]
+}
