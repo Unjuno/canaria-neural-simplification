@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "experiment": "C61R_GAUSSIAN_SHIFT_P4_VS_P8_PROSPECTIVE_REPLICATION",
+  "provenance_class": "GITHUB_PROSPECTIVE_CONFIRMATORY",
+  "protocol_lock": {
+    "commit": "1aad40d986ae5bf99bee72d7f57d03b23ce0b849",
+    "path": "results/gaussian_shift_interface/c61r/PROTOCOL.json",
+    "status": "LOCKED_BEFORE_OUTCOMES"
+  },
+  "runner": {
+    "path": "scripts/gaussian_shift_interface/run_c61r_seed.py",
+    "initial_commit": "20902f7709066f88298872dcf82a43d228fa6242",
+    "preflight_import_fix_commit": "68f4c823e45107a0dd0b2883f04fcd753f81947c",
+    "fresh_workflow_head_sha": "7106a7f68890600efdcdb66ac9d74cdd17ddc0a1"
+  },
+  "preflight": {
+    "verification_seed": 58400,
+    "first_run_id": 33646409167,
+    "first_run_conclusion": "failure",
+    "first_failure": "ModuleNotFoundError on an incorrect repository import path; no fresh cohort seed was executed",
+    "successful_run_id": 33646595085,
+    "successful_run_conclusion": "success",
+    "fresh_seeds_consumed_before_successful_preflight": false
+  },
+  "fresh_execution": {
+    "workflow_run_id": 33646770156,
+    "workflow_name": "c61r-fresh-confirmatory",
+    "workflow_head_sha": "7106a7f68890600efdcdb66ac9d74cdd17ddc0a1",
+    "fresh_seeds": [59400,59401,59402,59403,59404,59405,59406,59407,59408,59409,59410,59411,59412,59413,59414,59415],
+    "seed_jobs_success": 16,
+    "seed_jobs_attempted": 16,
+    "integrity_assertions_passed": 16,
+    "held_out_test_used": false,
+    "aggregate_job_conclusion": "success"
+  },
+  "seed_artifacts": [
+    {"seed":59400,"artifact_id":9853113192,"zip_sha256":"a98045772b4fbd6ffd2b6b7b5781b50523e83f623e8898e1d59f5359eabc1fc3"},
+    {"seed":59401,"artifact_id":9853115004,"zip_sha256":"03d55a78b874022200d4e0a2ffcd59562e37fc1be840205db8c55e19b9ca6a1d"},
+    {"seed":59402,"artifact_id":9853119309,"zip_sha256":"2b33140d791f6ad286d2e794585283cf8ad799d007908ce210650cf11b9d260c"},
+    {"seed":59403,"artifact_id":9853120490,"zip_sha256":"293f5d50eb39513c276e382a55c2a3b9d2b825391278325488865088f4f9c6ab"},
+    {"seed":59404,"artifact_id":9853117482,"zip_sha256":"18ad32d2ec57cd6cfad2a1b7b7e7bdb0968e16937591065a2c610025b03d0ea3"},
+    {"seed":59405,"artifact_id":9853118587,"zip_sha256":"d0938a6227b880b1da20149eea8839b3a4455e3d1cdbc3321ef881bfd82a1789"},
+    {"seed":59406,"artifact_id":9853117889,"zip_sha256":"7e8eeff7892d98430bb84c348d79a2e35600df3b565f600d53d162d366191e22"},
+    {"seed":59407,"artifact_id":9853112947,"zip_sha256":"b51f8aba5b923c7529c44b7b56348ccb0b8f1d18dfea5db3c5c46bfeecaa7ae5"},
+    {"seed":59408,"artifact_id":9853155609,"zip_sha256":"3452f6a6c0e347b3339b4187be1b432e24e3b875b29d63e6f110484952c18ff9"},
+    {"seed":59409,"artifact_id":9853152418,"zip_sha256":"11ae4c39886cd4c70eac979f84259c5568add88e069c3ff3805a718d8b26f56d"},
+    {"seed":59410,"artifact_id":9853156146,"zip_sha256":"d6667ec4564ec462c5b5102b74f2b65c034c636d70fdcd5f8a01ade7d4019cb1"},
+    {"seed":59411,"artifact_id":9853156894,"zip_sha256":"1d8fd45b76f9fca010d1a3e326683f3552cfe99e2e787f7e30637149f7bf348c"},
+    {"seed":59412,"artifact_id":9853159339,"zip_sha256":"f169108df5f2387de2a363a745900b547c521be28b0cc40ca2bf8710ee00c4f0"},
+    {"seed":59413,"artifact_id":9853154986,"zip_sha256":"fda23b82be23a2ca16d113c461bfa585c0e80c92403bf8b2b59b20ffd2af4a28"},
+    {"seed":59414,"artifact_id":9853158146,"zip_sha256":"3272c9a1edfdcf45b360868216ce2604cb3b436115d152727db4528965cada6a"},
+    {"seed":59415,"artifact_id":9853152391,"zip_sha256":"789f58e95dc69822bf691eda298da5e98d69ee075b5111ee143700cd9feee962"}
+  ],
+  "aggregate_artifact": {
+    "artifact_id": 9853172729,
+    "zip_sha256": "dcb5b14f4c7f30ee8965254ee10071e5952939971942df9b76099a35702f0974",
+    "files": ["rows.json", "decision.json"]
+  },
+  "artifact_retention_days_at_creation": 90,
+  "repository_persistence": {
+    "fresh_rows_path": "results/gaussian_shift_interface/c61r/FRESH_ROWS.json",
+    "decision_path": "results/gaussian_shift_interface/c61r/DECISION.json"
+  }
+}

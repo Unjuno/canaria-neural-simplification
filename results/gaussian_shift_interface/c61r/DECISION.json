@@ -1,0 +1,40 @@
+{
+  "experiment": "C61R_GAUSSIAN_SHIFT_P4_VS_P8_PROSPECTIVE_REPLICATION",
+  "provenance_class": "GITHUB_PROSPECTIVE_CONFIRMATORY",
+  "workflow_run_id": 33646770156,
+  "workflow_head_sha": "7106a7f68890600efdcdb66ac9d74cdd17ddc0a1",
+  "protocol_lock_commit": "1aad40d986ae5bf99bee72d7f57d03b23ce0b849",
+  "decision": "C61R_CONFIRMATORY_PASS",
+  "attempted_rows_present": 16,
+  "eligible_count": 16,
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "bootstrap": {
+    "resamples": 100000,
+    "rng_seed": 3960519679,
+    "method": "paired model-seed percentile 95%"
+  },
+  "validation_noninferiority": {
+    "mean_difference_p4_minus_p8_fraction": -0.0034722276031970978,
+    "mean_difference_p4_minus_p8_pp": -0.3472227603197098,
+    "bootstrap95_fraction": [-0.006250005215406418, -0.0009259283542633057],
+    "bootstrap95_pp": [-0.6250005215406418, -0.09259283542633057],
+    "margin_fraction": -0.02,
+    "margin_pp": -2.0,
+    "pass": true
+  },
+  "nmse_ratio": {
+    "geometric_mean_p4_over_p8": 1.0135635436078398,
+    "bootstrap95": [0.9993514936408499, 1.0291186292525163],
+    "margin": 1.25,
+    "pass": true
+  },
+  "informative_p4_delta_nmse_vs_frozen_mean": -0.00173790484345807,
+  "held_out_test_used": false,
+  "interpretation_boundary": [
+    "Confirms non-inferiority under the exact C61R Residual-MLP recursive-hierarchy, sklearn-digits, additive-Gaussian-sigma=0.04 protocol.",
+    "Does not establish equality or superiority of P4 over P8; the validation-accuracy interval is entirely negative.",
+    "Does not resolve or retroactively reconstruct the missing original C61 execution.",
+    "Does not establish that 4/32 is a universal minimum correction dimension across architectures, boundaries, bases, shifts, or calibration regimes."
+  ]
+}
