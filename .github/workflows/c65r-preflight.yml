@@ -1,0 +1,77 @@
+name: c65r-preflight
+
+on:
+  push:
+    branches:
+      - research/c65r-p0-confirmation
+    paths:
+      - '.github/workflows/c65r-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c65r_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c65r.py'
+      - 'tests/test_c65r_evaluator.py'
+      - 'results/gaussian_shift_interface/c65r/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c65r_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c65r.py
+          python -m unittest tests.test_c65r_evaluator -v
+      - name: Run implementation verification seed 63300
+        run: |
+          mkdir -p c65r-preflight
+          python scripts/gaussian_shift_interface/run_c65r_seed.py \
+            --seed 63300 \
+            --allow-verification-seed \
+            --out c65r-preflight/seed_63300.json
+      - name: Verify locked confirmatory invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          r = json.loads(Path('c65r-preflight/seed_63300.json').read_text())
+          assert r['experiment'] == 'C65R_P0_VS_P2_CONFIRMATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigma'] == 0.04
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['conditions'] == ['p0', 'p2']
+          assert r['protocol']['p2_top_adaptation_seed'] == 63300 + 655000
+          assert r['protocol']['final_init_seed'] == 63300 + 656000
+          assert r['protocol']['final_fit_seed'] == 63300 + 657000
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['conditions']['p0']['dimension'] == 0
+          assert r['conditions']['p0']['teacher_correction_applied'] is False
+          assert r['conditions']['p0']['top_boundary_adaptation_skipped'] is True
+          assert r['conditions']['p2']['dimension'] == 2
+          assert r['conditions']['p2']['teacher_correction_applied'] is True
+          assert r['conditions']['p2']['top_boundary_adaptation_skipped'] is False
+          assert r['provenance_hashes']['nested_q2_sha256']
+          for key in ('p0_validation_accuracy','p2_validation_accuracy','p0_nmse','p2_nmse'):
+              assert math.isfinite(float(r['decision_row'][key]))
+          assert r['decision_row']['p0_nmse'] > 0
+          assert r['decision_row']['p2_nmse'] > 0
+          print('C65R PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c65r-preflight-seed-63300
+          path: c65r-preflight/seed_63300.json
+          if-no-files-found: error
+          retention-days: 90
