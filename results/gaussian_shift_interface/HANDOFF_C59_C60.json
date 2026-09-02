@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "provenance_class": "IMPORTED_HANDOFF_RESULT",
+  "imported_on": "2026-09-02",
+  "warning": "Aggregate outcomes transcribed from prior project session; not yet independently reconstructed from raw GitHub artifacts.",
+  "scope": {
+    "shift": "Gaussian",
+    "sigma": 0.04,
+    "architecture": "Residual CNN"
+  },
+  "c59": {
+    "status": "P8_NONINFERIOR_PASS",
+    "fresh_seeds": [47400,47401,47402,47403,47404,47405,47406,47407,47408,47409,47410,47411,47412,47413,47414,47415],
+    "eligible": 16,
+    "attempted": 16,
+    "p8_joint_success": 1.0,
+    "validation_accuracy_difference_p8_minus_p16_pp": -0.466,
+    "validation_accuracy_difference_bootstrap95_pp": [-1.071,0.055],
+    "validation_noninferiority_margin_pp": -2.0,
+    "nmse_geomean_ratio_p8_over_p16": 1.0387,
+    "nmse_geomean_ratio_bootstrap95": [1.0338,1.0435],
+    "nmse_ratio_margin": 1.25,
+    "p8_delta_nmse_vs_frozen": -0.02288,
+    "p8_delta_nmse_vs_frozen_bootstrap95": [-0.02467,-0.02098],
+    "teacher_shift_safeguard": "PASS",
+    "test_used": false,
+    "parameter_match": "PASS",
+    "independent_audit_reported": "PASS"
+  },
+  "c60": {
+    "status": "ADVANCE_P4_TO_C61",
+    "evidence_class": "exploratory",
+    "eligible": 16,
+    "attempted": 16,
+    "p4_joint_success": 1.0,
+    "validation_accuracy_difference_p4_minus_p8_pp": -0.182,
+    "validation_accuracy_difference_bootstrap95_pp": [-0.506,0.145],
+    "nmse_geomean_ratio_p4_over_p8": 1.02537,
+    "nmse_geomean_ratio_bootstrap95": [1.02225,1.02877],
+    "p4_delta_nmse_vs_frozen": -0.01100,
+    "p4_delta_nmse_vs_frozen_bootstrap95": [-0.01267,-0.00950],
+    "teacher_shift_safeguard": "PASS",
+    "advance_gates": "PASS",
+    "independent_audit_reported": "PASS",
+    "confirmatory_claim_allowed": false
+  }
+}

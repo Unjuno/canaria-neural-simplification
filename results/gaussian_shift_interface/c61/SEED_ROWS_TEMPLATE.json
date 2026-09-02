@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "evidence_status": "TEMPLATE_NOT_EVIDENCE",
+  "warning": "Schema/example only. Do not treat placeholders as outcomes.",
+  "rows": [
+    {
+      "seed": 49400,
+      "eligible": null,
+      "eligibility_reason": null,
+      "p4_validation_accuracy": null,
+      "p8_validation_accuracy": null,
+      "p4_nmse": null,
+      "p8_nmse": null,
+      "frozen_nmse": null,
+      "teacher_shift_safeguard": null,
+      "source_artifact": null,
+      "source_sha256": null,
+      "runner_commit_or_hash": null
+    }
+  ],
+  "required_complete_seed_set": [49400,49401,49402,49403,49404,49405,49406,49407,49408,49409,49410,49411,49412,49413,49414,49415]
+}

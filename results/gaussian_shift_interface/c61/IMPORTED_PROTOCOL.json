@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment": "C61",
+  "provenance_class": "IMPORTED_LOCKED_PROTOCOL",
+  "github_import_date": "2026-09-02",
+  "github_timestamp_is_preregistration": false,
+  "reported_lock_status": "locked before fresh C61 outcomes in prior execution session",
+  "fresh_seeds": [49400,49401,49402,49403,49404,49405,49406,49407,49408,49409,49410,49411,49412,49413,49414,49415],
+  "comparison": {
+    "candidate": "P4",
+    "reference": "P8"
+  },
+  "calibration_samples": 192,
+  "shift": {
+    "distribution": "Gaussian",
+    "sigma": 0.04
+  },
+  "basis": {
+    "construction": "same nested QR basis as prior stage",
+    "same_subset_across_dimensions": true
+  },
+  "gates": {
+    "minimum_eligible": 8,
+    "validation_accuracy_noninferiority_margin_pp": -2.0,
+    "nmse_geomean_ratio_margin": 1.25,
+    "bootstrap_resamples": 100000,
+    "test_used": false
+  },
+  "reported_equivalence_check": {
+    "seed": 48400,
+    "teacher_exact_match": true,
+    "frozen_exact_match": true,
+    "full32_exact_match": true,
+    "p4_all_8_replicates_exact_match": true,
+    "p8_all_8_replicates_exact_match": true,
+    "subset_hashes_exact_match": true,
+    "max_reported_difference": 0.0,
+    "scientific_outcome": false
+  },
+  "fresh_outcome_status_in_repository": "UNKNOWN",
+  "decision": null,
+  "required_missing_artifacts": [
+    "original locked runner",
+    "original C61 protocol artifact and its pre-outcome hash/commit provenance",
+    "fresh per-seed rows for 49400-49415",
+    "bootstrap RNG seed or exact bootstrap implementation if not embedded in runner",
+    "independent audit artifact",
+    "C60 calibration/subset provenance needed to verify exact carry-forward"
+  ]
+}
