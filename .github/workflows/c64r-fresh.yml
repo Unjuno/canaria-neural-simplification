@@ -1,0 +1,148 @@
+name: c64r-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c64r-p0-p1-p2-task-weighted-frontier
+    paths:
+      - '.github/workflows/c64r-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [62400, 62401, 62402, 62403, 62404, 62405, 62406, 62407, 62408, 62409, 62410, 62411, 62412, 62413, 62414, 62415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh exploratory seed
+        run: |
+          mkdir -p c64r-seed
+          python scripts/gaussian_shift_interface/run_c64r_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c64r-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh exploratory provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c64r-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C64R_P0_P1_P2_TASK_WEIGHTED_FRONTIER_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigma'] == 0.04
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['dimensions'] == [0, 1, 2]
+          assert r['protocol']['top_adaptation_seed'] == seed + 645000
+          assert r['protocol']['final_init_seed'] == seed + 646000
+          assert r['protocol']['final_fit_seed'] == seed + 647000
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['conditions']['p0']['dimension'] == 0
+          assert r['conditions']['p0']['teacher_correction_applied'] is False
+          assert r['conditions']['p0']['top_boundary_adaptation_skipped'] is True
+          assert r['conditions']['p1']['dimension'] == 1
+          assert r['conditions']['p2']['dimension'] == 2
+          assert r['eligible'] is True
+          for split in ('shifted_calibration', 'shifted_validation'):
+              g = r['diagnostics']['task_weighted_geometry'][split]
+              assert g['p0']['euclidean_capture_fraction'] == 0.0
+              assert abs(g['p0']['logit_l2_retained_ratio'] - 1.0) < 1e-6
+              assert abs(g['p0']['fisher_retained_ratio'] - 1.0) < 1e-6
+              assert g['p2']['euclidean_capture_fraction'] >= g['p1']['euclidean_capture_fraction']
+              for pk in ('p0','p1','p2'):
+                  for key in ('euclidean_capture_fraction','logit_l2_retained_ratio','fisher_retained_ratio'):
+                      assert math.isfinite(float(g[pk][key]))
+                      assert float(g[pk][key]) >= 0.0
+          print('C64R FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c64r-seed-${{ matrix.seed }}
+          path: c64r-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-exploratory-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c64r-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(62400, 62416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c64r-aggregate').mkdir(exist_ok=True)
+          Path('c64r-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          print(Path('c64r-aggregate/rows.json').read_text())
+          PY
+      - name: Apply prospectively locked exploratory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c64r.py \
+            c64r-aggregate/rows.json \
+            --out c64r-aggregate/decision.json
+          cat c64r-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c64r-aggregate/decision.json').read_text())
+          assert d['decision'] in {
+              'ADVANCE_P0_TO_C65R',
+              'ADVANCE_P1_TO_C65R',
+              'STOP_LOWER_FRONTIER_AT_P2',
+              'STOP_INSUFFICIENT_ELIGIBLE',
+          }
+          assert d['confirmatory_claim_allowed'] is False
+          print('C64R TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c64r-aggregate-decision
+          path: c64r-aggregate/
+          if-no-files-found: error
+          retention-days: 90

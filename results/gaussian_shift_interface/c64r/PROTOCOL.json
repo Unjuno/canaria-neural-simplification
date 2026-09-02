@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "experiment": "C64R_P0_P1_P2_TASK_WEIGHTED_FRONTIER_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "follows": "C63R_QR_P2_VS_P4_CONFIRMATION",
+    "confirmed_parent_result": "C63R_CONFIRMATORY_PASS",
+    "architecture_line": "C61R/C62R/C63R Residual-MLP recursive hierarchy",
+    "not_imported_residual_cnn_line": true
+  },
+  "hypothesis": "Under the exact Residual-MLP Gaussian-shift testbed, the confirmed P2 correction may be reducible to P1 or possibly P0; task-weighted residual geometry may explain why ordinary Euclidean residual rank overstates the required correction dimension.",
+  "fresh_model_seeds": [62400,62401,62402,62403,62404,62405,62406,62407,62408,62409,62410,62411,62412,62413,62414,62415],
+  "implementation_verification_seed": 62300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "architecture": {
+    "teacher": "repository Residual-MLP Net(d=64, depth=4)",
+    "base_recursive_hierarchy": "same C61R-C63R construction: four TinyRes(64,8) locals -> two retrained pairs -> two TinyRes(64,16) compressors -> Chain",
+    "compiled_replacement": "TinyRes(64,32)",
+    "teacher_epochs": 60,
+    "fit_updates": 600,
+    "torch_threads": 1,
+    "base_hierarchy_seed_rules": "unchanged C61R-C63R build_base_hierarchy rules"
+  },
+  "distribution_shift": {
+    "type": "additive_iid_gaussian_input_noise",
+    "sigma": 0.04,
+    "post_noise_clip": [0.0, 1.0],
+    "calibration_noise_seed_rule": "model_seed + 640100",
+    "validation_noise_seed_rule": "model_seed + 640200",
+    "pairing": "P0/P1/P2 within each model seed use exactly the same shifted calibration and validation tensors"
+  },
+  "calibration": {
+    "samples": 192,
+    "subset_rng_seed": 20260903,
+    "subset_rule": "same protocol-fixed clean-training subset rule as C61R-C63R",
+    "test_data_excluded": true
+  },
+  "interface_basis": {
+    "method": "canonical nested QR of shifted-calibration teacher residual transpose",
+    "residual": "teacher_final_activation - frozen_base_hierarchy_output",
+    "candidate_dimensions": [0, 1, 2],
+    "P0": "no teacher residual correction; frozen base hierarchy is compiled directly, with no top-boundary adaptation",
+    "P1": "first 1 column of Q",
+    "P2": "first 2 columns of the same Q",
+    "same_basis_across_positive_dimensions": true
+  },
+  "adaptation": {
+    "P0": "skip top-boundary adaptation entirely; compile frozen base hierarchy",
+    "P1_P2_target": "frozen_base_output + projection_of_teacher_residual_onto_Pk",
+    "adaptation_data": "same 192 shifted calibration samples only",
+    "optimizer": "AdamW(lr=8e-3, weight_decay=1e-5)",
+    "updates": 600,
+    "batch_size": 128,
+    "shared_top_adaptation_seed_rule": "model_seed + 645000",
+    "compiled_final_init_seed_rule": "model_seed + 646000",
+    "compiled_final_fit_seed_rule": "model_seed + 647000"
+  },
+  "task_weighted_diagnostics": {
+    "teacher_head": "trained final Linear(64,10); bias cancels for residual perturbations",
+    "euclidean_capture": "||R P_k P_k^T||_F^2 / ||R||_F^2",
+    "logit_l2_retained_ratio": "||(R-RP_kP_k^T) W^T||_F^2 / ||R W^T||_F^2",
+    "fisher_retained_ratio": "mean delta_z_remainder^T (diag(p)-pp^T) delta_z_remainder / mean delta_z_full^T (diag(p)-pp^T) delta_z_full, using teacher probabilities p on the same shifted samples",
+    "reported_on": ["shifted_calibration", "shifted_validation"],
+    "dimensions": [0, 1, 2],
+    "role": "mechanism-generating only; no multiplicity-corrected confirmatory claim"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_if": "runner completes, exact recursive parameter-budget invariant holds, all P0/P1/P2 accuracy and NMSE metrics are finite with positive NMSE, and task-weighted denominator diagnostics are finite and nonnegative",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "primary_exploratory_decision": {
+    "reference": "P2, because C63R prospectively confirmed P2 versus P4",
+    "comparisons": ["P0 versus P2", "P1 versus P2"],
+    "validation_noninferiority": {
+      "statistic": "paired lower-dimension minus P2 shifted-validation accuracy",
+      "margin_percentage_points": -2.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -2.0 percentage points"
+    },
+    "nmse_ratio": {
+      "statistic": "geometric mean of paired lower-dimension/P2 NMSE ratios",
+      "margin": 1.25,
+      "pass": "paired percentile bootstrap 95% upper bound < 1.25"
+    },
+    "decision_tree": [
+      "if P0 passes both gates: ADVANCE_P0_TO_C65R",
+      "else if P1 passes both gates: ADVANCE_P1_TO_C65R",
+      "else: STOP_LOWER_FRONTIER_AT_P2",
+      "STOP_INSUFFICIENT_ELIGIBLE if eligible_count < 8"
+    ],
+    "confirmatory_claim_allowed": false
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile 95%",
+    "rng_seed": 567883594,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C64R_P0_P1_P2_TASK_WEIGHTED_FRONTIER_EXPLORATION_V1') = 21d9374aa2472983a6ccb27bf370316e9d7814d09a9502741bae76aec69624ff"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_basis_changes": true,
+    "no_post_outcome_decision_tree_changes": true,
+    "scope": "exact C64R Residual-MLP recursive-hierarchy Gaussian-sigma=0.04 protocol only",
+    "not_supported_even_if_advanced": [
+      "P0 or P1 is confirmed sufficient",
+      "P0/P1 is a universal minimum interface",
+      "ordinary residual rank is irrelevant in general",
+      "task-weighted diagnostics causally determine the frontier",
+      "any statement about the imported Residual CNN C59/C60 line"
+    ]
+  }
+}
