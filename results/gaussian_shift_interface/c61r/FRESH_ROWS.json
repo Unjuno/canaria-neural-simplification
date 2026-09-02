@@ -1,0 +1,24 @@
+{
+  "experiment": "C61R_GAUSSIAN_SHIFT_P4_VS_P8_PROSPECTIVE_REPLICATION",
+  "provenance_class": "GITHUB_PROSPECTIVE_CONFIRMATORY",
+  "workflow_run_id": 33646770156,
+  "workflow_head_sha": "7106a7f68890600efdcdb66ac9d74cdd17ddc0a1",
+  "rows": [
+    {"eligible":true,"frozen_nmse":0.07961046577047369,"p4_nmse":0.0775754956845647,"p4_validation_accuracy":0.9666666388511658,"p8_nmse":0.07843319897120286,"p8_validation_accuracy":0.9777777791023254,"seed":59400},
+    {"eligible":true,"frozen_nmse":0.08360208817160307,"p4_nmse":0.08230618209025285,"p4_validation_accuracy":0.9592592716217041,"p8_nmse":0.07565780201952796,"p8_validation_accuracy":0.9592592716217041,"seed":59401},
+    {"eligible":true,"frozen_nmse":0.07256619879609084,"p4_nmse":0.07126999733717897,"p4_validation_accuracy":0.9666666388511658,"p8_nmse":0.07233394848727089,"p8_validation_accuracy":0.9740740656852722,"seed":59402},
+    {"eligible":true,"frozen_nmse":0.07277966446617683,"p4_nmse":0.06911395398167347,"p4_validation_accuracy":0.9555555582046509,"p8_nmse":0.06867611957311165,"p8_validation_accuracy":0.970370352268219,"seed":59403},
+    {"eligible":true,"frozen_nmse":0.07612050510862328,"p4_nmse":0.07795349748103748,"p4_validation_accuracy":0.9481481313705444,"p8_nmse":0.07703760119931717,"p8_validation_accuracy":0.9481481313705444,"seed":59404},
+    {"eligible":true,"frozen_nmse":0.07856396683126315,"p4_nmse":0.07834962746213621,"p4_validation_accuracy":0.9481481313705444,"p8_nmse":0.07704649945473956,"p8_validation_accuracy":0.9518518447875977,"seed":59405},
+    {"eligible":true,"frozen_nmse":0.0844573543774188,"p4_nmse":0.08366116396711641,"p4_validation_accuracy":0.9518518447875977,"p8_nmse":0.08305531190035617,"p8_validation_accuracy":0.9592592716217041,"seed":59406},
+    {"eligible":true,"frozen_nmse":0.08199342263857415,"p4_nmse":0.08031523651400486,"p4_validation_accuracy":0.9666666388511658,"p8_nmse":0.07667452093843495,"p8_validation_accuracy":0.9666666388511658,"seed":59407},
+    {"eligible":true,"frozen_nmse":0.08549210291492812,"p4_nmse":0.07858496784280561,"p4_validation_accuracy":0.9592592716217041,"p8_nmse":0.0756614470687177,"p8_validation_accuracy":0.9592592716217041,"seed":59408},
+    {"eligible":true,"frozen_nmse":0.07279078060746065,"p4_nmse":0.0727808226743317,"p4_validation_accuracy":0.9555555582046509,"p8_nmse":0.07292533149395156,"p8_validation_accuracy":0.9518518447875977,"seed":59409},
+    {"eligible":true,"frozen_nmse":0.08121477597819192,"p4_nmse":0.07725337019185093,"p4_validation_accuracy":0.9481481313705444,"p8_nmse":0.07761082629426619,"p8_validation_accuracy":0.9481481313705444,"seed":59410},
+    {"eligible":true,"frozen_nmse":0.07951353737757672,"p4_nmse":0.07807842762229376,"p4_validation_accuracy":0.9555555582046509,"p8_nmse":0.07697827530654569,"p8_validation_accuracy":0.9592592716217041,"seed":59411},
+    {"eligible":true,"frozen_nmse":0.07800715707227515,"p4_nmse":0.07650525193767777,"p4_validation_accuracy":0.9629629850387573,"p8_nmse":0.07852943564906154,"p8_validation_accuracy":0.9592592716217041,"seed":59412},
+    {"eligible":true,"frozen_nmse":0.08092733699738962,"p4_nmse":0.07999344247841964,"p4_validation_accuracy":0.9444444179534912,"p8_nmse":0.07679284499607957,"p8_validation_accuracy":0.9555555582046509,"seed":59413},
+    {"eligible":true,"frozen_nmse":0.09196950395596909,"p4_nmse":0.09079094493101779,"p4_validation_accuracy":0.9740740656852722,"p8_nmse":0.08694278481423814,"p8_validation_accuracy":0.9777777791023254,"seed":59414},
+    {"eligible":true,"frozen_nmse":0.07750373936947959,"p4_nmse":0.0747737407418034,"p4_validation_accuracy":0.9518518447875977,"p8_nmse":0.07743625872402488,"p8_validation_accuracy":0.9518518447875977,"seed":59415}
+  ]
+}
