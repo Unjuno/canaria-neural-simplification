@@ -1,0 +1,70 @@
+name: c65r-evidence-audit
+
+on:
+  push:
+    branches:
+      - research/c65r-p0-confirmation
+    paths:
+      - '.github/workflows/c65r-audit.yml'
+      - 'scripts/gaussian_shift_interface/evaluate_c65r.py'
+      - 'tests/test_c65r_evaluator.py'
+      - 'results/gaussian_shift_interface/c65r/**'
+  pull_request:
+    paths:
+      - '.github/workflows/c65r-audit.yml'
+      - 'scripts/gaussian_shift_interface/evaluate_c65r.py'
+      - 'tests/test_c65r_evaluator.py'
+      - 'results/gaussian_shift_interface/c65r/**'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Evaluator tests and syntax
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c65r.py
+          python -m unittest tests.test_c65r_evaluator -v
+      - name: Recompute persisted C65R confirmatory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c65r.py \
+            results/gaussian_shift_interface/c65r/FRESH_ROWS.json \
+            --out /tmp/c65r_recomputed.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          got = json.loads(Path('/tmp/c65r_recomputed.json').read_text())
+          locked = json.loads(Path('results/gaussian_shift_interface/c65r/DECISION.json').read_text())
+
+          def same(a, b, path='root'):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  assert set(a) == set(b), (path, set(a) ^ set(b))
+                  for k in a:
+                      same(a[k], b[k], f'{path}.{k}')
+              elif isinstance(a, list) and isinstance(b, list):
+                  assert len(a) == len(b), (path, len(a), len(b))
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      same(x, y, f'{path}[{i}]')
+              elif isinstance(a, float) or isinstance(b, float):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (path, a, b)
+              else:
+                  assert a == b, (path, a, b)
+
+          same(got, locked)
+          assert got['decision'] == 'C65R_CONFIRMATORY_PASS'
+          assert got['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
+          assert got['eligible_count'] == 16
+          assert got['missing_seed_rows'] == []
+          assert got['bootstrap_resamples'] == 100000
+          assert got['bootstrap_seed'] == 2237321090
+          assert got['validation_noninferiority']['pass'] is True
+          assert got['nmse_ratio']['pass'] is True
+          print('C65R PORTABLE PERSISTED DECISION RECOMPUTATION PASS')
+          PY
