@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "experiment": "C62R_P2_FRONTIER_AND_BASIS_MECHANISM_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "parent": "C61R_GAUSSIAN_SHIFT_P4_VS_P8_PROSPECTIVE_REPLICATION",
+    "architecture_line": "Residual-MLP repository testbed",
+    "not_continuation_of_imported_c59_c60_residual_cnn": true
+  },
+  "fresh_model_seeds": [60400,60401,60402,60403,60404,60405,60406,60407,60408,60409,60410,60411,60412,60413,60414,60415],
+  "implementation_verification_seed": 60300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "architecture": {
+    "teacher": "repository Residual-MLP Net(d=64, depth=4)",
+    "base_recursive_hierarchy": "same construction as C61R",
+    "compiled_replacement": "TinyRes(64,32)",
+    "teacher_epochs": 60,
+    "fit_updates": 600,
+    "torch_threads": 1
+  },
+  "distribution_shift": {
+    "type": "additive_iid_gaussian_input_noise",
+    "sigma": 0.04,
+    "post_noise_clip": [0.0, 1.0],
+    "calibration_noise_seed_rule": "model_seed + 620100",
+    "validation_noise_seed_rule": "model_seed + 620200",
+    "pairing": "all basis/dimension conditions within a model seed use exactly the same shifted calibration and validation tensors"
+  },
+  "calibration": {
+    "samples": 192,
+    "subset_rng_seed": 20260903,
+    "subset_rule": "same protocol-fixed subset rule as C61R",
+    "test_data_excluded": true
+  },
+  "basis_families": {
+    "residual_qr": {
+      "method": "canonical nested QR of shifted-calibration teacher residual transpose",
+      "adapted_to_each_model_seed": true
+    },
+    "residual_svd": {
+      "method": "right singular vectors of shifted-calibration teacher residual, descending singular value",
+      "adapted_to_each_model_seed": true,
+      "role": "energy-optimal low-rank control"
+    },
+    "fixed_random": {
+      "method": "protocol-fixed Gaussian 64x64 matrix followed by canonical QR",
+      "rng_seed": 20260904,
+      "adapted_to_each_model_seed": false,
+      "role": "non-residual-adapted control"
+    }
+  },
+  "candidate_dimensions": [2, 4],
+  "conditions": [
+    "qr_p2", "qr_p4",
+    "svd_p2", "svd_p4",
+    "random_p2", "random_p4"
+  ],
+  "primary_exploratory_frontier": {
+    "comparison": "qr_p2 versus qr_p4",
+    "minimum_eligible": 8,
+    "validation_noninferiority": {
+      "statistic": "paired qr_p2 minus qr_p4 shifted-validation accuracy",
+      "margin_percentage_points": -2.0,
+      "advance_if": "paired percentile bootstrap 95% lower bound > -2.0 percentage points"
+    },
+    "nmse_ratio": {
+      "statistic": "geometric mean of paired qr_p2/qr_p4 NMSE ratios",
+      "margin": 1.25,
+      "advance_if": "paired percentile bootstrap 95% upper bound < 1.25"
+    },
+    "decision": "ADVANCE_QR_P2_TO_C63R only if both gates pass with eligible_count >= 8; otherwise STOP_P2_FRONTIER_AT_C62R or STOP_INSUFFICIENT_ELIGIBLE",
+    "confirmatory_claim_allowed": false
+  },
+  "mechanism_diagnostics": {
+    "residual_spectrum": [
+      "entropy_effective_rank",
+      "stable_rank",
+      "optimal_svd_energy_fraction_k2",
+      "optimal_svd_energy_fraction_k4",
+      "optimal_svd_energy_fraction_k8"
+    ],
+    "subspace_generalization": [
+      "calibration_residual_energy_capture for QR/SVD/random at k=2,4",
+      "shifted-validation residual_energy_capture for QR/SVD/random at k=2,4",
+      "mean squared principal-cosine alignment of QR_k to SVD_k at k=2,4"
+    ],
+    "paired_basis_controls": [
+      "QR versus fixed-random at k=2 and k=4",
+      "SVD versus QR at k=2 and k=4"
+    ],
+    "correlations": "exploratory Spearman correlations between QR P2 frontier loss and residual/subspace diagnostics; no multiplicity-corrected confirmatory inference"
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile 95%",
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C62R_P2_FRONTIER_AND_BASIS_MECHANISM_V1')"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_margin_changes": true,
+    "no_seed_replacement": true,
+    "all_attempted_seeds_retained": true,
+    "scope": "mechanism/frontier exploration in the C61R Residual-MLP testbed only; not evidence about the imported Residual CNN C59/C60 line",
+    "next_step_if_advance": "prospectively lock a separate fresh C63R confirmation of QR P2 versus QR P4"
+  }
+}
