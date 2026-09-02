@@ -38,8 +38,48 @@ jobs:
       - name: Gaussian-shift import integrity audit
         run: |
           python -m py_compile scripts/gaussian_shift_interface/evaluate_c61.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c61r.py
+          python -m py_compile scripts/gaussian_shift_interface/run_c61r_seed.py
           python -m py_compile tools/audit_gaussian_shift_interface.py
           python tools/audit_gaussian_shift_interface.py
+      - name: Recompute persisted C61R confirmatory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c61r.py \
+            results/gaussian_shift_interface/c61r/FRESH_ROWS.json \
+            --out /tmp/c61r_recomputed.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          got = json.loads(Path('/tmp/c61r_recomputed.json').read_text())
+          locked = json.loads(Path('results/gaussian_shift_interface/c61r/DECISION.json').read_text())
+
+          assert got['decision'] == locked['decision'] == 'C61R_CONFIRMATORY_PASS'
+          assert got['attempted_rows_present'] == locked['attempted_rows_present'] == 16
+          assert got['eligible_count'] == locked['eligible_count'] == 16
+          assert got['missing_seed_rows'] == locked['missing_seed_rows'] == []
+          assert got['bootstrap_resamples'] == locked['bootstrap']['resamples'] == 100000
+          assert got['bootstrap_seed'] == locked['bootstrap']['rng_seed'] == 3960519679
+
+          gv = got['validation_noninferiority']
+          lv = locked['validation_noninferiority']
+          assert gv['mean_difference_fraction'] == lv['mean_difference_p4_minus_p8_fraction']
+          assert gv['mean_difference_pp'] == lv['mean_difference_p4_minus_p8_pp']
+          assert gv['bootstrap95_fraction'] == lv['bootstrap95_fraction']
+          assert gv['bootstrap95_pp'] == lv['bootstrap95_pp']
+          assert gv['margin_pp'] == lv['margin_pp'] == -2.0
+          assert gv['pass'] is lv['pass'] is True
+
+          gn = got['nmse_ratio']
+          ln = locked['nmse_ratio']
+          assert gn['geometric_mean_p4_over_p8'] == ln['geometric_mean_p4_over_p8']
+          assert gn['bootstrap95'] == ln['bootstrap95']
+          assert gn['margin'] == ln['margin'] == 1.25
+          assert gn['pass'] is ln['pass'] is True
+
+          assert got['informative_p4_delta_nmse_vs_frozen_mean'] == locked['informative_p4_delta_nmse_vs_frozen_mean']
+          print('C61R PERSISTED DECISION RECOMPUTATION PASS')
+          PY
       - name: Pre-announcement readiness audit
         run: python tools/audit_readiness.py
       - name: Representative core-runner smoke test
