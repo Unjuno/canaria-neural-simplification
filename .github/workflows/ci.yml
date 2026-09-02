@@ -42,6 +42,8 @@ jobs:
           python -m py_compile scripts/gaussian_shift_interface/run_c61r_seed.py
           python -m py_compile scripts/gaussian_shift_interface/evaluate_c62r.py
           python -m py_compile scripts/gaussian_shift_interface/run_c62r_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c63r.py
+          python -m py_compile scripts/gaussian_shift_interface/run_c63r_seed.py
           python -m py_compile tools/audit_gaussian_shift_interface.py
           python tools/audit_gaussian_shift_interface.py
       - name: Recompute persisted C61R confirmatory decision
@@ -101,6 +103,31 @@ jobs:
           assert got['bootstrap_resamples'] == 100000
           assert got['bootstrap_seed'] == 2842827726
           print('C62R PERSISTED DECISION RECOMPUTATION PASS')
+          PY
+      - name: Recompute persisted C63R confirmatory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c63r.py \
+            results/gaussian_shift_interface/c63r/FRESH_ROWS.json \
+            --out /tmp/c63r_recomputed.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          got = json.loads(Path('/tmp/c63r_recomputed.json').read_text())
+          locked = json.loads(Path('results/gaussian_shift_interface/c63r/DECISION.json').read_text())
+          assert got == locked, 'C63R persisted decision drifted from deterministic recomputation'
+          assert got['decision'] == 'C63R_CONFIRMATORY_PASS'
+          assert got['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
+          assert got['attempted_rows_present'] == 16
+          assert got['eligible_count'] == 16
+          assert got['missing_seed_rows'] == []
+          assert got['bootstrap_resamples'] == 100000
+          assert got['bootstrap_seed'] == 4138999453
+          assert got['validation_noninferiority']['margin_pp'] == -2.0
+          assert got['validation_noninferiority']['pass'] is True
+          assert got['nmse_ratio']['margin'] == 1.25
+          assert got['nmse_ratio']['pass'] is True
+          print('C63R PERSISTED DECISION RECOMPUTATION PASS')
           PY
       - name: Pre-announcement readiness audit
         run: python tools/audit_readiness.py
