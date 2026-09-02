@@ -1,0 +1,78 @@
+name: c62r-preflight
+
+on:
+  push:
+    branches:
+      - research/c62r-p2-frontier-mechanism
+    paths:
+      - '.github/workflows/c62r-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c62r_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c62r.py'
+      - 'results/gaussian_shift_interface/c62r/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax check
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c62r_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c62r.py
+      - name: Run implementation verification seed 60300
+        run: |
+          mkdir -p c62r-preflight
+          python scripts/gaussian_shift_interface/run_c62r_seed.py \
+            --seed 60300 \
+            --allow-verification-seed \
+            --out c62r-preflight/seed_60300.json
+      - name: Verify protocol and mechanism invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          r = json.loads(Path('c62r-preflight/seed_60300.json').read_text())
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigma'] == 0.04
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['dimensions'] == [2, 4]
+          assert r['protocol']['basis_families'] == ['qr', 'svd', 'random']
+          assert r['budget']['exact_4096_each_level'] is True
+          expected = {'qr_p2','qr_p4','svd_p2','svd_p4','random_p2','random_p4'}
+          assert set(r['conditions']) == expected
+          for key, rec in r['conditions'].items():
+              assert rec['dimension'] in (2,4), (key, rec['dimension'])
+              assert rec['final_nmse_vs_original'] > 0
+          e = r['diagnostics']['energy_capture']
+          s = r['diagnostics']['spectrum']
+          for basis in ('qr','svd','random'):
+              for split in ('calibration','shifted_validation'):
+                  assert 0 <= e[basis]['k2'][split] <= 1.000001
+                  assert 0 <= e[basis]['k4'][split] <= 1.000001
+                  assert e[basis]['k4'][split] + 1e-7 >= e[basis]['k2'][split]
+          assert e['svd']['k2']['calibration'] + 1e-6 >= e['qr']['k2']['calibration']
+          assert e['svd']['k2']['calibration'] + 1e-6 >= e['random']['k2']['calibration']
+          assert e['svd']['k4']['calibration'] + 1e-6 >= e['qr']['k4']['calibration']
+          assert e['svd']['k4']['calibration'] + 1e-6 >= e['random']['k4']['calibration']
+          assert abs(e['svd']['k2']['calibration'] - s['optimal_svd_energy_fraction_k2']) < 1e-5
+          assert abs(e['svd']['k4']['calibration'] - s['optimal_svd_energy_fraction_k4']) < 1e-5
+          print('C62R PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c62r-preflight-seed-60300
+          path: c62r-preflight/seed_60300.json
+          if-no-files-found: error
+          retention-days: 90
