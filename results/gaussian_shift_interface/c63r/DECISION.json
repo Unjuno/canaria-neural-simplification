@@ -1,0 +1,59 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 4138999453,
+  "decision": "C63R_CONFIRMATORY_PASS",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "expected_seeds": [
+    61400,
+    61401,
+    61402,
+    61403,
+    61404,
+    61405,
+    61406,
+    61407,
+    61408,
+    61409,
+    61410,
+    61411,
+    61412,
+    61413,
+    61414,
+    61415
+  ],
+  "experiment": "C63R_QR_P2_VS_P4_CONFIRMATION",
+  "informative_p2_delta_nmse_vs_frozen_mean": -0.0002401245431308081,
+  "interpretation_boundary": [
+    "A PASS is non-inferiority under the exact locked C63R protocol, not equality or superiority.",
+    "A PASS does not establish that P2 is a universal or minimal correction interface.",
+    "This C63R evidence belongs to the Residual-MLP testbed and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "nmse_ratio": {
+    "bootstrap95": [
+      0.9960283175879167,
+      1.0227718983028113
+    ],
+    "geometric_mean_p2_over_p4": 1.0095123332869689,
+    "margin": 1.25,
+    "pass": true
+  },
+  "validation_noninferiority": {
+    "bootstrap95_fraction": [
+      -0.006018534302711487,
+      -0.001620374619960785
+    ],
+    "bootstrap95_pp": [
+      -0.6018534302711487,
+      -0.1620374619960785
+    ],
+    "margin_fraction": -0.02,
+    "margin_pp": -2.0,
+    "mean_difference_fraction": -0.003703709691762924,
+    "mean_difference_pp": -0.3703709691762924,
+    "pass": true
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "experiment": "C63R_QR_P2_VS_P4_CONFIRMATION",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "selected_from": "C62R_P2_FRONTIER_AND_BASIS_MECHANISM_EXPLORATION",
+    "selected_condition": "residual_qr P2 versus residual_qr P4",
+    "architecture_line": "C61R/C62R Residual-MLP recursive hierarchy",
+    "not_imported_residual_cnn_line": true
+  },
+  "fresh_model_seeds": [61400,61401,61402,61403,61404,61405,61406,61407,61408,61409,61410,61411,61412,61413,61414,61415],
+  "implementation_verification_seed": 61300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "architecture": {
+    "teacher": "repository Residual-MLP Net(d=64, depth=4)",
+    "base_recursive_hierarchy": "same C61R construction: four TinyRes(64,8) locals -> two retrained pairs -> two TinyRes(64,16) compressors -> Chain",
+    "compiled_replacement": "TinyRes(64,32)",
+    "teacher_epochs": 60,
+    "fit_updates": 600,
+    "torch_threads": 1,
+    "base_hierarchy_seed_rules": "unchanged repository C61R build_base_hierarchy rules"
+  },
+  "distribution_shift": {
+    "type": "additive_iid_gaussian_input_noise",
+    "sigma": 0.04,
+    "post_noise_clip": [0.0, 1.0],
+    "calibration_noise_seed_rule": "model_seed + 630100",
+    "validation_noise_seed_rule": "model_seed + 630200",
+    "pairing": "P2 and P4 within each model seed use exactly the same shifted calibration and validation tensors"
+  },
+  "calibration": {
+    "samples": 192,
+    "subset_rng_seed": 20260903,
+    "subset_rule": "same protocol-fixed clean-training subset rule as C61R/C62R",
+    "test_data_excluded": true
+  },
+  "interface_basis": {
+    "method": "canonical nested QR of shifted-calibration teacher residual transpose",
+    "residual": "teacher_final_activation - frozen_base_hierarchy_output",
+    "candidate_dimensions": [2, 4],
+    "P2": "first 2 columns of Q",
+    "P4": "first 4 columns of the same Q",
+    "same_basis_across_dimensions": true
+  },
+  "adaptation": {
+    "target": "frozen_base_output + projection_of_teacher_residual_onto_Pk",
+    "adaptation_data": "same 192 shifted calibration samples only",
+    "optimizer": "AdamW(lr=8e-3, weight_decay=1e-5)",
+    "updates": 600,
+    "batch_size": 128,
+    "shared_top_adaptation_seed_rule": "model_seed + 635000",
+    "compiled_final_init_seed_rule": "model_seed + 636000",
+    "compiled_final_fit_seed_rule": "model_seed + 637000"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_if": "runner completes, exact recursive parameter-budget invariant holds, and P2/P4 required metrics are finite with positive NMSE",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "primary_decision": {
+    "validation_noninferiority": {
+      "statistic": "paired P2 minus P4 shifted-validation accuracy",
+      "margin_percentage_points": -2.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -2.0 percentage points"
+    },
+    "nmse_ratio": {
+      "statistic": "geometric mean of paired P2/P4 NMSE ratios",
+      "margin": 1.25,
+      "pass": "paired percentile bootstrap 95% upper bound < 1.25"
+    },
+    "overall": "C63R_CONFIRMATORY_PASS iff eligible_count >= 8 and both primary gates pass; otherwise STOP_INSUFFICIENT_ELIGIBLE or C63R_CONFIRMATORY_FAIL; no rescue analysis changes this decision"
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile 95%",
+    "rng_seed": 4138999453,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C63R_QR_P2_VS_P4_CONFIRMATION_V1') = f6b41e9df744838ad0c3bcc5b1ca48fb49d6fb225baae7e805157360af534666"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_basis_changes": true,
+    "no_svd_or_random_rescue_conditions": true,
+    "scope": "exact C63R Residual-MLP recursive-hierarchy Gaussian-sigma=0.04 protocol only",
+    "not_supported_even_if_pass": [
+      "P2 is universally sufficient",
+      "2/32 is a universal minimum interface",
+      "any statement about the imported Residual CNN C59/C60 line"
+    ]
+  }
+}
