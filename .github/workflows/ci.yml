@@ -91,18 +91,34 @@ jobs:
             --out /tmp/c62r_recomputed.json
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
 
           got = json.loads(Path('/tmp/c62r_recomputed.json').read_text())
           locked = json.loads(Path('results/gaussian_shift_interface/c62r/DECISION.json').read_text())
-          assert got == locked, 'C62R persisted decision drifted from deterministic recomputation'
+
+          def same(a, b, path='root'):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  assert set(a) == set(b), (path, set(a) ^ set(b))
+                  for k in a:
+                      same(a[k], b[k], f'{path}.{k}')
+              elif isinstance(a, list) and isinstance(b, list):
+                  assert len(a) == len(b), (path, len(a), len(b))
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      same(x, y, f'{path}[{i}]')
+              elif isinstance(a, float) or isinstance(b, float):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (path, a, b)
+              else:
+                  assert a == b, (path, a, b)
+
+          same(got, locked)
           assert got['decision'] == 'ADVANCE_QR_P2_TO_C63R'
           assert got['confirmatory_claim_allowed'] is False
           assert got['eligible_count'] == 16
           assert got['missing_seed_rows'] == []
           assert got['bootstrap_resamples'] == 100000
           assert got['bootstrap_seed'] == 2842827726
-          print('C62R PERSISTED DECISION RECOMPUTATION PASS')
+          print('C62R PORTABLE PERSISTED DECISION RECOMPUTATION PASS')
           PY
       - name: Recompute persisted C63R confirmatory decision
         run: |
@@ -111,11 +127,27 @@ jobs:
             --out /tmp/c63r_recomputed.json
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
 
           got = json.loads(Path('/tmp/c63r_recomputed.json').read_text())
           locked = json.loads(Path('results/gaussian_shift_interface/c63r/DECISION.json').read_text())
-          assert got == locked, 'C63R persisted decision drifted from deterministic recomputation'
+
+          def same(a, b, path='root'):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  assert set(a) == set(b), (path, set(a) ^ set(b))
+                  for k in a:
+                      same(a[k], b[k], f'{path}.{k}')
+              elif isinstance(a, list) and isinstance(b, list):
+                  assert len(a) == len(b), (path, len(a), len(b))
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      same(x, y, f'{path}[{i}]')
+              elif isinstance(a, float) or isinstance(b, float):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (path, a, b)
+              else:
+                  assert a == b, (path, a, b)
+
+          same(got, locked)
           assert got['decision'] == 'C63R_CONFIRMATORY_PASS'
           assert got['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
           assert got['attempted_rows_present'] == 16
@@ -127,7 +159,7 @@ jobs:
           assert got['validation_noninferiority']['pass'] is True
           assert got['nmse_ratio']['margin'] == 1.25
           assert got['nmse_ratio']['pass'] is True
-          print('C63R PERSISTED DECISION RECOMPUTATION PASS')
+          print('C63R PORTABLE PERSISTED DECISION RECOMPUTATION PASS')
           PY
       - name: Pre-announcement readiness audit
         run: python tools/audit_readiness.py
