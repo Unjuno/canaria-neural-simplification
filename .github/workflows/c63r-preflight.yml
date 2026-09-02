@@ -1,0 +1,71 @@
+name: c63r-preflight
+
+on:
+  push:
+    branches:
+      - research/c63r-p2-confirmation
+    paths:
+      - '.github/workflows/c63r-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c63r_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c63r.py'
+      - 'tests/test_c63r_evaluator.py'
+      - 'results/gaussian_shift_interface/c63r/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c63r_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c63r.py
+          python -m unittest tests.test_c63r_evaluator -v
+      - name: Run implementation verification seed 61300
+        run: |
+          mkdir -p c63r-preflight
+          python scripts/gaussian_shift_interface/run_c63r_seed.py \
+            --seed 61300 \
+            --allow-verification-seed \
+            --out c63r-preflight/seed_61300.json
+      - name: Verify locked confirmatory invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('c63r-preflight/seed_61300.json').read_text())
+          assert r['experiment'] == 'C63R_QR_P2_VS_P4_CONFIRMATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_CONFIRMATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigma'] == 0.04
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['dimensions'] == [2, 4]
+          assert r['protocol']['top_adaptation_seed'] == 61300 + 635000
+          assert r['protocol']['final_init_seed'] == 61300 + 636000
+          assert r['protocol']['final_fit_seed'] == 61300 + 637000
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['p2']['dimension'] == 2
+          assert r['p4']['dimension'] == 4
+          assert r['p2']['final_nmse_vs_original'] > 0
+          assert r['p4']['final_nmse_vs_original'] > 0
+          assert r['decision_row']['seed'] == 61300
+          assert r['decision_row']['eligible'] is True
+          print('C63R PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c63r-preflight-seed-61300
+          path: c63r-preflight/seed_61300.json
+          if-no-files-found: error
+          retention-days: 90
