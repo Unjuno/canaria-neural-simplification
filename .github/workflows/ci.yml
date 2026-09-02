@@ -35,6 +35,11 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Syntax, evidence, and correction audit
         run: python tools/audit_repo.py
+      - name: Gaussian-shift import integrity audit
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c61.py
+          python -m py_compile tools/audit_gaussian_shift_interface.py
+          python tools/audit_gaussian_shift_interface.py
       - name: Pre-announcement readiness audit
         run: python tools/audit_readiness.py
       - name: Representative core-runner smoke test
