@@ -40,6 +40,8 @@ jobs:
           python -m py_compile scripts/gaussian_shift_interface/evaluate_c61.py
           python -m py_compile scripts/gaussian_shift_interface/evaluate_c61r.py
           python -m py_compile scripts/gaussian_shift_interface/run_c61r_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c62r.py
+          python -m py_compile scripts/gaussian_shift_interface/run_c62r_seed.py
           python -m py_compile tools/audit_gaussian_shift_interface.py
           python tools/audit_gaussian_shift_interface.py
       - name: Recompute persisted C61R confirmatory decision
@@ -79,6 +81,42 @@ jobs:
 
           assert got['informative_p4_delta_nmse_vs_frozen_mean'] == locked['informative_p4_delta_nmse_vs_frozen_mean']
           print('C61R PERSISTED DECISION RECOMPUTATION PASS')
+          PY
+      - name: Recompute persisted C62R exploratory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c62r.py \
+            results/gaussian_shift_interface/c62r/FRESH_ROWS.json \
+            --out /tmp/c62r_recomputed.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          got = json.loads(Path('/tmp/c62r_recomputed.json').read_text())
+          locked = json.loads(Path('results/gaussian_shift_interface/c62r/DECISION.json').read_text())
+
+          def same(a, b, path='root'):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  assert set(a) == set(b), (path, set(a) ^ set(b))
+                  for k in a:
+                      same(a[k], b[k], f'{path}.{k}')
+              elif isinstance(a, list) and isinstance(b, list):
+                  assert len(a) == len(b), (path, len(a), len(b))
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      same(x, y, f'{path}[{i}]')
+              elif isinstance(a, float) or isinstance(b, float):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (path, a, b)
+              else:
+                  assert a == b, (path, a, b)
+
+          same(got, locked)
+          assert got['decision'] == 'ADVANCE_QR_P2_TO_C63R'
+          assert got['confirmatory_claim_allowed'] is False
+          assert got['eligible_count'] == 16
+          assert got['missing_seed_rows'] == []
+          assert got['bootstrap_resamples'] == 100000
+          assert got['bootstrap_seed'] == 2842827726
+          print('C62R PORTABLE PERSISTED DECISION RECOMPUTATION PASS')
           PY
       - name: Pre-announcement readiness audit
         run: python tools/audit_readiness.py

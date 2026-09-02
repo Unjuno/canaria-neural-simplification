@@ -1,0 +1,1476 @@
+{
+  "rows": [
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07129305729106523,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "qr_p4": {
+          "nmse": 0.06921700659724347,
+          "validation_accuracy": 0.970370352268219
+        },
+        "random_p2": {
+          "nmse": 0.07440814201854508,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p4": {
+          "nmse": 0.0739063676439924,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p2": {
+          "nmse": 0.07675738921356029,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p4": {
+          "nmse": 0.07648980353239827,
+          "validation_accuracy": 0.970370352268219
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.20936164259910583,
+              "shifted_validation": 0.18158459663391113
+            },
+            "k4": {
+              "calibration": 0.4169776737689972,
+              "shifted_validation": 0.4095202088356018
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.02097657136619091,
+              "shifted_validation": 0.021378589794039726
+            },
+            "k4": {
+              "calibration": 0.05046401917934418,
+              "shifted_validation": 0.04797603189945221
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.3855072557926178,
+              "shifted_validation": 0.3415059447288513
+            },
+            "k4": {
+              "calibration": 0.6301169395446777,
+              "shifted_validation": 0.5513179302215576
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.0881986990571022,
+            "min_principal_cosine": 0.1922989785671234,
+            "principal_cosines": [
+              0.37338787317276,
+              0.1922989785671234
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5608857870101929,
+            "min_principal_cosine": 0.07635153084993362,
+            "principal_cosines": [
+              0.9804444909095764,
+              0.898022472858429,
+              0.6855639815330505,
+              0.07635153084993362
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.819646835327148,
+          "optimal_svd_energy_fraction_k2": 0.38550713658332825,
+          "optimal_svd_energy_fraction_k4": 0.6301167011260986,
+          "optimal_svd_energy_fraction_k8": 0.9026221036911011,
+          "stable_rank": 4.441516399383545
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07501065898197677,
+      "seed": 60400
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07220487852749786,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "qr_p4": {
+          "nmse": 0.07168464980655977,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p2": {
+          "nmse": 0.07304437012761106,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "random_p4": {
+          "nmse": 0.07106037679061984,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "svd_p2": {
+          "nmse": 0.0733750091153698,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "svd_p4": {
+          "nmse": 0.07068437828710711,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.31371283531188965,
+              "shifted_validation": 0.2797856330871582
+            },
+            "k4": {
+              "calibration": 0.5662691593170166,
+              "shifted_validation": 0.5020279884338379
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.04263569787144661,
+              "shifted_validation": 0.03768417239189148
+            },
+            "k4": {
+              "calibration": 0.10420561581850052,
+              "shifted_validation": 0.0982983186841011
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4189276397228241,
+              "shifted_validation": 0.35513561964035034
+            },
+            "k4": {
+              "calibration": 0.6884717345237732,
+              "shifted_validation": 0.6317029595375061
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.4352087676525116,
+            "min_principal_cosine": 0.1588924080133438,
+            "principal_cosines": [
+              0.9193316698074341,
+              0.1588924080133438
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.6926587224006653,
+            "min_principal_cosine": 0.5067129135131836,
+            "principal_cosines": [
+              0.984241783618927,
+              0.9611778855323792,
+              0.7882145643234253,
+              0.5067129135131836
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.043606758117676,
+          "optimal_svd_energy_fraction_k2": 0.41892778873443604,
+          "optimal_svd_energy_fraction_k4": 0.6884718537330627,
+          "optimal_svd_energy_fraction_k8": 0.9107773900032043,
+          "stable_rank": 4.251572608947754
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07371628512695073,
+      "seed": 60401
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.0776611321754926,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "qr_p4": {
+          "nmse": 0.08087093045176899,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "random_p2": {
+          "nmse": 0.07742930375228226,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "random_p4": {
+          "nmse": 0.07689418085783718,
+          "validation_accuracy": 0.970370352268219
+        },
+        "svd_p2": {
+          "nmse": 0.080123186070753,
+          "validation_accuracy": 0.970370352268219
+        },
+        "svd_p4": {
+          "nmse": 0.0763353395857383,
+          "validation_accuracy": 0.9666666388511658
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.1662265956401825,
+              "shifted_validation": 0.13935604691505432
+            },
+            "k4": {
+              "calibration": 0.45857110619544983,
+              "shifted_validation": 0.39131399989128113
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.03950141742825508,
+              "shifted_validation": 0.043776027858257294
+            },
+            "k4": {
+              "calibration": 0.05793238803744316,
+              "shifted_validation": 0.06394632160663605
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.42061877250671387,
+              "shifted_validation": 0.37957265973091125
+            },
+            "k4": {
+              "calibration": 0.651785135269165,
+              "shifted_validation": 0.6227789521217346
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.07863076776266098,
+            "min_principal_cosine": 0.014631807804107666,
+            "principal_cosines": [
+              0.396292120218277,
+              0.014631807804107666
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.4637492597103119,
+            "min_principal_cosine": 0.03810231387615204,
+            "principal_cosines": [
+              0.9788281917572021,
+              0.7911854386329651,
+              0.5191013813018799,
+              0.03810231387615204
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.20610523223877,
+          "optimal_svd_energy_fraction_k2": 0.4206187129020691,
+          "optimal_svd_energy_fraction_k4": 0.6517848968505859,
+          "optimal_svd_energy_fraction_k8": 0.9144627451896667,
+          "stable_rank": 4.46263313293457
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07875628289543979,
+      "seed": 60402
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07737265734721292,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "qr_p4": {
+          "nmse": 0.07965622454951149,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p2": {
+          "nmse": 0.07595115494269616,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "random_p4": {
+          "nmse": 0.07487146210413875,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "svd_p2": {
+          "nmse": 0.07656737907602268,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p4": {
+          "nmse": 0.08053350905603969,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.22245340049266815,
+              "shifted_validation": 0.2081320583820343
+            },
+            "k4": {
+              "calibration": 0.45048788189888,
+              "shifted_validation": 0.41103026270866394
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.0315157026052475,
+              "shifted_validation": 0.03105274774134159
+            },
+            "k4": {
+              "calibration": 0.05573941767215729,
+              "shifted_validation": 0.05605287104845047
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.41772404313087463,
+              "shifted_validation": 0.3976576328277588
+            },
+            "k4": {
+              "calibration": 0.690786600112915,
+              "shifted_validation": 0.637394905090332
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.3088495433330536,
+            "min_principal_cosine": 0.07357373833656311,
+            "principal_cosines": [
+              0.7824870347976685,
+              0.07357373833656311
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5521719455718994,
+            "min_principal_cosine": 0.02488848939538002,
+            "principal_cosines": [
+              0.9624208807945251,
+              0.8460338115692139,
+              0.7523571252822876,
+              0.02488848939538002
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 9.843831062316895,
+          "optimal_svd_energy_fraction_k2": 0.417724072933197,
+          "optimal_svd_energy_fraction_k4": 0.690786600112915,
+          "optimal_svd_energy_fraction_k8": 0.9111283421516418,
+          "stable_rank": 4.2622222900390625
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07604290016153993,
+      "seed": 60403
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.06776230113859198,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "qr_p4": {
+          "nmse": 0.06340481159187798,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p2": {
+          "nmse": 0.06528135357940831,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p4": {
+          "nmse": 0.06475751563640313,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p2": {
+          "nmse": 0.06641187849184998,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "svd_p4": {
+          "nmse": 0.06620867584190494,
+          "validation_accuracy": 0.9444444179534912
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.22523769736289978,
+              "shifted_validation": 0.20544873178005219
+            },
+            "k4": {
+              "calibration": 0.47383764386177063,
+              "shifted_validation": 0.4550410211086273
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.04285538196563721,
+              "shifted_validation": 0.0441744290292263
+            },
+            "k4": {
+              "calibration": 0.07419498264789581,
+              "shifted_validation": 0.07351787388324738
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.41989997029304504,
+              "shifted_validation": 0.39449676871299744
+            },
+            "k4": {
+              "calibration": 0.6759004592895508,
+              "shifted_validation": 0.6444635987281799
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.32007062435150146,
+            "min_principal_cosine": 0.01523369736969471,
+            "principal_cosines": [
+              0.7999432682991028,
+              0.01523369736969471
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5557625889778137,
+            "min_principal_cosine": 0.0715450569987297,
+            "principal_cosines": [
+              0.9377325177192688,
+              0.8947038650512695,
+              0.7335492372512817,
+              0.0715450569987297
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 9.975780487060547,
+          "optimal_svd_energy_fraction_k2": 0.419900119304657,
+          "optimal_svd_energy_fraction_k4": 0.6759005784988403,
+          "optimal_svd_energy_fraction_k8": 0.907524824142456,
+          "stable_rank": 4.094691276550293
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.0661637270306688,
+      "seed": 60404
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07317589005992448,
+          "validation_accuracy": 0.970370352268219
+        },
+        "qr_p4": {
+          "nmse": 0.07057842436826989,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p2": {
+          "nmse": 0.07660345487496059,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "random_p4": {
+          "nmse": 0.07612444472684621,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "svd_p2": {
+          "nmse": 0.0710895566456304,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "svd_p4": {
+          "nmse": 0.07484097791734436,
+          "validation_accuracy": 0.9592592716217041
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.313352108001709,
+              "shifted_validation": 0.27894312143325806
+            },
+            "k4": {
+              "calibration": 0.5339390635490417,
+              "shifted_validation": 0.4903334677219391
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.02202281542122364,
+              "shifted_validation": 0.025024138391017914
+            },
+            "k4": {
+              "calibration": 0.06256183981895447,
+              "shifted_validation": 0.06487803906202316
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4256001114845276,
+              "shifted_validation": 0.3579137325286865
+            },
+            "k4": {
+              "calibration": 0.6798456311225891,
+              "shifted_validation": 0.6083171963691711
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.6751099228858948,
+            "min_principal_cosine": 0.7303455471992493,
+            "principal_cosines": [
+              0.9037783145904541,
+              0.7303455471992493
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5577029585838318,
+            "min_principal_cosine": 0.037729449570178986,
+            "principal_cosines": [
+              0.961387574672699,
+              0.9419945478439331,
+              0.6463500261306763,
+              0.037729449570178986
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 9.827146530151367,
+          "optimal_svd_energy_fraction_k2": 0.42560020089149475,
+          "optimal_svd_energy_fraction_k4": 0.6798456311225891,
+          "optimal_svd_energy_fraction_k8": 0.9170075058937073,
+          "stable_rank": 4.065371036529541
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07693039439912126,
+      "seed": 60405
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08081103696088404,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "qr_p4": {
+          "nmse": 0.08136046298846157,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "random_p2": {
+          "nmse": 0.0823312455649596,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p4": {
+          "nmse": 0.08267032643349914,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p2": {
+          "nmse": 0.08111441704555016,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p4": {
+          "nmse": 0.08213600163839659,
+          "validation_accuracy": 0.9629629850387573
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.23768116533756256,
+              "shifted_validation": 0.21090632677078247
+            },
+            "k4": {
+              "calibration": 0.5375896096229553,
+              "shifted_validation": 0.48458775877952576
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.02720753848552704,
+              "shifted_validation": 0.029255852103233337
+            },
+            "k4": {
+              "calibration": 0.0402258038520813,
+              "shifted_validation": 0.04244174435734749
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.40791600942611694,
+              "shifted_validation": 0.3570623993873596
+            },
+            "k4": {
+              "calibration": 0.6366719603538513,
+              "shifted_validation": 0.5898136496543884
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.39213788509368896,
+            "min_principal_cosine": 0.21547569334506989,
+            "principal_cosines": [
+              0.8589796423912048,
+              0.21547569334506989
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5856455564498901,
+            "min_principal_cosine": 0.24334488809108734,
+            "principal_cosines": [
+              0.9831644892692566,
+              0.959682822227478,
+              0.6290961503982544,
+              0.24334488809108734
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.290688514709473,
+          "optimal_svd_energy_fraction_k2": 0.40791594982147217,
+          "optimal_svd_energy_fraction_k4": 0.6366720199584961,
+          "optimal_svd_energy_fraction_k8": 0.9106807708740234,
+          "stable_rank": 4.307116508483887
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08316568821093803,
+      "seed": 60406
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08084475744774651,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "qr_p4": {
+          "nmse": 0.07803963165946537,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "random_p2": {
+          "nmse": 0.07929307544801474,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p4": {
+          "nmse": 0.07892210779020371,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p2": {
+          "nmse": 0.07714328711529507,
+          "validation_accuracy": 0.9740740656852722
+        },
+        "svd_p4": {
+          "nmse": 0.07963944562855323,
+          "validation_accuracy": 0.9666666388511658
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.26515865325927734,
+              "shifted_validation": 0.2435847669839859
+            },
+            "k4": {
+              "calibration": 0.5122180581092834,
+              "shifted_validation": 0.4730273485183716
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.026123296469449997,
+              "shifted_validation": 0.028144821524620056
+            },
+            "k4": {
+              "calibration": 0.042857322841882706,
+              "shifted_validation": 0.04539782926440239
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4218115210533142,
+              "shifted_validation": 0.37917235493659973
+            },
+            "k4": {
+              "calibration": 0.6589342951774597,
+              "shifted_validation": 0.5775604844093323
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.4336373507976532,
+            "min_principal_cosine": 0.28374820947647095,
+            "principal_cosines": [
+              0.8869958519935608,
+              0.28374820947647095
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.63762366771698,
+            "min_principal_cosine": 0.23450078070163727,
+            "principal_cosines": [
+              0.9886944890022278,
+              0.9845264554023743,
+              0.7407395839691162,
+              0.23450078070163727
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.077335357666016,
+          "optimal_svd_energy_fraction_k2": 0.4218117296695709,
+          "optimal_svd_energy_fraction_k4": 0.658934473991394,
+          "optimal_svd_energy_fraction_k8": 0.9187914133071899,
+          "stable_rank": 4.035510540008545
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07991517690000141,
+      "seed": 60407
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08025393824270663,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "qr_p4": {
+          "nmse": 0.08402068623504505,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p2": {
+          "nmse": 0.08241527307250317,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p4": {
+          "nmse": 0.08109277223448069,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p2": {
+          "nmse": 0.08437385394898882,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "svd_p4": {
+          "nmse": 0.08190709145642469,
+          "validation_accuracy": 0.9629629850387573
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.23980216681957245,
+              "shifted_validation": 0.20110675692558289
+            },
+            "k4": {
+              "calibration": 0.5112922191619873,
+              "shifted_validation": 0.4084078371524811
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.027166953310370445,
+              "shifted_validation": 0.0245977696031332
+            },
+            "k4": {
+              "calibration": 0.0827350839972496,
+              "shifted_validation": 0.06793330609798431
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.3955618441104889,
+              "shifted_validation": 0.3315523862838745
+            },
+            "k4": {
+              "calibration": 0.6417702436447144,
+              "shifted_validation": 0.5642341375350952
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.4042542576789856,
+            "min_principal_cosine": 0.06122259423136711,
+            "principal_cosines": [
+              0.8970843553543091,
+              0.06122259423136711
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.648128092288971,
+            "min_principal_cosine": 0.47395554184913635,
+            "principal_cosines": [
+              0.980800449848175,
+              0.9434311985969543,
+              0.7182245850563049,
+              0.47395554184913635
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.54834270477295,
+          "optimal_svd_energy_fraction_k2": 0.39556199312210083,
+          "optimal_svd_energy_fraction_k4": 0.6417705416679382,
+          "optimal_svd_energy_fraction_k8": 0.9045546650886536,
+          "stable_rank": 4.066965579986572
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08295396050884003,
+      "seed": 60408
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08538761830992884,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "qr_p4": {
+          "nmse": 0.08326864066675504,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "random_p2": {
+          "nmse": 0.08793330548751045,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p4": {
+          "nmse": 0.08599665855455194,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p2": {
+          "nmse": 0.08288047814831145,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "svd_p4": {
+          "nmse": 0.08042225025809258,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.2646159529685974,
+              "shifted_validation": 0.24424202740192413
+            },
+            "k4": {
+              "calibration": 0.5315720438957214,
+              "shifted_validation": 0.49006789922714233
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.020738815888762474,
+              "shifted_validation": 0.021906474605202675
+            },
+            "k4": {
+              "calibration": 0.05826028808951378,
+              "shifted_validation": 0.057670995593070984
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.40897801518440247,
+              "shifted_validation": 0.3869175314903259
+            },
+            "k4": {
+              "calibration": 0.64517742395401,
+              "shifted_validation": 0.595870852470398
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.35506319999694824,
+            "min_principal_cosine": 0.4406264126300812,
+            "principal_cosines": [
+              0.7183138132095337,
+              0.4406264126300812
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.6255293488502502,
+            "min_principal_cosine": 0.13329708576202393,
+            "principal_cosines": [
+              0.9842890501022339,
+              0.94422447681427,
+              0.7899141907691956,
+              0.13329708576202393
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.103806495666504,
+          "optimal_svd_energy_fraction_k2": 0.40897810459136963,
+          "optimal_svd_energy_fraction_k4": 0.6451773643493652,
+          "optimal_svd_energy_fraction_k8": 0.9170849919319153,
+          "stable_rank": 4.1905388832092285
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08873895963395675,
+      "seed": 60409
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08585528283403841,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "qr_p4": {
+          "nmse": 0.08399321867023327,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "random_p2": {
+          "nmse": 0.08404994877296773,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "random_p4": {
+          "nmse": 0.08351146261279381,
+          "validation_accuracy": 0.9666666388511658
+        },
+        "svd_p2": {
+          "nmse": 0.08485490581509193,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p4": {
+          "nmse": 0.08486285589292139,
+          "validation_accuracy": 0.970370352268219
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.2722502052783966,
+              "shifted_validation": 0.26390284299850464
+            },
+            "k4": {
+              "calibration": 0.4506807029247284,
+              "shifted_validation": 0.4375231862068176
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.029110586270689964,
+              "shifted_validation": 0.027719661593437195
+            },
+            "k4": {
+              "calibration": 0.061539724469184875,
+              "shifted_validation": 0.0587598942220211
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4162009060382843,
+              "shifted_validation": 0.379375159740448
+            },
+            "k4": {
+              "calibration": 0.6433512568473816,
+              "shifted_validation": 0.6017977595329285
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.3751251697540283,
+            "min_principal_cosine": 0.19272249937057495,
+            "principal_cosines": [
+              0.8444574475288391,
+              0.19272249937057495
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.6225234866142273,
+            "min_principal_cosine": 0.2252950519323349,
+            "principal_cosines": [
+              0.9479154944419861,
+              0.9294946193695068,
+              0.8226979374885559,
+              0.2252950519323349
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.470489501953125,
+          "optimal_svd_energy_fraction_k2": 0.41620081663131714,
+          "optimal_svd_energy_fraction_k4": 0.6433514356613159,
+          "optimal_svd_energy_fraction_k8": 0.9017099142074585,
+          "stable_rank": 3.8694159984588623
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08428353978567193,
+      "seed": 60410
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07775020081590088,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "qr_p4": {
+          "nmse": 0.08032036160180187,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "random_p2": {
+          "nmse": 0.07897022039998579,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p4": {
+          "nmse": 0.07814533636650454,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "svd_p2": {
+          "nmse": 0.08097189676215298,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p4": {
+          "nmse": 0.07941922084617113,
+          "validation_accuracy": 0.9481481313705444
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.2076822817325592,
+              "shifted_validation": 0.19857025146484375
+            },
+            "k4": {
+              "calibration": 0.4799807667732239,
+              "shifted_validation": 0.4380798935890198
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.03653545305132866,
+              "shifted_validation": 0.033490728586912155
+            },
+            "k4": {
+              "calibration": 0.06219577044248581,
+              "shifted_validation": 0.056130360811948776
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.3695431053638458,
+              "shifted_validation": 0.32660892605781555
+            },
+            "k4": {
+              "calibration": 0.6160895824432373,
+              "shifted_validation": 0.5915701389312744
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.10729415714740753,
+            "min_principal_cosine": 0.24441280961036682,
+            "principal_cosines": [
+              0.39351072907447815,
+              0.24441280961036682
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.6111975312232971,
+            "min_principal_cosine": 0.23335883021354675,
+            "principal_cosines": [
+              0.9778665900230408,
+              0.9484025239944458,
+              0.7311931848526001,
+              0.23335883021354675
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 11.105096817016602,
+          "optimal_svd_energy_fraction_k2": 0.3695429563522339,
+          "optimal_svd_energy_fraction_k4": 0.6160894632339478,
+          "optimal_svd_energy_fraction_k8": 0.8896250128746033,
+          "stable_rank": 4.833553314208984
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07879644520921476,
+      "seed": 60411
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.0776615821186311,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "qr_p4": {
+          "nmse": 0.0728191913753452,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "random_p2": {
+          "nmse": 0.07965707217043791,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "random_p4": {
+          "nmse": 0.07886393664964769,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "svd_p2": {
+          "nmse": 0.0745492993958077,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p4": {
+          "nmse": 0.06972449997935588,
+          "validation_accuracy": 0.9666666388511658
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.3113171458244324,
+              "shifted_validation": 0.2773774266242981
+            },
+            "k4": {
+              "calibration": 0.5294399857521057,
+              "shifted_validation": 0.49798065423965454
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.03374628722667694,
+              "shifted_validation": 0.02913839742541313
+            },
+            "k4": {
+              "calibration": 0.08097032457590103,
+              "shifted_validation": 0.07709669321775436
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.409409761428833,
+              "shifted_validation": 0.3842960000038147
+            },
+            "k4": {
+              "calibration": 0.6560805439949036,
+              "shifted_validation": 0.6342684030532837
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.40680694580078125,
+            "min_principal_cosine": 0.18303829431533813,
+            "principal_cosines": [
+              0.8832388520240784,
+              0.18303829431533813
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.628553032875061,
+            "min_principal_cosine": 0.2188294231891632,
+            "principal_cosines": [
+              0.9817134141921997,
+              0.9448337554931641,
+              0.7809313535690308,
+              0.2188294231891632
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.209646224975586,
+          "optimal_svd_energy_fraction_k2": 0.40940970182418823,
+          "optimal_svd_energy_fraction_k4": 0.6560803651809692,
+          "optimal_svd_energy_fraction_k8": 0.9068588018417358,
+          "stable_rank": 4.5950236320495605
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08030215590980627,
+      "seed": 60412
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07390784253112968,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "qr_p4": {
+          "nmse": 0.0714218182837895,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p2": {
+          "nmse": 0.07700993168264111,
+          "validation_accuracy": 0.9592592716217041
+        },
+        "random_p4": {
+          "nmse": 0.07509926991029954,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p2": {
+          "nmse": 0.0731574734483286,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "svd_p4": {
+          "nmse": 0.07195360537201159,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.2650497853755951,
+              "shifted_validation": 0.2413138747215271
+            },
+            "k4": {
+              "calibration": 0.5731640458106995,
+              "shifted_validation": 0.5019817352294922
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.028509147465229034,
+              "shifted_validation": 0.026262199506163597
+            },
+            "k4": {
+              "calibration": 0.07120383530855179,
+              "shifted_validation": 0.06827940791845322
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4248085618019104,
+              "shifted_validation": 0.3497895300388336
+            },
+            "k4": {
+              "calibration": 0.6830236911773682,
+              "shifted_validation": 0.6277700662612915
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.4071335196495056,
+            "min_principal_cosine": 0.02547810971736908,
+            "principal_cosines": [
+              0.9020076990127563,
+              0.02547810971736908
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.6848723888397217,
+            "min_principal_cosine": 0.4203316569328308,
+            "principal_cosines": [
+              0.9859402775764465,
+              0.9687187671661377,
+              0.8076611161231995,
+              0.4203316569328308
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 9.781816482543945,
+          "optimal_svd_energy_fraction_k2": 0.424808531999588,
+          "optimal_svd_energy_fraction_k4": 0.6830236911773682,
+          "optimal_svd_energy_fraction_k8": 0.9125663042068481,
+          "stable_rank": 3.8826117515563965
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07720327645790148,
+      "seed": 60413
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.08327384711694368,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "qr_p4": {
+          "nmse": 0.0832399263940017,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p2": {
+          "nmse": 0.08603922768934862,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "random_p4": {
+          "nmse": 0.08518557973767944,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p2": {
+          "nmse": 0.08259756154417694,
+          "validation_accuracy": 0.9629629850387573
+        },
+        "svd_p4": {
+          "nmse": 0.08063605118197627,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.26883256435394287,
+              "shifted_validation": 0.2484707087278366
+            },
+            "k4": {
+              "calibration": 0.4897531569004059,
+              "shifted_validation": 0.46904101967811584
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.02544865384697914,
+              "shifted_validation": 0.02268514409661293
+            },
+            "k4": {
+              "calibration": 0.04672013595700264,
+              "shifted_validation": 0.04423259571194649
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.3960866332054138,
+              "shifted_validation": 0.40113919973373413
+            },
+            "k4": {
+              "calibration": 0.6916903853416443,
+              "shifted_validation": 0.687512218952179
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.381536602973938,
+            "min_principal_cosine": 0.2956850230693817,
+            "principal_cosines": [
+              0.8219754099845886,
+              0.2956850230693817
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.5594742298126221,
+            "min_principal_cosine": 0.29403236508369446,
+            "principal_cosines": [
+              0.9611542820930481,
+              0.8856911063194275,
+              0.6657142639160156,
+              0.29403236508369446
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.040390968322754,
+          "optimal_svd_energy_fraction_k2": 0.3960866630077362,
+          "optimal_svd_energy_fraction_k4": 0.69169020652771,
+          "optimal_svd_energy_fraction_k8": 0.9143271446228027,
+          "stable_rank": 4.445239543914795
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.08735992919818975,
+      "seed": 60414
+    },
+    {
+      "conditions": {
+        "qr_p2": {
+          "nmse": 0.07760612228846284,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "qr_p4": {
+          "nmse": 0.07398203396858363,
+          "validation_accuracy": 0.9518518447875977
+        },
+        "random_p2": {
+          "nmse": 0.07829368763436083,
+          "validation_accuracy": 0.9444444179534912
+        },
+        "random_p4": {
+          "nmse": 0.0776561990398154,
+          "validation_accuracy": 0.9481481313705444
+        },
+        "svd_p2": {
+          "nmse": 0.07562681187915368,
+          "validation_accuracy": 0.9555555582046509
+        },
+        "svd_p4": {
+          "nmse": 0.07640824019680025,
+          "validation_accuracy": 0.9555555582046509
+        }
+      },
+      "diagnostics": {
+        "energy_capture": {
+          "qr": {
+            "k2": {
+              "calibration": 0.2846468389034271,
+              "shifted_validation": 0.2565840780735016
+            },
+            "k4": {
+              "calibration": 0.5117095112800598,
+              "shifted_validation": 0.4847753345966339
+            }
+          },
+          "random": {
+            "k2": {
+              "calibration": 0.05480387806892395,
+              "shifted_validation": 0.05402442440390587
+            },
+            "k4": {
+              "calibration": 0.07786915451288223,
+              "shifted_validation": 0.08117111027240753
+            }
+          },
+          "svd": {
+            "k2": {
+              "calibration": 0.4259134531021118,
+              "shifted_validation": 0.3823543190956116
+            },
+            "k4": {
+              "calibration": 0.6488367319107056,
+              "shifted_validation": 0.607668399810791
+            }
+          }
+        },
+        "qr_to_svd_alignment": {
+          "k2": {
+            "mean_squared_principal_cosine": 0.5472889542579651,
+            "min_principal_cosine": 0.5803058743476868,
+            "principal_cosines": [
+              0.8705303072929382,
+              0.5803058743476868
+            ]
+          },
+          "k4": {
+            "mean_squared_principal_cosine": 0.61015385389328,
+            "min_principal_cosine": 0.25581756234169006,
+            "principal_cosines": [
+              0.9775477051734924,
+              0.9243866205215454,
+              0.7517198324203491,
+              0.25581756234169006
+            ]
+          }
+        },
+        "spectrum": {
+          "entropy_effective_rank": 10.426148414611816,
+          "optimal_svd_energy_fraction_k2": 0.42591342329978943,
+          "optimal_svd_energy_fraction_k4": 0.6488363742828369,
+          "optimal_svd_energy_fraction_k8": 0.8935513496398926,
+          "stable_rank": 3.660013437271118
+        }
+      },
+      "eligible": true,
+      "frozen_nmse": 0.07939650364726132,
+      "seed": 60415
+    }
+  ]
+}
