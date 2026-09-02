@@ -1,0 +1,148 @@
+{
+  "rows": [
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08280452485929105,
+      "p2_nmse": 0.08274949045853712,
+      "p2_validation_accuracy": 0.970370352268219,
+      "p4_nmse": 0.08077783189505586,
+      "p4_validation_accuracy": 0.9740740656852722,
+      "seed": 61400
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08921917806954696,
+      "p2_nmse": 0.0916049615315156,
+      "p2_validation_accuracy": 0.9555555582046509,
+      "p4_nmse": 0.08834833284451203,
+      "p4_validation_accuracy": 0.9592592716217041,
+      "seed": 61401
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07458619303208223,
+      "p2_nmse": 0.07388519663124479,
+      "p2_validation_accuracy": 0.9481481313705444,
+      "p4_nmse": 0.07609887025433595,
+      "p4_validation_accuracy": 0.9481481313705444,
+      "seed": 61402
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07617384009124799,
+      "p2_nmse": 0.07933759919886679,
+      "p2_validation_accuracy": 0.9481481313705444,
+      "p4_nmse": 0.07724446571269816,
+      "p4_validation_accuracy": 0.9481481313705444,
+      "seed": 61403
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08012766813991572,
+      "p2_nmse": 0.0786355583535955,
+      "p2_validation_accuracy": 0.9555555582046509,
+      "p4_nmse": 0.0800415995705755,
+      "p4_validation_accuracy": 0.9592592716217041,
+      "seed": 61404
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.0711312864508225,
+      "p2_nmse": 0.07244453575862587,
+      "p2_validation_accuracy": 0.9629629850387573,
+      "p4_nmse": 0.0744210455060312,
+      "p4_validation_accuracy": 0.9666666388511658,
+      "seed": 61405
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08013180474065806,
+      "p2_nmse": 0.07713715902385093,
+      "p2_validation_accuracy": 0.9518518447875977,
+      "p4_nmse": 0.07448079303860726,
+      "p4_validation_accuracy": 0.9629629850387573,
+      "seed": 61406
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.06640860588965175,
+      "p2_nmse": 0.06274477954518125,
+      "p2_validation_accuracy": 0.9518518447875977,
+      "p4_nmse": 0.06101010648448172,
+      "p4_validation_accuracy": 0.9518518447875977,
+      "seed": 61407
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07714183268631712,
+      "p2_nmse": 0.07855409845392959,
+      "p2_validation_accuracy": 0.9481481313705444,
+      "p4_nmse": 0.07759134701118063,
+      "p4_validation_accuracy": 0.9592592716217041,
+      "seed": 61408
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07913407999405925,
+      "p2_nmse": 0.0748263081510166,
+      "p2_validation_accuracy": 0.9555555582046509,
+      "p4_nmse": 0.07535008922091525,
+      "p4_validation_accuracy": 0.9555555582046509,
+      "seed": 61409
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07619344151167784,
+      "p2_nmse": 0.07564326871916245,
+      "p2_validation_accuracy": 0.9444444179534912,
+      "p4_nmse": 0.07253638383351813,
+      "p4_validation_accuracy": 0.9444444179534912,
+      "seed": 61410
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.06919534176325091,
+      "p2_nmse": 0.069946452438097,
+      "p2_validation_accuracy": 0.9555555582046509,
+      "p4_nmse": 0.06861649172263083,
+      "p4_validation_accuracy": 0.9592592716217041,
+      "seed": 61411
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07518736165077029,
+      "p2_nmse": 0.07566703296214791,
+      "p2_validation_accuracy": 0.9518518447875977,
+      "p4_nmse": 0.07551931871654712,
+      "p4_validation_accuracy": 0.9518518447875977,
+      "seed": 61412
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08171231593137607,
+      "p2_nmse": 0.0829335506944945,
+      "p2_validation_accuracy": 0.9666666388511658,
+      "p4_nmse": 0.07867604234843519,
+      "p4_validation_accuracy": 0.9666666388511658,
+      "seed": 61413
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.07465476180961471,
+      "p2_nmse": 0.07683079118997875,
+      "p2_validation_accuracy": 0.9481481313705444,
+      "p4_nmse": 0.07977376329324236,
+      "p4_validation_accuracy": 0.9629629850387573,
+      "seed": 61414
+    },
+    {
+      "eligible": true,
+      "frozen_nmse": 0.08473972857004004,
+      "p2_nmse": 0.08175918938998493,
+      "p2_validation_accuracy": 0.9592592716217041,
+      "p4_nmse": 0.08242002271294531,
+      "p4_validation_accuracy": 0.9629629850387573,
+      "seed": 61415
+    }
+  ]
+}
