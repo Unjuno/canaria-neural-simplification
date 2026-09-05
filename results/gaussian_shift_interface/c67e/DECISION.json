@@ -1,0 +1,527 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 3582014758,
+  "confirmatory_claim_allowed": false,
+  "decision": "STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_36",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    65400,
+    65401,
+    65402,
+    65403,
+    65404,
+    65405,
+    65406,
+    65407,
+    65408,
+    65409,
+    65410,
+    65411,
+    65412,
+    65413,
+    65414,
+    65415
+  ],
+  "experiment": "C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+  "interpretation_boundary": [
+    "C67E is exploratory; any selected sigma is only a grid candidate and requires separate fresh C68R confirmation.",
+    "A validity-boundary decision means teacher/reference degradation occurred before an interpretable P0 frontier was established; it must not be relabeled as P0 failure.",
+    "The teacher-drop and P2-to-teacher margins are preregistered interpretability safeguards, not universal task-quality constants.",
+    "The common standardized Gaussian direction across sigma is a variance-reduction device and does not make independent shifts equivalent.",
+    "This is Residual-MLP evidence and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "ordered_sigmas": [
+    0.2,
+    0.28,
+    0.36,
+    0.44,
+    0.52,
+    0.6
+  ],
+  "p0_joint_pass_pattern": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "selected_sigma_for_confirmation": null,
+  "severity_curve": {
+    "0.20": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.128400784293614,
+          "mean": 0.12117463552825905,
+          "median": 0.12359416213823676,
+          "min": 0.10517579712131317
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3181535601615906,
+          "mean": 0.25015184096992016,
+          "median": 0.23168447613716125,
+          "min": 0.18362826108932495
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.2622627019882202,
+          "mean": 0.7896433919668198,
+          "median": 0.7468318045139313,
+          "min": 0.5689830780029297
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7832574248313904,
+          "mean": 0.6861817762255669,
+          "median": 0.6989396810531616,
+          "min": 0.6125138998031616
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0120602704916128,
+          1.0436847407812804
+        ],
+        "geometric_mean_p0_over_p2": 1.0281267235666938,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -2.8703704476356506,
+          -1.7361119389533997
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -2.3148149251937866,
+        "p2_accuracy_mean": 0.8925925903022289,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.9157407395541668
+      },
+      "sigma": 0.2,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -6.805556267499924,
+          -5.949075520038605
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -6.388889625668526,
+        "pass": true,
+        "shifted_accuracy_mean": 0.9157407395541668
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.011342588812112808,
+          0.001620367169380188
+        ],
+        "bootstrap95_pp": [
+          -1.1342588812112808,
+          0.1620367169380188
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0046296268701553345,
+        "mean_difference_pp": -0.46296268701553345,
+        "pass": true
+      },
+      "validity_pass": true
+    },
+    "0.28": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.17303966369988155,
+          "mean": 0.1622013783604872,
+          "median": 0.16497845818466314,
+          "min": 0.14356528543573488
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.34166404604911804,
+          "mean": 0.2612263485789299,
+          "median": 0.2603328824043274,
+          "min": 0.2142200917005539
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.0791491270065308,
+          "mean": 0.8360633812844753,
+          "median": 0.827612042427063,
+          "min": 0.6360177397727966
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7559105753898621,
+          "mean": 0.6690117307007313,
+          "median": 0.6610897481441498,
+          "min": 0.5699671506881714
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0088230144986103,
+          1.033975996940646
+        ],
+        "geometric_mean_p0_over_p2": 1.0212855533102811,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -3.0324075371026993,
+          -1.226852461695671
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -2.152778208255768,
+        "p2_accuracy_mean": 0.8004629537463188,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.8219907358288765
+      },
+      "sigma": 0.28,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -16.967594251036644,
+          -14.606481790542603
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -15.763889998197556,
+        "pass": true,
+        "shifted_accuracy_mean": 0.8219907358288765
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.006481476128101349,
+          0.003472220152616501
+        ],
+        "bootstrap95_pp": [
+          -0.6481476128101349,
+          0.3472220152616501
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.001620367169380188,
+        "mean_difference_pp": -0.1620367169380188,
+        "pass": true
+      },
+      "validity_pass": true
+    },
+    "0.36": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.22450798009407782,
+          "mean": 0.20742520271212878,
+          "median": 0.20743577461486784,
+          "min": 0.1884875974965489
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3546839654445648,
+          "mean": 0.26076237205415964,
+          "median": 0.25130879133939743,
+          "min": 0.19501537084579468
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 0.9731757044792175,
+          "mean": 0.8158408105373383,
+          "median": 0.8303442895412445,
+          "min": 0.6061155200004578
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7855052947998047,
+          "mean": 0.6710187196731567,
+          "median": 0.6681218445301056,
+          "min": 0.5427953004837036
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0150397826559237,
+          1.0389100712166766
+        ],
+        "geometric_mean_p0_over_p2": 1.0265907683920485,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -4.166665300726891,
+          -2.384258434176445
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -3.287035971879959,
+        "p2_accuracy_mean": 0.670370377600193,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.7032407373189926
+      },
+      "sigma": 0.36,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -29.51389066874981,
+          -25.833334401249886
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -27.638889849185944,
+        "pass": false,
+        "shifted_accuracy_mean": 0.7032407373189926
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.008333347737789154,
+          0.013657402247190475
+        ],
+        "bootstrap95_pp": [
+          -0.8333347737789154,
+          1.3657402247190475
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": 0.002083323895931244,
+        "mean_difference_pp": 0.2083323895931244,
+        "pass": true
+      },
+      "validity_pass": false
+    },
+    "0.44": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.28581675203419,
+          "mean": 0.2532307008605599,
+          "median": 0.24958275946167452,
+          "min": 0.23075681412141835
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.36606815457344055,
+          "mean": 0.255502593703568,
+          "median": 0.2457972839474678,
+          "min": 0.18161457777023315
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 0.9357287287712097,
+          "mean": 0.7351685650646687,
+          "median": 0.7217606604099274,
+          "min": 0.5856607556343079
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7974827885627747,
+          "mean": 0.6821587570011616,
+          "median": 0.6817440688610077,
+          "min": 0.5300909876823425
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.031709402433013,
+          1.0677134529182344
+        ],
+        "geometric_mean_p0_over_p2": 1.0484982512865233,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -4.51388955116272,
+          -1.8518511205911636
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -3.12500037252903,
+        "p2_accuracy_mean": 0.5460648145526648,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.577314818277955
+      },
+      "sigma": 0.44,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -42.199074663221836,
+          -38.37963007390499
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -40.2314817532897,
+        "pass": false,
+        "shifted_accuracy_mean": 0.577314818277955
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.009722214192152023,
+          0.012500010430812836
+        ],
+        "bootstrap95_pp": [
+          -0.9722214192152023,
+          1.2500010430812836
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": 0.0009259320795536041,
+        "mean_difference_pp": 0.09259320795536041,
+        "pass": true
+      },
+      "validity_pass": false
+    },
+    "0.52": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.34872684386313746,
+          "mean": 0.29731426349402906,
+          "median": 0.29184307064429815,
+          "min": 0.2666671531539042
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3625646233558655,
+          "mean": 0.2587734442204237,
+          "median": 0.25457780063152313,
+          "min": 0.17196722328662872
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 0.8927800059318542,
+          "mean": 0.7168007083237171,
+          "median": 0.7324624359607697,
+          "min": 0.5941039323806763
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7931925058364868,
+          "mean": 0.6790822148323059,
+          "median": 0.674218624830246,
+          "min": 0.5382799506187439
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0481887177710543,
+          1.0880504532112083
+        ],
+        "geometric_mean_p0_over_p2": 1.0682691762388359,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -3.888889029622078,
+          -1.5046292915940285
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -2.638889104127884,
+        "p2_accuracy_mean": 0.4497685208916664,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.47615741193294525
+      },
+      "sigma": 0.52,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -52.15277802199125,
+          -48.472222685813904
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -50.34722238779068,
+        "pass": false,
+        "shifted_accuracy_mean": 0.47615741193294525
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.01018519327044487,
+          0.012499993667006493
+        ],
+        "bootstrap95_pp": [
+          -1.018519327044487,
+          1.2499993667006493
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": 0.0009259209036827087,
+        "mean_difference_pp": 0.09259209036827087,
+        "pass": true
+      },
+      "validity_pass": false
+    },
+    "0.60": {
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.4043726935197667,
+          "mean": 0.3379756521173962,
+          "median": 0.3295706198863352,
+          "min": 0.29737048019738577
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.36300942301750183,
+          "mean": 0.27133658435195684,
+          "median": 0.26893891394138336,
+          "min": 0.16629812121391296
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 0.8444196581840515,
+          "mean": 0.6799888573586941,
+          "median": 0.6459916830062866,
+          "min": 0.5342161655426025
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7973543405532837,
+          "mean": 0.6609859690070152,
+          "median": 0.660468727350235,
+          "min": 0.5518909096717834
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0614685906814487,
+          1.1155756016430742
+        ],
+        "geometric_mean_p0_over_p2": 1.0897118233161978,
+        "margin": 1.25,
+        "pass": true
+      },
+      "p0_joint_pass": true,
+      "p2_reference_validity": {
+        "gap_bootstrap95_pp": [
+          -3.47222201526165,
+          -1.5509255230426788
+        ],
+        "margin_pp": -5.0,
+        "mean_gap_p2_minus_teacher_pp": -2.4768516421318054,
+        "p2_accuracy_mean": 0.37847222201526165,
+        "pass": true,
+        "shifted_teacher_accuracy_mean": 0.4032407384365797
+      },
+      "sigma": 0.6,
+      "teacher_task_validity": {
+        "clean_accuracy_mean": 0.979629635810852,
+        "drop_bootstrap95_pp": [
+          -59.328704699873924,
+          -55.97222354263067
+        ],
+        "margin_pp": -20.0,
+        "mean_drop_pp": -57.638889737427235,
+        "pass": false,
+        "shifted_accuracy_mean": 0.4032407384365797
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.0004629548639059067,
+          0.020370371639728546
+        ],
+        "bootstrap95_pp": [
+          -0.04629548639059067,
+          2.0370371639728546
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": 0.009722225368022919,
+        "mean_difference_pp": 0.9722225368022919,
+        "pass": true
+      },
+      "validity_pass": false
+    }
+  },
+  "validity_boundary_sigma": 0.36,
+  "validity_pass_pattern": [
+    true,
+    true,
+    false,
+    false,
+    false,
+    false
+  ]
+}

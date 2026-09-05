@@ -1,0 +1,163 @@
+name: c67e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c67e-extended-shift-severity-frontier
+    paths:
+      - '.github/workflows/c67e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [65400, 65401, 65402, 65403, 65404, 65405, 65406, 65407, 65408, 65409, 65410, 65411, 65412, 65413, 65414, 65415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh extended-severity seed
+        run: |
+          mkdir -p c67e-seed
+          python scripts/gaussian_shift_interface/run_c67e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c67e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh extended-severity provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c67e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['eligible'] is True
+          assert r['protocol']['sigmas'] == [0.20, 0.28, 0.36, 0.44, 0.52, 0.60]
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['conditions'] == ['p0', 'p2']
+          assert r['protocol']['common_calibration_epsilon_seed'] == seed + 670100
+          assert r['protocol']['common_validation_epsilon_seed'] == seed + 670200
+          assert r['protocol']['p2_top_adaptation_seed'] == seed + 675000
+          assert r['protocol']['final_init_seed'] == seed + 676000
+          assert r['protocol']['final_fit_seed'] == seed + 677000
+          assert r['budget']['exact_4096_each_level'] is True
+          for key in ('0.20','0.28','0.36','0.44','0.52','0.60'):
+              rec = r['sigma_results'][key]
+              assert rec['p0']['dimension'] == 0
+              assert rec['p0']['teacher_correction_applied'] is False
+              assert rec['p0']['top_boundary_adaptation_skipped'] is True
+              assert rec['p2']['dimension'] == 2
+              assert rec['p2']['teacher_correction_applied'] is True
+              assert rec['p2']['top_boundary_adaptation_skipped'] is False
+              assert r['provenance_hashes']['per_sigma'][key]['shifted_calibration_tensor_sha256']
+              assert r['provenance_hashes']['per_sigma'][key]['shifted_validation_tensor_sha256']
+              assert r['provenance_hashes']['per_sigma'][key]['nested_q2_sha256']
+              for p in ('p0','p2'):
+                  assert math.isfinite(float(rec[p]['final_replacement_val_acc']))
+                  assert math.isfinite(float(rec[p]['final_nmse_vs_original']))
+                  assert float(rec[p]['final_nmse_vs_original']) > 0.0
+              for mkey, value in rec['mechanism'].items():
+                  assert math.isfinite(float(value)), (key, mkey, value)
+          print('C67E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c67e-seed-${{ matrix.seed }}
+          path: c67e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-extended-severity-frontier-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c67e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(65400, 65416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c67e-aggregate').mkdir(exist_ok=True)
+          Path('c67e-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked extended-frontier decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c67e.py \
+            c67e-aggregate/rows.json \
+            --out c67e-aggregate/decision.json
+          cat c67e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c67e-aggregate/decision.json').read_text())
+          allowed = {
+              'STOP_INSUFFICIENT_ELIGIBLE',
+              'STOP_C66R_ANCHOR_VALIDITY_INSTABILITY',
+              'STOP_C66R_ANCHOR_P0_INSTABILITY',
+              'STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_28',
+              'STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_36',
+              'STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_44',
+              'STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_52',
+              'STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_60',
+              'STOP_NONMONOTONIC_P0_FRONTIER',
+              'NO_P0_FAILURE_THROUGH_SIGMA_0_60',
+              'SELECT_SIGMA_0_28_FOR_C68R',
+              'SELECT_SIGMA_0_36_FOR_C68R',
+              'SELECT_SIGMA_0_44_FOR_C68R',
+              'SELECT_SIGMA_0_52_FOR_C68R',
+              'SELECT_SIGMA_0_60_FOR_C68R',
+          }
+          assert d['decision'] in allowed, d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          print('C67E TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c67e-aggregate-decision
+          path: c67e-aggregate/
+          if-no-files-found: error
+          retention-days: 90

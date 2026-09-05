@@ -1,0 +1,90 @@
+name: c67e-preflight
+
+on:
+  push:
+    branches:
+      - research/c67e-extended-shift-severity-frontier
+    paths:
+      - '.github/workflows/c67e-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c67e_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c67e.py'
+      - 'tests/test_c67e_evaluator.py'
+      - 'results/gaussian_shift_interface/c67e/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c67e_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c67e.py
+          python -m unittest tests.test_c67e_evaluator -v
+      - name: Run implementation verification seed 65300
+        run: |
+          mkdir -p c67e-preflight
+          python scripts/gaussian_shift_interface/run_c67e_seed.py \
+            --seed 65300 \
+            --allow-verification-seed \
+            --out c67e-preflight/seed_65300.json
+      - name: Verify locked extended-severity invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          r = json.loads(Path('c67e-preflight/seed_65300.json').read_text())
+          assert r['experiment'] == 'C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert r['protocol']['sigmas'] == [0.20, 0.28, 0.36, 0.44, 0.52, 0.60]
+          assert r['protocol']['calibration_samples'] == 192
+          assert r['protocol']['conditions'] == ['p0', 'p2']
+          assert r['protocol']['common_calibration_epsilon_seed'] == 65300 + 670100
+          assert r['protocol']['common_validation_epsilon_seed'] == 65300 + 670200
+          assert r['protocol']['p2_top_adaptation_seed'] == 65300 + 675000
+          assert r['protocol']['final_init_seed'] == 65300 + 676000
+          assert r['protocol']['final_fit_seed'] == 65300 + 677000
+          assert r['budget']['exact_4096_each_level'] is True
+          assert r['provenance_hashes']['calibration_standard_normal_sha256']
+          assert r['provenance_hashes']['validation_standard_normal_sha256']
+          for key in ('0.20','0.28','0.36','0.44','0.52','0.60'):
+              rec = r['sigma_results'][key]
+              assert abs(rec['sigma'] - float(key)) < 1e-12
+              assert rec['p0']['dimension'] == 0
+              assert rec['p0']['teacher_correction_applied'] is False
+              assert rec['p0']['top_boundary_adaptation_skipped'] is True
+              assert rec['p2']['dimension'] == 2
+              assert rec['p2']['teacher_correction_applied'] is True
+              assert rec['p2']['top_boundary_adaptation_skipped'] is False
+              assert r['provenance_hashes']['per_sigma'][key]['shifted_calibration_tensor_sha256']
+              assert r['provenance_hashes']['per_sigma'][key]['shifted_validation_tensor_sha256']
+              assert r['provenance_hashes']['per_sigma'][key]['nested_q2_sha256']
+              for p in ('p0','p2'):
+                  assert math.isfinite(float(rec[p]['final_replacement_val_acc']))
+                  assert math.isfinite(float(rec[p]['final_nmse_vs_original']))
+                  assert float(rec[p]['final_nmse_vs_original']) > 0.0
+              for mkey, value in rec['mechanism'].items():
+                  assert math.isfinite(float(value)), (key, mkey, value)
+              for mkey in ('frozen_hierarchy_activation_nmse_vs_teacher','p2_euclidean_capture_fraction','p2_logit_l2_retained_ratio','p2_fisher_retained_ratio'):
+                  assert float(rec['mechanism'][mkey]) >= 0.0
+          print('C67E PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c67e-preflight-seed-65300
+          path: c67e-preflight/seed_65300.json
+          if-no-files-found: error
+          retention-days: 90

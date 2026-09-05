@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "experiment": "C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "naming_boundary": {
+    "why_not_c67r_confirmation": "C66R selected no sigma for confirmation, so this is a new exploratory extension rather than the preplanned selected-sigma C67R confirmation.",
+    "next_confirmation_name_if_candidate_selected": "C68R"
+  },
+  "relationship": {
+    "follows": "C66R_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+    "parent_decision": "NO_P0_FAILURE_THROUGH_SIGMA_0_20",
+    "architecture_line": "C61R-C67E Residual-MLP recursive hierarchy",
+    "not_imported_residual_cnn_line": true
+  },
+  "H": "If explicit P2 teacher-residual correction becomes functionally necessary under stronger Gaussian shift before the teacher/reference regime becomes scientifically uninterpretable, P0 will first fail the locked P0-versus-P2 non-inferiority gates at a severity above sigma=.20.",
+  "T": "Use fresh model seeds 65400-65415, a verification seed 65300, a common-random-number Gaussian severity grid .20/.28/.36/.44/.52/.60, P0 versus P2 only, the same calibration size and model construction as C66R, and prospectively locked task/reference-validity safeguards.",
+  "D": "Anchor sigma=.20 must reproduce joint P0 pass and validity. At higher sigmas, stop interpretation at the first validity failure. Before that boundary, a monotone first P0 joint failure selects that grid sigma for separate fresh C68R confirmation; nonmonotonic P0 pass/fail stops without selection; all valid grid points passing yields no selected sigma.",
+  "C": [
+    "P0 may remain non-inferior because P2 directions are not task-critical even under stronger shift.",
+    "The teacher may lose task performance before a P0-versus-P2 frontier appears.",
+    "P2 itself may cease to track the shifted teacher, making P0-versus-P2 non-inferiority a weak reference comparison.",
+    "A nonmonotonic pass/fail pattern may reflect optimization or finite-cohort variability rather than a scalar severity frontier."
+  ],
+  "U": [
+    "The sigma grid is discrete and cannot identify an exact continuous critical severity.",
+    "Common random numbers reduce between-sigma noise but do not represent all independent Gaussian perturbation directions.",
+    "Validity thresholds are preregistered interpretability safeguards, not universal task-quality constants.",
+    "Any selected sigma remains exploratory until a separate fresh confirmatory experiment."
+  ],
+  "fresh_model_seeds": [65400,65401,65402,65403,65404,65405,65406,65407,65408,65409,65410,65411,65412,65413,65414,65415],
+  "implementation_verification_seed": 65300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "architecture": {
+    "teacher": "repository Residual-MLP Net(d=64, depth=4)",
+    "base_recursive_hierarchy": "same C61R-C66R construction: four TinyRes(64,8) locals -> two retrained pairs -> two TinyRes(64,16) compressors -> Chain",
+    "compiled_replacement": "TinyRes(64,32)",
+    "teacher_epochs": 60,
+    "fit_updates": 600,
+    "torch_threads": 1,
+    "base_hierarchy_seed_rules": "unchanged C61R-C66R build_base_hierarchy rules"
+  },
+  "shift_severity_grid": {
+    "type": "additive_iid_gaussian_input_noise_with_common_standardized_direction_within_seed",
+    "sigmas": [0.20, 0.28, 0.36, 0.44, 0.52, 0.60],
+    "post_noise_clip": [0.0, 1.0],
+    "calibration_standard_normal_seed_rule": "model_seed + 670100",
+    "validation_standard_normal_seed_rule": "model_seed + 670200",
+    "construction": "for each model seed, draw one calibration epsilon~N(0,I) and one validation epsilon~N(0,I), then evaluate clip(X + sigma*epsilon,0,1) at every locked sigma",
+    "pairing": "P0/P2 and all sigma values within a model seed share the same standardized perturbation directions",
+    "anchor_reason": "sigma=.20 is repeated on a fresh cohort as a bridge to C66R before interpreting higher-severity points"
+  },
+  "calibration": {
+    "samples": 192,
+    "subset_rng_seed": 20260903,
+    "subset_rule": "same protocol-fixed clean-training subset rule as C61R-C66R",
+    "test_data_excluded": true
+  },
+  "conditions": {
+    "P0": "at each sigma, frozen base recursive hierarchy compiled directly on shifted calibration inputs; no teacher residual correction and no top-boundary adaptation",
+    "P2": "at each sigma, first 2 columns of canonical QR of shifted-calibration teacher residual transpose, then top-boundary adaptation to frozen_base_output + P2 residual projection",
+    "no_other_rescue_condition": true
+  },
+  "adaptation_and_compilation": {
+    "optimizer": "AdamW(lr=8e-3, weight_decay=1e-5)",
+    "updates": 600,
+    "batch_size": 128,
+    "p2_top_adaptation_seed_rule": "model_seed + 675000, shared across sigma within a model seed",
+    "compiled_final_init_seed_rule": "model_seed + 676000, shared across sigma within a model seed and P0/P2",
+    "compiled_final_fit_seed_rule": "model_seed + 677000, shared across sigma within a model seed and P0/P2"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_seed_if": "runner completes the entire locked sigma grid, exact recursive parameter-budget invariant holds, and all required P0/P2/teacher metrics at every sigma are finite with positive P0/P2 NMSE",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "per_sigma_p0_gates": {
+    "validation_noninferiority": {
+      "statistic": "paired P0 minus P2 shifted-validation accuracy",
+      "margin_percentage_points": -2.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -2.0 percentage points"
+    },
+    "nmse_ratio": {
+      "statistic": "geometric mean of paired P0/P2 NMSE ratios",
+      "margin": 1.25,
+      "pass": "paired percentile bootstrap 95% upper bound < 1.25"
+    },
+    "joint_pass": "both gates pass"
+  },
+  "interpretability_safeguards": {
+    "role": "prospectively stop frontier interpretation when teacher or P2 reference quality degrades too far; these thresholds are not universal performance claims",
+    "teacher_task_validity": {
+      "statistic": "paired shifted-teacher minus clean-teacher validation accuracy",
+      "margin_percentage_points": -20.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -20.0 percentage points"
+    },
+    "p2_reference_validity": {
+      "statistic": "paired P2 final-replacement validation accuracy minus shifted-teacher validation accuracy",
+      "margin_percentage_points": -5.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -5.0 percentage points"
+    },
+    "validity_pass": "both safeguards pass"
+  },
+  "prospective_frontier_decision": {
+    "ordered_sigmas": [0.20, 0.28, 0.36, 0.44, 0.52, 0.60],
+    "rules": [
+      "if sigma=.20 validity does not pass: STOP_C66R_ANCHOR_VALIDITY_INSTABILITY",
+      "else if sigma=.20 P0 joint gate does not pass: STOP_C66R_ANCHOR_P0_INSTABILITY",
+      "for higher sigmas, the first validity failure defines STOP_VALIDITY_BOUNDARY_AT_SIGMA_<value>; later sigmas are descriptive only and cannot select a frontier",
+      "within the contiguous validity-passing prefix, if P0 joint-pass becomes false and later validity-passing P0 points never recover, select the smallest failing sigma and return SELECT_SIGMA_<value>_FOR_C68R",
+      "if P0 recovers after a failure within the validity-passing prefix: STOP_NONMONOTONIC_P0_FRONTIER",
+      "if all six sigmas pass validity and P0 joint gates: NO_P0_FAILURE_THROUGH_SIGMA_0_60"
+    ],
+    "selected_sigma_requires_fresh_confirmation": true,
+    "confirmatory_claim_allowed": false
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile 95%; one common bootstrap index matrix reused across sigma and all gates",
+    "rng_seed": 3582014758,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION_V1') = d581352631c2aa8bee0fce6081a93bd5515a2b2019ea6ad13781c76e4bc59520"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_sigma_grid_changes": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_validity_threshold_changes": true,
+    "no_post_outcome_frontier_rule_changes": true,
+    "scope": "exact C67E Residual-MLP common-random-number Gaussian severity extension only",
+    "not_supported_even_if_frontier_found": [
+      "the selected grid sigma is the exact continuous critical sigma",
+      "P0 fails universally above that sigma",
+      "P2 is universally necessary above that sigma",
+      "validity thresholds are universal task-quality criteria",
+      "any statement about the imported Residual CNN C59/C60 line"
+    ]
+  }
+}
