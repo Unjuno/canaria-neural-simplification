@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment": "C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "architecture_line": "repository Residual-MLP teacher-validity repair; not imported Residual CNN C59/C60",
+  "protocol_lock": {
+    "commit": "78f382f9b8c4d469c54de4b5cc7741dc7e1e92c0",
+    "path": "results/gaussian_shift_interface/c68e/PROTOCOL.json",
+    "status": "LOCKED_BEFORE_OUTCOMES"
+  },
+  "preflight": {
+    "verification_seed": 66300,
+    "workflow_run_id": 33996038272,
+    "conclusion": "success",
+    "fresh_seeds_consumed_before_preflight_success": false
+  },
+  "fresh_execution": {
+    "workflow_run_id": 33996093724,
+    "workflow_name": "c68e-fresh-exploratory",
+    "workflow_head_sha": "7a3065eb652d3507cf8e02f0bd45e925be8c07ab",
+    "fresh_seeds": [66400,66401,66402,66403,66404,66405,66406,66407,66408,66409,66410,66411,66412,66413,66414,66415],
+    "seed_jobs_attempted": 16,
+    "seed_jobs_success": 16,
+    "integrity_assertions_passed": 16,
+    "held_out_test_used": false,
+    "aggregate_job_id": 101387038900,
+    "aggregate_job_conclusion": "success"
+  },
+  "aggregate_artifact": {
+    "artifact_id": 9978123173,
+    "zip_sha256": "0a3d83732c3329cc09c2ba4d62ab615adc60ebfcd7a2b4abcee3028c4e866e47",
+    "files": ["rows.json", "decision.json"],
+    "retention_days_at_creation": 90
+  },
+  "repository_persistence": {
+    "workflow_run_id": 33996216161,
+    "commit": "13bf29f7b2bfbb48637f69917e95f09e54b9b0fc",
+    "fresh_rows_path": "results/gaussian_shift_interface/c68e/FRESH_ROWS.json",
+    "decision_path": "results/gaussian_shift_interface/c68e/DECISION.json",
+    "persistence_method": "copied without alteration from aggregate artifact by c68e-persist-evidence workflow"
+  }
+}
