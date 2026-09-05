@@ -1,0 +1,82 @@
+name: c68e-preflight
+
+on:
+  push:
+    branches:
+      - research/c68e-teacher-validity-repair
+    paths:
+      - '.github/workflows/c68e-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c68e_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c68e.py'
+      - 'tests/test_c68e_evaluator.py'
+      - 'results/gaussian_shift_interface/c68e/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c68e_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c68e.py
+          python -m unittest tests.test_c68e_evaluator -v
+      - name: Run implementation verification seed 66300
+        run: |
+          mkdir -p c68e-preflight
+          python scripts/gaussian_shift_interface/run_c68e_seed.py \
+            --seed 66300 \
+            --allow-verification-seed \
+            --out c68e-preflight/seed_66300.json
+      - name: Verify locked teacher-repair invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          r = json.loads(Path('c68e-preflight/seed_66300.json').read_text())
+          assert r['experiment'] == 'C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert r['protocol']['epochs'] == 60
+          assert r['protocol']['batch_size'] == 64
+          assert r['protocol']['target_sigma'] == 0.36
+          assert r['protocol']['augmentation_fraction'] == 0.5
+          assert r['protocol']['permutation_seed'] == 66300 + 999
+          assert r['protocol']['augmentation_seed'] == 66300 + 680100
+          assert r['protocol']['validation_epsilon_seed'] == 66300 + 680200
+          assert r['training_provenance']['paired_initial_state_sha256']
+          frac = float(r['training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          assert r['provenance_hashes']['validation_standard_normal_sha256']
+          assert r['provenance_hashes']['shifted_validation_tensor_sha256']
+          assert r['provenance_hashes']['clean_teacher_final_state_sha256']
+          assert r['provenance_hashes']['augmented_teacher_final_state_sha256']
+          assert r['provenance_hashes']['clean_teacher_final_state_sha256'] != r['provenance_hashes']['augmented_teacher_final_state_sha256']
+          for key in (
+              'clean_teacher_clean_validation_accuracy',
+              'clean_teacher_shifted_validation_accuracy',
+              'augmented_teacher_clean_validation_accuracy',
+              'augmented_teacher_shifted_validation_accuracy',
+          ):
+              value = float(r['decision_row'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          print('C68E PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c68e-preflight-seed-66300
+          path: c68e-preflight/seed_66300.json
+          if-no-files-found: error
+          retention-days: 90
