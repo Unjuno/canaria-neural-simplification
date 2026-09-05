@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment": "C66R_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "architecture_line": "C61R-C66R Residual-MLP recursive hierarchy; not imported Residual CNN C59/C60",
+  "protocol_lock": {
+    "commit": "12c33e2decf5ff1358d0058257ba67aefed24eb6",
+    "path": "results/gaussian_shift_interface/c66r/PROTOCOL.json",
+    "status": "LOCKED_BEFORE_OUTCOMES"
+  },
+  "preflight": {
+    "verification_seed": 64300,
+    "workflow_run_id": 33665635523,
+    "conclusion": "success",
+    "fresh_seeds_consumed_before_preflight_success": false
+  },
+  "fresh_execution": {
+    "workflow_run_id": 33665852179,
+    "workflow_name": "c66r-fresh-exploratory",
+    "workflow_head_sha": "e8700fc7e1bcc94e0d9121bfd94bd70e9e3bbba8",
+    "fresh_seeds": [64400,64401,64402,64403,64404,64405,64406,64407,64408,64409,64410,64411,64412,64413,64414,64415],
+    "seed_jobs_attempted": 16,
+    "seed_jobs_success": 16,
+    "integrity_assertions_passed": 16,
+    "held_out_test_used": false,
+    "aggregate_job_id": 100368131980,
+    "aggregate_job_conclusion": "success"
+  },
+  "aggregate_artifact": {
+    "artifact_id": 9860613020,
+    "zip_sha256": "c9396ba95baba843875b3e424bd406977577e262d1cda7241a894b2ef1837fe0",
+    "files": ["rows.json", "decision.json"],
+    "retention_days_at_creation": 90
+  },
+  "seed_artifacts": [
+    {"seed":64400,"artifact_id":9860545247,"zip_sha256":"3ba25b501d6941c2548f0983112c87f245a954e2aa095d7c3ff95f5d64ac4b3d"},
+    {"seed":64401,"artifact_id":9860545292,"zip_sha256":"1c98c971460d068e0c5cb9bc48f4b8f4719255e8c4270ffb55672354166f919d"},
+    {"seed":64402,"artifact_id":9860545583,"zip_sha256":"4643f8b6d61c9f910357516198c395d4c286e58cdc927dd36cef03155187c76c"},
+    {"seed":64403,"artifact_id":9860545229,"zip_sha256":"9d6188fdd33aed171f2ba59a70d1d25a32b98553d407b4a337d19eee178e188b"},
+    {"seed":64404,"artifact_id":9860546389,"zip_sha256":"0fe91eedaf55403f0187da478ea05fd49356eb5d4123b51753f6ad924a23db3b"},
+    {"seed":64405,"artifact_id":9860546207,"zip_sha256":"5eea57ed2650704b16672df79f4f1b7eeb8ddb2074507ec4ecfff4ee06bfaaea"},
+    {"seed":64406,"artifact_id":9860546867,"zip_sha256":"ad342907da1798367c81acf093d47b0a5148d36955a4af9910cecbad2a1a5b08"},
+    {"seed":64407,"artifact_id":9860545761,"zip_sha256":"25afd0940a642e362cbb4361781e1b80083b7bf03d2dbcc605e59b6ebb8c8388"},
+    {"seed":64408,"artifact_id":9860603967,"zip_sha256":"323d5eef0b6b8fa3038054b3cb0d0310587d0086976487d4939ef6b0ac197b07"},
+    {"seed":64409,"artifact_id":9860583822,"zip_sha256":"48c49b2d9216aa762daacdf867cf859ab9c08a15c998c365fb66dbf26c612a43"},
+    {"seed":64410,"artifact_id":9860582378,"zip_sha256":"dbdd32b1bdb8a1e58ae3a01e13ab9edfabd7b735f7c2f0372a373fdb74491a13"},
+    {"seed":64411,"artifact_id":9860583162,"zip_sha256":"93de209cd4a1f10a1358fb12a47a7f854b3c4c4afcf34215fd96eddcdab7f16b"},
+    {"seed":64412,"artifact_id":9860584113,"zip_sha256":"874661d496f2d19b7eb3783b05ece839cc66957e9c897fab1451a7b460145c75"},
+    {"seed":64413,"artifact_id":9860581664,"zip_sha256":"c1aee4a304e363f8b65290fab2906946bec14d210fcfa45107deb04b5b0a9eea"},
+    {"seed":64414,"artifact_id":9860584440,"zip_sha256":"2cd70339e8c3067c23a63d7bf386b652687b7dc515875ba195270519677aa2dc"},
+    {"seed":64415,"artifact_id":9860585336,"zip_sha256":"513ad9bfd7d824bd7e60534f0b2515594fb6bed54a5f5e96c39e2202ace1188b"}
+  ],
+  "repository_persistence": {
+    "workflow_run_id": 33995280193,
+    "commit": "05d3bb9eb44b54fc2ff8bf50f1f791e3521df295",
+    "fresh_rows_path": "results/gaussian_shift_interface/c66r/FRESH_ROWS.json",
+    "decision_path": "results/gaussian_shift_interface/c66r/DECISION.json",
+    "persistence_method": "copied without alteration from aggregate artifact by c66r-persist-evidence workflow"
+  }
+}
