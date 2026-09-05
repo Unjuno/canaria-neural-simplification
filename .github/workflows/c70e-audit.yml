@@ -1,0 +1,73 @@
+name: c70e-evidence-audit
+
+on:
+  push:
+    branches:
+      - research/c70e-p64-reference-repair
+    paths:
+      - '.github/workflows/c70e-audit.yml'
+      - 'scripts/gaussian_shift_interface/evaluate_c70e.py'
+      - 'tests/test_c70e_evaluator.py'
+      - 'results/gaussian_shift_interface/c70e/**'
+  pull_request:
+    paths:
+      - '.github/workflows/c70e-audit.yml'
+      - 'scripts/gaussian_shift_interface/evaluate_c70e.py'
+      - 'tests/test_c70e_evaluator.py'
+      - 'results/gaussian_shift_interface/c70e/**'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Evaluator tests and syntax
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c70e.py
+          python -m unittest tests.test_c70e_evaluator -v
+      - name: Recompute persisted C70E exploratory decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c70e.py \
+            results/gaussian_shift_interface/c70e/FRESH_ROWS.json \
+            --out /tmp/c70e_recomputed.json
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          got = json.loads(Path('/tmp/c70e_recomputed.json').read_text())
+          locked = json.loads(Path('results/gaussian_shift_interface/c70e/DECISION.json').read_text())
+
+          def same(a, b, path='root'):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  assert set(a) == set(b), (path, set(a) ^ set(b))
+                  for k in a:
+                      same(a[k], b[k], f'{path}.{k}')
+              elif isinstance(a, list) and isinstance(b, list):
+                  assert len(a) == len(b), (path, len(a), len(b))
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      same(x, y, f'{path}[{i}]')
+              elif isinstance(a, float) or isinstance(b, float):
+                  assert math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12), (path, a, b)
+              else:
+                  assert a == b, (path, a, b)
+
+          same(got, locked)
+          assert got['decision'] == 'STOP_P64_REFERENCE_INVALID'
+          assert got['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert got['confirmatory_claim_allowed'] is False
+          assert got['attempted_rows_present'] == 16
+          assert got['eligible_count'] == 16
+          assert got['missing_seed_rows'] == []
+          assert got['bootstrap_resamples'] == 100000
+          assert got['bootstrap_seed'] == 477816929
+          assert got['robust_target_validity']['pass'] is True
+          assert got['p64_reference_validity']['pass'] is False
+          assert got['full_basis_implementation_descriptive']['max_relative_calibration_residual_sqerr_among_eligible'] <= 1e-10
+          print('C70E PORTABLE PERSISTED DECISION RECOMPUTATION PASS')
+          PY

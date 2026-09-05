@@ -1,0 +1,162 @@
+name: c70e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c70e-p64-reference-repair
+    paths:
+      - '.github/workflows/c70e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [68400,68401,68402,68403,68404,68405,68406,68407,68408,68409,68410,68411,68412,68413,68414,68415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh P64 reference-repair seed
+        run: |
+          mkdir -p c70e-seed
+          python scripts/gaussian_shift_interface/run_c70e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c70e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh P64 reference-repair provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c70e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C70E_P64_REFERENCE_REPAIR_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['eligible'] is True
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['calibration_samples'] == 192
+          assert p['dimensions'] == [32,64]
+          assert p['calibration_epsilon_seed'] == seed + 700100
+          assert p['validation_epsilon_seed'] == seed + 700200
+          assert p['top_adaptation_seed'] == seed + 705000
+          assert p['final_init_seed'] == seed + 706000
+          assert p['final_fit_seed'] == seed + 707000
+          assert p['full_basis_relative_sqerr_threshold'] == 1e-10
+          assert r['budget']['exact_4096_each_level'] is True
+          frac = float(r['teacher_training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          inv = r['implementation_invariant']
+          assert inv['pass'] is True
+          assert float(inv['full_basis_relative_calibration_residual_sqerr']) <= 1e-10
+          hashes = r['provenance_hashes']
+          for key in (
+              'calibration_indices_sha256','calibration_standard_normal_sha256',
+              'validation_standard_normal_sha256','shifted_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256','robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256','nested_q32_sha256','nested_q64_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+          for key in (
+              'robust_clean_validation_accuracy','robust_shifted_validation_accuracy',
+              'clean_paired_clean_validation_accuracy','clean_paired_shifted_validation_accuracy',
+          ):
+              value = float(r['teacher_metrics'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          for k in (32,64):
+              rec = r['conditions'][f'p{k}']
+              assert rec['dimension'] == k
+              assert math.isfinite(float(rec['final_replacement_val_acc']))
+              assert math.isfinite(float(rec['final_nmse_vs_original']))
+              assert float(rec['final_nmse_vs_original']) > 0.0
+          print('C70E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c70e-seed-${{ matrix.seed }}
+          path: c70e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-p64-reference-repair-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c70e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(68400, 68416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c70e-aggregate').mkdir(exist_ok=True)
+          Path('c70e-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked P64 reference-repair decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c70e.py \
+            c70e-aggregate/rows.json \
+            --out c70e-aggregate/decision.json
+          cat c70e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c70e-aggregate/decision.json').read_text())
+          assert d['decision'] in {
+              'STOP_INSUFFICIENT_ELIGIBLE',
+              'STOP_ROBUST_TARGET_INVALID',
+              'ADVANCE_P64_REFERENCE_TO_C71E',
+              'STOP_P64_REFERENCE_INVALID',
+          }, d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          print('C70E TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c70e-aggregate-decision
+          path: c70e-aggregate/
+          if-no-files-found: error
+          retention-days: 90

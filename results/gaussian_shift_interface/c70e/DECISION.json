@@ -1,0 +1,83 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 477816929,
+  "confirmatory_claim_allowed": false,
+  "decision": "STOP_P64_REFERENCE_INVALID",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    68400,
+    68401,
+    68402,
+    68403,
+    68404,
+    68405,
+    68406,
+    68407,
+    68408,
+    68409,
+    68410,
+    68411,
+    68412,
+    68413,
+    68414,
+    68415
+  ],
+  "experiment": "C70E_P64_REFERENCE_REPAIR_EXPLORATION",
+  "full_basis_implementation_descriptive": {
+    "max_relative_calibration_residual_sqerr_among_eligible": 2.348184309757667e-13,
+    "mean_relative_calibration_residual_sqerr": 1.5960508332720294e-13
+  },
+  "interpretation_boundary": [
+    "C70E is exploratory and tests reference repair only; it performs no reduced-dimension candidate selection.",
+    "P64 uses all 64 columns of the canonical calibration QR basis; this is full-basis calibration correction, not a universal exact model representation.",
+    "Passing the calibration reconstruction invariant is implementation equivalence only and does not guarantee final reference validity after adaptation/compilation.",
+    "P64-versus-P32 accuracy and NMSE differences are descriptive diagnostics and are not additional decision gates.",
+    "A P64 advance only authorizes a separately locked fresh C71E reduced-dimension frontier experiment."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "p32_reference_descriptive": {
+    "bootstrap95_pp": [
+      -5.810185894370079,
+      -3.3796291798353195
+    ],
+    "mean_p32_minus_teacher_pp": -4.560185596346855,
+    "p32_accuracy_mean": 0.8067129589617252
+  },
+  "p64_reference_validity": {
+    "bootstrap95_pp": [
+      -5.1157396286726,
+      -2.5925911962985992
+    ],
+    "margin_pp": -5.0,
+    "mean_p64_minus_teacher_pp": -3.842591866850853,
+    "p64_accuracy_mean": 0.8138888962566853,
+    "pass": false,
+    "robust_shifted_teacher_accuracy_mean": 0.8523148149251938
+  },
+  "p64_vs_p32_descriptive": {
+    "mean_validation_accuracy_difference_p64_minus_p32_pp": 0.7175937294960022,
+    "nmse_geometric_mean_ratio_p64_over_p32": 0.9863178163453145,
+    "nmse_ratio_bootstrap95": [
+      0.9717760581587707,
+      1.0001727005275027
+    ],
+    "validation_bootstrap95_pp": [
+      0.25463104248046875,
+      1.157408207654953
+    ]
+  },
+  "robust_target_validity": {
+    "bootstrap95_pp": [
+      -13.54166530072689,
+      -11.11111082136631
+    ],
+    "margin_pp": -20.0,
+    "mean_shift_minus_clean_pp": -12.337962165474892,
+    "pass": true,
+    "robust_clean_accuracy_mean": 0.9756944365799427,
+    "robust_shifted_accuracy_mean": 0.8523148149251938
+  }
+}

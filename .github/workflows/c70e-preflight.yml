@@ -1,0 +1,111 @@
+name: c70e-preflight
+
+on:
+  push:
+    branches:
+      - research/c70e-p64-reference-repair
+    paths:
+      - '.github/workflows/c70e-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c70e_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c70e.py'
+      - 'tests/test_c70e_evaluator.py'
+      - 'results/gaussian_shift_interface/c70e/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c70e_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c70e.py
+          python -m unittest tests.test_c70e_evaluator -v
+      - name: Run implementation verification seed 68300
+        run: |
+          mkdir -p c70e-preflight
+          python scripts/gaussian_shift_interface/run_c70e_seed.py \
+            --seed 68300 \
+            --allow-verification-seed \
+            --out c70e-preflight/seed_68300.json
+      - name: Verify locked P64 reference-repair invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          r = json.loads(Path('c70e-preflight/seed_68300.json').read_text())
+          assert r['experiment'] == 'C70E_P64_REFERENCE_REPAIR_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['calibration_samples'] == 192
+          assert p['dimensions'] == [32, 64]
+          assert p['calibration_epsilon_seed'] == 68300 + 700100
+          assert p['validation_epsilon_seed'] == 68300 + 700200
+          assert p['top_adaptation_seed'] == 68300 + 705000
+          assert p['final_init_seed'] == 68300 + 706000
+          assert p['final_fit_seed'] == 68300 + 707000
+          assert p['full_basis_relative_sqerr_threshold'] == 1e-10
+
+          assert r['budget']['exact_4096_each_level'] is True
+          frac = float(r['teacher_training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+
+          inv = r['implementation_invariant']
+          assert inv['pass'] is True
+          assert float(inv['full_basis_relative_calibration_residual_sqerr']) <= 1e-10
+
+          hashes = r['provenance_hashes']
+          for key in (
+              'calibration_indices_sha256',
+              'calibration_standard_normal_sha256',
+              'validation_standard_normal_sha256',
+              'shifted_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256',
+              'robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256',
+              'nested_q32_sha256',
+              'nested_q64_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+
+          for key in (
+              'robust_clean_validation_accuracy',
+              'robust_shifted_validation_accuracy',
+              'clean_paired_clean_validation_accuracy',
+              'clean_paired_shifted_validation_accuracy',
+          ):
+              value = float(r['teacher_metrics'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+
+          for k in (32, 64):
+              rec = r['conditions'][f'p{k}']
+              assert rec['dimension'] == k
+              assert math.isfinite(float(rec['final_replacement_val_acc']))
+              assert math.isfinite(float(rec['final_nmse_vs_original']))
+              assert float(rec['final_nmse_vs_original']) > 0.0
+
+          print('C70E PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c70e-preflight-seed-68300
+          path: c70e-preflight/seed_68300.json
+          if-no-files-found: error
+          retention-days: 90
