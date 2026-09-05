@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.970370352268219,
+      "augmented_teacher_shifted_validation_accuracy": 0.8518518805503845,
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.6666666865348816,
+      "eligible": true,
+      "seed": 66400
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9851852059364319,
+      "augmented_teacher_shifted_validation_accuracy": 0.8703703880310059,
+      "clean_teacher_clean_validation_accuracy": 0.970370352268219,
+      "clean_teacher_shifted_validation_accuracy": 0.7074074149131775,
+      "eligible": true,
+      "seed": 66401
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.970370352268219,
+      "augmented_teacher_shifted_validation_accuracy": 0.8925926089286804,
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.7148148417472839,
+      "eligible": true,
+      "seed": 66402
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.970370352268219,
+      "augmented_teacher_shifted_validation_accuracy": 0.8629629611968994,
+      "clean_teacher_clean_validation_accuracy": 0.9851852059364319,
+      "clean_teacher_shifted_validation_accuracy": 0.6518518328666687,
+      "eligible": true,
+      "seed": 66403
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9851852059364319,
+      "augmented_teacher_shifted_validation_accuracy": 0.8444444537162781,
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.7444444298744202,
+      "eligible": true,
+      "seed": 66404
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "augmented_teacher_shifted_validation_accuracy": 0.8481481671333313,
+      "clean_teacher_clean_validation_accuracy": 0.9851852059364319,
+      "clean_teacher_shifted_validation_accuracy": 0.6703703999519348,
+      "eligible": true,
+      "seed": 66405
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9666666388511658,
+      "augmented_teacher_shifted_validation_accuracy": 0.8518518805503845,
+      "clean_teacher_clean_validation_accuracy": 0.9888888597488403,
+      "clean_teacher_shifted_validation_accuracy": 0.7148148417472839,
+      "eligible": true,
+      "seed": 66406
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "augmented_teacher_shifted_validation_accuracy": 0.8592592477798462,
+      "clean_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "clean_teacher_shifted_validation_accuracy": 0.7333333492279053,
+      "eligible": true,
+      "seed": 66407
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "augmented_teacher_shifted_validation_accuracy": 0.8999999761581421,
+      "clean_teacher_clean_validation_accuracy": 0.9851852059364319,
+      "clean_teacher_shifted_validation_accuracy": 0.7444444298744202,
+      "eligible": true,
+      "seed": 66408
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "augmented_teacher_shifted_validation_accuracy": 0.8703703880310059,
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.6962962746620178,
+      "eligible": true,
+      "seed": 66409
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "augmented_teacher_shifted_validation_accuracy": 0.8777777552604675,
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.644444465637207,
+      "eligible": true,
+      "seed": 66410
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "augmented_teacher_shifted_validation_accuracy": 0.855555534362793,
+      "clean_teacher_clean_validation_accuracy": 0.9925925731658936,
+      "clean_teacher_shifted_validation_accuracy": 0.6592592597007751,
+      "eligible": true,
+      "seed": 66411
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "augmented_teacher_shifted_validation_accuracy": 0.8185185194015503,
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.6777777671813965,
+      "eligible": true,
+      "seed": 66412
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "augmented_teacher_shifted_validation_accuracy": 0.8777777552604675,
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.7185184955596924,
+      "eligible": true,
+      "seed": 66413
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "augmented_teacher_shifted_validation_accuracy": 0.8407407402992249,
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.7185184955596924,
+      "eligible": true,
+      "seed": 66414
+    },
+    {
+      "augmented_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "augmented_teacher_shifted_validation_accuracy": 0.8703703880310059,
+      "clean_teacher_clean_validation_accuracy": 0.9629629850387573,
+      "clean_teacher_shifted_validation_accuracy": 0.729629635810852,
+      "eligible": true,
+      "seed": 66415
+    }
+  ]
+}
