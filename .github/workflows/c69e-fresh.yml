@@ -1,0 +1,171 @@
+name: c69e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c69e-robust-teacher-interface-frontier
+    paths:
+      - '.github/workflows/c69e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [67400,67401,67402,67403,67404,67405,67406,67407,67408,67409,67410,67411,67412,67413,67414,67415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh robust-teacher frontier seed
+        run: |
+          mkdir -p c69e-seed
+          python scripts/gaussian_shift_interface/run_c69e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c69e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh robust-teacher frontier provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c69e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C69E_ROBUST_TEACHER_INTERFACE_FRONTIER_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['eligible'] is True
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['calibration_samples'] == 192
+          assert p['candidate_dimensions'] == [0,1,2,4,8,16]
+          assert p['reference_dimension'] == 32
+          assert p['calibration_epsilon_seed'] == seed + 690100
+          assert p['validation_epsilon_seed'] == seed + 690200
+          assert p['top_adaptation_seed'] == seed + 695000
+          assert p['final_init_seed'] == seed + 696000
+          assert p['final_fit_seed'] == seed + 697000
+          assert r['budget']['exact_4096_each_level'] is True
+          frac = float(r['teacher_training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          hashes = r['provenance_hashes']
+          for key in (
+              'calibration_indices_sha256','calibration_standard_normal_sha256',
+              'validation_standard_normal_sha256','shifted_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256','robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256','nested_q1_sha256','nested_q2_sha256',
+              'nested_q4_sha256','nested_q8_sha256','nested_q16_sha256','nested_q32_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+          assert r['conditions']['p0']['dimension'] == 0
+          assert r['conditions']['p0']['teacher_correction_applied'] is False
+          assert r['conditions']['p0']['top_boundary_adaptation_skipped'] is True
+          for k in (1,2,4,8,16,32):
+              rec = r['conditions'][f'p{k}']
+              assert rec['dimension'] == k
+              assert rec['teacher_correction_applied'] is True
+              assert rec['top_boundary_adaptation_skipped'] is False
+          for key in (
+              'robust_clean_validation_accuracy','robust_shifted_validation_accuracy',
+              'clean_paired_clean_validation_accuracy','clean_paired_shifted_validation_accuracy',
+          ):
+              value = float(r['teacher_metrics'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          for k in (0,1,2,4,8,16,32):
+              rec = r['conditions'][f'p{k}']
+              assert math.isfinite(float(rec['final_replacement_val_acc']))
+              assert math.isfinite(float(rec['final_nmse_vs_original']))
+              assert float(rec['final_nmse_vs_original']) > 0.0
+          print('C69E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c69e-seed-${{ matrix.seed }}
+          path: c69e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-robust-teacher-frontier-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c69e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(67400, 67416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c69e-aggregate').mkdir(exist_ok=True)
+          Path('c69e-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked robust-teacher frontier decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c69e.py \
+            c69e-aggregate/rows.json \
+            --out c69e-aggregate/decision.json
+          cat c69e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c69e-aggregate/decision.json').read_text())
+          allowed = {
+              'STOP_INSUFFICIENT_ELIGIBLE',
+              'STOP_ROBUST_TARGET_INVALID',
+              'STOP_P32_REFERENCE_INVALID',
+              'STOP_NONMONOTONIC_DIMENSION_FRONTIER',
+              'NO_REDUCED_CANDIDATE_THROUGH_P16',
+              'ADVANCE_P0_TO_C70R','ADVANCE_P1_TO_C70R','ADVANCE_P2_TO_C70R',
+              'ADVANCE_P4_TO_C70R','ADVANCE_P8_TO_C70R','ADVANCE_P16_TO_C70R',
+          }
+          assert d['decision'] in allowed, d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          print('C69E TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c69e-aggregate-decision
+          path: c69e-aggregate/
+          if-no-files-found: error
+          retention-days: 90
