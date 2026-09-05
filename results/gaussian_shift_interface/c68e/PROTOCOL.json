@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "experiment": "C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "follows": "C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+    "parent_decision": "STOP_VALIDITY_BOUNDARY_AT_SIGMA_0_36",
+    "purpose": "repair teacher task validity at the first C67E invalid sigma before reopening any interface-complexity question",
+    "architecture_line": "repository Residual-MLP Net(d=64, depth=4)",
+    "not_imported_residual_cnn_line": true
+  },
+  "H": "A single prospectively specified Gaussian-augmentation recipe can restore a task-valid teacher target at sigma=.36 without materially sacrificing clean validation accuracy.",
+  "T": "On fresh model seeds 66400-66415, train paired clean-only and Gaussian-augmented teachers from the same initialization. The augmented teacher uses the same 60-epoch optimizer/permutation schedule as the clean teacher, but each training minibatch independently perturbs 50% of examples with clipped additive Gaussian sigma=.36. Evaluate both teachers on clean validation and on the same per-seed shifted validation tensor at sigma=.36.",
+  "D": "Advance the augmented teacher as a valid target for a later separate interface experiment only if all three locked gates pass: augmented-clean minus clean-teacher-clean validation accuracy is non-inferior within -4 pp; augmented-shift minus clean-teacher-shift validation accuracy is superior with bootstrap95 lower bound > 0 pp; augmented-teacher shifted-minus-clean accuracy has bootstrap95 lower bound > -20 pp. Otherwise stop and report which repair gates failed.",
+  "C": [
+    "Gaussian augmentation may improve shifted accuracy only by sacrificing too much clean accuracy.",
+    "The specified 50% fixed-sigma recipe may be too weak or too strong even if another augmentation schedule could work.",
+    "Teacher robustness failure may reflect model capacity or clipping-induced distribution changes rather than insufficient augmentation.",
+    "Restoring teacher task validity does not imply any particular P0/P2 interface result because robust training can change internal boundary geometry."
+  ],
+  "U": [
+    "The -4 pp clean safeguard and -20 pp validity safeguard are preregistered experiment criteria, not universal quality constants.",
+    "This experiment tests one augmentation recipe at one target sigma and does not optimize augmentation hyperparameters.",
+    "A successful repair is exploratory evidence for target construction, not a confirmatory interface-complexity claim.",
+    "Held-out test data remain unused."
+  ],
+  "fresh_model_seeds": [66400,66401,66402,66403,66404,66405,66406,66407,66408,66409,66410,66411,66412,66413,66414,66415],
+  "implementation_verification_seed": 66300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "teacher_architecture": {
+    "class": "repository Net",
+    "d": 64,
+    "depth": 4,
+    "epochs": 60,
+    "optimizer": "AdamW(lr=2e-3, weight_decay=1e-4)",
+    "batch_size": 64,
+    "clean_permutation_rng_seed_rule": "model_seed + 999",
+    "paired_initialization": "clean-only and augmented teachers both instantiate Net(model_seed), so initial parameters are identical"
+  },
+  "augmentation_recipe": {
+    "target_sigma": 0.36,
+    "fraction_noised_per_minibatch": 0.5,
+    "selection": "for each training minibatch, draw independent Bernoulli(0.5) mask per example from the locked augmentation RNG; selected examples receive additive sigma=.36 iid Gaussian noise and are clipped to [0,1]",
+    "augmentation_rng_seed_rule": "model_seed + 680100",
+    "no_hyperparameter_search": true,
+    "same_epoch_count_optimizer_and_permutation_schedule_as_clean_teacher": true
+  },
+  "evaluation_shift": {
+    "sigma": 0.36,
+    "validation_standard_normal_seed_rule": "model_seed + 680200",
+    "construction": "clip(X_validation + 0.36*epsilon, 0, 1)",
+    "pairing": "clean-only and augmented teachers within a model seed use exactly the same shifted validation tensor"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_seed_if": "both teacher trainings complete and all four required accuracies are finite",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "gates": {
+    "clean_accuracy_noninferiority": {
+      "statistic": "paired augmented-teacher clean validation accuracy minus clean-only-teacher clean validation accuracy",
+      "margin_percentage_points": -4.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -4.0 percentage points"
+    },
+    "shifted_accuracy_superiority": {
+      "statistic": "paired augmented-teacher shifted validation accuracy minus clean-only-teacher shifted validation accuracy at sigma=.36",
+      "margin_percentage_points": 0.0,
+      "pass": "paired percentile bootstrap 95% lower bound > 0.0 percentage points"
+    },
+    "augmented_teacher_task_validity": {
+      "statistic": "paired augmented-teacher shifted minus augmented-teacher clean validation accuracy",
+      "margin_percentage_points": -20.0,
+      "pass": "paired percentile bootstrap 95% lower bound > -20.0 percentage points"
+    }
+  },
+  "prospective_decision": {
+    "if_all_three_gates_pass": "ADVANCE_REPAIRED_TEACHER_TO_C69E",
+    "otherwise": "STOP_TEACHER_VALIDITY_REPAIR_GATES_FAILED",
+    "failed_gate_names_must_be_reported": true,
+    "confirmatory_claim_allowed": false,
+    "no_interface_experiment_in_c68e": true
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile 95%; one common bootstrap index matrix reused across all three gates",
+    "rng_seed": 2190259452,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION_V1') = 828cb4fcc0216b3849f75a9a7c7b6e19c2873298a4437f1fb15338e6c8bf5d98"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_augmentation_changes": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_gate_changes": true,
+    "scope": "exact C68E paired clean-versus-augmented Residual-MLP teacher repair at sigma=.36",
+    "not_supported_even_if_advance": [
+      "Gaussian augmentation universally repairs teacher robustness",
+      "the repaired teacher is optimal",
+      "P0 will remain sufficient for the repaired teacher",
+      "teacher correction is unnecessary under strong shift",
+      "any claim about the imported Residual CNN C59/C60 line"
+    ]
+  }
+}
