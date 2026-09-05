@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "experiment": "C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "architecture_line": "C68E-repaired repository Residual-MLP at Gaussian sigma=.36; not imported Residual CNN C59/C60",
+  "protocol_lock": {
+    "commit": "56258365a19e96880e49e37b6e17ee21ce683d44",
+    "path": "results/gaussian_shift_interface/c71e/PROTOCOL.json",
+    "status": "LOCKED_BEFORE_OUTCOMES"
+  },
+  "preflight": {
+    "verification_seed": 69300,
+    "workflow_run_id": 33997487549,
+    "conclusion": "success",
+    "fresh_seeds_consumed_before_preflight_success": false
+  },
+  "fresh_execution": {
+    "workflow_run_id": 33997561283,
+    "workflow_name": "c71e-fresh-exploratory",
+    "workflow_head_sha": "5e4a316f102de120087c6aa5650b1b457f34377b",
+    "fresh_seeds": [69400,69401,69402,69403,69404,69405,69406,69407,69408,69409,69410,69411,69412,69413,69414,69415],
+    "seed_jobs_attempted": 16,
+    "seed_jobs_success": 16,
+    "integrity_assertions_passed": 16,
+    "held_out_test_used": false,
+    "aggregate_job_id": 101390867914,
+    "aggregate_job_conclusion": "success"
+  },
+  "aggregate_artifact": {
+    "artifact_id": 9978535137,
+    "zip_sha256": "ed6cf68c1699c570f84262b42089fff493c921f4cd60da75160278eea127511a",
+    "files": ["rows.json", "decision.json"],
+    "retention_days_at_creation": 90
+  },
+  "seed_artifact_count": 16,
+  "seed_artifact_source_run_id": 33997561283,
+  "repository_persistence": {
+    "workflow_run_id": 33997696983,
+    "commit": "0a1b1ae9e6a7f63d3636cf4268ce4156ad715b4a",
+    "fresh_rows_path": "results/gaussian_shift_interface/c71e/FRESH_ROWS.json",
+    "decision_path": "results/gaussian_shift_interface/c71e/DECISION.json",
+    "persistence_method": "copied without alteration from aggregate artifact by c71e-persist-evidence workflow"
+  }
+}

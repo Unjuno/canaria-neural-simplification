@@ -1,0 +1,47 @@
+name: c71e-persist-evidence
+
+on:
+  push:
+    branches:
+      - research/c71e-p64-pipeline-bottleneck-localization
+    paths:
+      - '.github/workflows/c71e-persist.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download locked C71E aggregate artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: c71e-aggregate-decision
+          path: /tmp/c71e-aggregate
+          github-token: ${{ github.token }}
+          repository: Unjuno/canaria-neural-simplification
+          run-id: 33997561283
+      - name: Persist rows and decision without alteration
+        run: |
+          mkdir -p results/gaussian_shift_interface/c71e
+          cp /tmp/c71e-aggregate/rows.json results/gaussian_shift_interface/c71e/FRESH_ROWS.json
+          cp /tmp/c71e-aggregate/decision.json results/gaussian_shift_interface/c71e/DECISION.json
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          for p in [
+              Path('results/gaussian_shift_interface/c71e/FRESH_ROWS.json'),
+              Path('results/gaussian_shift_interface/c71e/DECISION.json'),
+          ]:
+              print(p, hashlib.sha256(p.read_bytes()).hexdigest())
+          PY
+      - name: Commit persisted evidence
+        run: |
+          git config user.name 'canaria-evidence-bot'
+          git config user.email 'canaria-evidence-bot@users.noreply.github.com'
+          git add results/gaussian_shift_interface/c71e/FRESH_ROWS.json results/gaussian_shift_interface/c71e/DECISION.json
+          git commit -m 'Persist C71E fresh rows and locked pipeline-localization decision'
+          git push origin HEAD:research/c71e-p64-pipeline-bottleneck-localization

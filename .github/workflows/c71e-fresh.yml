@@ -1,0 +1,170 @@
+name: c71e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c71e-p64-pipeline-bottleneck-localization
+    paths:
+      - '.github/workflows/c71e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [69400,69401,69402,69403,69404,69405,69406,69407,69408,69409,69410,69411,69412,69413,69414,69415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh P64 pipeline-localization seed
+        run: |
+          mkdir -p c71e-seed
+          python scripts/gaussian_shift_interface/run_c71e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c71e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh pipeline-localization provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c71e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['eligible'] is True
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['calibration_samples'] == 192
+          assert p['calibration_epsilon_seed'] == seed + 710100
+          assert p['validation_epsilon_seed'] == seed + 710200
+          assert p['p64_top_adaptation_seed'] == seed + 715000
+          assert p['standard_and_direct_final_init_seed'] == seed + 716000
+          assert p['standard_and_direct_final_fit_seed'] == seed + 717000
+          assert p['full_basis_relative_sqerr_threshold'] == 1e-10
+          assert p['stages'] == ['H64','S64','D64']
+          assert r['budget']['exact_4096_each_level'] is True
+          frac = float(r['teacher_training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          inv = r['implementation_invariant']
+          assert inv['pass'] is True
+          assert float(inv['full_basis_relative_calibration_residual_sqerr']) <= 1e-10
+          hashes = r['provenance_hashes']
+          for key in (
+              'calibration_indices_sha256','calibration_standard_normal_sha256',
+              'validation_standard_normal_sha256','shifted_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256','robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256','nested_q64_sha256',
+              'p64_calibration_target_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+          for key in (
+              'robust_clean_validation_accuracy','robust_shifted_validation_accuracy',
+              'clean_paired_clean_validation_accuracy','clean_paired_shifted_validation_accuracy',
+          ):
+              value = float(r['teacher_metrics'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          for stage in ('H64','S64','D64'):
+              rec = r['stage_metrics'][stage]
+              assert math.isfinite(float(rec['validation_accuracy']))
+              assert 0.0 <= float(rec['validation_accuracy']) <= 1.0
+              assert math.isfinite(float(rec['nmse_vs_teacher']))
+              assert float(rec['nmse_vs_teacher']) >= 0.0
+          assert float(r['stage_metrics']['S64']['nmse_vs_teacher']) > 0.0
+          assert float(r['stage_metrics']['D64']['nmse_vs_teacher']) > 0.0
+          assert math.isfinite(float(r['stage_metrics']['S64']['nmse_vs_h64']))
+          print('C71E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c71e-seed-${{ matrix.seed }}
+          path: c71e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-p64-pipeline-localization-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c71e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(69400, 69416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c71e-aggregate').mkdir(exist_ok=True)
+          Path('c71e-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked pipeline-localization decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c71e.py \
+            c71e-aggregate/rows.json \
+            --out c71e-aggregate/decision.json
+          cat c71e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c71e-aggregate/decision.json').read_text())
+          assert d['decision'] in {
+              'STOP_INSUFFICIENT_ELIGIBLE',
+              'STOP_ROBUST_TARGET_INVALID',
+              'STOP_C70_P64_FAILURE_NOT_REPRODUCED',
+              'STOP_NONMONOTONIC_COMPILER_RESCUE',
+              'LOCALIZE_STANDARD_COMPILATION_LOSS',
+              'LOCALIZE_HIERARCHY_ADAPTATION_LOSS',
+              'LOCALIZE_SHARED_MAPPING_OR_CALIBRATION_LIMIT',
+          }, d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          assert d['reduced_dimension_selection_allowed'] is False
+          print('C71E TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c71e-aggregate-decision
+          path: c71e-aggregate/
+          if-no-files-found: error
+          retention-days: 90
