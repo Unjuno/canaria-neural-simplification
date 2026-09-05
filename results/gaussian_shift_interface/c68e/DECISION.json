@@ -1,0 +1,88 @@
+{
+  "attempted_rows_present": 16,
+  "augmented_teacher_task_validity": {
+    "augmented_clean_accuracy_mean": 0.9763888865709305,
+    "augmented_shifted_accuracy_mean": 0.8620370402932167,
+    "drop_bootstrap95_pp": [
+      -12.453703209757805,
+      -10.439814999699593
+    ],
+    "margin_pp": -20.0,
+    "mean_drop_shift_minus_clean_pp": -11.435184627771378,
+    "pass": true
+  },
+  "baseline_clean_teacher_descriptive": {
+    "clean_accuracy_mean": 0.9803240783512592,
+    "drop_bootstrap95_pp": [
+      -29.837963357567787,
+      -26.38888917863369
+    ],
+    "mean_drop_shift_minus_clean_pp": -28.078703954815865,
+    "shifted_accuracy_mean": 0.6995370388031006
+  },
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 2190259452,
+  "clean_accuracy_noninferiority": {
+    "bootstrap95_fraction": [
+      -0.00879630446434021,
+      0.0009259283542633057
+    ],
+    "bootstrap95_pp": [
+      -0.879630446434021,
+      0.09259283542633057
+    ],
+    "margin_fraction": -0.04,
+    "margin_pp": -4.0,
+    "mean_difference_aug_minus_clean_fraction": -0.003935191780328751,
+    "mean_difference_aug_minus_clean_pp": -0.39351917803287506,
+    "pass": true
+  },
+  "confirmatory_claim_allowed": false,
+  "decision": "ADVANCE_REPAIRED_TEACHER_TO_C69E",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    66400,
+    66401,
+    66402,
+    66403,
+    66404,
+    66405,
+    66406,
+    66407,
+    66408,
+    66409,
+    66410,
+    66411,
+    66412,
+    66413,
+    66414,
+    66415
+  ],
+  "experiment": "C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION",
+  "failed_gates": [],
+  "interpretation_boundary": [
+    "C68E tests one locked teacher-repair recipe and is exploratory.",
+    "An advance decision means the repaired teacher is a candidate valid target for a separate interface experiment; it does not imply any P0/P2 result.",
+    "The clean -4 pp and task-validity -20 pp margins are preregistered experiment safeguards, not universal constants.",
+    "Held-out test data are unused.",
+    "This is repository Residual-MLP evidence and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "shifted_accuracy_superiority": {
+    "bootstrap95_fraction": [
+      0.14629629999399185,
+      0.17916665971279144
+    ],
+    "bootstrap95_pp": [
+      14.629629999399185,
+      17.916665971279144
+    ],
+    "margin_fraction": 0.0,
+    "margin_pp": 0.0,
+    "mean_difference_aug_minus_clean_fraction": 0.16250000149011612,
+    "mean_difference_aug_minus_clean_pp": 16.250000149011612,
+    "pass": true
+  }
+}
