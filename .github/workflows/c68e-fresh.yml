@@ -1,0 +1,147 @@
+name: c68e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c68e-teacher-validity-repair
+    paths:
+      - '.github/workflows/c68e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [66400, 66401, 66402, 66403, 66404, 66405, 66406, 66407, 66408, 66409, 66410, 66411, 66412, 66413, 66414, 66415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh teacher-repair seed
+        run: |
+          mkdir -p c68e-seed
+          python scripts/gaussian_shift_interface/run_c68e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c68e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh teacher-repair provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c68e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C68E_TEACHER_VALIDITY_REPAIR_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['test_evaluated'] is False
+          assert r['eligible'] is True
+          assert r['protocol']['epochs'] == 60
+          assert r['protocol']['batch_size'] == 64
+          assert r['protocol']['target_sigma'] == 0.36
+          assert r['protocol']['augmentation_fraction'] == 0.5
+          assert r['protocol']['permutation_seed'] == seed + 999
+          assert r['protocol']['augmentation_seed'] == seed + 680100
+          assert r['protocol']['validation_epsilon_seed'] == seed + 680200
+          frac = float(r['training_provenance']['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          assert r['training_provenance']['paired_initial_state_sha256']
+          assert r['provenance_hashes']['validation_standard_normal_sha256']
+          assert r['provenance_hashes']['shifted_validation_tensor_sha256']
+          assert r['provenance_hashes']['clean_teacher_final_state_sha256']
+          assert r['provenance_hashes']['augmented_teacher_final_state_sha256']
+          assert r['provenance_hashes']['clean_teacher_final_state_sha256'] != r['provenance_hashes']['augmented_teacher_final_state_sha256']
+          for key in (
+              'clean_teacher_clean_validation_accuracy',
+              'clean_teacher_shifted_validation_accuracy',
+              'augmented_teacher_clean_validation_accuracy',
+              'augmented_teacher_shifted_validation_accuracy',
+          ):
+              value = float(r['decision_row'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          print('C68E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c68e-seed-${{ matrix.seed }}
+          path: c68e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-teacher-validity-repair-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c68e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(66400, 66416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows = []
+          for seed in expected:
+              if seed in rows_by_seed:
+                  rows.append(rows_by_seed[seed])
+              else:
+                  rows.append({'seed': seed, 'eligible': False, 'failure': 'missing_seed_artifact'})
+          Path('c68e-aggregate').mkdir(exist_ok=True)
+          Path('c68e-aggregate/rows.json').write_text(json.dumps({'rows': rows}, indent=2, sort_keys=True) + '\n')
+          print('successful_seed_artifacts', len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked teacher-repair decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c68e.py \
+            c68e-aggregate/rows.json \
+            --out c68e-aggregate/decision.json
+          cat c68e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('c68e-aggregate/decision.json').read_text())
+          assert d['decision'] in {
+              'ADVANCE_REPAIRED_TEACHER_TO_C69E',
+              'STOP_TEACHER_VALIDITY_REPAIR_GATES_FAILED',
+              'STOP_INSUFFICIENT_ELIGIBLE',
+          }, d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          print('C68E TERMINAL DECISION', d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c68e-aggregate-decision
+          path: c68e-aggregate/
+          if-no-files-found: error
+          retention-days: 90
