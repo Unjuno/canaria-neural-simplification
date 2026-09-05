@@ -1,0 +1,148 @@
+name: c72e-fresh-exploratory
+
+on:
+  push:
+    branches:
+      - research/c72e-direct-mapping-factorial-repair
+    paths:
+      - '.github/workflows/c72e-fresh.yml'
+
+jobs:
+  fresh-seeds:
+    name: seed-${{ matrix.seed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [70400,70401,70402,70403,70404,70405,70406,70407,70408,70409,70410,70411,70412,70413,70414,70415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Run locked fresh direct-mapping factorial seed
+        run: |
+          mkdir -p c72e-seed
+          python scripts/gaussian_shift_interface/run_c72e_seed.py \
+            --seed ${{ matrix.seed }} \
+            --out c72e-seed/seed_${{ matrix.seed }}.json
+      - name: Assert fresh factorial provenance boundary
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          seed = int('${{ matrix.seed }}')
+          r = json.loads(Path(f'c72e-seed/seed_{seed}.json').read_text())
+          assert r['seed'] == seed
+          assert r['experiment'] == 'C72E_DIRECT_MAPPING_FACTORIAL_REPAIR'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'FRESH_SEED_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          assert all(r['nesting_invariants'].values())
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['base_calibration_samples'] == 192
+          assert p['large_calibration_samples'] == 384
+          assert p['extension_index_seed'] == 20260906
+          assert p['base_calibration_epsilon_seed'] == seed + 710100
+          assert p['extension_calibration_epsilon_seed'] == seed + 720101
+          assert p['validation_epsilon_seed'] == seed + 710200
+          assert p['final_init_seed'] == seed + 716000
+          assert p['final_fit_seed'] == seed + 717000
+          expected = {
+              'N192_W32': (192,32,4096),
+              'N384_W32': (384,32,4096),
+              'N192_W64': (192,64,8192),
+              'N384_W64': (384,64,8192),
+          }
+          for name, (n,w,params) in expected.items():
+              rec = r['cells'][name]
+              assert rec['calibration_samples'] == n
+              assert rec['width'] == w
+              assert rec['trainable_parameters'] == params
+              assert math.isfinite(float(rec['validation_accuracy']))
+              assert 0.0 <= float(rec['validation_accuracy']) <= 1.0
+              assert float(rec['activation_nmse_vs_teacher']) > 0.0
+          print('C72E FRESH SEED INTEGRITY PASS', seed)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c72e-seed-${{ matrix.seed }}
+          path: c72e-seed/seed_${{ matrix.seed }}.json
+          if-no-files-found: error
+          retention-days: 90
+
+  aggregate:
+    name: locked-direct-mapping-factorial-aggregate
+    if: always()
+    needs: fresh-seeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Download all successful seed artifacts
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c72e-seed-*
+          path: downloaded
+          merge-multiple: true
+      - name: Build complete attempted-row ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = list(range(70400,70416))
+          rows_by_seed = {}
+          for p in Path('downloaded').glob('seed_*.json'):
+              full = json.loads(p.read_text())
+              row = full['decision_row']
+              rows_by_seed[int(row['seed'])] = row
+          rows=[]
+          for seed in expected:
+              rows.append(rows_by_seed.get(seed, {'seed':seed,'eligible':False,'failure':'missing_seed_artifact'}))
+          Path('c72e-aggregate').mkdir(exist_ok=True)
+          Path('c72e-aggregate/rows.json').write_text(json.dumps({'rows':rows},indent=2,sort_keys=True)+'\n')
+          print('successful_seed_artifacts',len(rows_by_seed))
+          PY
+      - name: Apply prospectively locked factorial decision
+        run: |
+          python scripts/gaussian_shift_interface/evaluate_c72e.py c72e-aggregate/rows.json --out c72e-aggregate/decision.json
+          cat c72e-aggregate/decision.json
+      - name: Assert terminal decision class
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('c72e-aggregate/decision.json').read_text())
+          allowed={
+            'STOP_INSUFFICIENT_ELIGIBLE','STOP_ROBUST_TARGET_INVALID',
+            'STOP_C71_BASELINE_FAILURE_NOT_REPRODUCED','STOP_NONMONOTONIC_FACTORIAL_REPAIR',
+            'NO_REPAIR_AT_N384_W64','LOCALIZE_CALIBRATION_QUANTITY_REPAIR',
+            'LOCALIZE_MAPPING_CAPACITY_REPAIR','BOTH_SINGLE_FACTOR_REPAIRS',
+            'LOCALIZE_CALIBRATION_CAPACITY_INTERACTION_REPAIR'
+          }
+          assert d['decision'] in allowed,d['decision']
+          assert d['confirmatory_claim_allowed'] is False
+          assert d['reduced_dimension_selection_allowed'] is False
+          print('C72E TERMINAL DECISION',d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c72e-aggregate-decision
+          path: c72e-aggregate/
+          if-no-files-found: error
+          retention-days: 90
