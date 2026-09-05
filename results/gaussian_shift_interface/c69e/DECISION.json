@@ -1,0 +1,252 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 491338359,
+  "candidate_curve": {
+    "p0": {
+      "dimension": 0,
+      "joint_pass": false,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.4084690998659553,
+          1.5382569750843815
+        ],
+        "geometric_mean_candidate_over_p32": 1.473580752986483,
+        "margin": 1.25,
+        "pass": false
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.021296288911253215,
+          -0.0020833387970924377
+        ],
+        "bootstrap95_pp": [
+          -2.1296288911253214,
+          -0.20833387970924377
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": -0.011342592537403107,
+        "mean_difference_candidate_minus_p32_pp": -1.1342592537403107,
+        "pass": false
+      }
+    },
+    "p1": {
+      "dimension": 1,
+      "joint_pass": false,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.3626140581110353,
+          1.4688865289229298
+        ],
+        "geometric_mean_candidate_over_p32": 1.4169121340635515,
+        "margin": 1.25,
+        "pass": false
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.013425920158624649,
+          0.0030092597007751465
+        ],
+        "bootstrap95_pp": [
+          -1.342592015862465,
+          0.30092597007751465
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": -0.005324069410562515,
+        "mean_difference_candidate_minus_p32_pp": -0.5324069410562515,
+        "pass": true
+      }
+    },
+    "p16": {
+      "dimension": 16,
+      "joint_pass": true,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0181564076494511,
+          1.049123820894843
+        ],
+        "geometric_mean_candidate_over_p32": 1.0338973141744243,
+        "margin": 1.25,
+        "pass": true
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.0013888999819755554,
+          0.008564814925193787
+        ],
+        "bootstrap95_pp": [
+          -0.13888999819755554,
+          0.8564814925193787
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": 0.003472220152616501,
+        "mean_difference_candidate_minus_p32_pp": 0.3472220152616501,
+        "pass": true
+      }
+    },
+    "p2": {
+      "dimension": 2,
+      "joint_pass": false,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.3214007008719368,
+          1.4167967613918138
+        ],
+        "geometric_mean_candidate_over_p32": 1.3698671995953902,
+        "margin": 1.25,
+        "pass": false
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.01689814403653145,
+          0.0032407231628894806
+        ],
+        "bootstrap95_pp": [
+          -1.6898144036531448,
+          0.32407231628894806
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": -0.006944447755813599,
+        "mean_difference_candidate_minus_p32_pp": -0.6944447755813599,
+        "pass": true
+      }
+    },
+    "p4": {
+      "dimension": 4,
+      "joint_pass": false,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.2427975201180557,
+          1.308472378336528
+        ],
+        "geometric_mean_candidate_over_p32": 1.2769569389423643,
+        "margin": 1.25,
+        "pass": false
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.013425923883914948,
+          0.0009259320795536041
+        ],
+        "bootstrap95_pp": [
+          -1.3425923883914948,
+          0.09259320795536041
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": -0.006944436579942703,
+        "mean_difference_candidate_minus_p32_pp": -0.6944436579942703,
+        "pass": true
+      }
+    },
+    "p8": {
+      "dimension": 8,
+      "joint_pass": true,
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.1147178805619415,
+          1.1617940696324056
+        ],
+        "geometric_mean_candidate_over_p32": 1.1395563520288234,
+        "margin": 1.25,
+        "pass": true
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.008333336561918259,
+          0.0060185156762599945
+        ],
+        "bootstrap95_pp": [
+          -0.8333336561918259,
+          0.6018515676259995
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_candidate_minus_p32_fraction": -0.00138888880610466,
+        "mean_difference_candidate_minus_p32_pp": -0.138888880610466,
+        "pass": true
+      }
+    }
+  },
+  "candidate_dimensions": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "candidate_joint_pass_pattern": [
+    false,
+    false,
+    false,
+    false,
+    true,
+    true
+  ],
+  "confirmatory_claim_allowed": false,
+  "decision": "STOP_P32_REFERENCE_INVALID",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    67400,
+    67401,
+    67402,
+    67403,
+    67404,
+    67405,
+    67406,
+    67407,
+    67408,
+    67409,
+    67410,
+    67411,
+    67412,
+    67413,
+    67414,
+    67415
+  ],
+  "experiment": "C69E_ROBUST_TEACHER_INTERFACE_FRONTIER_EXPLORATION",
+  "interpretation_boundary": [
+    "C69E is exploratory; any selected dimension requires a separate fresh C70R confirmation.",
+    "P32 is a locked strong reference but is not claimed to be exact/full residual reconstruction.",
+    "A robust-target or P32-reference validity failure stops candidate interpretation before dimension selection.",
+    "A nonmonotonic dimension pass pattern is not converted into a convenient smallest passing dimension.",
+    "This result belongs to the exact C68E repaired-teacher Residual-MLP at Gaussian sigma=.36 and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "p32_reference_validity": {
+    "bootstrap95_pp": [
+      -6.504631042480469,
+      -4.560185968875885
+    ],
+    "margin_pp": -5.0,
+    "mean_p32_minus_teacher_pp": -5.509260296821594,
+    "p32_accuracy_mean": 0.8032407388091087,
+    "pass": false,
+    "robust_shifted_teacher_accuracy_mean": 0.8583333417773247
+  },
+  "paired_clean_teacher_descriptive": {
+    "clean_accuracy_mean": 0.9773148149251938,
+    "mean_shift_minus_clean_pp": -28.425925970077515,
+    "shifted_accuracy_mean": 0.6930555552244186
+  },
+  "reference_dimension": 32,
+  "robust_target_validity": {
+    "bootstrap95_pp": [
+      -12.615738809108734,
+      -10.32407246530056
+    ],
+    "margin_pp": -20.0,
+    "mean_shift_minus_clean_pp": -11.45833171904087,
+    "pass": true,
+    "robust_clean_accuracy_mean": 0.9729166589677334,
+    "robust_shifted_accuracy_mean": 0.8583333417773247
+  },
+  "selected_candidate_dimension": null
+}
