@@ -1,0 +1,116 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 3326093687,
+  "confirmatory_claim_allowed": false,
+  "decision": "LOCALIZE_SHARED_MAPPING_OR_CALIBRATION_LIMIT",
+  "descriptive_stage_diagnostics": {
+    "d64_calibration_nmse_vs_teacher_mean": 0.026722534965040158,
+    "d64_minus_s64_validation_accuracy": {
+      "bootstrap95_pp": [
+        0.11574067175388336,
+        1.3888880610466003
+      ],
+      "mean_pp": 0.7638875395059586
+    },
+    "d64_nmse_vs_teacher_mean": 0.1334928856177194,
+    "h64_calibration_nmse_vs_teacher_mean": 0.026410796727195835,
+    "h64_nmse_vs_teacher_mean": 0.15452028267207105,
+    "max_full_basis_relative_calibration_residual_sqerr": 2.500846209806118e-13,
+    "mean_full_basis_relative_calibration_residual_sqerr": 1.6752298045264553e-13,
+    "s64_minus_h64_validation_accuracy": {
+      "bootstrap95_pp": [
+        -0.6712954491376877,
+        1.6898155212402344
+      ],
+      "mean_pp": 0.4861116409301758
+    },
+    "s64_nmse_vs_h64_mean": 0.09286237924374127,
+    "s64_nmse_vs_teacher_mean": 0.13617373664854637
+  },
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    69400,
+    69401,
+    69402,
+    69403,
+    69404,
+    69405,
+    69406,
+    69407,
+    69408,
+    69409,
+    69410,
+    69411,
+    69412,
+    69413,
+    69414,
+    69415
+  ],
+  "experiment": "C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION",
+  "interpretation_boundary": [
+    "C71E is exploratory and localizes pipeline stages only; it selects no reduced interface dimension.",
+    "H64 is the adapted recursive hierarchy before final compilation; S64 is the standard hierarchy-target compiler; D64 is a same-budget direct repaired-teacher-target compiler.",
+    "A shared H64/D64 failure cannot distinguish 4096-parameter function capacity from calibration generalization or optimization and must not be over-localized.",
+    "The -5 pp stage validity margin is a preregistered task-reference safeguard, not an equality criterion.",
+    "This is exact C68E-repaired Residual-MLP evidence at Gaussian sigma=.36 and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "reduced_dimension_selection_allowed": false,
+  "robust_target_validity": {
+    "bootstrap95_pp": [
+      -11.874999478459358,
+      -9.953703358769417
+    ],
+    "margin_pp": -20.0,
+    "mean_shift_minus_clean_pp": -10.902777314186096,
+    "pass": true,
+    "robust_clean_accuracy_mean": 0.9747685119509697,
+    "robust_shifted_accuracy_mean": 0.8657407388091087
+  },
+  "stage_reference_validity": {
+    "D64": {
+      "activation_nmse_vs_teacher_mean": 0.1334928856177194,
+      "bootstrap95_pp": [
+        -5.671297386288643,
+        -3.5648163408041
+      ],
+      "margin_pp": -5.0,
+      "mean_stage_minus_teacher_pp": -4.699074849486351,
+      "pass": false,
+      "robust_shifted_teacher_accuracy_mean": 0.8657407388091087,
+      "stage_accuracy_mean": 0.8187499903142452
+    },
+    "H64": {
+      "activation_nmse_vs_teacher_mean": 0.15452028267207105,
+      "bootstrap95_pp": [
+        -7.013888284564018,
+        -4.907407984137535
+      ],
+      "margin_pp": -5.0,
+      "mean_stage_minus_teacher_pp": -5.949074029922485,
+      "pass": false,
+      "robust_shifted_teacher_accuracy_mean": 0.8657407388091087,
+      "stage_accuracy_mean": 0.8062499985098839
+    },
+    "S64": {
+      "activation_nmse_vs_teacher_mean": 0.13617373664854637,
+      "bootstrap95_pp": [
+        -6.4583320170640945,
+        -4.537036642432213
+      ],
+      "margin_pp": -5.0,
+      "mean_stage_minus_teacher_pp": -5.46296238899231,
+      "pass": false,
+      "robust_shifted_teacher_accuracy_mean": 0.8657407388091087,
+      "stage_accuracy_mean": 0.8111111149191856
+    }
+  },
+  "stage_validity_pattern": [
+    false,
+    false,
+    false
+  ]
+}
