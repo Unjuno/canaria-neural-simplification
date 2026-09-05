@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "experiment": "C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "follows": "C70E_P64_REFERENCE_REPAIR_EXPLORATION",
+    "parent_decision": "STOP_P64_REFERENCE_INVALID",
+    "purpose": "localize the post-full-basis reference loss to hierarchy/top-boundary adaptation, standard final compilation, or a shared same-budget mapping/calibration limit",
+    "architecture_line": "C68E-repaired repository Residual-MLP at Gaussian sigma=.36",
+    "not_imported_residual_cnn_line": true
+  },
+  "H": "Because C70E showed numerically exact P64 calibration residual reconstruction but invalid final reference performance, the remaining task gap is generated after target construction. A fresh three-stage comparison can localize whether the dominant loss appears in P64 hierarchy adaptation, standard hierarchy-to-final compilation, or a shared 4096-parameter/calibration-generalization limit.",
+  "T": "Use fresh model seeds 69400-69415 and verification seed 69300. Reproduce the exact C68E robust teacher and C70E P64 full-basis shifted-calibration target. Evaluate: H64 = the P64-adapted 4096-parameter recursive hierarchy directly before compilation; S64 = the standard 4096-parameter TinyRes(64,32) compiler fitted to H64 calibration outputs; D64 = an identically initialized/fitted 4096-parameter TinyRes(64,32) fitted directly to repaired-teacher shifted-calibration final activations, bypassing hierarchy-target distillation. All three use the same shifted validation tensor and frozen teacher stem/head.",
+  "D": "First require repaired-target validity and the P64 calibration full-basis implementation invariant. Then apply the same -5 pp task-reference validity safeguard separately to H64, S64 and D64. If S64 and H64 are both valid, classify the C70E final-reference failure as not reproduced. If S64 is invalid but H64 valid, localize standard compilation loss. If S64 and H64 are invalid but D64 valid, localize hierarchy/top-boundary adaptation loss. If S64/H64/D64 are all invalid, localize only to a shared 4096-parameter mapping or calibration-generalization limit. If H64 invalid but S64 valid, stop as nonmonotonic compiler rescue rather than forcing a bottleneck label.",
+  "C": [
+    "A same-budget direct compiler may also be invalid, implying the issue is not specific to recursive hierarchy adaptation.",
+    "The standard compiler may regularize an invalid hierarchy and become valid, producing a nonmonotonic stage pattern that should not be relabeled as a simple bottleneck.",
+    "Fresh-cohort variation may make the C70E P64 failure not reproduce; that outcome requires separate treatment rather than post-hoc localization.",
+    "Calibration generalization, optimization and 4096-parameter function capacity are confounded if both H64 and D64 fail."
+  ],
+  "U": [
+    "Task-reference validity uses the preregistered -5 pp accuracy safeguard and does not prove activation equivalence.",
+    "D64 is a mechanistic bypass condition, not a deployable replacement claim or interface candidate.",
+    "This stage study does not select a reduced interface dimension and cannot confirm P8/P16 from C69E.",
+    "The experiment is scoped to the exact repaired-teacher recipe, sigma=.36, 192 calibration samples and 4096-parameter replacement budget."
+  ],
+  "fresh_model_seeds": [69400,69401,69402,69403,69404,69405,69406,69407,69408,69409,69410,69411,69412,69413,69414,69415],
+  "implementation_verification_seed": 69300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "repaired_teacher": {
+    "source_recipe": "exact C68E 50%-Gaussian-augmentation recipe",
+    "architecture": "repository Net(d=64, depth=4)",
+    "epochs": 60,
+    "optimizer": "AdamW(lr=2e-3, weight_decay=1e-4)",
+    "batch_size": 64,
+    "augmentation_sigma": 0.36,
+    "fraction_noised_per_minibatch": 0.5,
+    "permutation_rng_seed_rule": "model_seed + 999",
+    "augmentation_rng_seed_rule": "model_seed + 680100"
+  },
+  "hierarchy_and_shift": {
+    "base_hierarchy": "same C61R-C70E 4096-parameter recursive hierarchy built from repaired-teacher clean-training activations",
+    "sigma": 0.36,
+    "calibration_samples": 192,
+    "calibration_subset_rng_seed": 20260903,
+    "calibration_standard_normal_seed_rule": "model_seed + 710100",
+    "validation_standard_normal_seed_rule": "model_seed + 710200",
+    "p64_basis": "all 64 columns of canonical QR of shifted-calibration repaired-teacher residual transpose",
+    "full_basis_relative_calibration_residual_sqerr_threshold": 1e-10
+  },
+  "stages": {
+    "H64": "P64-adapted recursive hierarchy, evaluated directly with frozen repaired-teacher stem/head before final compilation",
+    "S64": "standard TinyRes(64,32) final compiler fitted to H64 shifted-calibration outputs",
+    "D64": "same architecture, initialization seed, fit seed and batch-index stream as S64, but fitted directly to repaired-teacher shifted-calibration final activations"
+  },
+  "training_seeds": {
+    "p64_top_adaptation_seed_rule": "model_seed + 715000",
+    "standard_and_direct_final_init_seed_rule": "model_seed + 716000",
+    "standard_and_direct_final_fit_seed_rule": "model_seed + 717000",
+    "shared_compiler_seed_rationale": "S64 and D64 differ only in target tensor under identical compiler initialization and minibatch sampling"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_seed_if": "robust teacher/hierarchy complete, exact 4096 recursive budget holds, P64 full-basis calibration reconstruction relative error<=1e-10, H64/S64/D64 accuracies and NMSE diagnostics are finite, and S64/D64 NMSE are positive",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "gates": {
+    "target_task_validity": {
+      "statistic": "paired robust-teacher shifted minus clean validation accuracy",
+      "margin_percentage_points": -20.0,
+      "pass": "paired percentile bootstrap95 lower bound > -20 pp"
+    },
+    "stage_reference_validity": {
+      "applies_to": ["H64","S64","D64"],
+      "statistic": "paired stage shifted-validation accuracy minus robust-teacher shifted-validation accuracy",
+      "margin_percentage_points": -5.0,
+      "pass": "paired percentile bootstrap95 lower bound > -5 pp"
+    }
+  },
+  "descriptive_diagnostics": {
+    "stage_activation_nmse_vs_teacher": true,
+    "S64_nmse_vs_H64": true,
+    "S64_minus_H64_accuracy": true,
+    "D64_minus_S64_accuracy": true
+  },
+  "prospective_decision": {
+    "rules": [
+      "if eligible_count<8: STOP_INSUFFICIENT_ELIGIBLE",
+      "else if target validity fails: STOP_ROBUST_TARGET_INVALID",
+      "else if H64 valid and S64 valid: STOP_C70_P64_FAILURE_NOT_REPRODUCED",
+      "else if H64 invalid and S64 valid: STOP_NONMONOTONIC_COMPILER_RESCUE",
+      "else if H64 valid and S64 invalid: LOCALIZE_STANDARD_COMPILATION_LOSS",
+      "else if H64 invalid and S64 invalid and D64 valid: LOCALIZE_HIERARCHY_ADAPTATION_LOSS",
+      "else if H64 invalid and S64 invalid and D64 invalid: LOCALIZE_SHARED_MAPPING_OR_CALIBRATION_LIMIT"
+    ],
+    "no_reduced_dimension_selection": true,
+    "confirmatory_claim_allowed": false
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile95; one common bootstrap index matrix reused for target and all stage gates",
+    "rng_seed": 3326093687,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION_V1') = c640297713bf6c4f0c629faaf8afcb0e2072ec96e3d17010d166efe8cd3eeb4d"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_stage_changes": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_decision_rule_changes": true,
+    "scope": "exact C71E repaired-teacher Residual-MLP pipeline localization at sigma=.36",
+    "not_supported_even_if_localized": [
+      "the localized stage is the only bottleneck in all settings",
+      "P8/P16 is a valid interface frontier",
+      "the 4096-parameter budget is universally insufficient",
+      "any claim about imported Residual CNN C59/C60"
+    ]
+  }
+}
