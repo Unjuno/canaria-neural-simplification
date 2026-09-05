@@ -1,0 +1,109 @@
+name: c69e-preflight
+
+on:
+  push:
+    branches:
+      - research/c69e-robust-teacher-interface-frontier
+    paths:
+      - '.github/workflows/c69e-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c69e_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c69e.py'
+      - 'tests/test_c69e_evaluator.py'
+      - 'results/gaussian_shift_interface/c69e/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c69e_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c69e.py
+          python -m unittest tests.test_c69e_evaluator -v
+      - name: Run implementation verification seed 67300
+        run: |
+          mkdir -p c69e-preflight
+          python scripts/gaussian_shift_interface/run_c69e_seed.py \
+            --seed 67300 \
+            --allow-verification-seed \
+            --out c69e-preflight/seed_67300.json
+      - name: Verify locked robust-teacher frontier invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          r = json.loads(Path('c69e-preflight/seed_67300.json').read_text())
+          assert r['experiment'] == 'C69E_ROBUST_TEACHER_INTERFACE_FRONTIER_EXPLORATION'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['calibration_samples'] == 192
+          assert p['candidate_dimensions'] == [0,1,2,4,8,16]
+          assert p['reference_dimension'] == 32
+          assert p['calibration_epsilon_seed'] == 67300 + 690100
+          assert p['validation_epsilon_seed'] == 67300 + 690200
+          assert p['top_adaptation_seed'] == 67300 + 695000
+          assert p['final_init_seed'] == 67300 + 696000
+          assert p['final_fit_seed'] == 67300 + 697000
+          assert r['budget']['exact_4096_each_level'] is True
+          tp = r['teacher_training_provenance']
+          assert tp['paired_initial_state_sha256']
+          frac = float(tp['realized_augmentation_fraction'])
+          assert 0.45 < frac < 0.55, frac
+          hashes = r['provenance_hashes']
+          for key in (
+              'calibration_indices_sha256',
+              'calibration_standard_normal_sha256',
+              'validation_standard_normal_sha256',
+              'shifted_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256',
+              'robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256',
+              'nested_q1_sha256','nested_q2_sha256','nested_q4_sha256',
+              'nested_q8_sha256','nested_q16_sha256','nested_q32_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+          assert r['conditions']['p0']['dimension'] == 0
+          assert r['conditions']['p0']['teacher_correction_applied'] is False
+          assert r['conditions']['p0']['top_boundary_adaptation_skipped'] is True
+          for k in (1,2,4,8,16,32):
+              rec = r['conditions'][f'p{k}']
+              assert rec['dimension'] == k
+              assert rec['teacher_correction_applied'] is True
+              assert rec['top_boundary_adaptation_skipped'] is False
+          for key in (
+              'robust_clean_validation_accuracy',
+              'robust_shifted_validation_accuracy',
+              'clean_paired_clean_validation_accuracy',
+              'clean_paired_shifted_validation_accuracy',
+          ):
+              value = float(r['teacher_metrics'][key])
+              assert math.isfinite(value) and 0.0 <= value <= 1.0, (key, value)
+          for k in (0,1,2,4,8,16,32):
+              rec = r['conditions'][f'p{k}']
+              assert math.isfinite(float(rec['final_replacement_val_acc']))
+              assert math.isfinite(float(rec['final_nmse_vs_original']))
+              assert float(rec['final_nmse_vs_original']) > 0.0
+          print('C69E PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c69e-preflight-seed-67300
+          path: c69e-preflight/seed_67300.json
+          if-no-files-found: error
+          retention-days: 90
