@@ -1,0 +1,369 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 4017607924,
+  "confirmatory_claim_allowed": false,
+  "decision": "NO_P0_FAILURE_THROUGH_SIGMA_0_20",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    64400,
+    64401,
+    64402,
+    64403,
+    64404,
+    64405,
+    64406,
+    64407,
+    64408,
+    64409,
+    64410,
+    64411,
+    64412,
+    64413,
+    64414,
+    64415
+  ],
+  "experiment": "C66R_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+  "interpretation_boundary": [
+    "C66R is exploratory; a selected sigma is only a grid candidate and requires a separate fresh confirmation.",
+    "The common standardized Gaussian direction across sigma is a variance-reduction device for the dose-response experiment; it does not make independent shifts equivalent.",
+    "The selected grid value is not an estimate of an exact continuous critical sigma.",
+    "Teacher shifted accuracy and task-weighted residual diagnostics are descriptive/mechanism-generating and do not alter the locked frontier decision.",
+    "This is Residual-MLP evidence and does not confirm the imported Residual CNN C59/C60 line."
+  ],
+  "joint_pass_pattern": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "ordered_sigmas": [
+    0.04,
+    0.08,
+    0.12,
+    0.16,
+    0.2
+  ],
+  "selected_sigma_for_confirmation": null,
+  "severity_curve": {
+    "0.04": {
+      "joint_pass": true,
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.08969299237244213,
+          "mean": 0.07269535577715647,
+          "median": 0.07045719661806121,
+          "min": 0.05904966756346344
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.2992008328437805,
+          "mean": 0.22759241703897715,
+          "median": 0.2186802700161934,
+          "min": 0.16009527444839478
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 0.9418405890464783,
+          "mean": 0.6117001865059137,
+          "median": 0.6186949908733368,
+          "min": 0.3741414248943329
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.8495039939880371,
+          "mean": 0.7224472723901272,
+          "median": 0.7293155789375305,
+          "min": 0.6105562448501587
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          0.9965799882161188,
+          1.0236836608407733
+        ],
+        "geometric_mean_p0_over_p2": 1.0101798441365497,
+        "margin": 1.25,
+        "pass": true
+      },
+      "sigma": 0.04,
+      "teacher_shift": {
+        "clean_accuracy_mean": 0.9787037037312984,
+        "drop_bootstrap95_pp": [
+          -0.37037134170532227,
+          0.09259283542633057
+        ],
+        "mean_drop_pp": -0.13888925313949585,
+        "shifted_accuracy_mean": 0.9773148111999035
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.006018519401550293,
+          -0.00023147836327552795
+        ],
+        "bootstrap95_pp": [
+          -0.6018519401550293,
+          -0.023147836327552795
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0032407380640506744,
+        "mean_difference_pp": -0.32407380640506744,
+        "pass": true
+      }
+    },
+    "0.08": {
+      "joint_pass": true,
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.09707494328536631,
+          "mean": 0.0804292749210592,
+          "median": 0.07718233391780077,
+          "min": 0.0667739493817307
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3041594326496124,
+          "mean": 0.23419814836233854,
+          "median": 0.22626139968633652,
+          "min": 0.1796654462814331
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.2573773860931396,
+          "mean": 0.7324577961117029,
+          "median": 0.6839939653873444,
+          "min": 0.3677426278591156
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.8146675229072571,
+          "mean": 0.7161402069032192,
+          "median": 0.7087490558624268,
+          "min": 0.6139473915100098
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          0.9978399039107813,
+          1.0277267688231095
+        ],
+        "geometric_mean_p0_over_p2": 1.0122345782389917,
+        "margin": 1.25,
+        "pass": true
+      },
+      "sigma": 0.08,
+      "teacher_shift": {
+        "clean_accuracy_mean": 0.9787037037312984,
+        "drop_bootstrap95_pp": [
+          -1.064813882112503,
+          -0.30092597007751465
+        ],
+        "mean_drop_pp": -0.6712961941957474,
+        "shifted_accuracy_mean": 0.971990741789341
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.006712961941957474,
+          0.0004629679024219513
+        ],
+        "bootstrap95_pp": [
+          -0.6712961941957474,
+          0.04629679024219513
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0032407380640506744,
+        "mean_difference_pp": -0.32407380640506744,
+        "pass": true
+      }
+    },
+    "0.12": {
+      "joint_pass": true,
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.11038560381431986,
+          "mean": 0.09221910361411748,
+          "median": 0.0886037042992486,
+          "min": 0.07771461054360612
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3155952990055084,
+          "mean": 0.2407527742907405,
+          "median": 0.2310623675584793,
+          "min": 0.19056664407253265
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.3849377632141113,
+          "mean": 0.8239514455199242,
+          "median": 0.7865777909755707,
+          "min": 0.5342628955841064
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.8057914972305298,
+          "mean": 0.708825871348381,
+          "median": 0.7007609903812408,
+          "min": 0.6051782369613647
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0034922661660597,
+          1.0377788808010397
+        ],
+        "geometric_mean_p0_over_p2": 1.0199224370382847,
+        "margin": 1.25,
+        "pass": true
+      },
+      "sigma": 0.12,
+      "teacher_shift": {
+        "clean_accuracy_mean": 0.9787037037312984,
+        "drop_bootstrap95_pp": [
+          -2.1296292543411255,
+          -1.1805549263954163
+        ],
+        "mean_drop_pp": -1.6435187309980392,
+        "shifted_accuracy_mean": 0.962268516421318
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.0041666775941848755,
+          0.00046295300126075745
+        ],
+        "bootstrap95_pp": [
+          -0.41666775941848755,
+          0.046295300126075745
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0018518604338169098,
+        "mean_difference_pp": -0.18518604338169098,
+        "pass": true
+      }
+    },
+    "0.16": {
+      "joint_pass": true,
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.1293573214267174,
+          "mean": 0.10746581537627167,
+          "median": 0.104636456422317,
+          "min": 0.09148120867204357
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.3351099491119385,
+          "mean": 0.24398370366543531,
+          "median": 0.2320607751607895,
+          "min": 0.18465964496135712
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.2280691862106323,
+          "mean": 0.8638236336410046,
+          "median": 0.779594898223877,
+          "min": 0.5425472259521484
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.797074556350708,
+          "mean": 0.7036794535815716,
+          "median": 0.6987802684307098,
+          "min": 0.5914013385772705
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.006466112271239,
+          1.0426043784659809
+        ],
+        "geometric_mean_p0_over_p2": 1.0247165578039306,
+        "margin": 1.25,
+        "pass": true
+      },
+      "sigma": 0.16,
+      "teacher_shift": {
+        "clean_accuracy_mean": 0.9787037037312984,
+        "drop_bootstrap95_pp": [
+          -3.7500012759119272,
+          -2.8703711926937103
+        ],
+        "mean_drop_pp": -3.310185670852661,
+        "shifted_accuracy_mean": 0.9456018470227718
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.005787033587694168,
+          0.0030092746019363403
+        ],
+        "bootstrap95_pp": [
+          -0.5787033587694168,
+          0.30092746019363403
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0013888813555240631,
+        "mean_difference_pp": -0.1388881355524063,
+        "pass": true
+      }
+    },
+    "0.20": {
+      "joint_pass": true,
+      "mechanism_summary": {
+        "frozen_hierarchy_activation_nmse_vs_teacher": {
+          "max": 0.15043982156447278,
+          "mean": 0.1256445943091899,
+          "median": 0.12464505130535908,
+          "min": 0.10770310386486763
+        },
+        "p2_euclidean_capture_fraction": {
+          "max": 0.34888342022895813,
+          "mean": 0.2432946190237999,
+          "median": 0.2252754047513008,
+          "min": 0.17829757928848267
+        },
+        "p2_fisher_retained_ratio": {
+          "max": 1.459137201309204,
+          "mean": 0.8487094938755035,
+          "median": 0.7850704789161682,
+          "min": 0.6085859537124634
+        },
+        "p2_logit_l2_retained_ratio": {
+          "max": 0.7984887957572937,
+          "mean": 0.7019784897565842,
+          "median": 0.7015073895454407,
+          "min": 0.5820920467376709
+        }
+      },
+      "nmse_ratio": {
+        "bootstrap95": [
+          1.0061949076678807,
+          1.0450371004927077
+        ],
+        "geometric_mean_p0_over_p2": 1.0258693270941528,
+        "margin": 1.25,
+        "pass": true
+      },
+      "sigma": 0.2,
+      "teacher_shift": {
+        "clean_accuracy_mean": 0.9787037037312984,
+        "drop_bootstrap95_pp": [
+          -6.759259477257729,
+          -5.532405897974968
+        ],
+        "mean_drop_pp": -6.157407164573669,
+        "shifted_accuracy_mean": 0.9171296320855618
+      },
+      "validation_noninferiority": {
+        "bootstrap95_fraction": [
+          -0.006712965667247772,
+          0.0034722238779067993
+        ],
+        "bootstrap95_pp": [
+          -0.6712965667247772,
+          0.34722238779067993
+        ],
+        "margin_fraction": -0.02,
+        "margin_pp": -2.0,
+        "mean_difference_fraction": -0.0016203708946704865,
+        "mean_difference_pp": -0.16203708946704865,
+        "pass": true
+      }
+    }
+  }
+}
