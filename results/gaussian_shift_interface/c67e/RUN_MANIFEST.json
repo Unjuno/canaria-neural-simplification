@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment": "C67E_EXTENDED_SHIFT_SEVERITY_FRONTIER_EXPLORATION",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "architecture_line": "C61R-C67E Residual-MLP recursive hierarchy; not imported Residual CNN C59/C60",
+  "protocol_lock": {
+    "commit": "81c353bf576c4d6eb8b9a75e815c78b33a4c2199",
+    "path": "results/gaussian_shift_interface/c67e/PROTOCOL.json",
+    "status": "LOCKED_BEFORE_OUTCOMES"
+  },
+  "preflight": {
+    "verification_seed": 65300,
+    "workflow_run_id": 33995599663,
+    "conclusion": "success",
+    "fresh_seeds_consumed_before_preflight_success": false
+  },
+  "fresh_execution": {
+    "workflow_run_id": 33995671866,
+    "workflow_name": "c67e-fresh-exploratory",
+    "workflow_head_sha": "8d5751c5584e14f35137114077e078e4a5cadc50",
+    "fresh_seeds": [65400,65401,65402,65403,65404,65405,65406,65407,65408,65409,65410,65411,65412,65413,65414,65415],
+    "seed_jobs_attempted": 16,
+    "seed_jobs_success": 16,
+    "integrity_assertions_passed": 16,
+    "held_out_test_used": false,
+    "aggregate_job_id": 101385921426,
+    "aggregate_job_conclusion": "success"
+  },
+  "aggregate_artifact": {
+    "artifact_id": 9978002105,
+    "zip_sha256": "15bbaaac9e4e138f9d7f54a5dc7246bf2779948ba0f24712096035dc4675d957",
+    "files": ["rows.json", "decision.json"],
+    "retention_days_at_creation": 90
+  },
+  "seed_artifacts": [
+    {"seed":65400,"artifact_id":9977984322,"zip_sha256":"e32184c8966d1a23b72b1166cbf7178dfb7d2de2be8b9a02c01591cf58c0b026"},
+    {"seed":65401,"artifact_id":9977981561,"zip_sha256":"b65ff15c5504d6527afeba78524fcfad926b4d20636028e5ca1ad815de1727d8"},
+    {"seed":65402,"artifact_id":9977983006,"zip_sha256":"bcc17f6fffb03eff27cdcae6114e9db1a4db04e26cb00ad588aabd20e6f9fade"},
+    {"seed":65403,"artifact_id":9977982809,"zip_sha256":"2119ff4d1184b707936623d5536567e8da42492a10e9eb7fc22f34a56ced9169"},
+    {"seed":65404,"artifact_id":9977980447,"zip_sha256":"944dc7ee1d76e5e0bd4774174c01f53f14802beb4710a6cfd76de6a5dac85c23"},
+    {"seed":65405,"artifact_id":9977980484,"zip_sha256":"fdf1ab245dfd381cad207617f6538b781c2f55604634ac0a612f0492f14d456d"},
+    {"seed":65406,"artifact_id":9977983114,"zip_sha256":"0c652d6fd87ca20c21890f8288dd106506d273fc7559083788ffc48e1a4e7a8f"},
+    {"seed":65407,"artifact_id":9977982969,"zip_sha256":"60cad87065a3c43594982a21e6810a6cc2d50d6923914d5ff29db6034a25021b"},
+    {"seed":65408,"artifact_id":9977992348,"zip_sha256":"0bab10edeaeade4d8d5b855cc78d95182f0dff9f94e0e1732ca6b2ee85d9c6d9"},
+    {"seed":65409,"artifact_id":9977991842,"zip_sha256":"2a17c63af56f2cd7989db10fccaab5ecc3571e27564ca7c28d21f0fa022fcc8f"},
+    {"seed":65410,"artifact_id":9977995728,"zip_sha256":"a9fb7465158dc703458b909a4ade231add0708b50f65ff8589fe3843e1fcf15e"},
+    {"seed":65411,"artifact_id":9977996040,"zip_sha256":"e702129abbc6f6d1891f38d51914d1fd60cca4a74bf41275f1b1f0a4b071691d"},
+    {"seed":65412,"artifact_id":9977996811,"zip_sha256":"d869f3dc54412944307e16520b3b45191e2a5c4d9fe02981ba8f4fe8068378fc"},
+    {"seed":65413,"artifact_id":9977996619,"zip_sha256":"b6310357c1be44b507d8f66a78c502629d4083635e3ce9bdaddc3f7e637a4172"},
+    {"seed":65414,"artifact_id":9977996584,"zip_sha256":"5343725a600fdcc55191b83158ed6f1ebfbe1b014ad6fd5ddcccb1716d2a1c3d"},
+    {"seed":65415,"artifact_id":9977997617,"zip_sha256":"b3bace4f24e15a73946bf34f27182fc01dc3eb1336ec0d2aefa443de0191ed40"}
+  ],
+  "repository_persistence": {
+    "workflow_run_id": 33995821832,
+    "commit": "4062e2452fc1cdaf1b889b13b0fdbe2c16a3b767",
+    "fresh_rows_path": "results/gaussian_shift_interface/c67e/FRESH_ROWS.json",
+    "decision_path": "results/gaussian_shift_interface/c67e/DECISION.json",
+    "persistence_method": "copied without alteration from aggregate artifact by c67e-persist-evidence workflow"
+  }
+}
