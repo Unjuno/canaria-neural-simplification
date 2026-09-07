@@ -1,0 +1,132 @@
+{
+  "cells": {
+    "N192_W32": {
+      "activation_nmse_vs_teacher": 0.12980072931970196,
+      "calibration_nmse_vs_teacher": 0.028082124863800427,
+      "calibration_samples": 192,
+      "final_state_sha256": "45a9de7a7c76fd1bf90474e76e8448768fae8d4f619827209d5b9c3ac6ada35a",
+      "trainable_parameters": 4096,
+      "validation_accuracy": 0.8111110925674438,
+      "width": 32
+    },
+    "N192_W64": {
+      "activation_nmse_vs_teacher": 0.11418169984201189,
+      "calibration_nmse_vs_teacher": 0.010428099088304742,
+      "calibration_samples": 192,
+      "final_state_sha256": "0d5fc2ad937bcadc0b8ad8015a4df0deb2f4a5bbedd585a72e18af5f9a5ced72",
+      "trainable_parameters": 8192,
+      "validation_accuracy": 0.8259259462356567,
+      "width": 64
+    },
+    "N384_W32": {
+      "activation_nmse_vs_teacher": 0.0924185735260508,
+      "calibration_nmse_vs_teacher": 0.04497819749251589,
+      "calibration_samples": 384,
+      "final_state_sha256": "715a6e1df474d34307d6ffa3f476ed586bc96c33ea473041907e4a66c74f5c13",
+      "trainable_parameters": 4096,
+      "validation_accuracy": 0.8222222328186035,
+      "width": 32
+    },
+    "N384_W64": {
+      "activation_nmse_vs_teacher": 0.07712145130144926,
+      "calibration_nmse_vs_teacher": 0.021796466358615346,
+      "calibration_samples": 384,
+      "final_state_sha256": "8d6ad838eb1c9e8a3854cd6121d8e035d08efbc7ca6cdef8f8a2d7ebdb77ee89",
+      "trainable_parameters": 8192,
+      "validation_accuracy": 0.855555534362793,
+      "width": 64
+    }
+  },
+  "decision_row": {
+    "cells": {
+      "N192_W32": {
+        "activation_nmse_vs_teacher": 0.12980072931970196,
+        "calibration_nmse_vs_teacher": 0.028082124863800427,
+        "calibration_samples": 192,
+        "trainable_parameters": 4096,
+        "validation_accuracy": 0.8111110925674438
+      },
+      "N192_W64": {
+        "activation_nmse_vs_teacher": 0.11418169984201189,
+        "calibration_nmse_vs_teacher": 0.010428099088304742,
+        "calibration_samples": 192,
+        "trainable_parameters": 8192,
+        "validation_accuracy": 0.8259259462356567
+      },
+      "N384_W32": {
+        "activation_nmse_vs_teacher": 0.0924185735260508,
+        "calibration_nmse_vs_teacher": 0.04497819749251589,
+        "calibration_samples": 384,
+        "trainable_parameters": 4096,
+        "validation_accuracy": 0.8222222328186035
+      },
+      "N384_W64": {
+        "activation_nmse_vs_teacher": 0.07712145130144926,
+        "calibration_nmse_vs_teacher": 0.021796466358615346,
+        "calibration_samples": 384,
+        "trainable_parameters": 8192,
+        "validation_accuracy": 0.855555534362793
+      }
+    },
+    "clean_teacher_clean_validation_accuracy": 0.9740740656852722,
+    "clean_teacher_shifted_validation_accuracy": 0.6962962746620178,
+    "eligible": true,
+    "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+    "robust_teacher_shifted_validation_accuracy": 0.8518518805503845,
+    "seed": 70405
+  },
+  "eligible": true,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "experiment": "C72E_DIRECT_MAPPING_FACTORIAL_REPAIR",
+  "github_sha": "c2a0c8cbaee565e5328e17ff1c2667fe5427ecfd",
+  "nesting_invariants": {
+    "base_indices_are_large_prefix": true,
+    "base_input_activations_are_large_prefix": true,
+    "base_shifted_inputs_are_large_prefix": true,
+    "base_target_activations_are_large_prefix": true,
+    "width32_initialization_shared_across_calibration_sizes": true,
+    "width64_initialization_shared_across_calibration_sizes": true
+  },
+  "protocol": {
+    "base_calibration_epsilon_seed": 780505,
+    "base_calibration_samples": 192,
+    "extension_calibration_epsilon_seed": 790506,
+    "extension_index_seed": 20260906,
+    "final_fit_seed": 787405,
+    "final_init_seed": 786405,
+    "fit_updates": 600,
+    "large_calibration_samples": 384,
+    "sigma": 0.36,
+    "validation_epsilon_seed": 780605
+  },
+  "provenance_hashes": {
+    "base_calibration_indices_sha256": "af97e3251659f3b03ebfb275872e366c6c12dcd42f867f6dcc469502628464aa",
+    "base_calibration_standard_normal_sha256": "8a3383deaabf0d19fc42f10dcf223492b6160f0ab039600b2720cb8c6361f35a",
+    "extension_calibration_indices_sha256": "ec581f43d915586c44a3b66564cdfbe255521ff7f509dfdc6fdbabb4a912a0f2",
+    "extension_calibration_standard_normal_sha256": "62768d16d8c05e112d93d86083d51626884ae274a4d2e405895598831fca0bec",
+    "large_calibration_indices_sha256": "2e8eb79b5a40fa70cb10484dcec938d8bf42b6f6067f5772edc9b5420db839de",
+    "paired_clean_teacher_final_state_sha256": "382c66cef97c22bf56f5c99d2e0928a4e7660bbed5ebe9f9fcd949a2c2a786eb",
+    "robust_teacher_final_state_sha256": "3aef71255b2f45356fd0b44a20abd03d77ff9ac28a5e1ee87c63112991c91e80",
+    "shifted_base_calibration_tensor_sha256": "361f5e311fc3e6a4c5c298fd1401f25664ff062b3b09e5082b24c246504e9853",
+    "shifted_large_calibration_tensor_sha256": "3f5ba9a559044c98d401f4019e8f3fb6cba6896fa0a2b940e0e9e99037440247",
+    "shifted_validation_tensor_sha256": "b3ba06e6761cf0eea10ef5a86ebdd153335af5f1d175388a5e51ec470aa74fac",
+    "validation_standard_normal_sha256": "7ee763b206af755a65c15b6793464fa103ea200786753656c54d6df8677e8cc9",
+    "width32_initial_state_sha256": "9212d09b27a0e64dad34b0500d11185f9719ed745df3aaa0193ed7e146235202",
+    "width64_initial_state_sha256": "c8f10f7d06cac63e9f242ee6c6364b3bbf97d42bd670f97982ee9d3a245a0e1a"
+  },
+  "seed": 70405,
+  "status": "FRESH_SEED_OUTCOME",
+  "teacher_metrics": {
+    "clean_paired_clean_validation_accuracy": 0.9740740656852722,
+    "clean_paired_shifted_validation_accuracy": 0.6962962746620178,
+    "robust_clean_validation_accuracy": 0.9740740656852722,
+    "robust_shifted_validation_accuracy": 0.8518518805503845
+  },
+  "teacher_training_provenance": {
+    "augmentation_selected_examples": 32589,
+    "augmentation_total_examples": 64620,
+    "paired_initial_state_sha256": "4f6c88330a6cce2dd504eceb80ebbb8af264b442a06b67d2eca4320c94e1d301",
+    "realized_augmentation_fraction": 0.5043175487465181
+  },
+  "test_evaluated": false
+}
