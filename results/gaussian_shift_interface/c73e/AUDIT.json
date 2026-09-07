@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "source/raw record/count/NMSE integrity and decision recomputation, not independent scientific review",
+  "complete_cohort": true,
+  "recomputed_decision_identical": true,
+  "test_evaluated": false
+}

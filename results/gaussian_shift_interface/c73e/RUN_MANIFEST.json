@@ -1,0 +1,145 @@
+{
+  "artifacts": [
+    {
+      "created_at": "2026-09-07T15:42:38Z",
+      "digest": "sha256:6288215b34a077150de0fe378053e76094910bb33800c4e63cfec93bd6b9769a",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025384008,
+      "name": "c73e-seed-71414"
+    },
+    {
+      "created_at": "2026-09-07T15:42:35Z",
+      "digest": "sha256:b9a150b0348029e7187572072955bd2e38e50187141ee59fe1b7fae13bf47aee",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025381929,
+      "name": "c73e-seed-71412"
+    },
+    {
+      "created_at": "2026-09-07T15:42:34Z",
+      "digest": "sha256:4dc1f37b859de1571e2de896e0d3ccb7c42cfee8bfc9b938bbf690ff1a325a2d",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025381465,
+      "name": "c73e-seed-71415"
+    },
+    {
+      "created_at": "2026-09-07T15:42:34Z",
+      "digest": "sha256:5056d5332a5f9fe28e1069364bd8756c4baf9921e39fdce839a6dc117ff9a728",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025381361,
+      "name": "c73e-seed-71410"
+    },
+    {
+      "created_at": "2026-09-07T15:42:33Z",
+      "digest": "sha256:95b2d7b219d9967587c282d7ec30018df605c4cc9a431d484d9f1d6bf4d255ea",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025381300,
+      "name": "c73e-seed-71413"
+    },
+    {
+      "created_at": "2026-09-07T15:42:32Z",
+      "digest": "sha256:a778d6d740af76f7a5be5f0c02c8853da4e758d12eba7c5830a8a87bdf9edf00",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025380428,
+      "name": "c73e-seed-71409"
+    },
+    {
+      "created_at": "2026-09-07T15:42:28Z",
+      "digest": "sha256:437dbeb8a106ca8a3badf9b0b16405863866fb7d71587c86789c2babf922efe4",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025378492,
+      "name": "c73e-seed-71411"
+    },
+    {
+      "created_at": "2026-09-07T15:42:25Z",
+      "digest": "sha256:089691d7e8a1b33e34a11ec079aa420c3e4ab06c6fa61c4c55ddc2ae7ecd3f5f",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025376723,
+      "name": "c73e-seed-71408"
+    },
+    {
+      "created_at": "2026-09-07T15:41:42Z",
+      "digest": "sha256:9b2b08088d28e77a42a61dd2ac6440f6afda6dcf4965239e4e4fab8936913c72",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025353439,
+      "name": "c73e-seed-71403"
+    },
+    {
+      "created_at": "2026-09-07T15:41:41Z",
+      "digest": "sha256:a1564e2968ce34426b565fc6b6f2175610e0a2b2ee1e9801568996efcf83d1ab",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025352655,
+      "name": "c73e-seed-71407"
+    },
+    {
+      "created_at": "2026-09-07T15:41:40Z",
+      "digest": "sha256:0d7096129aaf364db4ce9dcd81967292b9636cd35e7161df44a559e8172f4741",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025352462,
+      "name": "c73e-seed-71401"
+    },
+    {
+      "created_at": "2026-09-07T15:41:40Z",
+      "digest": "sha256:1de072dbf42d3e4aae28d8a880e1ebe52ff7a98f408913fe203ee7ce0cb75525",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025352440,
+      "name": "c73e-seed-71400"
+    },
+    {
+      "created_at": "2026-09-07T15:41:40Z",
+      "digest": "sha256:8181ebd43b6d8960dba60b27c4a672e6c17f13ec9fe658202c0be502c89b5eb3",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025352187,
+      "name": "c73e-seed-71405"
+    },
+    {
+      "created_at": "2026-09-07T15:41:39Z",
+      "digest": "sha256:d4d8644ef4b145d79d449b5ae30a618dfe5d34869a490974e35a7c3a163eef75",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025351904,
+      "name": "c73e-seed-71402"
+    },
+    {
+      "created_at": "2026-09-07T15:41:36Z",
+      "digest": "sha256:68351e66bcaac3d09fbbfdced54c4bac0b29f1ac8943ef0eb62afebc8b4162fb",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025350105,
+      "name": "c73e-seed-71406"
+    },
+    {
+      "created_at": "2026-09-07T15:41:34Z",
+      "digest": "sha256:d59864eecc90e898a8467bf773692eb3d1486e965d578a236059a7f02951f264",
+      "expires_at": "2026-12-06T15:40:44Z",
+      "id": 10025348933,
+      "name": "c73e-seed-71404"
+    }
+  ],
+  "files_sha256": {
+    "DECISION.json": "0141fd8b4388bfd397a1077a3ba5d15a37a2acd6e7d23780f2648b9a503185fc",
+    "FRESH_ROWS.json": "a4013ff75ff80b4c25685334438a2f1373e3843981ccce0e12be1579db407c26",
+    "PROTOCOL.json": "28ea1639b9838934c8000d39e1ad80e3e287570ec3b4d6d397a50d6cc3586dae",
+    "preflight/bridge_70300.json": "441bd3008508f2b0c3a0a06dfe1839dddb0f3b7b1e07e44fe00eae3418596fc6",
+    "preflight/environment.txt": "e2bd3dee9f55e39205efbcac539ececb0522bbd4504e9ad3af77d90113c19325",
+    "preflight/verification_71300.json": "d9946fdb4babdac446d3f6c724a5294db32e8e6868e42844b6f725775508bd5a",
+    "raw/seed_71400.json": "9fad8fd96eee001d103ccbccad4a149147021e9c84aacfd642c744455136b829",
+    "raw/seed_71401.json": "8bdc36d6f4b17826f83b9c6c7f37bcf9159793d859913c86434a7778741f9295",
+    "raw/seed_71402.json": "08fe6d21516a93becff76f78c5a00b49457460c93568676bea42f04b56d84bc8",
+    "raw/seed_71403.json": "97ec04396aacba967e584872b0122a9150ed720ccac0f60c2b43cfb27952acff",
+    "raw/seed_71404.json": "1ef0948515e6939fb154dfafea3969ea045239525bc37f80e84bbb93f4669798",
+    "raw/seed_71405.json": "bbabae4ad7ce8318e0abcea91fc13502a5bb26f888a8e0682f2515c95181f972",
+    "raw/seed_71406.json": "3320c9ac6e515553d702a25b58c7b45bc151f0bb995ae5a946ba87bfd5950dff",
+    "raw/seed_71407.json": "2df24b700aef61ed4435d9fd8dd66adad98bac198ef95e920fd6dab0152ac627",
+    "raw/seed_71408.json": "f2d86fb4bc1d15b4ac6c098f0c269660329238fe50e727d2ce1d6579f07fd0a7",
+    "raw/seed_71409.json": "41acc87bf893f37de511dd5be07cc18899d0da1dcbc2b8dd5e1e6d81e2f7e15f",
+    "raw/seed_71410.json": "d4e2ba4396392e8c438b1059bcb5e4b4fb0edda58cc6ecbd7f4208dd0fd3be7b",
+    "raw/seed_71411.json": "fc168a6299a56725f78795601b1a52a47ae6b4e102bd6e4487ab242ebc24b2b6",
+    "raw/seed_71412.json": "3307e4305f48eb7a85c5b3f623a4437cd769f25fd14f2f5ce95f702db5c165cc",
+    "raw/seed_71413.json": "ebd4797a1c80a90400bd1cc131117661c416f56ce60c6fae3e5517222282c2bb",
+    "raw/seed_71414.json": "3c4312fd4be0f8d9986814e980be472a72b051b698ec7750615175555f66e1d3",
+    "raw/seed_71415.json": "a1d6c793a8bc74ba064624c0e74f8c3755625bd8e9d6b3491d1cbd460006a161"
+  },
+  "fresh_run_id": 34139528784,
+  "fresh_source_commit": "ed3612ea61199b92bd891e3420f66f9d3c9af435",
+  "preflight_run_id": 34139282843,
+  "protocol_lock_commit": "01a0fa95c69cf477359d130b290a112fd95e7557",
+  "record_count": 16
+}
