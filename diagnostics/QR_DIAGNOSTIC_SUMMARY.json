@@ -1,0 +1,22 @@
+{
+  "kind": "POST_HOC_MECHANISM_DIAGNOSTIC",
+  "fresh_confirmatory": false,
+  "seeds": [69300,70300,71300],
+  "input_source_commit": "1ae4a89455305e71fc10f1a5b22452bd3b8c0cd3",
+  "max_append_projector_fro_diff": 0.0,
+  "max_prefix_only_projector_fro_diff": 0.0000018725897916738177,
+  "max_svd_reverse_projector_fro_diff_float64": 0.00000000000003679934460767703,
+  "p2_order_capture_ranges": [
+    {"seed":69300,"min":0.12151164561510086,"max":0.20260562002658844,"identity":0.19894710183143616},
+    {"seed":70300,"min":0.17535896599292755,"max":0.2161782830953598,"identity":0.2161782830953598},
+    {"seed":71300,"min":0.14593373239040375,"max":0.28172603249549866,"identity":0.26032036542892456}
+  ],
+  "source_sha256": "87bd7862b6327c3bca0ec1c829c18d35c74eef08e264a3ed335128e4ea0d60f2",
+  "assertions": {
+    "appending_tail_does_not_change_projector": true,
+    "first_k_rows_reproduce_projector": true,
+    "svd_order_control": true,
+    "full_basis_invariant": true
+  },
+  "scope": "Rebuilt real teacher residuals on three known verification seeds; no downstream classification experiment; not pooled into GitHub fresh cohorts. Local Python3.13.5/torch2.10.0+cpu/numpy2.3.5/sklearn1.8.0 differs from the pinned Actions environment. Original per-seed JSON and residual NPZ arrays are preserved in the session artifact. See the proof and interpretation limits in docs/QR_PREFIX_ORDER_DIAGNOSTIC.md."
+}

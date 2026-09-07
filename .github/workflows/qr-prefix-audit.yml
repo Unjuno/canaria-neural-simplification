@@ -1,0 +1,68 @@
+name: qr-prefix-construction-audit
+on:
+  push:
+    branches: [research/qr-prefix-order-diagnostic]
+    paths: ['.github/workflows/qr-prefix-audit.yml']
+permissions:
+  contents: read
+jobs:
+  construction-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned numerical environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Test prefix theorem, ordering counterexample and full-basis control
+        run: |
+          mkdir -p /tmp/qr-prefix-export
+          python - <<'PY'
+          import hashlib,json,sys
+          from pathlib import Path
+          import numpy as np
+          import torch
+          from scripts.gaussian_shift_interface.run_c61r_seed import canonical_nested_qr
+          torch.set_num_threads(1)
+          source=Path('diagnostics/qr_prefix_diagnostic.py')
+          expected='87bd7862b6327c3bca0ec1c829c18d35c74eef08e264a3ed335128e4ea0d60f2'
+          assert hashlib.sha256(source.read_bytes()).hexdigest()==expected
+          r=torch.randn((384,64),generator=torch.Generator().manual_seed(739001),dtype=torch.float64)
+          q=canonical_nested_qr(r)
+          qb=canonical_nested_qr(r[:192])
+          projector=lambda a,k: a[:,:k]@a[:,:k].T
+          measurements={}
+          for k in (1,2,4,8,16,32,64):
+              assert torch.linalg.matrix_rank(r[:k])==k
+              qp=canonical_nested_qr(r[:k])
+              append=float(torch.linalg.matrix_norm(projector(q,k)-projector(qb,k)))
+              prefix=float(torch.linalg.matrix_norm(projector(q,k)-projector(qp,k)))
+              assert append<1e-10 and prefix<1e-10
+              measurements[str(k)]={'append_frobenius_difference':append,'prefix_frobenius_difference':prefix}
+          reverse=canonical_nested_qr(r.flip(0))
+          assert float(torch.linalg.matrix_norm(projector(q,2)-projector(reverse,2)))>0.1
+          assert float(torch.linalg.matrix_norm(projector(q,64)-torch.eye(64,dtype=r.dtype)))<1e-10
+          assert float(torch.linalg.matrix_norm(projector(q,64)-projector(reverse,64)))<1e-10
+          example=torch.tensor([[1.,0.],[0.,1.],[1.,1.]],dtype=torch.float64)
+          p1=projector(canonical_nested_qr(example),1)
+          p2=projector(canonical_nested_qr(example[[1,0,2]]),1)
+          assert torch.allclose(p1,torch.diag(torch.tensor([1.,0.],dtype=torch.float64)))
+          assert torch.allclose(p2,torch.diag(torch.tensor([0.,1.],dtype=torch.float64)))
+          result={'status':'PASS','scope':'synthetic construction regression only; not a downstream accuracy experiment or fresh scientific cohort','source_hash_matches_executed_local_diagnostic':True,'measurements':measurements,'ordering_counterexample_pass':True,'full_basis_control_pass':True,'python':sys.version,'torch':torch.__version__,'numpy':np.__version__}
+          Path('/tmp/qr-prefix-export/CONSTRUCTION_AUDIT.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('QR PREFIX CONSTRUCTION AUDIT PASS')
+          PY
+      - name: Export exact diagnostic documentation and source
+        run: |
+          git archive --format=tar.gz --output=/tmp/qr-prefix-export/diagnostic-source.tar.gz HEAD docs/QR_PREFIX_ORDER_DIAGNOSTIC.md diagnostics .github/workflows/qr-prefix-audit.yml
+          git rev-parse HEAD > /tmp/qr-prefix-export/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qr-prefix-diagnostic-source-and-audit
+          path: /tmp/qr-prefix-export/
+          retention-days: 90
+          if-no-files-found: error
