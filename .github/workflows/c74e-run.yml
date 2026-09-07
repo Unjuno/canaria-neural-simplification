@@ -1,0 +1,151 @@
+name: c74e-run
+on:
+  push:
+    branches: [research/c74e-final-teacher-blend]
+    paths: ['.github/workflows/c74e-run.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Require exact endpoint bridge before fresh execution
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/c74e_teacher_blend.py
+          python scripts/gaussian_shift_interface/c74e_teacher_blend.py --mode preflight --out /tmp/c74e-preflight
+          python -m pip freeze > /tmp/c74e-preflight/environment.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c74e-preflight
+          path: /tmp/c74e-preflight/
+          retention-days: 90
+          if-no-files-found: error
+  seeds:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [72400,72401,72402,72403,72404,72405,72406,72407,72408,72409,72410,72411,72412,72413,72414,72415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Execute locked fresh seed
+        run: python scripts/gaussian_shift_interface/c74e_teacher_blend.py --mode seed --seed ${{ matrix.seed }} --out /tmp/c74e/seed_${{ matrix.seed }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c74e-seed-${{ matrix.seed }}
+          path: /tmp/c74e/
+          retention-days: 90
+          if-no-files-found: error
+  aggregate:
+    if: always()
+    needs: [preflight,seeds]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: c74e-seed-*
+          merge-multiple: true
+          path: /tmp/c74e-raw
+      - name: Evaluate complete locked cohort
+        run: |
+          mkdir -p /tmp/c74e-raw
+          python scripts/gaussian_shift_interface/c74e_teacher_blend.py --mode aggregate --input /tmp/c74e-raw --out /tmp/c74e-result
+      - uses: actions/download-artifact@v4
+        with:
+          name: c74e-preflight
+          path: /tmp/c74e-preflight
+      - name: Recompute and persist source-linked result without changing evidence class
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,shutil,urllib.request
+          from pathlib import Path
+          from scripts.gaussian_shift_interface.c74e_teacher_blend import evaluate,validate_record,digest
+          dest=Path('results/gaussian_shift_interface/c74e')
+          d=json.loads(Path('/tmp/c74e-result/DECISION.json').read_text())
+          rows=json.loads(Path('/tmp/c74e-result/FRESH_ROWS.json').read_text())['rows']
+          assert evaluate(rows)==d
+          for r in rows:
+              validate_record(r)
+              assert r['github_sha']==os.environ['GITHUB_SHA']
+          for name in ('FRESH_ROWS.json','DECISION.json'):
+              shutil.copyfile(Path('/tmp/c74e-result')/name,dest/name)
+          (dest/'raw').mkdir(exist_ok=True)
+          for p in Path('/tmp/c74e-raw').glob('seed_*.json'): shutil.copyfile(p,dest/'raw'/p.name)
+          (dest/'preflight').mkdir(exist_ok=True)
+          for p in Path('/tmp/c74e-preflight').glob('*'): shutil.copyfile(p,dest/'preflight'/p.name)
+          req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/runs/'+os.environ['GITHUB_RUN_ID']+'/artifacts?per_page=100',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          arts=json.load(urllib.request.urlopen(req))['artifacts']
+          manifest={'protocol_lock_commit':'c6f2ca1ca1efaf45fdf38ecd46346b9f8fcf6e15','fresh_source_commit':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'preflight_required_by_job_dependency':True,'record_count':len(rows),'artifacts':[{k:a[k] for k in ('id','name','digest','created_at','expires_at')} for a in arts],'files_sha256':{str(p.relative_to(dest)):digest(p) for p in sorted(dest.rglob('*')) if p.is_file()}}
+          (dest/'RUN_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          (dest/'AUDIT.json').write_text(json.dumps({'status':'PASS','scope':'source/record integrity and decision recomputation, not independent scientific review','complete_cohort':len(rows)==16,'recomputed_decision_identical':True,'test_evaluated':False},indent=2)+'\n')
+          text=['# C74E: final teacher-target blend','','Evidence: PROSPECTIVE_EXPLORATORY. No reduced teacher-interface claim.','','Decision: `'+d['decision']+'`.','','| Stage | Mean gap to teacher (pp) | 95% CI (pp) | Reference gate |','|---|---:|---|---|']
+          for k,v in d.get('cells',{}).items(): text.append(f"| {k} | {v['mean_pp']:.6f} | {v['bootstrap95_pp']} | {v['status']} |")
+          if 'blend_minus_standard' in d:
+              v=d['blend_minus_standard'];text+=['',f"B50-minus-S0 accuracy: {v['mean_pp']:.6f} pp, 95% {v['bootstrap95_pp']}, superiority gate {v['status']}."]
+          text+=['','## Descriptive contrasts','']
+          for k,v in d.get('descriptive_contrasts',{}).items():text.append(f"- {k}: {v['mean_pp']:.6f} pp, 95% {v['bootstrap95_pp']}")
+          text+=['','## Interpretation limits','The only final-fit intervention is target source: hierarchy-only S0, equal-weight hierarchy/teacher B50, or direct teacher D64. Architecture, initialization, minibatch-index stream, 384 calibration samples, 600 updates and batch128 are matched. H64 is also recorded.','', 'B50 uses full teacher supervision in final compilation and is not evidence for a small feedback dimension. This experiment cannot show optimality of 50% or superiority over direct distillation unless directly supported by the reported contrast. No test-set use; seed intervals condition on fixed digits splits/subsets. Main unchanged. A numerical gate failure is not automatically proof of inferiority.']
+          (dest/'RESULT.md').write_text('\n'.join(text)+'\n')
+          (dest/'LINEAGE.md').write_text('# C74E lineage\n\nFollows C73E final reference uncertainty. Protocol c6f2ca1ca1efaf45fdf38ecd46346b9f8fcf6e15 was fixed before fresh outcomes. Exact endpoint bridge on verification71300; fresh72400-72415. Full teacher final supervision is intentionally introduced and must not be conflated with reduced-interface sufficiency.\n')
+          print('C74E TERMINAL',d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c74e-closed-evidence
+          path: results/gaussian_shift_interface/c74e/
+          retention-days: 90
+          if-no-files-found: error
+      - name: Commit only C74E evidence on its research branch
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/gaussian_shift_interface/c74e
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist C74E target-blend fresh results and audit'
+            git push origin HEAD:research/c74e-final-teacher-blend
+          fi
+      - name: Export source and evidence for independent reanalysis
+        run: |
+          mkdir -p /tmp/c74e-source
+          git archive --format=tar.gz --output=/tmp/c74e-source/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/c74e-source/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c74e-source-and-evidence
+          path: /tmp/c74e-source/
+          retention-days: 90
+          if-no-files-found: error

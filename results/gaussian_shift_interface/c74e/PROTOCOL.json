@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment": "C74E_FINAL_TEACHER_BLEND",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "parent_commit": "7a7c7f5221c8bb3c6f087b3f0fbbd7032a9ffbcc",
+  "H": "At the C73E N384 robust-teacher setting, a final compiler trained on the equal-weight mean of hierarchy and teacher targets establishes the -5pp reference safeguard and improves validation accuracy over hierarchy-only compiler targets.",
+  "fresh_seeds": [72400,72401,72402,72403,72404,72405,72406,72407,72408,72409,72410,72411,72412,72413,72414,72415],
+  "bridge_seed": 71300,
+  "verification_seed": 72300,
+  "T": {
+    "teacher_and_data": "exact C73E robust Residual-MLP at Gaussian sigma .36; C72E nested384 calibration; C10 digits train/validation split; no held-out test",
+    "H64": "same C73E P64-adapted hierarchy, top adaptation seed+715000, 600 updates",
+    "S0": "TinyRes(64,32) fitted to H64 shifted-calibration activations only",
+    "B50": "same TinyRes fitted to 0.5*H64 shifted-calibration activations + 0.5*robust-teacher shifted-calibration activations",
+    "D64": "same TinyRes fitted directly to robust-teacher shifted-calibration activations",
+    "final_parameters": 4096,
+    "mapping_updates": 600,
+    "mapping_batch_size": 128,
+    "draws_per_fit": 76800,
+    "final_initialization_seed_offset": 716000,
+    "final_minibatch_seed_offset": 717000,
+    "pairing": "identical final architecture, initialization, minibatch-index stream, data and teacher within seed; final target is the intervention",
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 741384202,
+    "bootstrap_method": "paired seed percentile95 with one common index matrix",
+    "minimum_complete_seeds": 16,
+    "no_optional_stopping_or_seed_replacement": true,
+    "preflight": "bridge71300 H64/S0/D64 metrics, states and data hashes must match C73E N384 in the same environment; verification72300 and synthetic evaluator checks before fresh launch",
+    "environment": "Python3.11, torch2.13.0 CPU, numpy2.4.6, scikit-learn1.9.0, torch threads1; actual CPU/build captured"
+  },
+  "D": {
+    "gate_states": "PASS: lower95>margin; FAIL: upper95<margin; otherwise UNCERTAIN",
+    "target_margin_pp": -20,
+    "reference_margin_pp": -5,
+    "blend_minus_standard_superiority_margin_pp": 0,
+    "decision_order": [
+      "missing/duplicate/ineligible/malformed seed: STOP_INTEGRITY_OR_INCOMPLETE_COHORT",
+      "target not PASS: STOP_TARGET_VALIDITY_NOT_ESTABLISHED",
+      "D64 reference not PASS: STOP_DIRECT_REFERENCE_NOT_ESTABLISHED",
+      "B50 reference not PASS: HALF_BLEND_REFERENCE_NOT_ESTABLISHED",
+      "B50 reference PASS and B50-minus-S0 accuracy lower95>0: HALF_BLEND_VALID_AND_IMPROVES_STANDARD",
+      "otherwise: HALF_BLEND_VALID_IMPROVEMENT_NOT_ESTABLISHED"
+    ],
+    "H64_and_S0_reference_gates": "reported, not required to be failures; C73E final uncertainty is not assumed to reproduce as inferiority",
+    "descriptive_diagnostics": "B50-D64, S0-H64, NMSE and raw MSE; no post-hoc mixture tuning",
+    "reduced_dimension_selection": false
+  },
+  "C": ["Final target anchoring may not help, or may help only on this fixed sample/model family.","S0 may already meet the safeguard on this new cohort; then improved accuracy is not evidence that S0 was intrinsically invalid.","D64 may remain better; no superiority of hierarchy over direct distillation is assumed."],
+  "U": ["This uses full teacher supervision during final compilation, so it cannot establish a small teacher-feedback dimension.","No causal uniqueness, universal optimal 50% mixture or cross-architecture transfer claim.","Intervals are conditional on fixed digits splits and calibration subsets, not independent dataset-level replication.","Raw MSE and separate denominators recorded; no speed, memory or energy claim.","All outcomes remain exploratory and a claim selected here requires independent fresh confirmation."]
+}
