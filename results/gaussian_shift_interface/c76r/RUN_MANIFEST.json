@@ -1,0 +1,152 @@
+{
+  "artifacts": [
+    {
+      "created_at": "2026-09-07T18:49:45Z",
+      "digest": "sha256:4bfdc8678491847c16f48db30d3ae0a471a8882e066e0379ed2b29a27ac2eccd",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030056359,
+      "name": "c76r-seed-74415"
+    },
+    {
+      "created_at": "2026-09-07T18:49:43Z",
+      "digest": "sha256:c13de497dd6fac95ba6effb2b966b76e7969e2f659893b47dfe6cb5b1795c6d9",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030055571,
+      "name": "c76r-seed-74414"
+    },
+    {
+      "created_at": "2026-09-07T18:49:42Z",
+      "digest": "sha256:72782d2ea4cd77c6541ead75dd7d335fec668fb993aafa8cb8cfdc65de7d0b40",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030055433,
+      "name": "c76r-seed-74412"
+    },
+    {
+      "created_at": "2026-09-07T18:49:40Z",
+      "digest": "sha256:0f4f99e86c9dd03a3b6d8a65c017dec66e9ce59a3d54361081f9ec2d08e46aee",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030054728,
+      "name": "c76r-seed-74413"
+    },
+    {
+      "created_at": "2026-09-07T18:49:40Z",
+      "digest": "sha256:3f455592e5e294112a2cef24bd47aa4cd6e1b1b13c4bbfe9fce93bbdb6a3fb16",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030054601,
+      "name": "c76r-seed-74410"
+    },
+    {
+      "created_at": "2026-09-07T18:49:40Z",
+      "digest": "sha256:b6f5d2a9ba11113236440b1ccede44972e20c0924013ca06125c473785255e5c",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030054447,
+      "name": "c76r-seed-74411"
+    },
+    {
+      "created_at": "2026-09-07T18:49:35Z",
+      "digest": "sha256:5a427eb55de4cf4358d665acedf2b249eb103c19aa25011d015bed87e3b958ac",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030052675,
+      "name": "c76r-seed-74409"
+    },
+    {
+      "created_at": "2026-09-07T18:49:32Z",
+      "digest": "sha256:5fdd772ff54d17a6d0f73c85d4a5873c6f31c558b697e386274ae5e8f7d864ce",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030051641,
+      "name": "c76r-seed-74408"
+    },
+    {
+      "created_at": "2026-09-07T18:48:49Z",
+      "digest": "sha256:8ab223efbb0fdb89f0c72976da467e076f3838e056db90f90878582f13ba0a40",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030036238,
+      "name": "c76r-seed-74404"
+    },
+    {
+      "created_at": "2026-09-07T18:48:48Z",
+      "digest": "sha256:242b8561bbe6f8c7e726d97a147164cf82556ad2c8694059f7803fc8c6259c05",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030036135,
+      "name": "c76r-seed-74405"
+    },
+    {
+      "created_at": "2026-09-07T18:48:48Z",
+      "digest": "sha256:8628be7d770d4fdcf434ebf8650cb67da80803a5d486518c8f825cd996e6f26a",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030036060,
+      "name": "c76r-seed-74401"
+    },
+    {
+      "created_at": "2026-09-07T18:48:48Z",
+      "digest": "sha256:dc5963d2975066a6eb5110fd6c3fd5c8eca88aa3cd9d67ddaace045034ecb881",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030036031,
+      "name": "c76r-seed-74406"
+    },
+    {
+      "created_at": "2026-09-07T18:48:47Z",
+      "digest": "sha256:7a4b405057642317df4a55ba54f5e1164bba8a2d3017f6bcf9d1458831424e4b",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030035857,
+      "name": "c76r-seed-74402"
+    },
+    {
+      "created_at": "2026-09-07T18:48:46Z",
+      "digest": "sha256:4c51ddb439b0c066ffe511ef7a100cebb3518356912e62eda021d73d8f7ef3d7",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030035395,
+      "name": "c76r-seed-74403"
+    },
+    {
+      "created_at": "2026-09-07T18:48:43Z",
+      "digest": "sha256:91b7813e28ddc80e4c72290e0f2189466a3f2a7650285a9486773459eaa15c92",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030034390,
+      "name": "c76r-seed-74407"
+    },
+    {
+      "created_at": "2026-09-07T18:48:35Z",
+      "digest": "sha256:f2e447a8ba4a5a0ec6c093bd288e498e4d133b4160beb10b5dcd8488de8e1f66",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030031478,
+      "name": "c76r-seed-74400"
+    },
+    {
+      "created_at": "2026-09-07T18:47:53Z",
+      "digest": "sha256:fc9a28ce63eb8c6d3a79e924a139e3e94d3935f8760ef062538881241ae36750",
+      "expires_at": "2026-12-06T18:46:54Z",
+      "id": 10030016284,
+      "name": "c76r-preflight"
+    }
+  ],
+  "protocol_lock_commit": "a2d8be1ba0ac9ef575adf6c2173dc08a75646a10",
+  "records": 16,
+  "run_id": 34153012684,
+  "sha256": {
+    "AUDIT.json": "1846bf4e7d3d1bfdaff7954136de9fd86a88014e9a533dc30f4a88d91536cca7",
+    "DECISION.json": "a2f16f21eaa15ce5b8ed16939030d50195783880968080268f625040c5cfab93",
+    "FRESH_ROWS.json": "6336c4f3d63f6b60b516e459607d1374bf83e4e40f0ef431cea095efb6c24d34",
+    "PROTOCOL.json": "9bd3575d39f449742491370e2a259fd240448cfe653f5afc2cfeb4c42b72b90e",
+    "preflight/bridge_73300.json": "532661a0efa76a889f35b2b0b1c0244d5506387df8b5fc38f6894099d4d60a14",
+    "preflight/environment.txt": "e2bd3dee9f55e39205efbcac539ececb0522bbd4504e9ad3af77d90113c19325",
+    "preflight/verification_74300.json": "31979174c443caac87f9cfbb7e1d1c9592cb2f4b131dd46a33d27737e0424ff6",
+    "raw/seed_74400.json": "bac8a5b03625580aa268c91b5a4f79325a16516cec87458d05facf24ceb7a292",
+    "raw/seed_74401.json": "dcdfaedbdbf0aadd89102f066b89ad8348e3859975cd722a51869f3106c4e62d",
+    "raw/seed_74402.json": "731b5339aab363eb39dea5519669fca7433af501f4608a0877cb3fae7be9fd54",
+    "raw/seed_74403.json": "36d781d95c24301eaa2cd075933c1860f0fcd0193a7b75c6b3e463d87c1d62ab",
+    "raw/seed_74404.json": "47d892f52ff246a20081f8fd21f2c3acdd024cbcd690224b510d9ce44db51a2c",
+    "raw/seed_74405.json": "42d761d9836126b2be856446e22cfe61c6f04b5ba3a347d632ffad4f04543321",
+    "raw/seed_74406.json": "108f6199809cfce20ab29e7b9d8f49a574449f30b4e05d79b152bda21e1f3a25",
+    "raw/seed_74407.json": "62fabf3120cd10674bae66454e54ed3c4a8a873739854f25d921e27d3a52b1ea",
+    "raw/seed_74408.json": "d7d8b0f9688d9ab8d514f5a325cc5a801c00f9ad86f1ddc47b039faed2c8b085",
+    "raw/seed_74409.json": "c36db7eb89707e96844d64c977df18e104b87d1539c38e4d295cdf61a671986c",
+    "raw/seed_74410.json": "61790acd55250da78315c22eba0fc80bd85ab2806027d1f8036f524ddd6d15d2",
+    "raw/seed_74411.json": "ca8127f6183bd4c5eec51350ff6713e2cefc11b50cc134a76e95b13061d75fff",
+    "raw/seed_74412.json": "1c1751cc48cdcafce162c8b2d8b56007adf5ed809d916d072e25cb926cd32249",
+    "raw/seed_74413.json": "ba018993a61f13c62af1c71272d9f1fd26c7fcac1fa22e4d2671e90f3e71ff1b",
+    "raw/seed_74414.json": "425f88a86fb8cca8e741f5bd144099f950b4c7cba30efe4a94ebdc5f58fbb5fa",
+    "raw/seed_74415.json": "a7aa302e82c6c72f68b3668864dfedffb4b87ce99db743d023b3b534e864f648"
+  },
+  "source_commit": "1046f37d25a74d7610a5ed9a02700cef009e564c"
+}

@@ -1,0 +1,128 @@
+{
+  "attempted": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 761384202,
+  "conditions": {
+    "direct": {
+      "accuracy_mean": 0.8192129582166672,
+      "nmse_mean": 0.09021124521280188,
+      "teacher_gap_pp": {
+        "bootstrap_se": 0.26850054915705684,
+        "ci95": [
+          -4.16666716337204,
+          -3.125
+        ],
+        "mean": -3.6342602223157883,
+        "median": -3.7037014961242676
+      }
+    },
+    "head_rank9": {
+      "accuracy_mean": 0.8129629567265511,
+      "nmse_mean": 0.11735851198575811,
+      "teacher_gap_pp": {
+        "bootstrap_se": 0.416388122023079,
+        "ci95": [
+          -5.069445818662643,
+          -3.449074551463127
+        ],
+        "mean": -4.2592603713274,
+        "median": -4.444444179534912
+      }
+    },
+    "p64": {
+      "accuracy_mean": 0.8152777776122093,
+      "nmse_mean": 0.10319186721450442,
+      "teacher_gap_pp": {
+        "bootstrap_se": 0.37370557841347707,
+        "ci95": [
+          -4.745371267199516,
+          -3.2870370894670486
+        ],
+        "mean": -4.027778282761574,
+        "median": -3.8888931274414062
+      }
+    }
+  },
+  "decision": "C76R_CONFIRMATORY_PASS",
+  "eligible_count": 16,
+  "empirical_seed_success": {
+    "interpretation": "conditional iid model-seed assumption, not independent dataset validation",
+    "n": 16,
+    "successes": 16,
+    "two_sided95_clopper_pearson": [
+      0.7940927857921773,
+      1.0
+    ]
+  },
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "experiment": "C76R_HEAD_RANK_CONFIRMATION",
+  "head_minus_direct_pp": {
+    "bootstrap_se": 0.38519302570733266,
+    "ci95": [
+      -1.3425927609205246,
+      0.1620374619960785
+    ],
+    "mean": -0.6250001490116119,
+    "median": -0.7407426834106445
+  },
+  "hidden_nmse_ratio": {
+    "bootstrap_se": 0.010276892797974663,
+    "ci95": [
+      1.1190577259672065,
+      1.1594257177440785
+    ],
+    "margin": 1.25,
+    "mean": 1.1390641622394864,
+    "median": 1.1352506185957578,
+    "status": "PASS"
+  },
+  "references": {
+    "direct": {
+      "bootstrap_se": 0.26850054915705684,
+      "ci95": [
+        -4.16666716337204,
+        -3.125
+      ],
+      "margin": -5,
+      "mean": -3.6342602223157883,
+      "median": -3.7037014961242676,
+      "status": "PASS"
+    },
+    "p64": {
+      "bootstrap_se": 0.37370557841347707,
+      "ci95": [
+        -4.745371267199516,
+        -3.2870370894670486
+      ],
+      "margin": -5,
+      "mean": -4.027778282761574,
+      "median": -3.8888931274414062,
+      "status": "PASS"
+    }
+  },
+  "scope": "Sufficient head-derived dimension only; fixed digits split; no minimum-dimension, universal compression, hardware or independent-dataset claim.",
+  "target_validity": {
+    "bootstrap_se": 0.430359259574642,
+    "ci95": [
+      -12.800925225019455,
+      -11.11111119389534
+    ],
+    "margin": -20,
+    "mean": -11.921295523643494,
+    "median": -11.481481790542603,
+    "status": "PASS"
+  },
+  "teacher_clean_accuracy_mean": 0.97476851567626,
+  "teacher_shifted_accuracy_mean": 0.8555555604398251,
+  "utility": {
+    "bootstrap_se": 0.29020349181667815,
+    "ci95": [
+      -0.7870376110076904,
+      0.3472212702035904
+    ],
+    "margin": -2,
+    "mean": -0.23148208856582642,
+    "median": -0.18518567085266113,
+    "status": "PASS"
+  }
+}
