@@ -1,0 +1,17 @@
+{
+  "seed": 74300,
+  "source_sha256": {
+    "results/gaussian_shift_interface/c75e/PROTOCOL.json": "f08db8681d7d8184199c70aeb2986cd1ac21659b90965b7a1a16467922252a4b",
+    "results/gaussian_shift_interface/c76r/PROTOCOL.json": "9bd3575d39f449742491370e2a259fd240448cfe653f5afc2cfeb4c42b72b90e",
+    "results/gaussian_shift_interface/c77e/PROTOCOL.json": "f824316fc60c45b23a45e64b6bfb85fb7ffbab58874e66c2a2942affbaaa8d66",
+    "scripts/gaussian_shift_interface/c75e_geometry.py": "13b18daf6e2ca1e9e5f97d2ad0989b727dee844f3640c9e96f910dcd43a0f92e",
+    "scripts/gaussian_shift_interface/c76r_head_rank.py": "db8d0721dca91ef845a5366bd38f6d79f7ea86a85e258d6a3d9eb243092849f2",
+    "scripts/gaussian_shift_interface/c77e_absolute.py": "e6ce72b56b8c5bbece0f0a001ef829e55e24c1ae7cb3b442b0db72dbccf7cf20",
+    "scripts/gaussian_shift_interface/run_c61r_seed.py": "a89fe2a70c7b6e9671a74e3e86bc7c8d7da60c95ce891d57f2464f79cc84544d",
+    "scripts/gaussian_shift_interface/run_c64r_seed.py": "757ef9a94b4763b933ece6ad18d218b14ca3620c12ed30caae145e24008d0f02",
+    "scripts/gaussian_shift_interface/run_c68e_seed.py": "898f12bba461a728d6849c24252cfc59de3e68667ad9128322ed5e7774ac6388",
+    "scripts/gaussian_shift_interface/run_c72e_seed.py": "c5bdc7006b31ff957472a06970564e51df1b6d11b4f1dae51d46c3c8e89cdedb",
+    "scripts/recursive_composition/exploration/c10_boundary_signal_ablation.py": "f7d218db2a11e4db15cbffefe48234e929a17bcb7141530980e608d063c9bb49"
+  },
+  "status": "EXACT_BRIDGE_PASS"
+}
