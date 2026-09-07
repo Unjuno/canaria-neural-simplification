@@ -1,0 +1,200 @@
+{
+  "attempted": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 771384202,
+  "cells": {
+    "N384_direct": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.43749356804659045,
+        "ci95": [
+          -4.074074327945709,
+          -2.3611120879650116
+        ],
+        "margin": -5,
+        "mean": -3.240741044282913,
+        "median": -3.148147463798523,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.8249999955296516,
+      "nmse_mean": 0.09027898315730681
+    },
+    "N384_head_rank9": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.39152139908433786,
+        "ci95": [
+          -4.629630222916603,
+          -3.0787046998739243
+        ],
+        "margin": -5,
+        "mean": -3.8425933569669724,
+        "median": -3.5185158252716064,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.818981472402811,
+      "nmse_mean": 0.11629529513385868
+    },
+    "N384_p64": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.4027127583946988,
+        "ci95": [
+          -4.675925150513649,
+          -3.101852163672447
+        ],
+        "margin": -5,
+        "mean": -3.865741193294525,
+        "median": -3.148147463798523,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.8187499940395355,
+      "nmse_mean": 0.10179268372574679
+    },
+    "N512_direct": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.3815241070666102,
+        "ci95": [
+          -3.449074923992157,
+          -1.9675932824611664
+        ],
+        "margin": -5,
+        "mean": -2.685185894370079,
+        "median": -2.222225069999695,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.83055554702878,
+      "nmse_mean": 0.08163757970919691
+    },
+    "N512_head_rank9": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.421851557499194,
+        "ci95": [
+          -4.351852089166641,
+          -2.708333730697632
+        ],
+        "margin": -5,
+        "mean": -3.518518805503845,
+        "median": -3.148147463798523,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.8222222179174423,
+      "nmse_mean": 0.11136031215705079
+    },
+    "N512_p64": {
+      "absolute_teacher_gap_pp": {
+        "bootstrap_se": 0.3685695582606122,
+        "ci95": [
+          -4.120370373129845,
+          -2.662038430571556
+        ],
+        "margin": -5,
+        "mean": -3.379630297422409,
+        "median": -3.333336114883423,
+        "status": "PASS"
+      },
+      "accuracy_mean": 0.8236111029982567,
+      "nmse_mean": 0.09507468437920912
+    }
+  },
+  "confirmatory_claim_allowed": false,
+  "decision": "N512_VALID_GAIN_NOT_ESTABLISHED",
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "experiment": "C77E_HEAD_RANK_ABSOLUTE_UTILITY",
+  "gains": {
+    "direct": {
+      "bootstrap_se": 0.3404830327424395,
+      "ci95": [
+        -0.11574067175388336,
+        1.2268505990505219
+      ],
+      "margin": 0,
+      "mean": 0.5555551499128342,
+      "median": 0.37037134170532227,
+      "status": "UNCERTAIN"
+    },
+    "head_rank9": {
+      "bootstrap_se": 0.2543974018627638,
+      "ci95": [
+        -0.1620359718799591,
+        0.8101858198642731
+      ],
+      "margin": 0,
+      "mean": 0.32407455146312714,
+      "median": 0.37037134170532227,
+      "status": "UNCERTAIN"
+    },
+    "p64": {
+      "bootstrap_se": 0.2188866407099174,
+      "ci95": [
+        0.04629641771316528,
+        0.902777910232544
+      ],
+      "margin": 0,
+      "mean": 0.4861108958721161,
+      "median": 0.740736722946167,
+      "status": "PASS"
+    }
+  },
+  "relative": {
+    "384": {
+      "hidden_nmse_ratio": {
+        "bootstrap_se": 0.0064175012974890585,
+        "ci95": [
+          1.1299352533281666,
+          1.154962967235417
+        ],
+        "margin": 1.25,
+        "mean": 1.142565034280696,
+        "median": 1.1441204765896602,
+        "status": "PASS"
+      },
+      "utility_pp": {
+        "bootstrap_se": 0.25055923204161035,
+        "ci95": [
+          -0.4629630595445633,
+          0.5092594772577286
+        ],
+        "margin": -2,
+        "mean": 0.023147836327552795,
+        "median": 0.18518269062042236,
+        "status": "PASS"
+      }
+    },
+    "512": {
+      "hidden_nmse_ratio": {
+        "bootstrap_se": 0.005791417482242097,
+        "ci95": [
+          1.160152392670658,
+          1.1827594720018741
+        ],
+        "margin": 1.25,
+        "mean": 1.1715928787290704,
+        "median": 1.1797691035630884,
+        "status": "PASS"
+      },
+      "utility_pp": {
+        "bootstrap_se": 0.22687033018786612,
+        "ci95": [
+          -0.5787033587694168,
+          0.3009263426065445
+        ],
+        "margin": -2,
+        "mean": -0.13888850808143616,
+        "median": -0.18518269062042236,
+        "status": "PASS"
+      }
+    }
+  },
+  "scope": "Exploratory; do not assume N384 is intrinsically invalid; no universal sample threshold, minimum dimension or new dataset claim.",
+  "target": {
+    "bootstrap_se": 0.4755589535521593,
+    "ci95": [
+      -12.40740641951561,
+      -10.555554181337357
+    ],
+    "margin": -20,
+    "mean": -11.45833246409893,
+    "median": -11.11111044883728,
+    "status": "PASS"
+  },
+  "teacher_accuracy_mean": 0.8574074059724808
+}

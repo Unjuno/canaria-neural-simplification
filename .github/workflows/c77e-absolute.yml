@@ -1,0 +1,135 @@
+name: c77e-head-rank-absolute-utility
+on:
+  push:
+    branches: [research/c77e-head-rank-absolute-utility]
+    paths: ['.github/workflows/c77e-absolute.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Require exact C76R N384 bridge and nested N512 verification
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/c77e_absolute.py
+          python scripts/gaussian_shift_interface/c77e_absolute.py --mode preflight --out /tmp/c77e-preflight
+          python -m pip freeze > /tmp/c77e-preflight/environment.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c77e-preflight
+          path: /tmp/c77e-preflight/
+          if-no-files-found: error
+          retention-days: 90
+  seeds:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [75400,75401,75402,75403,75404,75405,75406,75407,75408,75409,75410,75411,75412,75413,75414,75415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - run: python scripts/gaussian_shift_interface/c77e_absolute.py --mode seed --seed ${{ matrix.seed }} --out /tmp/c77e-seed
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c77e-seed-${{ matrix.seed }}
+          path: /tmp/c77e-seed/
+          if-no-files-found: error
+          retention-days: 90
+  aggregate:
+    needs: [preflight,seeds]
+    if: always() && needs.preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c77e-seed-*
+          merge-multiple: true
+          path: /tmp/c77e-raw
+      - run: python scripts/gaussian_shift_interface/c77e_absolute.py --mode aggregate --input /tmp/c77e-raw --out /tmp/c77e-result
+      - uses: actions/download-artifact@v4
+        with:
+          name: c77e-preflight
+          path: /tmp/c77e-preflight
+      - name: Preserve raw records, fixed decisions and chronology
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,shutil,urllib.request
+          from pathlib import Path
+          from scripts.gaussian_shift_interface.c77e_absolute import evaluate,digest,save
+          dest=Path('results/gaussian_shift_interface/c77e')
+          d=json.loads(Path('/tmp/c77e-result/DECISION.json').read_text())
+          rows=json.loads(Path('/tmp/c77e-result/FRESH_ROWS.json').read_text())['rows']
+          assert len(rows)==16 and evaluate(rows)==d
+          assert all(r['github_sha']==os.environ['GITHUB_SHA'] for r in rows)
+          for p in Path('/tmp/c77e-result').iterdir(): shutil.copyfile(p,dest/p.name)
+          shutil.copytree('/tmp/c77e-raw',dest/'raw',dirs_exist_ok=True)
+          shutil.copytree('/tmp/c77e-preflight',dest/'preflight',dirs_exist_ok=True)
+          req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/runs/'+os.environ['GITHUB_RUN_ID']+'/artifacts?per_page=100',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          arts=json.load(urllib.request.urlopen(req))['artifacts']
+          save(dest/'RUN_MANIFEST.json',{'protocol_lock_commit':'0ecb24dc8d94945a84f98a2a703ba4a47b5cc302','source_commit':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'records':16,'artifacts':[{k:a[k] for k in ('id','name','digest','created_at','expires_at')} for a in arts],'sha256':{str(p.relative_to(dest)):digest(p) for p in sorted(dest.rglob('*')) if p.is_file()}})
+          lines=['# C77E absolute utility after head-rank prediction','','PROSPECTIVE_EXPLORATORY. Main unchanged.','','Decision: `'+d['decision']+'`','','| Cell | Accuracy mean | Teacher gap pp | 95%CI | Absolute safeguard |','|---|---:|---:|---|---|']
+          for name,v in d['cells'].items():
+              g=v['absolute_teacher_gap_pp'];lines.append(f"| {name} | {v['accuracy_mean']:.6f} | {g['mean']:.6f} | {g['ci95']} | {g['status']} |")
+          lines+=['','## Relative head/P64 gates',json.dumps(d['relative'],indent=2),'','## Paired N512-minus-N384 gains',json.dumps(d['gains'],indent=2),'','## Boundaries','The N384 baseline is not assumed intrinsically invalid. All cells keep4096 parameters,600 updates,batch128,76800 draws; N512 appends128 new calibration examples with an exact N384 prefix. Head rank is chosen before training, not by dimension sweeps. The new cohort is independent only in model seeds, not the dataset. No universal512 minimum or measured hardware/communication saving. Any new512 repair remains exploratory until separate fresh confirmation.']
+          (dest/'RESULT.md').write_text('\n'.join(lines)+'\n');print('C77E TERMINAL',d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c77e-closed-evidence
+          path: results/gaussian_shift_interface/c77e/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit C77E evidence only
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/gaussian_shift_interface/c77e
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist C77E matched absolute-utility outcomes and all16 raw seeds'
+            git push origin HEAD:research/c77e-head-rank-absolute-utility
+          fi
+      - name: Export source snapshot
+        run: |
+          mkdir -p /tmp/c77e-source
+          git archive --format=tar.gz --output=/tmp/c77e-source/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/c77e-source/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c77e-source-and-evidence
+          path: /tmp/c77e-source/
+          if-no-files-found: error
+          retention-days: 90

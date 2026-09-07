@@ -1,0 +1,37 @@
+{
+  "schema_version":1,
+  "experiment":"C77E_HEAD_RANK_ABSOLUTE_UTILITY",
+  "evidence_class":"PROSPECTIVE_EXPLORATORY",
+  "parent_commit":"130d14b340611e0793a74b593862d2740f5422ad",
+  "motivation":"C76R confirms relative head9/P64 NI, but head9-minus-teacher95% CI[-5.06945,-3.44907] crosses the separate -5pp absolute safeguard. Relative NI must not silently become absolute task adequacy. C76R remains PASS under its original protocol.",
+  "H":"Increasing calibration from384 to512 while retaining the pre-fit head-rank9 rule improves actual accuracy and establishes the absolute -5pp teacher safeguard without losing relative P64 NI.",
+  "fresh_seeds":[75400,75401,75402,75403,75404,75405,75406,75407,75408,75409,75410,75411,75412,75413,75414,75415],
+  "bridge_seed":74300,
+  "verification_seed":75300,
+  "T":{
+    "teacher":"Exact C75E/C76R robust Residual-MLP at clipped Gaussian sigma.36, same fixed digits split, no held-out test evaluation.",
+    "calibration":"N384 from exact C72E/C75E recipe. Add128 unique training examples from the complement of those384 using np.random.default_rng(20260908), choice without replacement, sorted. New noise offset model_seed+770101. Append after original384; preserve their exact input/target activation prefix.",
+    "cells":["N384_head_rank9","N384_p64","N384_direct","N512_head_rank9","N512_p64","N512_direct"],
+    "basis":"Head correction rank from centered fixed-head float64 SVD, threshold largest*1e-10, require9. P64 original full canonical QR. No dimension-grid fitting or final teacher blend.",
+    "pairing":"Within seed common teacher, base hierarchy, validation shift, head basis, model initialization and fit RNG offsets. Both sample sizes600 updates,batch128,76800 sampled-example draws per fit; one parameter budget4096.",
+    "environment":"Python3.11,torch2.13.0 CPU,numpy2.4.6,scikit-learn1.9.0,torch_threads1; actual CPU/build recorded.",
+    "preflight":"Bridge74300 compares all three N384 teacher/data/state/accuracy/NMSE endpoints exactly with C76R in same environment. Nonfresh verification75300 and nesting checks before fresh execution.",
+    "minimum_complete_seeds":16,
+    "bootstrap_resamples":100000,
+    "bootstrap_seed":771384202,
+    "bootstrap_method":"paired model-seed percentile95 with common indices",
+    "no_optional_stopping_or_seed_replacement":true
+  },
+  "D":{
+    "primary_prerequisites":"Complete16 seeds, robust target shifted-minus-clean lower95>-20pp, N512 p64-minus-teacher AND direct-minus-teacher lower95>-5pp.",
+    "primary_head_absolute":"N512 head_rank9-minus-teacher lower95>-5pp",
+    "primary_head_relative":"N512 head_rank9-minus-N512 p64 lower95>-2pp AND head/p64 hidden NMSE geometric-ratio upper95<1.25",
+    "intervention_gain":"N512-minus-N384 head_rank9 accuracy lower95>0pp",
+    "states":"PASS lower95>margin, FAIL upper95<margin, otherwise UNCERTAIN; reversed endpoints for max-ratio1.25.",
+    "decisions":["STOP_INTEGRITY","STOP_TARGET_OR_REFERENCE_NOT_ESTABLISHED","N512_HEAD_ABSOLUTE_NOT_ESTABLISHED","N512_HEAD_RELATIVE_NOT_ESTABLISHED","N512_ABSOLUTE_AND_RELATIVE_VALID_WITH_GAIN","N512_VALID_GAIN_NOT_ESTABLISHED"],
+    "baseline_rule":"Report N384 absolute safeguard; do NOT require it to fail or assume C76R uncertainty will reproduce. Passing N384 on a fresh cohort is not a contradiction.",
+    "interpretation":"All C77E results exploratory. Any selected512-sample repair needs separate confirmation; cannot overwrite C76R384 result or claim a universal sample minimum."
+  },
+  "C":["N384 may already satisfy the absolute safeguard on fresh seeds.","Additional samples may improve fits but not classifier accuracy.","The intervention changes data diversity and per-example reuse under fixed total draws; not a unique causal decomposition.","Low-dimensional rank preservation is ideal-only and does not guarantee learned absolute utility."],
+  "U":["Model-seed uncertainty conditional on the fixed digits split and nested subsets; no new dataset validation.","No change to past margins, decision classes or invalidated history.","No CNN/SmallViT, inference memory/speed/energy or measured teacher-communication claim.","No autonomous publication or public-main merge; study stays on research branch."]
+}
