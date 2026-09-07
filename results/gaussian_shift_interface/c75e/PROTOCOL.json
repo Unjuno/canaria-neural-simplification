@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment": "C75E_TASK_OBSERVABLE_GEOMETRY",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "parent_commit": "45f694e816b84f95c86f45e28c69861ef7ec48b8",
+  "H": [
+    "A correction restricted to the row space of the class-centered linear head preserves ideal teacher class probabilities with at most nine dimensions in this ten-class model, but may not preserve the learned/compiled pipeline or hidden NMSE.",
+    "Calibration-only task-margin and residual-energy screens computed before candidate fitting can predict an adequate dimension; their failures and over-selection must be reported, not hidden.",
+    "Changing only QR basis construction order may alter downstream classification even when downstream fitting data order and random streams are held fixed."
+  ],
+  "fresh_seeds": [73400,73401,73402,73403,73404,73405,73406,73407,73408,73409,73410,73411,73412,73413,73414,73415],
+  "bridge_seed": 71300,
+  "verification_seed": 73300,
+  "T": {
+    "teacher_and_data": "Exact C68E repaired Residual-MLP; C72E nested384 calibration; C73E train/validation split and Gaussian sigma .36; held-out test never evaluated.",
+    "basis_families": ["qr_identity", "qr_reverse", "qr_permutation", "residual_svd", "centered_head_svd"],
+    "common_dimensions": [2,4,8,9,16],
+    "head_dimensions": [2,4,8,9],
+    "qr": "Original canonical_nested_qr of calibration residual.T, float32; reverse and permutation act ONLY on the basis construction input. All fits retain identical original data order.",
+    "permutation": "np.random.default_rng(750123).permutation(384), fixed independent of model outcomes",
+    "residual_svd": "Uncentered calibration residual float64 SVD; first right singular vectors, cast float32 for fitting; no validation use.",
+    "centered_head_svd": "Subtract class mean from each column of teacher.head.weight in float64; first right singular vectors ordered by singular value, cast float32 for fitting. Require numerical rank9 at relative threshold1e-10 for this fixed architecture. This is head-sensitivity ordering, NOT residual-energy or Fisher optimization.",
+    "controls": ["P0_no_top_adaptation", "P64_original_canonical_QR_full_reference", "D64_direct_teacher_mapping"],
+    "mapping": "Same 4096-parameter hierarchy/final TinyRes, 600 updates, batch128, same seed offsets+715000/+716000/+717000 as C73E; no final teacher blending.",
+    "prefit_prediction": "For each basis family, choose smallest tested dimension meeting each screen, otherwise fallback64. Energy screen: calibration residual remaining squared energy fraction<=0.05. Margin screen: fraction of calibration examples failing strict 2*max_absolute_centered_logit_error < teacher_top1_minus_top2_margin is<=0.01. Screen thresholds are engineering hypotheses, not universal constants. Record chosen dimensions and all screen values before any candidate fits; validation labels/activations not used for basis or selection.",
+    "oracle_diagnostic": "For head9 calculate ideal correction in float64 and assert centered logit relative Frobenius error<=1e-10 on calibration and validation. Oracle uses actual teacher residual and is NOT a deployable prediction. Separate its validation task behavior from H and final S.",
+    "preflight": "Synthetic projector/centered-logit preservation and three-state gate tests. Bridge71300 P64 and D64 state hashes, metrics, data hashes must match C73E N384 on the same pinned CPU environment before fresh outcomes.",
+    "environment": "Python3.11, torch2.13.0 CPU, numpy2.4.6, scikit-learn1.9.0, torch_threads1; capture actual CPU/build. Local other-version results must not be pooled.",
+    "minimum_complete_seeds": 16,
+    "no_optional_stopping_or_seed_replacement": true,
+    "bootstrap": "100000 paired model-seed percentile95, common index matrix, seed751384202"
+  },
+  "D": {
+    "gate_states": "Lower95>margin PASS; upper95<margin FAIL; otherwise UNCERTAIN. For maximum NMSE ratio: upper95<1.25 PASS; lower95>1.25 FAIL; otherwise UNCERTAIN.",
+    "reference_prerequisites": "Robust teacher shifted-minus-clean accuracy lower95>-20pp; P64 final-minus-teacher and D64-minus-teacher lower95>-5pp. If prerequisites fail, report geometry only and select no dimension.",
+    "candidate_gates": "Final candidate-minus-P64 accuracy lower95>-2pp AND candidate/P64 hidden NMSE geometric ratio upper95<1.25. Also report task-only gate distinctly; do not discard NMSE after observing results.",
+    "primary_mechanism_comparison": "centered_head_svd9 versus P64: task NI and dual utility/NMSE results separately; ideal preservation versus learned mapping distinction is mandatory.",
+    "order_effects": "Report fixed reverse-minus-identity and permutation-minus-identity paired accuracy contrasts at each dimension. Exploratory comparisons are not multiplicity-corrected confirmatory findings.",
+    "predictor_evaluation": "For every seed/family/screen report selected dimension, whether its FINAL empirical seed utility delta>=-2pp and NMSE ratio<=1.25, and dimension regret against smallest tested successful dimension. Aggregate success intervals over model seeds, not over dependent cells. These are diagnostic empirical outcomes, not per-seed CI-based proofs.",
+    "followup_selection": "Only after a valid P64/D64 reference, advance a mechanism/candidate to a separately named fresh followup. No universal minimum, architecture comparison or public-main promotion.",
+    "terminal": ["STOP_INTEGRITY_OR_INCOMPLETE_COHORT", "REFERENCE_NOT_ESTABLISHED_GEOMETRY_ONLY", "HEAD9_TASK_AND_HIDDEN_NI", "HEAD9_TASK_NI_HIDDEN_NOT_ESTABLISHED", "HEAD9_LEARNED_TASK_NI_NOT_ESTABLISHED"]
+  },
+  "C": ["Exact ideal head-observable preservation can coexist with poor fitted/compiled performance.", "Residual energy and classification-margin screens may fail because mapping approximation/generalization, not projection error, dominates.", "Order changes may strongly change residual capture but weakly change final accuracy.", "Reference validity may again be uncertain; failed NI does not prove inferiority."],
+  "U": ["Fixed digits split and calibration subsets; seed intervals do not quantify new-dataset uncertainty.", "Head-observable projection uses the complete retained classifier head and is an output-specific statement, not universal hidden-state reconstruction.", "Class-centered-head rank bound is standard linear algebra, not a claim of a novel theorem.", "No speed/memory/energy claim; no Residual-CNN or SmallViT transfer.", "Calibration reuse is384 examples with76800 draws per fit; no inference-time teacher calls are permitted in compiled model evaluation.", "All outcomes exploratory; no positive claim from synthetic tests or ideal oracle alone."]
+}
