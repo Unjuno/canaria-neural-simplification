@@ -1,0 +1,20 @@
+{
+  "hashes": {
+    "base_hierarchy": "6e8c5bd889570ba644e46a767a16c052f7c60d21b822be050f52466a8b385109",
+    "large_calibration": "ac8a60b9fe262b960b3995d92a737ebd48577ff23978d8024c3af4c74997e6a4",
+    "large_indices": "2e8eb79b5a40fa70cb10484dcec938d8bf42b6f6067f5772edc9b5420db839de",
+    "teacher": "34fd91655adbac573091a324ca77900c8da0d85c0f124184a27f3ae2ab647074",
+    "validation": "891c600ca8d48bdba42d2bf3f09516060c82fe5e059014ab04b862aade9cebaf"
+  },
+  "seed": 71300,
+  "source_sha256": {
+    "results/gaussian_shift_interface/c75e/PROTOCOL.json": "f08db8681d7d8184199c70aeb2986cd1ac21659b90965b7a1a16467922252a4b",
+    "scripts/gaussian_shift_interface/c75e_geometry.py": "13b18daf6e2ca1e9e5f97d2ad0989b727dee844f3640c9e96f910dcd43a0f92e",
+    "scripts/gaussian_shift_interface/run_c61r_seed.py": "a89fe2a70c7b6e9671a74e3e86bc7c8d7da60c95ce891d57f2464f79cc84544d",
+    "scripts/gaussian_shift_interface/run_c64r_seed.py": "757ef9a94b4763b933ece6ad18d218b14ca3620c12ed30caae145e24008d0f02",
+    "scripts/gaussian_shift_interface/run_c68e_seed.py": "898f12bba461a728d6849c24252cfc59de3e68667ad9128322ed5e7774ac6388",
+    "scripts/gaussian_shift_interface/run_c72e_seed.py": "c5bdc7006b31ff957472a06970564e51df1b6d11b4f1dae51d46c3c8e89cdedb",
+    "scripts/recursive_composition/exploration/c10_boundary_signal_ablation.py": "f7d218db2a11e4db15cbffefe48234e929a17bcb7141530980e608d063c9bb49"
+  },
+  "status": "EXACT_BRIDGE_PASS"
+}
