@@ -1,0 +1,139 @@
+name: c75e-task-observable-geometry
+on:
+  push:
+    branches: [research/c75e-task-observable-geometry]
+    paths: ['.github/workflows/c75e-geometry.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned original CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Check source and run non-fresh exact endpoint bridge
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/c75e_geometry.py
+          python scripts/gaussian_shift_interface/c75e_geometry.py --mode preflight --out /tmp/c75e-preflight
+          python -m pip freeze > /tmp/c75e-preflight/environment.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c75e-preflight
+          path: /tmp/c75e-preflight/
+          if-no-files-found: error
+          retention-days: 90
+  seeds:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [73400,73401,73402,73403,73404,73405,73406,73407,73408,73409,73410,73411,73412,73413,73414,73415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned original CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Run locked basis study, recording predictions before fits
+        run: python scripts/gaussian_shift_interface/c75e_geometry.py --mode seed --seed ${{ matrix.seed }} --out /tmp/c75e-seed
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c75e-seed-${{ matrix.seed }}
+          path: /tmp/c75e-seed/
+          if-no-files-found: error
+          retention-days: 90
+  aggregate:
+    needs: [preflight,seeds]
+    if: always() && needs.preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c75e-seed-*
+          merge-multiple: true
+          path: /tmp/c75e-raw
+      - name: Aggregate all fixed seeds with source, correctness and error checks
+        run: python scripts/gaussian_shift_interface/c75e_geometry.py --mode aggregate --input /tmp/c75e-raw --out /tmp/c75e-result
+      - uses: actions/download-artifact@v4
+        with:
+          name: c75e-preflight
+          path: /tmp/c75e-preflight
+      - name: Preserve exact raw evidence, protocol chronology and decision
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,shutil,urllib.request
+          from pathlib import Path
+          from scripts.gaussian_shift_interface.c75e_geometry import digest,evaluate,save
+          dest=Path('results/gaussian_shift_interface/c75e')
+          d=json.loads(Path('/tmp/c75e-result/DECISION.json').read_text())
+          rows=json.loads(Path('/tmp/c75e-result/FRESH_ROWS.json').read_text())['rows']
+          assert len(rows)==16 and evaluate(rows)==d,'incomplete cohort or decision mismatch'
+          assert all(r['github_sha']==os.environ['GITHUB_SHA'] for r in rows)
+          for p in Path('/tmp/c75e-result').iterdir(): shutil.copyfile(p,dest/p.name)
+          shutil.copytree('/tmp/c75e-raw',dest/'raw',dirs_exist_ok=True)
+          shutil.copytree('/tmp/c75e-preflight',dest/'preflight',dirs_exist_ok=True)
+          req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/runs/'+os.environ['GITHUB_RUN_ID']+'/artifacts?per_page=100',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          arts=json.load(urllib.request.urlopen(req))['artifacts']
+          save(dest/'RUN_MANIFEST.json',{'protocol_lock_commit':'f7651fd1236ae80f4171a6122dd265d71a66d24d','source_commit':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'records':16,'artifacts':[{k:a[k] for k in ('id','name','digest','created_at','expires_at')} for a in arts],'sha256':{str(p.relative_to(dest)):digest(p) for p in sorted(dest.rglob('*')) if p.is_file()}})
+          text=['# C75E task-observable geometry','','PROSPECTIVE_EXPLORATORY. Main unchanged. No universal minimum dimension.','','Decision: `'+d['decision']+'`','','| Condition | Accuracy mean | NMSE mean | Accuracy delta to P64 (pp), 95% CI | Utility | NMSE ratio,95% CI | Hidden |','|---|---:|---:|---|---|---|---|']
+          for k,v in d['cells'].items():
+              a=v['utility_vs_p64_pp'];n=v['hidden_nmse_ratio_vs_p64']
+              text.append(f"| {k} | {v['accuracy_mean']:.6f} | {v['nmse_mean']:.6f} | {a['mean']:.6f} {a['ci95']} | {a['status']} | {n['mean']:.6f} {n['ci95']} | {n['status']} |")
+          text+=['','## Interpretation boundary','Head9 ideal centered-logit preservation is an algebraic oracle, not a learned predictor or runtime teacher access. The final model never calls the teacher. QR changes basis construction order only, not training data order. Screen rules were computed on calibration before all fits, not on validation. Hidden NMSE and task criteria are reported separately without changing either threshold. All intervals condition on the fixed digits split and calibration set; dependent cells are not independent seeds. No confirmatory or hardware claim.']
+          (dest/'RESULT.md').write_text('\n'.join(text)+'\n')
+          print('C75E TERMINAL',d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c75e-closed-evidence
+          path: results/gaussian_shift_interface/c75e/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit only C75E evidence without changing the executed source
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/gaussian_shift_interface/c75e
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist C75E geometry, pre-fit predictions and all16 paired outcomes'
+            git push origin HEAD:research/c75e-task-observable-geometry
+          fi
+      - name: Export resumable source and evidence
+        run: |
+          mkdir -p /tmp/c75e-source
+          git archive --format=tar.gz --output=/tmp/c75e-source/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/c75e-source/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c75e-source-and-evidence
+          path: /tmp/c75e-source/
+          if-no-files-found: error
+          retention-days: 90
