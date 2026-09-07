@@ -1,0 +1,42 @@
+name: head-rank-evidence-audit
+on:
+  push:
+    branches: [research/c77e-head-rank-absolute-utility]
+    paths:
+      - '.github/workflows/head-rank-evidence-audit.yml'
+      - 'tools/audit_head_rank_evidence.py'
+      - 'scripts/gaussian_shift_interface/**'
+      - 'scripts/recursive_composition/exploration/c10_boundary_signal_ablation.py'
+      - 'results/gaussian_shift_interface/c75e/**'
+      - 'results/gaussian_shift_interface/c76r/**'
+      - 'results/gaussian_shift_interface/c77e/**'
+  pull_request:
+    paths:
+      - '.github/workflows/head-rank-evidence-audit.yml'
+      - 'tools/audit_head_rank_evidence.py'
+      - 'scripts/gaussian_shift_interface/**'
+      - 'results/gaussian_shift_interface/c75e/**'
+      - 'results/gaussian_shift_interface/c76r/**'
+      - 'results/gaussian_shift_interface/c77e/**'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6
+      - name: Recompute three locked decisions and audit576 saved final models
+        run: python tools/audit_head_rank_evidence.py --out /tmp/head-rank-audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: head-rank-numeric-evidence-audit
+          path: /tmp/head-rank-audit.json
+          if-no-files-found: error
+          retention-days: 90
