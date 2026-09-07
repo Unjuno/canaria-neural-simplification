@@ -1,0 +1,134 @@
+name: c76r-head-rank-confirmation
+on:
+  push:
+    branches: [research/c76r-head-rank-confirmation]
+    paths: ['.github/workflows/c76r-head-rank.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Verify old and new endpoints before fresh seeds
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/c76r_head_rank.py
+          python scripts/gaussian_shift_interface/c76r_head_rank.py --mode preflight --out /tmp/c76r-preflight
+          python -m pip freeze > /tmp/c76r-preflight/environment.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c76r-preflight
+          path: /tmp/c76r-preflight/
+          if-no-files-found: error
+          retention-days: 90
+  seeds:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        seed: [74400,74401,74402,74403,74404,74405,74406,74407,74408,74409,74410,74411,74412,74413,74414,74415]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+      - name: Execute locked head-rank rule without dimension sweep
+        run: python scripts/gaussian_shift_interface/c76r_head_rank.py --mode seed --seed ${{ matrix.seed }} --out /tmp/c76r-seed
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c76r-seed-${{ matrix.seed }}
+          path: /tmp/c76r-seed/
+          if-no-files-found: error
+          retention-days: 90
+  aggregate:
+    needs: [preflight,seeds]
+    if: always() && needs.preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c76r-seed-*
+          merge-multiple: true
+          path: /tmp/c76r-raw
+      - run: python scripts/gaussian_shift_interface/c76r_head_rank.py --mode aggregate --input /tmp/c76r-raw --out /tmp/c76r-result
+      - uses: actions/download-artifact@v4
+        with:
+          name: c76r-preflight
+          path: /tmp/c76r-preflight
+      - name: Persist complete evidence and fixed-decision report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,shutil,urllib.request
+          from pathlib import Path
+          from scripts.gaussian_shift_interface.c76r_head_rank import evaluate,digest,save
+          dest=Path('results/gaussian_shift_interface/c76r')
+          d=json.loads(Path('/tmp/c76r-result/DECISION.json').read_text())
+          rows=json.loads(Path('/tmp/c76r-result/FRESH_ROWS.json').read_text())['rows']
+          assert len(rows)==16 and evaluate(rows)==d
+          assert all(r['github_sha']==os.environ['GITHUB_SHA'] for r in rows)
+          for p in Path('/tmp/c76r-result').iterdir(): shutil.copyfile(p,dest/p.name)
+          shutil.copytree('/tmp/c76r-raw',dest/'raw',dirs_exist_ok=True)
+          shutil.copytree('/tmp/c76r-preflight',dest/'preflight',dirs_exist_ok=True)
+          req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/runs/'+os.environ['GITHUB_RUN_ID']+'/artifacts?per_page=100',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          arts=json.load(urllib.request.urlopen(req))['artifacts']
+          save(dest/'RUN_MANIFEST.json',{'protocol_lock_commit':'a2d8be1ba0ac9ef575adf6c2173dc08a75646a10','source_commit':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'records':16,'artifacts':[{k:a[k] for k in ('id','name','digest','created_at','expires_at')} for a in arts],'sha256':{str(p.relative_to(dest)):digest(p) for p in sorted(dest.rglob('*')) if p.is_file()}})
+          lines=['# C76R head-rank confirmation','','PROSPECTIVE_CONFIRMATORY. Main/public claims unchanged.','','Decision: `'+d['decision']+'`','','The selected correction dimension is the numerical rank of the class-centered fixed affine head, computed before fitting. No reduced dimension grid was trained. This is a sufficient-dimension rule, not a minimum-dimension theorem for learned networks.','','## Primary gates',json.dumps({'utility':d['utility'],'hidden_nmse_ratio':d['hidden_nmse_ratio']},indent=2),'','## Reference prerequisites',json.dumps({'target':d['target_validity'],'references':d['references']},indent=2),'','## Descriptive seed success',json.dumps(d['empirical_seed_success'],indent=2),'','## Boundaries','Fixed digits split/calibration, repaired Residual-MLP sigma.36,384 samples,4096-parameter mapping. Full teacher residuals are computed at calibration, so no measured communication saving. Ideal probabilities and fitted pipeline are distinct. No independent dataset, CNN/SmallViT, hardware or universal-minimum claim. Source/count/logit/NMSE audit is not independent scientific peer review.']
+          (dest/'RESULT.md').write_text('\n'.join(lines)+'\n')
+          print('C76R TERMINAL',d['decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c76r-closed-evidence
+          path: results/gaussian_shift_interface/c76r/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit only C76R outcomes
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/gaussian_shift_interface/c76r
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist independent C76R head-rank confirmation and all16 raw outcomes'
+            git push origin HEAD:research/c76r-head-rank-confirmation
+          fi
+      - name: Export source and evidence snapshot
+        run: |
+          mkdir -p /tmp/c76r-source
+          git archive --format=tar.gz --output=/tmp/c76r-source/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/c76r-source/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c76r-source-and-evidence
+          path: /tmp/c76r-source/
+          if-no-files-found: error
+          retention-days: 90
