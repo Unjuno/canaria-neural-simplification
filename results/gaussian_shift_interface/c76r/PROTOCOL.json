@@ -1,0 +1,38 @@
+{
+  "schema_version":1,
+  "experiment":"C76R_HEAD_RANK_CONFIRMATION",
+  "evidence_class":"PROSPECTIVE_CONFIRMATORY",
+  "parent_commit":"b4105ed3a5e4024186e6b788eadd28f04d7d7d05",
+  "selection_evidence":"C75E HEAD9_TASK_AND_HIDDEN_NI; this is a new independent model-seed cohort, not independent dataset replication.",
+  "H":"A correction dimension selected before fitting as rank of the class-centered fixed teacher head (9 here) is non-inferior to full64 correction in the learned recursive compilation pipeline, on BOTH the preregistered accuracy and hidden-NMSE margins.",
+  "fresh_seeds":[74400,74401,74402,74403,74404,74405,74406,74407,74408,74409,74410,74411,74412,74413,74414,74415],
+  "bridge_seed":73300,
+  "verification_seed":74300,
+  "T":{
+    "data_and_teacher":"Exact C75E/C73E repaired Residual-MLP, fixed digits split, nested384 calibration, clipped Gaussian sigma .36; no held-out test evaluation.",
+    "conditions":["head_rank9","p64","direct"],
+    "selection_rule":"Compute float64 SVD of teacher.head.weight after subtracting its class mean. Retain all singular vectors with singular value > largest*1e-10. Require rank9 for this preregistered architecture. No candidate sweep, calibration/validation accuracy selection or rescue dimension.",
+    "head_rank9":"Project teacher residual onto the centered-head row space and retain frozen hierarchy in its complement; same float32 target construction as C75E. Adapt hierarchy then compile its outputs, no final teacher blend.",
+    "p64":"Exact original canonical QR full64 correction pipeline, not a substituted direct teacher fit.",
+    "direct":"Same4096-parameter TinyRes fitted directly to teacher targets; reference-validity control, not a rescue condition.",
+    "budget":"Each hierarchy/final mapping4096 parameters; each fit600 updates, batch128,76800 draws; same init/minibatch offsets+715000/+716000/+717000 as C75E.",
+    "environment":"Python3.11,torch2.13.0 CPU,numpy2.4.6,scikit-learn1.9.0,torch_threads1; actual CPU/build stored.",
+    "preflight":"Synthetic gate checks; bridge73300 reproduces C75E head9/p64/direct teacher/data/stage-state hashes and metrics in the SAME execution environment. New verification74300 before any fresh cohort.",
+    "minimum_complete_seeds":16,
+    "no_optional_stopping_seed_replacement_or_rescue":true,
+    "bootstrap_resamples":100000,
+    "bootstrap_seed":761384202,
+    "bootstrap_method":"paired model-seed percentile95 using one common resampling index matrix"
+  },
+  "D":{
+    "prerequisites":"Complete/integrity-valid16 seeds; robust shifted-minus-clean teacher accuracy lower95>-20pp; p64-minus-teacher AND direct-minus-teacher accuracy lower95>-5pp.",
+    "primary_utility":"head_rank9 minus p64 final validation accuracy lower95>-2pp",
+    "primary_hidden":"geometric mean head_rank9/p64 hidden NMSE ratio upper95<1.25",
+    "states":"For lower-bound criteria PASS if lower95>margin, FAIL if upper95<margin, otherwise UNCERTAIN. For max-ratio PASS if upper95<1.25, FAIL if lower95>1.25, otherwise UNCERTAIN.",
+    "joint_decision":"If integrity incomplete STOP_INTEGRITY; if reference prerequisites not all PASS STOP_REFERENCE_NOT_ESTABLISHED; otherwise both primary gates PASS -> C76R_CONFIRMATORY_PASS; either primary gate FAIL -> C76R_CONFIRMATORY_FAIL; otherwise C76R_CONFIRMATORY_UNCERTAIN.",
+    "secondary_descriptive":"head-minus-teacher accuracy, head/direct accuracy, per-seed empirical primary-margin success, ideal oracle versus learned error decomposition; none changes primary outcome.",
+    "failure_rate_uncertainty":"Report two-sided95 exact binomial interval for descriptive seed success count under a conditional iid-seed interpretation, rather than treating all-success percentile bootstrap[1,1] as certainty. This is not a population/dataset guarantee."
+  },
+  "C":["Ideal probability preservation does not guarantee learned mapping generalization.","Seed variation can invalidate the full reference, in which case no candidate confirmation is claimed.","Head9 may fail hidden-state NMSE despite retaining classification information.","Residual SVD8 also looked promising in C75E; no head9 optimality or superiority to every basis is hypothesized."],
+  "U":["Only fixed digits, output boundary, repaired Residual-MLP, sigma .36 and384 calibration.","This confirms sufficient head-derived dimension, NOT the minimum useful dimension, not a universal64-to9 compression factor.","The theoretical rank bound is ordinary linear algebra and applies only to ideal correction and fixed affine head.","The implementation still computes full teacher residuals during calibration; no measured communication saving is claimed.","No inference-time teacher access, physical-hardware speed/memory/energy claim, CNN/SmallViT transfer or independent dataset validation.","Research branch remains separate from public main; confirmatory design does not replace independent scientific review."]
+}
