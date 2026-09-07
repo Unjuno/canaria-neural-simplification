@@ -1,0 +1,244 @@
+{
+  "calibration_only_screens": {
+    "centered_head_svd_2": {
+      "basis_sha256": "4804be7d9cc1c65c850e460bdca5497b3adbbc8ff160eb1fc370897941433053",
+      "calibration_centered_logit_relative_mse": 0.0954970646177067,
+      "calibration_margin_unsafe_fraction": 0.3802083333333333,
+      "calibration_remaining_energy_fraction": 0.8006314751361471,
+      "calibration_teacher_disagreement": 0.1015625,
+      "k": 2
+    },
+    "centered_head_svd_4": {
+      "basis_sha256": "34cfa16057ab35893c28a47ce3869ae88e384de6537b41f65c88beb76e39c494",
+      "calibration_centered_logit_relative_mse": 0.05405031589054118,
+      "calibration_margin_unsafe_fraction": 0.265625,
+      "calibration_remaining_energy_fraction": 0.6183771654572378,
+      "calibration_teacher_disagreement": 0.078125,
+      "k": 4
+    },
+    "centered_head_svd_8": {
+      "basis_sha256": "3ea2a27d9100b563f9d332c3b01c2a9f5303b67db7e7866dc6bb97a8bce56380",
+      "calibration_centered_logit_relative_mse": 0.008784716770495311,
+      "calibration_margin_unsafe_fraction": 0.125,
+      "calibration_remaining_energy_fraction": 0.31086076839031024,
+      "calibration_teacher_disagreement": 0.026041666666666668,
+      "k": 8
+    },
+    "centered_head_svd_9": {
+      "basis_sha256": "b27153ec028f9aa55763a689c2070c61189d5521c4b0edf4f57cfbbca33d72fd",
+      "calibration_centered_logit_relative_mse": 3.4365900204075845e-14,
+      "calibration_margin_unsafe_fraction": 0.0,
+      "calibration_remaining_energy_fraction": 0.22902564815752793,
+      "calibration_teacher_disagreement": 0.0,
+      "k": 9
+    },
+    "p0": {
+      "basis_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "calibration_centered_logit_relative_mse": 0.1511786573104846,
+      "calibration_margin_unsafe_fraction": 0.4921875,
+      "calibration_remaining_energy_fraction": 1.0,
+      "calibration_teacher_disagreement": 0.1328125,
+      "k": 0
+    },
+    "p64": {
+      "basis_sha256": "45cd91f6dcf71784268638c1335dd22c7eed02c90233648515ea17389e83523d",
+      "calibration_centered_logit_relative_mse": 1.4763347224360266e-14,
+      "calibration_margin_unsafe_fraction": 0.0,
+      "calibration_remaining_energy_fraction": 1.4501939297504713e-13,
+      "calibration_teacher_disagreement": 0.0,
+      "k": 64
+    },
+    "qr_identity_16": {
+      "basis_sha256": "6bb63683814a1a7c3aabd122aae10a515495bc9ac18987dea9e6346bd8fc4c30",
+      "calibration_centered_logit_relative_mse": 0.004310621584855469,
+      "calibration_margin_unsafe_fraction": 0.1015625,
+      "calibration_remaining_energy_fraction": 0.17692779961576655,
+      "calibration_teacher_disagreement": 0.010416666666666666,
+      "k": 16
+    },
+    "qr_identity_2": {
+      "basis_sha256": "37f7282faca35c102f2cfcbc15338fa7f481999f85bdfe721b2597db9cc00359",
+      "calibration_centered_logit_relative_mse": 0.09244653908519723,
+      "calibration_margin_unsafe_fraction": 0.3880208333333333,
+      "calibration_remaining_energy_fraction": 0.7484127674009983,
+      "calibration_teacher_disagreement": 0.109375,
+      "k": 2
+    },
+    "qr_identity_4": {
+      "basis_sha256": "1c356519fd2ce96df8c255d79f024e17a7b4df4132e37b4e8059a3ec6e46dea5",
+      "calibration_centered_logit_relative_mse": 0.0683437193613488,
+      "calibration_margin_unsafe_fraction": 0.3229166666666667,
+      "calibration_remaining_energy_fraction": 0.6192056831638583,
+      "calibration_teacher_disagreement": 0.0859375,
+      "k": 4
+    },
+    "qr_identity_8": {
+      "basis_sha256": "ca48004d64f8f643cc975f1b7cc143e61331ea51257eead9c6d08f631e271d08",
+      "calibration_centered_logit_relative_mse": 0.02209893325675161,
+      "calibration_margin_unsafe_fraction": 0.1953125,
+      "calibration_remaining_energy_fraction": 0.37062227904064954,
+      "calibration_teacher_disagreement": 0.0546875,
+      "k": 8
+    },
+    "qr_identity_9": {
+      "basis_sha256": "1e9dfab134b3695b60f5d17f16000d101e448e1d78b4d0f1cad1db77fff4e4ff",
+      "calibration_centered_logit_relative_mse": 0.018933670409043764,
+      "calibration_margin_unsafe_fraction": 0.17447916666666666,
+      "calibration_remaining_energy_fraction": 0.32907079390183624,
+      "calibration_teacher_disagreement": 0.0390625,
+      "k": 9
+    },
+    "qr_permutation_16": {
+      "basis_sha256": "814ee2b89bde1a38a804242e23e4db770e2c22be40d1c805264a20c09ed9b022",
+      "calibration_centered_logit_relative_mse": 0.00528382276860492,
+      "calibration_margin_unsafe_fraction": 0.11979166666666667,
+      "calibration_remaining_energy_fraction": 0.18039306337662353,
+      "calibration_teacher_disagreement": 0.026041666666666668,
+      "k": 16
+    },
+    "qr_permutation_2": {
+      "basis_sha256": "b2f2914f25c82641d52ef5f785da5937a1e8c3d03eea6e459f4b7d765a077379",
+      "calibration_centered_logit_relative_mse": 0.11803655138971607,
+      "calibration_margin_unsafe_fraction": 0.421875,
+      "calibration_remaining_energy_fraction": 0.8443439826303414,
+      "calibration_teacher_disagreement": 0.109375,
+      "k": 2
+    },
+    "qr_permutation_4": {
+      "basis_sha256": "4bb02f98ffeafd23058b594677b756fb743bd1cf1035b960c590d1ba631fcfee",
+      "calibration_centered_logit_relative_mse": 0.07630019829364616,
+      "calibration_margin_unsafe_fraction": 0.3333333333333333,
+      "calibration_remaining_energy_fraction": 0.6608401095843816,
+      "calibration_teacher_disagreement": 0.09114583333333333,
+      "k": 4
+    },
+    "qr_permutation_8": {
+      "basis_sha256": "a8e9354cea30ae46bb841f6ee90107633324ec4e656b105c496bd853738a4c7b",
+      "calibration_centered_logit_relative_mse": 0.025288296154570244,
+      "calibration_margin_unsafe_fraction": 0.20052083333333334,
+      "calibration_remaining_energy_fraction": 0.38779334992974984,
+      "calibration_teacher_disagreement": 0.057291666666666664,
+      "k": 8
+    },
+    "qr_permutation_9": {
+      "basis_sha256": "770bcabe88457d847df69acbfd173b93081bbb973ec890c3c24cfd602c86c62f",
+      "calibration_centered_logit_relative_mse": 0.020490662443842084,
+      "calibration_margin_unsafe_fraction": 0.18229166666666666,
+      "calibration_remaining_energy_fraction": 0.34727838398865585,
+      "calibration_teacher_disagreement": 0.049479166666666664,
+      "k": 9
+    },
+    "qr_reverse_16": {
+      "basis_sha256": "1ef11bfacc204b401d45bb881fc3bcd3b33abfb00cc02e484982b96ff69cf7d6",
+      "calibration_centered_logit_relative_mse": 0.00563981969138049,
+      "calibration_margin_unsafe_fraction": 0.11979166666666667,
+      "calibration_remaining_energy_fraction": 0.20037530214422877,
+      "calibration_teacher_disagreement": 0.036458333333333336,
+      "k": 16
+    },
+    "qr_reverse_2": {
+      "basis_sha256": "72157ab65356f83438e78987202386271da8600ef854816b9c27296a54793e03",
+      "calibration_centered_logit_relative_mse": 0.11354634497141762,
+      "calibration_margin_unsafe_fraction": 0.4244791666666667,
+      "calibration_remaining_energy_fraction": 0.8328405708188839,
+      "calibration_teacher_disagreement": 0.10677083333333333,
+      "k": 2
+    },
+    "qr_reverse_4": {
+      "basis_sha256": "ec2c644164631a897e66556f2066fc8c4061c512073f97d22c9473b1f9e973f2",
+      "calibration_centered_logit_relative_mse": 0.0862009100897305,
+      "calibration_margin_unsafe_fraction": 0.3541666666666667,
+      "calibration_remaining_energy_fraction": 0.7049972919408882,
+      "calibration_teacher_disagreement": 0.09114583333333333,
+      "k": 4
+    },
+    "qr_reverse_8": {
+      "basis_sha256": "6e007e9b44c7563cc4b3691fc894dab5a7eb63a559ca0297a17a3efb83e2eb64",
+      "calibration_centered_logit_relative_mse": 0.04432598859379978,
+      "calibration_margin_unsafe_fraction": 0.265625,
+      "calibration_remaining_energy_fraction": 0.4661290504668201,
+      "calibration_teacher_disagreement": 0.07291666666666667,
+      "k": 8
+    },
+    "qr_reverse_9": {
+      "basis_sha256": "83173e74568eab54ba443fe6aba8768251a236ce9308f4e863b3e688106f3755",
+      "calibration_centered_logit_relative_mse": 0.034698687893043305,
+      "calibration_margin_unsafe_fraction": 0.2421875,
+      "calibration_remaining_energy_fraction": 0.4214426114333375,
+      "calibration_teacher_disagreement": 0.052083333333333336,
+      "k": 9
+    },
+    "residual_svd_16": {
+      "basis_sha256": "a3a2cfd860955aa1d94636dfd1d4d22c332395943c0f42ebcb1df81e37fa6ee3",
+      "calibration_centered_logit_relative_mse": 0.00022063751479361977,
+      "calibration_margin_unsafe_fraction": 0.036458333333333336,
+      "calibration_remaining_energy_fraction": 0.07070320078518666,
+      "calibration_teacher_disagreement": 0.0078125,
+      "k": 16
+    },
+    "residual_svd_2": {
+      "basis_sha256": "e6e8c8eb7ec6ead19bab86af513e2a15912ee846c27b222f9cd6bed17f568f81",
+      "calibration_centered_logit_relative_mse": 0.0860441554280543,
+      "calibration_margin_unsafe_fraction": 0.3723958333333333,
+      "calibration_remaining_energy_fraction": 0.6514268907625725,
+      "calibration_teacher_disagreement": 0.08072916666666667,
+      "k": 2
+    },
+    "residual_svd_4": {
+      "basis_sha256": "447267bc2dc82a47caf2d6fd562e8295d6efabf947e3b0e709e41266c868725f",
+      "calibration_centered_logit_relative_mse": 0.05409027432410376,
+      "calibration_margin_unsafe_fraction": 0.2760416666666667,
+      "calibration_remaining_energy_fraction": 0.44773411682133774,
+      "calibration_teacher_disagreement": 0.057291666666666664,
+      "k": 4
+    },
+    "residual_svd_8": {
+      "basis_sha256": "a2b37a938d2a47e11dd07ffa1bc8f2e7008aed0c9905b6af77eb00ff11538633",
+      "calibration_centered_logit_relative_mse": 0.006918771771369419,
+      "calibration_margin_unsafe_fraction": 0.10677083333333333,
+      "calibration_remaining_energy_fraction": 0.18921123636083484,
+      "calibration_teacher_disagreement": 0.018229166666666668,
+      "k": 8
+    },
+    "residual_svd_9": {
+      "basis_sha256": "aec9f05ae8a8d66d10b2b8988f0f92b358f19f08971fac460c1d12a6a077556e",
+      "calibration_centered_logit_relative_mse": 0.0007396648604233489,
+      "calibration_margin_unsafe_fraction": 0.06510416666666667,
+      "calibration_remaining_energy_fraction": 0.14427692075603307,
+      "calibration_teacher_disagreement": 0.0078125,
+      "k": 9
+    }
+  },
+  "predictions": {
+    "centered_head_svd": {
+      "energy": 64,
+      "margin": 9
+    },
+    "qr_identity": {
+      "energy": 64,
+      "margin": 64
+    },
+    "qr_permutation": {
+      "energy": 64,
+      "margin": 64
+    },
+    "qr_reverse": {
+      "energy": 64,
+      "margin": 64
+    },
+    "residual_svd": {
+      "energy": 64,
+      "margin": 64
+    }
+  },
+  "seed": 73414,
+  "source_sha256": {
+    "results/gaussian_shift_interface/c75e/PROTOCOL.json": "f08db8681d7d8184199c70aeb2986cd1ac21659b90965b7a1a16467922252a4b",
+    "scripts/gaussian_shift_interface/c75e_geometry.py": "13b18daf6e2ca1e9e5f97d2ad0989b727dee844f3640c9e96f910dcd43a0f92e",
+    "scripts/gaussian_shift_interface/run_c61r_seed.py": "a89fe2a70c7b6e9671a74e3e86bc7c8d7da60c95ce891d57f2464f79cc84544d",
+    "scripts/gaussian_shift_interface/run_c64r_seed.py": "757ef9a94b4763b933ece6ad18d218b14ca3620c12ed30caae145e24008d0f02",
+    "scripts/gaussian_shift_interface/run_c68e_seed.py": "898f12bba461a728d6849c24252cfc59de3e68667ad9128322ed5e7774ac6388",
+    "scripts/gaussian_shift_interface/run_c72e_seed.py": "c5bdc7006b31ff957472a06970564e51df1b6d11b4f1dae51d46c3c8e89cdedb",
+    "scripts/recursive_composition/exploration/c10_boundary_signal_ablation.py": "f7d218db2a11e4db15cbffefe48234e929a17bcb7141530980e608d063c9bb49"
+  }
+}
