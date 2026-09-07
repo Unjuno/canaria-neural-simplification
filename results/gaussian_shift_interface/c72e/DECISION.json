@@ -1,0 +1,139 @@
+{
+  "attempted_rows_present": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 4236432130,
+  "cell_reference_validity": {
+    "N192_W32": {
+      "activation_nmse_vs_teacher_mean": 0.1350472652768791,
+      "bootstrap95_pp": [
+        -7.29166567325592,
+        -4.606481269001961
+      ],
+      "calibration_nmse_vs_teacher_mean": 0.02598076124439146,
+      "cell_accuracy_mean": 0.8039351888000965,
+      "margin_pp": -5.0,
+      "mean_cell_minus_teacher_pp": -5.856481567025185,
+      "pass": false,
+      "robust_shifted_teacher_accuracy_mean": 0.8625000044703484
+    },
+    "N192_W64": {
+      "activation_nmse_vs_teacher_mean": 0.11445315919937468,
+      "bootstrap95_pp": [
+        -6.319446489214897,
+        -3.7500008940696716
+      ],
+      "calibration_nmse_vs_teacher_mean": 0.01002348146061317,
+      "cell_accuracy_mean": 0.8127314746379852,
+      "margin_pp": -5.0,
+      "mean_cell_minus_teacher_pp": -4.976852983236313,
+      "pass": false,
+      "robust_shifted_teacher_accuracy_mean": 0.8625000044703484
+    },
+    "N384_W32": {
+      "activation_nmse_vs_teacher_mean": 0.09348361119607819,
+      "bootstrap95_pp": [
+        -4.467593505978584,
+        -2.314816415309906
+      ],
+      "calibration_nmse_vs_teacher_mean": 0.04187519403401517,
+      "cell_accuracy_mean": 0.828703697770834,
+      "margin_pp": -5.0,
+      "mean_cell_minus_teacher_pp": -3.379630669951439,
+      "pass": true,
+      "robust_shifted_teacher_accuracy_mean": 0.8625000044703484
+    },
+    "N384_W64": {
+      "activation_nmse_vs_teacher_mean": 0.07467473449511841,
+      "bootstrap95_pp": [
+        -3.171297535300255,
+        -1.6435198485851288
+      ],
+      "calibration_nmse_vs_teacher_mean": 0.021663835639132822,
+      "cell_accuracy_mean": 0.8384259268641472,
+      "margin_pp": -5.0,
+      "mean_cell_minus_teacher_pp": -2.407407760620117,
+      "pass": true,
+      "robust_shifted_teacher_accuracy_mean": 0.8625000044703484
+    }
+  },
+  "cell_validity_pattern": [
+    false,
+    true,
+    false,
+    true
+  ],
+  "confirmatory_claim_allowed": false,
+  "decision": "LOCALIZE_CALIBRATION_QUANTITY_REPAIR",
+  "descriptive_factorial_contrasts": {
+    "calibration_only_gain_N384_W32_minus_N192_W32": {
+      "bootstrap95_pp": [
+        1.6666658222675323,
+        3.2870355993509293
+      ],
+      "mean_pp": 2.4768508970737457
+    },
+    "capacity_only_gain_N192_W64_minus_N192_W32": {
+      "bootstrap95_pp": [
+        -0.11574141681194305,
+        1.8055543303489685
+      ],
+      "mean_pp": 0.8796285837888718
+    },
+    "combined_gain_N384_W64_minus_N192_W32": {
+      "bootstrap95_pp": [
+        2.5925930589437485,
+        4.328703507781029
+      ],
+      "mean_pp": 3.4490738064050674
+    },
+    "factorial_interaction": {
+      "bootstrap95_pp": [
+        -0.9953673928976059,
+        1.2037038803100586
+      ],
+      "mean_pp": 0.09259432554244995
+    }
+  },
+  "eligible_count": 16,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "expected_seeds": [
+    70400,
+    70401,
+    70402,
+    70403,
+    70404,
+    70405,
+    70406,
+    70407,
+    70408,
+    70409,
+    70410,
+    70411,
+    70412,
+    70413,
+    70414,
+    70415
+  ],
+  "experiment": "C72E_DIRECT_MAPPING_FACTORIAL_REPAIR",
+  "interpretation_boundary": [
+    "C72E is exploratory; a factor-level repair is a sufficient intervention under the tested protocol, not proof of a unique fundamental cause.",
+    "The N192/W32 baseline recreates the C71 D64 direct-mapping design on a fresh cohort; if it is valid, factorial localization is stopped rather than forcing a cause.",
+    "The N384 set is nested around the exact original 192 calibration subset, preventing subset replacement from masquerading as a sample-quantity effect.",
+    "All cells use 600 updates, so calibration-size effects concern sample diversity/generalization under fixed update count.",
+    "No reduced interface dimension is selected, and results do not transfer to imported Residual CNN C59/C60 or SmallViT."
+  ],
+  "minimum_eligible": 8,
+  "missing_seed_rows": [],
+  "reduced_dimension_selection_allowed": false,
+  "robust_target_validity": {
+    "bootstrap95_pp": [
+      -12.129627540707588,
+      -10.092592239379883
+    ],
+    "margin_pp": -20.0,
+    "mean_shift_minus_clean_pp": -11.11111007630825,
+    "pass": true,
+    "robust_clean_accuracy_mean": 0.9736111052334309,
+    "robust_shifted_accuracy_mean": 0.8625000044703484
+  }
+}

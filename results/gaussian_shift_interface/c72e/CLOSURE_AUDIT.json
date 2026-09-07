@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "artifact/seed integrity and original evaluator recomputation; not independent scientific review",
+  "raw_records": 16,
+  "bootstrap_resamples": 100000,
+  "float_rtol": 1e-12,
+  "float_atol": 1e-12
+}

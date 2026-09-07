@@ -1,0 +1,106 @@
+name: c72e-preflight
+
+on:
+  push:
+    branches:
+      - research/c72e-direct-mapping-factorial-repair
+    paths:
+      - '.github/workflows/c72e-preflight.yml'
+      - 'scripts/gaussian_shift_interface/run_c72e_seed.py'
+      - 'scripts/gaussian_shift_interface/evaluate_c72e.py'
+      - 'tests/test_c72e_evaluator.py'
+      - 'results/gaussian_shift_interface/c72e/PROTOCOL.json'
+
+jobs:
+  verification-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install locked CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Syntax and evaluator tests
+        run: |
+          python -m py_compile scripts/gaussian_shift_interface/run_c72e_seed.py
+          python -m py_compile scripts/gaussian_shift_interface/evaluate_c72e.py
+          python -m unittest tests.test_c72e_evaluator -v
+      - name: Run implementation verification seed 70300
+        run: |
+          mkdir -p c72e-preflight
+          python scripts/gaussian_shift_interface/run_c72e_seed.py \
+            --seed 70300 \
+            --allow-verification-seed \
+            --out c72e-preflight/seed_70300.json
+      - name: Verify locked factorial and nesting invariants
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          r = json.loads(Path('c72e-preflight/seed_70300.json').read_text())
+          assert r['experiment'] == 'C72E_DIRECT_MAPPING_FACTORIAL_REPAIR'
+          assert r['evidence_class'] == 'PROSPECTIVE_EXPLORATORY'
+          assert r['status'] == 'IMPLEMENTATION_VERIFICATION_OUTCOME'
+          assert r['eligible'] is True
+          assert r['test_evaluated'] is False
+          p = r['protocol']
+          assert p['sigma'] == 0.36
+          assert p['base_calibration_samples'] == 192
+          assert p['large_calibration_samples'] == 384
+          assert p['extension_index_seed'] == 20260906
+          assert p['base_calibration_epsilon_seed'] == 70300 + 710100
+          assert p['extension_calibration_epsilon_seed'] == 70300 + 720101
+          assert p['validation_epsilon_seed'] == 70300 + 710200
+          assert p['final_init_seed'] == 70300 + 716000
+          assert p['final_fit_seed'] == 70300 + 717000
+          assert p['fit_updates'] == 600
+
+          inv = r['nesting_invariants']
+          assert all(inv.values()), inv
+          hashes = r['provenance_hashes']
+          for key in (
+              'base_calibration_indices_sha256','extension_calibration_indices_sha256',
+              'large_calibration_indices_sha256','base_calibration_standard_normal_sha256',
+              'extension_calibration_standard_normal_sha256','validation_standard_normal_sha256',
+              'shifted_base_calibration_tensor_sha256','shifted_large_calibration_tensor_sha256',
+              'shifted_validation_tensor_sha256','robust_teacher_final_state_sha256',
+              'paired_clean_teacher_final_state_sha256','width32_initial_state_sha256',
+              'width64_initial_state_sha256',
+          ):
+              assert hashes[key], key
+          assert hashes['robust_teacher_final_state_sha256'] != hashes['paired_clean_teacher_final_state_sha256']
+
+          expected = {
+              'N192_W32': (192,32,4096),
+              'N384_W32': (384,32,4096),
+              'N192_W64': (192,64,8192),
+              'N384_W64': (384,64,8192),
+          }
+          for name, (n,w,params) in expected.items():
+              rec = r['cells'][name]
+              assert rec['calibration_samples'] == n
+              assert rec['width'] == w
+              assert rec['trainable_parameters'] == params
+              assert math.isfinite(float(rec['validation_accuracy']))
+              assert 0.0 <= float(rec['validation_accuracy']) <= 1.0
+              assert math.isfinite(float(rec['activation_nmse_vs_teacher']))
+              assert float(rec['activation_nmse_vs_teacher']) > 0.0
+              assert math.isfinite(float(rec['calibration_nmse_vs_teacher']))
+              assert float(rec['calibration_nmse_vs_teacher']) >= 0.0
+              assert rec['final_state_sha256']
+
+          print('C72E PREFLIGHT PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c72e-preflight-seed-70300
+          path: c72e-preflight/seed_70300.json
+          if-no-files-found: error
+          retention-days: 90

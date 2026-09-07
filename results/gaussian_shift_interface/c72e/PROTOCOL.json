@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "experiment": "C72E_DIRECT_MAPPING_FACTORIAL_REPAIR",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "relationship": {
+    "follows": "C71E_P64_PIPELINE_BOTTLENECK_LOCALIZATION",
+    "parent_decision": "LOCALIZE_SHARED_MAPPING_OR_CALIBRATION_LIMIT",
+    "purpose": "separate calibration quantity from direct mapping capacity on the D64 teacher-target bypass path",
+    "architecture_line": "C68E-repaired repository Residual-MLP at Gaussian sigma=.36",
+    "not_imported_residual_cnn_line": true
+  },
+  "H": "The C71E direct 4096-parameter teacher-target mapping fails because of insufficient calibration quantity, insufficient mapping capacity, or an interaction between them. A prospectively locked 2x2 intervention can identify which tested intervention is sufficient to restore the -5 pp task-reference safeguard.",
+  "T": "Use fresh model seeds 70400-70415 and verification seed 70300. Reproduce the exact C68E robust teacher at sigma=.36. Evaluate four direct teacher-target TinyRes cells: N192/W32 (192 calibration samples, 4096 params; C71 D64 baseline), N384/W32 (calibration-only increase), N192/W64 (capacity-only increase to 8192 params), and N384/W64 (combined). The 384-sample set is nested: the first 192 are exactly the existing seed-20260903 calibration subset, plus 192 non-overlapping extension samples selected prospectively with seed 20260906. The first-192 shifted calibration tensor and validation shift use the same seed rules as C71E D64.",
+  "D": "First require robust-target validity. Each cell is valid only if its shifted-validation accuracy minus robust-teacher shifted-validation accuracy has paired bootstrap95 lower bound > -5 pp. If the baseline cell is valid, stop because the C71 failure did not reproduce. Otherwise: if combined N384/W64 is invalid while either single-factor cell is valid, stop as nonmonotonic factorial repair; if combined is invalid and neither single-factor cell is valid, report no repair at the tested larger regime; if combined is valid and only N384/W32 is valid, localize a calibration-quantity repair under tested interventions; if combined is valid and only N192/W64 is valid, localize a mapping-capacity repair; if both singles are valid, report both single-factor repairs; if neither single is valid but combined is valid, localize a calibration-capacity interaction repair. All results remain exploratory.",
+  "C": [
+    "Increasing calibration samples may help by improving generalization even with fixed optimization steps, rather than revealing a fundamental sample-complexity threshold.",
+    "Increasing width may help via function capacity, optimization conditioning, or both; the experiment identifies a sufficient intervention, not a unique mathematical cause.",
+    "The combined cell can be nonmonotonic relative to a single-factor cell because optimization is stochastic and architectures differ; such a result must stop simple localization.",
+    "The fresh N192/W32 baseline may be valid even though C71 D64 failed, in which case the prior failure is not reproduced and factorial localization is not justified."
+  ],
+  "U": [
+    "The tested calibration sizes 192/384 and widths 32/64 are discrete interventions and do not identify continuous thresholds.",
+    "All cells use 600 optimization updates; larger calibration changes sample diversity but not total update count.",
+    "Width64 has 8192 trainable scalar parameters because TinyRes uses two bias-free 64-by-width matrices; width32 has 4096.",
+    "The -5 pp reference safeguard and -20 pp target safeguard are experiment criteria, not universal constants.",
+    "No reduced interface dimension is selected in C72E."
+  ],
+  "fresh_model_seeds": [70400,70401,70402,70403,70404,70405,70406,70407,70408,70409,70410,70411,70412,70413,70414,70415],
+  "implementation_verification_seed": 70300,
+  "dataset": {
+    "name": "sklearn.datasets.load_digits",
+    "input_normalization": "float32 / 16.0",
+    "repository_split_function": "scripts.recursive_composition.exploration.c10_boundary_signal_ablation.split_data",
+    "held_out_test_used": false
+  },
+  "repaired_teacher": {
+    "source_recipe": "exact C68E 50%-Gaussian-augmentation recipe",
+    "architecture": "repository Net(d=64, depth=4)",
+    "epochs": 60,
+    "optimizer": "AdamW(lr=2e-3, weight_decay=1e-4)",
+    "batch_size": 64,
+    "augmentation_sigma": 0.36,
+    "fraction_noised_per_minibatch": 0.5,
+    "permutation_rng_seed_rule": "model_seed + 999",
+    "augmentation_rng_seed_rule": "model_seed + 680100"
+  },
+  "shift": {
+    "sigma": 0.36,
+    "validation_standard_normal_seed_rule": "model_seed + 710200",
+    "same_shifted_validation_tensor_across_all_cells": true
+  },
+  "nested_calibration": {
+    "base_samples": 192,
+    "base_index_rule": "exact existing fixed_calibration_indices: np.random.default_rng(20260903).choice(n_train,192,replace=False), sorted",
+    "base_standard_normal_seed_rule": "model_seed + 710100",
+    "extension_samples": 192,
+    "extension_index_rule": "select 192 without replacement from the complement of the base subset using np.random.default_rng(20260906), sorted, then append after the base 192",
+    "extension_standard_normal_seed_rule": "model_seed + 720101",
+    "large_samples": 384,
+    "nesting_invariant": "N192 inputs/targets are exactly the first 192 rows of N384 inputs/targets",
+    "held_out_test_excluded": true
+  },
+  "mapping_cells": {
+    "N192_W32": {"calibration_samples": 192, "tinyres_width": 32, "trainable_parameters": 4096, "role": "C71 D64 implementation-equivalent baseline on fresh seeds"},
+    "N384_W32": {"calibration_samples": 384, "tinyres_width": 32, "trainable_parameters": 4096, "role": "calibration-only intervention"},
+    "N192_W64": {"calibration_samples": 192, "tinyres_width": 64, "trainable_parameters": 8192, "role": "capacity-only intervention"},
+    "N384_W64": {"calibration_samples": 384, "tinyres_width": 64, "trainable_parameters": 8192, "role": "combined intervention"}
+  },
+  "mapping_fit": {
+    "architecture": "TinyRes(64,width): x + W2 GELU(W1 x), both Linear layers bias=False",
+    "target": "repaired-teacher shifted-calibration final hidden activations",
+    "optimizer": "AdamW(lr=8e-3, weight_decay=1e-5)",
+    "updates": 600,
+    "batch_size": 128,
+    "numeric_initialization_seed_rule": "model_seed + 716000 for all cells; architecture shape differs by width",
+    "fit_index_rng_seed_rule": "model_seed + 717000 for all cells",
+    "pairing_rationale": "within a width, calibration-size cells share identical initialization; all cells use the same numeric fit RNG seed and the same robust teacher/validation shift"
+  },
+  "eligibility": {
+    "minimum_eligible": 8,
+    "eligible_seed_if": "robust teacher training and all four direct mappings complete; nested calibration/provenance invariants hold; exact cell parameter counts are 4096/8192; all accuracies/NMSE diagnostics finite and cell NMSE positive",
+    "all_attempted_seeds_retained": true,
+    "no_seed_replacement": true
+  },
+  "gates": {
+    "target_task_validity": {
+      "statistic": "paired robust-teacher shifted minus clean validation accuracy",
+      "margin_percentage_points": -20.0,
+      "pass": "paired percentile bootstrap95 lower bound > -20 pp"
+    },
+    "cell_reference_validity": {
+      "applies_to": ["N192_W32","N384_W32","N192_W64","N384_W64"],
+      "statistic": "paired cell shifted-validation accuracy minus robust-teacher shifted-validation accuracy",
+      "margin_percentage_points": -5.0,
+      "pass": "paired percentile bootstrap95 lower bound > -5 pp"
+    }
+  },
+  "descriptive_diagnostics": {
+    "cell_activation_nmse_vs_teacher": true,
+    "paired_accuracy_gain_N384_W32_minus_N192_W32": true,
+    "paired_accuracy_gain_N192_W64_minus_N192_W32": true,
+    "paired_accuracy_gain_N384_W64_minus_N192_W32": true,
+    "factorial_accuracy_interaction": "(N384_W64-N192_W64) - (N384_W32-N192_W32)"
+  },
+  "prospective_decision": {
+    "rules": [
+      "if eligible_count<8: STOP_INSUFFICIENT_ELIGIBLE",
+      "else if target validity fails: STOP_ROBUST_TARGET_INVALID",
+      "else if N192_W32 is valid: STOP_C71_BASELINE_FAILURE_NOT_REPRODUCED",
+      "else if N384_W64 is invalid and (N384_W32 valid or N192_W64 valid): STOP_NONMONOTONIC_FACTORIAL_REPAIR",
+      "else if N384_W64 is invalid and neither single-factor cell is valid: NO_REPAIR_AT_N384_W64",
+      "else if N384_W64 valid and N384_W32 valid and N192_W64 invalid: LOCALIZE_CALIBRATION_QUANTITY_REPAIR",
+      "else if N384_W64 valid and N384_W32 invalid and N192_W64 valid: LOCALIZE_MAPPING_CAPACITY_REPAIR",
+      "else if N384_W64 valid and both single-factor cells valid: BOTH_SINGLE_FACTOR_REPAIRS",
+      "else if N384_W64 valid and neither single-factor cell valid: LOCALIZE_CALIBRATION_CAPACITY_INTERACTION_REPAIR"
+    ],
+    "no_reduced_dimension_selection": true,
+    "confirmatory_claim_allowed": false,
+    "any_repair_requires_separate_fresh_followup_before_reopening_interface_frontier": true
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "method": "paired model-seed percentile95; one common bootstrap index matrix reused for target, all cell validity gates and descriptive paired contrasts",
+    "rng_seed": 4236432130,
+    "rng_seed_derivation": "first 32 bits big-endian of SHA256('C72E_DIRECT_MAPPING_FACTORIAL_REPAIR_V1') = fc82d302cb75b3bd83886f73b901d242ce686c22304bf8d80667436c60547a45"
+  },
+  "analysis_boundary": {
+    "no_held_out_test": true,
+    "no_post_outcome_factor_changes": true,
+    "no_post_outcome_margin_changes": true,
+    "no_post_outcome_decision_rule_changes": true,
+    "scope": "exact C72E direct robust-teacher mapping factorial at sigma=.36",
+    "not_supported_even_if_localized": [
+      "a unique fundamental cause has been proven",
+      "the tested factor level is a universal minimum",
+      "a reduced interface dimension is valid",
+      "the result transfers to imported Residual CNN C59/C60 or SmallViT"
+    ]
+  }
+}

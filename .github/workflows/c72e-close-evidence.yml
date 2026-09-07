@@ -1,0 +1,122 @@
+name: c72e-close-evidence
+on:
+  push:
+    branches: [research/c72e-direct-mapping-factorial-repair]
+    paths: ['.github/workflows/c72e-close-evidence.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original evaluator dependency
+        run: python -m pip install numpy==2.4.6
+      - uses: actions/download-artifact@v4
+        with:
+          name: c72e-aggregate-decision
+          run-id: 33998051767
+          github-token: ${{ github.token }}
+          path: /tmp/c72e-aggregate
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: c72e-seed-*
+          run-id: 33998051767
+          github-token: ${{ github.token }}
+          path: /tmp/c72e-seeds
+          merge-multiple: true
+      - name: Preserve original bytes and check all seed records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, math, os, shutil, urllib.request
+          from pathlib import Path
+          root = Path('results/gaussian_shift_interface/c72e')
+          (root/'raw').mkdir(parents=True, exist_ok=True)
+          rows = json.loads(Path('/tmp/c72e-aggregate/rows.json').read_text())['rows']
+          assert len(rows) == 16 and [r['seed'] for r in rows] == list(range(70400,70416))
+          files = sorted(Path('/tmp/c72e-seeds').glob('seed_*.json'))
+          assert len(files) == 16
+          for p, row in zip(files, rows):
+              r = json.loads(p.read_text())
+              assert r['decision_row'] == row
+              assert r['eligible'] is True and r['test_evaluated'] is False
+              assert r['github_sha'] == 'c2a0c8cbaee565e5328e17ff1c2667fe5427ecfd'
+              assert all(r['nesting_invariants'].values())
+              assert r['cells']['N384_W32']['trainable_parameters'] == 4096
+              assert r['cells']['N384_W64']['trainable_parameters'] == 8192
+              dest = root/'raw'/p.name
+              if dest.exists(): assert dest.read_bytes() == p.read_bytes()
+              shutil.copyfile(p,dest)
+          for source, dest in [('rows.json','FRESH_ROWS.json'),('decision.json','DECISION.json')]:
+              p = Path('/tmp/c72e-aggregate')/source
+              if (root/dest).exists(): assert (root/dest).read_bytes() == p.read_bytes()
+              shutil.copyfile(p, root/dest)
+          req = urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/runs/33998051767/artifacts?per_page=100', headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          artifacts = json.load(urllib.request.urlopen(req))['artifacts']
+          records = [{k:a[k] for k in ('id','name','digest','expired','created_at','expires_at')} for a in artifacts]
+          manifest = {'experiment':'C72E_DIRECT_MAPPING_FACTORIAL_REPAIR','evidence_class':'PROSPECTIVE_EXPLORATORY','original_protocol_lock':'f9ba0bd7a0aa13401b88d3a83accef8dc13de8a0','fresh_source_commit':'c2a0c8cbaee565e5328e17ff1c2667fe5427ecfd','fresh_run_id':33998051767,'closure_workflow_commit':os.environ['GITHUB_SHA'],'closure_is_not_preregistration':True,'artifacts':records,'file_sha256':{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*.json')) if p.name not in ('RUN_MANIFEST.json','CLOSURE_AUDIT.json')}}
+          (root/'RUN_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          PY
+      - name: Recompute original decision and run evaluator tests
+        run: |
+          python -m unittest tests.test_c72e_evaluator -v
+          python scripts/gaussian_shift_interface/evaluate_c72e.py results/gaussian_shift_interface/c72e/FRESH_ROWS.json --out /tmp/c72e-recomputed.json
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+          root=Path('results/gaussian_shift_interface/c72e')
+          a=json.loads((root/'DECISION.json').read_text())
+          b=json.loads(Path('/tmp/c72e-recomputed.json').read_text())
+          def same(x,y):
+              if isinstance(x,dict):
+                  assert isinstance(y,dict) and set(x)==set(y)
+                  for k in x: same(x[k],y[k])
+              elif isinstance(x,list):
+                  assert isinstance(y,list) and len(x)==len(y)
+                  for p,q in zip(x,y): same(p,q)
+              elif isinstance(x,float):
+                  assert math.isfinite(x) and math.isfinite(y) and math.isclose(x,y,rel_tol=1e-12,abs_tol=1e-12),(x,y)
+              else: assert type(x)==type(y) and x==y,(x,y)
+          same(a,b)
+          assert a['eligible_count']==16 and a['missing_seed_rows']==[]
+          assert a['decision']=='LOCALIZE_CALIBRATION_QUANTITY_REPAIR'
+          assert a['confirmatory_claim_allowed'] is False
+          (root/'CLOSURE_AUDIT.json').write_text(json.dumps({'status':'PASS','scope':'artifact/seed integrity and original evaluator recomputation; not independent scientific review','raw_records':16,'bootstrap_resamples':100000,'float_rtol':1e-12,'float_atol':1e-12},indent=2)+'\n')
+          lines=['# C72E result and evidence closure','','Evidence class: PROSPECTIVE_EXPLORATORY. Original protocol and numerical outcomes are unchanged.','','Decision: `'+a['decision']+'`.','','| Cell | Accuracy gap to teacher (pp) | Paired 95% CI (pp) | Reference gate |','|---|---:|---|---|']
+          for k,v in a['cell_reference_validity'].items():
+              lines.append(f"| {k} | {v['mean_cell_minus_teacher_pp']:.6f} | {v['bootstrap95_pp']} | {'PASS' if v['pass'] else 'NOT_ESTABLISHED'} |")
+          lines += ['','Increasing the nested calibration set from 192 to 384 restored the reference safeguard in the tested direct-mapping regime. Width increase alone did not establish that safeguard. This identifies a sufficient tested intervention, not a unique cause, universal sample threshold, or full recursive pipeline repair.','', 'A failed non-inferiority gate does not prove inferiority. Calibration and validation NMSE use different target variance denominators; a raw difference between them is not an established generalization-gap measure.','', 'All 16 original seed records, aggregate bytes, artifact identifiers and hashes are preserved here. CLOSURE_AUDIT.json documents recomputation, not independent scientific review.']
+          (root/'RESULT.md').write_text('\n'.join(lines)+'\n')
+          (root/'LINEAGE.md').write_text('# C72E lineage\n\nParent: C71E. Original protocol lock f9ba0bd7a0aa13401b88d3a83accef8dc13de8a0; original fresh run 33998051767 at c2a0c8cbaee565e5328e17ff1c2667fe5427ecfd. This later closure imports existing outcomes, is not a new experiment, and must not be cited as a preregistration timestamp. Original C61 remains unresolved; C59/C60 Residual CNN is a separate evidence line.\n')
+          print('C72E EVIDENCE CLOSURE PASS')
+          PY
+      - name: Persist evidence on research branch only
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/gaussian_shift_interface/c72e
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve C72E original raw evidence with recomputation audit'
+            git push origin HEAD:research/c72e-direct-mapping-factorial-repair
+          fi
+      - name: Export source and evidence for local scientific inspection
+        run: |
+          mkdir -p /tmp/c72e-export
+          git archive --format=tar.gz --output=/tmp/c72e-export/source-and-evidence.tar.gz HEAD
+          git rev-parse HEAD > /tmp/c72e-export/source-commit.txt
+          cp results/gaussian_shift_interface/c72e/CLOSURE_AUDIT.json /tmp/c72e-export/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c72e-closed-source-and-evidence
+          path: /tmp/c72e-export/
+          retention-days: 90
+          if-no-files-found: error

@@ -1,0 +1,612 @@
+{
+  "rows": [
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.13770710606427483,
+          "calibration_nmse_vs_teacher": 0.025164024492483592,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7777777910232544
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11385390730728914,
+          "calibration_nmse_vs_teacher": 0.010275948447592383,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.7814815044403076
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.09788476856970763,
+          "calibration_nmse_vs_teacher": 0.04034637772662646,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7888888716697693
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07524960517327853,
+          "calibration_nmse_vs_teacher": 0.020743336490616625,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8037037253379822
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9888888597488403,
+      "clean_teacher_shifted_validation_accuracy": 0.6814814805984497,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "robust_teacher_shifted_validation_accuracy": 0.8148148059844971,
+      "seed": 70400
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.1452351726859719,
+          "calibration_nmse_vs_teacher": 0.02375050011859403,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7740740776062012
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11405792847913702,
+          "calibration_nmse_vs_teacher": 0.009079953653152468,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8111110925674438
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.09704542530793862,
+          "calibration_nmse_vs_teacher": 0.041375539394855616,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.800000011920929
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07372750802770202,
+          "calibration_nmse_vs_teacher": 0.020842661918291313,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8222222328186035
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.6407407522201538,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "robust_teacher_shifted_validation_accuracy": 0.8518518805503845,
+      "seed": 70401
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.15838914120184328,
+          "calibration_nmse_vs_teacher": 0.029846061195897184,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8296296000480652
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.1414783694837772,
+          "calibration_nmse_vs_teacher": 0.011293723970020932,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8296296000480652
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.11993808774163445,
+          "calibration_nmse_vs_teacher": 0.04777575660032038,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8259259462356567
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.08825599411421818,
+          "calibration_nmse_vs_teacher": 0.023898453788433537,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8592592477798462
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.6925926208496094,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.970370352268219,
+      "robust_teacher_shifted_validation_accuracy": 0.885185182094574,
+      "seed": 70402
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.14583705455678989,
+          "calibration_nmse_vs_teacher": 0.026271130266656156,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7666666507720947
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11910304213365525,
+          "calibration_nmse_vs_teacher": 0.010027985293594438,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.7888888716697693
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.092572544463467,
+          "calibration_nmse_vs_teacher": 0.03843767470182788,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8185185194015503
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.0766533176719938,
+          "calibration_nmse_vs_teacher": 0.020148994327451413,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8259259462356567
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.6629629731178284,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "robust_teacher_shifted_validation_accuracy": 0.8629629611968994,
+      "seed": 70403
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.13048014759226761,
+          "calibration_nmse_vs_teacher": 0.028379839444885008,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8111110925674438
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11258184669571467,
+          "calibration_nmse_vs_teacher": 0.010388905148964714,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8333333134651184
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.0971490805998195,
+          "calibration_nmse_vs_teacher": 0.047320262497774636,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.855555534362793
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07356827966142875,
+          "calibration_nmse_vs_teacher": 0.023092842052209604,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.855555534362793
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.6740740537643433,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "robust_teacher_shifted_validation_accuracy": 0.8740741014480591,
+      "seed": 70404
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.12980072931970196,
+          "calibration_nmse_vs_teacher": 0.028082124863800427,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8111110925674438
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11418169984201189,
+          "calibration_nmse_vs_teacher": 0.010428099088304742,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8259259462356567
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.0924185735260508,
+          "calibration_nmse_vs_teacher": 0.04497819749251589,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8222222328186035
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07712145130144926,
+          "calibration_nmse_vs_teacher": 0.021796466358615346,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.855555534362793
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "clean_teacher_shifted_validation_accuracy": 0.6962962746620178,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "robust_teacher_shifted_validation_accuracy": 0.8518518805503845,
+      "seed": 70405
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.13205208095433071,
+          "calibration_nmse_vs_teacher": 0.024504094166527084,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7777777910232544
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.10411921562751883,
+          "calibration_nmse_vs_teacher": 0.009204925315070818,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8148148059844971
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.09030423152389673,
+          "calibration_nmse_vs_teacher": 0.03917388530517909,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8111110925674438
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07536324017160341,
+          "calibration_nmse_vs_teacher": 0.020706343895969544,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8185185194015503
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "clean_teacher_shifted_validation_accuracy": 0.699999988079071,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "robust_teacher_shifted_validation_accuracy": 0.8666666746139526,
+      "seed": 70406
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.12562816216396336,
+          "calibration_nmse_vs_teacher": 0.027688124343750335,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8444444537162781
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.10402104873020974,
+          "calibration_nmse_vs_teacher": 0.009590937097143908,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8111110925674438
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.08735273867888597,
+          "calibration_nmse_vs_teacher": 0.042731300623535064,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.855555534362793
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.06664157802117635,
+          "calibration_nmse_vs_teacher": 0.020845051566742025,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8629629611968994
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.970370352268219,
+      "clean_teacher_shifted_validation_accuracy": 0.7222222089767456,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "robust_teacher_shifted_validation_accuracy": 0.885185182094574,
+      "seed": 70407
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.11220215615877355,
+          "calibration_nmse_vs_teacher": 0.021368298927953593,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8481481671333313
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.0946541543399599,
+          "calibration_nmse_vs_teacher": 0.008707539331758229,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8259259462356567
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.08010158837837365,
+          "calibration_nmse_vs_teacher": 0.03653144541861738,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8444444537162781
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.061783812403020964,
+          "calibration_nmse_vs_teacher": 0.018725004981788036,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8481481671333313
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.7037037014961243,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "robust_teacher_shifted_validation_accuracy": 0.8703703880310059,
+      "seed": 70408
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.13291771873873057,
+          "calibration_nmse_vs_teacher": 0.025841914241329575,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8222222328186035
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11208707064669375,
+          "calibration_nmse_vs_teacher": 0.01054590537986663,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8296296000480652
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.0888989380201287,
+          "calibration_nmse_vs_teacher": 0.04516931756917891,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.855555534362793
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.06795294932145439,
+          "calibration_nmse_vs_teacher": 0.02444217547604179,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8444444537162781
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.7777777910232544,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.970370352268219,
+      "robust_teacher_shifted_validation_accuracy": 0.855555534362793,
+      "seed": 70409
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.14019903118766738,
+          "calibration_nmse_vs_teacher": 0.02393677382844299,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7925925850868225
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.11295367986078823,
+          "calibration_nmse_vs_teacher": 0.009235178484074765,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.7851851582527161
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.08761625059048934,
+          "calibration_nmse_vs_teacher": 0.03799450765672137,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8222222328186035
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07304597981063354,
+          "calibration_nmse_vs_teacher": 0.020847459046724276,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8148148059844971
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.699999988079071,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9666666388511658,
+      "robust_teacher_shifted_validation_accuracy": 0.8518518805503845,
+      "seed": 70410
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.1269761845393806,
+          "calibration_nmse_vs_teacher": 0.025400107678507453,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7814815044403076
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.1049907849189951,
+          "calibration_nmse_vs_teacher": 0.01005417541212627,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.7666666507720947
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.09064408624283089,
+          "calibration_nmse_vs_teacher": 0.04144856527161664,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8185185194015503
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.06839972598774514,
+          "calibration_nmse_vs_teacher": 0.02079855760530716,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8222222328186035
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.6851851940155029,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9666666388511658,
+      "robust_teacher_shifted_validation_accuracy": 0.8333333134651184,
+      "seed": 70411
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.1363079262895204,
+          "calibration_nmse_vs_teacher": 0.027479297113694755,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8518518805503845
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.12387879072249161,
+          "calibration_nmse_vs_teacher": 0.010900985707113566,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8703703880310059
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.08977856964177239,
+          "calibration_nmse_vs_teacher": 0.04240943582408447,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8666666746139526
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07856279682203081,
+          "calibration_nmse_vs_teacher": 0.023908971828977364,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8666666746139526
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.970370352268219,
+      "clean_teacher_shifted_validation_accuracy": 0.770370364189148,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9629629850387573,
+      "robust_teacher_shifted_validation_accuracy": 0.8999999761581421,
+      "seed": 70412
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.16193144298089931,
+          "calibration_nmse_vs_teacher": 0.028443742571271035,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7370370626449585
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.13956309390922872,
+          "calibration_nmse_vs_teacher": 0.011367874295927222,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.7481481432914734
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.10638505900180849,
+          "calibration_nmse_vs_teacher": 0.04476258370304959,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.7851851582527161
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.08414479267409104,
+          "calibration_nmse_vs_teacher": 0.023521191770691355,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8111110925674438
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "clean_teacher_shifted_validation_accuracy": 0.7407407164573669,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "robust_teacher_shifted_validation_accuracy": 0.8666666746139526,
+      "seed": 70413
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.11845973718711687,
+          "calibration_nmse_vs_teacher": 0.024034781952992343,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8148148059844971
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.10795771012628864,
+          "calibration_nmse_vs_teacher": 0.00914504899769715,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8333333134651184
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.08622642048147733,
+          "calibration_nmse_vs_teacher": 0.03805843062836229,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8333333134651184
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07533403544758259,
+          "calibration_nmse_vs_teacher": 0.020324017636883383,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.855555534362793
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+      "clean_teacher_shifted_validation_accuracy": 0.7222222089767456,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.9740740656852722,
+      "robust_teacher_shifted_validation_accuracy": 0.8814814686775208,
+      "seed": 70414
+    },
+    {
+      "cells": {
+        "N192_W32": {
+          "activation_nmse_vs_teacher": 0.12663245280883362,
+          "calibration_nmse_vs_teacher": 0.025501364703477816,
+          "calibration_samples": 192,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.8222222328186035
+        },
+        "N192_W64": {
+          "activation_nmse_vs_teacher": 0.1117682043662351,
+          "calibration_nmse_vs_teacher": 0.010128517747402501,
+          "calibration_samples": 192,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8481481671333313
+        },
+        "N384_W32": {
+          "activation_nmse_vs_teacher": 0.09142141636896955,
+          "calibration_nmse_vs_teacher": 0.041489824129977024,
+          "calibration_samples": 384,
+          "trainable_parameters": 4096,
+          "validation_accuracy": 0.855555534362793
+        },
+        "N384_W64": {
+          "activation_nmse_vs_teacher": 0.07899068531248572,
+          "calibration_nmse_vs_teacher": 0.02197984148138237,
+          "calibration_samples": 384,
+          "trainable_parameters": 8192,
+          "validation_accuracy": 0.8481481671333313
+        }
+      },
+      "clean_teacher_clean_validation_accuracy": 0.9814814925193787,
+      "clean_teacher_shifted_validation_accuracy": 0.6814814805984497,
+      "eligible": true,
+      "robust_teacher_clean_validation_accuracy": 0.970370352268219,
+      "robust_teacher_shifted_validation_accuracy": 0.8481481671333313,
+      "seed": 70415
+    }
+  ]
+}

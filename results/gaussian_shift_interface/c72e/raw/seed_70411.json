@@ -1,0 +1,132 @@
+{
+  "cells": {
+    "N192_W32": {
+      "activation_nmse_vs_teacher": 0.1269761845393806,
+      "calibration_nmse_vs_teacher": 0.025400107678507453,
+      "calibration_samples": 192,
+      "final_state_sha256": "70cd095b38a47ee06f84f7342c2abe05747ab8970550761f7969201e89bb94a1",
+      "trainable_parameters": 4096,
+      "validation_accuracy": 0.7814815044403076,
+      "width": 32
+    },
+    "N192_W64": {
+      "activation_nmse_vs_teacher": 0.1049907849189951,
+      "calibration_nmse_vs_teacher": 0.01005417541212627,
+      "calibration_samples": 192,
+      "final_state_sha256": "c3d239e0a27d5aa83a4c4202d078eeb9b50f418bf497896570faa1497f1dc7b3",
+      "trainable_parameters": 8192,
+      "validation_accuracy": 0.7666666507720947,
+      "width": 64
+    },
+    "N384_W32": {
+      "activation_nmse_vs_teacher": 0.09064408624283089,
+      "calibration_nmse_vs_teacher": 0.04144856527161664,
+      "calibration_samples": 384,
+      "final_state_sha256": "0beb823aa18b39f651510cfb3cd4f9c420dc12ce1313efbfe0a25bf9fd09c0db",
+      "trainable_parameters": 4096,
+      "validation_accuracy": 0.8185185194015503,
+      "width": 32
+    },
+    "N384_W64": {
+      "activation_nmse_vs_teacher": 0.06839972598774514,
+      "calibration_nmse_vs_teacher": 0.02079855760530716,
+      "calibration_samples": 384,
+      "final_state_sha256": "bf26550972b87e5098d9e4de1a6f7680f19d3b911f92b092d0c989619fb2fca5",
+      "trainable_parameters": 8192,
+      "validation_accuracy": 0.8222222328186035,
+      "width": 64
+    }
+  },
+  "decision_row": {
+    "cells": {
+      "N192_W32": {
+        "activation_nmse_vs_teacher": 0.1269761845393806,
+        "calibration_nmse_vs_teacher": 0.025400107678507453,
+        "calibration_samples": 192,
+        "trainable_parameters": 4096,
+        "validation_accuracy": 0.7814815044403076
+      },
+      "N192_W64": {
+        "activation_nmse_vs_teacher": 0.1049907849189951,
+        "calibration_nmse_vs_teacher": 0.01005417541212627,
+        "calibration_samples": 192,
+        "trainable_parameters": 8192,
+        "validation_accuracy": 0.7666666507720947
+      },
+      "N384_W32": {
+        "activation_nmse_vs_teacher": 0.09064408624283089,
+        "calibration_nmse_vs_teacher": 0.04144856527161664,
+        "calibration_samples": 384,
+        "trainable_parameters": 4096,
+        "validation_accuracy": 0.8185185194015503
+      },
+      "N384_W64": {
+        "activation_nmse_vs_teacher": 0.06839972598774514,
+        "calibration_nmse_vs_teacher": 0.02079855760530716,
+        "calibration_samples": 384,
+        "trainable_parameters": 8192,
+        "validation_accuracy": 0.8222222328186035
+      }
+    },
+    "clean_teacher_clean_validation_accuracy": 0.9777777791023254,
+    "clean_teacher_shifted_validation_accuracy": 0.6851851940155029,
+    "eligible": true,
+    "robust_teacher_clean_validation_accuracy": 0.9666666388511658,
+    "robust_teacher_shifted_validation_accuracy": 0.8333333134651184,
+    "seed": 70411
+  },
+  "eligible": true,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "experiment": "C72E_DIRECT_MAPPING_FACTORIAL_REPAIR",
+  "github_sha": "c2a0c8cbaee565e5328e17ff1c2667fe5427ecfd",
+  "nesting_invariants": {
+    "base_indices_are_large_prefix": true,
+    "base_input_activations_are_large_prefix": true,
+    "base_shifted_inputs_are_large_prefix": true,
+    "base_target_activations_are_large_prefix": true,
+    "width32_initialization_shared_across_calibration_sizes": true,
+    "width64_initialization_shared_across_calibration_sizes": true
+  },
+  "protocol": {
+    "base_calibration_epsilon_seed": 780511,
+    "base_calibration_samples": 192,
+    "extension_calibration_epsilon_seed": 790512,
+    "extension_index_seed": 20260906,
+    "final_fit_seed": 787411,
+    "final_init_seed": 786411,
+    "fit_updates": 600,
+    "large_calibration_samples": 384,
+    "sigma": 0.36,
+    "validation_epsilon_seed": 780611
+  },
+  "provenance_hashes": {
+    "base_calibration_indices_sha256": "af97e3251659f3b03ebfb275872e366c6c12dcd42f867f6dcc469502628464aa",
+    "base_calibration_standard_normal_sha256": "6e1de16cc71cd1a364cb741835ae71bd744de8da36b17cfdcf27381baf29bf72",
+    "extension_calibration_indices_sha256": "ec581f43d915586c44a3b66564cdfbe255521ff7f509dfdc6fdbabb4a912a0f2",
+    "extension_calibration_standard_normal_sha256": "473c575fdbd5912d711a9262230179da069c9de36297abb236129f4c5df65720",
+    "large_calibration_indices_sha256": "2e8eb79b5a40fa70cb10484dcec938d8bf42b6f6067f5772edc9b5420db839de",
+    "paired_clean_teacher_final_state_sha256": "8227911ff333f0491f62a556195beae0711e6a9fce97d1f4e344502da1e15d28",
+    "robust_teacher_final_state_sha256": "119e132e415b2e434567bf6f01f37b1e75e4d22ee8c59a9fa1891b602804461b",
+    "shifted_base_calibration_tensor_sha256": "28d8655317aaa2af68a75bb0c8ce64139e46036f4d4d84cd3fb816332cd28f57",
+    "shifted_large_calibration_tensor_sha256": "40c1818ff584e7bf6a6cd85611525c7b5215af6e215b7b91469c4599b410477f",
+    "shifted_validation_tensor_sha256": "1c4b25af9204e3cac1f1b03f3f8b34cf9cdd99747931d9a6d3ab1a4de86d2b30",
+    "validation_standard_normal_sha256": "0342b2f3b6b3813f3a8e608480bf1446aa6ae665f35927b31c3d6559beb6ea62",
+    "width32_initial_state_sha256": "e613f6c99bf7a11731b8bf7ebcefe2bfb4a581cf7143ac6955af5f3d38c4ac1b",
+    "width64_initial_state_sha256": "289f6d8ef8d31c9e401b98e66ab5a27c55b260dd5b913566d2ba4b96618d1e53"
+  },
+  "seed": 70411,
+  "status": "FRESH_SEED_OUTCOME",
+  "teacher_metrics": {
+    "clean_paired_clean_validation_accuracy": 0.9777777791023254,
+    "clean_paired_shifted_validation_accuracy": 0.6851851940155029,
+    "robust_clean_validation_accuracy": 0.9666666388511658,
+    "robust_shifted_validation_accuracy": 0.8333333134651184
+  },
+  "teacher_training_provenance": {
+    "augmentation_selected_examples": 32465,
+    "augmentation_total_examples": 64620,
+    "paired_initial_state_sha256": "7a16816bcae80c7a442046a112b547b144749cb6000427a1a88f331f32a44f80",
+    "realized_augmentation_fraction": 0.5023986381925101
+  },
+  "test_evaluated": false
+}
