@@ -1,0 +1,126 @@
+name: apply-publication-preparation
+on:
+  push:
+    branches: [maintenance/publication-surface-2026-09-08]
+    paths: ['.github/workflows/apply-publication-preparation.yml']
+permissions:
+  contents: write
+concurrency:
+  group: publication-preparation-write
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - name: Reconstruct exact tested tree from verified Git blobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import base64,hashlib,json,lzma,os,subprocess,urllib.request
+          from pathlib import Path
+          base='6eaee565f00c16efb805d39c037ad025294f1ef1'
+          expected='fb55470aed5b8826adaaa44c2c4e6a1eba9a933e'
+          root=Path.cwd().resolve()
+          def git(*args):return subprocess.check_output(['git',*args])
+          assert git('rev-parse','HEAD^').decode().strip()==base,'Concurrent branch edit: stop rather than overwrite'
+          assert git('rev-parse',base+'^{tree}').decode().strip()=='934abb387bc4aa8226276dfccdd34484147efc82'
+          refs=[('22bcc73c226e9c95fa199976f3b536c3ed8bb603','561d96880351373a446ec1877763d57b005761ca8d1d881ca480f6c8f47944e8'),('2ba6f1284df1564d94b2a63aa046a0b2160aa6dd','6608b9ebc950b4e5e942ec8b9c2f55c976ba3371984402e0ce6f293fab32e0f7'),('83deadcbf2be10032dc0f9ebd97fdda2c6643651','831bf655deb9932096641bea56ab526c3b669fa6a68a3761d17bfc82259d8b3f')]
+          chunks=[]
+          for sha,digest in refs:
+              req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/git/blobs/'+sha,headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+os.environ['GH_TOKEN']})
+              rec=json.load(urllib.request.urlopen(req,timeout=60))
+              raw=base64.b64decode(rec['content'])
+              assert rec['sha']==sha and hashlib.sha256(raw).hexdigest()==digest
+              chunks.append(raw)
+          packed=b''.join(chunks)
+          assert len(packed)==37116 and hashlib.sha256(packed).hexdigest()=='7d120acf24ee6fadebdab0d69360ba6b6d18c27042432dc23e1c4d06687115bb'
+          data=json.loads(lzma.decompress(packed))
+          assert data['base_commit']==base and data['expected_tree']==expected
+          def path(name):
+              p=(root/name).resolve()
+              assert p.is_relative_to(root) and '.git' not in p.relative_to(root).parts,name
+              return p
+          def original(name):
+              path(name)
+              return git('show',base+':'+name)
+          def put(name,raw,mode='100644'):
+              p=path(name);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw);p.chmod(int(mode,8)&0o777)
+          for name in data['delete']:path(name).unlink()
+          for name,rec in data['copy'].items():put(name,original(rec['source']),rec['mode'])
+          for name,rec in data['write'].items():
+              if 'text' in rec:text=rec['text']
+              elif 'from_written' in rec:text=path(rec['from_written']).read_text()
+              else:
+                  text=original(name).decode()
+                  for i,j,replacement in reversed(rec['edits']):text=text[:i]+replacement+text[j:]
+              put(name,text.encode(),rec['mode'])
+          for name,rec in data['derive'].items():
+              document=rec['header'];document['files']=[]
+              for old,new in rec['paths']:
+                  raw=original(old)
+                  document['files'].append({'old_path':old,'path':new,'sha256':hashlib.sha256(raw).hexdigest(),'git_blob_sha1':hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()})
+              put(name,(json.dumps(document,indent=2)+'\n').encode())
+          path('.github/workflows/apply-publication-preparation.yml').unlink()
+          for p in sorted(root.rglob('*'),key=lambda p:len(p.parts),reverse=True):
+              if '.git' not in p.relative_to(root).parts and p.is_dir() and not any(p.iterdir()):p.rmdir()
+          subprocess.run(['git','add','-A'],check=True)
+          actual=git('write-tree').decode().strip()
+          assert actual==expected,(actual,expected)
+          print('EXACT LOCAL-TO-REMOTE TREE VERIFIED',actual)
+          PY
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU test environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Test integrity, preservation, links and the blocked announcement gate
+        run: |
+          mkdir -p /tmp/publication-prep
+          python -m unittest discover -s tests -v 2>&1 | tee /tmp/publication-prep/tests.txt
+          python tools/audit_repo.py | tee /tmp/publication-prep/repository-audit.txt
+          python tools/audit_publication.py --out /tmp/publication-prep/publication-integrity.json
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=subprocess.run(['python','tools/audit_publication.py','--require-reproduction','--out','/tmp/publication-prep/strict-readiness.json'])
+          assert p.returncode!=0,'Unresolved Issue87 must not pass the announcement gate'
+          report=json.loads(Path('/tmp/publication-prep/strict-readiness.json').read_text())
+          assert report['announcement_status']=='BLOCKED_REPRODUCTION_ISSUE_87'
+          print('Correctly retained the unresolved scientific blocker; integrity PASS is not reproduction PASS')
+          PY
+      - name: Verify pinned research links resolve to actual Git objects
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          d=json.loads(Path('publication/RESEARCH_CATALOG.json').read_text())
+          for r in d['entries']:
+              subprocess.run(['git','cat-file','-e',r['commit']+'^{commit}'],check=True)
+              for p in r['paths']:subprocess.run(['git','cat-file','-e',r['commit']+':'+p],check=True)
+          print('All pinned research source paths resolve')
+          PY
+      - name: Commit only the verified publication-preparation tree
+        run: |
+          test "$(git write-tree)" = fb55470aed5b8826adaaa44c2c4e6a1eba9a933e
+          git config user.name canaria-maintenance-bot
+          git config user.email canaria-maintenance-bot@users.noreply.github.com
+          git commit -m 'Organize public research surface, preserve history and disclose strict reproduction blocker #87'
+          git push origin HEAD:maintenance/publication-surface-2026-09-08
+          git archive --format=tar.gz HEAD > /tmp/publication-prep/source.tar.gz
+          git rev-parse HEAD > /tmp/publication-prep/source-commit.txt
+          git ls-tree -r HEAD > /tmp/publication-prep/git-tree.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: publication-prepared-source-and-audits
+          path: /tmp/publication-prep/
+          retention-days: 90
+          if-no-files-found: warn
