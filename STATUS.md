@@ -1,93 +1,34 @@
 # Project status
 
-**Current mode: reviewed public baseline with isolated post-publication research.**
+**Mode: publication preparation; strict numerical reproduction BLOCKED (Issue87).**
 
-## Version and publication boundary
+Two complete known-cohort repeats disagree with some archived values. [Discrepancy](docs/REPRODUCTION_DISCREPANCY.md). The directional effect persisted, but no exact-reproduction PASS or announcement closure is declared.
 
-- Frozen v0.2.0 tag: `v0.2.0-public-snapshot`.
-- Frozen baseline commit: `556dce21c7a5516a16780cb28d528d1ff3968e53`.
-- GitHub release: `Canaria v0.2.0 — Public Research Snapshot`.
-- Independent re-review (Issue #9): completed and closed on 2026-08-26.
-- Reviewed post-snapshot release candidate (PR #7): squash-merged into `main`.
-- `main` is the reviewed public baseline. New research may be isolated on research branches/draft PRs and does not change this baseline until separately reviewed and merged.
+The repository is already public. Announcement readiness is separate from repository visibility, protocol PASS, and peer review. The current gate is [ANNOUNCEMENT_READINESS.md](docs/ANNOUNCEMENT_READINESS.md), tracked by Issue #13. No social announcement or new scientific release is made by editing this file.
 
-The frozen v0.2.0 tag is not rewritten by later corrections or experiments. Current `main` carries the independently reviewed post-snapshot precision/correction work.
+## What belongs to the headline
 
-## Core claim retained
+Only the baseline residual-MLP / digits / first-two-block component-wise-versus-composed experiment is the primary reproducible headline for this preview. Its original eight model seeds and outcomes are unchanged. [Claim registry](docs/CLAIMS_AND_EVIDENCE.md)
 
-The project-level thesis is **task-conditioned compositional simplification under explicit operational rules**:
+The baseline included other bounded results after the recorded 2026-08-26 re-review. They remain inspectable, but are not all advertised as independently rerun in this publication preparation.
 
-> Some learned spans can admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
+## What remains research
 
-The strongest fresh direct replication on the reviewed public baseline is the residual MLP with exact learned replacement-parameter matching:
+C75E, C76R and C77E are linked with their exploratory/confirmatory classes in the [research index](docs/RESEARCH_INDEX.md), not merged as new baseline evidence. C76R supports a sufficient head-derived correction dimension under one fixed protocol, not a universal minimum or measured model/communication reduction. Its candidate-to-teacher absolute safeguard is uncertain in that cohort; C77E does not retroactively change that outcome.
 
-- fresh seeds `1200–1207`;
-- composed lower minimum passing budget in `8/8`;
-- geometric composed/component-wise budget ratio `0.4823×`;
-- validation selects the endpoint; test evaluation follows selection.
+The imported Residual-CNN C59/C60 line is distinct from the Residual-MLP C61R+ line. Original C61 remains unresolved. Regression external-validity work, unreviewed recursive-composition extensions, and systems S1–S7 remain outside the headline. New experiments are not prerequisites for an accurately scoped code/evidence preview.
 
-The SmallViT direct replication is retained with a disclosed isolation caveat: its locked selection rule excludes test metrics, but its runner records test accuracy for all candidates. That is weaker operational test isolation than the residual-MLP runner.
+## Preservation and corrections
 
-## Training-time boundary
+- Frozen tag: `v0.2.0-public-snapshot`, commit `556dce21c7a5516a16780cb28d528d1ff3968e53`; never rewritten.
+- Baseline before this preparation: `41872aca00ee5750556c93e114f705bce2e9c611`.
+- Legacy paths moved under [archives](archives/README.md), with byte-hash migration records; outcome-producing code and original numerical records are unchanged.
+- Phase 2E remains **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**. Phase 2I causal attribution stays retracted; Phase 2O stays uncertain.
 
-Retained:
+## Validation boundary
 
-- G7 primary: progressive consolidation beat preregistered early/late one-shot controls;
-- G15/G17: intervening task learning, not merely factorized fitting, is part of the tested staged advantage;
-- G19: staged-path effect also observed on `5→4→2` versus `5→2` with equal compiler-update counts;
-- G18: the tested deadline-aware controller improved over the tested static controller;
-- G20d/e and G22–G26: recontracting can make fitting easier while residual error becomes more task-sensitive in the small character-LM testbed.
+The publication workflow executes the recorded eight-seed core reproduction in a pinned CPU environment. Its machine-readable report and full logs are distinct from the original scientific experiment. Numerical/source audit is not independent scientific peer review. See [reproduction reports](results/reproduction/README.md) for the observed status; no PASS is inferred from this prose.
 
-G21 remains a valid failure and G27 remains exploratory/no-Pareto-claim.
+## Next research questions
 
-## Phase 2 correction boundary
-
-Supported:
-
-- Phase 2A: 4-bit composed coded-size advantage under the locked residual-MLP quantizer/accounting;
-- Phase 2B: increasing weight count alone did not rescue the tested naive 3-bit per-matrix PTQ;
-- Phase 2C: row-wise scales rescued 3-bit PTQ for both topologies;
-- corrected later work supports viability of short activation-domain QAT-style repair in the tested residual-MLP family.
-
-Critical invalidation:
-
-**Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`.**
-
-Its repair code used raw digit inputs `Xt` where the replacement was defined on internal activation `ta[0]`. Equal width 64 made the semantic error silent.
-
-Consequences:
-
-- Phase 2E `0/8` is not scientific negative evidence;
-- Phase 2I's RNG causal explanation is retracted;
-- 2H/2J interpretations tied to 2E are weakened/confounded;
-- Phase 2O did not confirm a reliable composed repair-sample advantage (`UNCERTAIN`).
-
-Invalidation history is preserved in:
-
-- `results/phase2/precision_composition/CORRECTION_STATUS.json`
-- `results/phase2/precision_composition/INVALIDATED_HISTORY.md`
-
-Not all later 2D–2O raw per-seed artifacts are checked into Git; the correction archive is identified by SHA256 `1a339be12d7644de534ac77a712307c49ee0c3d9acb28c8a3532883edca3dab7`.
-
-## Reproducibility / systems boundary
-
-- G7 seed 4300 exact portable rerun: reproduction/portability evidence, not independent replication.
-- Runtime PoC: one small CPU/storage/inference result only.
-- Meaningful host-RAM reduction, GPU/VRAM/energy/large-model/general runtime gains: not established.
-
-## Repository / research-state boundary
-
-The publication sequence is complete: independent review, frozen tag/release boundary, reviewed post-snapshot merge, and integrity audit.
-
-Repository organization follows `REPOSITORY_LAYOUT.md`:
-
-- `main` contains reviewed public material;
-- unmerged research branches and draft PRs are isolated work-in-progress, not public-claim updates;
-- maintenance changes should remain science-neutral and separate from fresh experimental outcomes;
-- historical protocols/results are preserved rather than rewritten to match later interpretation.
-
-`repository-audit` on `main` is the continuing integrity check.
-
-## Stopping rule
-
-Do not continue the old publication/closure sequence or broaden a completed protocol after seeing its outcomes. New scientific work should begin from a new issue/research phase with its own hypothesis, protocol/evidence class, inferential-unit policy, and stopping rule.
+Independent dataset and boundary replication; physically restricting teacher feedback rather than computing full residuals; and fixed-device resource measurement. These are open directions, not advertised achieved capabilities. The public-facing docs/code should be stable while such work proceeds on isolated research branches.

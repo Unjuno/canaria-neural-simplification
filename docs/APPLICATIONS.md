@@ -1,5 +1,8 @@
 # Canaria — Application directions and evidence status
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 ## Core systems idea
 
 Canaria suggests treating a trained model not only as a tensor checkpoint, but as a potentially smaller **task-conditioned functional representation** that can later be serialized, materialized, compiled, or executed directly.

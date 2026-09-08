@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "initial_github_run": 34173091549,
+  "source_commit": "6eaee565f00c16efb805d39c037ad025294f1ef1",
+  "initial_artifact_id": 10036375229,
+  "initial_artifact_sha256": "a84eb04c2700a776f279af36642a28eff689da4fd496e8a69a2cb04b5c420a70",
+  "initial_report": "initial_attempt/core-cohort-report.json",
+  "local_report": "local_recorded_stack_comparison.json",
+  "local_report_is_existing_raw_readback": true,
+  "scope": "Repeat of previously observed seeds, not new science; initial inherited verifier did not retain full raw seed outputs, enhanced verifier fixes that retention gap.",
+  "status": "STRICT_REPRODUCTION_UNRESOLVED"
+}

@@ -1,35 +1,45 @@
 name: repository-audit
-
 on:
   push:
   pull_request:
-
+permissions:
+  contents: read
 jobs:
-  audit:
-    runs-on: ubuntu-latest
+  integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.11'
-      - name: Install reusable package and public-runner dependencies
-        run: python -m pip install -e . numpy torch scikit-learn
-      - name: Reusable codec tests
-        run: python -m unittest discover -s tests -v
-      - name: Syntax, evidence, and correction audit
-        run: python tools/audit_repo.py
-      - name: Minimal public runner smoke test
+      - name: Install pinned CPU environment (not a cross-platform guarantee)
         run: |
-          python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
-            --seed 1200 \
-            --out /tmp/canaria_seed1200.json
-          python - <<'PY'
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+      - name: Code and publication regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Preserve evidence, corrections, links and disclosed blocker
+        run: |
+          python tools/audit_repo.py
+          python tools/audit_publication.py --out /tmp/publication-integrity.json
+      - name: Limited seed1200 smoke (NOT full-cohort reproduction or announcement clearance)
+        run: |
+          python scripts/reproduce/core_discovery_digits/run_confirmatory.py --seed 1200 --out /tmp/seed1200.json
+          python - <<'PYCODE'
           import json
-          from pathlib import Path
-
-          result = json.loads(Path('/tmp/canaria_seed1200.json').read_text())
-          assert result['selected_sep']['budget'] == 3072, result['selected_sep']
-          assert result['selected_comp']['budget'] == 1536, result['selected_comp']
-          assert result['log2_budget_ratio'] == -1.0, result['log2_budget_ratio']
-          print('PUBLIC RUNNER SMOKE PASS')
-          PY
+          d=json.load(open('/tmp/seed1200.json'))
+          assert d['selected_sep']['budget']==3072
+          assert d['selected_comp']['budget']==1536
+          print('SINGLE-SEED SMOKE ONLY; full-cohort discrepancy tracked in Issue87')
+          PYCODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: publication-integrity
+          path: /tmp/publication-integrity.json
+          retention-days: 90
+          if-no-files-found: warn

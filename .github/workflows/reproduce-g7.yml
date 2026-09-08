@@ -3,17 +3,21 @@ name: reproduce-g7-seed4300
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   reproduce:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.13'
       - name: Install recorded reproduction environment
         run: python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
-      - name: Reproduce G7 fresh confirmatory seed 4300
+      - name: Reproduce already-observed G7 seed 4300 (not new confirmation)
         run: python scripts/reproduce/g7_confirmatory/run_seed.py --seed 4300 --out g7_seed_4300.json
       - name: Verify exact recorded output hash
         shell: python
@@ -27,7 +31,7 @@ jobs:
           if got != expected:
               raise SystemExit('G7 reproduction hash mismatch')
       - name: Upload reproduced JSON
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: g7-seed4300-reproduction
           path: g7_seed_4300.json

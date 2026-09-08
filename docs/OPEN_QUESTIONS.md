@@ -1,5 +1,8 @@
 # Open research questions
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 **Project mode: publication-quality gate / handoff.**
 
 This file lists future questions. It is not a reason to open broad new experiments before Issue #9 and Issue #5 are completed.

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "mode": "PRE_ANNOUNCEMENT_REPRODUCTION_BLOCKED",
+  "baseline_commit": "41872aca00ee5750556c93e114f705bce2e9c611",
+  "headline_experiments": [
+    "CORE_DIGITS_COMPONENT_VS_COMPOSED"
+  ],
+  "research_promoted_to_baseline": false,
+  "independent_external_reproduction_claimed": false,
+  "peer_review_claimed": false,
+  "new_hardware_claims": false,
+  "new_experiments_required_for_this_scope": true,
+  "excluded_from_headline": [
+    "C59_C60_IMPORTED_CNN",
+    "ORIGINAL_C61_UNRESOLVED",
+    "C61R_C77E_RESEARCH",
+    "RECURSIVE_COMPOSITION_EXTENSIONS",
+    "SYSTEMS_S1_S7",
+    "PHASE3_REGRESSION",
+    "PHASE2E_INVALIDATED"
+  ],
+  "reproduction_report": "results/reproduction/publication_2026-09-08/core-cohort-report.json",
+  "announcement_automatically_posted": false,
+  "exact_cohort_reproduction_established": false,
+  "blockers": [
+    87
+  ],
+  "required_work": "Resolve or explicitly review the strict core-cohort reproduction discrepancy; not a new frontier search."
+}

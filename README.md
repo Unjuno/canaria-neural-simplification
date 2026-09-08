@@ -1,111 +1,64 @@
-# Canaria Neural Simplification
+# Canaria
 
-**Canaria** studies a bounded empirical pattern:
+**Task-conditioned neural simplification — research code, evidence, and limitations.**
 
-> Under explicit task distributions, replacement grammars, and passing criteria, some learned spans admit smaller task-preserving replacements when fitted as one composed input-output function than when simplified at implementation-component boundaries.
+[日本語](README.ja.md) · [Reproduce](QUICKSTART.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
 
-```text
-x ── f ──> h ── g ──> y
+Canaria asks whether a trained neural-network span can be replaced by a smaller computation when it is fitted as a composed input–output function rather than simplified one implementation block at a time.
 
-component-wise: simplify(f) + simplify(g)
-composed:       simplify(g ∘ f)
-```
+**This is a research preview, not a universal compression method or a production inference library.** `main` provides the baseline experiment and a bounded evidence registry. Newer experiments are indexed separately at immutable commits; linking them does not promote them into the headline claim.
 
-This is an **operational replacement/description-complexity** claim. The repository does not claim universal mathematical/Kolmogorov complexity reduction.
+> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
 
-## Publication state
+## Start with one reproducible result
 
-The frozen v0.2.0 baseline is preserved by tag [`v0.2.0-public-snapshot`](https://github.com/Unjuno/canaria-neural-simplification/releases/tag/v0.2.0-public-snapshot), which points to commit `556dce21c7a5516a16780cb28d528d1ff3968e53`.
+In the recorded **residual-MLP / sklearn digits / first-two-block** experiment, the composed replacement needed fewer learned replacement parameters in all eight model seeds. “Minimum” means the smallest passing point on the tested budget grid, not a mathematical minimum.
 
-The independent pre-publication re-review required by Issue #9 was completed on 2026-08-26. Its decision ledger is:
+| Recorded result | Component-wise | Composed |
+|---|---:|---:|
+| Seed 1200: minimum passing replacement parameters | 3,072 | 1,536 |
+| Seeds 1200–1207: mean selected replacement parameters | 3,584 | 1,728 |
 
-- [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md)
-- [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md)
+[Locked protocol](results/core_discovery_digits/PROTOCOL_LOCK.json) · [Complete recorded summary](results/core_discovery_digits/confirm_summary.json) · [Scope and interpretation](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md)
 
-The reviewed post-v0.2.0 release candidate was squash-merged through PR #7. Current `main` is the reviewed public baseline and contains the post-snapshot evidence/corrections without retroactively changing the frozen v0.2.0 tag. New research may exist on separate branches or draft PRs; it is not part of the public baseline until separately reviewed and merged.
+Validation selects candidate budgets; candidate test metrics are evaluated at selected endpoints. The teacher and a prespecified mechanistic control also have test metrics; test is excluded from budget selection. These are **replacement parameters**, not total model parameters, bytes, FLOPs, latency, or memory. The eight models share one dataset split; they are not eight independent dataset replications.
 
-## Try the strongest minimal public experiment
+## Run it
+
+From a checkout of this repository, using **Python 3.11 on CPU**:
 
 ```bash
-python -m pip install numpy torch scikit-learn
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
-  --seed 1200 \
-  --out /tmp/canaria_seed1200.json
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+python scripts/reproduce/core_discovery_digits/run_confirmatory.py --seed 1200 --out outputs/seed1200.json
 ```
 
-Recorded seed 1200:
+[Quickstart](QUICKSTART.md) includes the full eight-seed verifier, expected results, environment checks, and failure reporting. A rerun of these already-observed seeds is **reproduction**, not additional confirmatory evidence.
 
-- component-wise minimum passing budget: `3072` learned replacement parameters;
-- composed minimum passing budget: `1536`.
+## What is — and is not — supported
 
-Across fresh seeds `1200–1207`:
+The headline is a bounded empirical comparison under one declared architecture, span, replacement family, and passing rule. See the [claim registry](docs/CLAIMS_AND_EVIDENCE.md) for supporting baseline work and explicit exclusions.
 
-- component-wise mean minimum passing budget: `3584`;
-- composed mean minimum passing budget: `1728`;
-- composed lower: `8/8`;
-- geometric composed/component-wise budget ratio: `0.4823×`.
+We do **not** claim universal or LLM-scale compression, a general minimum-dimension predictor, or general runtime, RAM, VRAM, or energy savings. Recent head-derived correction experiments reduce a **correction subspace**, not the 4,096-parameter final model; they still compute full teacher residuals during calibration.
 
-This residual-MLP runner exactly matches learned replacement-parameter budgets at each grid point, uses validation to select the minimum passing budget, and evaluates test utility only after endpoint selection.
+**Correction history is part of the evidence:** Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`. Phase 2O did not establish a repair-sample advantage. [Corrections and negative results](docs/NEGATIVE_RESULTS.md)
 
-See [`QUICKSTART.md`](QUICKSTART.md).
+## Explore without confusing evidence classes
 
-## Evidence at a glance
+| Entry | What it contains |
+|---|---|
+| [Claims and evidence](docs/CLAIMS_AND_EVIDENCE.md) | The headline, supporting baseline, caveats, and exclusions |
+| [Research index](docs/RESEARCH_INDEX.md) | Recursive composition, systems, Gaussian-shift studies, and C75E–C77E; pinned source/evidence links |
+| [Reproducibility](docs/REPRODUCIBILITY.md) | Checks, statistical units, environment limits, and reporting failures |
+| [Status and readiness](STATUS.md) | Research-preview boundary and the current announcement gate |
+| [Archives](archives/README.md) | Preserved legacy protocols/results, invalidation history, and path migration |
 
-Retained after independent re-review:
+The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a certificate of current readiness. No research protocol or outcome is rewritten by this reorganization.
 
-- residual-MLP direct component-wise/composed replication with exact learned-budget matching;
-- SmallViT direct component-wise/composed replication under a locked rule, with an explicit caveat that its runner records test metrics for all candidates even though test is not a selection variable;
-- bounded training-time consolidation/recontracting experiments with positive and negative controls;
-- one bounded CPU serialization/direct-execution proof of concept;
-- Phase 2A–C precision/quantization evidence plus explicit correction history for later Phase 2 work.
+## Contribute and cite
 
-The repository does **not** claim universal LLM-scale validity or general FLOP, RAM, VRAM, GPU, energy, wall-clock, or runtime improvement.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Reproduction failures and well-controlled counterexamples are useful contributions. Cite the **exact commit and experiment artifacts**, not an unversioned claim. [CITATION.cff](CITATION.cff)
 
-## Critical Phase 2 correction
-
-Phase 2E is **`INVALIDATED_IMPLEMENTATION_BUG`** and `DO_NOT_USE_FOR_INFERENCE`.
-
-Its repair path used raw `Xt` instead of the intended internal activation domain `ta[0]`; equal width 64 made the semantic error silent.
-
-The invalid result is preserved as correction history, not scientific evidence:
-
-- [`docs/phase2/README.md`](docs/phase2/README.md)
-- [`results/phase2/precision_composition/CORRECTION_STATUS.json`](results/phase2/precision_composition/CORRECTION_STATUS.json)
-- [`results/phase2/precision_composition/INVALIDATED_HISTORY.md`](results/phase2/precision_composition/INVALIDATED_HISTORY.md)
-
-Phase 2O did **not** confirm a reliable compositional repair-sample advantage; that positive claim is removed.
-
-## Reproducibility and systems boundary
-
-A portable G7 seed-4300 runner exactly reproduced the archived JSON in its recorded environment. This is software/portability evidence for an already-confirmatory seed, **not** a new independent scientific replication.
-
-One small CPU PoC produced a smaller serialized artifact and lower measured batch-128 CPU inference latency. Meaningful host-RAM reduction was not demonstrated; GPU/VRAM/energy/large-model generalization remains open.
-
-## Repository map
-
-The repository deliberately separates reviewed interpretation, immutable evidence, historical experiment code, and reusable code. See [`REPOSITORY_LAYOUT.md`](REPOSITORY_LAYOUT.md) before reorganizing paths or interpreting a versioned directory as current by name alone.
-
-- `docs/` — current interpretation, review records, protocols, and preserved history.
-- `results/` — machine-readable evidence and correction records.
-- `scripts/` — reproduction, replication, phase-specific, and historical experiment runners.
-- `src/canaria/` — reusable cleaned code; currently distinct from historical experiment scripts.
-- `tools/` — repository/evidence audits.
-
-## Where to look
-
-- [`QUICKSTART.md`](QUICKSTART.md) — minimal direct experiment.
-- [`REPOSITORY_LAYOUT.md`](REPOSITORY_LAYOUT.md) — directory, evidence-lifecycle, branch, and workflow conventions.
-- [`docs/CLAIMS_AND_EVIDENCE.md`](docs/CLAIMS_AND_EVIDENCE.md) — authoritative public claim registry.
-- [`docs/INDEPENDENT_REREVIEW_2026-08-26.md`](docs/INDEPENDENT_REREVIEW_2026-08-26.md) — independent decision ledger.
-- [`docs/CORE_DISCOVERY.md`](docs/CORE_DISCOVERY.md) — central empirical claim and scope.
-- [`docs/phase2/README.md`](docs/phase2/README.md) — precision/quantization corrections.
-- [`docs/NEGATIVE_RESULTS.md`](docs/NEGATIVE_RESULTS.md) — valid negative evidence versus invalidated evidence.
-- [`STATUS.md`](STATUS.md) — current reviewed public-baseline state.
-
-## License
-
-Original code and documentation are released under the **Apache License 2.0**. Third-party datasets and libraries remain under their own licenses.
-
-## Citation
-
-See [`CITATION.cff`](CITATION.cff). Until a paper is published, cite the exact repository commit/snapshot and the protocol/result artifacts supporting the specific claim.
+Original code and documentation: [Apache-2.0](LICENSE). Third-party data and dependencies retain their own licenses.

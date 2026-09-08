@@ -1,4 +1,7 @@
-# Reproduction and systems-PoC evidence
+# Reproduction and portability records
+
+**Current publication blocker:** [full core-cohort reproduction discrepancy](publication_2026-09-08/README.md). Both complete repeat runs are strict FAIL, with directional agreement reported separately.
+
 
 This directory contains evidence that is **not a new scientific confirmatory cohort**, but validates portability or a bounded engineering hypothesis.
 

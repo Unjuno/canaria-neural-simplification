@@ -1,5 +1,8 @@
 # Research roadmap — reviewed baseline / future-work handoff
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 **Current state:** the publication-quality gate is complete. The frozen v0.2.0 baseline is tagged/released and the independently reviewed post-snapshot state is on `main`. New science proceeds as isolated research phases rather than by extending the completed publication-closure sequence.
 
 ## Completed closure — scientific/public review

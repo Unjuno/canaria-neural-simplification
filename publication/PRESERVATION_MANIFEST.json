@@ -1,0 +1,950 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "41872aca00ee5750556c93e114f705bce2e9c611",
+  "export_commit": "6eaee565f00c16efb805d39c037ad025294f1ef1",
+  "scope": "original numerical evidence and experiment code, plus byte-identical historical migrations; not a new preregistration",
+  "files": [
+    {
+      "old_path": "REVIEW_HANDOFF.md",
+      "path": "archives/reviews/REVIEW_HANDOFF_2026-08-26.md",
+      "sha256": "325eedc21c274433b7e88666974a0b359128cc63f8678572b28f40bcfdf9918e",
+      "git_blob_sha1": "cc8ff79951524c518909d9b65ee5814755a04197"
+    },
+    {
+      "old_path": "docs/GENERALIZATION_ROADMAP.md",
+      "path": "archives/research-history/legacy-docs/GENERALIZATION_ROADMAP.md",
+      "sha256": "a02b3b50b0549e7108db27554c876d22666f92326f87a28d1b339d8b1a40d1c7",
+      "git_blob_sha1": "218883a46a94c99bb21767c480f21c3a8e90eae2"
+    },
+    {
+      "old_path": "docs/GENERALIZATION_STATUS.md",
+      "path": "archives/research-history/legacy-docs/GENERALIZATION_STATUS.md",
+      "sha256": "6774553de32b2c5d3366e22a6e6c72c65289fd8299df17b96be8e1830c5b4d80",
+      "git_blob_sha1": "37a52b3163ee7caad0744a3bfa982168b29fef76"
+    },
+    {
+      "old_path": "docs/KNOWLEDGE_MAP.md",
+      "path": "archives/research-history/legacy-docs/KNOWLEDGE_MAP.md",
+      "sha256": "f97c4ec2a1748e025d9bfaebcdd50bb35e730ad735f2b1bc479fbffff14c4911",
+      "git_blob_sha1": "4b93cf3980689a45108f62c7467f71faf3b52e13"
+    },
+    {
+      "old_path": "docs/NEXT_EXPERIMENTS_AUTONOMOUS.md",
+      "path": "archives/research-history/legacy-docs/NEXT_EXPERIMENTS_AUTONOMOUS.md",
+      "sha256": "2881cb813c230813389248cd526fe637808ff8fb25f55c984e9e5f7536e3d495",
+      "git_blob_sha1": "595fe773d13711c67f53c3fd3db0036108c11e56"
+    },
+    {
+      "old_path": "docs/PUBLIC_SNAPSHOT.md",
+      "path": "archives/releases/v0.2.0/PUBLIC_SNAPSHOT.md",
+      "sha256": "751226c1141df1756038563453d477bde60be2a8101129c701c10c100037d85e",
+      "git_blob_sha1": "8b6afed18545f4e1619ad4ea72850adea78f8ac4"
+    },
+    {
+      "old_path": "docs/RELEASE_CHECKLIST.md",
+      "path": "archives/releases/v0.2.0/RELEASE_CHECKLIST.md",
+      "sha256": "cde0cb00e1699c5c7e4a4231da59f52fbfe62605d3a82172836abd3b778161c7",
+      "git_blob_sha1": "767a5c58f2dd0bdcabc134898a32219c88cb6ee4"
+    },
+    {
+      "old_path": "docs/RESEARCH_SUMMARY.md",
+      "path": "archives/research-history/legacy-docs/RESEARCH_SUMMARY.md",
+      "sha256": "544a669fe65718c681f6a5b482e71bf23ce4cfe0e16f5c06881c12aa85a77bd2",
+      "git_blob_sha1": "48e39a82ed1ff5564821a4226c5c089b96b0df49"
+    },
+    {
+      "old_path": "docs/history/v10/00_START_HERE.md",
+      "path": "archives/research-history/docs/history/v10/00_START_HERE.md",
+      "sha256": "675f7bbe8835b2cfaafde293381661f02dba3f6e6434625121a2571c6a848453",
+      "git_blob_sha1": "80d5b0c1892e8141c8f56eb9f64dc0163ef60e52"
+    },
+    {
+      "old_path": "docs/history/v10/01_RESEARCH_HANDOFF.md",
+      "path": "archives/research-history/docs/history/v10/01_RESEARCH_HANDOFF.md",
+      "sha256": "7e06f356e9150de545b8fb3c80ecf06f88c6c263a7ee7f0d6a37b0bb0d0b9722",
+      "git_blob_sha1": "2d7702d44603aad78969c9759804e6d44d01a4fb"
+    },
+    {
+      "old_path": "docs/history/v10/02_CONFIRMED_FINDINGS.md",
+      "path": "archives/research-history/docs/history/v10/02_CONFIRMED_FINDINGS.md",
+      "sha256": "8fc18a17a4d4333c5157026efbba0c0ad5bdf88c83af4cab02a0b4bf3e0f8edd",
+      "git_blob_sha1": "218cff1c3229ef58b3f05fc30f1d92ba283bec11"
+    },
+    {
+      "old_path": "docs/history/v10/05_TERMS_AND_METRICS.md",
+      "path": "archives/research-history/docs/history/v10/05_TERMS_AND_METRICS.md",
+      "sha256": "b2210857a32d2e1077a2c94ff761ee8bf333bf227a12f0a5199bdf17b9c7c2be",
+      "git_blob_sha1": "1a1982ad997c56f8cd8431c6137e9ad5231fd90a"
+    },
+    {
+      "old_path": "docs/history/v10/06_NEGATIVE_RESULTS_AND_PITFALLS.md",
+      "path": "archives/research-history/docs/history/v10/06_NEGATIVE_RESULTS_AND_PITFALLS.md",
+      "sha256": "7976ee863b59bc53ba1683e2bf84ea3f98ea3774739f5d23d00e471307b74e70",
+      "git_blob_sha1": "390dc3de27d969ff72692d5d89c8bcf12293b460"
+    },
+    {
+      "old_path": "docs/history/v10/07_CURRENT_GENERAL_THEORY.md",
+      "path": "archives/research-history/docs/history/v10/07_CURRENT_GENERAL_THEORY.md",
+      "sha256": "959090985a4c0a82a26e306733c37388330062f755ad27cffebeff9f5409c6cf",
+      "git_blob_sha1": "e903e42a75f1fe7cc39f5b4e3b8adb5677a20802"
+    },
+    {
+      "old_path": "docs/history/v10/09_RESEARCH_TIMELINE.md",
+      "path": "archives/research-history/docs/history/v10/09_RESEARCH_TIMELINE.md",
+      "sha256": "2217cafb6036160d74ce96ce8faa97820771bb1d2bbab7e3ea76acd9ff63f4b0",
+      "git_blob_sha1": "04cdbe8f705c943b1e4f3b1bfc2c58d120e1f541"
+    },
+    {
+      "old_path": "docs/history/v10/10_EVIDENCE_MATRIX.md",
+      "path": "archives/research-history/docs/history/v10/10_EVIDENCE_MATRIX.md",
+      "sha256": "697a43a16b97fc74dc28128ad834bc2c65dcdbe54795237141d5c98e8945b4bd",
+      "git_blob_sha1": "e0bc0fafd93f32fd884f1fab793dcfef6c604861"
+    },
+    {
+      "old_path": "docs/history/v10/13_REPRODUCTION_GUIDE.md",
+      "path": "archives/research-history/docs/history/v10/13_REPRODUCTION_GUIDE.md",
+      "sha256": "3430acc56726c17a7c846ae9a5a4c2c0323fe179f488dce16da5888312641a8c",
+      "git_blob_sha1": "5c96c5232fb9e886dc0b9ed7c2f8a4087663ca43"
+    },
+    {
+      "old_path": "docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md",
+      "path": "archives/research-history/docs/history/v10/21_CANARY_BLIND_DECISIVE_PROTOCOL.md",
+      "sha256": "88a08e5a98562203f18221f61666958d6c14f07c5dc4c957c2d1091fb4d26cee",
+      "git_blob_sha1": "518d2ed7d6e191d27d11448e362445d1425d6c6b"
+    },
+    {
+      "old_path": "docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md",
+      "path": "archives/research-history/docs/history/v10/25_V10_RECURSIVE_RECOMPILE_RESULTS.md",
+      "sha256": "e8197e82551fd7091916379f17ed96f2e7d4e110bcf409f72e41438eac02ad6e",
+      "git_blob_sha1": "1701537b5cad6053ba8c132931ae6602a972c87f"
+    },
+    {
+      "old_path": "docs/phases/27_V11_PHASEB_SHELL_CAPACITY_RESULTS.md",
+      "path": "archives/research-history/docs/phases/27_V11_PHASEB_SHELL_CAPACITY_RESULTS.md",
+      "sha256": "57728f7ac0c9dad5050adb5cabb013c97237165d83fd6d2f4b6aa5ab02fd2aa9",
+      "git_blob_sha1": "c508d3c4a0d74c4b326615676d0c187d095dee4c"
+    },
+    {
+      "old_path": "docs/phases/28_PHASEC_EQUAL_CAPACITY_BOUNDARY_PROTOCOL_V12.md",
+      "path": "archives/research-history/docs/phases/28_PHASEC_EQUAL_CAPACITY_BOUNDARY_PROTOCOL_V12.md",
+      "sha256": "a90d7bc44238b38babee084137ecbe9b70464250db19b641e22d0862e1a62a09",
+      "git_blob_sha1": "d3ed16c857abf2a0ba70bec50f2e96df527a120d"
+    },
+    {
+      "old_path": "docs/phases/29_PHASED_EQUAL_CAPACITY_SPATIAL_PROTOCOL_V12.md",
+      "path": "archives/research-history/docs/phases/29_PHASED_EQUAL_CAPACITY_SPATIAL_PROTOCOL_V12.md",
+      "sha256": "090fc1b8f40dce0db4cbab38e5fc7c14ef930419ebba5342d4339a2bff0a5584",
+      "git_blob_sha1": "217c7d58bc3c81de61ad8be43cbbd2f8558a765c"
+    },
+    {
+      "old_path": "docs/phases/README.md",
+      "path": "archives/research-history/docs/phases/README.md",
+      "sha256": "a129d093b90919c158e8a9b5ef6d236b0c0e3fb72b55ec309bb8c5ab7aa09c03",
+      "git_blob_sha1": "583789b472b834c12b66232315b7ac30092ffa91"
+    },
+    {
+      "old_path": "docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md",
+      "path": "archives/research-history/docs/phases/v13/32_PHASEG_FLOAT_BUDGET_PROTOCOL_V13.md",
+      "sha256": "fc35fe6454c5b2ff2bb5695895a6aac43fe5989f06d43cad3c1582803ca143bb",
+      "git_blob_sha1": "829fb06c8eff89b96e27e3de200d871d253e9b1a"
+    },
+    {
+      "old_path": "docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md",
+      "path": "archives/research-history/docs/phases/v14/33_PHASEH_PRECISION_COUNT_PROTOCOL_V14.md",
+      "sha256": "4c74cb7325279101183c83649122b93cca1f462b6f25171d08374a6aa7317145",
+      "git_blob_sha1": "4dccf48ea0c09d500e991ca776c0e4ce0c96c9bb"
+    },
+    {
+      "old_path": "docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md",
+      "path": "archives/research-history/docs/phases/v15/35_PHASEI_QUANTIZER_SPARSE_REFIT_PROTOCOL_V15.md",
+      "sha256": "503c0c9f419d8b625bca244bf6605386510cdfd5a39c001bdca698cb58720db9",
+      "git_blob_sha1": "87cf5f7eb01711964a5e4ac261f6b1f74c2e93a3"
+    },
+    {
+      "old_path": "docs/phases/v15/36_PHASEI_J_K_RESULTS_V15.md",
+      "path": "archives/research-history/docs/phases/v15/36_PHASEI_J_K_RESULTS_V15.md",
+      "sha256": "2479f98a935931a280acc3ad2a1437e8fce0e7ccf19cac69855b7e645799a473",
+      "git_blob_sha1": "ae4b267fe8b8cb6c254c31f3e181321fd2c5d539"
+    },
+    {
+      "old_path": "docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md",
+      "path": "archives/research-history/docs/phases/v16/37_PHASEL_STRUCTURED_SPARSITY_PROTOCOL_V16.md",
+      "sha256": "0af6657bd7440dc4ea04881456a654849506dd317d5347b751e674e4b80cada7",
+      "git_blob_sha1": "e2577e13a6e77510e67df663b0aa179e3cba8c7f"
+    },
+    {
+      "old_path": "docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md",
+      "path": "archives/research-history/docs/phases/v16/38_PHASEM_STRUCTURED_HOLDOUT_PROTOCOL_V16.md",
+      "sha256": "206bb1476c9a1ddcd3fed836c29cfb3626ff55581ea6bbc61d79ad9dd5247050",
+      "git_blob_sha1": "459afe037d91bc9ca1d36f829de8ac8e7e22f9cf"
+    },
+    {
+      "old_path": "docs/phases/v16/39_PHASEL_M_STRUCTURED_RESULTS_V16.md",
+      "path": "archives/research-history/docs/phases/v16/39_PHASEL_M_STRUCTURED_RESULTS_V16.md",
+      "sha256": "da741379addbee5886a19c0aba99169d1dee2198e7e335b445b91358696692e5",
+      "git_blob_sha1": "cd97f04345b099c5c33819bdc2d3370e3376e2da"
+    },
+    {
+      "old_path": "docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/40_PHASEN_SUB100_STRUCTURED_PROTOCOL_V17.md",
+      "sha256": "4eb37bac5b006d8e429a49c600c274cb75187ab2ca0deee94828457112c1f4da",
+      "git_blob_sha1": "517074f15445f6d72088afaa473b2cb3c93ae474"
+    },
+    {
+      "old_path": "docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/41_PHASEO_SUB100_HOLDOUT_PROTOCOL_V17.md",
+      "sha256": "28d464430e67c19d72174e2a58d5d3eb09ba3368f7b14ae0c87b54b808459da9",
+      "git_blob_sha1": "b933834f377f0a99514cd2188966af358a083471"
+    },
+    {
+      "old_path": "docs/phases/v17/42_PHASEP_SCALE_SHARING_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/42_PHASEP_SCALE_SHARING_PROTOCOL_V17.md",
+      "sha256": "d43ffd3c6794e614ccf1cfa29a788a3a46ea0ab8c820bba24ca71565d5d69c03",
+      "git_blob_sha1": "933d6afa274f0e9d0a2ab969bc6db9bd58540cde"
+    },
+    {
+      "old_path": "docs/phases/v17/43_PHASEQ_SCALE_SHARE_HOLDOUT_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/43_PHASEQ_SCALE_SHARE_HOLDOUT_PROTOCOL_V17.md",
+      "sha256": "7f8cdb21a9b8b7cc9d8fa04f581a7dc2fcf5f07b5f390cade4bcf3aa7b28fa1f",
+      "git_blob_sha1": "17076c6713701f9d1c45ea1a53887db8a96cb48a"
+    },
+    {
+      "old_path": "docs/phases/v17/44_PHASER_LONGER_REPAIR_EXPLORATORY_V17.md",
+      "path": "archives/research-history/docs/phases/v17/44_PHASER_LONGER_REPAIR_EXPLORATORY_V17.md",
+      "sha256": "0e400e15eca124341904eeab931469ebbd19578c6f7144314071dbf3ea77c464",
+      "git_blob_sha1": "f22417460c050340e1ee2626b7b5c9c669b3c7b5"
+    },
+    {
+      "old_path": "docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/45_PHASES_76B_CONFIRM_PROTOCOL_V17.md",
+      "sha256": "cb198fe0e614d479829c751f8e8aac5d87a154e435cd74b45187f849794aae4e",
+      "git_blob_sha1": "9c7a1e0a981a9bb7de0a77a3c51a2681dcab4733"
+    },
+    {
+      "old_path": "docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/46_PHASET_PATTERN_SHARING_PROTOCOL_V17.md",
+      "sha256": "b0bd5e62ca4fe573640e2b20a0c202bbaf336e85ef7c85a4db0455d1d9bd9bc5",
+      "git_blob_sha1": "c47a9be49241836d84e87f55ba0f2e7182e86d88"
+    },
+    {
+      "old_path": "docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md",
+      "path": "archives/research-history/docs/phases/v17/47_PHASEU_44B_CONFIRM_PROTOCOL_V17.md",
+      "sha256": "e8b3dee90c7ccf7958152b98eab14d04a24700239dee61d3e3c2cd8eab4b5ba8",
+      "git_blob_sha1": "46c6e0f7788d1f75a2b9251c2b7ef246287bea08"
+    },
+    {
+      "old_path": "docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md",
+      "path": "archives/research-history/docs/phases/v17/48_PHASEV_TERNARY_SERIALIZATION_V17.md",
+      "sha256": "6908dbfca1dcdee3ce48f932a2c67b5d8e286fed49c8cff47a6ba8ffcdd1b0ff",
+      "git_blob_sha1": "c40d1fd162575bb17fa318e0a43641367c9b0e36"
+    },
+    {
+      "old_path": "docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md",
+      "path": "archives/research-history/docs/phases/v17/49_PHASEW_ENUMERATIVE_CODEC_V17.md",
+      "sha256": "7ec53ced615907dd1345337bd412d530a71e9f72ce191f2b9f621c9510f3efc2",
+      "git_blob_sha1": "16a6e06ca44456041e01ab2af9a650fd1d31f40c"
+    },
+    {
+      "old_path": "docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md",
+      "path": "archives/research-history/docs/phases/v17/50_V17_SUB100_LOWBIT_RESULTS.md",
+      "sha256": "147ffbeedc70575d11c28d44d857ae940f9acdaf5674cd7e9b7fa19689ef8dfa",
+      "git_blob_sha1": "68474e85653e9f069fbd112c1486f77d5fc1fc1c"
+    },
+    {
+      "old_path": "docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md",
+      "path": "archives/research-history/docs/phases/v18/51_PHASEX_GLOBAL_ACCOUNTING_PROTOCOL_V18.md",
+      "sha256": "115df3dbf6a028cf35c13bab148bdc9d4a8b598711048d673a2ae6abbb93559f",
+      "git_blob_sha1": "9aeab74be0994c39602d1d8c280eebbb43e5b090"
+    },
+    {
+      "old_path": "docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md",
+      "path": "archives/research-history/docs/phases/v18/52_PHASEY_WHOLE_NETWORK_LOWBIT_PROTOCOL_V18.md",
+      "sha256": "69d1fb9c9801fd20aece08b249a675ae959a6fa7de5288fb224d7b5c2f806c7c",
+      "git_blob_sha1": "13e652da0825f3956c995b5d37b101b7b3759bdd"
+    },
+    {
+      "old_path": "docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md",
+      "path": "archives/research-history/docs/phases/v18/53_PHASEX_Y_GLOBAL_RESULTS_V18.md",
+      "sha256": "a333344975ef1c68734e7303ed8e38af761a111bf26fc30057334595001332d9",
+      "git_blob_sha1": "017bb902bf846ce3e45dff186436c1f170a00518"
+    },
+    {
+      "old_path": "docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md",
+      "path": "archives/research-history/docs/phases/v19/54_PHASEZ_HEAD_LOWRANK_PROTOCOL_V19.md",
+      "sha256": "4baa44f36ad1440773e49b9d9519fb567f45ab0584768d55ce4e366fc82b5cb5",
+      "git_blob_sha1": "56a9e3cc293b5fae7a50543928a137238ad76de5"
+    },
+    {
+      "old_path": "docs/phases/v19/55_PHASEZ3_CHANNELWISE_Q4_PROTOCOL_V19.md",
+      "path": "archives/research-history/docs/phases/v19/55_PHASEZ3_CHANNELWISE_Q4_PROTOCOL_V19.md",
+      "sha256": "eff3eee4e482e624937c3432ac91cba188723c3848d775cf3d8374670d5e38e9",
+      "git_blob_sha1": "c3c6be09ed469e3264477c6420748c1cc4269501"
+    },
+    {
+      "old_path": "docs/phases/v19/56_PHASEZ4_R31_CHANNELWISE_CONFIRM_V19.md",
+      "path": "archives/research-history/docs/phases/v19/56_PHASEZ4_R31_CHANNELWISE_CONFIRM_V19.md",
+      "sha256": "fca2d7962f3528706e783476818d9e7f4310ad2d4c3e0653f34fe1874c871a65",
+      "git_blob_sha1": "399577fcad83493f5a6ab7596ac0e070c119bff4"
+    },
+    {
+      "old_path": "docs/phases/v19/57_PHASEZ6_ACTIVATION_AWARE_LOWRANK_V19.md",
+      "path": "archives/research-history/docs/phases/v19/57_PHASEZ6_ACTIVATION_AWARE_LOWRANK_V19.md",
+      "sha256": "1669694779206032416bfd3c9de37e6a2f039211daa76ae228c288a9a20fe7b4",
+      "git_blob_sha1": "c4345a9233987c552f4a925fbaf490feb2dc8f66"
+    },
+    {
+      "old_path": "docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md",
+      "path": "archives/research-history/docs/phases/v19/58_PHASEAA_HEAD_2TO4_PROTOCOL_V19.md",
+      "sha256": "6a85ae8d61e1ea08f3e921be387efb7db0890b52a97b37d63a9b65381a63ae8c",
+      "git_blob_sha1": "b495147f9407f475b7572b081b4273f4de2f8382"
+    },
+    {
+      "old_path": "docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md",
+      "path": "archives/research-history/docs/phases/v19/59_PHASEAB_CONV3Q4_CORE_2TO4_HEAD_V19.md",
+      "sha256": "45380d4e04140907c88e49a6885f32bcf8105a6545006cdd63c61b2f16224ced",
+      "git_blob_sha1": "ce3ef7155dc45b362daa98a09351057162b5f31b"
+    },
+    {
+      "old_path": "docs/phases/v19/60_PHASEAC_SHARED_2TO4_5BIT_HEAD_V19.md",
+      "path": "archives/research-history/docs/phases/v19/60_PHASEAC_SHARED_2TO4_5BIT_HEAD_V19.md",
+      "sha256": "4d5fa3553021f568782b5024745ef90f753ff911ea4760d40ee5d9676c813c97",
+      "git_blob_sha1": "069539995acdd529d8e688046b8082495385c5e2"
+    },
+    {
+      "old_path": "docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md",
+      "path": "archives/research-history/docs/phases/v19/61_PHASEAB_CONFIRM_9926B_V19.md",
+      "sha256": "f08c1c418b99bff33c605703e59c7be9c1775b8770ceafcb566875412914198f",
+      "git_blob_sha1": "f71ea7fb4da93e3ee2334d8fd710b14d733ae12c"
+    },
+    {
+      "old_path": "docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md",
+      "path": "archives/research-history/docs/phases/v19/62_V19_HEAD_COMPRESSION_RESULTS.md",
+      "sha256": "7abfeb7fd23a38527fc1a3eb7561b65e192f8337feef97884238642794bb3140",
+      "git_blob_sha1": "8a581a103b79f84f5dbf9319711b9d3057e5a949"
+    },
+    {
+      "old_path": "docs/phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md",
+      "path": "archives/research-history/docs/phases/v20/63_G3_SMALL_VIT_GENERALIZATION_PROTOCOL_V20.md",
+      "sha256": "8d668ffcd2a28214f1e7462ca79e54ded854290d3d4eaa9576c04dcc3e822043",
+      "git_blob_sha1": "9d7bb62aaa28bfa0da95c4c7ce8f88c5d674be65"
+    },
+    {
+      "old_path": "docs/phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md",
+      "path": "archives/research-history/docs/phases/v20/64_G3_SMALL_VIT_GENERALIZATION_RESULTS_V20.md",
+      "sha256": "eef9e364da332d71769aa968d3e15f113aacc722b940aaa3bd4f364a3db33551",
+      "git_blob_sha1": "8051c601784ae94f9a937920c5c901d69ca84b1a"
+    },
+    {
+      "old_path": "docs/phases/v21/66_G5_SEQUENCE_TRANSFORMER_CONFIRM_PROTOCOL_V21.md",
+      "path": "archives/research-history/docs/phases/v21/66_G5_SEQUENCE_TRANSFORMER_CONFIRM_PROTOCOL_V21.md",
+      "sha256": "708a451d0b60298e3225c5305124edb7844ac98d1e9f79fdf3e54512064bc1e8",
+      "git_blob_sha1": "f1c582344348469711c94d671392e77dad0b875c"
+    },
+    {
+      "old_path": "docs/phases/v21/67_G5_SEQUENCE_TRANSFORMER_RESULTS_V21.md",
+      "path": "archives/research-history/docs/phases/v21/67_G5_SEQUENCE_TRANSFORMER_RESULTS_V21.md",
+      "sha256": "9124c78d355a06143cf0f5557269bfca3b8399141751249b460bb8a5051e9af4",
+      "git_blob_sha1": "3f84fec36f59c616b5b7c953e1bac40670f6b0a2"
+    },
+    {
+      "old_path": "docs/phases/v22/68_G6_DECODER_LM_PILOT_PROTOCOL_V22.md",
+      "path": "archives/research-history/docs/phases/v22/68_G6_DECODER_LM_PILOT_PROTOCOL_V22.md",
+      "sha256": "97bd9e30671013261f2b9359828cb3db48f71fd2a4638eea4b88c7155f3e3f2d",
+      "git_blob_sha1": "1e4ad3b21ee1ec19043453dc6eb4da3bf68fc337"
+    },
+    {
+      "old_path": "docs/phases/v22/69A_G6_Q8_EVAL_COMPUTE_AMENDMENT_V22.md",
+      "path": "archives/research-history/docs/phases/v22/69A_G6_Q8_EVAL_COMPUTE_AMENDMENT_V22.md",
+      "sha256": "db8b9feb243a462595cefb7cbc6ec940b658723e058275eaedce51a8bc2e5dd6",
+      "git_blob_sha1": "70ea6760c6e2fa84815718dbdbb8c6603e4681c9"
+    },
+    {
+      "old_path": "docs/phases/v22/69_G6_DECODER_LM_CONFIRM_PROTOCOL_V22.md",
+      "path": "archives/research-history/docs/phases/v22/69_G6_DECODER_LM_CONFIRM_PROTOCOL_V22.md",
+      "sha256": "9b57c3321efc089031c0fefc303648c49722ad42d1ac867fa94c62268e251be0",
+      "git_blob_sha1": "597ec0dd56928cd2fc7b1385eb74bc9bea8461c9"
+    },
+    {
+      "old_path": "docs/phases/v22/70_G6_DECODER_LM_RESULTS_V22.md",
+      "path": "archives/research-history/docs/phases/v22/70_G6_DECODER_LM_RESULTS_V22.md",
+      "sha256": "df3a5686047cf1bf45ebcf6a782a221d8c79906b75c9639ffb6ee6346c130830",
+      "git_blob_sha1": "44e74154ad28addbb35827af6d6d1d8ca402b4a8"
+    },
+    {
+      "old_path": "docs/phases/v23/71_75_G6B_PILOT_AUDIT_V23.md",
+      "path": "archives/research-history/docs/phases/v23/71_75_G6B_PILOT_AUDIT_V23.md",
+      "sha256": "34706b83db8e0d53ded1928e39c4db93454477ed3b4a6b10779570e939b43c1e",
+      "git_blob_sha1": "95ff8404f26a1faceb0cd371eaf1e8b9c94dc383"
+    },
+    {
+      "old_path": "docs/phases/v23/76_G6B_REALTEXT_CONFIRM_PROTOCOL_V23.md",
+      "path": "archives/research-history/docs/phases/v23/76_G6B_REALTEXT_CONFIRM_PROTOCOL_V23.md",
+      "sha256": "89edf1b8706fc1516148c724b3aa12acf10c06da084be2743f76fb4f5b298d53",
+      "git_blob_sha1": "fdd2b30890908801db1162d185aa26f266a106ce"
+    },
+    {
+      "old_path": "docs/phases/v23/77_G6B_REALTEXT_LM_RESULTS_V23.md",
+      "path": "archives/research-history/docs/phases/v23/77_G6B_REALTEXT_LM_RESULTS_V23.md",
+      "sha256": "3819e0d227ce6714431ae59e2983a32ca6a681791e9af2a7e91f219f6e058569",
+      "git_blob_sha1": "ff427eb1bb572e4fb12691711aadaa9d139d2607"
+    },
+    {
+      "old_path": "docs/phases/v23/78_G6B_ROLLOUT_HORIZON_DIAGNOSTIC_V23.md",
+      "path": "archives/research-history/docs/phases/v23/78_G6B_ROLLOUT_HORIZON_DIAGNOSTIC_V23.md",
+      "sha256": "182e6abcc6de14ae778c73b8fff980ed9fc1646b14f735a05c8633a6a48036f2",
+      "git_blob_sha1": "c7415f7414c6be57c57520e1f3b9314337672e7c"
+    },
+    {
+      "old_path": "docs/phases/v23/79_G6B_ROLLOUT_HORIZON_RESULTS_V23.md",
+      "path": "archives/research-history/docs/phases/v23/79_G6B_ROLLOUT_HORIZON_RESULTS_V23.md",
+      "sha256": "e69cd6cc5522c6a82d10c93af2226e0724dea262065699350a8d3218d4dcdd57",
+      "git_blob_sha1": "e337115ad4fa8d2900769603f0c1b10248e04cf3"
+    },
+    {
+      "old_path": "docs/phases/v24/80_G6C_LOGIT_AWARE_PILOT_PROTOCOL_V24.md",
+      "path": "archives/research-history/docs/phases/v24/80_G6C_LOGIT_AWARE_PILOT_PROTOCOL_V24.md",
+      "sha256": "b3922e02b7abc0540c2403eceb555ec5d7e574cb83f929e37ba8cd020afe5af4",
+      "git_blob_sha1": "1765820f98f80d4dd435bcace45441c2f678a502"
+    },
+    {
+      "old_path": "docs/phases/v24/81_G6C_LOGIT_AWARE_CONFIRM_PROTOCOL_V24.md",
+      "path": "archives/research-history/docs/phases/v24/81_G6C_LOGIT_AWARE_CONFIRM_PROTOCOL_V24.md",
+      "sha256": "386ea8c3a0e000d807127661be92927aab20289f3b3db14af7af0eed593912ce",
+      "git_blob_sha1": "3cb0949aba4d000096ebf82d03c85e12097bd27d"
+    },
+    {
+      "old_path": "docs/phases/v24/82_G6C_LOGIT_AWARE_RESULTS_V24.md",
+      "path": "archives/research-history/docs/phases/v24/82_G6C_LOGIT_AWARE_RESULTS_V24.md",
+      "sha256": "101154447c9b9f6b4e0109f428858f31cdb0f17a8d548ad627800ed43bdfce0b",
+      "git_blob_sha1": "12d732d1c3970e174a95ce185cd41cb413407633"
+    },
+    {
+      "old_path": "docs/phases/v25/83_G6D_TRAJECTORY_AWARE_PILOT_PROTOCOL_V25.md",
+      "path": "archives/research-history/docs/phases/v25/83_G6D_TRAJECTORY_AWARE_PILOT_PROTOCOL_V25.md",
+      "sha256": "e0f518ebd37a85d29fd70dcf413834a7b4b005ec9d6ef8ce4d48669332355289",
+      "git_blob_sha1": "7ef1001772ec7f4571a530261722d9150aed3c86"
+    },
+    {
+      "old_path": "docs/phases/v25/84_G6D_TRAJECTORY_AWARE_CONFIRM_PROTOCOL_V25.md",
+      "path": "archives/research-history/docs/phases/v25/84_G6D_TRAJECTORY_AWARE_CONFIRM_PROTOCOL_V25.md",
+      "sha256": "8df2dceb82e7d79e2a785ab6eeedec305282a3e0937069b31a2886b466b8e0e7",
+      "git_blob_sha1": "124860cd26429039c86531bf3c45de616e2c29d8"
+    },
+    {
+      "old_path": "docs/phases/v25/85_G6D_TRAJECTORY_AWARE_RESULTS_V25.md",
+      "path": "archives/research-history/docs/phases/v25/85_G6D_TRAJECTORY_AWARE_RESULTS_V25.md",
+      "sha256": "2f12ee766425cb56be45e8ff7ee3fe508fa4f074d6dd856ef57fe1feea9137d3",
+      "git_blob_sha1": "b02d65e283861e85e3271cd201f0c26528b2b217"
+    },
+    {
+      "old_path": "environment/history/v10/REPRODUCIBILITY_LIMITS.md",
+      "path": "archives/research-history/environment/history/v10/REPRODUCIBILITY_LIMITS.md",
+      "sha256": "9ea581e143f4fddb805f27d34256d7522d15508c1708a5ebd8355784d1768ec3",
+      "git_blob_sha1": "814f706b7cd18d31fe0476f0b42a4c6566c18fe2"
+    },
+    {
+      "old_path": "environment/history/v10/current_audit_environment.json",
+      "path": "archives/research-history/environment/history/v10/current_audit_environment.json",
+      "sha256": "c75532f5360185fbbb384be30fce2ba4b1a7620bbe800c13c40e80ca17ffcd34",
+      "git_blob_sha1": "d9b34da0114827daeb9fe03d237ab94d1dee4ad4"
+    },
+    {
+      "old_path": "environment/history/v10/requirements_inferred.txt",
+      "path": "archives/research-history/environment/history/v10/requirements_inferred.txt",
+      "sha256": "5d8e7728f2492db5815e3fe5b991492b961e527eb931a544496116b2fb924790",
+      "git_blob_sha1": "3087cbebc6dcf5abd3cb5bd2c64a4124837f80e4"
+    },
+    {
+      "old_path": "results/core_discovery_digits/PROTOCOL_LOCK.json",
+      "path": "results/core_discovery_digits/PROTOCOL_LOCK.json",
+      "sha256": "3d6803aeb86ceefeac00234e063ff44cbdfca64cbea5b8a6ca7dfa4698f9db54",
+      "git_blob_sha1": "49acfeccf087daa236fbbfefe977dee37c5777cc"
+    },
+    {
+      "old_path": "results/core_discovery_digits/confirm_summary.json",
+      "path": "results/core_discovery_digits/confirm_summary.json",
+      "sha256": "cd2db78eaeaf8682c87abf56391c1997ca91196e54e57b955f4c443f29488c27",
+      "git_blob_sha1": "b8074b638bc0954c7d7e4c4ab99631898bf787b3"
+    },
+    {
+      "old_path": "results/history/v10/claim_registry.csv",
+      "path": "archives/research-history/results/history/v10/claim_registry.csv",
+      "sha256": "4d6c75fb9871f337827751fe60f2e791ea9d8b5e7b6218b199f80c3f36b76326",
+      "git_blob_sha1": "b459c1bcd4833b6a73bdcfe376f0416fd18d2981"
+    },
+    {
+      "old_path": "results/history/v10/experiment_catalog.csv",
+      "path": "archives/research-history/results/history/v10/experiment_catalog.csv",
+      "sha256": "837ec5ee995574d0870504aabad272f9a1814739db223ae371624f9b331c0191",
+      "git_blob_sha1": "ade5e308dfa9b952aebef565c2c339fa96feb67d"
+    },
+    {
+      "old_path": "results/history/v10/key_results.csv",
+      "path": "archives/research-history/results/history/v10/key_results.csv",
+      "sha256": "e2844e8e4ddc02fb482a7b187beeaeefce6ca77ca09e209e1408c19dd67e127b",
+      "git_blob_sha1": "d1244a768704d92cb28f8726c52a3306d3105acf"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/CORRECTION_STATUS.json",
+      "path": "results/phase2/precision_composition/CORRECTION_STATUS.json",
+      "sha256": "42e540412f6b46709e8115932b567af7b40dfe3633a5f5cd8b8ec2ead2eb154c",
+      "git_blob_sha1": "a727d170770cb547bcb852a697fce8a3cb01f460"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/SOURCE_BUNDLE.sha256",
+      "path": "results/phase2/precision_composition/SOURCE_BUNDLE.sha256",
+      "sha256": "f4faaa7b51e4c837e92c90975a20a1520aeb3d9dd5fe258957c59d9b4a4acacb",
+      "git_blob_sha1": "ad159c51322197ae277b959f4316953cb138d141"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/PROTOCOL_LOCK.json",
+      "path": "results/phase2/precision_composition/phase2a/PROTOCOL_LOCK.json",
+      "sha256": "999f147f83a9ff78c188b00d202193cef5fcafaa87ba57d64af0799749a41b16",
+      "git_blob_sha1": "e2decf2c229da44ff894026727f5e48e38deea33"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_12bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_12bit.csv",
+      "sha256": "42cbf2afcd99a96b2b48560be8afe51080be8c899cdfa05b7db8f45eb9983836",
+      "git_blob_sha1": "887eb31a1e7e8e170d658e4e3af8bc8f9a884bcc"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_32bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_32bit.csv",
+      "sha256": "10a552af598479276ff307f74dda7c371cb1ff1476d083ad16c941bff59c9c15",
+      "git_blob_sha1": "5e2bedf639e0e0ecb28b8a3a906e1aee9d2e3092"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_3bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_3bit.csv",
+      "sha256": "34135f8c903361544035c11d66674e2831864f28764143863b0f472b71aa9292",
+      "git_blob_sha1": "82ed957c8d73aa762adf30b51e97a344ada9c042"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_4bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_4bit.csv",
+      "sha256": "5d43f5dae385026a47797d5217286796be67bf9ad72d71111a197c0115070993",
+      "git_blob_sha1": "ebd11986c06b160486e68775845c5cc112ef37a5"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_6bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_6bit.csv",
+      "sha256": "ed2967bd5a88b2764cc64254657b5c5d8e30394f80114185dc9d7f5f2f31e7d2",
+      "git_blob_sha1": "7cd297f7c17c4e0ba7fee659186db644a029811a"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/grid_8bit.csv",
+      "path": "results/phase2/precision_composition/phase2a/grid_8bit.csv",
+      "sha256": "8f2667344618b35f94e40763c59968f768aa0ac1d717bed6b1f42beae755b570",
+      "git_blob_sha1": "8a7d3f44d5e9f2f3f00afa9eb670bd98ad1cd2be"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2a/summary.json",
+      "path": "results/phase2/precision_composition/phase2a/summary.json",
+      "sha256": "2535f9b0b61fd6974476c458ec1c7810866de4b1253bc4c44cc870d4397162fa",
+      "git_blob_sha1": "9efcedf50a619bda5e64b6ab94276a0663eadceb"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2b/PROTOCOL_LOCK.json",
+      "path": "results/phase2/precision_composition/phase2b/PROTOCOL_LOCK.json",
+      "sha256": "a6ff170d60df1ef99ee56f14afa7a6c9fed7d737ebb618907567e378e4d310f5",
+      "git_blob_sha1": "4820de46e2bc845751b326439f661a79430d1d9f"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2b/seeds_31100_31107.json",
+      "path": "results/phase2/precision_composition/phase2b/seeds_31100_31107.json",
+      "sha256": "cad8d826143326d4b7f8d23ab12aa413573a44e9f5df1ee57d5fc6238c30e750",
+      "git_blob_sha1": "3b95221bef21448e8a999ec7e71003c9459d81e5"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2b/summary.json",
+      "path": "results/phase2/precision_composition/phase2b/summary.json",
+      "sha256": "cc25a69a3387d6c2e1ae4f4566a0f9d6d805278dc6748abcbeff754b964f7760",
+      "git_blob_sha1": "20ade19b21d4a23b28c03dc6bf6f4c656a7c5e31"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2c/PROTOCOL_LOCK.json",
+      "path": "results/phase2/precision_composition/phase2c/PROTOCOL_LOCK.json",
+      "sha256": "d0e1e991bff09c37b66a68346904de72cf235b92c415d24d918160c795be9cd9",
+      "git_blob_sha1": "a8d637f45cb8dcf3e065292e129757bca30ae124"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2c/seeds_31200_31207.json",
+      "path": "results/phase2/precision_composition/phase2c/seeds_31200_31207.json",
+      "sha256": "3501514891aa66f06be3efdd0761384fbeb0f99cdf3fcf98170e67557ca56df8",
+      "git_blob_sha1": "48d922a9661b4b535427ff9d80c3e3586d07651d"
+    },
+    {
+      "old_path": "results/phase2/precision_composition/phase2c/summary.json",
+      "path": "results/phase2/precision_composition/phase2c/summary.json",
+      "sha256": "8311652dd09133eb5328df1381402acfb55d5eb264830158f34495abc4e28845",
+      "git_blob_sha1": "924feaf85efe64efaa0f677194d960999154b12e"
+    },
+    {
+      "old_path": "results/phaseA_v11/STAGE1_LOCK.json",
+      "path": "archives/research-history/results/phaseA_v11/STAGE1_LOCK.json",
+      "sha256": "bf4e6a7894a8dc64c3411feffa1a7db3227038e370140ad2d20c4a73b6290240",
+      "git_blob_sha1": "14ad5cb4e548903c3b476dfc76e5831725e11ce4"
+    },
+    {
+      "old_path": "results/phaseA_v11/stage3_confirmatory_summary.json",
+      "path": "archives/research-history/results/phaseA_v11/stage3_confirmatory_summary.json",
+      "sha256": "983b498c1c097c63d935b630bde02d04b48c64f0f59e9ccfd6831a6a613145ce",
+      "git_blob_sha1": "c23a8ae978bbcbc553f12da988452091113da6e4"
+    },
+    {
+      "old_path": "results/phaseB_v11/phaseB_head_capacity_joint_v11.csv",
+      "path": "archives/research-history/results/phaseB_v11/phaseB_head_capacity_joint_v11.csv",
+      "sha256": "5759d48b9a8b6246b1da9691cf172ef70fb90ab8316f3ff53a503f92662db8f5",
+      "git_blob_sha1": "610cd890e3ac01ebfa4535a84221a45142ac8352"
+    },
+    {
+      "old_path": "results/phaseB_v11/phaseB_joint_effects_v11.csv",
+      "path": "archives/research-history/results/phaseB_v11/phaseB_joint_effects_v11.csv",
+      "sha256": "a390ec960651e1380da949b6fc24e8d83750454e7ca6e8382e98c1c1f6da205b",
+      "git_blob_sha1": "31b175ffe8c501fc35beb0e3e3861f6ea23201e5"
+    },
+    {
+      "old_path": "results/replication/vit_compositional/PROTOCOL_LOCK.json",
+      "path": "results/replication/vit_compositional/PROTOCOL_LOCK.json",
+      "sha256": "5b278e3811e7cb0d471a7c5463c352b1318d0e35579e2aace929c2332dab8e10",
+      "git_blob_sha1": "70902a136a4b04f127f9176dfff0ddc06f3eabbe"
+    },
+    {
+      "old_path": "results/replication/vit_compositional/confirm_summary.json",
+      "path": "results/replication/vit_compositional/confirm_summary.json",
+      "sha256": "80267a3365d91e07687e61315f998c09e6014e4d6251d6a55f19e46e58954e8f",
+      "git_blob_sha1": "64dc3469444ca61a86a0902f6ccbf23828717be1"
+    },
+    {
+      "old_path": "results/replication/vit_compositional/seed_table.csv",
+      "path": "results/replication/vit_compositional/seed_table.csv",
+      "sha256": "393cc692185b14127e60b0d58737c4fa8a3106d01f4b9c7807ee11bf0c673a2f",
+      "git_blob_sha1": "989d414d70a6e1d0ec7f530e223a0b5daec1be12"
+    },
+    {
+      "old_path": "results/reproduction/g7_seed4300_report.json",
+      "path": "results/reproduction/g7_seed4300_report.json",
+      "sha256": "7a680cbdd8549017390674a9f705ca9d1240d974bb4132d4cc8c8ec655d73120",
+      "git_blob_sha1": "b7ab4bd3c51b9e5d86beaa4025efd39047e6feea"
+    },
+    {
+      "old_path": "results/reproduction/runtime_poc_seed4300_report.json",
+      "path": "results/reproduction/runtime_poc_seed4300_report.json",
+      "sha256": "136918c2684e511330af2d968328c4655a8385b51a79962358ecdf80bc390012",
+      "git_blob_sha1": "dada0321c9ef89395952609b96f8414474911f64"
+    },
+    {
+      "old_path": "results/training_time/late_stage_summary.json",
+      "path": "results/training_time/late_stage_summary.json",
+      "sha256": "55a56d9dfb93ad2861113e4d08a57cd07cc3745a386f48a9253b8dbf50a8cfc2",
+      "git_blob_sha1": "dd7350b017d85099006c76d3403336c86e68c5e9"
+    },
+    {
+      "old_path": "results/training_time/protocol_manifest.json",
+      "path": "results/training_time/protocol_manifest.json",
+      "sha256": "fbf46af86097ae23c702a9804bd4f35608e11e28d70d299778ff787f6f802452",
+      "git_blob_sha1": "2723964e22c2b23eb3210b07e907c9dd0fd35273"
+    },
+    {
+      "old_path": "results/training_time/summary.json",
+      "path": "results/training_time/summary.json",
+      "sha256": "3b4258a8c148c669087bc34841f11cb1e4f90613406c4a56c2c7474ae718f451",
+      "git_blob_sha1": "5e1bfc30e3653b1f3453f419faed533fd1fcd063"
+    },
+    {
+      "old_path": "results/v12/phaseC_equal_capacity_adapter_v12/decision.json",
+      "path": "archives/research-history/results/v12/phaseC_equal_capacity_adapter_v12/decision.json",
+      "sha256": "f5c766950303a8dadd5874f5317076bc548590a6ca5db430a7c27700a18521c4",
+      "git_blob_sha1": "5b4c77adf41402c58171ec6c933076149c197c43"
+    },
+    {
+      "old_path": "results/v12/phaseD_equal_capacity_spatial_v12/decision.json",
+      "path": "archives/research-history/results/v12/phaseD_equal_capacity_spatial_v12/decision.json",
+      "sha256": "4740258a6630f951727287a000aa3759358f02244c573c62e80f84ba703bd5f7",
+      "git_blob_sha1": "9a7a693ef8d322de8025891a7b01b46e94d5ec93"
+    },
+    {
+      "old_path": "results/v12/phaseE_global_boundary_adapter_v12/decision.json",
+      "path": "archives/research-history/results/v12/phaseE_global_boundary_adapter_v12/decision.json",
+      "sha256": "66dd1750945d7f74907db0641eb01b44b6b4a006dd4915164649974856002f5b",
+      "git_blob_sha1": "819c054638c13c691adc68c397918340390cd029"
+    },
+    {
+      "old_path": "results/v13/README.md",
+      "path": "archives/research-history/results/v13/README.md",
+      "sha256": "2831c9ec8c045ea2d905226598e5b3d352a02875fd8667f94dc2f604dded75da",
+      "git_blob_sha1": "d6f744abc65412080caf3a3bb2f2c9c98e221c25"
+    },
+    {
+      "old_path": "results/v14/README.md",
+      "path": "archives/research-history/results/v14/README.md",
+      "sha256": "6c412f7d835c5808993283829a1d642a86ebb7abb59a35e8e4f7366c6b9df268",
+      "git_blob_sha1": "de87f9a10c47213631bbf6d5dee228b708092df9"
+    },
+    {
+      "old_path": "results/v15/README.md",
+      "path": "archives/research-history/results/v15/README.md",
+      "sha256": "0f220313de35f50d8da4580a1711e1391a7b66268fbe6444af90fbb91e35ea2f",
+      "git_blob_sha1": "d74fbef55b395437fc91dc449955db5d95bc3a92"
+    },
+    {
+      "old_path": "results/v16/README.md",
+      "path": "archives/research-history/results/v16/README.md",
+      "sha256": "11ae138a33a7ed5e64539c409a6fd806b30f9127323e41cc9f8af0719fc05564",
+      "git_blob_sha1": "879da57101f721f38fba8ec682b2d8663d608ba8"
+    },
+    {
+      "old_path": "results/v17/phaseS_76B_confirm_summary.csv",
+      "path": "archives/research-history/results/v17/phaseS_76B_confirm_summary.csv",
+      "sha256": "9e850eb2bbff4f40a56de54e2e5d6c85d3a211e8ae8f98eede45e7a331f63a74",
+      "git_blob_sha1": "bb66b51d3a4e5fde49afc44a32a2defbb33ee22c"
+    },
+    {
+      "old_path": "results/v17/phaseT_pattern_share_summary.csv",
+      "path": "archives/research-history/results/v17/phaseT_pattern_share_summary.csv",
+      "sha256": "cf0417906515780ff69c4da6ef8e6e573d8533a5644fc1535d83a80219008c82",
+      "git_blob_sha1": "f676840a44214f6782fddecd54f4324441a21ec0"
+    },
+    {
+      "old_path": "results/v17/phaseU_44B_confirm_summary.csv",
+      "path": "archives/research-history/results/v17/phaseU_44B_confirm_summary.csv",
+      "sha256": "500929f78f4566aa38fa0a5629aa6314a8654d5ed0235404869f8959501261aa",
+      "git_blob_sha1": "f0ba97f93196b0364846e5deec162c8983ea60fc"
+    },
+    {
+      "old_path": "results/v17/phaseW_enumerative_codec_summary.csv",
+      "path": "archives/research-history/results/v17/phaseW_enumerative_codec_summary.csv",
+      "sha256": "4b88ea2944a134057af5e091f94d2139d3f6c599d0be4a2c57eff3105a6ec56b",
+      "git_blob_sha1": "7be039fd2421a6c3426455132f686ab0f2918c0a"
+    },
+    {
+      "old_path": "results/v17/v17_key_summary.json",
+      "path": "archives/research-history/results/v17/v17_key_summary.json",
+      "sha256": "622a0bf17dd36196238964deafb85b1d50883aadc147d77028d1956c03abe29d",
+      "git_blob_sha1": "3da4cd2e68facb683437bf5c812732844f24a197"
+    },
+    {
+      "old_path": "results/v18/raw/phaseX_summary.json",
+      "path": "archives/research-history/results/v18/raw/phaseX_summary.json",
+      "sha256": "246b088f43d510c72e3adf20c2cd138afba53cf0e1459362b46b22734dfeb52a",
+      "git_blob_sha1": "2f545e4ea8fdb9767cc09891661afb3c51b5caa7"
+    },
+    {
+      "old_path": "results/v18/raw_phaseY/phaseY_summary.json",
+      "path": "archives/research-history/results/v18/raw_phaseY/phaseY_summary.json",
+      "sha256": "bc41e04d3daeed5a382cb5bc74b4677da20091799a022507e931e1b6cc0e1cb4",
+      "git_blob_sha1": "e6be3f187c0cd5df4e5e20be681c4b3901526956"
+    },
+    {
+      "old_path": "results/v19/raw_AD/confirmatory_codec_summary.json",
+      "path": "archives/research-history/results/v19/raw_AD/confirmatory_codec_summary.json",
+      "sha256": "a5ea286d81f249e16a6390521a9a7a82b229696ebd899fa9d053e6114fa80c53",
+      "git_blob_sha1": "8a9832070fdec5579a2f6951e41a3ac6b547e50c"
+    },
+    {
+      "old_path": "results/v20/g3_confirmatory_summary.json",
+      "path": "archives/research-history/results/v20/g3_confirmatory_summary.json",
+      "sha256": "c33a0eecc514844da3dd142a9fba0040c118104370ccd9fbee8d62a9f15d9ddf",
+      "git_blob_sha1": "62208056aaa52ac30854734a583afeab559a1d36"
+    },
+    {
+      "old_path": "results/v20/g3_q8_followup_summary.json",
+      "path": "archives/research-history/results/v20/g3_q8_followup_summary.json",
+      "sha256": "28a8cb02e8c66e7f249e5982df6231456e97cc6e36ba212328e1bae52d8fe8da",
+      "git_blob_sha1": "06e9e2113887653ed2b7bc062b85af4337565d70"
+    },
+    {
+      "old_path": "results/v21/g5_confirmatory_summary.json",
+      "path": "archives/research-history/results/v21/g5_confirmatory_summary.json",
+      "sha256": "4b8b9daae3837df03c646041b390bf49615e22a6f465df91f79aeffbc16ce333",
+      "git_blob_sha1": "d762cff11287d723bd95472c470102f5fa968f40"
+    },
+    {
+      "old_path": "results/v21/g5_q8_followup_summary.json",
+      "path": "archives/research-history/results/v21/g5_q8_followup_summary.json",
+      "sha256": "052c6f8d10b56beb5fda6db7972701bb4042271b7b535d7b947c054aed81115e",
+      "git_blob_sha1": "94566a23d79fbea86abf0a888d7e8e9ee4cbde06"
+    },
+    {
+      "old_path": "results/v22/g6_confirmatory_summary.json",
+      "path": "archives/research-history/results/v22/g6_confirmatory_summary.json",
+      "sha256": "f35aaf201d0e35edc94978fe6a40d82d47fa98c057ba7ffbd29dc2ddf9bd8946",
+      "git_blob_sha1": "48a44fce7ec91be91ed1b6fbab14609e9d2dccf0"
+    },
+    {
+      "old_path": "results/v22/g6_q8_followup_summary.json",
+      "path": "archives/research-history/results/v22/g6_q8_followup_summary.json",
+      "sha256": "f88d9d8197345505559b94a4a6bb1b7f77b16a19ee0080cdfb6e941bcba86d70",
+      "git_blob_sha1": "5d46a1b870eda5528bc21dbc8291e88154a7f4a6"
+    },
+    {
+      "old_path": "results/v23/g6b_confirmatory_summary.json",
+      "path": "archives/research-history/results/v23/g6b_confirmatory_summary.json",
+      "sha256": "b7f43f5c657ba84cf9429dc3e99e28e1c5e17cf0803003dfe8bfb6a700c29007",
+      "git_blob_sha1": "439d5c56d7eab161244eaee4671913fc28ee4c3d"
+    },
+    {
+      "old_path": "results/v23/g6b_horizon_summary.json",
+      "path": "archives/research-history/results/v23/g6b_horizon_summary.json",
+      "sha256": "33364c55128b47c9b88906670a77001d83b55e5617b4e13395a5137f006ef742",
+      "git_blob_sha1": "d43ee8109b6c6e5f3a0633a0e6488c02218175a1"
+    },
+    {
+      "old_path": "results/v24/g6c_confirmatory_summary.json",
+      "path": "archives/research-history/results/v24/g6c_confirmatory_summary.json",
+      "sha256": "7d5118992f55a83604be9bc874d5b8139a44c51bfa4a1b3ad8e979d83209e1f0",
+      "git_blob_sha1": "492d37df7f950a7a2144e44fc5174fae2cf250e6"
+    },
+    {
+      "old_path": "results/v25/g6d_confirmatory_summary.json",
+      "path": "archives/research-history/results/v25/g6d_confirmatory_summary.json",
+      "sha256": "b3c2e147aee1fe5e6d2b48e8be277d8ad4381d20e7b20959ac993362d09ce29e",
+      "git_blob_sha1": "1c18774aff58be86500eed36e8931a937c73c886"
+    },
+    {
+      "old_path": "scripts/phase2/precision_composition/common.py",
+      "path": "scripts/phase2/precision_composition/common.py",
+      "sha256": "774ffe2919597a57918c139d5f7d8317a0459e9c0c4e23ad1637863df8dc8934",
+      "git_blob_sha1": "935e7e2f155b52a6851ec90a75469f8f6138ad49"
+    },
+    {
+      "old_path": "scripts/phase2/precision_composition/phase2a.py",
+      "path": "scripts/phase2/precision_composition/phase2a.py",
+      "sha256": "2f6a713560a70e6be754745f2790d442e5876af5e8f4a076941ea903d0bcfdc1",
+      "git_blob_sha1": "84157df70515a9bff0b6b56fa5ce6f5f49e2c13f"
+    },
+    {
+      "old_path": "scripts/phase2/precision_composition/phase2b.py",
+      "path": "scripts/phase2/precision_composition/phase2b.py",
+      "sha256": "395a495a7a767bdeea6a2f05264594cb6082a5074babfbd3fb07cd92bdee5bcf",
+      "git_blob_sha1": "208a6a2820b5ea1f38b3e22845d92d700c4ca5d4"
+    },
+    {
+      "old_path": "scripts/phase2/precision_composition/phase2c.py",
+      "path": "scripts/phase2/precision_composition/phase2c.py",
+      "sha256": "9b81dffbab3ca27ca3170e4a6b2db72e5859ece38858a07333fec3b7a384db15",
+      "git_blob_sha1": "3987251349a2d9106c4b884035000f5858f5c41c"
+    },
+    {
+      "old_path": "scripts/phases/training_time/direct_wait_control.py",
+      "path": "scripts/phases/training_time/direct_wait_control.py",
+      "sha256": "5c29a3578cc912c6900c93cb989b0c6eb9a15322dfa8e9e025e07235b90b70a4",
+      "git_blob_sha1": "e58253b3edc52ce86f57354556c3c0a734cafb09"
+    },
+    {
+      "old_path": "scripts/phases/training_time/factorized_compile_control.py",
+      "path": "scripts/phases/training_time/factorized_compile_control.py",
+      "sha256": "9ccba646631738062094c1b3b933fa47eac1d953444a36f5c277807b1d6c50ad",
+      "git_blob_sha1": "377477ebb8365b5db7c65c5fa4041616fab1ddce"
+    },
+    {
+      "old_path": "scripts/phases/training_time/stable_auto_controller_v2.py",
+      "path": "scripts/phases/training_time/stable_auto_controller_v2.py",
+      "sha256": "5175067ac723e7ed2ee8b3ae09d41049b87573757f10152acbdfece21ae86c67",
+      "git_blob_sha1": "14f223230714ebc62af5f9b11b92a3dfae5ea6e0"
+    },
+    {
+      "old_path": "scripts/phases/v11/run_phaseA_confirmatory_stage1_v11.py",
+      "path": "archives/research-history/scripts/phases/v11/run_phaseA_confirmatory_stage1_v11.py",
+      "sha256": "e3045ed31646d1772029b6cf02b8401a33ecd0cf180b79a54d1d40e1126dc07f",
+      "git_blob_sha1": "1e9dd626ae0e2036dbbff4d1922558986bf972bb"
+    },
+    {
+      "old_path": "scripts/phases/v17/run_phaseU_44B_confirm_v17.py",
+      "path": "archives/research-history/scripts/phases/v17/run_phaseU_44B_confirm_v17.py",
+      "sha256": "fd2772c96e1e145e0825e5f570ee5b6133612a4e03286138babccef32498aa9f",
+      "git_blob_sha1": "cc6c98ac8074561a6f9a13b59f89403c06d348b8"
+    },
+    {
+      "old_path": "scripts/phases/v17/run_phaseV_ternary_pack_v17.py",
+      "path": "archives/research-history/scripts/phases/v17/run_phaseV_ternary_pack_v17.py",
+      "sha256": "c13b5372c58feae08575c1f2358b1f451fa2b8f01e3a6fa9b558c42cac085299",
+      "git_blob_sha1": "558d5b61ccfd3bc846edca264dcb73e683c00ba3"
+    },
+    {
+      "old_path": "scripts/phases/v17/run_phaseW_enumerative_codec_v17.py",
+      "path": "archives/research-history/scripts/phases/v17/run_phaseW_enumerative_codec_v17.py",
+      "sha256": "6986ac704b4c9c3e072068c8dd08805c89e7cda66c60ba94114966d99cc7c2a5",
+      "git_blob_sha1": "3afcb5c174c4d8c84f72e82f723962d273b961ed"
+    },
+    {
+      "old_path": "scripts/phases/v18/run_phaseY_whole_lowbit_v18.py",
+      "path": "archives/research-history/scripts/phases/v18/run_phaseY_whole_lowbit_v18.py",
+      "sha256": "f06e85ddf23edf75feb71b3787fcfe635e2fefb1c22e4d0faedf4be40a51cdd9",
+      "git_blob_sha1": "d48305f7e93f04220fa50ee403c69f15d5e1eb38"
+    },
+    {
+      "old_path": "scripts/phases/v19/run_phaseAD_exact_codec_v19.py",
+      "path": "archives/research-history/scripts/phases/v19/run_phaseAD_exact_codec_v19.py",
+      "sha256": "4fecea451e4807e372dfd77230044dc6cf2a20f1524b0cdc849f42402c3b6a08",
+      "git_blob_sha1": "bc634e0e5378653632b1ce67f99a9f10d420a4a4"
+    },
+    {
+      "old_path": "scripts/phases/v20/run_g3_q8_followup_v20.py",
+      "path": "archives/research-history/scripts/phases/v20/run_g3_q8_followup_v20.py",
+      "sha256": "c3f5e653457eab21c35ae2d7c9b259d5161d67332b55fbfe3be8d547735b200d",
+      "git_blob_sha1": "fa60448895861c0c51cd7e3010de9adcbfd87378"
+    },
+    {
+      "old_path": "scripts/phases/v20/run_vit_generalization_v20.py",
+      "path": "archives/research-history/scripts/phases/v20/run_vit_generalization_v20.py",
+      "sha256": "0b778bbc5ae2f9a4bb0841a5af611f632a611e9177c37c1d7e21a8a681711053",
+      "git_blob_sha1": "cd2bb1b0f0d6944da7606b626b28d748577e79d3"
+    },
+    {
+      "old_path": "scripts/phases/v21/run_sequence_transformer_v21.py",
+      "path": "archives/research-history/scripts/phases/v21/run_sequence_transformer_v21.py",
+      "sha256": "b41103f882a69c4ecd49e716fafde9c7ba6916dc142535f3ccf3fe1498a99d46",
+      "git_blob_sha1": "70c4d8e7dcb0ceec501ba5425dcff601da8f4a79"
+    },
+    {
+      "old_path": "scripts/phases/v22/run_decoder_lm_v22.py",
+      "path": "archives/research-history/scripts/phases/v22/run_decoder_lm_v22.py",
+      "sha256": "6ffd051ad5098fec9aebfe307fe27c0ef35c870930727f3ae4c669822a245fd3",
+      "git_blob_sha1": "50a6d3ee29de1bd3c950c31c6cfd3ec3af166bcc"
+    },
+    {
+      "old_path": "scripts/phases/v23/run_realtext_confirm_v23.py",
+      "path": "archives/research-history/scripts/phases/v23/run_realtext_confirm_v23.py",
+      "sha256": "0f0188578360328402d704897db8b36e85e3c015be5b0782ac181bf10bc8a006",
+      "git_blob_sha1": "bc35b9e617523f370d16285047c33b806172765d"
+    },
+    {
+      "old_path": "scripts/phases/v23/run_realtext_lm_v23.py",
+      "path": "archives/research-history/scripts/phases/v23/run_realtext_lm_v23.py",
+      "sha256": "7bb284ff0812b38766cd96011772502a8a411751c3692f94f5b1b629b52a1cf2",
+      "git_blob_sha1": "a465e0b09516700a8b028e4e542dba0567bb5d62"
+    },
+    {
+      "old_path": "scripts/replication/vit_compositional.py",
+      "path": "scripts/replication/vit_compositional.py",
+      "sha256": "4492d30fcba6c9b496e5cad9f649ab1209abfd45093f8e1d1aac6e2bf838af93",
+      "git_blob_sha1": "18bc0e8c96265c822535ff5765771c5ac1d22680"
+    },
+    {
+      "old_path": "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+      "path": "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+      "sha256": "70407ed11607c409f4b24664d5a1dc9099f494b8136526c128b6a12098fea1bb",
+      "git_blob_sha1": "8759933ed2bb95014c3afc835acafa1743e40ea6"
+    },
+    {
+      "old_path": "scripts/reproduce/g7_confirmatory/requirements.txt",
+      "path": "scripts/reproduce/g7_confirmatory/requirements.txt",
+      "sha256": "771d692e6822e59e44173d38eac037c7f99791f285a2c8eea63f407a9d989767",
+      "git_blob_sha1": "5b7cf1e09a8dca6b9f8fe3d85cea14e379d0d4be"
+    },
+    {
+      "old_path": "scripts/reproduce/g7_confirmatory/run_seed.py",
+      "path": "scripts/reproduce/g7_confirmatory/run_seed.py",
+      "sha256": "df419b7de9b1b795ed26be301da8550f7fb9cfd89378db0a17665e0e8847c975",
+      "git_blob_sha1": "61d8f2c4acce2d9e21daae7680be250ed21a27a9"
+    },
+    {
+      "old_path": "scripts/reproduce/g7_confirmatory/runtime_poc.py",
+      "path": "scripts/reproduce/g7_confirmatory/runtime_poc.py",
+      "sha256": "ead51c877fb250059c4190e2d06cd64dd1994d36e16242cf57e498aedd2af498",
+      "git_blob_sha1": "5911bbfbcd9d26d36d95426147c5fedf79ee2c2c"
+    }
+  ]
+}
