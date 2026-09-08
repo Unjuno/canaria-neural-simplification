@@ -1,0 +1,80 @@
+name: publication-validation
+on:
+  push:
+    branches: [maintenance/publication-surface-2026-09-08]
+    paths:
+      - '.github/workflows/publication-validation.yml'
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  publication-validation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export exact source and non-sensitive review metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/publication-source /tmp/publication-validation
+          git archive --format=tar.gz HEAD > /tmp/publication-source/source.tar.gz
+          git rev-parse HEAD > /tmp/publication-source/source-commit.txt
+          git ls-tree -r HEAD > /tmp/publication-source/git-tree.txt
+          python3 - <<'PY'
+          import json,os,urllib.request
+          from pathlib import Path
+          base='https://api.github.com/repos/Unjuno/canaria-neural-simplification/'
+          out=Path('/tmp/publication-source')
+          for name,endpoint in [('open-pulls','pulls?state=open&per_page=100'),('open-issues','issues?state=open&per_page=100'),('releases','releases?per_page=20')]:
+              req=urllib.request.Request(base+endpoint,headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+os.environ['GH_TOKEN']})
+              data=json.load(urllib.request.urlopen(req,timeout=60))
+              (out/(name+'.json')).write_text(json.dumps(data,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: publication-source-before-edit
+          path: /tmp/publication-source/
+          retention-days: 90
+          if-no-files-found: error
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install recorded CPU environment
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
+          python -m pip install -e .
+          python - <<'PY'
+          import importlib.metadata as m,platform,torch
+          assert platform.python_version_tuple()[:2]==('3','11')
+          for n,v in [('numpy','2.4.6'),('scikit-learn','1.9.0'),('torch','2.13.0')]:
+              assert m.version(n).split('+')[0]==v,(n,m.version(n))
+          assert torch.version.cuda is None
+          print(torch.__config__.show())
+          PY
+          python -m pip freeze > /tmp/publication-validation/pip-freeze.txt
+          lscpu > /tmp/publication-validation/lscpu.txt
+          uname -a > /tmp/publication-validation/os.txt
+      - name: Existing software and repository audits
+        run: |
+          python -m unittest discover -s tests -v
+          python tools/audit_repo.py
+      - name: Reproduce the entire already-observed headline cohort
+        run: |
+          python scripts/reproduce/core_discovery_digits/verify_confirmatory.py --out /tmp/publication-validation/core-cohort-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-validation-report
+          path: /tmp/publication-validation/
+          retention-days: 90
+          if-no-files-found: error
