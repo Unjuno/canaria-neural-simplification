@@ -8,9 +8,9 @@ Canaria asks whether a trained neural-network span can be replaced by a smaller 
 
 **This is a research preview, not a universal compression method or a production inference library.** `main` provides the baseline experiment and a bounded evidence registry. Newer experiments are indexed separately at immutable commits; linking them does not promote them into the headline claim.
 
-> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
+> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional 8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
 
-## Start with one reproducible result
+## Start with the recorded result and its reproduction status
 
 In the recorded **residual-MLP / sklearn digits / first-two-block** experiment, the composed replacement needed fewer learned replacement parameters in all eight model seeds. “Minimum” means the smallest passing point on the tested budget grid, not a mathematical minimum.
 

@@ -8,7 +8,7 @@ The repository is already public. Announcement readiness is separate from reposi
 
 ## What belongs to the headline
 
-Only the baseline residual-MLP / digits / first-two-block component-wise-versus-composed experiment is the primary reproducible headline for this preview. Its original eight model seeds and outcomes are unchanged. [Claim registry](docs/CLAIMS_AND_EVIDENCE.md)
+Only the baseline residual-MLP / digits / first-two-block component-wise-versus-composed experiment is the proposed headline for this preview, with its reproduction discrepancy disclosed. Its original eight model seeds and outcomes are unchanged. [Claim registry](docs/CLAIMS_AND_EVIDENCE.md)
 
 The baseline included other bounded results after the recorded 2026-08-26 re-review. They remain inspectable, but are not all advertised as independently rerun in this publication preparation.
 
