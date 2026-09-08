@@ -1,13 +1,7 @@
 # Environment records
 
-This directory preserves environment/provenance material for older research snapshots.
+The headline reproduction targets Python3.11 / PyTorch2.13.0 CPU / NumPy2.4.6 / scikit-learn1.9.0. Install using [Quickstart](../QUICKSTART.md), not the unpinned general research requirements.
 
-Current contents are under `history/v10/` and include:
+The workflow records the actual Python patch version, OS, CPU, framework build and `pip freeze` alongside each repeat run. Pinning selected numerical dependencies is not a hermetic environment or a promise of cross-platform bitwise identity.
 
-- `REPRODUCIBILITY_LIMITS.md` — limitations of the recorded historical environment;
-- `current_audit_environment.json` — captured audit-environment metadata;
-- `requirements_inferred.txt` — inferred historical dependencies.
-
-These files are historical evidence, not the recommended installation path for current reusable code. For current setup use repository-root `pyproject.toml` / `requirements.txt` and the relevant reproduction runner documentation.
-
-Do not edit historical environment records to match a modern machine. If a clean-port reproduction needs different dependencies, record that environment alongside the new reproduction instead.
+[Historical environment records](../archives/research-history/environment/history/) are unchanged and are not backfilled with present-day package versions.

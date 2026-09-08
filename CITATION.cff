@@ -1,22 +1,18 @@
 cff-version: 1.2.0
-message: "If you use Canaria in research, please cite this repository snapshot and the specific experiment protocol/result files used."
+message: "Cite the exact repository commit and the specific experiment protocol/result files. This rolling research preview is not a peer-reviewed paper."
 title: "Canaria Neural Simplification"
 type: software
 authors:
   - name: "Unjuno"
 repository-code: "https://github.com/Unjuno/canaria-neural-simplification"
 license: Apache-2.0
-date-released: 2026-08-25
-version: 0.2.0
 abstract: >-
-  Research snapshot on task-conditioned compositional simplification of learned neural computation,
-  training-time consolidation and recontracting, public reproducibility, and a bounded CPU-only
-  serialization/materialization/direct-execution proof of concept.
+  Research code and auditable evidence for task-conditioned compositional
+  simplification of learned neural computations. The baseline, separately indexed
+  experiments, negative results, and invalidated history have explicit scopes.
+  No universal compression or general hardware-resource advantage is claimed.
 keywords:
   - neural-network simplification
   - compositional simplification
-  - model compression
-  - training-time consolidation
   - functional replacement
-  - neural compilation
-  - reproducibility
+  - reproducible research

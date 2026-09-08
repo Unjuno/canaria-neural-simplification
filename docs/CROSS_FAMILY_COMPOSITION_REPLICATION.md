@@ -1,5 +1,8 @@
 # Direct cross-family replication of compositional simplification
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 ## Purpose
 
 This experiment tests the core operational phenomenon in a Small Vision Transformer on `sklearn` digits:

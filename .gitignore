@@ -18,3 +18,7 @@ outputs/
 checkpoints/
 *.pt
 *.pth
+
+# Local reproduction outputs (never original evidence)
+outputs/
+.venv/

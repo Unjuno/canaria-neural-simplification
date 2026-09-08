@@ -1,0 +1,30 @@
+name: Reproduction mismatch
+description: Report an exact-command and environment mismatch without changing the protocol.
+title: "[Reproduction] "
+body:
+  - type: input
+    id: commit
+    attributes:
+      label: Exact commit and experiment
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Python, packages, CPU/device, OS, threads
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and seeds
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Expected and observed results, report and logs
+      description: Remove tokens and personal data. Include failed seeds; do not replace them.
+    validations:
+      required: true

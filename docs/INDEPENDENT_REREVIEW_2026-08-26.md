@@ -1,6 +1,6 @@
 # Independent pre-publication re-review — 2026-08-26
 
-This is the independent quality-gate review required by `REVIEW_HANDOFF.md` and GitHub Issue #9. It is a claim audit, not a new research phase.
+This is the independent quality-gate review required by `archives/reviews/REVIEW_HANDOFF_2026-08-26.md` and GitHub Issue #9. It is a claim audit, not a new research phase.
 
 ## Review rule
 

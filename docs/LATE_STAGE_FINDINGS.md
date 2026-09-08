@@ -1,5 +1,8 @@
 # Late-stage findings: G18–G27
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 This document summarizes the mechanism/controller experiments run after the G7–G17 training-time consolidation mainline.
 
 These results use the same small real-text character-LM testbed unless stated otherwise. They should not be read as evidence for large pretrained language models.

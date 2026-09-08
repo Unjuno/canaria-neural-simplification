@@ -1,0 +1,17 @@
+{
+  "evidence_class": "post_hoc_repeatability_diagnostic_of_known_seeds",
+  "same_local_version_stack": true,
+  "records": [
+    {
+      "seed": 1202,
+      "byte_identical": true,
+      "sha256": "cb38193d5774c8a67fe763bd256faa4ea80e02dfda334cccfe00e37c1833a3e2"
+    },
+    {
+      "seed": 1205,
+      "byte_identical": true,
+      "sha256": "76a89b495cf77c156f6d9aaabafbb9966d8719a70d5a5317941c0ce0cabaec29"
+    }
+  ],
+  "not_independent_scientific_replication": true
+}

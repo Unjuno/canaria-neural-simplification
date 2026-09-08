@@ -1,24 +1,7 @@
-# Residual-MLP direct composition reproduction
+# Baseline digits reproduction
 
-This is the smallest public runner that directly tests Canaria's central empirical pattern.
+Follow [Quickstart](../../../QUICKSTART.md). `run_confirmatory.py` is the preserved outcome-producing runner. `verify_confirmatory.py` reruns the original1200–1207 cohort and compares the locked summary. It is a reproduction utility, not a new experimental protocol.
 
-```bash
-python -m pip install numpy torch scikit-learn
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
-  --seed 1200 \
-  --out /tmp/canaria_seed1200.json
-```
+Pinned numerical environment: Python3.11, NumPy2.4.6, scikit-learn1.9.0, PyTorch2.13.0 CPU. Install CPU torch from the official CPU index before the pinned requirements. Run from the repository root. Use `--raw-dir outputs/core-cohort-raw` to retain every output/log; never overwrite original evidence.
 
-Recorded confirmatory seed `1200`:
-
-```text
-component-wise selected budget = 3072
-composed selected budget       = 1536
-log2 ratio                     = -1.0
-```
-
-The runner uses the same validation-only minimum-passing-budget rule as the locked residual-MLP replication. The test set is not used to choose the budget.
-
-For the full locked 8-seed result, see [`../../../results/core_discovery_digits/confirm_summary.json`](../../../results/core_discovery_digits/confirm_summary.json).
-
-For interpretation and the fixed-2048-parameter functional-boundary control, see [`../../../docs/CORE_DISCOVERY_REPLICATION_DIGITS.md`](../../../docs/CORE_DISCOVERY_REPLICATION_DIGITS.md).
+Tests cover missing/duplicate/incomplete cohorts, exact budget mismatch, nonfinite statistics and numerical tolerances. A PASS is limited to the recorded platform and unchanged protocol; other CPU/OS/backend versions may differ.

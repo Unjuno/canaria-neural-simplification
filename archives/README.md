@@ -1,7 +1,20 @@
-# Research snapshot note
+# Archives: preserved, not current instructions
 
-A curated local snapshot was built during repository initialization (835 text/data files; SHA256 `2e9930a3d1120f4f36ae1db2817bfcb70f8de5ef60c62351e7bb227117aea5fc`).
+**Archived does not mean false.** These are historical protocols, outcomes, scripts, plans and past release/review gates. Evidence status comes from the protocol and later correction record, not a directory version number.
 
-The binary ZIP itself is **not** committed here. The public Git tree is the canonical source: high-value protocols, integrated findings, claim/evidence registries, locked confirmatory summaries, and representative implementations are being stored as normal reviewable files rather than hidden inside a binary archive.
+| Old location | Retained location |
+|---|---|
+| `docs/history/`, `docs/phases/` | `research-history/docs/` |
+| `results/history/`, `results/phaseA_v11/`, `results/phaseB_v11/`, `results/v12/`–`v25/` | `research-history/results/` |
+| `scripts/phases/v11/`, `v17/`–`v23/` | `research-history/scripts/phases/` |
+| `environment/history/` | `research-history/environment/history/` |
+| Earlier broad planning/status documents | `research-history/legacy-docs/` |
+| Root `REVIEW_HANDOFF.md` | `reviews/REVIEW_HANDOFF_2026-08-26.md` |
+| Previous baseline claim registry | `reviews/CLAIMS_AND_EVIDENCE_2026-08-26.md` |
+| Old snapshot/checklist/citation | `releases/v0.2.0/` |
 
-This directory records the snapshot checksum only for provenance; it must not be interpreted as a downloadable in-repository archive.
+[Exact per-file path map](../publication/PATH_MIGRATION.json) · [Preservation hashes](../publication/PRESERVATION_MANIFEST.json) · [Current claims](../docs/CLAIMS_AND_EVIDENCE.md)
+
+Moved files keep their original bytes. Consequently archived documents may contain stale relative links, historical package versions, or “next experiment” instructions. Resolve old paths with the map or inspect the original commit. Do not treat historical closure language as the current announcement gate.
+
+The immutable `v0.2.0-public-snapshot` tag is unchanged. `canaria_public_research_snapshot.zip.sha256` is historical provenance, not the current checkout's checksum. Active Phase2 invalidation/correction records remain under `results/phase2/`; they have not been hidden or deleted.

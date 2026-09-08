@@ -1,5 +1,8 @@
 # Direct replication of compositional simplification on a residual MLP
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 This document records the fresh residual-MLP component-wise-versus-composed experiment. It is the strongest public matched-budget replication in the current repository.
 
 ## Question

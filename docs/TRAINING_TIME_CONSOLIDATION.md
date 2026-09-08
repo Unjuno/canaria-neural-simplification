@@ -1,5 +1,8 @@
 # Training-time functional consolidation — corrected Canaria mainline
 
+> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+
+
 Date: 2026-08-24
 
 ## 1. Research correction
@@ -309,4 +312,4 @@ The stable G11 policy commits based on current functional NMSE. G13–G17 show t
 
 The next high-value test is therefore a recontracting-aware policy that estimates expected recovery after commit and chooses among candidate consolidations without test-set access.
 
-See `docs/NEXT_EXPERIMENTS_AUTONOMOUS.md`.
+See `archives/research-history/legacy-docs/NEXT_EXPERIMENTS_AUTONOMOUS.md`.

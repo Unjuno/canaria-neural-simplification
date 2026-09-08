@@ -11,11 +11,18 @@ ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
 
 
+def retained(path: Path) -> bool:
+    return not any(x in path.relative_to(ROOT).parts for x in (".git", ".venv", "venv", "__pycache__", ".pytest_cache", "build", "dist", "outputs"))
+
+
+
 def rel(path: Path) -> str:
     return str(path.relative_to(ROOT))
 
 
 for p in ROOT.rglob("*.py"):
+    if not retained(p):
+        continue
     if ".git" in p.parts:
         continue
     try:
@@ -24,12 +31,16 @@ for p in ROOT.rglob("*.py"):
         errors.append(f"python syntax: {rel(p)}: {exc}")
 
 for p in ROOT.rglob("*.json"):
+    if not retained(p):
+        continue
     try:
         json.loads(p.read_text(encoding="utf-8"))
     except Exception as exc:
         errors.append(f"json: {rel(p)}: {exc}")
 
 for p in ROOT.rglob("*.csv"):
+    if not retained(p):
+        continue
     try:
         with p.open(newline="", encoding="utf-8") as f:
             list(csv.reader(f))
@@ -40,13 +51,13 @@ required = [
     ROOT / "README.md",
     ROOT / "QUICKSTART.md",
     ROOT / "STATUS.md",
-    ROOT / "REVIEW_HANDOFF.md",
+    ROOT / "archives/reviews/REVIEW_HANDOFF_2026-08-26.md",
     ROOT / "CHANGELOG.md",
     ROOT / "LICENSE",
     ROOT / "CITATION.cff",
     ROOT / "CONTRIBUTING.md",
     ROOT / "docs/README.md",
-    ROOT / "docs/PUBLIC_SNAPSHOT.md",
+    ROOT / "archives/releases/v0.2.0/PUBLIC_SNAPSHOT.md",
     ROOT / "docs/HISTORICAL_INDEX.md",
     ROOT / "docs/CORE_DISCOVERY.md",
     ROOT / "docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md",
@@ -64,9 +75,9 @@ required = [
     ROOT / "docs/OPEN_QUESTIONS.md",
     ROOT / "docs/REPRODUCIBILITY.md",
     ROOT / "docs/ROADMAP.md",
-    ROOT / "docs/RELEASE_CHECKLIST.md",
+    ROOT / "archives/releases/v0.2.0/RELEASE_CHECKLIST.md",
     ROOT / "docs/phase2/README.md",
-    ROOT / "results/phaseA_v11/stage3_confirmatory_summary.json",
+    ROOT / "archives/research-history/results/phaseA_v11/stage3_confirmatory_summary.json",
     ROOT / "results/training_time/summary.json",
     ROOT / "results/training_time/protocol_manifest.json",
     ROOT / "results/training_time/late_stage_summary.json",
@@ -94,7 +105,7 @@ for p in required:
     if not p.exists():
         errors.append(f"missing required file: {rel(p)}")
 
-public_markdown = [p for p in required if p.suffix == ".md"]
+public_markdown = [p for p in required if p.suffix == ".md" and "archives" not in p.relative_to(ROOT).parts]
 md_link = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 for p in public_markdown:
     if not p.exists():

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-09-08",
+  "baseline_promotion": false,
+  "entries": [
+    {
+      "id": "recursive-composition",
+      "class": "RESEARCH_INTEGRATION_NOT_HEADLINE",
+      "commit": "e19744607945932593791c11f43882dfc547bed6",
+      "paths": [
+        "docs/RECURSIVE_COMPOSITION.md",
+        "results/recursive_composition",
+        "scripts/recursive_composition"
+      ],
+      "review": "56",
+      "scope": "Recursive composition and span-scoped SmallViT studies. Separate from the baseline first-two-block direct comparison; no universal interface or full-model Transformer claim."
+    },
+    {
+      "id": "systems-S1-S7",
+      "class": "SYSTEMS_POC_NOT_HEADLINE",
+      "commit": "e19744607945932593791c11f43882dfc547bed6",
+      "paths": [
+        "docs/SYSTEMS_RUNTIME.md",
+        "results/systems",
+        "scripts/systems"
+      ],
+      "review": "56",
+      "scope": "Explicitly managed application arenas and runtime prototypes are not total-process RAM, physical MCU execution or general GPU/energy results."
+    },
+    {
+      "id": "C59-C61-import",
+      "class": "IMPORTED_WITH_PROVENANCE_GAP",
+      "commit": "f5b018f5e02eb2e9918d41b51ef3a5553cc95716",
+      "paths": [
+        "docs/GAUSSIAN_SHIFT_INTERFACE.md",
+        "results/gaussian_shift_interface/HANDOFF_C59_C60.json",
+        "results/gaussian_shift_interface/c61/IMPORTED_PROTOCOL.json"
+      ],
+      "review": "68",
+      "scope": "Imported Residual-CNN C59/C60 and unresolved original C61. C61R+ is a different Residual-MLP line; it does not recover the original experiment."
+    },
+    {
+      "id": "C61R-C74E",
+      "class": "MIXED_RESEARCH_CLASSES",
+      "commit": "45f694e816b84f95c86f45e28c69861ef7ec48b8",
+      "paths": [
+        "results/gaussian_shift_interface",
+        "scripts/gaussian_shift_interface",
+        "results/gaussian_shift_interface/c74e/RESULT.md"
+      ],
+      "review": "82",
+      "scope": "Low-shift relative non-inferiority, target-validity limits, calibration and pipeline controls. Read each protocol; not every suffix denotes confirmation. Non-inferiority failure is not automatically established inferiority."
+    },
+    {
+      "id": "QR-order-diagnostic",
+      "class": "POST_HOC_MECHANISM_DIAGNOSTIC",
+      "commit": "33957c496460bdb1aeb870c82f7948dae8289ef8",
+      "paths": [
+        "docs/QR_PREFIX_ORDER_DIAGNOSTIC.md",
+        "diagnostics/QR_DIAGNOSTIC_SUMMARY.json",
+        "diagnostics/qr_prefix_diagnostic.py"
+      ],
+      "review": "83",
+      "scope": "Unpivoted QR prefixes are order-dependent under the documented rank assumptions. This is established linear algebra and a construction diagnostic, not a new theorem or a classification advantage."
+    },
+    {
+      "id": "C75E",
+      "class": "PROSPECTIVE_EXPLORATORY",
+      "commit": "464ae6c3de7948725b1cf6c5791a411f91ac0aca",
+      "paths": [
+        "results/gaussian_shift_interface/c75e/PROTOCOL.json",
+        "results/gaussian_shift_interface/c75e/RESULT.md",
+        "docs/C75E_OBSERVABLE_SUBSPACE.md"
+      ],
+      "review": "84",
+      "scope": "Basis/geometry exploration. Head9 was sufficient in this cohort, not proven minimal; head8 and residual-SVD8 also passed. Learned-fit error remains despite an ideal output-preserving projection."
+    },
+    {
+      "id": "C76R",
+      "class": "PROSPECTIVE_CONFIRMATORY_NOT_BASELINE_PROMOTED",
+      "commit": "130d14b340611e0793a74b593862d2740f5422ad",
+      "paths": [
+        "results/gaussian_shift_interface/c76r/PROTOCOL.json",
+        "results/gaussian_shift_interface/c76r/DECISION.json",
+        "results/gaussian_shift_interface/c76r/RESULT.md"
+      ],
+      "review": "85",
+      "scope": "Head-derived9 versus P64: accuracy difference -0.231482pp (95% -0.787038 to +0.347221), hidden NMSE ratio1.139064 (1.119058 to1.159426), protocol PASS. Candidate-to-teacher -5pp absolute safeguard NOT established in this cohort. Fixed digits split, sigma0.36, N384,4096 final parameters; no whole-model or measured communication compression."
+    },
+    {
+      "id": "C77E",
+      "class": "PROSPECTIVE_EXPLORATORY",
+      "commit": "fcef9b538f3af5ba5ebe318e17b630f1e8e6d3e8",
+      "paths": [
+        "results/gaussian_shift_interface/c77e/PROTOCOL.json",
+        "results/gaussian_shift_interface/c77e/RESULT.md",
+        ".github/workflows/head-rank-evidence-audit.yml"
+      ],
+      "review": "86",
+      "scope": "N384 and N512 head9 passed absolute safeguards in this cohort; N512 head9 accuracy gain +0.324075pp (95% -0.162036 to +0.810186) was not established. Does not rewrite C76R uncertainty or prove a sample minimum."
+    },
+    {
+      "id": "regression-external-validity",
+      "class": "RESEARCH_EXCLUDED_FROM_HEADLINE",
+      "commit": "d57330e07a68d8b4105a22c0c02ae2a8bb6754e8",
+      "paths": [],
+      "review": "15",
+      "review_type": "issues",
+      "scope": "Stronger-teacher regression work remains separate. Target quality and external validity are not accepted as a headline by this preview."
+    }
+  ]
+}

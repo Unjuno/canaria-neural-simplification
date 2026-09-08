@@ -21,14 +21,15 @@ python -m pip install -e .
 python tools/audit_repo.py
 ```
 
-GitHub CI also runs unit tests and `tools/audit_repo.py`. The independent-review branch additionally requires a minimal public residual-MLP runner smoke test before Issue #9 can close.
+GitHub CI also runs unit tests and `tools/audit_repo.py`. The publication workflow also repeats the complete recorded core cohort. Issue #9 is historical; the current gate is Issue #13 and `ANNOUNCEMENT_READINESS.md`.
 
 An integrity PASS means repository syntax, schemas, required files, correction invariants, and selected semantic guards are consistent. It is **not** a claim that every historical experiment is bitwise reproducible.
 
 ## Preferred minimal scientific entry point — residual MLP
 
 ```bash
-python -m pip install numpy torch scikit-learn
+python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
 python scripts/reproduce/core_discovery_digits/run_confirmatory.py \
   --seed 1200 \
   --out /tmp/canaria_seed1200.json
@@ -39,7 +40,7 @@ Recorded seed 1200 selects:
 - component-wise: `3072` learned replacement parameters;
 - composed: `1536`.
 
-This public runner has the stronger test-isolation pattern: replacements are fitted from training activations, validation selects the minimum passing budget, and test is evaluated only for the selected endpoint.
+This public runner has the stronger test-isolation pattern: replacements are fitted from training activations, validation selects the minimum passing budget, and candidate test is evaluated at selected endpoints; teacher and a prespecified mechanistic control also have test metrics. Test values are not used by budget selection.
 
 ## SmallViT replication isolation note
 
@@ -149,15 +150,12 @@ Historical code may contain environment-specific paths. Preserve such code as pr
 
 ## Current publication-quality gate
 
-The 2026-08-26 independent re-review is tracked by Issue #9 and `INDEPENDENT_REREVIEW_2026-08-26.md`.
+See [ANNOUNCEMENT_READINESS.md](ANNOUNCEMENT_READINESS.md) and [Quickstart](../QUICKSTART.md). The current headline targets Python3.11 and pinned CPU numerical dependencies. A complete environment record is saved alongside the reproduction. [PyTorch documents](https://docs.pytorch.org/docs/stable/notes/randomness.html) that bitwise reproducibility is not guaranteed across versions/platforms. Do not promise CPU/GPU parity from equal seeds.
 
-Before that issue closes, the reviewed branch must have:
+The historical re-review ledger is retained; new numerical audits do not constitute independent external scientific review. Recent research is linked through [immutable commits](RESEARCH_INDEX.md) and is not automatically part of the headline.
 
-1. corrected public claims;
-2. explicit Phase 2E invalidation history;
-3. minimal public-runner smoke PASS;
-4. `python tools/audit_repo.py` PASS;
-5. GitHub `repository-audit` PASS;
-6. root public-surface status updated to the actual completed-review state.
+Fixed update count600 with batch128 already fixes total sampled-example draws at76800. Calibration and validation NMSE can have different denominators; do not subtract them as if they were a common-scale generalization gap. A failed non-inferiority gate need not establish inferiority.
 
-Issues #2 and #3 are historical completed work, not current closure blockers. PR #7 and the v0.2.0 release/tag boundary remain separate repository-state gates after Issue #9.
+## Current core discrepancy
+
+The full-cohort check found a strict mismatch in two version/platform stacks. [Evidence and limitation](REPRODUCTION_DISCREPANCY.md). Do not substitute the one-seed smoke result or a qualitative8/8 agreement for exact numerical reproduction.

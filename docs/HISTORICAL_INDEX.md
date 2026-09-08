@@ -1,70 +1,7 @@
-# Historical document index
+# Historical index
 
-Canaria intentionally preserves earlier roadmaps, theory drafts, transfer plans, and experiment ledgers. These files are useful for provenance, but they are **not all current project instructions**.
+Legacy versioned protocols/results/scripts, old generalization plans, and past release/review gates are under [archives](../archives/README.md). Their original contents are preserved; old internal links may need the [path map](../publication/PATH_MIGRATION.json).
 
-Use `README.md` in this directory, `PUBLIC_SNAPSHOT.md`, `CLAIMS_AND_EVIDENCE.md`, repository-root `STATUS.md`, and `../REPOSITORY_LAYOUT.md` for the current reviewed repository state.
+Use the [current claim registry](CLAIMS_AND_EVIDENCE.md), [research index](RESEARCH_INDEX.md), [status](../STATUS.md), and [announcement gate](ANNOUNCEMENT_READINESS.md) for current decisions. “Next experiment”, “publication complete”, or “only Issue N remains” inside an archived file describes its historical moment.
 
-## Current authoritative documents
-
-- `README.md` — documentation-directory index.
-- `PUBLIC_SNAPSHOT.md` — reading order and snapshot policy.
-- `CORE_DISCOVERY.md` — central discovery and scope.
-- `CLAIMS_AND_EVIDENCE.md` — current claim registry.
-- `PUBLICATION_NOTES.md` — publication-safe claim hierarchy.
-- `TRAINING_TIME_CONSOLIDATION.md` — G7–G17 evidence.
-- `LATE_STAGE_FINDINGS.md` — G18–G27 evidence.
-- `NEGATIVE_RESULTS.md` — current negative/boundary registry.
-- `TERMINOLOGY.md` — current definitions.
-- `FAQ.md` — interpretation boundaries.
-- `APPLICATIONS.md` — application directions separated by evidence status.
-- `RUNTIME_POC.md` — bounded small-model CPU systems PoC.
-- `REPRODUCIBILITY.md` — current reproduction policy and portable G7 path.
-- `ROADMAP.md` — current research-governance / future-work handoff.
-- `OPEN_QUESTIONS.md` — unresolved questions for future research phases.
-
-## Historical closure records
-
-Earlier issues and checklists document the work required to reach the reviewed public baseline. They are closure provenance, not a live backlog. In particular, old statements such as “only Issue #N remains” should be interpreted at the time they were written.
-
-For current work in progress, consult open GitHub issues and pull requests. Post-publication research belongs to its own issue/branch/PR and does not become part of the public claim registry merely by existing in the repository.
-
-## Preserved historical planning / status documents
-
-### `GENERALIZATION_ROADMAP.md`
-
-A prespecified cross-architecture transfer roadmap written before later G5/G6/v23–v25 and training-time consolidation results were known. Its adaptation taxonomy remains useful, but its listed future sequence is historical rather than a current commitment.
-
-### `GENERALIZATION_STATUS.md`
-
-The historical transfer ledger through the post-hoc Transformer/natural-text program. Its “next tests” section records the frontier at that time. Statements such as the old clean-room-reproduction status reflect that historical moment and are superseded by current `STATUS.md` / `REPRODUCIBILITY.md`.
-
-### `NEXT_EXPERIMENTS_AUTONOMOUS.md`
-
-A planning document from the G18/G19 frontier. Those experiments have since been run; current outcomes are in `LATE_STAGE_FINDINGS.md` and `results/training_time/late_stage_summary.json`.
-
-### `RESEARCH_SUMMARY.md`
-
-A broad historical summary. Useful for chronology and provenance; not the shortest route to the current claims.
-
-### `KNOWLEDGE_MAP.md`
-
-Earlier conceptual organization of mechanisms and open questions. Treat as historical theory context, not as the current claim registry.
-
-### `DATA_DICTIONARY.md`
-
-Definitions for historical result tables and fields. Still useful when reading archived phase outputs.
-
-### `REVIEW_HANDOFF.md` at repository root
-
-The publication-review handoff used for the completed independent re-review. Its stable root path is retained because issues and review records refer to it. It is not a standing instruction to repeat the completed publication gate for every future research phase.
-
-## Phase and history directories
-
-- `docs/phases/` — locked phase protocols/results and detailed evidence.
-- `docs/history/` — preserved handoff/theory documents from earlier snapshots.
-- `results/history/` — historical machine-readable registries and catalogs.
-- `archives/` — retained archival hashes and provenance material.
-
-## Preservation rule
-
-Do not silently rewrite historical protocols, outcome ledgers, or evidence-producing scripts to make them look consistent with later theory. When interpretation changes, add a current document that explains the change and keep the old artifact intact.
+The [original review ledger](INDEPENDENT_REREVIEW_2026-08-26.md) is retained as baseline provenance. Neither that ledger nor the frozen snapshot automatically reviews later C-series experiments.
