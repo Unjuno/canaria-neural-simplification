@@ -1,0 +1,14 @@
+{
+  "kind": "METADATA_LABEL_CORRECTION",
+  "affects": "VALIDATION_GATE.json hosts labels and the initial numeric-profile prose",
+  "incorrect_summary_label": "GitHub D7 host_a/host_b AMD EPYC9V74",
+  "correct_label_from_original_raw_metadata": "GitHub D7 host_a/host_b AMD EPYC7763 64-Core Processor",
+  "local_host": "Intel Xeon E5-2673v4",
+  "explanation": "The original summary accidentally reused the preceding D5 host-model label. D5 hosts actually were EPYC9V74; D7 and R87R2 hosts were EPYC7763. Original raw lscpu metadata and the full cross-host comparison already contain the correct actual models. The protocol required recorded hosts, not a specific AMD model.",
+  "numeric_gate_changed": false,
+  "outcomes_changed": false,
+  "protocol_changed": false,
+  "comparison_sha256_unchanged": "b2b98d5b80a852b39d8f8f801b71ca092926986bdd7a8cdbd511bd8b55030b15",
+  "R87R2_admission_changed": false,
+  "scope": "The exact profile PASS applies to tested IntelE5-2673v4 and two EPYC7763 executions. It does not automatically establish v2 on EPYC9V74 or all CPUs. Preserve the original gate snapshot for chronology; use this correction when displaying host labels."
+}
