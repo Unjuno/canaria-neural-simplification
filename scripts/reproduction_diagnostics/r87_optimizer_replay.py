@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Post-hoc operator replay: same saved first-batch parameters and gradients."""
+"""Post-hoc common-input replay. sqrt64 is a separately labelled intervention."""
 from __future__ import annotations
-import argparse,ctypes,hashlib,importlib.util,inspect,json,math,os,platform,subprocess,sys
+import argparse,hashlib,importlib,importlib.util,inspect,json,math,os,platform,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-def run(trace,seed,out,capability):
+def sha(p):
+    with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def run(trace,seed,out,capability,sqrt64=False):
     os.environ.update(ATEN_CPU_CAPABILITY=capability,MKL_CBWR='COMPATIBLE',OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',MKL_DYNAMIC='FALSE',OMP_DYNAMIC='FALSE')
-    import numpy as np,torch,torch.optim.adam
+    import numpy as np,torch
+    adam_module=importlib.import_module('torch.optim.adam');adam_source=inspect.getfile(adam_module)
     torch.set_num_threads(1);torch.set_num_interop_threads(1);torch.backends.mkldnn.enabled=False;torch.use_deterministic_algorithms(True)
+    original_sqrt=torch.Tensor.sqrt
+    if sqrt64:
+        def guarded_sqrt(t):
+            return original_sqrt(t.to(torch.float64)).to(t.dtype) if t.dtype==torch.float32 else original_sqrt(t)
+        torch.Tensor.sqrt=guarded_sqrt
     spec=importlib.util.spec_from_file_location('science',ROOT/'scripts/reproduce/core_discovery_digits/run_confirmatory.py');r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
     x=np.load(trace,allow_pickle=False);pflat=x['initial_parameters'];gflat=x['first_gradients'];model=r.Net(seed);offset=0;stages={};names={}
     for name,p in model.named_parameters():
@@ -34,9 +41,10 @@ def run(trace,seed,out,capability):
     opt=torch.optim.AdamW(model.parameters(),lr=.002,weight_decay=.0001);opt.step()
     stages['actual_updated_parameters']=flatten(list(model.parameters()))
     stages['actual_first_moment']=flatten([opt.state[p]['exp_avg'] for p in model.parameters()]);stages['actual_second_moment']=flatten([opt.state[p]['exp_avg_sq'] for p in model.parameters()])
+    torch.Tensor.sqrt=original_sqrt
     out.mkdir(parents=True,exist_ok=True);np.savez_compressed(out/'optimizer_arrays.npz',**stages)
     build=Path(torch.__file__).parent/'lib/libtorch_cpu.so'
-    report={'experiment':'R87D6_COMMON_INPUT_OPTIMIZER_REPLAY','evidence_class':'POST_HOC_OPERATOR_REPLAY','seed':seed,'source_sha256':sha(__file__),'input_trace_sha256':sha(trace),'array_sha256':{k:hashlib.sha256(v.tobytes()).hexdigest() for k,v in stages.items()},'manual_matches_actual':bool(np.array_equal(stages['manual_updated_parameters'],stages['actual_updated_parameters'])),'matches_saved_original_step1':bool(np.array_equal(stages['actual_updated_parameters'],x['parameters_step_1'])),'scalars_hex':{k:float(v).hex() for k,v in {'beta1':.9,'beta2':.999,'bc1':bc1,'bc2':bc2,'bc2sqrt_pow':bc2sqrt,'bc2sqrt_sqrt':math.sqrt(bc2),'step_size':step}.items()},'torch':torch.__version__,'torch_cpu_library_sha256':sha(build),'adam_python_sha256':sha(inspect.getfile(torch.optim.adam)),'python':sys.version,'platform':platform.platform(),'libc':platform.libc_ver(),'cpu':subprocess.check_output(['lscpu'],text=True),'effective_capability':torch.backends.cpu.get_cpu_capability(),'parameter_shapes':names}
+    report={'experiment':'R87D6_COMMON_INPUT_OPTIMIZER_REPLAY','evidence_class':'POST_HOC_OPERATOR_REPLAY','seed':seed,'sqrt64':sqrt64,'source_sha256':sha(__file__),'input_trace_sha256':sha(trace),'array_sha256':{k:hashlib.sha256(v.tobytes()).hexdigest() for k,v in stages.items()},'manual_matches_actual':bool(np.array_equal(stages['manual_updated_parameters'],stages['actual_updated_parameters'])),'matches_saved_original_step1':bool(np.array_equal(stages['actual_updated_parameters'],x['parameters_step_1'])),'scalars_hex':{k:float(v).hex() for k,v in {'beta1':.9,'beta2':.999,'bc1':bc1,'bc2':bc2,'bc2sqrt_pow':bc2sqrt,'bc2sqrt_sqrt':math.sqrt(bc2),'step_size':step}.items()},'torch':torch.__version__,'torch_cpu_library_sha256':sha(build),'adam_python_sha256':sha(adam_source),'python':sys.version,'platform':platform.platform(),'libc':platform.libc_ver(),'cpu':subprocess.check_output(['lscpu'],text=True),'effective_capability':torch.backends.cpu.get_cpu_capability(),'parameter_shapes':names}
     (out/'REPORT.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n');print(json.dumps(report),flush=True)
 if __name__=='__main__':
-    a=argparse.ArgumentParser();a.add_argument('--trace',type=Path,required=True);a.add_argument('--seed',type=int,default=1200);a.add_argument('--out',type=Path,required=True);a.add_argument('--capability',choices=('avx2','default'),default='avx2');x=a.parse_args();run(x.trace,x.seed,x.out,x.capability)
+    a=argparse.ArgumentParser();a.add_argument('--trace',type=Path,required=True);a.add_argument('--seed',type=int,default=1200);a.add_argument('--out',type=Path,required=True);a.add_argument('--capability',choices=('avx2','default'),default='avx2');a.add_argument('--sqrt64',action='store_true');x=a.parse_args();run(x.trace,x.seed,x.out,x.capability,x.sqrt64)
