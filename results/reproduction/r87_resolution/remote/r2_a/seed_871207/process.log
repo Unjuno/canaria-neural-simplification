@@ -1,0 +1,3 @@
+MKL_VERBOSE oneMKL 2024.0 Update 2 Product build 20240605 for Intel(R) 64 architecture Intel(R) Architecture processors, Lnx 2.45GHz lp64 gnu_thread
+MKL_VERBOSE SGEMM(N,N,8,8,8,0x7ffde243e050,0x562bbede0280,8,0x562bbe556340,8,0x7ffde243e070,0x562bbee84f80,8) 57.27us CNR:COMPATIBLE Dyn:0 FastMM:1 TID:0  NThr:1
+{"seed": 871207, "mode": "aten_avx2", "capability": "AVX2", "sep": 3072, "comp": 1536, "bridge": false}

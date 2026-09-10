@@ -1,0 +1,9 @@
+{
+  "experiment": "R87R1_FRESH_PROFILE_CONFIRMATION",
+  "execution_status": "NOT_RUN_PRECONDITION_FAILED",
+  "fresh_seeds_consumed": 0,
+  "scientific_decision": null,
+  "reason": "R87D5 portable_v1 differs between the local Intel host and GitHub AMD hosts. In completed known1200 records, data/init/RNG, first logits and first gradients agree, but the first optimizer update and complete outcome differ. A completed contradictory pair is sufficient to block launching the conditional fresh cohort; the full diagnostic cohorts continue to their fixed completion.",
+  "no_rescue": "No profile amendment or reuse of this confirmation protocol is allowed after this failure. Any validated replacement profile requires a distinct prospective confirmation protocol.",
+  "not_scientific_failure": "This is a precondition stop with zero new-seed outcomes, not a failed confirmation of compositional simplification."
+}

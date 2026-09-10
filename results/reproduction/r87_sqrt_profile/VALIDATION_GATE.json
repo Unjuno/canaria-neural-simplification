@@ -1,0 +1,25 @@
+{
+  "experiment": "R87D7_OPTIMIZER_SQRT64_PROFILE",
+  "decision": "TESTED_HOST_PROFILE_PASS",
+  "comparison_sha256": "b2b98d5b80a852b39d8f8f801b71ca092926986bdd7a8cdbd511bd8b55030b15",
+  "manifest_files_checked": 184,
+  "distinct_known_seeds": 8,
+  "primary_and_repeat_executions": 30,
+  "independent_new_seed_count": 0,
+  "hosts": ["local Intel Xeon E5-2673v4", "GitHub host_a AMD EPYC9V74", "GitHub host_b AMD EPYC9V74"],
+  "all_three_host_pairs_exact": true,
+  "all6_within_host_repeats_exact": true,
+  "scope": "Scientific result objects, teacher/fit state hashes, data/init/RNG and saved numeric arrays; not timestamps/host metadata",
+  "original_scientific_runner_unchanged": true,
+  "historical_archive_recovered": false,
+  "known_cohort_mean_budgets": [3584,1728],
+  "known_cohort_geometric_ratio": 0.49269248609417793,
+  "known_cohort_archive_mismatch_seeds": [1202,1203,1204,1205,1206,1207],
+  "source_commit": "a5e2cf5bafd099332e0b354fa8adf01d3771cdd9",
+  "protocol_lock_commit": "341c84f64e7e16ce7ce8f0cc8a59a64fe58bcad0",
+  "workflow_run_id": 34530338267,
+  "artifacts": [
+    {"id":10173361557,"name":"r87d7-host-a","sha256":"226c0340715eb5ea42482bc8a00fd9643a5e8b0e3b69e635c7bd3ada8f1ba587"},
+    {"id":10173364169,"name":"r87d7-host-b","sha256":"481987cf5b9ed3a7f79fb5f9c14591c7eb05a092e9f1e3351692bbb6086c4ce0"}
+  ]
+}

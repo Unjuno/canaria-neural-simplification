@@ -1,0 +1,43 @@
+{
+  "attempted": 16,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 87122026,
+  "composed_lower_count": 15,
+  "decision": "R87R2_CONFIRMATORY_PASS",
+  "eligible": 16,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "experiment": "R87R2_FRESH_SQRT_PROFILE_CONFIRMATION",
+  "geometric_budget_ratio": 0.531609887796847,
+  "geometric_budget_ratio_ci95": [
+    0.48590312807994,
+    0.5946035575013605
+  ],
+  "historical_archive_recovered": false,
+  "independent_dataset": false,
+  "mean_componentwise_budget": 3392.0,
+  "mean_composed_budget": 1824.0,
+  "primary_log2_budget_ratio": {
+    "bootstrap_se": 0.07391253148282638,
+    "ci95": [
+      -1.041259374819711,
+      -0.75
+    ],
+    "mean": -0.9115601562950723,
+    "median": -1.0,
+    "status": "PASS"
+  },
+  "secondary_test_accuracy_difference": {
+    "bootstrap_se": 0.001843580170548667,
+    "ci95": [
+      0.000277787446975708,
+      0.007500011567026376
+    ],
+    "mean": 0.0037500113248825073,
+    "median": 0.0022222399711608887,
+    "status": "PASS"
+  },
+  "teacher_test_mean": 0.9843055456876755,
+  "teacher_val_mean": 0.9782407395541668,
+  "test_evaluated": true,
+  "test_used_for_selection": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "remote_manifest_files_checked": 522,
+  "remote_primary_repeat_records_checked": 92,
+  "scientific_fingerprints": {
+    "d5_a": "9d67e2cc4b1065fde6ac875e0abc65947a5dd76f30d966dcf9697931f3c75d3e",
+    "d5_b": "9d67e2cc4b1065fde6ac875e0abc65947a5dd76f30d966dcf9697931f3c75d3e",
+    "d7_a": "b2386d52260fb5a8cba0b6503d67822e120fe61fba6bc198e51962ba0e9d25ca",
+    "d7_b": "b2386d52260fb5a8cba0b6503d67822e120fe61fba6bc198e51962ba0e9d25ca",
+    "r2_a": "318b1bc19e3db67a6984ac6f746df40fbb03172c70788fd57a81811a83d74360",
+    "r2_b": "318b1bc19e3db67a6984ac6f746df40fbb03172c70788fd57a81811a83d74360"
+  },
+  "current_intel_receipt_matches_remote_scientific_bytes": true,
+  "current_intel_raw_arrays_location": "Companion session bundle; receipt comparison is not a new execution in CI",
+  "independent_new_model_seeds": 16,
+  "scientific_decision": "R87R2_CONFIRMATORY_PASS",
+  "original_evaluator_exact": true,
+  "separate_primary_bootstrap_exact": true,
+  "original_source_unchanged": true,
+  "historical_archive_recovered": false,
+  "scope": "Data/code audit, not independent scientific peer review or a general hardware theorem"
+}

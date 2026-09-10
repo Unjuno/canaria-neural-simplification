@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+    "/home/runner/work/canaria-neural-simplification/canaria-neural-simplification/scripts/reproduction_diagnostics/r87_profile.py",
+    "--mode",
+    "seed",
+    "--seed",
+    "1205",
+    "--profile",
+    "portable_v1",
+    "--out",
+    "/tmp/r87d5/1205_portable_v1"
+  ],
+  "returncode": 0
+}

@@ -1,0 +1,4 @@
+MKL effective-branch probe follows
+MKL_VERBOSE oneMKL 2024.0 Update 2 Product build 20240605 for Intel(R) 64 architecture Intel(R) Architecture processors, Lnx 2.86GHz lp64 gnu_thread
+MKL_VERBOSE SGEMM(N,N,8,8,8,0x7ffef6336540,0x558920cbb4c0,8,0x55892119a180,8,0x7ffef6336560,0x558920d2e080,8) 67.60us CNR:COMPATIBLE Dyn:0 FastMM:1 TID:0  NThr:1
+{"seed": 1203, "mode": "aten_avx2", "capability": "AVX2", "sep": 3072, "comp": 2048, "bridge": false}

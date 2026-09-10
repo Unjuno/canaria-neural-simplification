@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+    "/home/runner/work/canaria-neural-simplification/canaria-neural-simplification/scripts/reproduction_diagnostics/r87r2_confirm.py",
+    "--mode",
+    "seed",
+    "--seed",
+    "871201",
+    "--out",
+    "/tmp/r87r2/seed_871201"
+  ],
+  "returncode": 0
+}

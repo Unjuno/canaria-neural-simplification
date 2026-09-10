@@ -1,0 +1,30 @@
+{
+  "experiment": "R87R1_FRESH_PROFILE_CONFIRMATION",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY_CONDITIONAL_ON_PROFILE_GATE",
+  "launch_condition": "Do not consume fresh seeds until all R87D5 host/profile cohorts and repeats have completed and the portable_v1 cross-host scientific-output/state comparison passes. If R87D5 fails, stop; no changed-profile rescue under this protocol.",
+  "fresh_seeds": [871100,871101,871102,871103,871104,871105,871106,871107,871108,871109,871110,871111,871112,871113,871114,871115],
+  "verification_seed": 1202,
+  "H": "Under the fixed portable_v1 numeric profile and unchanged original digits replacement grammar, composed-span replacement selects a smaller passing parameter budget than component-wise replacement while selected test accuracy is noninferior within2 percentage points.",
+  "T": {
+    "original_scientific_runner_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+    "data": "Original fixed sklearn digits train1077/validation270/test450 split; no data-driven retuning. Model seeds are new, dataset is not independent.",
+    "numeric_profile": "R87D5 portable_v1: float32 original science, ATenAVX2, MKL_CBWR=COMPATIBLE, oneDNN disabled, deterministic algorithms enabled, one intra/inter-op thread; identical primary package pins and recorded actual hardware.",
+    "model_and_fitting": "Original four-block width64 Residual-MLP, first-two-block replacement, exact budget grid512/1024/1536/2048/3072/4096/6144, 600 mapping updates/batch128; no loss64 intervention.",
+    "selection": "First candidate in original grid with validation NMSE<=0.08 and accuracy>=teacher_validation_accuracy-0.02. Test metrics are never selection variables; original runner computes teacher test accuracy and evaluates replacement test accuracy only when its validation endpoint is first selected. The fixed2048 mechanistic control also reports test; it is not a primary gate.",
+    "minimum_complete_seeds": 16,
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 87112026,
+    "bootstrap_method": "paired model-seed percentile95, common index matrix; no optional stopping, replacement or cohort expansion",
+    "execution": "Two separately provisioned GitHub hosts run the same16 seeds; host a is the prospectively named scientific cohort, host b is a technical replication, not16 additional independent seeds. Exact original/instrumented known1202 bridge precedes each. Host data/init/RNG/state hashes and outcomes compared without tolerance; all raw records retained."
+  },
+  "D": {
+    "integrity": "Any missing/duplicate/malformed/nonfinite seed or missing selected endpoint => STOP_INTEGRITY_OR_UNSELECTED_ENDPOINT; no seed exclusions.",
+    "primary": "PASS if upper95 of mean log2(B_composed/B_componentwise)<0; FAIL if lower95>0; otherwise UNCERTAIN.",
+    "secondary": "PASS if lower95 of mean(test_acc_composed-test_acc_componentwise)>-0.02; FAIL if upper95<-0.02; otherwise UNCERTAIN.",
+    "science": "R87R1_CONFIRMATORY_PASS only if both locked scientific gates PASS on host a; otherwise report the separate FAIL/UNCERTAIN status without changing thresholds.",
+    "technical": "TESTED_HOST_EXACT_REPLICATION_PASS only if all16 original outcome objects and data/init/RNG/training hashes are identical across hosts. A scientific PASS does not erase technical failure.",
+    "historical": "No replacement of historical1200-1207 numbers. No claim of restoring the original producing environment. No automatic Issue87 closure, main scientific promotion, release or public announcement."
+  },
+  "C": ["Fixed-profile fresh models may not show the old directional effect.","A portable profile may align endpoints on known seeds but fail on fresh models.","The fixed task and span may drive the finding; no architecture or dataset generality."],
+  "U": ["Bootstrap measures model-seed variation conditional on one dataset/split.","No theorem of cross-platform floating-point identity.","Parameter budget is not runtime, memory, energy or measured FLOPs.","Historical execution provenance remains separately unresolved unless recovered."]
+}

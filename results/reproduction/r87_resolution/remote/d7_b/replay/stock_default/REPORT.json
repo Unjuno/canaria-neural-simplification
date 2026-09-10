@@ -1,0 +1,138 @@
+{
+  "adam_python_sha256": "691246e104a54c3ff985922a4f551aea088c06c3358a18861e59c34a920d21e1",
+  "array_sha256": {
+    "actual_first_moment": "c8952504886261e40c39b4974256009160a4f40e45829ec9329ce28dda3955a0",
+    "actual_second_moment": "91643b260195191016588e10b57740c8185e0c5059f943e9a7672088dfaa2205",
+    "actual_updated_parameters": "50dbf505411d6d7e864be7318fba23c7d1e476a3013ae49b3f87ba31f3ccd7c1",
+    "denominator": "5d8131e7ce2b15caa45c64fde155680242f919fbad7ca111d0ded11b0917cfb3",
+    "first_moment": "c8952504886261e40c39b4974256009160a4f40e45829ec9329ce28dda3955a0",
+    "manual_updated_parameters": "50dbf505411d6d7e864be7318fba23c7d1e476a3013ae49b3f87ba31f3ccd7c1",
+    "normalized_root": "a41f6dcbde1ac25e5b3317232c696f3cb95766db0d55bdcaca9c9a713633508e",
+    "second_moment": "91643b260195191016588e10b57740c8185e0c5059f943e9a7672088dfaa2205",
+    "square_root": "f4f46f2f7b32f50f701c4d086fa33143c63511885c35967dcff18a3f4d4772af",
+    "weight_decay": "567950a81a9f747d9085ed95531857adad6627e3d4014dcd8378765dd9aaafd0"
+  },
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 7763 64-Core Processor\nCPU family:                              25\nModel:                                   1\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4890.84\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                1 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: No microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+  "effective_capability": "DEFAULT",
+  "evidence_class": "POST_HOC_OPERATOR_REPLAY",
+  "experiment": "R87D6_COMMON_INPUT_OPTIMIZER_REPLAY",
+  "input_trace_sha256": "6edd0a88e7baee665f050ee022c4d6603de28d739d6872ec4a0e80c96ea74375",
+  "libc": [
+    "glibc",
+    "2.39"
+  ],
+  "manual_matches_actual": true,
+  "matches_saved_original_step1": true,
+  "parameter_shapes": {
+    "blocks.0.fc1.bias": [
+      128
+    ],
+    "blocks.0.fc1.weight": [
+      128,
+      64
+    ],
+    "blocks.0.fc2.bias": [
+      64
+    ],
+    "blocks.0.fc2.weight": [
+      64,
+      128
+    ],
+    "blocks.0.ln.bias": [
+      64
+    ],
+    "blocks.0.ln.weight": [
+      64
+    ],
+    "blocks.1.fc1.bias": [
+      128
+    ],
+    "blocks.1.fc1.weight": [
+      128,
+      64
+    ],
+    "blocks.1.fc2.bias": [
+      64
+    ],
+    "blocks.1.fc2.weight": [
+      64,
+      128
+    ],
+    "blocks.1.ln.bias": [
+      64
+    ],
+    "blocks.1.ln.weight": [
+      64
+    ],
+    "blocks.2.fc1.bias": [
+      128
+    ],
+    "blocks.2.fc1.weight": [
+      128,
+      64
+    ],
+    "blocks.2.fc2.bias": [
+      64
+    ],
+    "blocks.2.fc2.weight": [
+      64,
+      128
+    ],
+    "blocks.2.ln.bias": [
+      64
+    ],
+    "blocks.2.ln.weight": [
+      64
+    ],
+    "blocks.3.fc1.bias": [
+      128
+    ],
+    "blocks.3.fc1.weight": [
+      128,
+      64
+    ],
+    "blocks.3.fc2.bias": [
+      64
+    ],
+    "blocks.3.fc2.weight": [
+      64,
+      128
+    ],
+    "blocks.3.ln.bias": [
+      64
+    ],
+    "blocks.3.ln.weight": [
+      64
+    ],
+    "head.bias": [
+      10
+    ],
+    "head.weight": [
+      10,
+      64
+    ],
+    "stem.bias": [
+      64
+    ],
+    "stem.weight": [
+      64,
+      64
+    ]
+  },
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:07) [GCC 13.3.0]",
+  "scalars_hex": {
+    "bc1": "0x1.9999999999998p-4",
+    "bc2": "0x1.0624dd2f1aa00p-10",
+    "bc2sqrt_pow": "0x1.030dc4ea03a74p-5",
+    "bc2sqrt_sqrt": "0x1.030dc4ea03a74p-5",
+    "beta1": "0x1.ccccccccccccdp-1",
+    "beta2": "0x1.ff7ced916872bp-1",
+    "step_size": "0x1.47ae147ae147cp-6"
+  },
+  "seed": 1200,
+  "source_sha256": "2ea62d4f889317de6516dfdf9bb1fd78a1221d490a45246ddd513191eeeaf5c6",
+  "sqrt64": false,
+  "torch": "2.10.0+cpu",
+  "torch_cpu_library_sha256": "6becf15db5245997dff7ece407a018db17495fa5fc93ae636aef1392160cbb45"
+}

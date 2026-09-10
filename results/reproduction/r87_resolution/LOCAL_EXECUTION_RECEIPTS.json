@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "Compact receipts of actual local records. Full local original JSON/NPZ/logs and independent comparisons are in the session evidence ZIP. Digests use canonical JSON of ordered name/seed/outcome/trace/trace_npz_sha256 rows; no environment metadata is included in science equality.",
+  "local_cpu": "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz",
+  "local_primary_versions": {"python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","scikit-learn":"1.8.0","scipy":"1.17.0"},
+  "experiments": {
+    "D7": {
+      "names": ["seed_1200","seed_1201","seed_1202","seed_1203","seed_1204","seed_1205","seed_1206","seed_1207","seed_1202_repeat","seed_1205_repeat"],
+      "science_records_sha256": "34912dbc56ccb878c9fd817b142ba029dbf0c928279ac34d7bd64fa7ba9fa5cf",
+      "local_file_manifest_sha256": "2640e8708e8720f5564eaf42b6e7f6bc625fbe50aa0fa854af8a0e2ab2156a26",
+      "full_comparison_sha256": "b2b98d5b80a852b39d8f8f801b71ca092926986bdd7a8cdbd511bd8b55030b15",
+      "remote_science_digest_matches": {"a":"34912dbc56ccb878c9fd817b142ba029dbf0c928279ac34d7bd64fa7ba9fa5cf","b":"34912dbc56ccb878c9fd817b142ba029dbf0c928279ac34d7bd64fa7ba9fa5cf"},
+      "all_saved_arrays_compared_exactly": true,
+      "independent_model_seed_count": 8
+    },
+    "R2": {
+      "names": ["seed_871200","seed_871201","seed_871202","seed_871203","seed_871204","seed_871205","seed_871206","seed_871207","seed_871208","seed_871209","seed_871210","seed_871211","seed_871212","seed_871213","seed_871214","seed_871215"],
+      "science_records_sha256": "c9a8835abfa25ffe4de3554534b3da3605f0f26c65bedb4f1fdb17ba5f0f6b5f",
+      "local_file_manifest_sha256": "d7627d25843449760b4a7a8ec42470e81abc0ad5243b9fddde0a2335678d112c",
+      "full_comparison_sha256": "e7f239942d9e77227794cb50efb749cd94dc63ebf027d938233e39f4c3c2f727",
+      "remote_science_digest_matches": {"a":"c9a8835abfa25ffe4de3554534b3da3605f0f26c65bedb4f1fdb17ba5f0f6b5f","b":"c9a8835abfa25ffe4de3554534b3da3605f0f26c65bedb4f1fdb17ba5f0f6b5f"},
+      "all_saved_arrays_compared_exactly": true,
+      "independent_model_seed_count": 16
+    }
+  }
+}
