@@ -1,0 +1,83 @@
+name: r87-evidence-closure
+on:
+  push:
+    branches: [research/r87-cpu-dispatch-diagnostic]
+    paths: ['.github/workflows/r87-close-evidence.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  close:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87-dispatch-source-and-evidence
+          run-id: 34493859094
+          github-token: ${{ github.token }}
+          path: /tmp/r87-d1-original
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87-version-source-and-evidence
+          run-id: 34494605928
+          github-token: ${{ github.token }}
+          path: /tmp/r87-d3-original
+      - run: python -m pip install numpy==2.4.6
+      - name: Restore only hash-verified omitted log files and audit original gates
+        run: |
+          python - <<'PY'
+          import hashlib,importlib.util,json,os,subprocess
+          from pathlib import Path
+          root=Path.cwd();f=root/'scripts/reproduce/core_discovery_digits/verify_confirmatory.py'
+          spec=importlib.util.spec_from_file_location('verifier',f);v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+          protocol=json.loads((root/'results/core_discovery_digits/PROTOCOL_LOCK.json').read_text())
+          restored=[];files=0;outcomes=0
+          for exp,src in [('r87_cpu_dispatch',Path('/tmp/r87-d1-original/r87')),('r87_version_bridge',Path('/tmp/r87-d3-original/r87-version'))]:
+              dest=root/'results/reproduction'/exp/'github';m=json.loads((dest/'RUN_MANIFEST.json').read_text())
+              for name,h in m['sha256'].items():
+                  p=(dest/name).resolve();assert p.is_relative_to(dest.resolve())
+                  if not p.exists():
+                      assert name.startswith('paired/') and name.endswith('/process.log')
+                      original=src/name;assert hashlib.sha256(original.read_bytes()).hexdigest()==h
+                      p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(original.read_bytes());restored.append(str(p.relative_to(root)))
+                  assert hashlib.sha256(p.read_bytes()).hexdigest()==h,(exp,name);files+=1
+              records=list((dest/'paired').glob('*/record.json'));assert len(records)==20
+              for p in records:
+                  r=json.loads(p.read_text());o=p.parent/'outcome.json';n=p.parent/'trace.npz'
+                  assert r['outcome_sha256']==hashlib.sha256(o.read_bytes()).hexdigest()
+                  assert r['trace_npz_sha256']==hashlib.sha256(n.read_bytes()).hexdigest()
+                  v.selected_row(json.loads(o.read_text()),r['seed'],protocol);outcomes+=1
+          if restored:subprocess.run(['git','add','-f','--',*restored],check=True)
+          scientific=root/'scripts/reproduce/core_discovery_digits/run_confirmatory.py';raw=scientific.read_bytes()
+          assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()=='8759933ed2bb95014c3afc835acafa1743e40ea6'
+          result={'status':'PASS','scope':'Artifact/source/record/gate integrity, not independent scientific review or archived-result reproduction','manifest_files_checked':files,'paired_and_repeat_outcomes_checked':outcomes,'restored_ignored_logs':restored,'original_scientific_source_unchanged':True,'issue87_closed':False,'closure_run_id':os.environ['GITHUB_RUN_ID']}
+          p=root/'results/reproduction/r87_cpu_dispatch/CLOSURE_AUDIT.json';p.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+          PY
+          python tools/audit_repo.py
+          python tools/audit_publication.py --out /tmp/r87-integrity.json
+          python -m unittest discover -s tests -v
+      - name: Persist evidence-only repair and audit
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/reproduction/r87_cpu_dispatch/CLOSURE_AUDIT.json
+          git commit -m 'Restore exact recorded process logs and close R87 evidence integrity without clearing Issue87'
+          git push origin HEAD:research/r87-cpu-dispatch-diagnostic
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r87-closure-audit
+          path: |
+            results/reproduction/r87_cpu_dispatch/CLOSURE_AUDIT.json
+            /tmp/r87-integrity.json
+          retention-days: 90
+          if-no-files-found: error
