@@ -1,0 +1,46 @@
+name: r87-common-input-optimizer-replay
+on:
+  push:
+    branches: [research/r87-portable-profile-validation]
+    paths: ['.github/workflows/r87-optimizer-replay.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - run: |
+          python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scikit-learn==1.8.0 scipy==1.17.0 joblib==1.5.3 threadpoolctl==3.6.0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87d5-host-a
+          run-id: 34528254562
+          github-token: ${{ github.token }}
+          path: /tmp/inputs
+      - name: Replay both fixed execution paths without training a new model
+        run: |
+          mkdir -p /tmp/replay/source
+          cp scripts/reproduction_diagnostics/r87_optimizer_replay.py /tmp/replay/source/
+          cp scripts/reproduction_diagnostics/r87_fresh_profile.py /tmp/replay/source/
+          cp results/reproduction/r87r1_fresh_profile/PROTOCOL.json /tmp/replay/source/FRESH_PROTOCOL.json
+          for capability in avx2 default; do
+            python scripts/reproduction_diagnostics/r87_optimizer_replay.py --trace /tmp/inputs/1200_portable_v1/trace.npz --seed 1200 --capability "$capability" --out /tmp/replay/$capability
+          done
+          cp /lib/x86_64-linux-gnu/libm.so.6 /tmp/replay/libm.so.6
+          sha256sum /tmp/replay/libm.so.6 > /tmp/replay/libm.sha256
+          ldd --version > /tmp/replay/glibc.txt
+          git rev-parse HEAD > /tmp/replay/source-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r87d6-optimizer-replay
+          path: /tmp/replay
+          retention-days: 90
+          if-no-files-found: error
