@@ -1,0 +1,13 @@
+{
+  "experiment": "R87D7_OPTIMIZER_SQRT64_PROFILE",
+  "evidence_class": "PROSPECTIVELY_LOCKED_KNOWN_COHORT_MITIGATION",
+  "H": "With R87D5 portable_v1 settings retained, evaluating float32 Tensor.sqrt calls only during AdamW.step in float64 then casting back removes the remaining tested-host numeric difference without changing parameter storage, losses, data, RNG or scientific thresholds.",
+  "motivation": "Completed D5 same-seed cross-host first logits and gradients matched but first optimizer steps differed. A post-hoc shared-array D6 replay found identical moments but different float32 square roots. Its initial metadata-report step failed after arrays were saved; those arrays and failed run remain preserved. The metadata bug is fixed separately, without changing default replay arithmetic.",
+  "known_seeds": [1200,1201,1202,1203,1204,1205,1206,1207],
+  "repeat_seeds": [1202,1205],
+  "T": "Run one revised profile on all8 known seeds plus2 independent-process repeats per host, on the local Intel host and two recorded GitHub hosts. Before each cohort, original/instrumented1202 bridge under the revised numeric recipe must pass. Save all candidate outputs, data/init/RNG/state hashes, traces, exact source, environment, actual CPU and effective MKL-CNR probe. Complete every admitted known seed. No new confirmation seeds under aborted R87R1.",
+  "numeric_change": "Inside AdamW.step only, float32 Tensor.sqrt evaluates original_sqrt(tensor.to(float64)).to(float32); other tensor types unchanged, original sqrt restored in finally. Single-process experimental wrapper, not a thread-safe general optimizer library. No global model float64 conversion and no loss64 intervention. C++ model operations are not patched.",
+  "D": {"PASS":"Every planned portable_v2 outcome and entire trace ledger/arrays agree exactly across all tested hosts and repeats, with matching source/data/init/RNG controls.","FAIL":"Any valid matched scientific outcome or numeric checkpoint differs; no tolerance expansion.","UNCERTAIN":"Missing records, ineffective profile, malformed data or failed bridge.","historical":"Separate archive comparison; success is not historical provenance recovery or universal portability."},
+  "C": ["Other operators or optimizer arithmetic may still vary.","Float64 intermediate sqrt may only mitigate a subset of inputs.","A common-input first-step probe is not an end-to-end guarantee."],
+  "U": ["Known8 seeds, not fresh scientific confirmation.","Hosted clocks not controlled; no speed/energy claim.","Different numeric recipe must remain distinct from original evidence.","Independent fresh confirmation requires a new protocol only after this profile passes."]
+}
