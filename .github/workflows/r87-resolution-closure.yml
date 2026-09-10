@@ -1,0 +1,117 @@
+name: r87-resolution-closure
+on:
+  push:
+    branches: [research/r87-portable-profile-validation]
+    paths: ['.github/workflows/r87-resolution-closure.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  closure:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87d5-host-a
+          run-id: 34528254562
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/d5_a
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87d5-host-b
+          run-id: 34528254562
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/d5_b
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87d7-host-a
+          run-id: 34530399646
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/d7_a
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87d7-host-b
+          run-id: 34530399646
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/d7_b
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87r2-host-a
+          run-id: 34531650736
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/r2_a
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: r87r2-host-b
+          run-id: 34531650736
+          github-token: ${{ github.token }}
+          path: results/reproduction/r87_resolution/remote/r2_b
+      - name: Install audit-only numerical environment
+        run: python -m pip install numpy==2.3.5 -e .
+      - name: Recheck original manifests, sources, gates, arrays and bootstrap without training
+        run: |
+          python tools/audit_r87_resolution.py --evidence results/reproduction/r87_resolution/remote --out results/reproduction/r87_resolution/CLOSURE_AUDIT_REMOTE.json
+          python -m unittest discover -s tests -v
+          python tools/audit_repo.py
+          python tools/audit_publication.py --out /tmp/publication-integrity.json
+      - name: Preserve source chronology, original decisions and artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,hashlib,os,shutil,subprocess,urllib.request
+          from pathlib import Path
+          root=Path('results/reproduction/r87_resolution')
+          expected={10172644546:'c2159a4dc129232f93474230fbd5258a82888b65656202ef4347c9ddd37f7bf3',10172639006:'bd4528f96c24ac68da763744ea131cf541cd0d87fc23ba16aa2f61fd2aa079e7',10173361557:'226c0340715eb5ea42482bc8a00fd9643a5e8b0e3b69e635c7bd3ada8f1ba587',10173364169:'481987cf5b9ed3a7f79fb5f9c14591c7eb05a092e9f1e3351692bbb6086c4ce0',10173849255:'dbe1d7c0f78ab9673ef6db3a4aa9e3040b9dae19d38b0210f7ed4efe569ec943',10173850033:'f78f73a541c5aaffeff2af43e90d6ab87ecb957a53fd1a308e91b4411d9167a7'}
+          artifacts=[]
+          for aid,digest in expected.items():
+              req=urllib.request.Request('https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/artifacts/'+str(aid),headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              r=json.load(urllib.request.urlopen(req,timeout=60))
+              assert r['id']==aid and r['digest']=='sha256:'+digest
+              artifacts.append({k:r[k] for k in ('id','name','digest','created_at','expires_at','workflow_run')})
+          target=Path('results/reproduction/r87r2_fresh_sqrt_profile')
+          shutil.copyfile(root/'remote/r2_a/DECISION.json',target/'DECISION.json')
+          rows=[json.loads((root/'remote/r2_a'/f'seed_{s}'/'outcome.json').read_text()) for s in range(871200,871216)]
+          (target/'FRESH_ROWS.json').write_text(json.dumps({'primary_host':'a','rows':rows},indent=2,sort_keys=True)+'\n')
+          source='e509f4fc82f6f08ba69c9344734d70336dec4ae0'
+          protocol='results/reproduction/r87r2_fresh_sqrt_profile/PROTOCOL.json'
+          lock=subprocess.check_output(['git','log','--diff-filter=A','--format=%H','-1',source,'--',protocol],text=True).strip()
+          assert lock
+          subprocess.run(['git','merge-base','--is-ancestor',lock,source],check=True)
+          manifest={'closure_run_id':int(os.environ['GITHUB_RUN_ID']),'closure_source_commit':os.environ['GITHUB_SHA'],'r2_fresh_run_id':34531650736,'r2_fresh_source_commit':source,'r2_protocol_lock_commit':lock,'artifacts':artifacts,'historical_archive_recovered':False,'new_independent_model_seeds':16,'files_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*')) if p.is_file()}}
+          (root/'RUN_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          print('R87 resolution records and chronology verified; historical blocker unchanged')
+          PY
+      - name: Commit all verified experiment evidence including originally ignored logs
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add -f results/reproduction/r87_resolution results/reproduction/r87r2_fresh_sqrt_profile/DECISION.json results/reproduction/r87r2_fresh_sqrt_profile/FRESH_ROWS.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist original R87D5 D7 R2 raw evidence and exact replication audits; retain old provenance boundary'
+            git push origin HEAD:research/r87-portable-profile-validation
+          fi
+      - name: Export a complete minimal runnable source snapshot
+        if: always()
+        run: |
+          mkdir -p /tmp/r87-final
+          tar -czf /tmp/r87-final/runnable-source.tar.gz scripts/reproduction_diagnostics scripts/reproduce/core_discovery_digits results/core_discovery_digits results/reproduction/r87r2_fresh_sqrt_profile/PROTOCOL.json results/reproduction/r87_sqrt_profile/PROTOCOL.json results/reproduction/r87_sqrt_profile/VALIDATION_GATE.json tools/audit_r87_resolution.py
+          cp results/reproduction/r87_resolution/CLOSURE_AUDIT_REMOTE.json /tmp/r87-final/ || true
+          cp results/reproduction/r87_resolution/RUN_MANIFEST.json /tmp/r87-final/ || true
+          git rev-parse HEAD > /tmp/r87-final/source-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r87-resolution-final-audit
+          path: /tmp/r87-final/
+          retention-days: 90
