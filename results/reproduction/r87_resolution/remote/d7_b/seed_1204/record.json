@@ -1,0 +1,259 @@
+{
+  "evidence_class": "DIAGNOSTIC_KNOWN_SEED_NOT_FRESH",
+  "experiment": "R87D7_OPTIMIZER_SQRT64_PROFILE",
+  "metadata": {
+    "aten_capability": "AVX2",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               AuthenticAMD\nModel name:                              AMD EPYC 7763 64-Core Processor\nCPU family:                              25\nModel:                                   1\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4890.84\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nVirtualization:                          AMD-V\nHypervisor vendor:                       Microsoft\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                1 MiB (2 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: No microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "environment": {
+      "ATEN_CPU_CAPABILITY": "avx2",
+      "MKL_CBWR": "COMPATIBLE",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "github_run_id": "34530338267",
+    "github_sha": "a5e2cf5bafd099332e0b354fa8adf01d3771cdd9",
+    "instrumentation_sha256": "24c849420debcd3f225f13362127ecba7949237041cef7ad61e3209588e61912",
+    "packages": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "torch": "2.10.0+cpu"
+    },
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.13.5 (main, Jun 12 2025, 03:51:07) [GCC 13.3.0]",
+    "source_sha256": "70407ed11607c409f4b24664d5a1dc9099f494b8136526c128b6a12098fea1bb",
+    "threads": 1,
+    "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=449b1768410104d3ed79d3bcfe4ba1d65c7f22c0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.10.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "mode": "aten_avx2",
+  "outcome_sha256": "d28230c85be65da1e54257ab7e894de2ded6f400b3051786800560950868b2b4",
+  "profile": "portable_v2_sqrt64",
+  "profile_settings": {
+    "deterministic_algorithms": true,
+    "environment": {
+      "ATEN_CPU_CAPABILITY": "avx2",
+      "MKL_CBWR": "COMPATIBLE",
+      "MKL_DYNAMIC": "FALSE",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "float32_matmul_precision": "highest",
+    "interop_threads": 1,
+    "mkldnn_enabled": false
+  },
+  "profile_source_sha256": "58aea99bfa63f8a475b50625462d056693921ed64a170534d8457ca681f30a9a",
+  "seed": 1204,
+  "sqrt_intervention": {
+    "float32_sqrt_calls": 56160
+  },
+  "sqrt_profile_source_sha256": "582e39de49cfaa1403bcb60cfab95ca8e6e3aa266b13cd8dc10fdc836fe5bfe6",
+  "trace": {
+    "dataset_hashes": {
+      "Xt": "49ef2c40da19be091d392fff4e21daf296c8192ef74f5d36b338cfec00e411b6",
+      "Xte": "61c7d9ab1c197a5a58b2a8b09939712e5d496c810e2fe6af8cdeba4ccbefffa1",
+      "Xv": "dc4a1c4b760285914e23a7dec663d4af9d1fee2c2505c835e313a27637463eba",
+      "yt": "90a9ee00863b5025a58432745919497878d70ab8fe7488bb3ab940020f566d63",
+      "yte": "fbefe76818a5e40f05ca4eb253d5f4872de75a37162f1ef3eab4a402bb114fc8",
+      "yv": "d5a1fb4eca3a32f9cf6e1f52657511d2387838ed31a995e154cb5056e84b0406"
+    },
+    "fits": [
+      {
+        "final_state": "e3bd51917d5bb1a3c68e5049ca4dca2c6e9081ae15e3e1167e0b5c3686ed6ee3",
+        "fit_seed": 421206,
+        "initial_state": "b2a03534d6af8c3146db38f4f40f84fdfcba33e74dbab9a32d34cc284230f59a",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "d6e46adaa0b956bed5135feead52efde31a9c82fdc396c10b27b449dd7dd0993",
+        "fit_seed": 441206,
+        "initial_state": "ca0779ab993705ab6150bb66d5573af4180306faa747fa3a37422b4d7b816dab",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "28ab81a83dc76cd2e285bca904b859f74d8d6cf957c2ad96f15b5bce616a8bb3",
+        "fit_seed": 461206,
+        "initial_state": "ca8eedf833e47d813ec0028ddaf4b4aea12e3159d7d243771529588037af5734",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "e9785000efd1ef889b7e36483e565b36f93071f6574abd9fb2b87e33077d8c4f",
+        "fit_seed": 421208,
+        "initial_state": "b676dba359047c87efd5155ad4b23cb780a345b31f3cb7601badfd20f6b9dbbb",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "adad61bca892dc17503c54abc94972cd5868c5090c6b46044a6ec60ab9175591",
+        "fit_seed": 441208,
+        "initial_state": "cc194373d7998196fad986817df57f0902294f4d6c386f8847fffd5cf3c1f065",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "44de8b287597d30b27264ff63581c991143c49678314b2e0b3e9662827438007",
+        "fit_seed": 461208,
+        "initial_state": "8392ada9fbf3aa47259d3bb86de49105efaf7feba92f030e910ed248de68cb5b",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "55431416b808016c4f076f197fc88527db82ca40a281ce31f2beac77f42695e9",
+        "fit_seed": 421210,
+        "initial_state": "2115a8eabd55f709fd921e7943d56d671f609e762f7676ee0449a70d636b8aec",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "a87341951d2cad31812fffb2d5f50cde7aa5beccbf1a7d2728542e0f608765bf",
+        "fit_seed": 441210,
+        "initial_state": "a2a3a0ee66e6446cd134820bf0b6aec4b16950f469e120e2530d8e45f2208406",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "81b0651bd1e256a2f1f12ce396e45de214b6e003b8cae2cf57ab03154d4a9cd4",
+        "fit_seed": 461210,
+        "initial_state": "65c8ebc0dd3fa1e9f10a2d49f747b234fbf3a26b6b54f3a55a2bbb6606a4835c",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "28473dedb6dd1c7441531773c996a41dd84e93871afe26c339f698cb813e9a0a",
+        "fit_seed": 421212,
+        "initial_state": "2bdbd79eb4d9b1d68cc679815a84627059209748438f2344bdd87018cc1f17ff",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "8f8a8b3d8b0acd33e3481a9da056837e81682b47afdbe7b7dc839d5e43201e5c",
+        "fit_seed": 441212,
+        "initial_state": "e991251c1bd77a12974bae77c920c8b7e61fd8bcc35adf2b4db8ecf736b86f6d",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "2f0815eb2dbd54290ab8e724e79f29212fc68b171511b394da1bf2f3ec2f04ce",
+        "fit_seed": 461212,
+        "initial_state": "8d326b634edd89388c3d5cedb8a5ea5530518cec57f553bdbe7ec748e916534c",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "92e97385d98b35039b5d11080c41352e03d0eccdfe12507ba6cd5ca5d23ec265",
+        "fit_seed": 421216,
+        "initial_state": "b8a0e4e2ba483944e506a1b9ad1d414f987a68ff5a043f9103afe5a58ebecea1",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "56c24a29466012feacf0ae289cb2a120163158076f0d37502750a0df0da1539f",
+        "fit_seed": 441216,
+        "initial_state": "d01b6e6de619bbd5a2b3f138ac720705584446d0342f2604475013f8c98575d9",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "8fa493b8d517c8fc49601f6df7675771e95ca987c41ef757d0eac529607e3994",
+        "fit_seed": 461216,
+        "initial_state": "387bf0fe081a82675f21e01962288c476d0ea4e5f5b59a515d50c7e689a8c0b6",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "8ca424225f708fa3c8e4d5dbc7f50f65876ebd6cc0fd59e44f2b35d709e283c5",
+        "fit_seed": 421220,
+        "initial_state": "38a64c64ff6cd067fd364252fafcd616e7d36bea78fee6b719851db1f747f7a3",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "58948ee9b4448a83a026ee09d1d6c887bcd88ab0a9aa3a2334274352b5b2067e",
+        "fit_seed": 441220,
+        "initial_state": "3b6531858af67c2a5b2294e73ef34b0f9c413f2d61cbd57d3bf0bc7098429551",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "3958b6c143d7e976932366f063b2c69272dd880ab05853e4c9ee71cb46cb295d",
+        "fit_seed": 461220,
+        "initial_state": "23653983fddaf2f0e47356d747c6a8183e3766552db2a48ff1842d22fa13f040",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "1a2ae50013f8394fae3cecdc0e0197a8bbff9fff1863923f23f89683e326cec2",
+        "fit_seed": 421228,
+        "initial_state": "4c3a18fa863d48f0163e5ab8b61ed596be4846e0c975fe19eaeb05d9ca4a3846",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "updates": 600
+      },
+      {
+        "final_state": "6adec66f9ad7564a14a11d2e7fc8aebddfe747a5be1ca5428e7689bfb484a5eb",
+        "fit_seed": 441228,
+        "initial_state": "3026066490783e7773960bbb173bc7791e9a80e1bf0852a9ff4d52f3411787f3",
+        "input_hash": "abde55c8dd77d4757ce4f8e8da539126d62a6242993640b2270ed633be50c25b",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      },
+      {
+        "final_state": "f871c3cd07a6b876a8a5cbec0143be79b96f93de285c3297ddbfc76385170ddb",
+        "fit_seed": 461228,
+        "initial_state": "94ec62c820185504f7f07b66e7bf38bdb2714726c78665c385de36b056a1d359",
+        "input_hash": "f2aa1edbb38a7654fb23a57cd3558d61512517372a1af578409cefeccf1d66ee",
+        "target_hash": "7af9c9a2a99b796deceb477a28d69fb3ba6b77eadee83311a9d434667d6be44f",
+        "updates": 600
+      }
+    ],
+    "joint_final": [
+      "3fefc2b2879d5f23e2175981c56fe2a4f246b17938994146850262ea35b07992",
+      "33ea4cc2ed127ce23b65beb8b2561d45d7b69c5807363ffa9c291db0e963fd9a"
+    ],
+    "random_stream_calls": {
+      "randint": 13200,
+      "randperm": 60
+    },
+    "random_stream_hashes": {
+      "randint": "c76a1d964053e6a4ae1e59376f94dca46a4543c2a7d96a3069099ed7871e2be6",
+      "randperm": "dd85730be4de1924a5aeea3821da0b573648c584b7faf4d2b0dd21a8ea93ace2"
+    },
+    "teacher": {
+      "final_state": "edf247ade9bab68c4bf45dce216ae7814a63b6ca758e9b5060543e2c49cc9643",
+      "first_loss": 2.356666088104248,
+      "initial_state": "76aed6b8c312bd866a25a6e61441f96351f90d5de46fc35f076097b71042525b",
+      "state_step_1": "c72d16b8f2f366fb66d6cfc5c203ee1a79868036142298bca57f97a57e53c9ac",
+      "state_step_10": "79b8eaea0e5b66f3c33645ee81b4599da9bb97331e71bffec6391dc735b7ccc9",
+      "state_step_1020": "edf247ade9bab68c4bf45dce216ae7814a63b6ca758e9b5060543e2c49cc9643",
+      "state_step_17": "2275efba5875ed90205f93a4a8b3971dfe73852152f422ae6c852c52c0c372d3",
+      "state_step_170": "86f6fa70533addb43b13f5926c3c19a90fa52bc16b20c58cb7d0f101499bc850",
+      "state_step_2": "25590e2276fc1cbba1122f6680432f6b92d8ce9a6438e4c6ff5098997620c1c4",
+      "steps": 1020
+    }
+  },
+  "trace_npz_sha256": "5a2a58dd51964fedc6d9efbf31f5a5460e76c7c8b47b26a9573b5cfc74c58bf3"
+}

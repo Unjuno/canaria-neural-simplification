@@ -1,0 +1,24 @@
+{
+  "errors": [],
+  "independent_model_seed_count": 16,
+  "planned_seeds": [
+    871200,
+    871201,
+    871202,
+    871203,
+    871204,
+    871205,
+    871206,
+    871207,
+    871208,
+    871209,
+    871210,
+    871211,
+    871212,
+    871213,
+    871214,
+    871215
+  ],
+  "technical_repeats_are_not_new_seeds": true,
+  "worker_processes": 2
+}

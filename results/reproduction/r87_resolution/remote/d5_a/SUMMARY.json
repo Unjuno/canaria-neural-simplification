@@ -1,0 +1,141 @@
+{
+  "cohorts": {
+    "avx2_baseline": {
+      "archive_mismatch_seeds": [
+        1202,
+        1203,
+        1204,
+        1205,
+        1206,
+        1207
+      ],
+      "composed_lower_count": 8,
+      "geometric_ratio": 0.5107322488469027,
+      "mean_componentwise": 3456.0,
+      "mean_composed": 1728.0,
+      "outcome_sha256": {
+        "1200": "97c2b3abecb7200ca996acab75f12db52fe77f4f672bfd8ac4779a4af6a0731f",
+        "1201": "6a1fb49199b1be937e455fd2910594376223d988ed9425244ca1820feaeefc3d",
+        "1202": "fc3e20839ba639a1ebd41452826f85bdc850bc3f5340104403963366a71131d5",
+        "1203": "bd661c81482ef360751a4c90845fa9b15e62648219e4c163c8a67da8fb345fec",
+        "1204": "efc0ebb46d9be6d5eb2e3555f02fa7fa439d2c5b0486f1367dac915a3173bb55",
+        "1205": "80565b853e4b8a64f05a62c640389587d7c3962968c819a863c554eb2e2453e0",
+        "1206": "a317f9b8aac80687acf335d2957fedf74dddb1c3e9827ab364ec940d1fdfd032",
+        "1207": "4d98b0254917fc7d5ce43fcaf173662a20f674d1985d8990344c2abc74b534e2"
+      }
+    },
+    "portable_v1": {
+      "archive_mismatch_seeds": [
+        1202,
+        1203,
+        1204,
+        1205,
+        1206,
+        1207
+      ],
+      "composed_lower_count": 8,
+      "geometric_ratio": 0.537284965911771,
+      "mean_componentwise": 3584.0,
+      "mean_composed": 1920.0,
+      "outcome_sha256": {
+        "1200": "3b0d8191abb437fe5e4f553daf7580c6cea28b4bc3cbf41fa2eae59fde51d1a1",
+        "1201": "19a1162c09ee2c60313bf7688022fd9657b489393e92f1ebfd446c79b3f230b6",
+        "1202": "486ea13ff21f8baeff5a51733b807a0014d6af2e9ed770cee44497677847af0b",
+        "1203": "11865c28ad7838f93b13b8980297a183fc6c519691fa0947754c8e5e27cdf428",
+        "1204": "f2cefce68317578f091c96a3e5e5cb6902934e7c95996c57b671d6763438a54b",
+        "1205": "dfdd06740d5eabb84b9a6d16dd6b133ac0618b31e9c348be45ae1d5107d91cac",
+        "1206": "9175d0ae737aec1889b29c3b95ea0e7cb279949337b730251cdef89bc0be5d76",
+        "1207": "831d8372a1a9f787cd29816fc1847a6f653d130703a92a8996c261b0d851debf"
+      }
+    }
+  },
+  "cross_host_validation": "NOT_PERFORMED_BY_THIS_HOST_SUMMARY",
+  "experiment": "R87D5_PORTABLE_NUMERIC_PROFILE",
+  "historical_reproduction_resolved": false,
+  "missing": [],
+  "pairs": [
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1200,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1201,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1202,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1203,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1204,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1205,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1206,
+      "teacher_state_exact": false
+    },
+    {
+      "data_init_rng_identical": true,
+      "fits_exact": false,
+      "outcome_exact": false,
+      "seed": 1207,
+      "teacher_state_exact": false
+    }
+  ],
+  "repeats": [
+    {
+      "outcome_exact": true,
+      "profile": "avx2_baseline",
+      "seed": 1202,
+      "traces_exact": true
+    },
+    {
+      "outcome_exact": true,
+      "profile": "portable_v1",
+      "seed": 1202,
+      "traces_exact": true
+    },
+    {
+      "outcome_exact": true,
+      "profile": "avx2_baseline",
+      "seed": 1205,
+      "traces_exact": true
+    },
+    {
+      "outcome_exact": true,
+      "profile": "portable_v1",
+      "seed": 1205,
+      "traces_exact": true
+    }
+  ],
+  "within_host_integrity": "PASS"
+}
