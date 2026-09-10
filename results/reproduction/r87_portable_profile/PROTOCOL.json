@@ -1,0 +1,25 @@
+{
+  "experiment": "R87D5_PORTABLE_NUMERIC_PROFILE",
+  "evidence_class": "PROSPECTIVELY_LOCKED_KNOWN_COHORT_DIAGNOSTIC",
+  "parent_commit": "14b9a7396157549451228acb80e4a15add8f78ab",
+  "scientific_runner_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+  "H": "A fixed ATen AVX2 plus MKL COMPATIBLE single-thread CPU profile with oneDNN disabled yields identical original-runner outputs and saved training-state hashes on tested local and GitHub hosts, without changing source, precision, loss or thresholds.",
+  "known_seeds": [1200,1201,1202,1203,1204,1205,1206,1207],
+  "repeat_seeds": [1202,1205],
+  "profiles": {
+    "avx2_baseline": {"ATEN_CPU_CAPABILITY":"avx2", "MKL_CBWR":null, "torch_mkldnn":true, "deterministic_algorithms":false},
+    "portable_v1": {"ATEN_CPU_CAPABILITY":"avx2", "MKL_CBWR":"COMPATIBLE", "torch_mkldnn":false, "deterministic_algorithms":true}
+  },
+  "shared_environment": {"OMP_NUM_THREADS":"1", "MKL_NUM_THREADS":"1", "OPENBLAS_NUM_THREADS":"1", "NUMEXPR_NUM_THREADS":"1", "MKL_DYNAMIC":"FALSE", "OMP_DYNAMIC":"FALSE", "torch_threads":1, "torch_interop_threads":1, "dtype":"original float32", "teacher_batch":64, "mapping_batch":128, "mapping_updates":600},
+  "T": "Run both profiles on all eight known seeds plus exact independent-process repeats1202/1205 on each available host. Verify an original/instrumented bridge before main profiles. Pin remote Python3.13.5/torch2.10.0+cpu/numpy2.3.5/scikit-learn1.8.0 to local installed primary versions. Save actual build/package/CPU details, complete data/init/RNG hashes, parameter checkpoints and all candidate outputs. Never count repeated seeds or hosts as new independent seed evidence.",
+  "D": {
+    "PASS": "Every planned output exists and validates; portable_v1 original-runner result objects, data/init/RNG/fit and teacher checkpoints agree exactly across all tested hosts and both repeats; report limited tested-host profile pass, NOT universal portability or historical archive recovery.",
+    "FAIL": "A valid matched portable_v1 pair differs in a scientific outcome or state hash; preserve discrepancy and do not widen tolerances.",
+    "UNCERTAIN": "Missing host or outcome, input/RNG/source mismatch, unsupported effective AVX2, or failed implementation bridge. No success claim from identical profile labels alone.",
+    "archive_parity": "Check against original archived endpoint and utility criteria separately. A new profile PASS does not resolve historical provenance or authorize automatic announcement.",
+    "no_optional_stopping": "Complete all eight known seeds and all prespecified repeats per valid launched host/profile; diagnostic failures retained. Any follow-up gets a separate protocol."
+  },
+  "C": ["External libraries or scalar math can still differ despite the profile.","MKL mode may be unsupported or not sufficient.","Data or RNG APIs may change across environments.","Identical selected budgets alone can hide numeric differences."],
+  "U": ["Controlled multi-setting profile is a mitigation intervention, not attribution to a single operator.","Hosted clocks/CPU models are recorded, not controlled; no speed/energy benchmark.","Original producing environment remains unverified unless original artifacts are recovered."],
+  "references": ["https://docs.pytorch.org/docs/stable/notes/randomness.html", "https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2024-1/get-started-with-conditional-num-reproducibility.html"]
+}
