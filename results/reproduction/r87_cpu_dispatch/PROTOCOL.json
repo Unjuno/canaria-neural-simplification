@@ -1,0 +1,36 @@
+{
+  "experiment": "R87D1_CPU_DISPATCH_DIAGNOSTIC",
+  "evidence_class": "PROSPECTIVE_DIAGNOSTIC_OF_KNOWN_COHORT",
+  "parent_commit": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "original_runner": "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+  "original_runner_git_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+  "H": "Changing ATen CPU instruction dispatch alone, while holding software stack, physical host, data, initial weights and random schedules fixed, can change the original core digits selected endpoints. This tests a sufficient source of sensitivity, not the unique historical cause of Issue87.",
+  "T": {
+    "known_seeds": [1200,1201,1202,1203,1204,1205,1206,1207],
+    "fresh_scientific_seeds": [],
+    "primary_cells": ["native_default", "aten_avx2"],
+    "intervention": "A new subprocess sets ATEN_CPU_CAPABILITY=avx2 before importing torch; reference subprocess leaves ATEN_CPU_CAPABILITY unset. Actual reported capability must be captured; on a native AVX2 host the contrast is a negative control, not an intervention contrast.",
+    "threads": 1,
+    "paired_hardware": "All primary cells for each software environment run on the same host; no cross-host pair is used to attribute dispatch causality.",
+    "environments": ["local installed CPU stack with full metadata", "GitHub clean Python3.11 / torch2.13.0+cpu / numpy2.4.6 / scikit-learn1.9.0 with actual host metadata"],
+    "repeatability_seeds": [1202,1205],
+    "repeatability": "Repeat both primary cells on these two known seeds in separate subprocesses.",
+    "diagnostics": "Capture data tensors, initial state, initial forward outputs, initial gradients, first update, fixed teacher checkpoints, final teacher and replacement state hashes, original full outcome JSON and distances from unchanged selection thresholds.",
+    "preflight": "Instrumented runner must produce exactly the original runner JSON on known verification seed1202 under native settings before primary cells. Failure stops attribution; no original science code may be changed.",
+    "test_policy": "Original runner's existing test calls retained solely to diagnose already-observed cohort reproduction. No new model/threshold selection based on these results.",
+    "no_optional_stopping": true,
+    "minimum_complete_primary_records_per_environment": 16
+  },
+  "D": {
+    "integrity": "STOP if incomplete cohort, original source hash mismatch, missing capability/environment metadata, or instrumentation bridge fails.",
+    "paired_input_control": "Data and initial model state hashes and explicitly generated shuffle/minibatch schedules must agree across the primary cells before attributing downstream changes.",
+    "dispatch_sensitivity": "OBSERVED if actual capabilities differ and at least one primary cell pair differs in a selected replacement budget; NUMERIC_ONLY if only numeric grids differ; NOT_OBSERVED_IN_TESTED_COHORT if full outcomes agree. Report all differing seeds, never just a selected example.",
+    "repeatability": "Report exact outcome and state equality separately for each repeated seed/cell.",
+    "historical_reproduction": "Exact selected budgets and prior strict numerical tolerances retained. Never replace the archive, widen its tolerances, or reinterpret directional agreement as strict PASS.",
+    "cohort_direction": "Original paired mean log2 budget ratio and selected test-accuracy difference with original20000-bootstrap seed991200, descriptive reproduction only. Report95% intervals and all8 paired rows.",
+    "no_automatic_issue_closure": true
+  },
+  "C": ["Both capabilities may already be AVX2, providing no intervention contrast.", "Initialization or RNG may differ with dispatch; then the mechanism is earlier than floating-point optimization and must be reported.", "Dispatch can cause drift without reproducing the historical values.", "Historical producing-source or data provenance can still be unresolved even if a current numerical mechanism is found."],
+  "U": ["Same fixed digits split and already-observed seeds; not independent scientific confirmation.", "Software-stack comparisons change multiple packages and host; no version-specific causal claim from those comparisons.", "No timing, memory, energy, universal reproducibility or publication-clearance claim.", "Exact original files remain immutable. Main announcement blocker unchanged until separately reviewed."],
+  "followup_rule": "If dispatch changes outcomes, localize first differing saved stage and independently recompute unchanged gate decisions from raw grids. Additional mechanisms require separately labelled follow-up diagnostics. No automatic fresh confirmatory cohort or claim promotion."
+}

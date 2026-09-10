@@ -1,0 +1,85 @@
+name: r87-cpu-dispatch-diagnostic
+on:
+  push:
+    branches: [research/r87-cpu-dispatch-diagnostic]
+    paths: ['.github/workflows/r87-cpu-dispatch.yml']
+permissions:
+  contents: read
+jobs:
+  paired-host:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Install original pinned CPU stack
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.4.6 scikit-learn==1.9.0
+      - name: Verify source and instrumentation bridge before diagnostic pairs
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          p=Path('scripts/reproduction_diagnostics/r87_dispatch.py')
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='24c849420debcd3f225f13362127ecba7949237041cef7ad61e3209588e61912'
+          PY
+          python scripts/reproduction_diagnostics/r87_dispatch.py --seed 1202 --mode native_default --bridge --out /tmp/r87/preflight
+      - name: Complete both dispatch cells for all eight known seeds on this same host
+        run: |
+          python - <<'PY'
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          from pathlib import Path
+          import subprocess,sys,os,json
+          root=Path('/tmp/r87/paired');script='scripts/reproduction_diagnostics/r87_dispatch.py'
+          tasks=[(s,m,'') for s in range(1200,1208) for m in ('native_default','aten_avx2')]+[(s,m,'_repeat') for s in (1202,1205) for m in ('native_default','aten_avx2')]
+          def work(t):
+              s,m,suffix=t; dest=root/f'{s}_{m}{suffix}';env=os.environ.copy();env.pop('ATEN_CPU_CAPABILITY',None)
+              if m=='aten_avx2':env['ATEN_CPU_CAPABILITY']='avx2'
+              p=subprocess.run([sys.executable,script,'--seed',str(s),'--mode',m,'--out',str(dest)],env=env,text=True,capture_output=True)
+              dest.mkdir(exist_ok=True,parents=True);(dest/'process.log').write_text(p.stdout+'\n'+p.stderr)
+              print(t,p.returncode,p.stdout.strip(),flush=True)
+              return [list(t),p.returncode]
+          with ThreadPoolExecutor(max_workers=2) as pool: records=[f.result() for f in as_completed([pool.submit(work,t) for t in tasks])]
+          (root.parent/'EXECUTION_STATUS.json').write_text(json.dumps(records,indent=2)+'\n')
+          assert len(records)==20 and all(x[1]==0 for x in records),'Missing or failed planned run'
+          PY
+          python scripts/reproduction_diagnostics/r87_dispatch.py --summarize /tmp/r87/paired --out /tmp/r87/SUMMARY.json
+      - name: Preserve exact data and chronology without clearing publication blocker
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          src=Path('/tmp/r87');dest=Path('results/reproduction/r87_cpu_dispatch/github')
+          r=json.loads((src/'SUMMARY.json').read_text())
+          assert r['record_count']==20 and not r['missing']
+          assert len(r['repeats'])==4
+          assert all(x['outcome_exact'] and x['traces_exact'] for x in r['repeats'])
+          assert r['historical_cause_resolved'] is False
+          shutil.copytree(src,dest,dirs_exist_ok=True)
+          manifest={'protocol_lock_commit':'00969cc660e2ac628f9d6220ad9481d62f195f92','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'scope':'diagnostic of known seeds, no independent fresh confirmation or historical-reproduction clearance','sha256':{str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(dest.rglob('*')) if p.is_file()}}
+          (dest/'RUN_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          PY
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/reproduction/r87_cpu_dispatch/github
+          git commit -m 'Preserve R87D1 original outcomes, complete paired host traces and source chronology'
+          git push origin HEAD:research/r87-cpu-dispatch-diagnostic
+          mkdir -p /tmp/r87-export
+          git archive --format=tar.gz --output=/tmp/r87-export/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/r87-export/source-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r87-dispatch-source-and-evidence
+          path: |
+            /tmp/r87-export/
+            /tmp/r87/
+          retention-days: 90
+          if-no-files-found: error

@@ -1,0 +1,111 @@
+name: r87-same-host-version-bridge
+on:
+  push:
+    branches: [research/r87-cpu-dispatch-diagnostic]
+    paths: ['.github/workflows/r87-version-bridge.yml']
+permissions:
+  contents: read
+jobs:
+  version-pair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Install shared environment and isolated no-dependency torch substitution
+        run: |
+          python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.4.6 scikit-learn==1.9.0
+          python -m pip install --no-deps --target /tmp/r87-torch210 torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          mkdir -p /tmp/r87-version
+          python -m pip freeze > /tmp/r87-version/shared-packages.txt
+          lscpu > /tmp/r87-version/lscpu.txt
+      - name: Verify both package identities and exact original-runner bridges
+        env:
+          ATEN_CPU_CAPABILITY: avx2
+        run: |
+          python -c "import torch; assert torch.__version__=='2.13.0+cpu'; print(torch.__file__)"
+          PYTHONPATH=/tmp/r87-torch210 python -c "import torch; assert torch.__version__=='2.10.0+cpu'; print(torch.__file__)"
+          python scripts/reproduction_diagnostics/r87_dispatch.py --seed 1202 --mode aten_avx2 --bridge --out /tmp/r87-version/preflight213
+          PYTHONPATH=/tmp/r87-torch210 python scripts/reproduction_diagnostics/r87_dispatch.py --seed 1202 --mode aten_avx2 --bridge --out /tmp/r87-version/preflight210
+      - name: Run all paired known seeds and prespecified exact repeats on this host
+        run: |
+          python - <<'PY'
+          import os,sys,subprocess,json
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          from pathlib import Path
+          root=Path('/tmp/r87-version/paired');script='scripts/reproduction_diagnostics/r87_dispatch.py'
+          tasks=[(s,v,'') for s in range(1200,1208) for v in ('torch210','torch213')]+[(s,v,'_repeat') for s in (1202,1205) for v in ('torch210','torch213')]
+          def run(t):
+              s,v,suffix=t;out=root/f'{s}_{v}{suffix}';env=os.environ.copy();env['ATEN_CPU_CAPABILITY']='avx2'
+              if v=='torch210':env['PYTHONPATH']='/tmp/r87-torch210'+(':'+env['PYTHONPATH'] if env.get('PYTHONPATH') else '')
+              p=subprocess.run([sys.executable,script,'--seed',str(s),'--mode','aten_avx2','--out',str(out)],env=env,capture_output=True,text=True)
+              out.mkdir(parents=True,exist_ok=True);(out/'process.log').write_text(p.stdout+'\n'+p.stderr)
+              print(t,p.returncode,p.stdout.strip(),flush=True);return [list(t),p.returncode]
+          with ThreadPoolExecutor(max_workers=2) as pool:status=[f.result() for f in as_completed([pool.submit(run,t) for t in tasks])]
+          (root.parent/'EXECUTION_STATUS.json').write_text(json.dumps(status,indent=2)+'\n')
+          assert len(status)==20 and all(x[1]==0 for x in status)
+          PY
+      - name: Independently summarize package intervention and preserve original gate thresholds
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          import numpy as np
+          root=Path('/tmp/r87-version/paired');pairs=[];repeats=[];cohorts={}
+          archive=json.loads(Path('results/core_discovery_digits/confirm_summary.json').read_text());arch={x['seed']:x for x in archive['per_seed_selected_budgets']}
+          def read(s,v,suffix=''):
+              p=root/f'{s}_{v}{suffix}';r=json.loads((p/'record.json').read_text());o=json.loads((p/'outcome.json').read_text())
+              assert r['seed']==s and r['metadata']['aten_capability']=='AVX2'
+              assert r['metadata']['packages']['torch']=={'torch210':'2.10.0+cpu','torch213':'2.13.0+cpu'}[v]
+              assert r['outcome_sha256']==hashlib.sha256((p/'outcome.json').read_bytes()).hexdigest()
+              assert r['trace_npz_sha256']==hashlib.sha256((p/'trace.npz').read_bytes()).hexdigest()
+              return r,o
+          for s in range(1200,1208):
+              a,ao=read(s,'torch210');b,bo=read(s,'torch213');ctrl={k:a['trace'][k]==b['trace'][k] for k in ('dataset_hashes','random_stream_hashes','random_stream_calls')}
+              ctrl['initial_state']=a['trace']['teacher']['initial_state']==b['trace']['teacher']['initial_state']
+              ctrl['non_torch_packages']={k:v for k,v in a['metadata']['packages'].items() if k!='torch'}=={k:v for k,v in b['metadata']['packages'].items() if k!='torch'}
+              endpoint=lambda o:[o[k]['budget'] if o[k] else None for k in ('selected_sep','selected_comp')]
+              xa=np.load(root/f'{s}_torch210/trace.npz');xb=np.load(root/f'{s}_torch213/trace.npz')
+              stage={k:{'exact':bool(np.array_equal(xa[k],xb[k])),'max_abs':float(np.max(np.abs(xa[k].astype(float)-xb[k].astype(float))))} for k in xa.files}
+              pairs.append({'seed':s,'controls':ctrl,'torch210_budgets':endpoint(ao),'torch213_budgets':endpoint(bo),'outcomes_exact':ao==bo,'budget_changed':endpoint(ao)!=endpoint(bo),'stages':stage})
+          for s in (1202,1205):
+              for v in ('torch210','torch213'):
+                  a,ao=read(s,v);b,bo=read(s,v,'_repeat');repeats.append({'seed':s,'cell':v,'outcome_exact':ao==bo,'trace_exact':a['trace']==b['trace']})
+          for v in ('torch210','torch213'):
+              oo=[read(s,v)[1] for s in range(1200,1208)];sep=np.array([x['selected_sep']['budget'] for x in oo]);comp=np.array([x['selected_comp']['budget'] for x in oo]);lr=np.log2(comp/sep);td=np.array([x['test_acc_diff_comp_minus_sep'] for x in oo]);ix=np.random.default_rng(991200).integers(0,8,(20000,8))
+              mismatch=[x['seed'] for x in oo if x['selected_sep']['budget']!=arch[x['seed']]['componentwise'] or x['selected_comp']['budget']!=arch[x['seed']]['composed'] or abs(x['test_acc_diff_comp_minus_sep']-arch[x['seed']]['test_acc_diff'])>1e-6]
+              cohorts[v]={'mean_sep':float(sep.mean()),'mean_comp':float(comp.mean()),'geometric_ratio':float(2**lr.mean()),'composed_lower':int((comp<sep).sum()),'log2_ci95':np.percentile(lr[ix].mean(1),[2.5,97.5]).tolist(),'test_difference_ci95':np.percentile(td[ix].mean(1),[2.5,97.5]).tolist(),'archive_mismatch_seeds':mismatch}
+          changed=[p['seed'] for p in pairs if p['budget_changed']]
+          controls=all(all(p['controls'].values()) for p in pairs)
+          decision=('EARLY_DATA_OR_RNG_PATH_DIFFERS' if not controls else 'PACKAGE_ENDPOINT_SENSITIVITY_OBSERVED' if changed else 'NO_PACKAGE_ENDPOINT_DIFFERENCE_OBSERVED')
+          report={'experiment':'R87D3_SAME_HOST_TORCH_VERSION_BRIDGE','decision':decision,'pairs':pairs,'budget_changed_seeds':changed,'repeats':repeats,'cohorts':cohorts,'historical_issue_closed':False,'record_count':20,'all_input_controls_equal':controls}
+          assert len(repeats)==4 and all(r['outcome_exact'] and r['trace_exact'] for r in repeats)
+          Path('/tmp/r87-version/SUMMARY.json').write_text(json.dumps(report,indent=2)+'\n')
+          dest=Path('results/reproduction/r87_version_bridge/github');shutil.copytree('/tmp/r87-version',dest,dirs_exist_ok=True)
+          manifest={'protocol_lock_commit':'f2ec479db88ed551f373153f1597aa4a19ce8afe','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'sha256':{str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(dest.rglob('*')) if p.is_file()}}
+          (dest/'RUN_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps({'decision':decision,'cohorts':cohorts,'budget_changed_seeds':changed}))
+          PY
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/reproduction/r87_version_bridge/github
+          git commit -m 'Preserve same-host torch package bridge without replacing historical evidence'
+          git push origin HEAD:research/r87-cpu-dispatch-diagnostic
+          mkdir -p /tmp/r87-version-export
+          git archive --format=tar.gz --output=/tmp/r87-version-export/source.tar.gz HEAD
+          git rev-parse HEAD > /tmp/r87-version-export/source-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: r87-version-source-and-evidence
+          path: |
+            /tmp/r87-version-export/
+            /tmp/r87-version/
+          retention-days: 90
+          if-no-files-found: error
