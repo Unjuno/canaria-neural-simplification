@@ -1,0 +1,33 @@
+{
+  "experiment": "R87R2_FRESH_SQRT_PROFILE_CONFIRMATION",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY_CONDITIONAL_ON_PROFILE_GATE",
+  "launch_condition": "R87D7 must complete all8 known seeds and2 repeats on local Intel plus both GitHub hosts with exact original outcomes and trace equality. Any failure blocks fresh execution; do not rescue by altering the profile.",
+  "fresh_seeds": [871200,871201,871202,871203,871204,871205,871206,871207,871208,871209,871210,871211,871212,871213,871214,871215],
+  "known_verification_seed": 1202,
+  "H": "Under the independently specified portable_v2_sqrt64 numeric recipe and unchanged original digits replacement grammar, composed-span replacement selects a smaller passing parameter budget on average while selected test utility remains noninferior within2pp.",
+  "T": {
+    "scientific_runner_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+    "dataset": "sklearn digits: unchanged train1077/validation270/test450, fixed original split; no independent dataset claim",
+    "teacher_and_grammar": "Original four-block width64 residual MLP trained60 epochs batch64; first-two-block matched component/composed replacement grid512/1024/1536/2048/3072/4096/6144; each replacement600 updates batch128",
+    "numeric_recipe": "R87D7: original float32 parameter storage and losses; ATenAVX2; MKL_CBWR=COMPATIBLE; mkldnn disabled; deterministic algorithms enabled; intra/inter-op threads1; float32 Tensor.sqrt only during AdamW.step evaluated in float64 and cast back",
+    "environment": "Python3.13.5, torch2.10.0+cpu, numpy2.3.5, scikit-learn1.8.0, scipy1.17.0; full packages/CPU/build/source recorded, not a cross-platform theorem",
+    "validation_selection": "First original grid point with span NMSE<=0.08 and accuracy>=teacher_validation_accuracy-0.02. Do not change source, thresholds, data or fit schedule after outcomes.",
+    "test_boundary": "Original runner evaluates teacher test accuracy before selection; each replacement test accuracy only when its first validation passing endpoint is selected; fixed joint2048 control reports test. No test metric feeds selection or tuning. This is an existing reused test split, not an operationally unseen dataset.",
+    "cohort": "All16 fresh model seeds. Every seed must have both selected endpoints; no replacement or posthoc exclusion. No optional stopping or cohort expansion.",
+    "technical_repeats": "All16 seeds execute on prospectively named GitHub host_a (scientific primary), GitHub host_b, and local host. Repeat hosts are technical replications, not48 independent seeds. Worker subprocess concurrency may vary, each process pins single-thread numerical kernels; no timing claim.",
+    "preflight": "Known1202 instrumentation/original bridge passes under identical profile on every host before new seeds. Synthetic evaluator tests before launch.",
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 87122026,
+    "bootstrap_method": "paired model-seed percentile95, one shared index matrix for primary and secondary statistics"
+  },
+  "D": {
+    "integrity": "Missing, duplicate, ineligible, malformed, nonfinite or unselected endpoint => STOP_INTEGRITY_OR_UNSELECTED_ENDPOINT, never drop the seed.",
+    "primary": "Mean log2(B_composed/B_componentwise): PASS if upper95<0; FAIL if lower95>0; otherwise UNCERTAIN.",
+    "secondary": "Mean composed-minus-componentwise selected test accuracy: PASS if lower95>-0.02; FAIL if upper95<-0.02; otherwise UNCERTAIN.",
+    "scientific": "R87R2_CONFIRMATORY_PASS iff both gates PASS on prospectively named host_a. Report scientific FAIL/UNCERTAIN independently of technical parity.",
+    "technical": "TESTED_HOST_EXACT_REPLICATION_PASS iff all16 scientific outcome objects, source/data/init/RNG ledgers, teacher/fit state hashes and trace arrays match exactly between all three tested hosts. No widened floating tolerance.",
+    "historical": "Historical1200-1207 archive remains unchanged and separately assessed. This is a new numeric recipe and new cohort, not old-value recovery. No automatic publication, main scientific promotion or Issue87 closure."
+  },
+  "C": ["The sufficient numeric profile on known models may fail for fresh models.","Compositional budget advantage or test noninferiority may fail under new seeds.","Fixed digits and one span do not establish cross-architecture or task-general effects."],
+  "U": ["Seed bootstrap is conditional on one reused dataset/split.","No runtime/memory/energy benefit inferred from learned parameter counts.","The scoped sqrt override is an isolated experimental worker implementation, not a thread-safe general optimizer.","The unused R87R1 seed list remains unexecuted and its failed prerequisite is not rewritten."]
+}
