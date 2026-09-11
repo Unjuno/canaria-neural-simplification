@@ -1,0 +1,48 @@
+{
+  "name": "Canaria-Phase4-California-Housing-regression-confirmatory-v1",
+  "status": "LOCKED_BEFORE_STAGE_B_OUTCOMES",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "parent_stage_a_evidence_commit": "42792c8d10e405de3919cf22a87afae30e16eef0",
+  "stage_a_status": "PASS_SELECT_RECIPE",
+  "selected_teacher_recipe": {"id":"low_lr_30","epochs":30,"lr":0.0005,"weight_decay":0.001,"batch_size":256},
+  "stage_a_validation": {"mean_r2":0.7936660720707351,"min_seed_r2":0.7897721595526062,"test_evaluated":false},
+  "dataset": {
+    "loader":"sklearn.datasets.fetch_california_housing(return_X_y=True)",
+    "shape":[20640,8],
+    "X_float32_sha256":"ef53061b11adc508abf7f3d57bbeb8a90302caedaa3201b846cdd5f65caddfd5",
+    "y_float32_sha256":"4fcec16744c2835e99b638e9ac95cde0619da1673dfdf7e638d31cd83f32fd14",
+    "split":{"test_size":0.20,"test_random_state":3119757572,"validation_fraction_of_remaining":0.20,"validation_random_state":2895583027},
+    "normalization":"training-subset feature/target mean/std only"
+  },
+  "fresh_model_seeds":[2900,2901,2902,2903,2904,2905,2906,2907],
+  "architecture":"same width64 four-block residual MLP as Phase3; first two residual blocks are the replacement span",
+  "replacement": {
+    "grammar":"bias-free TinyRes bottleneck",
+    "h_grid":[2,4,6,8,12,16,20,24,32],
+    "learned_parameter_budget":"component-wise=256*h; composed=256*h at every grid point",
+    "map_updates":600,
+    "map_lr":0.008,
+    "map_weight_decay":0.00001,
+    "validation_selection":"first grid point with span NMSE<=0.12 and validation R2>=teacher_validation_R2-0.05",
+    "test_used_for_selection":false
+  },
+  "numeric_profile": {
+    "python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","scikit_learn":"1.8.0","scipy":"1.17.0",
+    "ATEN_CPU_CAPABILITY":"avx2","MKL_CBWR":"COMPATIBLE","threads":1,"mkldnn":false,"deterministic_algorithms":true,
+    "adamw_sqrt_intervention":"float32 Tensor.sqrt calls only inside AdamW.step are evaluated in float64 and cast back",
+    "scope":"same tested R87 CPU research profile; not universal backend portability"
+  },
+  "statistics":{"bootstrap_resamples":100000,"bootstrap_seed":1355817528,"method":"paired model-seed percentile bootstrap; one shared index matrix for all primary seed-level means"},
+  "decision_rules": {
+    "integrity":"all8 fresh seeds retained; both component-wise and composed validation-selected endpoints required. Missing/nonfinite/malformed/unselected endpoint => STOP_INTEGRITY_OR_CENSORING, no seed replacement.",
+    "teacher_quality":"PASS iff lower95 of mean teacher held-out test R2 > 0.70; FAIL iff upper95<=0.70; otherwise UNCERTAIN.",
+    "composition_budget":"PASS iff composed selected budget is strictly lower in at least7/8 seeds AND upper95 of mean log2(B_composed/B_componentwise)<0; otherwise FAIL when integrity is complete.",
+    "selected_utility":"PASS iff lower95 of paired selected-endpoint held-out test R2 difference (composed-componentwise)>-0.03; FAIL iff upper95<=-0.03; otherwise UNCERTAIN.",
+    "overall":"PHASE4_CONFIRMATORY_PASS iff teacher_quality, composition_budget, selected_utility all PASS with complete integrity; otherwise report exact FAIL/UNCERTAIN gates without rescue."
+  },
+  "test_policy":"Teacher held-out test metrics are recorded only after validation endpoint selection; replacement test R2 is evaluated only when each condition first passes validation. No test metric selects budget or modifies teacher recipe.",
+  "technical_replication":"repeat all8 seeds on a second hosted worker under identical profile and require exact scientific records; technical repeats do not increase independent n.",
+  "C":["A competent validation teacher may have lower held-out test performance.","The larger dataset may eliminate the composition budget advantage.","A smaller composed budget may trade off held-out R2 beyond the locked -0.03 margin."],
+  "U":["One California Housing split and8 model seeds are not8 datasets.","The dataset is downloaded through sklearn; array hashes define the tested data identity.","No architecture-universal, runtime, memory, energy or hardware-speed claim follows."],
+  "stopping_rule":"Run fresh seeds2900-2907 exactly once after implementation preflight. No threshold/grid/teacher-recipe change, seed replacement, rescue condition, cohort expansion or optional stopping after outcomes."
+}

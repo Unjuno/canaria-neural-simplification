@@ -1,0 +1,11 @@
+{
+  "artifact_digest": "sha256:e36b01aec8dfb923c9ad9d4f10c713bafc25f50aa7a2b83c5749dd6145c45921",
+  "attempted": 8,
+  "decision": "PHASE4_CONFIRMATORY_PASS",
+  "decision_sha256": "251a5e0d962316d6ccf8da6936b2456fe944220bfb3992aaf8d3ac503120022e",
+  "eligible": 8,
+  "fresh_rows_sha256": "190a9b857d9f874bf6f8467b95ba099f2136aec501c8430ac3903829f60f522c",
+  "scope": "artifact identity and decision-structure audit; not independent scientific peer review",
+  "status": "PASS",
+  "technical_replication": "PASS"
+}
