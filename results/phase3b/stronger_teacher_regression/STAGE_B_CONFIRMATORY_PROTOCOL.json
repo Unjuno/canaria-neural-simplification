@@ -1,0 +1,92 @@
+{
+  "name": "Canaria-Phase3B-stronger-teacher-regression-confirmatory-v1",
+  "status": "LOCKED_BEFORE_STAGE_B_OUTCOMES",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "parent_stage_a_result_commit": "d7c7442b16c1c0e31c44a7c74fa43665bd1069b3",
+  "parent_stage_a_status": "PASS_SELECT_RECIPE",
+  "selected_teacher_recipe": {
+    "id": "short_25",
+    "epochs": 25,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "batch_size": 64
+  },
+  "baseline_teacher_control": {
+    "id": "baseline_60",
+    "epochs": 60,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "batch_size": 64
+  },
+  "formal_stage_a_selection": {
+    "mean_validation_r2": 0.4915362463977712,
+    "baseline_mean_validation_r2": 0.3180715859635415,
+    "improvement": 0.1734646604342297,
+    "test_evaluated": false
+  },
+  "fresh_model_seeds": [2400, 2401, 2402, 2403, 2404, 2405, 2406, 2407],
+  "dataset": "sklearn.datasets.load_diabetes",
+  "task": "tabular_regression",
+  "data": {
+    "outer_test_split": "train_test_split(test_size=0.25, random_state=2234)",
+    "inner_val_split": "train_test_split(train_pool, test_size=0.2, random_state=6678)",
+    "normalization": "features and target standardized from training subset only",
+    "external_validity_boundary": "fresh model seeds on one reused built-in dataset/split; not eight datasets and not an operationally unseen test set"
+  },
+  "architecture": "input->Linear64+GELU->4 residual MLP blocks (LayerNorm, Linear128, GELU, Linear64)->Linear1",
+  "span": [0, 1],
+  "replacement": {
+    "grammar": "bias-free TinyRes bottleneck",
+    "map_updates": 600,
+    "h_grid": [2, 4, 6, 8, 12, 16, 20, 24, 32],
+    "learned_parameter_budget": "component-wise=256*h and composed=256*h at every grid point",
+    "validation_selection": "first grid point with span NMSE <= 0.12 and validation R2 >= selected-teacher validation R2 - 0.05",
+    "test_used_for_selection": false
+  },
+  "numeric_profile": {
+    "role": "prospectively adopted from separately validated R87D7 portability work; this is a new execution recipe, not historical Phase3 numeric reproduction",
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.0",
+    "ATEN_CPU_CAPABILITY": "avx2",
+    "MKL_CBWR": "COMPATIBLE",
+    "threads": 1,
+    "mkldnn": false,
+    "deterministic_algorithms": true,
+    "adamw_sqrt_intervention": "only float32 Tensor.sqrt calls inside AdamW.step are evaluated in float64 then cast back to float32; parameters, optimizer moments, activations and losses remain their original dtypes",
+    "scope": "CPU eager isolated-process experiment; not a universal GPU, torch.compile, multi-thread or hardware theorem"
+  },
+  "H": {
+    "teacher": "The validation-selected short_25 teacher is materially stronger than the old baseline_60 teacher on fresh seeds and has useful held-out test R2.",
+    "composition": "With that stronger teacher, composed-span replacement still selects a smaller validation-passing learned-parameter budget than matched component-wise replacement while selected test R2 is noninferior within 0.05 R2."
+  },
+  "statistics": {
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 2225163077,
+    "method": "paired model-seed percentile bootstrap using one shared index matrix for all paired means"
+  },
+  "decision_rules": {
+    "integrity": "all eight fresh seeds retained; both replacement endpoints required for all eight. Missing, malformed, nonfinite or unselected endpoint => STOP_INTEGRITY_OR_CENSORING; never replace/drop a seed.",
+    "teacher_absolute": "PASS iff lower95 of mean short_25 teacher test R2 > 0.20; FAIL iff upper95 <= 0.20; otherwise UNCERTAIN.",
+    "teacher_improvement": "PASS iff lower95 of paired (short_25 - baseline_60) teacher test R2 > 0.05; FAIL iff upper95 <= 0.05; otherwise UNCERTAIN.",
+    "composition_budget": "PASS iff composed budget is strictly lower in at least 7/8 seeds AND upper95 of mean log2(B_composed/B_componentwise) < 0; FAIL if all endpoints exist and either criterion fails.",
+    "selected_utility": "PASS iff lower95 of paired selected-endpoint test R2 difference (composed - component-wise) > -0.05; FAIL iff upper95 <= -0.05; otherwise UNCERTAIN.",
+    "overall": "PHASE3B_CONFIRMATORY_PASS iff integrity is complete and teacher_absolute, teacher_improvement, composition_budget and selected_utility all PASS. Otherwise report the exact failing/uncertain gates without rescue."
+  },
+  "test_policy": "Teacher test R2 is a prospectively locked Stage B confirmation/safeguard after Stage A selected the recipe using validation only. Replacement test metrics are evaluated only for validation-selected endpoints and never choose budgets.",
+  "technical_replication": "A second hosted execution may repeat all eight seeds under the same numeric profile; technical repetitions do not increase independent scientific n and must be compared exactly rather than pooled.",
+  "C": [
+    "Stage A validation improvement may not transfer to held-out test R2.",
+    "A stronger teacher may make the replacement criterion harder and remove the apparent composition advantage.",
+    "The new numerical profile can alter exact endpoints relative to old Phase3; old outcomes remain historical rather than being overwritten."
+  ],
+  "U": [
+    "One fixed diabetes dataset/split limits external validity.",
+    "The same residual-MLP family is used, so this tests task change more than architecture change.",
+    "Selected budgets are minima only over the locked finite grid, not mathematical minima.",
+    "No runtime, memory, energy or universal regression claim follows."
+  ],
+  "stopping_rule": "Run seeds 2400-2407 exactly once after protocol and implementation preflight. No threshold/grid/recipe change, seed replacement, rescue condition, cohort expansion or optional stopping after outcomes."
+}
