@@ -1,0 +1,21 @@
+{
+  "aggregate_artifact_digest": "sha256:0d75ce4bdaeeb25e666322013906b7e356b8c3a74070befa46e929ce86e7cc41",
+  "aggregate_artifact_id": 10268175311,
+  "aggregate_expires_at": "2026-12-10T14:13:23Z",
+  "fresh_seeds": [
+    2400,
+    2401,
+    2402,
+    2403,
+    2404,
+    2405,
+    2406,
+    2407
+  ],
+  "preflight_run_id": 34608513778,
+  "primary_decision": "PHASE3B_CONFIRMATORY_UNCERTAIN",
+  "protocol_lock_commit": "9c834076a40ec988f7ace799150515061c7ec6c8",
+  "source_commit": "9bca691d3c32f906648e499dfe254ac2d89da948",
+  "technical_replication": "PASS",
+  "workflow_run_id": 34608842284
+}

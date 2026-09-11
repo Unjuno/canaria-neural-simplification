@@ -1,0 +1,131 @@
+{
+  "attempted": 8,
+  "bootstrap_resamples": 100000,
+  "bootstrap_seed": 2225163077,
+  "composition_budget": {
+    "ci95": [
+      -1.1556390622295665,
+      -1.0
+    ],
+    "composed_lower_count": 8,
+    "geometric_mean_ratio": 0.4823393149801547,
+    "mean": -1.0518796874098555,
+    "status": "PASS",
+    "ties": 0
+  },
+  "decision": "PHASE3B_CONFIRMATORY_UNCERTAIN",
+  "eligible": 8,
+  "errors": [],
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+  "missing": [],
+  "rows": [
+    {
+      "baseline_test_r2": 0.23123531413345544,
+      "candidate_test_r2": 0.24747773187637723,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.415037499278844,
+      "seed": 2400,
+      "selected_test_r2_diff": 0.07152633187655433,
+      "sep_budget": 4096,
+      "teacher_gain": 0.01624241774292179
+    },
+    {
+      "baseline_test_r2": 0.1551825752801893,
+      "candidate_test_r2": 0.21139921481705248,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.0,
+      "seed": 2401,
+      "selected_test_r2_diff": 0.004027670853629095,
+      "sep_budget": 3072,
+      "teacher_gain": 0.05621663953686318
+    },
+    {
+      "baseline_test_r2": 0.2578236283636369,
+      "candidate_test_r2": 0.26408104759465445,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.0,
+      "seed": 2402,
+      "selected_test_r2_diff": -0.006192517861011493,
+      "sep_budget": 3072,
+      "teacher_gain": 0.006257419231017525
+    },
+    {
+      "baseline_test_r2": 0.247958697386244,
+      "candidate_test_r2": 0.3357634518133664,
+      "comp_budget": 1024,
+      "log2_budget_ratio": -1.0,
+      "seed": 2403,
+      "selected_test_r2_diff": 0.0010536428366348938,
+      "sep_budget": 2048,
+      "teacher_gain": 0.08780475442712243
+    },
+    {
+      "baseline_test_r2": 0.1371484934074202,
+      "candidate_test_r2": 0.2622954872841292,
+      "comp_budget": 1024,
+      "log2_budget_ratio": -1.0,
+      "seed": 2404,
+      "selected_test_r2_diff": -0.04084513636859488,
+      "sep_budget": 2048,
+      "teacher_gain": 0.12514699387670902
+    },
+    {
+      "baseline_test_r2": 0.2655436463258636,
+      "candidate_test_r2": 0.17103025361910962,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.0,
+      "seed": 2405,
+      "selected_test_r2_diff": 0.07015104094071056,
+      "sep_budget": 3072,
+      "teacher_gain": -0.09451339270675396
+    },
+    {
+      "baseline_test_r2": 0.12227549457162734,
+      "candidate_test_r2": 0.056663454563951055,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.0,
+      "seed": 2406,
+      "selected_test_r2_diff": 0.022406193568644817,
+      "sep_budget": 3072,
+      "teacher_gain": -0.06561204000767629
+    },
+    {
+      "baseline_test_r2": 0.23217429788307953,
+      "candidate_test_r2": 0.31146963280350815,
+      "comp_budget": 1536,
+      "log2_budget_ratio": -1.0,
+      "seed": 2407,
+      "selected_test_r2_diff": -0.02769673691364294,
+      "sep_budget": 3072,
+      "teacher_gain": 0.07929533492042862
+    }
+  ],
+  "selected_utility": {
+    "ci95": [
+      -0.013819829238314318,
+      0.03935874046838346
+    ],
+    "margin": -0.05,
+    "mean": 0.011803811116615548,
+    "status": "PASS"
+  },
+  "teacher_absolute": {
+    "ci95": [
+      0.1716426637191226,
+      0.28459251713474154
+    ],
+    "margin": 0.2,
+    "mean": 0.2325225342965186,
+    "status": "UNCERTAIN"
+  },
+  "teacher_improvement": {
+    "ci95": [
+      -0.024780231598993382,
+      0.07372409315015413
+    ],
+    "margin": 0.05,
+    "mean": 0.02635476587757904,
+    "status": "UNCERTAIN"
+  }
+}

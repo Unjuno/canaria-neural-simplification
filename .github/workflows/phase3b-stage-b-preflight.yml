@@ -1,0 +1,77 @@
+name: phase3b-stage-b-preflight
+on:
+  push:
+    branches: [research/phase3b-confirmatory]
+    paths: ['.github/workflows/phase3b-stage-b-preflight.yml']
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.13.5'}
+      - name: Install locked numeric environment
+        run: |
+          python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scikit-learn==1.8.0 scipy==1.17.0
+      - name: Verify chronology and immutable inputs
+        run: |
+          test "$(git hash-object scripts/phase3/regression_external_validity/run_seed.py)" = 8dd3ddefb59ba250f5deca2d98d04fbff0055748
+          test "$(git hash-object results/phase3b/stronger_teacher_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json)" = 16bf7eebbc5836bb18b218cf00fb575da63f9dda
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=json.loads(Path('results/phase3b/stronger_teacher_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json').read_text())
+          q=json.loads(Path('results/phase3b/stronger_teacher_regression/STAGE_B_PREFLIGHT.json').read_text())
+          assert p['status']=='LOCKED_BEFORE_STAGE_B_OUTCOMES' and p['fresh_model_seeds']==list(range(2400,2408))
+          assert q['verification_seed']==2399 and q['fresh_seeds']==list(range(2400,2408))
+          assert not Path('results/phase3b/stronger_teacher_regression/stage_b_fresh').exists()
+          lock=subprocess.check_output(['git','log','--diff-filter=A','--format=%H','-1','--','results/phase3b/stronger_teacher_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json'],text=True).strip()
+          print('protocol lock',lock)
+          PY
+      - name: Run non-inferential verification seed only
+        env:
+          ATEN_CPU_CAPABILITY: avx2
+          MKL_CBWR: COMPATIBLE
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          mkdir -p /tmp/phase3b-preflight
+          python scripts/phase3b/stronger_teacher_regression/run_stage_b_seed.py --seed 2399 --out /tmp/phase3b-preflight/seed_2399.json
+          python - <<'PY'
+          import json,math
+          r=json.load(open('/tmp/phase3b-preflight/seed_2399.json'))
+          assert r['evidence_class']=='PREFLIGHT_ONLY'
+          assert r['numeric_profile']['effective_cpu_capability']=='AVX2'
+          assert r['numeric_profile']['sqrt_intervention']['float32_sqrt_calls']>0
+          assert math.isfinite(r['candidate_teacher_test_r2']) and math.isfinite(r['baseline60_teacher_test_r2'])
+          assert len(r['grid'])==9 and all(x['budget']==256*x['h'] for x in r['grid'])
+          print({'candidate_test_r2':r['candidate_teacher_test_r2'],'baseline_test_r2':r['baseline60_teacher_test_r2'],
+                 'sep':None if r['selected_sep'] is None else r['selected_sep']['budget'],
+                 'comp':None if r['selected_comp'] is None else r['selected_comp']['budget']})
+          PY
+      - name: Exercise evaluator decision branches synthetically
+        run: |
+          python - <<'PY'
+          import importlib.util,json,tempfile
+          from pathlib import Path
+          p=Path('scripts/phase3b/stronger_teacher_regression/evaluate_stage_b.py')
+          s=importlib.util.spec_from_file_location('ev',p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+          assert m.gate_gt({'ci95':[.21,.30]},.20)=='PASS'
+          assert m.gate_gt({'ci95':[.10,.20]},.20)=='FAIL'
+          assert m.gate_gt({'ci95':[.19,.21]},.20)=='UNCERTAIN'
+          with tempfile.TemporaryDirectory() as d:
+              out=Path(d)/'integrity.json';rc=m.main([],out);r=json.loads(out.read_text())
+              assert rc==2 and r['decision']=='STOP_INTEGRITY_OR_CENSORING'
+          print('PASS/FAIL/UNCERTAIN/integrity evaluator branches PASS')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: phase3b-stage-b-preflight
+          path: /tmp/phase3b-preflight/
+          retention-days: 90
