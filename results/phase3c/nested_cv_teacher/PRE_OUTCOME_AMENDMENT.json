@@ -1,0 +1,36 @@
+{
+  "status": "PRE_OUTCOME_PROTOCOL_CORRECTION",
+  "outcomes_generated_before_this_amendment": 0,
+  "reason": "The initial Phase3C protocol commit acca81d52f54e0c0ec7ca150bd4dc09784359159 correctly specified the experimental design but mistranscribed learning-rate/weight-decay values for several regularized recipes. Issue #92 requires reuse of the exact fixed 13-recipe grid from Phase3B Stage A. This amendment restores those already-public locked values before any Phase3C model execution.",
+  "source_of_truth": {
+    "path": "scripts/phase3b/stronger_teacher_regression/explore_teacher.py",
+    "git_blob": "b6518c84b0057d2da77a02432024c58c07815587"
+  },
+  "effective_teacher_recipes": [
+    {"id":"baseline_60","epochs":60,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_15","epochs":15,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_25","epochs":25,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_40","epochs":40,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"reg_40","epochs":40,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_60","epochs":60,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_100","epochs":100,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"strongreg_40","epochs":40,"lr":0.001,"weight_decay":0.01,"batch_size":64},
+    {"id":"strongreg_80","epochs":80,"lr":0.001,"weight_decay":0.01,"batch_size":64},
+    {"id":"low_lr_80","epochs":80,"lr":0.0005,"weight_decay":0.001,"batch_size":64},
+    {"id":"low_lr_120","epochs":120,"lr":0.0005,"weight_decay":0.001,"batch_size":64},
+    {"id":"fullbatch_200","epochs":200,"lr":0.001,"weight_decay":0.01,"batch_size":"full_train_fold"},
+    {"id":"fullbatch_400","epochs":400,"lr":0.0005,"weight_decay":0.01,"batch_size":"full_train_fold"}
+  ],
+  "unchanged_fields": [
+    "outer split and its hash-derived random state",
+    "five-fold CV and its hash-derived random state",
+    "teacher initialization seeds 2600-2602",
+    "training-fold-only normalization",
+    "eligibility and robust winner-selection rule",
+    "numeric profile",
+    "no outer-test evaluation",
+    "reserved future confirmation seeds",
+    "stopping rule"
+  ],
+  "rule": "All Phase3C execution code must verify this amendment and the StageA source blob before training. The incorrect hyperparameter values in the initial protocol are superseded; they must never be executed."
+}

@@ -1,0 +1,10 @@
+{
+  "outer_test_evaluated": false,
+  "pre_outcome_amendment_commit": "59e478158a8b2999cb41dc69bceac3ced997f406",
+  "protocol_lock_commit": "acca81d52f54e0c0ec7ca150bd4dc09784359159",
+  "result_sha256": "5a968c1cbe0b8101b0e6839ddaf6ba736407e5ee225f48e226bf3c2fe6aff693",
+  "rows": 195,
+  "source_commit": "8ebf129c646dae01dbc2269dd5cffb2c88668d57",
+  "technical_replication": "EXACT_PASS",
+  "workflow_run_id": 34609909127
+}
