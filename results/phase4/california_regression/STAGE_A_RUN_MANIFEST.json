@@ -1,0 +1,9 @@
+{
+  "protocol_lock_commit": "a1c9ff1691b4b84f45c1b812e1fd6b6ecefeea6b",
+  "result_sha256": "eb4077103e9af1b116d2f3e03e22f6496de9e85f33a26203deae1d23a7eeaabb",
+  "rows": 21,
+  "source_commit": "13ed8a8cddb7931439bac7c7574bcdb0800cbbf4",
+  "technical_replication": "EXACT_PASS",
+  "test_evaluated": false,
+  "workflow_run_id": 34610864808
+}
