@@ -69,15 +69,16 @@ def decision_map(ledger):
 def audit():
     errors = []
 
-    # The historical integrity gate is deliberately retained and must still pass
-    # in its non-readiness mode. We do not invoke --require-reproduction because
-    # Issue #87 remains explicitly unresolved.
-    legacy = load_module("legacy_publication_audit", "tools/audit_publication.py")
-    legacy_result = legacy.audit(ROOT, False)
-    if legacy_result.get("integrity_status") != "PASS":
-        errors.append("legacy publication integrity audit failed: " + repr(legacy_result.get("errors")))
-    if legacy_result.get("announcement_status") != "BLOCKED_REPRODUCTION_ISSUE_87":
-        errors.append("legacy Issue #87 status drifted")
+    # Active publication integrity must pass, while the separate historical
+    # 1200-1207 reproduction status remains explicitly unresolved.
+    publication = load_module("publication_audit", "tools/audit_publication.py")
+    publication_result = publication.audit(ROOT, False)
+    if publication_result.get("integrity_status") != "PASS":
+        errors.append("publication integrity audit failed: " + repr(publication_result.get("errors")))
+    if publication_result.get("historical_reproduction_status") != "UNRESOLVED_ISSUE_87":
+        errors.append("historical Issue #87 status drifted")
+    if publication_result.get("historical_reproduction_blocks_current_r87r2_headline") is not False:
+        errors.append("historical Issue #87 incorrectly blocks reviewed R87R2 headline")
 
     policy = load_json("publication/CANDIDATE_CLAIM_POLICY.json")
     ledger = load_json("publication/POST_V02_CLAIM_LEDGER.json")

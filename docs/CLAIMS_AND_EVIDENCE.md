@@ -1,45 +1,95 @@
-# Claims and evidence: research-preview scope
+# Claims and evidence: reviewed research-preview scope
 
-This is the current editorial selection for the research preview. It **narrows the headline**, does not change locked outcomes, and does not promote unmerged research because it reports PASS. The previous registry is preserved [byte-for-byte](../archives/reviews/CLAIMS_AND_EVIDENCE_2026-08-26.md); its decision history is [here](INDEPENDENT_REREVIEW_2026-08-26.md).
+This registry reflects the post-v0.2 independent claim review. It changes the **editorial evidence selection**, not any locked scientific outcome. The historical 1200–1207 archive remains preserved and its exact modern reproduction remains unresolved; see [REPRODUCTION_DISCREPANCY.md](REPRODUCTION_DISCREPANCY.md).
 
-> **New qualification (2026-09-08):** the complete baseline rerun did not strictly match all historical numerical values. [Discrepancy](REPRODUCTION_DISCREPANCY.md). The numbers below are historical recorded results, not a guarantee of present exact reproduction.
+The machine-readable disposition ledger is [POST_V02_CLAIM_LEDGER.json](../publication/POST_V02_CLAIM_LEDGER.json). The active publication policy is [CLAIM_POLICY.json](../publication/CLAIM_POLICY.json).
 
-## Proposed headline: bounded baseline with disclosed reproduction status
+## Primary current direct baseline: R87R2 — KEEP
 
-> In the specified residual-MLP / digits / first-two-block experiment, fitting one composed input–output replacement selected a smaller passing learned-parameter budget than fitting replacements component-wise, under the declared grid and validation rule.
+> Under the fixed residual-MLP / sklearn-digits / first-two-block replacement protocol and the tested `portable_v2_sqrt64` CPU numerical profile, a prospectively fixed fresh 16-model-seed cohort selected a smaller composed replacement budget on average while selected test accuracy satisfied the prespecified 2 percentage-point noninferiority margin.
 
-Evidence: [protocol](../results/core_discovery_digits/PROTOCOL_LOCK.json), [complete recorded summary](../results/core_discovery_digits/confirm_summary.json), [unchanged runner](../scripts/reproduce/core_discovery_digits/run_confirmatory.py), [interpretation](CORE_DISCOVERY_REPLICATION_DIGITS.md), [reproduction](../QUICKSTART.md).
+Evidence: [protocol](../results/reproduction/r87r2_fresh_sqrt_profile/PROTOCOL.json), [fresh raw rows](../results/reproduction/r87r2_fresh_sqrt_profile/FRESH_ROWS.json), [persisted decision](../results/reproduction/r87r2_fresh_sqrt_profile/DECISION.json), [vendored-evidence manifest](../publication/CANDIDATE_EVIDENCE_MANIFEST.json), [executable candidate audit](../tools/audit_publication_candidate.py).
 
-The original eight model seeds are 1200–1207. Mean selected replacement budgets: 3584 component-wise and 1728 composed; composed lower in 8/8. The geometric paired budget ratio is 0.482339. “Minimum” is the smallest passing tested grid point, not a true function-complexity minimum. Validation chooses the endpoint; candidate test is evaluated at the selected endpoint; teacher and prespecified-control test metrics are also recorded. A shared fixed dataset split limits external validity. A repeat of these seeds is reproduction, not eight new confirmatory models.
+Reviewed metrics:
 
-## Supporting baseline, not additional publication reruns
+- 16/16 eligible fresh model seeds (`871200`–`871215`)
+- geometric composed/component-wise selected-budget ratio `0.5316098878`
+- mean log2 budget-ratio 95% paired bootstrap CI `[-1.0412593748, -0.75]`
+- composed strictly lower in 15/16 seeds; one tie
+- selected test-accuracy difference, composed minus component-wise, 95% CI `[+0.0002777874, +0.0075000116]`
+- locked decision `R87R2_CONFIRMATORY_PASS`
 
-| Evidence | Retained scope and caveat |
+Required boundary: these are 16 model seeds on one reused digits split, not 16 datasets. The selected budgets are finite-grid minima, not mathematical minima. Test metrics do not select replacement budgets, but the test split is reused. The scoped CPU numerical profile is not a universal portability theorem. No runtime, RAM, VRAM, energy, whole-model, or LLM claim follows.
+
+## Historical digits 1200–1207 — EDIT / retain as historical record
+
+The historical recorded cohort showed the same directional composition-budget pattern: mean selected replacement parameters 3,584 component-wise versus 1,728 composed, with composed lower in 8/8 recorded seeds. Those archived values remain part of the historical record.
+
+However, current full-cohort reruns did not exactly reproduce all archived per-seed endpoints/statistics. Therefore:
+
+- do not call the historical archive exactly reproduced;
+- do not overwrite historical values with R87R2 values;
+- do not use R87R2 to close Issue #87;
+- preserve [the disclosed discrepancy](REPRODUCTION_DISCREPANCY.md).
+
+R87R2 is a new confirmatory cohort under a separately scoped numerical profile. The independent review permits it to replace the historical cohort as the **current direct headline evidence**, not to retroactively repair the archive.
+
+## Bounded regression external-validity support: California Housing Phase4 — KEEP
+
+> On one fixed California Housing split, using the same residual-MLP family and a teacher recipe selected prospectively in Stage A without held-out-test evaluation, a fresh eight-model-seed confirmatory cohort selected smaller composed replacement budgets in 8/8 seeds and satisfied the prespecified selected held-out-test R² noninferiority gate.
+
+Evidence: [Stage-A protocol](../results/phase4/california_regression/STAGE_A_PROTOCOL.json), [Stage-A result](../results/phase4/california_regression/STAGE_A_RESULT.json), [Stage-B protocol](../results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json), [fresh raw rows](../results/phase4/california_regression/stage_b_confirmatory/FRESH_ROWS.json), [decision](../results/phase4/california_regression/stage_b_confirmatory/DECISION.json), [technical replication](../results/phase4/california_regression/stage_b_confirmatory/TECHNICAL_REPLICATION.json).
+
+Reviewed metrics:
+
+- 8/8 eligible fresh model seeds (`2900`–`2907`)
+- teacher held-out-test R² mean 95% CI `[0.7910913714, 0.7995540823]`
+- geometric composed/component-wise selected-budget ratio `0.4760285231`
+- mean log2 budget-ratio 95% paired bootstrap CI `[-1.3282417852, -0.8325187496]`
+- composed strictly lower in 8/8 seeds
+- selected held-out-test R² difference, composed minus component-wise, 95% CI `[+0.0043588589, +0.0096701812]`
+- second-host exact scientific-record replication PASS
+- locked decision `PHASE4_CONFIRMATORY_PASS`
+
+Required boundary: this is one dataset and one fixed split, not eight independent datasets. The architecture remains residual-MLP. It supports bounded task/dataset external validity, not architecture universality. Selected budgets are minima only over the locked finite grid.
+
+## Supporting architecture-family evidence: SmallViT — KEEP with narrow scope
+
+[SmallViT direct composition](CROSS_FAMILY_COMPOSITION_REPLICATION.md) remains supporting evidence for a declared central two-block span on digits. It is not full-Transformer or LLM evidence. Its runner recorded test metrics for every candidate, so its operational test-isolation boundary differs from R87R2 and Phase4.
+
+## Negative and boundary evidence
+
+| Evidence | Review disposition | Public interpretation |
+|---|---|---|
+| Phase3B stronger-teacher confirmatory | **EXCLUDE from positive headline** | Composition-budget and selected-utility gates passed, but both preregistered teacher-strength gates were uncertain. Do not advertise a positive stronger-teacher external-validity result. |
+| Phase3C nested-CV teacher selection | **KEEP as negative/boundary evidence** | No teacher in the locked 13-recipe same-architecture grid satisfied the preregistered stability/quality gate; the outer test was not evaluated. This does not prove that a strong diabetes teacher is impossible. |
+| Phase2E | **INVALIDATE** | `INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`; preserve history, never use for positive or negative inference. |
+| Phase2I causal attribution | **INVALIDATE** | Attribution remains retracted. |
+| Phase2O repair-sample advantage | **EXCLUDE as established advantage** | Advantage was not established. |
+
+## Research-only / provenance-only families
+
+| Family | Public role |
 |---|---|
-| [SmallViT direct comparison](CROSS_FAMILY_COMPOSITION_REPLICATION.md) | Digits and a declared two-block span; the locked selector excludes test, but the runner recorded test metrics for every candidate. This is weaker operational test isolation. |
-| [Training-time studies](TRAINING_TIME_CONSOLIDATION.md) and [later controls](LATE_STAGE_FINDINGS.md) | Small character-LM schedules and update/parameter proxies; no broad LLM or measured energy claim. |
-| [Phase 2 precision](phase2/README.md) | A–C have public runners/results; later raw-artifact availability is incomplete. Quantizer-specific evidence is not native hardware FP4/FP8 support. |
-| [CPU runtime PoC](RUNTIME_POC.md) | One small recorded workload. Serialization observations are not total RAM, GPU/VRAM or deployment-device evidence. |
-
-## Newer research: inspect, do not silently promote
-
-The [research index](RESEARCH_INDEX.md) pins the original sources and describes the evidence classes. In particular, C76R reports relative non-inferiority of head-derived9 versus P64 at sigma0.36/N384; it is not a minimum-dimension predictor, a new linear-algebra theorem, a 64-to9 whole-model reduction, or a measured teacher-communication saving. Both final mappings retain 4096 parameters. Full teacher residuals are computed during calibration. C76R's candidate-to-teacher -5pp absolute criterion was not established in its cohort. C77E is a separate exploratory study.
-
-## Explicit exclusion decisions for this preview
-
-| Family | Decision |
-|---|---|
-| Original Residual-CNN program and v10–v25 history | Archive/supporting provenance; not the clean headline reproduction. |
-| Recursive-composition C1–C25 and later extensions | Research index only; no blanket cross-architecture theorem. |
-| Systems S1–S7 | Research PoC only; no physical-device resource headline. |
-| Imported C59/C60 and original C61 | Imported results/protocol only; original C61 unresolved, not repaired by the differently architected C61R. |
-| C61R–C77E and QR order diagnostics | Separately classed research; no retroactive preregistration, no automatic baseline promotion. |
-| Phase 3/3B regression work | Not a headline external-validity result; review of target quality remains separate. |
-| Phase 2E | `INVALIDATED_IMPLEMENTATION_BUG`; `DO_NOT_USE_FOR_INFERENCE`. Preserved, not valid negative evidence. |
-| Phase 2I causal attribution / Phase 2O repair-sample advantage | Attribution retracted / advantage not established. |
+| Imported C59/C60 Residual-CNN | Imported handoff evidence only; architecture boundary must be explicit. |
+| Original C61 | Outcome unresolved; do not infer it from C61R. |
+| C61R–C77E and QR diagnostics | Research appendix/mechanism/boundary evidence; no universal minimum-interface or communication theorem. |
+| Recursive-composition extensions | Research only; no blanket cross-architecture theorem. |
+| Systems S1–S7 | CPU/serialization/runtime prototype evidence only; no general RAM, GPU/VRAM, energy, or physical-device claim. |
 
 ## Interpretation rules
 
-Non-inferiority is not equality. Failure to establish non-inferiority is not automatically established inferiority. Use the original protocol decision unchanged; explain uncertainty rather than relabeling old files. Model-seed confidence intervals do not quantify dataset-level uncertainty. Replacement parameters, correction rank, artifact bytes, timing, RAM and energy are different quantities.
+Noninferiority is not equality or superiority. A model-seed bootstrap is conditional on the tested dataset/split and does not quantify dataset-level uncertainty. Replacement parameters, correction dimension, serialized bytes, FLOPs, latency, RAM, VRAM, and energy are distinct quantities.
 
-No universal complexity law, codec-independent minimum, broad architecture transfer, or general hardware benefit is advertised. [Negative results](NEGATIVE_RESULTS.md) and [correction registry](../results/phase2/precision_composition/CORRECTION_STATUS.json) remain visible beside positive results.
+No universal complexity law, universal minimum dimension, broad architecture transfer, whole-model compression, general LLM applicability, or general hardware benefit is claimed.
+
+## Publication verification
+
+Run:
+
+```bash
+python tools/audit_publication.py
+python tools/audit_publication_candidate.py
+```
+
+The candidate audit verifies exact reviewed Git-blob identities and recomputes R87R2 and Phase4 decisions from persisted raw rows. The separate historical Issue-#87 gate remains available as `python tools/audit_publication.py --require-reproduction`; it is intentionally not redefined by the fresh R87R2 result.

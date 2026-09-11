@@ -2,60 +2,79 @@
 
 **Task-conditioned neural simplification — research code, evidence, and limitations.**
 
-[日本語](README.ja.md) · [Reproduce](QUICKSTART.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
+[日本語](README.ja.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Readiness](docs/ANNOUNCEMENT_READINESS.md) · [Research index](docs/RESEARCH_INDEX.md)
 
-Canaria asks whether a trained neural-network span can be replaced by a smaller computation when it is fitted as a composed input–output function rather than simplified one implementation block at a time.
+Canaria studies whether a trained neural-network span can sometimes be replaced by a smaller learned computation when the whole span is fitted as one input–output function instead of simplifying its implementation blocks independently.
 
-**This is a research preview, not a universal compression method or a production inference library.** `main` provides the baseline experiment and a bounded evidence registry. Newer experiments are indexed separately at immutable commits; linking them does not promote them into the headline claim.
+**This is a bounded research preview, not a universal compression method or a production inference library.** The current reviewed headline is a fresh direct baseline under one residual-MLP / sklearn-digits / first-two-block protocol. A separate California Housing experiment provides limited task/dataset external-validity support within the same architecture family.
 
-> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional 8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
+## Current reviewed direct baseline: R87R2
 
-## Start with the recorded result and its reproduction status
+Under the prospectively fixed `R87R2_FRESH_SQRT_PROFILE_CONFIRMATION` protocol and the tested `portable_v2_sqrt64` CPU numerical profile, all 16 fresh model seeds (`871200`–`871215`) were eligible.
 
-In the recorded **residual-MLP / sklearn digits / first-two-block** experiment, the composed replacement needed fewer learned replacement parameters in all eight model seeds. “Minimum” means the smallest passing point on the tested budget grid, not a mathematical minimum.
+- geometric composed/component-wise selected replacement-budget ratio: **0.5316**
+- paired 95% bootstrap CI for mean `log2(B_composed/B_componentwise)`: **[-1.0413, -0.7500]**
+- composed selected a strictly smaller passing budget in **15/16** seeds, with one tie
+- paired 95% bootstrap CI for selected test-accuracy difference, composed minus component-wise: **[+0.00028, +0.00750]**
+- locked decision: **`R87R2_CONFIRMATORY_PASS`**
 
-| Recorded result | Component-wise | Composed |
-|---|---:|---:|
-| Seed 1200: minimum passing replacement parameters | 3,072 | 1,536 |
-| Seeds 1200–1207: mean selected replacement parameters | 3,584 | 1,728 |
+“Selected budget” is the first passing point on the locked finite grid, not a mathematical minimum. The 16 observations are model seeds on one reused digits split, not 16 independent datasets. Test metrics did not select the replacement budgets, but the test split is reused rather than an operationally unseen external dataset. The numerical profile is a scoped tested CPU research recipe, not a universal CPU/GPU portability theorem.
 
-[Locked protocol](results/core_discovery_digits/PROTOCOL_LOCK.json) · [Complete recorded summary](results/core_discovery_digits/confirm_summary.json) · [Scope and interpretation](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md)
+[Protocol](results/reproduction/r87r2_fresh_sqrt_profile/PROTOCOL.json) · [Fresh raw rows](results/reproduction/r87r2_fresh_sqrt_profile/FRESH_ROWS.json) · [Decision](results/reproduction/r87r2_fresh_sqrt_profile/DECISION.json) · [Candidate audit](tools/audit_publication_candidate.py)
 
-Validation selects candidate budgets; candidate test metrics are evaluated at selected endpoints. The teacher and a prespecified mechanistic control also have test metrics; test is excluded from budget selection. These are **replacement parameters**, not total model parameters, bytes, FLOPs, latency, or memory. The eight models share one dataset split; they are not eight independent dataset replications.
+## Historical 1200–1207 archive: retained, not rewritten
 
-## Run it
+The older recorded digits cohort showed the same directional pattern, including 3,584 versus 1,728 mean selected replacement parameters and composed lower in 8/8 recorded seeds. However, modern full-cohort reruns did **not** reproduce all archived per-seed endpoints/statistics exactly. See the [historical reproduction discrepancy](docs/REPRODUCTION_DISCREPANCY.md).
 
-From a checkout of this repository, using **Python 3.11 on CPU**:
+R87R2 is a **new confirmatory cohort under a new scoped numerical profile**. It is not a recovery of the historical 1200–1207 values, and Issue #87 remains open as historical reproduction/provenance debt. The archived values are preserved rather than silently replaced.
+
+## Bounded regression support: California Housing Phase4
+
+On one fixed California Housing split, using the same residual-MLP family and a teacher recipe selected prospectively in Stage A without using the held-out test split, the fresh eight-seed Stage-B cohort produced `PHASE4_CONFIRMATORY_PASS`.
+
+- composed selected a strictly smaller passing replacement budget in **8/8** seeds
+- geometric composed/component-wise selected-budget ratio: **0.4760**
+- paired 95% bootstrap CI for mean log2 budget ratio: **[-1.3282, -0.8325]**
+- paired 95% bootstrap CI for selected held-out-test R² difference, composed minus component-wise: **[+0.00436, +0.00967]**
+- teacher held-out-test R² mean 95% CI: **[0.7911, 0.7996]**
+- a second hosted worker reproduced the eight scientific records exactly
+
+This is one dataset and one split. It supports limited task/dataset external validity, not architecture universality. Selected budgets remain finite-grid minima.
+
+[Stage-B protocol](results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json) · [Fresh raw rows](results/phase4/california_regression/stage_b_confirmatory/FRESH_ROWS.json) · [Decision](results/phase4/california_regression/stage_b_confirmatory/DECISION.json)
+
+## Reproduce and audit the evidence classes separately
+
+For the reviewed publication candidate, install NumPy 2.3.5 and run:
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py --seed 1200 --out outputs/seed1200.json
+python tools/audit_publication.py
+python tools/audit_publication_candidate.py
 ```
 
-[Quickstart](QUICKSTART.md) includes the full eight-seed verifier, expected results, environment checks, and failure reporting. A rerun of these already-observed seeds is **reproduction**, not additional confirmatory evidence.
+The second command recomputes the R87R2 and Phase4 locked aggregate decisions from the vendored raw rows and verifies that the vendored evidence retains the exact Git blob identities reviewed on the source research commits.
+
+The historical strict 1200–1207 reproduction check remains available separately:
+
+```bash
+python tools/audit_publication.py --require-reproduction
+```
+
+That path is expected to remain blocked while Issue #87 is unresolved. It is deliberately **not** redefined as a PASS by R87R2. [QUICKSTART.md](QUICKSTART.md) documents the historical core rerun path.
 
 ## What is — and is not — supported
 
-The headline is a bounded empirical comparison under one declared architecture, span, replacement family, and passing rule. See the [claim registry](docs/CLAIMS_AND_EVIDENCE.md) for supporting baseline work and explicit exclusions.
+The reviewed evidence supports a bounded empirical composition-budget effect for declared replacement spans under specific protocols. It does **not** establish a universal complexity law, whole-model compression, LLM-scale applicability, a universal minimum interface dimension, runtime speedup, RAM/VRAM reduction, energy reduction, or hardware-wide portability.
 
-We do **not** claim universal or LLM-scale compression, a general minimum-dimension predictor, or general runtime, RAM, VRAM, or energy savings. Recent head-derived correction experiments reduce a **correction subspace**, not the 4,096-parameter final model; they still compute full teacher residuals during calibration.
+[SmallViT direct-composition evidence](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md) remains supporting architecture-family evidence under its own narrow two-block/digits boundary. Systems S1–S7 remain prototype measurements only. Imported C59/C60 are Residual-CNN evidence; original C61 remains unresolved and is not repaired by the differently architected Residual-MLP C61R line.
 
-**Correction history is part of the evidence:** Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`. Phase 2O did not establish a repair-sample advantage. [Corrections and negative results](docs/NEGATIVE_RESULTS.md)
+Negative and invalidated evidence stays visible. Phase3B is excluded from a positive stronger-teacher headline because its preregistered teacher-strength gates were uncertain. Phase3C is retained as boundary evidence. Phase2E remains **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**; Phase2I causal attribution remains retracted; Phase2O did not establish a repair-sample advantage. [Negative results](docs/NEGATIVE_RESULTS.md)
 
-## Explore without confusing evidence classes
+## Publication state
 
-| Entry | What it contains |
-|---|---|
-| [Claims and evidence](docs/CLAIMS_AND_EVIDENCE.md) | The headline, supporting baseline, caveats, and exclusions |
-| [Research index](docs/RESEARCH_INDEX.md) | Recursive composition, systems, Gaussian-shift studies, and C75E–C77E; pinned source/evidence links |
-| [Reproducibility](docs/REPRODUCIBILITY.md) | Checks, statistical units, environment limits, and reporting failures |
-| [Status and readiness](STATUS.md) | Research-preview boundary and the current announcement gate |
-| [Archives](archives/README.md) | Preserved legacy protocols/results, invalidation history, and path migration |
+The machine-readable selection is in [publication/CLAIM_POLICY.json](publication/CLAIM_POLICY.json), with the independent post-v0.2 disposition ledger in [publication/POST_V02_CLAIM_LEDGER.json](publication/POST_V02_CLAIM_LEDGER.json). Merge, release tagging, announcement, Issue #13 closure, external reproduction, and peer review are separate events; a CI PASS does not claim any of them.
 
-The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a certificate of current readiness. No research protocol or outcome is rewritten by this reorganization.
+See [STATUS.md](STATUS.md) and [announcement readiness](docs/ANNOUNCEMENT_READINESS.md) for the current gate. The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a certificate of current readiness.
 
 ## Contribute and cite
 
