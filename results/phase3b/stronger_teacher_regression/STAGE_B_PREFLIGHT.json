@@ -1,0 +1,14 @@
+{
+  "status": "LOCKED_BEFORE_PREFLIGHT_AND_FRESH_OUTCOMES",
+  "verification_seed": 2399,
+  "fresh_seeds": [2400,2401,2402,2403,2404,2405,2406,2407],
+  "fresh_seeds_must_not_run_before_preflight_pass": true,
+  "checks": [
+    "Stage B protocol and original Phase3 runner Git blobs match expected IDs",
+    "numeric profile reports AVX2, MKL COMPATIBLE, one Torch thread, disabled mkldnn and deterministic algorithms",
+    "sqrt64 intervention executes during AdamW steps",
+    "verification seed produces finite candidate/baseline teacher metrics and structurally valid replacement grid",
+    "evaluator synthetic PASS/FAIL/UNCERTAIN/integrity branches behave as locked"
+  ],
+  "test_policy": "verification seed is not part of Stage B inference; fresh 2400-2407 remain unconsumed until all checks pass"
+}
