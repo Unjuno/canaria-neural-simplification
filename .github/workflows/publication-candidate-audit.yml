@@ -6,6 +6,7 @@ on:
     branches: [main]
 permissions:
   contents: read
+  pull-requests: read
 jobs:
   reviewed-candidate:
     runs-on: ubuntu-24.04
@@ -23,6 +24,10 @@ jobs:
         run: python tools/audit_publication.py --out /tmp/legacy-publication-integrity.json
       - name: Recalculate reviewed candidate evidence from vendored raw rows
         run: python tools/audit_publication_candidate.py --out /tmp/publication-candidate-audit.json
+      - name: Require an explicit disposition for every currently open PR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/audit_open_pr_disposition.py --live-github --out /tmp/open-pr-disposition-audit.json
       - name: Repository structural audit
         run: python tools/audit_repo.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -32,5 +37,6 @@ jobs:
           path: |
             /tmp/legacy-publication-integrity.json
             /tmp/publication-candidate-audit.json
+            /tmp/open-pr-disposition-audit.json
           retention-days: 90
           if-no-files-found: warn

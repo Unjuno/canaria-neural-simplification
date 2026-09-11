@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "review": "OPEN_PR_PUBLICATION_DISPOSITION_2026_09_12",
+  "review_date": "2026-09-12",
+  "review_base_main": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "publication_candidate_parent": "491bc4e5af018ee48a89e3822f8a4c413581e87f",
+  "purpose": "Satisfy the Issue #13 requirement that no open scientific PR can materially change the announcement headline without an explicit inclusion/exclusion decision. This is an editorial/publication disposition snapshot, not a merge instruction and not external peer review.",
+  "policy": {
+    "mechanical_research_pr_merges_allowed": false,
+    "new_open_scientific_prs_after_this_snapshot_require_explicit_review_before_announcement": true,
+    "closing_a_pr_is_not_required_to_classify_its_claims": true,
+    "ci_pass_is_not_merge_approval": true
+  },
+  "open_pr_snapshot": {
+    "count": 30,
+    "numbers": [11,14,17,56,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,89,90,91,93,95,100,101]
+  },
+  "additional_review": {
+    "pr": 11,
+    "experiment": "PHASE3_DIABETES_REGRESSION_EXTERNAL_VALIDITY",
+    "source_head": "research/phase3-regression-external-validity@eac35348ceeca87b02efe09686418aa2f3535a78",
+    "protocol_lock": "0413d37969ea3bda0c03e2a79bdd7f2380b70c29",
+    "result_commit": "a88ce25d5fdbef9a64b50d605ae5ed0971f6dc92",
+    "recalculation": {
+      "source": "persisted confirmatory summary seed rows",
+      "bootstrap_resamples": 10000,
+      "bootstrap_rng_seed": 20260826,
+      "mean_log2_budget_ratio": -1.0263620978123273,
+      "bootstrap95": [-1.1842413985415514, -0.868482797083103],
+      "geometric_mean_budget_ratio": 0.49094656092429806,
+      "matches_persisted_summary": true
+    },
+    "limitations": {
+      "teacher_test_r2_min": 0.11191066851811593,
+      "teacher_test_r2_max": 0.25508780382727225,
+      "teacher_eligibility_filter_preregistered": false,
+      "componentwise_grid_ceiling_seeds": [2201,2204],
+      "selected_test_utility_improvement_claim_supported": false
+    },
+    "decision": "EXCLUDE_FROM_CURRENT_HEADLINE_KEEP_AS_VALID_BOUNDED_RESEARCH_RESULT",
+    "rationale": "The locked primary composition-budget result is internally valid and independently recalculates, but weak/variable teacher utility and lack of a preregistered teacher-eligibility gate materially limit its value as the current regression headline. Phase4 supplies the selected stronger bounded regression support without rewriting PR #11."
+  },
+  "prs": [
+    {"pr":11,"class":"SCIENTIFIC_RESULT","disposition":"EXCLUDE_FROM_CURRENT_HEADLINE_KEEP_RESEARCH","claim_role":"OLDER_BOUNDED_DIABETES_REGRESSION_RESULT","ledger_mapping":"additional_review.pr11","mechanical_merge":false},
+    {"pr":14,"class":"PUBLICATION_HARDENING","disposition":"SUPERSEDED_GATE_LOGIC_DO_NOT_MECHANICALLY_MERGE","claim_role":"HISTORICAL_PRE_ANNOUNCEMENT_HARDENING","ledger_mapping":"HISTORICAL_CORE_DIGITS_1200_1207","mechanical_merge":false},
+    {"pr":17,"class":"REPOSITORY_STRUCTURE","disposition":"STRUCTURAL_HISTORY_DO_NOT_MECHANICALLY_MERGE","claim_role":"ARCHIVE_RESTRUCTURE_ONLY","ledger_mapping":"none","mechanical_merge":false},
+    {"pr":56,"class":"INTEGRATION_REVIEW","disposition":"SELECTIVE_SUPPORT_ONLY_NO_WHOLESALE_MERGE","claim_role":"SMALLVIT_SUPPORT_PLUS_BOUNDED_SYSTEMS_PROTOTYPES","ledger_mapping":"SMALLVIT_DIRECT_COMPOSITION+SYSTEMS_S1_S7","mechanical_merge":false},
+    {"pr":68,"class":"IMPORTED_RESEARCH","disposition":"EXCLUDE_HEADLINE_KEEP_PROVENANCE","claim_role":"IMPORTED_C59_C60_ORIGINAL_C61_UNRESOLVED","ledger_mapping":"IMPORTED_C59_C60_AND_ORIGINAL_C61","mechanical_merge":false},
+    {"pr":69,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C61R_CONFIRMATORY_RESIDUAL_MLP_NOT_ORIGINAL_C61","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":70,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C62R_EXPLORATORY_P2_FRONTIER","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":71,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C63R_P2_NONINFERIORITY","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":72,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C64R_P0_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":73,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C65R_P0_NONINFERIORITY","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":74,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C66R_SHIFT_SEVERITY_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":75,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C67E_TEACHER_VALIDITY_BOUNDARY","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":76,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C68E_TEACHER_REPAIR_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":77,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C69E_INVALID_P32_REFERENCE_BOUNDARY","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":78,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C70E_INVALID_P64_REFERENCE_BOUNDARY","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":79,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C71E_BOTTLENECK_LOCALIZATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":80,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C72E_CALIBRATION_REPAIR_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":81,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C73E_PIPELINE_REPAIR_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":82,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C74E_BLEND_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":83,"class":"CONSTRUCTION_DIAGNOSTIC","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"QR_PREFIX_ORDER_DIAGNOSTIC","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":84,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C75E_HEAD_RANK_EXPLORATION","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":85,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C76R_HEAD9_RELATIVE_CONFIRMATION_WITH_ABSOLUTE_LIMIT","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":86,"class":"SCIENTIFIC_RESEARCH","disposition":"RESEARCH_APPENDIX_ONLY","claim_role":"C77E_N512_GAIN_NOT_ESTABLISHED","ledger_mapping":"C61R_C77E_AND_QR_DIAGNOSTICS","mechanical_merge":false},
+    {"pr":89,"class":"REPRODUCTION_DIAGNOSTIC","disposition":"HISTORICAL_PROVENANCE_DIAGNOSTIC_ONLY","claim_role":"ISSUE87_CPU_DISPATCH_AND_NUMERICAL_DIAGNOSTICS","ledger_mapping":"HISTORICAL_CORE_DIGITS_1200_1207","mechanical_merge":false},
+    {"pr":90,"class":"SCIENTIFIC_RESULT","disposition":"SELECTIVE_VENDOR_KEEP_PRIMARY_BASELINE","claim_role":"R87R2_CURRENT_DIRECT_BASELINE","ledger_mapping":"R87R2_FRESH_SQRT_PROFILE_CONFIRMATION","mechanical_merge":false},
+    {"pr":91,"class":"SCIENTIFIC_RESULT","disposition":"EXCLUDE_POSITIVE_HEADLINE_KEEP_BOUNDARY","claim_role":"PHASE3B_STRONGER_TEACHER_UNCERTAIN","ledger_mapping":"PHASE3B_STRONGER_TEACHER_CONFIRMATORY","mechanical_merge":false},
+    {"pr":93,"class":"SCIENTIFIC_RESULT","disposition":"KEEP_NEGATIVE_BOUNDARY_EVIDENCE","claim_role":"PHASE3C_NO_STABLE_SAME_ARCHITECTURE_TEACHER","ledger_mapping":"PHASE3C_NESTED_CV_TEACHER_SELECTION","mechanical_merge":false},
+    {"pr":95,"class":"SCIENTIFIC_RESULT","disposition":"SELECTIVE_VENDOR_KEEP_BOUNDED_SUPPORT","claim_role":"PHASE4_CALIFORNIA_REGRESSION_SUPPORT","ledger_mapping":"PHASE4_CALIFORNIA_CONFIRMATORY","mechanical_merge":false},
+    {"pr":100,"class":"INDEPENDENT_INTERNAL_REVIEW","disposition":"REVIEW_PREREQUISITE_FOR_PUBLICATION_CANDIDATE","claim_role":"POST_V02_CLAIM_SELECTION_REVIEW","ledger_mapping":"POST_V02_CLAIM_LEDGER","mechanical_merge":false},
+    {"pr":101,"class":"PUBLICATION_CANDIDATE","disposition":"FINAL_PUBLICATION_REVIEW_REQUIRED","claim_role":"SCOPED_RESEARCH_PREVIEW_CANDIDATE","ledger_mapping":"CLAIM_POLICY","mechanical_merge":false}
+  ],
+  "announcement_gate": {
+    "snapshot_has_unclassified_open_prs": false,
+    "independent_review_of_pr100_still_required": true,
+    "independent_review_of_pr101_still_required": true,
+    "issue13_can_close_now": false,
+    "main_merge_authorized": false,
+    "announcement_authorized": false
+  }
+}

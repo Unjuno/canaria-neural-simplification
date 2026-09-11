@@ -1,8 +1,8 @@
 # Claims and evidence: reviewed research-preview scope
 
-This registry reflects the post-v0.2 independent claim review. It changes the **editorial evidence selection**, not any locked scientific outcome. The historical 1200–1207 archive remains preserved and its exact modern reproduction remains unresolved; see [REPRODUCTION_DISCREPANCY.md](REPRODUCTION_DISCREPANCY.md).
+This registry reflects the post-v0.2 independent claim review plus the PR-level publication disposition required by Issue #13. It changes the **editorial evidence selection**, not any locked scientific outcome. The historical 1200–1207 archive remains preserved and its exact modern reproduction remains unresolved; see [REPRODUCTION_DISCREPANCY.md](REPRODUCTION_DISCREPANCY.md).
 
-The machine-readable disposition ledger is [POST_V02_CLAIM_LEDGER.json](../publication/POST_V02_CLAIM_LEDGER.json). The active publication policy is [CLAIM_POLICY.json](../publication/CLAIM_POLICY.json).
+The machine-readable disposition ledger is [POST_V02_CLAIM_LEDGER.json](../publication/POST_V02_CLAIM_LEDGER.json). The open-PR publication map is [OPEN_PR_DISPOSITION_2026-09-12.json](../publication/OPEN_PR_DISPOSITION_2026-09-12.json). The active publication policy is [CLAIM_POLICY.json](../publication/CLAIM_POLICY.json).
 
 ## Primary current direct baseline: R87R2 — KEEP
 
@@ -53,6 +53,12 @@ Reviewed metrics:
 
 Required boundary: this is one dataset and one fixed split, not eight independent datasets. The architecture remains residual-MLP. It supports bounded task/dataset external validity, not architecture universality. Selected budgets are minima only over the locked finite grid.
 
+## Older diabetes regression PR #11 — valid bounded result, excluded from current headline
+
+PR #11's locked primary composition-budget result remains a valid research result under its exact protocol. Recalculation from the persisted eight confirmatory seed rows reproduces mean `log2(B_composed/B_componentwise) = -1.0263620978`, paired-bootstrap 95% CI `[-1.1842413985, -0.8684827971]`, and geometric budget ratio `0.4909465609`.
+
+It is not selected as the current regression-support headline because teacher held-out-test R² ranges only from about `0.112` to `0.255`, no teacher-eligibility filter was preregistered, and component-wise endpoints for seeds 2201 and 2204 reach the locked `8192`-parameter grid ceiling. This does not invalidate PR #11; it limits its interpretability. Phase4 is the selected current bounded regression support because it prospectively establishes a competent teacher before the fresh replacement cohort.
+
 ## Supporting architecture-family evidence: SmallViT — KEEP with narrow scope
 
 [SmallViT direct composition](CROSS_FAMILY_COMPOSITION_REPLICATION.md) remains supporting evidence for a declared central two-block span on digits. It is not full-Transformer or LLM evidence. Its runner recorded test metrics for every candidate, so its operational test-isolation boundary differs from R87R2 and Phase4.
@@ -77,6 +83,10 @@ Required boundary: this is one dataset and one fixed split, not eight independen
 | Recursive-composition extensions | Research only; no blanket cross-architecture theorem. |
 | Systems S1–S7 | CPU/serialization/runtime prototype evidence only; no general RAM, GPU/VRAM, energy, or physical-device claim. |
 
+## Open-PR publication policy
+
+All 30 open PRs in the 2026-09-12 review snapshot have an explicit publication disposition. This does not authorize closing or merging them. Research PRs are not mechanically merged into the publication candidate; reviewed evidence is selectively vendored or referenced according to the disposition ledger. CI performs a live GitHub check and fails if a currently open PR has no disposition. Any new scientific PR opened after the snapshot requires a separate inclusion/exclusion decision before announcement.
+
 ## Interpretation rules
 
 Noninferiority is not equality or superiority. A model-seed bootstrap is conditional on the tested dataset/split and does not quantify dataset-level uncertainty. Replacement parameters, correction dimension, serialized bytes, FLOPs, latency, RAM, VRAM, and energy are distinct quantities.
@@ -90,6 +100,7 @@ Run:
 ```bash
 python tools/audit_publication.py
 python tools/audit_publication_candidate.py
+python tools/audit_open_pr_disposition.py
 ```
 
-The candidate audit verifies exact reviewed Git-blob identities and recomputes R87R2 and Phase4 decisions from persisted raw rows. The separate historical Issue-#87 gate remains available as `python tools/audit_publication.py --require-reproduction`; it is intentionally not redefined by the fresh R87R2 result.
+CI additionally runs `tools/audit_open_pr_disposition.py --live-github`. The candidate audit verifies exact reviewed Git-blob identities and recomputes R87R2 and Phase4 decisions from persisted raw rows. The separate historical Issue-#87 gate remains available as `python tools/audit_publication.py --require-reproduction`; it is intentionally not redefined by the fresh R87R2 result.
