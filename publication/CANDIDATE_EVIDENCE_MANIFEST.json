@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "candidate": "ANNOUNCEMENT_CANDIDATE_2026_09_12",
+  "sources": {
+    "r87r2": "56a8d1a50f15cad0d930cc899336071fa8efe7dc",
+    "phase4": "f7d23c9dad2788e64b94f2a268fe3e0b1084d77c"
+  },
+  "git_blob_sha1": {
+    "results/reproduction/r87r2_fresh_sqrt_profile/PROTOCOL.json": "d86d7aadf433f2f54e22ad34342020cf620e2969",
+    "results/reproduction/r87r2_fresh_sqrt_profile/FRESH_ROWS.json": "4abb44a7d2ee8fc22df2b9352931898b338a0404",
+    "results/reproduction/r87r2_fresh_sqrt_profile/DECISION.json": "746e2a00724126f117addd5f20d0894235f4f42a",
+    "scripts/reproduction_diagnostics/r87_dispatch.py": "7a0ee3bc0dcac7127d9a40e2a01c68e41f1eb940",
+    "scripts/reproduction_diagnostics/r87_profile.py": "17384136a9ffb69e0cc5a7e05981ea0d2b53f7d1",
+    "scripts/reproduction_diagnostics/r87_sqrt_profile.py": "ebb11910770454a2a0a41aa353630bdb48386d0f",
+    "scripts/reproduction_diagnostics/r87r2_confirm.py": "e0b3485a73fc841347440bbf4ef33b925da2c870",
+    "scripts/reproduce/core_discovery_digits/run_confirmatory.py": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+    "results/phase4/california_regression/STAGE_A_PROTOCOL.json": "8debff31858bc6014e76ef03afa3c41d040cc98d",
+    "results/phase4/california_regression/STAGE_A_RESULT.json": "e4ab7e60a09f2a7219137e73d65a9e7a98372f2b",
+    "results/phase4/california_regression/STAGE_A_RUN_MANIFEST.json": "02a0df5ef1354a761d4e675d2dc8ad6af5bea143",
+    "results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json": "4b3508bd78d6bb6ff3a98043500d39393ecfef9c",
+    "results/phase4/california_regression/stage_b_confirmatory/DECISION.json": "1f3848738e054f9e86071b39918cc7215853b2f8",
+    "results/phase4/california_regression/stage_b_confirmatory/FRESH_ROWS.json": "7aaf9316294bab6d231aa808e874d65e4a71d979",
+    "results/phase4/california_regression/stage_b_confirmatory/PERSISTENCE_AUDIT.json": "c3dbaac377acb2d3f28ad1dc22e2f6e98f311618",
+    "results/phase4/california_regression/stage_b_confirmatory/RESULT.md": "17951d4fd9212182bffd060ba3053325ee84db84",
+    "results/phase4/california_regression/stage_b_confirmatory/RUN_MANIFEST.json": "c53282ee2bc2f10957a08bedac5f24f911f28914",
+    "results/phase4/california_regression/stage_b_confirmatory/TECHNICAL_REPLICATION.json": "dba69cc0e9dda8d411b51255474282aa9521d28e",
+    "scripts/phase4/evaluate_california_confirm.py": "91dccd700185dce181eaf4a28c023c009022d98c",
+    "scripts/phase4/run_california_confirm_seed.py": "b5380db6c28fbb1204f5e3a8cadf5475118941e7",
+    "scripts/phase4/run_california_teacher_stage_a.py": "3fd0e538cf385869efb5125c9941db49e40bd8d1"
+  }
+}

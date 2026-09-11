@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "candidate": "ANNOUNCEMENT_CANDIDATE_2026_09_12",
+  "mode": "REVIEWED_PUBLICATION_CANDIDATE_NOT_RELEASED",
+  "review_base_main": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "review_ledger": "publication/POST_V02_CLAIM_LEDGER.json",
+  "evidence_manifest": "publication/CANDIDATE_EVIDENCE_MANIFEST.json",
+  "primary_direct_baseline": "R87R2_FRESH_SQRT_PROFILE_CONFIRMATION",
+  "bounded_external_validity_support": ["PHASE4_CALIFORNIA_CONFIRMATORY"],
+  "negative_or_boundary_evidence": ["PHASE3B_STRONGER_TEACHER_CONFIRMATORY", "PHASE3C_NESTED_CV_TEACHER_SELECTION"],
+  "historical_archive": {
+    "id": "HISTORICAL_CORE_DIGITS_1200_1207",
+    "exact_reproduction_established": false,
+    "issue": 87,
+    "issue_remains_open": true,
+    "r87r2_is_historical_recovery": false
+  },
+  "claim_limits": {
+    "independent_external_reproduction_claimed": false,
+    "external_peer_review_claimed": false,
+    "architecture_universality_claimed": false,
+    "runtime_speedup_claimed": false,
+    "ram_vram_energy_claimed": false,
+    "llm_claimed": false,
+    "universal_complexity_theorem_claimed": false
+  },
+  "release_state": {
+    "merged_to_main": false,
+    "release_tag_created": false,
+    "announcement_posted": false,
+    "issue_13_closed": false
+  },
+  "candidate_gate": {
+    "requires_legacy_integrity_audit_pass": true,
+    "requires_r87r2_raw_recalculation_pass": true,
+    "requires_phase4_raw_recalculation_pass": true,
+    "requires_exact_vendored_blob_identity": true,
+    "requires_protocol_boundary_checks": true,
+    "requires_public_surface_review_after_gate": true
+  }
+}
