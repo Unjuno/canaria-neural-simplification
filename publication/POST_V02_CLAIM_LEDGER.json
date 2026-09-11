@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "review": "POST_V02_INDEPENDENT_CLAIM_REVIEW_2026_09_12",
+  "review_base_main": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "audit_workflow_run": 34634973462,
+  "audit_status": "PASS",
+  "review_scope": "Claim selection and independent recomputation from persisted raw rows and git chronology. This is not external peer review and does not merge research branches.",
+  "overall_decision": "PASS_WITH_PUBLIC_SURFACE_EDITS_REQUIRED",
+  "announcement_ready_now": false,
+  "decisions": [
+    {
+      "id": "R87R2_FRESH_SQRT_PROFILE_CONFIRMATION",
+      "source_ref": "research/r87-portable-profile-validation@56a8d1a50f15cad0d930cc899336071fa8efe7dc",
+      "decision": "KEEP",
+      "role": "PRIMARY_REPRODUCIBLE_DIRECT_BASELINE_CANDIDATE",
+      "safe_claim": "Under the fixed residual-MLP/digits/first-two-block replacement protocol and the tested portable_v2_sqrt64 CPU numerical profile, a fresh 16-model-seed cohort selected a smaller composed replacement budget on average while selected test accuracy was noninferior within the prespecified 2 percentage-point margin.",
+      "required_caveats": [
+        "One reused digits dataset split; 16 model seeds are not 16 datasets.",
+        "Test metrics do not select replacement budgets, but the test split is reused rather than operationally unseen.",
+        "The portable_v2_sqrt64 recipe is a scoped research numerical profile, not a universal CPU/GPU portability theorem.",
+        "This is a new confirmatory baseline and does not recover the historical 1200-1207 archive."
+      ],
+      "reviewed_metrics": {
+        "n": 16,
+        "geometric_composed_over_component_budget_ratio": 0.531609887796847,
+        "log2_budget_ratio_ci95": [-1.041259374819711, -0.75],
+        "selected_test_accuracy_difference_ci95_fraction": [0.000277787446975708, 0.007500011567026376],
+        "composed_lower_count": 15,
+        "ties": 1
+      }
+    },
+    {
+      "id": "HISTORICAL_CORE_DIGITS_1200_1207",
+      "source_ref": "main historical archive / Issue 87",
+      "decision": "EDIT",
+      "role": "HISTORICAL_RECORDED_RESULT_NOT_PRIMARY_REPRODUCIBLE_NUMERIC_BASELINE",
+      "safe_claim": "The historical recorded cohort showed the same directional composition-budget pattern, but its exact archived per-seed values and paired statistic have not been reproduced in current environments.",
+      "required_caveats": [
+        "Do not call the old archive exactly reproduced.",
+        "Do not silently replace archived values with R87R2 values.",
+        "Keep Issue 87 open as historical provenance/reproduction debt."
+      ]
+    },
+    {
+      "id": "PHASE4_CALIFORNIA_CONFIRMATORY",
+      "source_ref": "research/phase4-california-regression@f7d23c9dad2788e64b94f2a268fe3e0b1084d77c",
+      "decision": "KEEP",
+      "role": "BOUNDED_REGRESSION_DATASET_EXTERNAL_VALIDITY_SUPPORT",
+      "safe_claim": "On one fixed California Housing split with the same residual-MLP family and a prospectively selected competent teacher, the fresh eight-seed cohort selected smaller composed replacement budgets in 8/8 seeds and preserved selected held-out test R2 within the prespecified noninferiority margin.",
+      "required_caveats": [
+        "One dataset and one fixed split; not eight independent datasets.",
+        "Architecture remains residual-MLP, so this is task/dataset external validity rather than architecture universality.",
+        "Selected budgets are minima only over the locked finite grid.",
+        "No runtime, memory, energy, hardware-speed, LLM, or universal complexity claim follows."
+      ],
+      "reviewed_metrics": {
+        "n": 8,
+        "teacher_test_r2_ci95": [0.7910913713697723, 0.7995540822785517],
+        "geometric_composed_over_component_budget_ratio": 0.47602852309683874,
+        "log2_budget_ratio_ci95": [-1.328241785222183, -0.832518749639422],
+        "selected_test_r2_difference_ci95": [0.004358858924945988, 0.00967018123690487],
+        "composed_lower_count": 8
+      }
+    },
+    {
+      "id": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "source_ref": "research/phase3b-confirmatory@38acc726047791e81154544a9e6f6a1aa962136c",
+      "decision": "EXCLUDE",
+      "role": "NO_POSITIVE_STRONGER_TEACHER_EXTERNAL_VALIDITY_HEADLINE; KEEP_AS_BOUNDARY_EVIDENCE",
+      "reason": "Composition-budget and selected-utility gates passed, but both preregistered teacher-strength gates were uncertain. Overall decision remains PHASE3B_CONFIRMATORY_UNCERTAIN."
+    },
+    {
+      "id": "PHASE3C_NESTED_CV_TEACHER_SELECTION",
+      "source_ref": "research/phase3c-nested-cv-regression@54cd79fc7b254c5d99576ed5c5b448580cc45138",
+      "decision": "KEEP",
+      "role": "NEGATIVE_BOUNDARY_EVIDENCE",
+      "safe_claim": "Within the locked 13-recipe same-architecture grid, training-only five-fold selection found no teacher satisfying the preregistered stability/quality gate; the outer test was not evaluated.",
+      "required_caveats": [
+        "This does not prove that a strong diabetes teacher is impossible.",
+        "Do not weaken the gate or expand the recipe grid post hoc and relabel it confirmatory."
+      ]
+    },
+    {
+      "id": "SMALLVIT_DIRECT_COMPOSITION",
+      "source_ref": "main supporting baseline",
+      "decision": "KEEP",
+      "role": "SUPPORTING_ARCHITECTURE_FAMILY_EVIDENCE",
+      "required_caveats": [
+        "Digits and a declared two-block span only.",
+        "The runner recorded test metrics for every candidate, so operational test isolation is weaker than R87R2/Phase4.",
+        "No blanket cross-architecture theorem."
+      ]
+    },
+    {
+      "id": "C61R_C77E_AND_QR_DIAGNOSTICS",
+      "decision": "EXCLUDE",
+      "role": "RESEARCH_APPENDIX_ONLY",
+      "reason": "Useful mechanism/boundary evidence, including negative results, but not a universal minimum-interface, whole-model reduction, or communication theorem."
+    },
+    {
+      "id": "IMPORTED_C59_C60_AND_ORIGINAL_C61",
+      "decision": "EXCLUDE",
+      "role": "IMPORTED_PROVENANCE_ONLY",
+      "reason": "C59/C60 are imported Residual-CNN evidence and original C61 outcome remains unresolved; C61R uses a different Residual-MLP architecture and cannot repair original C61."
+    },
+    {
+      "id": "SYSTEMS_S1_S7",
+      "decision": "EDIT",
+      "role": "CPU_SERIALIZATION_RUNTIME_POC_ONLY",
+      "reason": "Retain only measurements actually made; no general RAM, GPU/VRAM, energy, or deployment-device claim."
+    },
+    {
+      "id": "PHASE2E",
+      "decision": "INVALIDATE",
+      "role": "HISTORICAL_DO_NOT_USE_FOR_INFERENCE",
+      "reason": "INVALIDATED_IMPLEMENTATION_BUG; preserve history but never use as positive or negative inferential evidence."
+    },
+    {
+      "id": "PHASE2I_CAUSAL_ATTRIBUTION",
+      "decision": "INVALIDATE",
+      "role": "RETRACTED_ATTRIBUTION"
+    },
+    {
+      "id": "PHASE2O_REPAIR_SAMPLE_ADVANTAGE",
+      "decision": "EXCLUDE",
+      "role": "ADVANTAGE_NOT_ESTABLISHED"
+    }
+  ],
+  "readiness_interpretation": {
+    "issue_87": "KEEP_OPEN_HISTORICAL_PROVENANCE_DEBT",
+    "issue_87_blocks_new_R87R2_headline": false,
+    "rationale": "A scoped announcement can use R87R2 as the current reproducible direct baseline while explicitly preserving the unrecovered historical archive as a separate issue. This is replacement of the headline evidence selection, not retroactive recovery of old values.",
+    "issue_13_can_close_now": false,
+    "remaining_before_issue_13_closure": [
+      "Integrate the reviewed R87R2 and Phase4 evidence/provenance into a publication-candidate branch without mechanically merging research stacks.",
+      "Update README, STATUS, CLAIMS_AND_EVIDENCE, ANNOUNCEMENT_READINESS and CLAIM_POLICY consistently.",
+      "Make the executable publication gate validate the new selected baseline rather than requiring historical 1200-1207 exact parity.",
+      "Run repository/publication/final-commit CI on the exact candidate head.",
+      "Do not claim external peer review or independent external reproduction."
+    ]
+  }
+}
