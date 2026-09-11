@@ -14,6 +14,17 @@
   "review_ledger": "publication/POST_V02_CLAIM_LEDGER.json",
   "candidate_evidence_manifest": "publication/CANDIDATE_EVIDENCE_MANIFEST.json",
   "candidate_evidence_gate": "tools/audit_publication_candidate.py",
+  "headline_reproduction": {
+    "workflow": ".github/workflows/publication-headline-reproduction.yml",
+    "quickstart": "QUICKSTART.md",
+    "requirements": "scripts/reproduction_diagnostics/requirements-r87r2-py313.txt",
+    "python": "3.13.5",
+    "torch_cpu": "2.10.0",
+    "cohort": "871200-871215",
+    "comparison": "exact scientific outcome objects and aggregate decision versus reviewed vendored primary evidence",
+    "evidence_class": "TECHNICAL_REPRODUCTION_OF_FIXED_FRESH_COHORT",
+    "adds_independent_scientific_seeds": false
+  },
   "historical_archive": {
     "id": "HISTORICAL_CORE_DIGITS_1200_1207",
     "reproduction_report": "results/reproduction/publication_2026-09-08/core-cohort-report.json",
@@ -45,5 +56,5 @@
   "release_tag_created": false,
   "merged_to_main_by_this_candidate": false,
   "readiness_tracker_issue": 13,
-  "required_work": "Pass candidate evidence/repository CI on the exact final candidate head, complete public-surface review, then make merge/release/announcement decisions separately. Keep Issue 87 open as historical reproduction debt."
+  "required_work": "Pass candidate evidence, clean-checkout R87R2 reproduction, and repository CI on the exact final candidate head; complete independent publication-surface review; then make merge/release/announcement decisions separately. Keep Issue 87 open as historical reproduction debt."
 }

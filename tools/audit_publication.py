@@ -107,6 +107,56 @@ def audit(root: Path, require_reproduction: bool = False) -> dict:
     if hist.get('r87r2_is_historical_recovery') is not False:
         errors.append('R87R2 falsely relabeled historical recovery')
 
+    headline_repro = policy.get('headline_reproduction', {})
+    expected_repro = {
+        'workflow': '.github/workflows/publication-headline-reproduction.yml',
+        'quickstart': 'QUICKSTART.md',
+        'requirements': 'scripts/reproduction_diagnostics/requirements-r87r2-py313.txt',
+        'python': '3.13.5',
+        'torch_cpu': '2.10.0',
+        'cohort': '871200-871215',
+        'comparison': 'exact scientific outcome objects and aggregate decision versus reviewed vendored primary evidence',
+        'evidence_class': 'TECHNICAL_REPRODUCTION_OF_FIXED_FRESH_COHORT',
+        'adds_independent_scientific_seeds': False,
+    }
+    if headline_repro != expected_repro:
+        errors.append('headline clean-reproduction policy changed')
+    for name in (expected_repro['workflow'], expected_repro['quickstart'], expected_repro['requirements']):
+        if not safe_path(root, name).exists():
+            errors.append('missing headline reproduction surface: ' + name)
+
+    expected_requirements = [
+        'numpy==2.3.5',
+        'scikit-learn==1.8.0',
+        'scipy==1.17.0',
+        'joblib==1.5.3',
+        'threadpoolctl==3.6.0',
+        'sympy==1.14.0',
+        'networkx==3.6.1',
+        'filelock==3.29.0',
+        'fsspec==2026.4.0',
+        'jinja2==3.1.6',
+        'typing_extensions==4.16.0',
+    ]
+    req_path = safe_path(root, expected_repro['requirements'])
+    if req_path.exists() and req_path.read_text().splitlines() != expected_requirements:
+        errors.append('R87R2 pinned requirements changed')
+
+    workflow_path = safe_path(root, expected_repro['workflow'])
+    if workflow_path.exists():
+        workflow = workflow_path.read_text()
+        for token in [
+            "python-version: '3.13.5'",
+            'torch==2.10.0',
+            'r87r2_confirm.py --mode suite --workers 2',
+            'rows_exact_to_reviewed_primary',
+            'decision_exact_to_reviewed_primary',
+            "'new_independent_scientific_seeds': 0",
+            "'historical_archive_recovered': False",
+        ]:
+            if token not in workflow:
+                errors.append('headline reproduction workflow missing locked token: ' + token)
+
     for rec in catalog['entries']:
         if not re.fullmatch('[0-9a-f]{40}', rec['commit']):
             errors.append('unpinned research source: ' + rec['id'])
@@ -120,7 +170,7 @@ def audit(root: Path, require_reproduction: bool = False) -> dict:
         if (root / old).exists():
             errors.append('historical material still in active path: ' + old)
 
-    surface = ['README.md', 'README.ja.md', 'STATUS.md', 'docs/CLAIMS_AND_EVIDENCE.md', 'docs/ANNOUNCEMENT_READINESS.md']
+    surface = ['README.md', 'README.ja.md', 'STATUS.md', 'QUICKSTART.md', 'docs/CLAIMS_AND_EVIDENCE.md', 'docs/ANNOUNCEMENT_READINESS.md']
     for name in surface:
         text = (root / name).read_text()
         if 'REPRODUCTION_DISCREPANCY.md' not in text:
@@ -129,6 +179,12 @@ def audit(root: Path, require_reproduction: bool = False) -> dict:
             errors.append('missing current reviewed baseline disclosure: ' + name)
         if 'Phase4' not in text and 'PHASE4' not in text:
             errors.append('missing bounded Phase4 disclosure: ' + name)
+
+    citation = (root / 'CITATION.cff').read_text()
+    if 'rolling research preview is not a peer-reviewed paper' not in citation:
+        errors.append('CITATION.cff missing peer-review boundary')
+    if 'No universal compression or general hardware-resource advantage is claimed.' not in citation:
+        errors.append('CITATION.cff missing scope boundary')
 
     for required in [policy.get('review_ledger'), policy.get('candidate_evidence_manifest'), policy.get('candidate_evidence_gate')]:
         if not required:
@@ -171,10 +227,11 @@ def audit(root: Path, require_reproduction: bool = False) -> dict:
         'announcement_status': 'CANDIDATE_INTEGRITY_PASS_FINAL_REVIEW_REQUIRED' if ok else 'CANDIDATE_INTEGRITY_FAIL',
         'historical_reproduction_status': 'UNRESOLVED_ISSUE_87',
         'historical_reproduction_blocks_current_r87r2_headline': False,
+        'headline_clean_reproduction_required': True,
         'protected_file_count': len(manifest['files']),
         'research_entry_count': len(catalog['entries']),
         'errors': errors,
-        'scope': 'File/link/policy preservation audit. R87R2 and Phase4 raw-row scientific recalculation is performed by tools/audit_publication_candidate.py; strict historical 1200-1207 reproduction remains available via --require-reproduction.'
+        'scope': 'File/link/policy preservation audit. R87R2 and Phase4 raw-row scientific recalculation is performed by tools/audit_publication_candidate.py; clean-checkout R87R2 retraining is performed by publication-headline-reproduction CI; strict historical 1200-1207 reproduction remains available via --require-reproduction.'
     }
 
 

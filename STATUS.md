@@ -1,8 +1,8 @@
 # Project status
 
-**Mode: reviewed publication candidate; exact-head evidence and repository gates pass, but this branch is not merged, released, or announced.**
+**Mode: reviewed publication candidate; merge, release, and announcement remain blocked until the exact-head CI and independent-review gates are satisfied.**
 
-The post-v0.2 independent claim review selected `R87R2_FRESH_SQRT_PROFILE_CONFIRMATION` as the current reproducible direct baseline candidate and California Housing Phase4 as bounded regression external-validity support. The candidate branch vendors the reviewed evidence byte-identically from the source research commits and recalculates the locked decisions from persisted raw rows.
+The post-v0.2 independent claim review selected `R87R2_FRESH_SQRT_PROFILE_CONFIRMATION` as the current reproducible direct baseline candidate and California Housing Phase4 as bounded regression external-validity support. The candidate branch vendors the reviewed evidence byte-identically from the source research commits, recalculates the locked decisions from persisted raw rows, and defines a clean-checkout R87R2 technical-reproduction gate.
 
 The repository is already public. Publication-candidate status is not the same as merge, release, announcement, independent external reproduction, or peer review. Issue #13 remains the readiness tracker.
 
@@ -53,21 +53,18 @@ The machine-readable [post-v0.2 claim ledger](publication/POST_V02_CLAIM_LEDGER.
 - Imported C59/C60 remain Residual-CNN provenance; original C61 remains unresolved and is not repaired by the Residual-MLP C61R line.
 - Systems S1–S7 remain bounded prototype measurements, not general RAM/GPU/VRAM/energy claims.
 
-## Executable candidate gate
+## Executable candidate gates
 
-The active publication integrity gate is:
+Evidence/policy integrity and raw-row recalculation:
 
 ```bash
 python tools/audit_publication.py
-```
-
-The scientific candidate evidence gate is:
-
-```bash
 python tools/audit_publication_candidate.py
 ```
 
-It checks reviewed Git-blob identities and recomputes R87R2 and Phase4 aggregate decisions from the vendored raw rows. The candidate revision has passed both the publication-candidate audit and the repository audit. Any subsequent candidate-head change requires the exact-head gates to pass again before a merge decision.
+Clean-checkout R87R2 technical reproduction is documented in [QUICKSTART.md](QUICKSTART.md) and enforced by `.github/workflows/publication-headline-reproduction.yml`. It retrains the fixed 16 seeds under the locked environment and requires exact agreement of the scientific outcome objects and aggregate decision with the reviewed vendored primary evidence. This repetition contributes zero new independent scientific seeds.
+
+Any candidate-head change requires all applicable exact-head gates to pass again before a merge decision.
 
 ## Preservation
 
@@ -79,6 +76,6 @@ It checks reviewed Git-blob identities and recomputes R87R2 and Phase4 aggregate
 
 ## Remaining publication work
 
-The exact final candidate head must continue to pass repository and publication CI; the Draft publication PR must receive independent review after/with the independent evidence-selection PR. Merge, release tag, announcement, and Issue #13 closure remain separate explicit actions. None has occurred merely because the evidence gates passed.
+The exact final candidate head must pass repository audit, publication-candidate evidence audit, and clean-checkout R87R2 reproduction; the Draft publication PR must receive independent review after/with the independent evidence-selection PR. Merge, release tag, announcement, and Issue #13 closure remain separate explicit actions. None occurs merely because CI passes.
 
 Open research directions include independent-dataset replication, broader architecture families, physically constrained teacher-feedback interfaces, and fixed-device resource measurements. They are not prerequisites for this narrowly scoped preview because those stronger capabilities are not claimed.
