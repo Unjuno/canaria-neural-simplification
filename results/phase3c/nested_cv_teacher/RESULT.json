@@ -1,0 +1,2151 @@
+{
+  "amendment_sha256": "4bc63ceed52bddd659a8576973c1e2d19b5de7e99ae8047166571c8e088ef56b",
+  "base_runner_git_blob": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+  "baseline_mean_validation_r2": 0.23495459034164623,
+  "chosen_recipe": null,
+  "chosen_recipe_improvement_over_baseline": null,
+  "chosen_recipe_mean_validation_r2": null,
+  "chosen_recipe_min_fold_mean_validation_r2": null,
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_TEACHER_SELECTION",
+  "experiment": "PHASE3C_NESTED_CV_TEACHER_SELECTION",
+  "leave_one_fold_out_winners_descriptive": [
+    {
+      "baseline_mean": 0.21404039533824037,
+      "omitted_fold": 0,
+      "winner": null,
+      "winner_min_fold_mean": null
+    },
+    {
+      "baseline_mean": 0.2039187442258226,
+      "omitted_fold": 1,
+      "winner": null,
+      "winner_min_fold_mean": null
+    },
+    {
+      "baseline_mean": 0.2570355936234957,
+      "omitted_fold": 2,
+      "winner": "short_15",
+      "winner_min_fold_mean": 0.28753734580106993
+    },
+    {
+      "baseline_mean": 0.27397153081717995,
+      "omitted_fold": 3,
+      "winner": null,
+      "winner_min_fold_mean": null
+    },
+    {
+      "baseline_mean": 0.22580668770349258,
+      "omitted_fold": 4,
+      "winner": null,
+      "winner_min_fold_mean": null
+    }
+  ],
+  "numeric_profile": {
+    "MKL_CBWR": "COMPATIBLE",
+    "deterministic": true,
+    "effective_cpu_capability": "AVX2",
+    "mkldnn": false,
+    "numpy": "2.3.5",
+    "python": "3.13.5",
+    "sklearn": "1.8.0",
+    "sqrt_intervention": {
+      "adamw_steps": 58500,
+      "float32_sqrt_calls": 1638000
+    },
+    "threads": 1,
+    "torch": "2.10.0+cpu"
+  },
+  "outer_test_evaluated": false,
+  "outer_test_indices_sha256": "31b26150408530c54a6e449864172171f1cbd97b02533d57b69bc684db9194cd",
+  "outer_test_n_held_out": 111,
+  "outer_train_indices_sha256": "7992e4ab42af89269890f88439c513bca5d89bd179d880f633283fc25450caf4",
+  "outer_train_n": 331,
+  "protocol_sha256": "a1caca72aa1a1fe58f82dc92c5a30c20bd585cba7c5180297fa2121df8ce80a8",
+  "recipe_aggregates": [
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.31861137035526976,
+        0.3590979748049408,
+        0.14663057721424846,
+        0.0788868284395114,
+        0.2715462008942608
+      ],
+      "improvement_over_baseline_mean_r2": 0.0,
+      "max_validation_r2": 0.4009341745435969,
+      "mean_validation_r2": 0.23495459034164623,
+      "min_fold_mean_validation_r2": 0.0788868284395114,
+      "min_validation_r2": -0.002759052200247636,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 60,
+        "id": "baseline_60",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 0,
+      "std_validation_r2": 0.11929802816593336
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.4995743767090494,
+        0.38807483906092144,
+        0.12900327226284,
+        0.28753734580106993,
+        0.3754854373221534
+      ],
+      "improvement_over_baseline_mean_r2": 0.10098046388956061,
+      "max_validation_r2": 0.5192225994739764,
+      "mean_validation_r2": 0.33593505423120684,
+      "min_fold_mean_validation_r2": 0.12900327226284,
+      "min_validation_r2": 0.08843317197741152,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 15,
+        "id": "short_15",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 1,
+      "std_validation_r2": 0.13205158680648726
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.390113864772276,
+        0.3354930815734615,
+        0.11705917515219992,
+        0.1592515175086455,
+        0.3127649103445043
+      ],
+      "improvement_over_baseline_mean_r2": 0.027981919528571153,
+      "max_validation_r2": 0.4029081012371487,
+      "mean_validation_r2": 0.2629365098702174,
+      "min_fold_mean_validation_r2": 0.11705917515219992,
+      "min_validation_r2": 0.02089149866507012,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 25,
+        "id": "short_25",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 2,
+      "std_validation_r2": 0.11225420337353768
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.40808667317981334,
+        0.3738216547474278,
+        0.10101616116201077,
+        0.03742296505127152,
+        0.26326814151251915
+      ],
+      "improvement_over_baseline_mean_r2": 0.0017685287889623036,
+      "max_validation_r2": 0.4704645412428582,
+      "mean_validation_r2": 0.23672311913060853,
+      "min_fold_mean_validation_r2": 0.03742296505127152,
+      "min_validation_r2": -0.08941548668970034,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "short_40",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 3,
+      "std_validation_r2": 0.15978758195673254
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.393937294019453,
+        0.3548703423991116,
+        0.051963206099959414,
+        0.08970547817214163,
+        0.3077866834141722
+      ],
+      "improvement_over_baseline_mean_r2": 0.004698010479321335,
+      "max_validation_r2": 0.42974416370434765,
+      "mean_validation_r2": 0.23965260082096757,
+      "min_fold_mean_validation_r2": 0.051963206099959414,
+      "min_validation_r2": -0.015582286909408882,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "reg_40",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 4,
+      "std_validation_r2": 0.14440909524609274
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.32562469654887516,
+        0.3559509378137247,
+        0.034787508702660674,
+        0.02246661600700554,
+        0.2909961114942677
+      ],
+      "improvement_over_baseline_mean_r2": -0.02898941622833945,
+      "max_validation_r2": 0.39003977485471986,
+      "mean_validation_r2": 0.20596517411330678,
+      "min_fold_mean_validation_r2": 0.02246661600700554,
+      "min_validation_r2": 0.0003462077892929516,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 60,
+        "id": "reg_60",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 5,
+      "std_validation_r2": 0.15021158331603007
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.32785865574302747,
+        0.3442058196891431,
+        0.0835780028327523,
+        0.012812906906352542,
+        0.260772492960157
+      ],
+      "improvement_over_baseline_mean_r2": -0.029109014715359732,
+      "max_validation_r2": 0.37715101576739296,
+      "mean_validation_r2": 0.2058455756262865,
+      "min_fold_mean_validation_r2": 0.012812906906352542,
+      "min_validation_r2": -0.04379103287835351,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 100,
+        "id": "reg_100",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 6,
+      "std_validation_r2": 0.13751059668217588
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.3941427813473675,
+        0.35460690639344156,
+        0.05083453337472802,
+        0.09021697482143642,
+        0.3075652636147504
+      ],
+      "improvement_over_baseline_mean_r2": 0.0045187015686985466,
+      "max_validation_r2": 0.4298750869392337,
+      "mean_validation_r2": 0.23947329191034478,
+      "min_fold_mean_validation_r2": 0.05083453337472802,
+      "min_validation_r2": -0.01577744955437632,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "strongreg_40",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 7,
+      "std_validation_r2": 0.14456280828376397
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.33234792896242654,
+        0.338774029302957,
+        -0.00026219832777037616,
+        0.004517684281316714,
+        0.252201551219852
+      ],
+      "improvement_over_baseline_mean_r2": -0.049438791253889836,
+      "max_validation_r2": 0.3703875215982777,
+      "mean_validation_r2": 0.1855157990877564,
+      "min_fold_mean_validation_r2": -0.00026219832777037616,
+      "min_validation_r2": -0.1122760311695663,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 80,
+        "id": "strongreg_80",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 8,
+      "std_validation_r2": 0.16097069541758094
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.2598560166178279,
+        0.31964291264820066,
+        -0.010433335317169426,
+        -0.016620087743261142,
+        0.3119341811053535
+      ],
+      "improvement_over_baseline_mean_r2": -0.06207865287945591,
+      "max_validation_r2": 0.37790456661392724,
+      "mean_validation_r2": 0.17287593746219032,
+      "min_fold_mean_validation_r2": -0.016620087743261142,
+      "min_validation_r2": -0.09507531400095082,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 80,
+        "id": "low_lr_80",
+        "lr": 0.0005,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 9,
+      "std_validation_r2": 0.16377173261718378
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.2368434342023208,
+        0.3013214154699822,
+        0.03446218988150229,
+        -0.02928349175327505,
+        0.2793360248320163
+      ],
+      "improvement_over_baseline_mean_r2": -0.07041867581513692,
+      "max_validation_r2": 0.35594028188884586,
+      "mean_validation_r2": 0.1645359145265093,
+      "min_fold_mean_validation_r2": -0.02928349175327505,
+      "min_validation_r2": -0.08447268978188571,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 120,
+        "id": "low_lr_120",
+        "lr": 0.0005,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 10,
+      "std_validation_r2": 0.14225862989123844
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.13163361748299665,
+        0.2665769453179592,
+        -0.08805621562703332,
+        -0.14321588248150544,
+        0.14804085817514498
+      ],
+      "improvement_over_baseline_mean_r2": -0.1719587257681338,
+      "max_validation_r2": 0.3748264276785165,
+      "mean_validation_r2": 0.06299586457351242,
+      "min_fold_mean_validation_r2": -0.14321588248150544,
+      "min_validation_r2": -0.17585692426945343,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": "full_train_fold",
+        "epochs": 200,
+        "id": "fullbatch_200",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 11,
+      "std_validation_r2": 0.16656331947173478
+    },
+    {
+      "eligible": false,
+      "fold_mean_validation_r2": [
+        0.10702844900421793,
+        0.22222654357805124,
+        -0.12762090003566673,
+        -0.17605131169807384,
+        0.14401907347118112
+      ],
+      "improvement_over_baseline_mean_r2": -0.20103421947770428,
+      "max_validation_r2": 0.3056340259915423,
+      "mean_validation_r2": 0.033920370863941944,
+      "min_fold_mean_validation_r2": -0.17605131169807384,
+      "min_validation_r2": -0.23841507779160898,
+      "n_values": 15,
+      "recipe": {
+        "batch_size": "full_train_fold",
+        "epochs": 400,
+        "id": "fullbatch_400",
+        "lr": 0.0005,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 12,
+      "std_validation_r2": 0.17001025571186237
+    }
+  ],
+  "replacement_fitting_performed": false,
+  "rows": [
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2600,
+      "validation_r2": 0.36380071624205945
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2601,
+      "validation_r2": 0.32341961125402185
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2602,
+      "validation_r2": 0.268613783569728
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2600,
+      "validation_r2": 0.4832522408601476
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2601,
+      "validation_r2": 0.49624828979302404
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2602,
+      "validation_r2": 0.5192225994739764
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2600,
+      "validation_r2": 0.3847901443305545
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2601,
+      "validation_r2": 0.4029081012371487
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2602,
+      "validation_r2": 0.38264334874912487
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2600,
+      "validation_r2": 0.4288796740788836
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2601,
+      "validation_r2": 0.4704645412428582
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2602,
+      "validation_r2": 0.32491580421769817
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2600,
+      "validation_r2": 0.37585012464888556
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2601,
+      "validation_r2": 0.42974416370434765
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2602,
+      "validation_r2": 0.37621759370512564
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2600,
+      "validation_r2": 0.39003977485471986
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2601,
+      "validation_r2": 0.24855580545732936
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2602,
+      "validation_r2": 0.33827850933457626
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2600,
+      "validation_r2": 0.3527476859813664
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2601,
+      "validation_r2": 0.28099479304527786
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2602,
+      "validation_r2": 0.3498334882024382
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2600,
+      "validation_r2": 0.3761952397185716
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2601,
+      "validation_r2": 0.4298750869392337
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2602,
+      "validation_r2": 0.3763580173842972
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2600,
+      "validation_r2": 0.3703875215982777
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2601,
+      "validation_r2": 0.2661591126280307
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2602,
+      "validation_r2": 0.36049715266097115
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2600,
+      "validation_r2": 0.32661074444364613
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2601,
+      "validation_r2": 0.19158783922810718
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2602,
+      "validation_r2": 0.2613694661817304
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2600,
+      "validation_r2": 0.2630116205167018
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2601,
+      "validation_r2": 0.207576832938
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2602,
+      "validation_r2": 0.23994184915226058
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2600,
+      "validation_r2": 0.17744360825858962
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2601,
+      "validation_r2": 0.1425921174763073
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2602,
+      "validation_r2": 0.07486512671409307
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2600,
+      "validation_r2": 0.10180919957996015
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2601,
+      "validation_r2": 0.10508791975326448
+    },
+    {
+      "fold": 0,
+      "n_train": 264,
+      "n_val": 67,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2602,
+      "validation_r2": 0.11418822767942916
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2600,
+      "validation_r2": 0.4009341745435969
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2601,
+      "validation_r2": 0.39234811498613265
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2602,
+      "validation_r2": 0.28401163488509296
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2600,
+      "validation_r2": 0.31921929154796147
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2601,
+      "validation_r2": 0.36860171338040437
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2602,
+      "validation_r2": 0.4764035122543985
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2600,
+      "validation_r2": 0.3382959168034725
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2601,
+      "validation_r2": 0.36536546667874015
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2602,
+      "validation_r2": 0.302817861238172
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2600,
+      "validation_r2": 0.3939389445510385
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2601,
+      "validation_r2": 0.4087547386167113
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2602,
+      "validation_r2": 0.3187712810745337
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2600,
+      "validation_r2": 0.37059369812450516
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2601,
+      "validation_r2": 0.34251266247016565
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2602,
+      "validation_r2": 0.3515046666026639
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2600,
+      "validation_r2": 0.3897643801898678
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2601,
+      "validation_r2": 0.35790174144741815
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2602,
+      "validation_r2": 0.32018669180388826
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2600,
+      "validation_r2": 0.3344244692657068
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2601,
+      "validation_r2": 0.37715101576739296
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2602,
+      "validation_r2": 0.32104197403432955
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2600,
+      "validation_r2": 0.36973795426554923
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2601,
+      "validation_r2": 0.34201144931042926
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2602,
+      "validation_r2": 0.3520713156043461
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2600,
+      "validation_r2": 0.36953535705120044
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2601,
+      "validation_r2": 0.3338105610448415
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2602,
+      "validation_r2": 0.31297616981282916
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2600,
+      "validation_r2": 0.37790456661392724
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2601,
+      "validation_r2": 0.34318231233416985
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2602,
+      "validation_r2": 0.2378418589965049
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2600,
+      "validation_r2": 0.35594028188884586
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2601,
+      "validation_r2": 0.31597369686887644
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2602,
+      "validation_r2": 0.23205026765222436
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2600,
+      "validation_r2": 0.3748264276785165
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2601,
+      "validation_r2": 0.3123160410369388
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2602,
+      "validation_r2": 0.11258836723842236
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2600,
+      "validation_r2": 0.3056340259915423
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2601,
+      "validation_r2": 0.2996988681792184
+    },
+    {
+      "fold": 1,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2602,
+      "validation_r2": 0.061346736563392956
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2600,
+      "validation_r2": 0.1433537307542041
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2601,
+      "validation_r2": 0.12575879773509846
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2602,
+      "validation_r2": 0.17077920315344286
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2600,
+      "validation_r2": 0.08843317197741152
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2601,
+      "validation_r2": 0.17042010388670292
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2602,
+      "validation_r2": 0.12815654092440554
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2600,
+      "validation_r2": 0.16386772398746718
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2601,
+      "validation_r2": 0.16641830280406245
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2602,
+      "validation_r2": 0.02089149866507012
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2600,
+      "validation_r2": 0.10038235405971863
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2601,
+      "validation_r2": 0.073707308887624
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2602,
+      "validation_r2": 0.12895882053868968
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2600,
+      "validation_r2": -0.015582286909408882
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2601,
+      "validation_r2": 0.09073902758011565
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2602,
+      "validation_r2": 0.08073287762917147
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2600,
+      "validation_r2": 0.0003462077892929516
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2601,
+      "validation_r2": 0.05004292503901275
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2602,
+      "validation_r2": 0.05397339327967632
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2600,
+      "validation_r2": 0.10194279578762633
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2601,
+      "validation_r2": 0.041246998344823926
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2602,
+      "validation_r2": 0.10754421436580663
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2600,
+      "validation_r2": -0.01577744955437632
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2601,
+      "validation_r2": 0.08988102813545185
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2602,
+      "validation_r2": 0.07840002154310854
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2600,
+      "validation_r2": 0.07592335386398352
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2601,
+      "validation_r2": -0.1122760311695663
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2602,
+      "validation_r2": 0.03556608232227165
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2600,
+      "validation_r2": 0.06890480381572295
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2601,
+      "validation_r2": -0.08216655316196175
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2602,
+      "validation_r2": -0.018038256605269476
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2600,
+      "validation_r2": 0.07760834158807406
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2601,
+      "validation_r2": 0.02140293222386347
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2602,
+      "validation_r2": 0.004375295832569348
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2600,
+      "validation_r2": -0.07645125986616774
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2601,
+      "validation_r2": -0.07032737835402902
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2602,
+      "validation_r2": -0.11739000866090321
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2600,
+      "validation_r2": -0.08872373155558777
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2601,
+      "validation_r2": -0.09175874344761747
+    },
+    {
+      "fold": 2,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2602,
+      "validation_r2": -0.20238022510379494
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2600,
+      "validation_r2": 0.1453066039959029
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2601,
+      "validation_r2": -0.002759052200247636
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2602,
+      "validation_r2": 0.09411293352287897
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2600,
+      "validation_r2": 0.20810309438455266
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2601,
+      "validation_r2": 0.3464458631946482
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2602,
+      "validation_r2": 0.30806307982400893
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2600,
+      "validation_r2": 0.15730502495805654
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2601,
+      "validation_r2": 0.16219059408719327
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2602,
+      "validation_r2": 0.15825893348068665
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2600,
+      "validation_r2": 0.06888451613802282
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2601,
+      "validation_r2": -0.08941548668970034
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2602,
+      "validation_r2": 0.13279986570549207
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2600,
+      "validation_r2": 0.07314013085637905
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2601,
+      "validation_r2": 0.09769309213583921
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2602,
+      "validation_r2": 0.0982832115242066
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2600,
+      "validation_r2": 0.05826034734345542
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2601,
+      "validation_r2": 0.006655590660261557
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2602,
+      "validation_r2": 0.0024839100172996398
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2600,
+      "validation_r2": 0.0667459364910935
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2601,
+      "validation_r2": 0.015483817106317632
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2602,
+      "validation_r2": -0.04379103287835351
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2600,
+      "validation_r2": 0.0730274706803149
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2601,
+      "validation_r2": 0.09942036114993691
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2602,
+      "validation_r2": 0.09820309263405747
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2600,
+      "validation_r2": 0.0707060987756084
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2601,
+      "validation_r2": -0.018002512636102974
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2602,
+      "validation_r2": -0.03915053329555529
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2600,
+      "validation_r2": 0.07701125344995086
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2601,
+      "validation_r2": -0.09507531400095082
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2602,
+      "validation_r2": -0.03179620267878347
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2600,
+      "validation_r2": 0.034582858866437305
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2601,
+      "validation_r2": -0.08447268978188571
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2602,
+      "validation_r2": -0.03796064434437674
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2600,
+      "validation_r2": -0.09505343279145628
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2601,
+      "validation_r2": -0.15873729038360662
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2602,
+      "validation_r2": -0.17585692426945343
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2600,
+      "validation_r2": -0.14970046307370288
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2601,
+      "validation_r2": -0.23841507779160898
+    },
+    {
+      "fold": 3,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2602,
+      "validation_r2": -0.14003839422890962
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2600,
+      "validation_r2": 0.2798355079894582
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2601,
+      "validation_r2": 0.16675937286138165
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2602,
+      "validation_r2": 0.36804372183194245
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2600,
+      "validation_r2": 0.34512450832213926
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2601,
+      "validation_r2": 0.4373638400776251
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2602,
+      "validation_r2": 0.3439679635666958
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2600,
+      "validation_r2": 0.32327342259932057
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2601,
+      "validation_r2": 0.35694841397300503
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2602,
+      "validation_r2": 0.2580728944611874
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2600,
+      "validation_r2": 0.32915273680616564
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2601,
+      "validation_r2": 0.15330988728135553
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2602,
+      "validation_r2": 0.30734180045003634
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2600,
+      "validation_r2": 0.36284799615450614
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2601,
+      "validation_r2": 0.2929921848457063
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2602,
+      "validation_r2": 0.2675198692423042
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2600,
+      "validation_r2": 0.2658823604779239
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2601,
+      "validation_r2": 0.3090412728862535
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2602,
+      "validation_r2": 0.2980647011186256
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2600,
+      "validation_r2": 0.26840812565747707
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2601,
+      "validation_r2": 0.28805353661247735
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2602,
+      "validation_r2": 0.22585581661051657
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2600,
+      "validation_r2": 0.36312489976465767
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2601,
+      "validation_r2": 0.29282578863960607
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2602,
+      "validation_r2": 0.2667451024399875
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2600,
+      "validation_r2": 0.21087535339175478
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2601,
+      "validation_r2": 0.2965220155490259
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2602,
+      "validation_r2": 0.2492072847187753
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2600,
+      "validation_r2": 0.3020169009504732
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2601,
+      "validation_r2": 0.3476978231643052
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2602,
+      "validation_r2": 0.286087819201282
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2600,
+      "validation_r2": 0.3056088057778076
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2601,
+      "validation_r2": 0.3295798553783459
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2602,
+      "validation_r2": 0.2028194133398954
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2600,
+      "validation_r2": 0.16187506709971022
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2601,
+      "validation_r2": 0.217858968473867
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2602,
+      "validation_r2": 0.0643885389518577
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2600,
+      "validation_r2": 0.145720331550942
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2601,
+      "validation_r2": 0.2174240077970514
+    },
+    {
+      "fold": 4,
+      "n_train": 265,
+      "n_val": 66,
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2602,
+      "validation_r2": 0.06891288106554994
+    }
+  ],
+  "stage_c_status": "STOP_NO_STABLE_SAME_ARCHITECTURE_TEACHER",
+  "stagea_source_git_blob": "b6518c84b0057d2da77a02432024c58c07815587"
+}
