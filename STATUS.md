@@ -1,6 +1,6 @@
 # Project status
 
-**Mode: reviewed publication candidate; evidence gate passed on the pre-surface candidate, but this branch is not merged, released, or announced.**
+**Mode: reviewed publication candidate; exact-head evidence and repository gates pass, but this branch is not merged, released, or announced.**
 
 The post-v0.2 independent claim review selected `R87R2_FRESH_SQRT_PROFILE_CONFIRMATION` as the current reproducible direct baseline candidate and California Housing Phase4 as bounded regression external-validity support. The candidate branch vendors the reviewed evidence byte-identically from the source research commits and recalculates the locked decisions from persisted raw rows.
 
@@ -67,7 +67,7 @@ The scientific candidate evidence gate is:
 python tools/audit_publication_candidate.py
 ```
 
-It checks reviewed Git-blob identities and recomputes R87R2 and Phase4 aggregate decisions from the vendored raw rows. The first candidate evidence-gate run succeeded before these public-surface edits; the exact final candidate head must pass again before any merge decision.
+It checks reviewed Git-blob identities and recomputes R87R2 and Phase4 aggregate decisions from the vendored raw rows. The candidate revision has passed both the publication-candidate audit and the repository audit. Any subsequent candidate-head change requires the exact-head gates to pass again before a merge decision.
 
 ## Preservation
 
@@ -79,6 +79,6 @@ It checks reviewed Git-blob identities and recomputes R87R2 and Phase4 aggregate
 
 ## Remaining publication work
 
-The exact final candidate head must pass repository and publication CI; the full README/STATUS/claims/readiness surface must be reviewed for internal consistency; the Draft publication PR must receive independent review. Merge, release tag, announcement, and Issue #13 closure remain separate explicit actions. None has occurred merely because the evidence gate passed.
+The exact final candidate head must continue to pass repository and publication CI; the Draft publication PR must receive independent review after/with the independent evidence-selection PR. Merge, release tag, announcement, and Issue #13 closure remain separate explicit actions. None has occurred merely because the evidence gates passed.
 
 Open research directions include independent-dataset replication, broader architecture families, physically constrained teacher-feedback interfaces, and fixed-device resource measurements. They are not prerequisites for this narrowly scoped preview because those stronger capabilities are not claimed.
