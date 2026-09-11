@@ -1,0 +1,80 @@
+{
+  "name": "Canaria-Phase3C-nested-cv-regression-teacher-selection-v1",
+  "status": "LOCKED_BEFORE_PHASE3C_OUTCOMES",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_TEACHER_SELECTION",
+  "motivation": "Phase3B single-validation-split Stage A selected short_25, but fresh Stage B did not establish a materially stronger held-out teacher even though composition-budget and selected-utility gates passed.",
+  "parent_phase3b_evidence_commit": "38acc726047791e81154544a9e6f6a1aa962136c",
+  "dataset": "sklearn.datasets.load_diabetes",
+  "architecture": "unchanged Phase3 residual MLP: input->Linear64+GELU->4 residual blocks->Linear1",
+  "outer_split": {
+    "test_size": 0.25,
+    "random_state": 3240137098,
+    "derivation": "first 32 bits of SHA256('PHASE3C_NESTED_CV_REGRESSION_V1') = c120918a = 3240137098",
+    "outer_test_policy": "indices are fixed before outcomes; labels/predictions are never evaluated during this Stage C teacher selection"
+  },
+  "inner_cv": {
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 3502951522,
+    "derivation": "next 32 bits of SHA256('PHASE3C_NESTED_CV_REGRESSION_V1') = d0cacc62 = 3502951522",
+    "normalization": "each fold fits feature mean/std and target mean/std on that fold's training portion only; its validation fold is transformed with those training-only statistics",
+    "teacher_initialization_seeds": [2600, 2601, 2602],
+    "inferential_boundary": "15 validation R2 values per recipe are calibration evidence only; they do not constitute independent external datasets"
+  },
+  "teacher_recipes": [
+    {"id":"baseline_60","epochs":60,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_15","epochs":15,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_25","epochs":25,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"short_40","epochs":40,"lr":0.002,"weight_decay":0.0001,"batch_size":64},
+    {"id":"reg_40","epochs":40,"lr":0.002,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_60","epochs":60,"lr":0.002,"weight_decay":0.001,"batch_size":64},
+    {"id":"reg_100","epochs":100,"lr":0.002,"weight_decay":0.001,"batch_size":64},
+    {"id":"strongreg_40","epochs":40,"lr":0.002,"weight_decay":0.005,"batch_size":64},
+    {"id":"strongreg_80","epochs":80,"lr":0.002,"weight_decay":0.005,"batch_size":64},
+    {"id":"low_lr_80","epochs":80,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"low_lr_120","epochs":120,"lr":0.001,"weight_decay":0.001,"batch_size":64},
+    {"id":"fullbatch_200","epochs":200,"lr":0.001,"weight_decay":0.001,"batch_size":"full_train_fold"},
+    {"id":"fullbatch_400","epochs":400,"lr":0.0005,"weight_decay":0.001,"batch_size":"full_train_fold"}
+  ],
+  "numeric_profile": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.0",
+    "ATEN_CPU_CAPABILITY": "avx2",
+    "MKL_CBWR": "COMPATIBLE",
+    "threads": 1,
+    "mkldnn": false,
+    "deterministic_algorithms": true,
+    "adamw_sqrt_intervention": "float32 Tensor.sqrt calls only inside AdamW.step are evaluated in float64 and cast back to float32",
+    "boundary": "same separately validated R87 research profile; not a universal backend guarantee"
+  },
+  "selection_rule": {
+    "baseline": "baseline_60 aggregate mean CV R2",
+    "eligible": "recipe aggregate mean of all 15 CV R2 values >= 0.35 AND improvement over baseline aggregate mean >= 0.10",
+    "winner": "among eligible recipes, maximize the minimum of the five fold-level means (each fold mean averages the three initialization seeds); ties within 1e-12: higher aggregate mean, then lower standard deviation across 15 values, then earlier fixed recipe order",
+    "rationale": "uses only training-pool resampling and explicitly favors fold-stable performance after Phase3B exposed single-split selection variance",
+    "if_none": "STOP_NO_STABLE_SAME_ARCHITECTURE_TEACHER; do not inspect outer test or change architecture/recipe grid"
+  },
+  "diagnostics": [
+    "aggregate mean/std validation R2 per recipe",
+    "five fold-level seed-averaged R2 values and their minimum",
+    "paired improvement over baseline using matching fold and initialization seed",
+    "leave-one-fold-out winner identity as descriptive stability only; it does not alter the locked winner rule"
+  ],
+  "no_replacement_fitting": true,
+  "no_outer_test_evaluation": true,
+  "reserved_future_confirmation_seeds_not_consumed_here": [2700,2701,2702,2703,2704,2705,2706,2707],
+  "C": [
+    "A multi-fold selector may still fail to find a recipe materially better than baseline within this architecture.",
+    "Cross-validation stability inside one small dataset may not translate to a new outer test split.",
+    "The Phase3B composition result may be robust even if no materially stronger teacher can be established on this dataset."
+  ],
+  "U": [
+    "This is teacher-selection calibration, not confirmatory evidence for compositional simplification.",
+    "The diabetes dataset has only 442 observations; fold estimates remain noisy and correlated through shared data.",
+    "No Phase3B test outcome is used to choose among recipes or folds."
+  ],
+  "stopping_rule": "Evaluate exactly the fixed 13 recipes x 5 folds x 3 initialization seeds. Persist all 195 rows. Apply the locked rule once. No recipe/fold/seed additions after outcomes. Outer test remains unused regardless of selection result."
+}
