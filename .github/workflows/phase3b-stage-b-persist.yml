@@ -1,0 +1,49 @@
+name: phase3b-stage-b-persist
+on:
+  push:
+    branches: [research/phase3b-confirmatory]
+    paths: ['.github/workflows/phase3b-stage-b-persist.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  persist:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: phase3b-stage-b-aggregate
+          run-id: 34608842284
+          github-token: ${{ github.token }}
+          path: /tmp/aggregate
+      - name: Verify artifact identity and persist without scientific modification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,urllib.request,os,hashlib,shutil
+          from pathlib import Path
+          aid=10268175311;want='sha256:0d75ce4bdaeeb25e666322013906b7e356b8c3a74070befa46e929ce86e7cc41'
+          req=urllib.request.Request(f'https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/artifacts/{aid}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          r=json.load(urllib.request.urlopen(req));assert r['digest']==want and r['workflow_run']['id']==34608842284
+          src=Path('/tmp/aggregate');dst=Path('results/phase3b/stronger_teacher_regression/stage_b_confirmatory');dst.mkdir(parents=True,exist_ok=True)
+          for name in ['DECISION.json','FRESH_ROWS.json','TECHNICAL_REPLICATION.json','RUN_MANIFEST.json']:
+              shutil.copyfile(src/name,dst/name)
+          d=json.loads((dst/'DECISION.json').read_text());m=json.loads((dst/'RUN_MANIFEST.json').read_text())
+          assert d['decision']=='PHASE3B_CONFIRMATORY_UNCERTAIN' and d['eligible']==8 and d['errors']==[]
+          assert d['composition_budget']['status']=='PASS' and d['selected_utility']['status']=='PASS'
+          assert d['teacher_absolute']['status']=='UNCERTAIN' and d['teacher_improvement']['status']=='UNCERTAIN'
+          m.update({'aggregate_artifact_id':aid,'aggregate_artifact_digest':want,'aggregate_expires_at':r['expires_at']})
+          (dst/'RUN_MANIFEST.json').write_text(json.dumps(m,indent=2,sort_keys=True)+'\n')
+          result=f'''# Phase3B stronger-teacher regression confirmation\n\nDecision: **{d['decision']}**. All 8 fresh model seeds were retained.\n\n- Teacher absolute test R2 mean: {d['teacher_absolute']['mean']:.6f}, 95% CI {d['teacher_absolute']['ci95']} — **{d['teacher_absolute']['status']}** vs lower bound >0.20.\n- Paired short25-minus-baseline60 teacher test R2: {d['teacher_improvement']['mean']:.6f}, 95% CI {d['teacher_improvement']['ci95']} — **{d['teacher_improvement']['status']}** vs lower bound >0.05.\n- Composed/component-wise geometric selected-budget ratio: {d['composition_budget']['geometric_mean_ratio']:.6f}; mean log2 ratio 95% CI {d['composition_budget']['ci95']}; composed lower {d['composition_budget']['composed_lower_count']}/8 — **PASS**.\n- Selected test R2 composed-minus-component-wise: {d['selected_utility']['mean']:.6f}, 95% CI {d['selected_utility']['ci95']} — **PASS** vs -0.05 margin.\n- Technical duplicate host comparison: **{json.loads((dst/'TECHNICAL_REPLICATION.json').read_text())['status']}**.\n\nInterpretation: the composition-budget effect and selected-endpoint utility safeguard pass under the stronger-teacher candidate protocol, but the prerequisite claim that short25 is materially stronger/useful on held-out test is not established. Therefore this experiment is not promoted as a stronger-teacher external-validity PASS. No seed, threshold, recipe, or historical Phase3 result is replaced.\n'''
+          (dst/'RESULT.md').write_text(result)
+          PY
+      - name: Commit evidence only
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/phase3b/stronger_teacher_regression/stage_b_confirmatory
+          git commit -m 'Persist Phase3B fresh Stage B uncertain result with passing composition and utility gates'
+          git push origin HEAD:research/phase3b-confirmatory
