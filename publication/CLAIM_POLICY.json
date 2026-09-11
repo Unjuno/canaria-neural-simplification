@@ -1,29 +1,63 @@
 {
-  "schema_version": 1,
-  "mode": "PRE_ANNOUNCEMENT_REPRODUCTION_BLOCKED",
-  "baseline_commit": "41872aca00ee5750556c93e114f705bce2e9c611",
+  "schema_version": 2,
+  "mode": "REVIEWED_PUBLICATION_CANDIDATE",
+  "review_base_main": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
   "headline_experiments": [
-    "CORE_DIGITS_COMPONENT_VS_COMPOSED"
+    "R87R2_FRESH_SQRT_PROFILE_CONFIRMATION"
   ],
-  "research_promoted_to_baseline": false,
+  "bounded_external_validity_support": [
+    "PHASE4_CALIFORNIA_CONFIRMATORY"
+  ],
+  "supporting_architecture_family_evidence": [
+    "SMALLVIT_DIRECT_COMPOSITION"
+  ],
+  "review_ledger": "publication/POST_V02_CLAIM_LEDGER.json",
+  "open_pr_disposition": "publication/OPEN_PR_DISPOSITION_2026-09-12.json",
+  "open_pr_snapshot_count": 30,
+  "candidate_evidence_manifest": "publication/CANDIDATE_EVIDENCE_MANIFEST.json",
+  "candidate_evidence_gate": "tools/audit_publication_candidate.py",
+  "headline_reproduction": {
+    "workflow": ".github/workflows/publication-headline-reproduction.yml",
+    "quickstart": "QUICKSTART.md",
+    "requirements": "scripts/reproduction_diagnostics/requirements-r87r2-py313.txt",
+    "python": "3.13.5",
+    "torch_cpu": "2.10.0",
+    "cohort": "871200-871215",
+    "comparison": "exact scientific outcome objects and aggregate decision versus reviewed vendored primary evidence",
+    "evidence_class": "TECHNICAL_REPRODUCTION_OF_FIXED_FRESH_COHORT",
+    "adds_independent_scientific_seeds": false
+  },
+  "historical_archive": {
+    "id": "HISTORICAL_CORE_DIGITS_1200_1207",
+    "reproduction_report": "results/reproduction/publication_2026-09-08/core-cohort-report.json",
+    "exact_reproduction_established": false,
+    "issue": 87,
+    "issue_remains_open": true,
+    "blocks_current_r87r2_headline": false,
+    "r87r2_is_historical_recovery": false
+  },
   "independent_external_reproduction_claimed": false,
   "peer_review_claimed": false,
   "new_hardware_claims": false,
-  "new_experiments_required_for_this_scope": true,
+  "architecture_universality_claimed": false,
+  "runtime_speedup_claimed": false,
+  "ram_vram_energy_claimed": false,
+  "llm_claimed": false,
+  "new_experiments_required_for_this_scoped_preview": false,
   "excluded_from_headline": [
+    "HISTORICAL_CORE_DIGITS_1200_1207_AS_EXACTLY_REPRODUCED",
+    "PHASE3_DIABETES_REGRESSION_WEAK_TEACHER_AS_CURRENT_SUPPORT",
     "C59_C60_IMPORTED_CNN",
     "ORIGINAL_C61_UNRESOLVED",
     "C61R_C77E_RESEARCH",
     "RECURSIVE_COMPOSITION_EXTENSIONS",
-    "SYSTEMS_S1_S7",
-    "PHASE3_REGRESSION",
+    "SYSTEMS_S1_S7_GENERAL_RESOURCE_CLAIMS",
+    "PHASE3B_POSITIVE_STRONGER_TEACHER_CLAIM",
     "PHASE2E_INVALIDATED"
   ],
-  "reproduction_report": "results/reproduction/publication_2026-09-08/core-cohort-report.json",
   "announcement_automatically_posted": false,
-  "exact_cohort_reproduction_established": false,
-  "blockers": [
-    87
-  ],
-  "required_work": "Resolve or explicitly review the strict core-cohort reproduction discrepancy; not a new frontier search."
+  "release_tag_created": false,
+  "merged_to_main_by_this_candidate": false,
+  "readiness_tracker_issue": 13,
+  "required_work": "Keep the exact final candidate head green for candidate evidence, repository, clean-checkout R87R2 reproduction, and open-PR disposition audits; obtain independent review of PRs #100 and #101; then make merge/release/announcement decisions separately. Keep Issue 87 open as historical reproduction debt, and re-review any scientific PR opened after the 2026-09-12 snapshot before announcement."
 }
