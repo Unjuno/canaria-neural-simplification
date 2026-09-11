@@ -49,7 +49,7 @@ The machine-readable [post-v0.2 claim ledger](publication/POST_V02_CLAIM_LEDGER.
 - Phase4: **KEEP** as bounded regression external-validity support.
 - Phase3B: **EXCLUDE** from a positive stronger-teacher headline; teacher-strength gates were uncertain.
 - Phase3C: **KEEP** as negative/boundary evidence; no qualifying teacher was selected under its locked grid and the outer test was not evaluated.
-- Phase2E: **INVALIDATE** for inference because of the implementation bug.
+- Phase2E: **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**; preserve the record but do not use it for scientific inference.
 - Imported C59/C60 remain Residual-CNN provenance; original C61 remains unresolved and is not repaired by the Residual-MLP C61R line.
 - Systems S1–S7 remain bounded prototype measurements, not general RAM/GPU/VRAM/energy claims.
 
