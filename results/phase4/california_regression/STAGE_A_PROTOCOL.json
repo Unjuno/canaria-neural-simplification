@@ -1,0 +1,72 @@
+{
+  "name": "Canaria-Phase4-California-Housing-regression-stageA-v1",
+  "status": "LOCKED_BEFORE_STAGE_A_OUTCOMES",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_TEACHER_CALIBRATION",
+  "question": "Can the unchanged residual-MLP architectural family reach a stable competent validation regime on a substantially larger real regression dataset before any replacement or test evaluation?",
+  "parent_boundary": {
+    "phase3b_result": "PHASE3B_CONFIRMATORY_UNCERTAIN: composition and selected utility PASS; stronger-teacher gates UNCERTAIN",
+    "phase3c_result": "STOP_NO_STABLE_SAME_ARCHITECTURE_TEACHER on diabetes fixed 13-recipe multi-fold search",
+    "rule": "do not expand or weaken diabetes gates; move to a larger dataset as a separate external-validity experiment"
+  },
+  "dataset": {
+    "loader": "sklearn.datasets.fetch_california_housing(return_X_y=True)",
+    "expected_rows": 20640,
+    "expected_features": 8,
+    "provenance": "record array SHA256 and sklearn version at execution; abort if dimensions differ",
+    "test_evaluated_stageA": false
+  },
+  "split": {
+    "test_size": 0.20,
+    "test_random_state": 3119757572,
+    "test_state_derivation": "first32 bits b9f3b904 of SHA256('PHASE4_CALIFORNIA_HOUSING_V1')",
+    "validation_fraction_of_remaining": 0.20,
+    "validation_random_state": 2895583027,
+    "validation_state_derivation": "next32 bits ac971733 of SHA256('PHASE4_CALIFORNIA_HOUSING_V1')",
+    "normalization": "feature and target mean/std from final Stage-A training subset only; validation transformed with training-only statistics; held-out test not evaluated"
+  },
+  "architecture": "unchanged Phase3 residual MLP family: input->Linear64+GELU->4 residual blocks (LayerNorm, Linear128, GELU, Linear64)->Linear1",
+  "teacher_initialization_seeds": [2800, 2801, 2802],
+  "teacher_recipes": [
+    {"id":"baseline_20","epochs":20,"lr":0.001,"weight_decay":0.0001,"batch_size":256},
+    {"id":"short_10","epochs":10,"lr":0.001,"weight_decay":0.0001,"batch_size":256},
+    {"id":"medium_30","epochs":30,"lr":0.001,"weight_decay":0.0001,"batch_size":256},
+    {"id":"reg_20","epochs":20,"lr":0.001,"weight_decay":0.001,"batch_size":256},
+    {"id":"reg_30","epochs":30,"lr":0.001,"weight_decay":0.001,"batch_size":256},
+    {"id":"low_lr_30","epochs":30,"lr":0.0005,"weight_decay":0.001,"batch_size":256},
+    {"id":"high_lr_15","epochs":15,"lr":0.002,"weight_decay":0.0001,"batch_size":256}
+  ],
+  "numeric_profile": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.0",
+    "ATEN_CPU_CAPABILITY": "avx2",
+    "MKL_CBWR": "COMPATIBLE",
+    "threads": 1,
+    "mkldnn": false,
+    "deterministic_algorithms": true,
+    "adamw_sqrt_intervention": "float32 Tensor.sqrt calls only inside AdamW.step are evaluated in float64 and cast back",
+    "scope": "validated research CPU profile; not a universal backend/hardware guarantee"
+  },
+  "selection_rule": {
+    "eligible": "mean validation R2 across seeds >= 0.65 AND minimum seed validation R2 >= 0.60",
+    "winner": "among eligible recipes maximize minimum seed validation R2; ties within 1e-12 use higher mean validation R2, lower population std, then earlier fixed recipe order",
+    "if_none": "STOP_NO_COMPETENT_STABLE_TEACHER; do not evaluate test or fit replacements"
+  },
+  "no_replacement_fitting": true,
+  "no_test_evaluation": true,
+  "reserved_future_confirmatory_model_seeds": [2900,2901,2902,2903,2904,2905,2906,2907],
+  "future_stage_if_pass": "lock a separate replacement/test confirmatory protocol before consuming seed2900; retain matched 256*h component/composed budgets and validation-only endpoint selection",
+  "C": [
+    "The unchanged residual-MLP may fail to reach the competency gate on this dataset.",
+    "A competent teacher may later eliminate the composition-budget advantage.",
+    "Dataset download/version identity must be recorded; a provenance mismatch stops interpretation."
+  ],
+  "U": [
+    "One tabular housing dataset does not establish general regression external validity.",
+    "Teacher calibration seeds are not independent datasets.",
+    "No runtime, memory, energy or hardware performance inference follows."
+  ],
+  "stopping_rule": "Run exactly 7 recipes x 3 seeds. Persist all21 validation-only rows. Apply the locked selection rule once. No recipe/seed/threshold additions after outcomes; test remains unevaluated regardless of result."
+}

@@ -1,0 +1,38 @@
+{
+  "decision_exact": true,
+  "pairs": [
+    {
+      "scientific_record_exact": true,
+      "seed": 2900
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2901
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2902
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2903
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2904
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2905
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2906
+    },
+    {
+      "scientific_record_exact": true,
+      "seed": 2907
+    }
+  ],
+  "status": "PASS"
+}

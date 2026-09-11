@@ -1,0 +1,54 @@
+name: phase4-california-persist
+on:
+  push:
+    branches: [research/phase4-california-regression]
+    paths: ['.github/workflows/phase4-california-persist.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  persist:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: phase4-stage-b-aggregate
+          run-id: 34611932019
+          github-token: ${{ github.token }}
+          path: /tmp/aggregate
+      - name: Verify immutable artifact and scientific decision
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,urllib.request,os,shutil,hashlib
+          from pathlib import Path
+          aid=10268773274;digest='sha256:e36b01aec8dfb923c9ad9d4f10c713bafc25f50aa7a2b83c5749dd6145c45921'
+          req=urllib.request.Request(f'https://api.github.com/repos/Unjuno/canaria-neural-simplification/actions/artifacts/{aid}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          meta=json.load(urllib.request.urlopen(req));assert meta['digest']==digest and meta['workflow_run']['id']==34611932019
+          src=Path('/tmp/aggregate');d=json.loads((src/'DECISION.json').read_text());t=json.loads((src/'TECHNICAL_REPLICATION.json').read_text())
+          assert d['decision']=='PHASE4_CONFIRMATORY_PASS' and d['eligible']==8 and d['errors']==[]
+          assert d['teacher_quality']['status']=='PASS' and d['composition_budget']['status']=='PASS' and d['selected_utility']['status']=='PASS'
+          assert t['status']=='PASS' and t['decision_exact'] and all(x['scientific_record_exact'] for x in t['pairs'])
+          dst=Path('results/phase4/california_regression/stage_b_confirmatory');dst.mkdir(parents=True,exist_ok=True)
+          for name in ['DECISION.json','FRESH_ROWS.json','TECHNICAL_REPLICATION.json','RUN_MANIFEST.json']:
+              shutil.copyfile(src/name,dst/name)
+          m=json.loads((dst/'RUN_MANIFEST.json').read_text());m.update({'aggregate_artifact_id':aid,'aggregate_artifact_digest':digest,'aggregate_created_at':meta['created_at'],'aggregate_expires_at':meta['expires_at']})
+          (dst/'RUN_MANIFEST.json').write_text(json.dumps(m,indent=2,sort_keys=True)+'\n')
+          result=f'''# Phase4 California Housing confirmatory result\n\nDecision: **PHASE4_CONFIRMATORY_PASS**. Evidence class: **PROSPECTIVE_CONFIRMATORY**. All 8 fresh model seeds2900-2907 were retained.\n\n## Locked gates\n\n- Teacher held-out test R2 mean: **{d['teacher_quality']['mean']:.6f}**, 95% CI **{d['teacher_quality']['ci95']}** — PASS versus lower95 > 0.70.\n- Selected composed/component-wise budget geometric ratio: **{d['composition_budget']['geometric_mean_ratio']:.6f}**; mean log2 ratio 95% CI **{d['composition_budget']['ci95']}**; composed lower **{d['composition_budget']['composed_lower_count']}/8** — PASS.\n- Selected held-out test R2 composed-minus-component-wise: **{d['selected_utility']['mean']:.6f}**, 95% CI **{d['selected_utility']['ci95']}** — PASS versus -0.03 noninferiority margin.\n- Technical duplicate-host science records and aggregate decision: **PASS** exact. Technical repeats do not increase scientific n.\n\n## Scope\n\nThis is a larger-sample regression external-validity result on one fixed California Housing split using the same residual-MLP architectural family and first-two-block replacement grammar. It is stronger than the diabetes result with respect to teacher quality and dataset size, but it is not architecture-general, not eight independent datasets, and not a universal minimum-description or systems performance result. Selected budgets are minima only over the locked finite grid. No test metric selected the teacher recipe or replacement budget.\n'''
+          (dst/'RESULT.md').write_text(result)
+          # independent structural recomputation receipt from the persisted aggregate values
+          receipt={'status':'PASS','artifact_digest':digest,'decision':d['decision'],'attempted':d['attempted'],'eligible':d['eligible'],'technical_replication':t['status'],
+                   'decision_sha256':hashlib.sha256((src/'DECISION.json').read_bytes()).hexdigest(),'fresh_rows_sha256':hashlib.sha256((src/'FRESH_ROWS.json').read_bytes()).hexdigest(),
+                   'scope':'artifact identity and decision-structure audit; not independent scientific peer review'}
+          (dst/'PERSISTENCE_AUDIT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          PY
+      - name: Commit evidence without modifying protocol/outcomes
+        run: |
+          git config user.name canaria-evidence-bot
+          git config user.email canaria-evidence-bot@users.noreply.github.com
+          git add results/phase4/california_regression/stage_b_confirmatory
+          git commit -m 'Persist Phase4 California fresh confirmatory PASS and exact technical replication'
+          git push origin HEAD:research/phase4-california-regression

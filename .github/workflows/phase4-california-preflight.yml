@@ -1,0 +1,60 @@
+name: phase4-california-preflight
+on:
+  push:
+    branches: [research/phase4-california-regression]
+    paths: ['.github/workflows/phase4-california-preflight.yml']
+permissions: {contents: read}
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.13.5'}
+      - run: |
+          python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scikit-learn==1.8.0 scipy==1.17.0
+      - name: Verify locks and run verification seed2899 only
+        env:
+          ATEN_CPU_CAPABILITY: avx2
+          MKL_CBWR: COMPATIBLE
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          test "$(git hash-object scripts/phase4/run_california_confirm_seed.py)" = b5380db6c28fbb1204f5e3a8cadf5475118941e7
+          test "$(git hash-object results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json)" = 4b3508bd78d6bb6ff3a98043500d39393ecfef9c
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          p=json.loads(Path('results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json').read_text())
+          assert p['status']=='LOCKED_BEFORE_STAGE_B_OUTCOMES' and p['fresh_model_seeds']==list(range(2900,2908))
+          lock=subprocess.check_output(['git','log','--diff-filter=A','--format=%H','-1','--','results/phase4/california_regression/STAGE_B_CONFIRMATORY_PROTOCOL.json'],text=True).strip()
+          assert lock=='4dade6ea65db5dc5dcb11d5f3e6f38f2e2ee6a0b'
+          assert not Path('results/phase4/california_regression/STAGE_B_DECISION.json').exists()
+          PY
+          mkdir -p /tmp/phase4-preflight
+          python scripts/phase4/run_california_confirm_seed.py --seed 2899 --out /tmp/phase4-preflight/seed_2899.json
+          python - <<'PY'
+          import json,math
+          r=json.load(open('/tmp/phase4-preflight/seed_2899.json'))
+          assert r['evidence_class']=='PREFLIGHT_ONLY';assert r['data']['X_sha256']=='ef53061b11adc508abf7f3d57bbeb8a90302caedaa3201b846cdd5f65caddfd5'
+          assert math.isfinite(r['teacher_test_r2']) and r['numeric_profile']['sqrt_intervention']['float32_sqrt_calls']>0
+          assert len(r['grid'])==9
+          print({'teacher_val_r2':r['teacher_val_r2'],'teacher_test_r2':r['teacher_test_r2'],'sep':None if r['selected_sep'] is None else r['selected_sep']['budget'],'comp':None if r['selected_comp'] is None else r['selected_comp']['budget']})
+          PY
+      - name: Exercise evaluator branch logic
+        run: |
+          python - <<'PY'
+          import importlib.util,json,tempfile
+          from pathlib import Path
+          s=importlib.util.spec_from_file_location('ev','scripts/phase4/evaluate_california_confirm.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+          assert m.gate_gt({'ci95':[.71,.8]},.70)=='PASS';assert m.gate_gt({'ci95':[.6,.70]},.70)=='FAIL';assert m.gate_gt({'ci95':[.69,.72]},.70)=='UNCERTAIN'
+          with tempfile.TemporaryDirectory() as d:
+              o=Path(d)/'x.json';rc=m.main([],o);assert rc==2 and json.loads(o.read_text())['decision']=='STOP_INTEGRITY_OR_CENSORING'
+          print('evaluator branch tests PASS')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with: {name: phase4-california-preflight, path: /tmp/phase4-preflight/, retention-days: 90}

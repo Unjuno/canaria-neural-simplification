@@ -1,0 +1,58 @@
+name: phase4-evidence-audit
+on:
+  push:
+    branches: [research/phase4-california-regression]
+    paths:
+      - 'results/phase4/california_regression/stage_b_confirmatory/**'
+      - '.github/workflows/phase4-evidence-audit.yml'
+  pull_request:
+    paths:
+      - 'results/phase4/california_regression/stage_b_confirmatory/**'
+      - '.github/workflows/phase4-evidence-audit.yml'
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: '3.13.5'}
+      - run: python -m pip install numpy==2.3.5
+      - name: Independent decision recomputation from persisted raw rows
+        run: |
+          python - <<'PY'
+          import json,math,hashlib
+          from pathlib import Path
+          import numpy as np
+          root=Path('results/phase4/california_regression/stage_b_confirmatory')
+          raw=json.loads((root/'FRESH_ROWS.json').read_text());locked=json.loads((root/'DECISION.json').read_text());tech=json.loads((root/'TECHNICAL_REPLICATION.json').read_text());audit=json.loads((root/'PERSISTENCE_AUDIT.json').read_text())
+          rows=raw['rows'];assert raw['primary_host']=='a' and len(rows)==8
+          seeds=[int(r['seed']) for r in rows];assert seeds==list(range(2900,2908)) and len(set(seeds))==8
+          teacher=[];log2=[];utility=[];lower=0
+          for r in rows:
+              assert r['evidence_class']=='PROSPECTIVE_CONFIRMATORY' and r['selection_rule']['test_used_for_selection'] is False
+              assert r['data']['X_sha256']=='ef53061b11adc508abf7f3d57bbeb8a90302caedaa3201b846cdd5f65caddfd5'
+              assert r['data']['y_sha256']=='4fcec16744c2835e99b638e9ac95cde0619da1673dfdf7e638d31cd83f32fd14'
+              sep,comp=r['selected_sep'],r['selected_comp'];assert sep is not None and comp is not None
+              sb,cb=int(sep['budget']),int(comp['budget']);v=math.log2(cb/sb);u=float(comp['comp_test_r2'])-float(sep['sep_test_r2'])
+              assert math.isclose(float(r['log2_budget_ratio']),v,rel_tol=0,abs_tol=1e-12)
+              assert math.isclose(float(r['test_r2_diff_comp_minus_sep']),u,rel_tol=0,abs_tol=1e-12)
+              teacher.append(float(r['teacher_test_r2']));log2.append(v);utility.append(u);lower+=cb<sb
+          rng=np.random.default_rng(1355817528);idx=rng.integers(0,8,size=(100000,8))
+          def stat(vals):
+              a=np.asarray(vals,dtype=np.float64);m=a[idx].mean(axis=1);lo,hi=np.percentile(m,[2.5,97.5]);return {'mean':float(a.mean()),'ci95':[float(lo),float(hi)],'bootstrap_se':float(m.std(ddof=1))}
+          t=stat(teacher);b=stat(log2);u=stat(utility);b['geometric_mean_ratio']=float(2**b['mean']);b['composed_lower_count']=int(lower)
+          def close_obj(got,want):
+              if isinstance(want,float):return math.isclose(float(got),want,rel_tol=1e-12,abs_tol=1e-12)
+              if isinstance(want,list):return len(got)==len(want) and all(close_obj(a,b) for a,b in zip(got,want))
+              return got==want
+          for k in ('mean','ci95','bootstrap_se'):assert close_obj(t[k],locked['teacher_quality'][k]),(k,t[k],locked['teacher_quality'][k])
+          for k in ('mean','ci95','bootstrap_se','geometric_mean_ratio','composed_lower_count'):assert close_obj(b[k],locked['composition_budget'][k]),(k,b[k],locked['composition_budget'][k])
+          for k in ('mean','ci95','bootstrap_se'):assert close_obj(u[k],locked['selected_utility'][k]),(k,u[k],locked['selected_utility'][k])
+          assert t['ci95'][0]>.70 and lower>=7 and b['ci95'][1]<0 and u['ci95'][0]>-.03
+          assert locked['decision']=='PHASE4_CONFIRMATORY_PASS' and tech['status']=='PASS' and tech['decision_exact'] is True
+          assert audit['artifact_digest']=='sha256:e36b01aec8dfb923c9ad9d4f10c713bafc25f50aa7a2b83c5749dd6145c45921'
+          assert audit['decision_sha256']==hashlib.sha256((root/'DECISION.json').read_bytes()).hexdigest()
+          assert audit['fresh_rows_sha256']==hashlib.sha256((root/'FRESH_ROWS.json').read_bytes()).hexdigest()
+          print(json.dumps({'status':'PASS','teacher':t,'composition':b,'selected_utility':u,'decision':locked['decision']},sort_keys=True))
+          PY
