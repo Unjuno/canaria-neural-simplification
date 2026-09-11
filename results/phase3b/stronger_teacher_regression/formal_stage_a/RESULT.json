@@ -1,0 +1,568 @@
+{
+  "architecture_unchanged_from_completed_phase3": true,
+  "baseline_mean_validation_r2": 0.3180715859635415,
+  "chosen_recipe": {
+    "batch_size": 64,
+    "epochs": 25,
+    "id": "short_25",
+    "lr": 0.002,
+    "weight_decay": 0.0001
+  },
+  "chosen_recipe_improvement_over_baseline": 0.1734646604342297,
+  "chosen_recipe_mean_validation_r2": 0.4915362463977712,
+  "data": {
+    "n_test_held_out": 111,
+    "n_train": 264,
+    "n_val": 67
+  },
+  "diagnostic_2026_08_27_was_not_formal_evidence": true,
+  "evidence_class": "calibration_only_not_confirmatory_evidence",
+  "formal_environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.16",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0+cpu",
+    "torch_threads": 2
+  },
+  "formal_stage_a": true,
+  "per_seed_rows": [
+    {
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2300,
+      "train_mse": 0.0378255695104599,
+      "validation_mse": 0.6924010515213013,
+      "validation_r2": 0.35982602301810007
+    },
+    {
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2301,
+      "train_mse": 0.04503685608506203,
+      "validation_mse": 0.665151834487915,
+      "validation_r2": 0.3850198267726369
+    },
+    {
+      "recipe_id": "baseline_60",
+      "recipe_index": 0,
+      "seed": 2302,
+      "train_mse": 0.027545271441340446,
+      "validation_mse": 0.8551328182220459,
+      "validation_r2": 0.20936890809988762
+    },
+    {
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2300,
+      "train_mse": 0.28983333706855774,
+      "validation_mse": 0.656463623046875,
+      "validation_r2": 0.3930527123471437
+    },
+    {
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2301,
+      "train_mse": 0.25891485810279846,
+      "validation_mse": 0.4226079285144806,
+      "validation_r2": 0.6092689214496845
+    },
+    {
+      "recipe_id": "short_15",
+      "recipe_index": 1,
+      "seed": 2302,
+      "train_mse": 0.29197898507118225,
+      "validation_mse": 0.582343578338623,
+      "validation_r2": 0.46158194315006384
+    },
+    {
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2300,
+      "train_mse": 0.19057606160640717,
+      "validation_mse": 0.5052793025970459,
+      "validation_r2": 0.5328333544599985
+    },
+    {
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2301,
+      "train_mse": 0.1617862433195114,
+      "validation_mse": 0.4803769588470459,
+      "validation_r2": 0.5558573415700692
+    },
+    {
+      "recipe_id": "short_25",
+      "recipe_index": 2,
+      "seed": 2302,
+      "train_mse": 0.1750257909297943,
+      "validation_mse": 0.664180338382721,
+      "validation_r2": 0.3859180431632462
+    },
+    {
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2300,
+      "train_mse": 0.08618151396512985,
+      "validation_mse": 0.7689200639724731,
+      "validation_r2": 0.2890787562532551
+    },
+    {
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2301,
+      "train_mse": 0.12256202101707458,
+      "validation_mse": 0.5930625200271606,
+      "validation_r2": 0.45167155738289033
+    },
+    {
+      "recipe_id": "short_40",
+      "recipe_index": 3,
+      "seed": 2302,
+      "train_mse": 0.07052651047706604,
+      "validation_mse": 0.8372876644134521,
+      "validation_r2": 0.2258680214119143
+    },
+    {
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2300,
+      "train_mse": 0.07868266850709915,
+      "validation_mse": 0.7006487250328064,
+      "validation_r2": 0.35220042222435544
+    },
+    {
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2301,
+      "train_mse": 0.09615438431501389,
+      "validation_mse": 0.5747445821762085,
+      "validation_r2": 0.4686077503814453
+    },
+    {
+      "recipe_id": "reg_40",
+      "recipe_index": 4,
+      "seed": 2302,
+      "train_mse": 0.08092918246984482,
+      "validation_mse": 0.7123818397521973,
+      "validation_r2": 0.341352339184374
+    },
+    {
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2300,
+      "train_mse": 0.01776670664548874,
+      "validation_mse": 0.7430045008659363,
+      "validation_r2": 0.31303954573613735
+    },
+    {
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2301,
+      "train_mse": 0.043082647025585175,
+      "validation_mse": 0.6376688480377197,
+      "validation_r2": 0.4104298278380939
+    },
+    {
+      "recipe_id": "reg_60",
+      "recipe_index": 5,
+      "seed": 2302,
+      "train_mse": 0.03880912438035011,
+      "validation_mse": 0.7454674243927002,
+      "validation_r2": 0.310762393733267
+    },
+    {
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2300,
+      "train_mse": 0.007303297054022551,
+      "validation_mse": 0.6442328691482544,
+      "validation_r2": 0.40436093190885725
+    },
+    {
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2301,
+      "train_mse": 0.009682875126600266,
+      "validation_mse": 0.6017472743988037,
+      "validation_r2": 0.44364188292013584
+    },
+    {
+      "recipe_id": "reg_100",
+      "recipe_index": 6,
+      "seed": 2302,
+      "train_mse": 0.0030315506737679243,
+      "validation_mse": 0.7134844064712524,
+      "validation_r2": 0.3403329428060028
+    },
+    {
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2300,
+      "train_mse": 0.07872293889522552,
+      "validation_mse": 0.7012998461723328,
+      "validation_r2": 0.35159841773258915
+    },
+    {
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2301,
+      "train_mse": 0.0962447077035904,
+      "validation_mse": 0.5739966630935669,
+      "validation_r2": 0.4692992975140383
+    },
+    {
+      "recipe_id": "strongreg_40",
+      "recipe_index": 7,
+      "seed": 2302,
+      "train_mse": 0.08142536133527756,
+      "validation_mse": 0.712858259677887,
+      "validation_r2": 0.3409118378213887
+    },
+    {
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2300,
+      "train_mse": 0.014079999178647995,
+      "validation_mse": 0.6642358303070068,
+      "validation_r2": 0.38586677065756414
+    },
+    {
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2301,
+      "train_mse": 0.02795879729092121,
+      "validation_mse": 0.5993038415908813,
+      "validation_r2": 0.4459009789995473
+    },
+    {
+      "recipe_id": "strongreg_80",
+      "recipe_index": 8,
+      "seed": 2302,
+      "train_mse": 0.026647210121154785,
+      "validation_mse": 0.7804802060127258,
+      "validation_r2": 0.2783905444655904
+    },
+    {
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2300,
+      "train_mse": 0.01756223849952221,
+      "validation_mse": 0.7122883796691895,
+      "validation_r2": 0.3414387759958011
+    },
+    {
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2301,
+      "train_mse": 0.05724358931183815,
+      "validation_mse": 0.623380184173584,
+      "validation_r2": 0.4236407100747289
+    },
+    {
+      "recipe_id": "low_lr_80",
+      "recipe_index": 9,
+      "seed": 2302,
+      "train_mse": 0.018445320427417755,
+      "validation_mse": 0.7027423977851868,
+      "validation_r2": 0.3502647008907397
+    },
+    {
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2300,
+      "train_mse": 0.007260297425091267,
+      "validation_mse": 0.6870260834693909,
+      "validation_r2": 0.36479556062221896
+    },
+    {
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2301,
+      "train_mse": 0.011000528931617737,
+      "validation_mse": 0.6223666071891785,
+      "validation_r2": 0.424577828294598
+    },
+    {
+      "recipe_id": "low_lr_120",
+      "recipe_index": 10,
+      "seed": 2302,
+      "train_mse": 0.0029446743428707123,
+      "validation_mse": 0.6888002157211304,
+      "validation_r2": 0.36315520892862607
+    },
+    {
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2300,
+      "train_mse": 7.476878090528771e-05,
+      "validation_mse": 0.9824270009994507,
+      "validation_r2": 0.0916763982654647
+    },
+    {
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2301,
+      "train_mse": 0.0004069791757501662,
+      "validation_mse": 0.6657923460006714,
+      "validation_r2": 0.38442766618083213
+    },
+    {
+      "recipe_id": "fullbatch_200",
+      "recipe_index": 11,
+      "seed": 2302,
+      "train_mse": 1.4146468856779393e-05,
+      "validation_mse": 0.9626954197883606,
+      "validation_r2": 0.10991961902950265
+    },
+    {
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2300,
+      "train_mse": 3.447687277002842e-06,
+      "validation_mse": 0.9134225845336914,
+      "validation_r2": 0.15547587202215285
+    },
+    {
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2301,
+      "train_mse": 9.575021067576017e-06,
+      "validation_mse": 0.6975266337394714,
+      "validation_r2": 0.3550870537660218
+    },
+    {
+      "recipe_id": "fullbatch_400",
+      "recipe_index": 12,
+      "seed": 2302,
+      "train_mse": 0.0013353704707697034,
+      "validation_mse": 0.9699018001556396,
+      "validation_r2": 0.10325682534964442
+    }
+  ],
+  "recipe_aggregates": [
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.0,
+      "max_validation_r2": 0.3850198267726369,
+      "mean_validation_r2": 0.3180715859635415,
+      "min_validation_r2": 0.20936890809988762,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 60,
+        "id": "baseline_60",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 0,
+      "std_validation_r2": 0.07754949416535015
+    },
+    {
+      "eligible": true,
+      "improvement_over_baseline_mean_r2": 0.16989627301875582,
+      "max_validation_r2": 0.6092689214496845,
+      "mean_validation_r2": 0.48796785898229733,
+      "min_validation_r2": 0.3930527123471437,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 15,
+        "id": "short_15",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 1,
+      "std_validation_r2": 0.09022019243826995
+    },
+    {
+      "eligible": true,
+      "improvement_over_baseline_mean_r2": 0.1734646604342297,
+      "max_validation_r2": 0.5558573415700692,
+      "mean_validation_r2": 0.4915362463977712,
+      "min_validation_r2": 0.3859180431632462,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 25,
+        "id": "short_25",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 2,
+      "std_validation_r2": 0.07527252547234951
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.004134525719145077,
+      "max_validation_r2": 0.45167155738289033,
+      "mean_validation_r2": 0.3222061116826866,
+      "min_validation_r2": 0.2258680214119143,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "short_40",
+        "lr": 0.002,
+        "weight_decay": 0.0001
+      },
+      "recipe_index": 3,
+      "std_validation_r2": 0.09511353031179766
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.06931525129985006,
+      "max_validation_r2": 0.4686077503814453,
+      "mean_validation_r2": 0.38738683726339157,
+      "min_validation_r2": 0.341352339184374,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "reg_40",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 4,
+      "std_validation_r2": 0.057602359744535966
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.02667233647229117,
+      "max_validation_r2": 0.4104298278380939,
+      "mean_validation_r2": 0.3447439224358327,
+      "min_validation_r2": 0.310762393733267,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 60,
+        "id": "reg_60",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 5,
+      "std_validation_r2": 0.04645625169050373
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.07804033324812382,
+      "max_validation_r2": 0.44364188292013584,
+      "mean_validation_r2": 0.39611191921166533,
+      "min_validation_r2": 0.3403329428060028,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 100,
+        "id": "reg_100",
+        "lr": 0.001,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 6,
+      "std_validation_r2": 0.04257713732928513
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.06919826505913051,
+      "max_validation_r2": 0.4692992975140383,
+      "mean_validation_r2": 0.38726985102267203,
+      "min_validation_r2": 0.3409118378213887,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 40,
+        "id": "strongreg_40",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 7,
+      "std_validation_r2": 0.05816742110098837
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.0519811787440258,
+      "max_validation_r2": 0.4459009789995473,
+      "mean_validation_r2": 0.3700527647075673,
+      "min_validation_r2": 0.2783905444655904,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 80,
+        "id": "strongreg_80",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 8,
+      "std_validation_r2": 0.06929405221026629
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.05370980969021505,
+      "max_validation_r2": 0.4236407100747289,
+      "mean_validation_r2": 0.37178139565375656,
+      "min_validation_r2": 0.3414387759958011,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 80,
+        "id": "low_lr_80",
+        "lr": 0.0005,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 9,
+      "std_validation_r2": 0.03684666974298336
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": 0.06610461331827289,
+      "max_validation_r2": 0.424577828294598,
+      "mean_validation_r2": 0.3841761992818144,
+      "min_validation_r2": 0.36315520892862607,
+      "recipe": {
+        "batch_size": 64,
+        "epochs": 120,
+        "id": "low_lr_120",
+        "lr": 0.0005,
+        "weight_decay": 0.001
+      },
+      "recipe_index": 10,
+      "std_validation_r2": 0.02857611366840751
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": -0.12273035813827501,
+      "max_validation_r2": 0.38442766618083213,
+      "mean_validation_r2": 0.1953412278252665,
+      "min_validation_r2": 0.0916763982654647,
+      "recipe": {
+        "batch_size": 512,
+        "epochs": 200,
+        "id": "fullbatch_200",
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 11,
+      "std_validation_r2": 0.13391157443989224
+    },
+    {
+      "eligible": false,
+      "improvement_over_baseline_mean_r2": -0.11346500225093517,
+      "max_validation_r2": 0.3550870537660218,
+      "mean_validation_r2": 0.20460658371260634,
+      "min_validation_r2": 0.10325682534964442,
+      "recipe": {
+        "batch_size": 512,
+        "epochs": 400,
+        "id": "fullbatch_400",
+        "lr": 0.0005,
+        "weight_decay": 0.01
+      },
+      "recipe_index": 12,
+      "std_validation_r2": 0.10852030872750361
+    }
+  ],
+  "replacement_fitting_performed": false,
+  "seeds": [
+    2300,
+    2301,
+    2302
+  ],
+  "selection_gate": {
+    "improvement_over_baseline_mean_validation_r2_gte": 0.1,
+    "mean_validation_r2_gte": 0.35,
+    "tie_break": "higher mean validation R2, then lower population std, then earlier locked recipe order"
+  },
+  "source_commit": "e758842be3baa17a597c5d0d2cf0bfb2fa99f2da",
+  "stage": "A_teacher_only_exploration",
+  "stage_a_status": "PASS_SELECT_RECIPE",
+  "test_evaluated": false,
+  "workflow_run_id": 34607859407
+}
