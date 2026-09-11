@@ -1,0 +1,1597 @@
+{
+  "primary_host": "a",
+  "rows": [
+    {
+      "baseline60_teacher_state_sha256": "a71d88806c9aed9f5b1a1de7f20639549e83f2c17872db04e734d9231b3b4240",
+      "baseline60_teacher_test_r2": 0.23123531413345544,
+      "baseline60_teacher_val_r2": 0.334367539429303,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.01624241774292179,
+      "candidate_teacher_test_r2": 0.24747773187637723,
+      "candidate_teacher_val_r2": 0.40540112155185315,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.25083364326055113,
+          "comp_pass": false,
+          "comp_val_r2": 0.4617785053022372,
+          "h": 2,
+          "sep_nmse": 0.42426274282248777,
+          "sep_pass": false,
+          "sep_val_r2": 0.5805436054236472
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.14940665355757654,
+          "comp_pass": false,
+          "comp_val_r2": 0.4817056120126393,
+          "h": 4,
+          "sep_nmse": 0.26263358343918486,
+          "sep_pass": false,
+          "sep_val_r2": 0.5064778652276462
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.1059760790510854,
+          "comp_pass": true,
+          "comp_test_mse": 0.609697699546814,
+          "comp_test_r2": 0.3146348108078775,
+          "comp_val_r2": 0.47205780043267564,
+          "h": 6,
+          "sep_nmse": 0.20218643519284088,
+          "sep_pass": false,
+          "sep_val_r2": 0.477744995192815
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.09188400781077806,
+          "comp_pass": true,
+          "comp_val_r2": 0.47076656502007197,
+          "h": 8,
+          "sep_nmse": 0.16369697541817718,
+          "sep_pass": false,
+          "sep_val_r2": 0.46904088197975347
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.07853052009186666,
+          "comp_pass": true,
+          "comp_val_r2": 0.4371373812573064,
+          "h": 12,
+          "sep_nmse": 0.12118654756701176,
+          "sep_pass": false,
+          "sep_val_r2": 0.4701588226400928
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.07224375391160957,
+          "comp_pass": true,
+          "comp_val_r2": 0.4262160743411404,
+          "h": 16,
+          "sep_nmse": 0.09680806206816953,
+          "sep_pass": true,
+          "sep_test_mse": 0.6733272075653076,
+          "sep_test_r2": 0.24310847893132315,
+          "sep_val_r2": 0.44373468931389093
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.06001057316724837,
+          "comp_pass": true,
+          "comp_val_r2": 0.44224004839619946,
+          "h": 20,
+          "sep_nmse": 0.07372671718904804,
+          "sep_pass": true,
+          "sep_val_r2": 0.40943727845961775
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.05940161419068712,
+          "comp_pass": true,
+          "comp_val_r2": 0.4370315198518375,
+          "h": 24,
+          "sep_nmse": 0.06981907780849363,
+          "sep_pass": true,
+          "sep_val_r2": 0.43936157623685423
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.04979453056835137,
+          "comp_pass": true,
+          "comp_val_r2": 0.42415038194332644,
+          "h": 32,
+          "sep_nmse": 0.05752407056123543,
+          "sep_pass": true,
+          "sep_val_r2": 0.4182425680134605
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.415037499278844,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2400,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.1059760790510854,
+        "comp_pass": true,
+        "comp_test_mse": 0.609697699546814,
+        "comp_test_r2": 0.3146348108078775,
+        "comp_val_r2": 0.47205780043267564,
+        "h": 6,
+        "sep_nmse": 0.20218643519284088,
+        "sep_pass": false,
+        "sep_val_r2": 0.477744995192815
+      },
+      "selected_sep": {
+        "budget": 4096,
+        "comp_nmse": 0.07224375391160957,
+        "comp_pass": true,
+        "comp_val_r2": 0.4262160743411404,
+        "h": 16,
+        "sep_nmse": 0.09680806206816953,
+        "sep_pass": true,
+        "sep_test_mse": 0.6733272075653076,
+        "sep_test_r2": 0.24310847893132315,
+        "sep_val_r2": 0.44373468931389093
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.6694403290748596,
+      "teacher_test_r2": 0.24747773187637723,
+      "teacher_val_mse": 0.6431077718734741,
+      "teacher_val_r2": 0.40540112155185315,
+      "test_r2_diff_comp_minus_sep": 0.07152633187655433
+    },
+    {
+      "baseline60_teacher_state_sha256": "b0d7ab5f24fcb51b03a84300547f62592ce080914cae96439092638310c1b954",
+      "baseline60_teacher_test_r2": 0.1551825752801893,
+      "baseline60_teacher_val_r2": 0.4476735126867416,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.05621663953686318,
+      "candidate_teacher_test_r2": 0.21139921481705248,
+      "candidate_teacher_val_r2": 0.3712922187497849,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.2509704108438141,
+          "comp_pass": false,
+          "comp_val_r2": 0.45598471216016134,
+          "h": 2,
+          "sep_nmse": 0.36852225190140386,
+          "sep_pass": false,
+          "sep_val_r2": 0.5569289579952954
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.13311846335183664,
+          "comp_pass": false,
+          "comp_val_r2": 0.4514640458660538,
+          "h": 4,
+          "sep_nmse": 0.2422922281146754,
+          "sep_pass": false,
+          "sep_val_r2": 0.44589982089366953
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.1016050888876955,
+          "comp_pass": true,
+          "comp_test_mse": 0.6574226021766663,
+          "comp_test_r2": 0.2609869520431489,
+          "comp_val_r2": 0.40162643336659676,
+          "h": 6,
+          "sep_nmse": 0.17042815135170503,
+          "sep_pass": false,
+          "sep_val_r2": 0.4346716685610549
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.0854920762213649,
+          "comp_pass": true,
+          "comp_val_r2": 0.3746040330721434,
+          "h": 8,
+          "sep_nmse": 0.13584175568272097,
+          "sep_pass": false,
+          "sep_val_r2": 0.3823121225890952
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.06081976097207696,
+          "comp_pass": true,
+          "comp_val_r2": 0.35310842987375,
+          "h": 12,
+          "sep_nmse": 0.09586573553839133,
+          "sep_pass": true,
+          "sep_test_mse": 0.6610056161880493,
+          "sep_test_r2": 0.25695928118951983,
+          "sep_val_r2": 0.4329214020914207
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.05375628402646098,
+          "comp_pass": true,
+          "comp_val_r2": 0.3444931223250476,
+          "h": 16,
+          "sep_nmse": 0.07875639520436069,
+          "sep_pass": true,
+          "sep_val_r2": 0.3699108090022394
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.04824073195614759,
+          "comp_pass": true,
+          "comp_val_r2": 0.34914239101277045,
+          "h": 20,
+          "sep_nmse": 0.06979120033656375,
+          "sep_pass": true,
+          "sep_val_r2": 0.3736176953524666
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.04545667159293588,
+          "comp_pass": true,
+          "comp_val_r2": 0.3687453333597328,
+          "h": 24,
+          "sep_nmse": 0.06312126874316325,
+          "sep_pass": true,
+          "sep_val_r2": 0.3867477733835347
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.04040699541735663,
+          "comp_pass": true,
+          "comp_val_r2": 0.3427558055847746,
+          "h": 32,
+          "sep_nmse": 0.05422739455120961,
+          "sep_pass": true,
+          "sep_val_r2": 0.4075693589610313
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2401,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.1016050888876955,
+        "comp_pass": true,
+        "comp_test_mse": 0.6574226021766663,
+        "comp_test_r2": 0.2609869520431489,
+        "comp_val_r2": 0.40162643336659676,
+        "h": 6,
+        "sep_nmse": 0.17042815135170503,
+        "sep_pass": false,
+        "sep_val_r2": 0.4346716685610549
+      },
+      "selected_sep": {
+        "budget": 3072,
+        "comp_nmse": 0.06081976097207696,
+        "comp_pass": true,
+        "comp_val_r2": 0.35310842987375,
+        "h": 12,
+        "sep_nmse": 0.09586573553839133,
+        "sep_pass": true,
+        "sep_test_mse": 0.6610056161880493,
+        "sep_test_r2": 0.25695928118951983,
+        "sep_val_r2": 0.4329214020914207
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.7015355825424194,
+      "teacher_test_r2": 0.21139921481705248,
+      "teacher_val_mse": 0.6799994111061096,
+      "teacher_val_r2": 0.3712922187497849,
+      "test_r2_diff_comp_minus_sep": 0.004027670853629095
+    },
+    {
+      "baseline60_teacher_state_sha256": "a5bd203315d6e21a754230c86a60a73d6ea15b6725466a02db094d83972020c7",
+      "baseline60_teacher_test_r2": 0.2578236283636369,
+      "baseline60_teacher_val_r2": 0.21329383420220427,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.006257419231017525,
+      "candidate_teacher_test_r2": 0.26408104759465445,
+      "candidate_teacher_val_r2": 0.3590633050151968,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.228225342541917,
+          "comp_pass": false,
+          "comp_val_r2": 0.5300333176532881,
+          "h": 2,
+          "sep_nmse": 0.3637164792353245,
+          "sep_pass": false,
+          "sep_val_r2": 0.5503759211679496
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.12819960900594168,
+          "comp_pass": false,
+          "comp_val_r2": 0.5221597769193353,
+          "h": 4,
+          "sep_nmse": 0.23456945890198672,
+          "sep_pass": false,
+          "sep_val_r2": 0.5276660965978284
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.08848162681744524,
+          "comp_pass": true,
+          "comp_test_mse": 0.6398378610610962,
+          "comp_test_r2": 0.28075405502215256,
+          "comp_val_r2": 0.45978129907474397,
+          "h": 6,
+          "sep_nmse": 0.17910009014914152,
+          "sep_pass": false,
+          "sep_val_r2": 0.5429587794322144
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.06851880370486896,
+          "comp_pass": true,
+          "comp_val_r2": 0.37842025514547295,
+          "h": 8,
+          "sep_nmse": 0.14150883785852084,
+          "sep_pass": false,
+          "sep_val_r2": 0.5015326478469617
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.052551354157152216,
+          "comp_pass": true,
+          "comp_val_r2": 0.39706723373146335,
+          "h": 12,
+          "sep_nmse": 0.0913654214872858,
+          "sep_pass": true,
+          "sep_test_mse": 0.6343290209770203,
+          "sep_test_r2": 0.28694657288316405,
+          "sep_val_r2": 0.4636549000302024
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.04651241642477761,
+          "comp_pass": true,
+          "comp_val_r2": 0.3999714474260021,
+          "h": 16,
+          "sep_nmse": 0.06744935894501441,
+          "sep_pass": true,
+          "sep_val_r2": 0.4435847672438883
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.04168022769691936,
+          "comp_pass": true,
+          "comp_val_r2": 0.35877993756336246,
+          "h": 20,
+          "sep_nmse": 0.059090984436699634,
+          "sep_pass": true,
+          "sep_val_r2": 0.45795233404659363
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.038892788050220166,
+          "comp_pass": true,
+          "comp_val_r2": 0.3733910224474696,
+          "h": 24,
+          "sep_nmse": 0.04890138291951764,
+          "sep_pass": true,
+          "sep_val_r2": 0.41413581928832466
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.03453299651190229,
+          "comp_pass": true,
+          "comp_val_r2": 0.36552337752525854,
+          "h": 32,
+          "sep_nmse": 0.04328350773557733,
+          "sep_pass": true,
+          "sep_val_r2": 0.3767289994344317
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2402,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.08848162681744524,
+        "comp_pass": true,
+        "comp_test_mse": 0.6398378610610962,
+        "comp_test_r2": 0.28075405502215256,
+        "comp_val_r2": 0.45978129907474397,
+        "h": 6,
+        "sep_nmse": 0.17910009014914152,
+        "sep_pass": false,
+        "sep_val_r2": 0.5429587794322144
+      },
+      "selected_sep": {
+        "budget": 3072,
+        "comp_nmse": 0.052551354157152216,
+        "comp_pass": true,
+        "comp_val_r2": 0.39706723373146335,
+        "h": 12,
+        "sep_nmse": 0.0913654214872858,
+        "sep_pass": true,
+        "sep_test_mse": 0.6343290209770203,
+        "sep_test_r2": 0.28694657288316405,
+        "sep_val_r2": 0.4636549000302024
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.6546701192855835,
+      "teacher_test_r2": 0.26408104759465445,
+      "teacher_val_mse": 0.6932259798049927,
+      "teacher_val_r2": 0.3590633050151968,
+      "test_r2_diff_comp_minus_sep": -0.006192517861011493
+    },
+    {
+      "baseline60_teacher_state_sha256": "696798148d2bb8f7975b6d99ff4e2e251e4edb080a41ce92ea7f3a4a386e2cdc",
+      "baseline60_teacher_test_r2": 0.247958697386244,
+      "baseline60_teacher_val_r2": 0.45722030584945283,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.08780475442712243,
+      "candidate_teacher_test_r2": 0.3357634518133664,
+      "candidate_teacher_val_r2": 0.5282035103663174,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.19166124491362796,
+          "comp_pass": false,
+          "comp_val_r2": 0.5284883517710872,
+          "h": 2,
+          "sep_nmse": 0.33244790670811725,
+          "sep_pass": false,
+          "sep_val_r2": 0.5274402659516515
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.11273595191786608,
+          "comp_pass": true,
+          "comp_test_mse": 0.5967668890953064,
+          "comp_test_r2": 0.3291703997831744,
+          "comp_val_r2": 0.510234339565915,
+          "h": 4,
+          "sep_nmse": 0.19569463796399522,
+          "sep_pass": false,
+          "sep_val_r2": 0.5393060082111876
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.08243788175077851,
+          "comp_pass": true,
+          "comp_val_r2": 0.5178258288774398,
+          "h": 6,
+          "sep_nmse": 0.13824938530170758,
+          "sep_pass": false,
+          "sep_val_r2": 0.5449776738243288
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.06922914962255726,
+          "comp_pass": true,
+          "comp_val_r2": 0.5172929422501095,
+          "h": 8,
+          "sep_nmse": 0.10722812732599182,
+          "sep_pass": true,
+          "sep_test_mse": 0.5977042317390442,
+          "sep_test_r2": 0.3281167569465395,
+          "sep_val_r2": 0.521374581134167
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.055230704044427724,
+          "comp_pass": true,
+          "comp_val_r2": 0.508263032797144,
+          "h": 12,
+          "sep_nmse": 0.08171000299959173,
+          "sep_pass": true,
+          "sep_val_r2": 0.5310249194905914
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.04820536202737592,
+          "comp_pass": true,
+          "comp_val_r2": 0.5029683832884126,
+          "h": 16,
+          "sep_nmse": 0.0712796348923341,
+          "sep_pass": true,
+          "sep_val_r2": 0.5046673246111886
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.04493460855971631,
+          "comp_pass": true,
+          "comp_val_r2": 0.48751135470172735,
+          "h": 20,
+          "sep_nmse": 0.053152955475125906,
+          "sep_pass": true,
+          "sep_val_r2": 0.5529134890698029
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.03976112454275351,
+          "comp_pass": true,
+          "comp_val_r2": 0.5072515325952125,
+          "h": 24,
+          "sep_nmse": 0.04792900519143407,
+          "sep_pass": true,
+          "sep_val_r2": 0.5316101314471292
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.03581282150145403,
+          "comp_pass": true,
+          "comp_val_r2": 0.5067078545267478,
+          "h": 32,
+          "sep_nmse": 0.048994078465050696,
+          "sep_pass": true,
+          "sep_val_r2": 0.5208440633597686
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2403,
+      "selected_comp": {
+        "budget": 1024,
+        "comp_nmse": 0.11273595191786608,
+        "comp_pass": true,
+        "comp_test_mse": 0.5967668890953064,
+        "comp_test_r2": 0.3291703997831744,
+        "comp_val_r2": 0.510234339565915,
+        "h": 4,
+        "sep_nmse": 0.19569463796399522,
+        "sep_pass": false,
+        "sep_val_r2": 0.5393060082111876
+      },
+      "selected_sep": {
+        "budget": 2048,
+        "comp_nmse": 0.06922914962255726,
+        "comp_pass": true,
+        "comp_val_r2": 0.5172929422501095,
+        "h": 8,
+        "sep_nmse": 0.10722812732599182,
+        "sep_pass": true,
+        "sep_test_mse": 0.5977042317390442,
+        "sep_test_r2": 0.3281167569465395,
+        "sep_val_r2": 0.521374581134167
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.5909017324447632,
+      "teacher_test_r2": 0.3357634518133664,
+      "teacher_val_mse": 0.5102868676185608,
+      "teacher_val_r2": 0.5282035103663174,
+      "test_r2_diff_comp_minus_sep": 0.0010536428366348938
+    },
+    {
+      "baseline60_teacher_state_sha256": "a57b33be92eb1140fbc3e0132ae67ba4defca6bbaef901c8e15b7722b786ba6c",
+      "baseline60_teacher_test_r2": 0.1371484934074202,
+      "baseline60_teacher_val_r2": 0.425048861539817,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.12514699387670902,
+      "candidate_teacher_test_r2": 0.2622954872841292,
+      "candidate_teacher_val_r2": 0.38131551984004675,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.20128901274607028,
+          "comp_pass": false,
+          "comp_val_r2": 0.49566120896989496,
+          "h": 2,
+          "sep_nmse": 0.34089452331774145,
+          "sep_pass": false,
+          "sep_val_r2": 0.5613715047838256
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.11741849943768803,
+          "comp_pass": true,
+          "comp_test_mse": 0.6446678042411804,
+          "comp_test_r2": 0.27532466910346287,
+          "comp_val_r2": 0.4490578176989818,
+          "h": 4,
+          "sep_nmse": 0.22933381617782783,
+          "sep_pass": false,
+          "sep_val_r2": 0.5242362081171075
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.08473468056996158,
+          "comp_pass": true,
+          "comp_val_r2": 0.4203169462053582,
+          "h": 6,
+          "sep_nmse": 0.15760760151421876,
+          "sep_pass": false,
+          "sep_val_r2": 0.4473031820117175
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.06808874214296538,
+          "comp_pass": true,
+          "comp_val_r2": 0.4505904129047603,
+          "h": 8,
+          "sep_nmse": 0.11597828916652884,
+          "sep_pass": true,
+          "sep_test_mse": 0.6083321571350098,
+          "sep_test_r2": 0.31616980547205775,
+          "sep_val_r2": 0.5219966419140902
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.05437682141807213,
+          "comp_pass": true,
+          "comp_val_r2": 0.41662432561389884,
+          "h": 12,
+          "sep_nmse": 0.08676305275234283,
+          "sep_pass": true,
+          "sep_val_r2": 0.4187786657525431
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.050010760530699305,
+          "comp_pass": true,
+          "comp_val_r2": 0.4217496810997621,
+          "h": 16,
+          "sep_nmse": 0.07105219823788354,
+          "sep_pass": true,
+          "sep_val_r2": 0.4233631331522837
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.03932965064841649,
+          "comp_pass": true,
+          "comp_val_r2": 0.3888181508460363,
+          "h": 20,
+          "sep_nmse": 0.057801059229777456,
+          "sep_pass": true,
+          "sep_val_r2": 0.431420181026696
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.037910832873199615,
+          "comp_pass": true,
+          "comp_val_r2": 0.37531021445173807,
+          "h": 24,
+          "sep_nmse": 0.05659211975465282,
+          "sep_pass": true,
+          "sep_val_r2": 0.4161101266041426
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.03411288765300633,
+          "comp_pass": true,
+          "comp_val_r2": 0.3607851978908242,
+          "h": 32,
+          "sep_nmse": 0.04262207432841219,
+          "sep_pass": true,
+          "sep_val_r2": 0.4350617923183546
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2404,
+      "selected_comp": {
+        "budget": 1024,
+        "comp_nmse": 0.11741849943768803,
+        "comp_pass": true,
+        "comp_test_mse": 0.6446678042411804,
+        "comp_test_r2": 0.27532466910346287,
+        "comp_val_r2": 0.4490578176989818,
+        "h": 4,
+        "sep_nmse": 0.22933381617782783,
+        "sep_pass": false,
+        "sep_val_r2": 0.5242362081171075
+      },
+      "selected_sep": {
+        "budget": 2048,
+        "comp_nmse": 0.06808874214296538,
+        "comp_pass": true,
+        "comp_val_r2": 0.4505904129047603,
+        "h": 8,
+        "sep_nmse": 0.11597828916652884,
+        "sep_pass": true,
+        "sep_test_mse": 0.6083321571350098,
+        "sep_test_r2": 0.31616980547205775,
+        "sep_val_r2": 0.5219966419140902
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.6562585234642029,
+      "teacher_test_r2": 0.2622954872841292,
+      "teacher_val_mse": 0.6691583395004272,
+      "teacher_val_r2": 0.38131551984004675,
+      "test_r2_diff_comp_minus_sep": -0.04084513636859488
+    },
+    {
+      "baseline60_teacher_state_sha256": "8d89ddcb5b197b3bc79cd922c09b0a0693fa362c97854e2754cf3a022a287256",
+      "baseline60_teacher_test_r2": 0.2655436463258636,
+      "baseline60_teacher_val_r2": 0.42040475168736824,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": -0.09451339270675396,
+      "candidate_teacher_test_r2": 0.17103025361910962,
+      "candidate_teacher_val_r2": 0.40185473814805794,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.22154856495130318,
+          "comp_pass": false,
+          "comp_val_r2": 0.4419991623736109,
+          "h": 2,
+          "sep_nmse": 0.386426464861793,
+          "sep_pass": false,
+          "sep_val_r2": 0.5445625981494794
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.12930758633509876,
+          "comp_pass": false,
+          "comp_val_r2": 0.3917572656404388,
+          "h": 4,
+          "sep_nmse": 0.24815834647813353,
+          "sep_pass": false,
+          "sep_val_r2": 0.48285771679637457
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.08883673951704893,
+          "comp_pass": true,
+          "comp_test_mse": 0.6798391938209534,
+          "comp_test_r2": 0.23578829976645543,
+          "comp_val_r2": 0.43763431396124786,
+          "h": 6,
+          "sep_nmse": 0.17268283434189463,
+          "sep_pass": false,
+          "sep_val_r2": 0.4114644375164058
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.07131653876285993,
+          "comp_pass": true,
+          "comp_val_r2": 0.41384539791887076,
+          "h": 8,
+          "sep_nmse": 0.12278735375506364,
+          "sep_pass": false,
+          "sep_val_r2": 0.40377740446996
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.06474706869468563,
+          "comp_pass": true,
+          "comp_val_r2": 0.38868502131126215,
+          "h": 12,
+          "sep_nmse": 0.10153170344035456,
+          "sep_pass": true,
+          "sep_test_mse": 0.7422452569007874,
+          "sep_test_r2": 0.16563725882574487,
+          "sep_val_r2": 0.39790212278702586
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.05676093685296481,
+          "comp_pass": true,
+          "comp_val_r2": 0.40952624204750565,
+          "h": 16,
+          "sep_nmse": 0.07104405185461736,
+          "sep_pass": true,
+          "sep_val_r2": 0.42207016058086333
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.041801594324900306,
+          "comp_pass": true,
+          "comp_val_r2": 0.4113687884991324,
+          "h": 20,
+          "sep_nmse": 0.05905600330968866,
+          "sep_pass": true,
+          "sep_val_r2": 0.40486876133628547
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.04706949671290412,
+          "comp_pass": true,
+          "comp_val_r2": 0.40422132750940254,
+          "h": 24,
+          "sep_nmse": 0.05758770477669065,
+          "sep_pass": true,
+          "sep_val_r2": 0.42397419192636754
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.04191325604170747,
+          "comp_pass": true,
+          "comp_val_r2": 0.3861783537798765,
+          "h": 32,
+          "sep_nmse": 0.05057479817732384,
+          "sep_pass": true,
+          "sep_val_r2": 0.3958465374950547
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2405,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.08883673951704893,
+        "comp_pass": true,
+        "comp_test_mse": 0.6798391938209534,
+        "comp_test_r2": 0.23578829976645543,
+        "comp_val_r2": 0.43763431396124786,
+        "h": 6,
+        "sep_nmse": 0.17268283434189463,
+        "sep_pass": false,
+        "sep_val_r2": 0.4114644375164058
+      },
+      "selected_sep": {
+        "budget": 3072,
+        "comp_nmse": 0.06474706869468563,
+        "comp_pass": true,
+        "comp_val_r2": 0.38868502131126215,
+        "h": 12,
+        "sep_nmse": 0.10153170344035456,
+        "sep_pass": true,
+        "sep_test_mse": 0.7422452569007874,
+        "sep_test_r2": 0.16563725882574487,
+        "sep_val_r2": 0.39790212278702586
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.7374476790428162,
+      "teacher_test_r2": 0.17103025361910962,
+      "teacher_val_mse": 0.6469435095787048,
+      "teacher_val_r2": 0.40185473814805794,
+      "test_r2_diff_comp_minus_sep": 0.07015104094071056
+    },
+    {
+      "baseline60_teacher_state_sha256": "18d42b423844971082562d739f514fa568ba6420db2039832dab3a7af6b29b51",
+      "baseline60_teacher_test_r2": 0.12227549457162734,
+      "baseline60_teacher_val_r2": 0.29408698512192877,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": -0.06561204000767629,
+      "candidate_teacher_test_r2": 0.056663454563951055,
+      "candidate_teacher_val_r2": 0.3619709403861928,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.24836537071944448,
+          "comp_pass": false,
+          "comp_val_r2": 0.5338570147736472,
+          "h": 2,
+          "sep_nmse": 0.34611270267609023,
+          "sep_pass": false,
+          "sep_val_r2": 0.5909353421065875
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.1379504539876593,
+          "comp_pass": false,
+          "comp_val_r2": 0.4637738690885612,
+          "h": 4,
+          "sep_nmse": 0.24453313607596625,
+          "sep_pass": false,
+          "sep_val_r2": 0.5181152500645447
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.0957818310054324,
+          "comp_pass": true,
+          "comp_test_mse": 0.7386109232902527,
+          "comp_test_r2": 0.16972264554055794,
+          "comp_val_r2": 0.43216673818848594,
+          "h": 6,
+          "sep_nmse": 0.18746937050387819,
+          "sep_pass": false,
+          "sep_val_r2": 0.5036757227738852
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.0748401660305505,
+          "comp_pass": true,
+          "comp_val_r2": 0.44515515881422507,
+          "h": 8,
+          "sep_nmse": 0.147188564381202,
+          "sep_pass": false,
+          "sep_val_r2": 0.46232197280599685
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.06069368576314658,
+          "comp_pass": true,
+          "comp_val_r2": 0.40758351943744664,
+          "h": 12,
+          "sep_nmse": 0.09410550255195341,
+          "sep_pass": true,
+          "sep_test_mse": 0.7585433125495911,
+          "sep_test_r2": 0.14731645197191312,
+          "sep_val_r2": 0.44262153900059176
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.053252234950947656,
+          "comp_pass": true,
+          "comp_val_r2": 0.3866076952134937,
+          "h": 16,
+          "sep_nmse": 0.07745866290931146,
+          "sep_pass": true,
+          "sep_val_r2": 0.4366671902709076
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.04883062964150454,
+          "comp_pass": true,
+          "comp_val_r2": 0.38544653614744084,
+          "h": 20,
+          "sep_nmse": 0.06646926168971792,
+          "sep_pass": true,
+          "sep_val_r2": 0.44078899437245533
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.046298290066949035,
+          "comp_pass": true,
+          "comp_val_r2": 0.36441570189429096,
+          "h": 24,
+          "sep_nmse": 0.05802295489735605,
+          "sep_pass": true,
+          "sep_val_r2": 0.36401847157819545
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.03835989871074608,
+          "comp_pass": true,
+          "comp_val_r2": 0.3138195300448555,
+          "h": 32,
+          "sep_nmse": 0.04984847133613576,
+          "sep_pass": true,
+          "sep_val_r2": 0.3993247505755869
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2406,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.0957818310054324,
+        "comp_pass": true,
+        "comp_test_mse": 0.7386109232902527,
+        "comp_test_r2": 0.16972264554055794,
+        "comp_val_r2": 0.43216673818848594,
+        "h": 6,
+        "sep_nmse": 0.18746937050387819,
+        "sep_pass": false,
+        "sep_val_r2": 0.5036757227738852
+      },
+      "selected_sep": {
+        "budget": 3072,
+        "comp_nmse": 0.06069368576314658,
+        "comp_pass": true,
+        "comp_val_r2": 0.40758351943744664,
+        "h": 12,
+        "sep_nmse": 0.09410550255195341,
+        "sep_pass": true,
+        "sep_test_mse": 0.7585433125495911,
+        "sep_test_r2": 0.14731645197191312,
+        "sep_val_r2": 0.44262153900059176
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.8391878008842468,
+      "teacher_test_r2": 0.056663454563951055,
+      "teacher_val_mse": 0.6900811195373535,
+      "teacher_val_r2": 0.3619709403861928,
+      "test_r2_diff_comp_minus_sep": 0.022406193568644817
+    },
+    {
+      "baseline60_teacher_state_sha256": "c636e429f73cc74d8b8f5749591c83825d3ecbcab47608fe5d989f3b94b989dc",
+      "baseline60_teacher_test_r2": 0.23217429788307953,
+      "baseline60_teacher_val_r2": 0.42288773068943464,
+      "budget_grid_h": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32
+      ],
+      "candidate_minus_baseline_test_r2": 0.07929533492042862,
+      "candidate_teacher_test_r2": 0.31146963280350815,
+      "candidate_teacher_val_r2": 0.5519550511735465,
+      "data": {
+        "feature_normalization": "train_mean_std_only",
+        "input_dim": 10,
+        "n_test": 111,
+        "n_total": 442,
+        "n_train": 264,
+        "n_val": 67,
+        "split_random_states": {
+          "test": 2234,
+          "val": 6678
+        },
+        "target_normalization": "train_mean_std_only"
+      },
+      "dataset": "sklearn.datasets.load_diabetes",
+      "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+      "experiment": "PHASE3B_STRONGER_TEACHER_CONFIRMATORY",
+      "grid": [
+        {
+          "budget": 512,
+          "comp_nmse": 0.2506936486543596,
+          "comp_pass": false,
+          "comp_val_r2": 0.5785266587550546,
+          "h": 2,
+          "sep_nmse": 0.3784397806787915,
+          "sep_pass": false,
+          "sep_val_r2": 0.5742263221042042
+        },
+        {
+          "budget": 1024,
+          "comp_nmse": 0.16156498175075062,
+          "comp_pass": false,
+          "comp_val_r2": 0.5782582677178676,
+          "h": 4,
+          "sep_nmse": 0.2924860554613769,
+          "sep_pass": false,
+          "sep_val_r2": 0.6084041322060034
+        },
+        {
+          "budget": 1536,
+          "comp_nmse": 0.11327274504135117,
+          "comp_pass": true,
+          "comp_test_mse": 0.5826725363731384,
+          "comp_test_r2": 0.34501398315470144,
+          "comp_val_r2": 0.535906967459758,
+          "h": 6,
+          "sep_nmse": 0.21498515625955503,
+          "sep_pass": false,
+          "sep_val_r2": 0.5586968329383901
+        },
+        {
+          "budget": 2048,
+          "comp_nmse": 0.09280891069307573,
+          "comp_pass": true,
+          "comp_val_r2": 0.5731402556760934,
+          "h": 8,
+          "sep_nmse": 0.16860767258119588,
+          "sep_pass": false,
+          "sep_val_r2": 0.578926442168199
+        },
+        {
+          "budget": 3072,
+          "comp_nmse": 0.07784779258291999,
+          "comp_pass": true,
+          "comp_val_r2": 0.5638978601151343,
+          "h": 12,
+          "sep_nmse": 0.11569422518873883,
+          "sep_pass": true,
+          "sep_test_mse": 0.5580336451530457,
+          "sep_test_r2": 0.3727107200683444,
+          "sep_val_r2": 0.5554204724482461
+        },
+        {
+          "budget": 4096,
+          "comp_nmse": 0.061843037584279156,
+          "comp_pass": true,
+          "comp_val_r2": 0.526560473972735,
+          "h": 16,
+          "sep_nmse": 0.09698529130348252,
+          "sep_pass": true,
+          "sep_val_r2": 0.569326849905694
+        },
+        {
+          "budget": 5120,
+          "comp_nmse": 0.05422614181571229,
+          "comp_pass": true,
+          "comp_val_r2": 0.5244112926693647,
+          "h": 20,
+          "sep_nmse": 0.07739964166482136,
+          "sep_pass": true,
+          "sep_val_r2": 0.5442474354271809
+        },
+        {
+          "budget": 6144,
+          "comp_nmse": 0.04780540955537643,
+          "comp_pass": true,
+          "comp_val_r2": 0.5384158459205468,
+          "h": 24,
+          "sep_nmse": 0.06775870628978689,
+          "sep_pass": true,
+          "sep_val_r2": 0.5415936358081347
+        },
+        {
+          "budget": 8192,
+          "comp_nmse": 0.04510029530775579,
+          "comp_pass": true,
+          "comp_val_r2": 0.5227071925113149,
+          "h": 32,
+          "sep_nmse": 0.06407177058869941,
+          "sep_pass": true,
+          "sep_val_r2": 0.5381639578921189
+        }
+      ],
+      "internal_width": 64,
+      "learned_parameter_budget_formula": "256*h for both conditions",
+      "log2_budget_ratio": -1.0,
+      "map_updates": 600,
+      "numeric_profile": {
+        "ATEN_CPU_CAPABILITY": "avx2",
+        "MKL_CBWR": "COMPATIBLE",
+        "deterministic_algorithms": true,
+        "effective_cpu_capability": "AVX2",
+        "mkldnn_enabled": false,
+        "sqrt_intervention": {
+          "adamw_steps": 16625,
+          "float32_sqrt_calls": 44300
+        },
+        "torch_threads": 1
+      },
+      "provenance": {
+        "base_runner_git_blob_expected": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+        "numpy": "2.3.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "python": "3.13.5",
+        "scikit_learn": "1.8.0",
+        "stage_b_protocol_sha256": "8db6e0deb8077191edb3d80aebd811e8a2a1a311b9f380bb4124e5f0b6ac0583",
+        "torch": "2.10.0+cpu",
+        "wrapper_sha256": "e7380de35a1e2884efa50a68311faac35b195766e3b1a8932c9fe26ad3e90bd1"
+      },
+      "seed": 2407,
+      "selected_comp": {
+        "budget": 1536,
+        "comp_nmse": 0.11327274504135117,
+        "comp_pass": true,
+        "comp_test_mse": 0.5826725363731384,
+        "comp_test_r2": 0.34501398315470144,
+        "comp_val_r2": 0.535906967459758,
+        "h": 6,
+        "sep_nmse": 0.21498515625955503,
+        "sep_pass": false,
+        "sep_val_r2": 0.5586968329383901
+      },
+      "selected_sep": {
+        "budget": 3072,
+        "comp_nmse": 0.07784779258291999,
+        "comp_pass": true,
+        "comp_val_r2": 0.5638978601151343,
+        "h": 12,
+        "sep_nmse": 0.11569422518873883,
+        "sep_pass": true,
+        "sep_test_mse": 0.5580336451530457,
+        "sep_test_r2": 0.3727107200683444,
+        "sep_val_r2": 0.5554204724482461
+      },
+      "selection_rule": {
+        "span_nmse_lte": 0.12,
+        "test_used_for_selection": false,
+        "val_r2_gte_teacher_minus": 0.05
+      },
+      "span": [
+        0,
+        1
+      ],
+      "stage_a_selected_recipe": "short_25",
+      "task": "tabular_regression",
+      "teacher_epochs": 25,
+      "teacher_test_mse": 0.6125134229660034,
+      "teacher_test_r2": 0.31146963280350815,
+      "teacher_val_mse": 0.4845976233482361,
+      "teacher_val_r2": 0.5519550511735465,
+      "test_r2_diff_comp_minus_sep": -0.02769673691364294
+    }
+  ]
+}
