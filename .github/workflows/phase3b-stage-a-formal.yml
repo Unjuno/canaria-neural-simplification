@@ -23,14 +23,15 @@ jobs:
       - name: Verify locked source and environment
         run: |
           python - <<'PY'
-          import hashlib,json,platform,torch,numpy,sklearn
+          import json,platform,subprocess,torch,numpy,sklearn
           from pathlib import Path
           protocol=Path('results/phase3b/stronger_teacher_regression/EXPLORATION_PROTOCOL.json')
           runner=Path('scripts/phase3b/stronger_teacher_regression/explore_teacher.py')
           p=json.loads(protocol.read_text())
           assert p['status']=='LOCKED_BEFORE_STAGE_A_OUTCOMES'
           assert p['seeds']==[2300,2301,2302]
-          assert hashlib.sha1(runner.read_bytes()).hexdigest()=='b6518c84b0057d2da77a02432024c58c07815587'
+          assert subprocess.check_output(['git','hash-object',str(runner)],text=True).strip()=='b6518c84b0057d2da77a02432024c58c07815587'
+          assert subprocess.check_output(['git','hash-object',str(protocol)],text=True).strip()=='a6ca028c46f4134e8c2ea7265f9f26fa08c671b2'
           assert platform.python_version().startswith('3.11.')
           assert numpy.__version__=='2.4.6'
           assert sklearn.__version__=='1.9.0'
@@ -43,7 +44,7 @@ jobs:
           mkdir -p results/phase3b/stronger_teacher_regression/formal_stage_a
           python scripts/phase3b/stronger_teacher_regression/explore_teacher.py --out results/phase3b/stronger_teacher_regression/formal_stage_a/RESULT.json
           python - <<'PY'
-          import json,platform,subprocess,torch,numpy,sklearn
+          import json,platform,torch,numpy,sklearn
           from pathlib import Path
           p=Path('results/phase3b/stronger_teacher_regression/formal_stage_a/RESULT.json')
           r=json.loads(p.read_text())
