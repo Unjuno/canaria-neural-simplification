@@ -1,0 +1,110 @@
+{
+  "protocol_status": "LOCKED_BEFORE_CONFIRMATORY_OUTCOMES",
+  "confirmatory_seeds": [
+    2200,
+    2201,
+    2202,
+    2203,
+    2204,
+    2205,
+    2206,
+    2207
+  ],
+  "n_attempted": 8,
+  "n_comparable": 8,
+  "missing_endpoints": [],
+  "seed_rows": [
+    {
+      "seed": 2200,
+      "teacher_val_r2": 0.23525578558112903,
+      "teacher_test_r2": 0.13268049766371393,
+      "sep_budget": 5120,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -0.7369655941662062,
+      "test_r2_diff_comp_minus_sep": 0.06515178112538289
+    },
+    {
+      "seed": 2201,
+      "teacher_val_r2": 0.3365376719208266,
+      "teacher_test_r2": 0.2530218541456134,
+      "sep_budget": 8192,
+      "comp_budget": 4096,
+      "log2_budget_ratio": -1.0,
+      "test_r2_diff_comp_minus_sep": 0.012456813546708356
+    },
+    {
+      "seed": 2202,
+      "teacher_val_r2": 0.47410148881881087,
+      "teacher_test_r2": 0.21713301906648508,
+      "sep_budget": 5120,
+      "comp_budget": 2048,
+      "log2_budget_ratio": -1.3219280948873622,
+      "test_r2_diff_comp_minus_sep": -0.018036786096519264
+    },
+    {
+      "seed": 2203,
+      "teacher_val_r2": 0.4187757178466722,
+      "teacher_test_r2": 0.20736814436785167,
+      "sep_budget": 6144,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -1.0,
+      "test_r2_diff_comp_minus_sep": 0.002836962504624174
+    },
+    {
+      "seed": 2204,
+      "teacher_val_r2": 0.2602232322777265,
+      "teacher_test_r2": 0.25508780382727225,
+      "sep_budget": 8192,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -1.415037499278844,
+      "test_r2_diff_comp_minus_sep": 0.07096346701882283
+    },
+    {
+      "seed": 2205,
+      "teacher_val_r2": 0.421481263741987,
+      "teacher_test_r2": 0.11191066851811593,
+      "sep_budget": 5120,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -0.7369655941662062,
+      "test_r2_diff_comp_minus_sep": -0.015806033293166433
+    },
+    {
+      "seed": 2206,
+      "teacher_val_r2": 0.36656767318000316,
+      "teacher_test_r2": 0.15742383592440023,
+      "sep_budget": 6144,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -1.0,
+      "test_r2_diff_comp_minus_sep": 0.0628081462963409
+    },
+    {
+      "seed": 2207,
+      "teacher_val_r2": 0.37173298331865157,
+      "teacher_test_r2": 0.18588324119915067,
+      "sep_budget": 6144,
+      "comp_budget": 3072,
+      "log2_budget_ratio": -1.0,
+      "test_r2_diff_comp_minus_sep": -0.04782543323982347
+    }
+  ],
+  "primary_endpoint": "paired log2(B_composed / B_componentwise) at minimum validation-passing learned-replacement budget",
+  "status": "VALID_PASS",
+  "criteria": {
+    "all_8_comparable": true,
+    "composed_lower_at_least_7_of_8": true,
+    "bootstrap95_upper_below_zero": true
+  },
+  "wins_ties_losses": {
+    "wins": 8,
+    "ties": 0,
+    "losses": 0
+  },
+  "mean_log2_budget_ratio": -1.0263620978123273,
+  "bootstrap95_mean_log2_budget_ratio": [
+    -1.1842413985415514,
+    -0.868482797083103
+  ],
+  "geometric_mean_budget_ratio": 0.49094656092429806,
+  "one_sided_exact_sign_p": 0.00390625,
+  "mean_test_r2_diff_comp_minus_sep": 0.01656861473279625
+}

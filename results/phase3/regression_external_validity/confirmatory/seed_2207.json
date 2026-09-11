@@ -1,0 +1,168 @@
+{
+  "seed": 2207,
+  "dataset": "sklearn.datasets.load_diabetes",
+  "task": "tabular_regression",
+  "data": {
+    "n_total": 442,
+    "n_train": 264,
+    "n_val": 67,
+    "n_test": 111,
+    "input_dim": 10,
+    "feature_normalization": "train_mean_std_only",
+    "target_normalization": "train_mean_std_only",
+    "split_random_states": {
+      "test": 2234,
+      "val": 6678
+    }
+  },
+  "teacher_epochs": 60,
+  "map_updates": 600,
+  "span": [
+    0,
+    1
+  ],
+  "internal_width": 64,
+  "budget_grid_h": [
+    2,
+    4,
+    6,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32
+  ],
+  "learned_parameter_budget_formula": "256*h for both conditions",
+  "selection_rule": {
+    "span_nmse_lte": 0.12,
+    "val_r2_gte_teacher_minus": 0.05,
+    "test_used_for_selection": false
+  },
+  "teacher_val_r2": 0.37173298331865157,
+  "teacher_val_mse": 0.679522693157196,
+  "grid": [
+    {
+      "h": 2,
+      "budget": 512,
+      "sep_nmse": 0.5560590613548055,
+      "comp_nmse": 0.3836613536353449,
+      "sep_val_r2": 0.3471909826086277,
+      "comp_val_r2": 0.5086183607369327,
+      "sep_pass": false,
+      "comp_pass": false
+    },
+    {
+      "h": 4,
+      "budget": 1024,
+      "sep_nmse": 0.4662134832756086,
+      "comp_nmse": 0.22906330367322494,
+      "sep_val_r2": 0.4141812486234413,
+      "comp_val_r2": 0.46822668090646313,
+      "sep_pass": false,
+      "comp_pass": false
+    },
+    {
+      "h": 6,
+      "budget": 1536,
+      "sep_nmse": 0.3098693057369004,
+      "comp_nmse": 0.18107080331777356,
+      "sep_val_r2": 0.46521965899467876,
+      "comp_val_r2": 0.46508194967756966,
+      "sep_pass": false,
+      "comp_pass": false
+    },
+    {
+      "h": 8,
+      "budget": 2048,
+      "sep_nmse": 0.2559776815542062,
+      "comp_nmse": 0.14907194468993332,
+      "sep_val_r2": 0.5097662015853905,
+      "comp_val_r2": 0.4675002853151826,
+      "sep_pass": false,
+      "comp_pass": false
+    },
+    {
+      "h": 12,
+      "budget": 3072,
+      "sep_nmse": 0.16974222301795502,
+      "comp_nmse": 0.11893216330578296,
+      "sep_val_r2": 0.4768178261552599,
+      "comp_val_r2": 0.4542461846728342,
+      "sep_pass": false,
+      "comp_pass": true,
+      "comp_test_r2": 0.16014552123372783,
+      "comp_test_mse": 0.7471306324005127
+    },
+    {
+      "h": 16,
+      "budget": 4096,
+      "sep_nmse": 0.13097189952791136,
+      "comp_nmse": 0.09856191656541681,
+      "sep_val_r2": 0.45062578777521034,
+      "comp_val_r2": 0.4337015969648439,
+      "sep_pass": false,
+      "comp_pass": true
+    },
+    {
+      "h": 20,
+      "budget": 5120,
+      "sep_nmse": 0.12227443046333668,
+      "comp_nmse": 0.08896360218633684,
+      "sep_val_r2": 0.4136933175606412,
+      "comp_val_r2": 0.4302777622193935,
+      "sep_pass": false,
+      "comp_pass": true
+    },
+    {
+      "h": 24,
+      "budget": 6144,
+      "sep_nmse": 0.10364029282642832,
+      "comp_nmse": 0.09583991631866583,
+      "sep_val_r2": 0.435244825688228,
+      "comp_val_r2": 0.3987225355191155,
+      "sep_pass": true,
+      "comp_pass": true,
+      "sep_test_r2": 0.2079709544735513,
+      "sep_test_mse": 0.7045853734016418
+    },
+    {
+      "h": 32,
+      "budget": 8192,
+      "sep_nmse": 0.08789659032082071,
+      "comp_nmse": 0.08626734863718125,
+      "sep_val_r2": 0.40467851612526384,
+      "comp_val_r2": 0.4177178407684512,
+      "sep_pass": true,
+      "comp_pass": true
+    }
+  ],
+  "selected_sep": {
+    "h": 24,
+    "budget": 6144,
+    "sep_nmse": 0.10364029282642832,
+    "comp_nmse": 0.09583991631866583,
+    "sep_val_r2": 0.435244825688228,
+    "comp_val_r2": 0.3987225355191155,
+    "sep_pass": true,
+    "comp_pass": true,
+    "sep_test_r2": 0.2079709544735513,
+    "sep_test_mse": 0.7045853734016418
+  },
+  "selected_comp": {
+    "h": 12,
+    "budget": 3072,
+    "sep_nmse": 0.16974222301795502,
+    "comp_nmse": 0.11893216330578296,
+    "sep_val_r2": 0.4768178261552599,
+    "comp_val_r2": 0.4542461846728342,
+    "sep_pass": false,
+    "comp_pass": true,
+    "comp_test_r2": 0.16014552123372783,
+    "comp_test_mse": 0.7471306324005127
+  },
+  "teacher_test_r2": 0.18588324119915067,
+  "teacher_test_mse": 0.7242345213890076,
+  "log2_budget_ratio": -1.0,
+  "test_r2_diff_comp_minus_sep": -0.04782543323982347
+}
