@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "experiment": "SMALLVIT_HIDDEN_TEST_CONFIRMATORY_V1",
+  "protocol_commit": "b58d85724e8c0582a14b37c85c84a16127edf81d",
+  "launch_commit": "8c76c8cfa33223eba388c73f868f09b8f9620243",
+  "workflow_run": 34696045678,
+  "artifact_id": 10298981210,
+  "artifact_zip_sha256": "c0a5a20808b56a22ce81019394617a619726107801cc87fc7f06b53a1ffdcf93",
+  "decision_sha256": "75df97b787b1f74cfb82af98746e2c77d19c7cca6f468166cc129a642d04bef2",
+  "seed_files": {
+    "9200": "047feead4060c136756d62d2603d1ae228cdd84af883e12416d2b21d1f08e065",
+    "9201": "25786c7978bcae7620516cbfff40dce0a3c98e3fe7df1b44d5f5b1643acaf39c",
+    "9202": "f4f3b22e6578cfb8e0f9402d5e6744e393fc76ba596f0b575c226bb1f7dffe3d",
+    "9203": "e958fc74e9d61147c931ca4f24df35e4a13634b34dc5f7fe41ac3704fd579031",
+    "9204": "5c77e1054095c0437168f1bc96f326bd3ade48d85c57186c7612940802db5558",
+    "9205": "5bdd670a54c08a5aae680a2107ea0d83c88b62f66e68eac1c9ee8db143eb23cb",
+    "9206": "9df5945476e03c9607b02ce916e6a0c9c010b8e2f032a86f3a96fea0f2512101",
+    "9207": "dbed5c0d473b5f77d5d05594dd687593f6f7c932006ef5120eb2f382bf06a1ee",
+    "9208": "d6dc80b634a63b6d5e39b8f34a8fd86cef598aebeb42b7ed28cdcf9306807ac5",
+    "9209": "98a24591c57765c5e3e6789347ece6fbfacc91709b98ab2dde5e8b972871c89b",
+    "9210": "dbffaab476824a1b12d813c611deb6e04f0a0d86b6345c4402a6ab0c88972fd4",
+    "9211": "5d59e23b0483ad7512fd334a380d6a385a71afe1db3280badcdd9d1b60228835",
+    "9212": "8181231a37afbcc33b6cc87287843382b39e132a47d72306ea92d12b3053c459",
+    "9213": "7b0c7ec5f2dc315a8d9b658d18d54a2bf2c135e40a44f7c641c62475c75226d3",
+    "9214": "b766d8f1013bfdec1323c3931ee6809f10af73a98a8a70a7c8e9706d8a6ff874",
+    "9215": "7c0b24200ed37f3a04fe7df2446cca75714eb20089708eb7969b3d3d84348311"
+  },
+  "raw_seed_records_retained_in_actions_artifact": true,
+  "new_independent_model_seed_count": 16,
+  "eligible_model_seed_count": 13,
+  "test_firewall_pass": true,
+  "boundary": "Model seeds are not independent datasets; this is one fixed digits split and one SmallViT family."
+}
