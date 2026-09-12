@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "experiment": "SYNTHETIC_KNOWN_RANK_NULL_V1",
+  "tracking_issue": 103,
+  "evidence_class": "PROSPECTIVE_MECHANISTIC_FALSIFICATION",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "base_commit": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "runner_git_blob_sha1": "911d48bf7ff7ba90ffe7632c78d790add58865e6",
+  "dimension": 32,
+  "component_target_rank": 4,
+  "seeds": "103000-103063 inclusive",
+  "seed_count_per_regime": 64,
+  "oracle": {
+    "grammar": "bias-free low-rank residual I + U V^T",
+    "parameter_cost_for_rank_k": "2*d*k",
+    "rank_definition": "minimum truncated-SVD rank whose relative Frobenius reconstruction error is <=1e-10",
+    "absolute_identity_tolerance": 1e-12
+  },
+  "conditioning": {
+    "component_singular_scales": [0.15, 0.12, 0.10, 0.08],
+    "required_condition_number_lt": 10.0
+  },
+  "regimes": {
+    "independent": "two generic independent rank-4 residual maps; null expectation composed residual rank 8 and cost ratio approximately 1",
+    "shared_subspace": "two rank-4 residual maps sharing left/right subspaces; positive-control expectation composed residual rank <=4 and cost ratio <=0.5",
+    "inverse_cancellation": "second map exact inverse of first; positive-control expectation identity composition, rank 0 and cost ratio 0"
+  },
+  "decision": {
+    "independent": "median ratio >=0.95 and >=60/64 ratios >=0.95",
+    "shared_subspace": "median ratio <=0.55 and >=60/64 ratios <=0.55",
+    "inverse_cancellation": "median ratio <=0.05 and >=60/64 ratios <=0.05",
+    "all_regimes_complete": true,
+    "all_condition_numbers_lt_10": true,
+    "pass_label": "SYNTHETIC_RANK_MECHANISM_PASS"
+  },
+  "stopping_rule": "Run the fixed 64 seeds in all three regimes exactly once. Do not change numerical-rank tolerances, thresholds, scales, or regime construction after outcomes.",
+  "scope_boundary": "Synthetic linear residual rank oracle only; not neural-network MDL, Kolmogorov complexity, task utility, or learned-optimizer evidence."
+}
