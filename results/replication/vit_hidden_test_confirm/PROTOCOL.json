@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "experiment": "SMALLVIT_HIDDEN_TEST_CONFIRMATORY_V1",
+  "tracking_issue": 102,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "base_commit": "c7fd4fb701064c9aeef5cc8109231d884e5258aa",
+  "runner_git_blob_sha1": "cef2281914aaebc55dc6d92505c0ae28bb67193d",
+  "evaluator_git_blob_sha1": "64105a3433ffdf25acf9194734031efbbfe6a3ec",
+  "architecture": "SmallViT depth4 d32 heads4 mlp64 on sklearn digits",
+  "data_split": {
+    "train_fraction": 0.70,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "split_random_states": [24680, 13579]
+  },
+  "span": [1, 2],
+  "replacement_grammar": {
+    "identity": 0,
+    "transformer_block_mlp_widths": [8, 16, 32, 64],
+    "d": 32,
+    "heads": 4
+  },
+  "optimization": {
+    "teacher_epochs": 45,
+    "fit_epochs_per_nonidentity_compiler": 40,
+    "teacher_batch_size": 128,
+    "compiler_batch_size": 64,
+    "compiler_adamw_lr": 0.003,
+    "compiler_weight_decay": 0.00001
+  },
+  "fresh_seeds": [9200, 9201, 9202, 9203, 9204, 9205, 9206, 9207, 9208, 9209, 9210, 9211, 9212, 9213, 9214, 9215],
+  "seed_replacement_allowed": false,
+  "baseline_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible_for_inference": 12,
+  "passing_candidate": {
+    "train_span_holdout_nmse_max": 0.12,
+    "validation_utility_min": 0.95
+  },
+  "selection": "Within each strategy select the validation-passing candidate with minimum replacement parameters; tie-break lower train-span holdout NMSE. Test is unavailable to candidate selection.",
+  "test_firewall": {
+    "candidate_grid_test_metrics": "FORBIDDEN",
+    "preselection_test_accuracy_calls": 0,
+    "after_selection_only": [
+      "teacher baseline test accuracy",
+      "selected component-wise endpoint test accuracy",
+      "selected composed endpoint test accuracy"
+    ],
+    "required_postselection_test_accuracy_calls_per_complete_seed": 3
+  },
+  "primary_hypothesis": "The minimum passing composed replacement budget is lower than the minimum passing component-wise replacement budget under operationally hidden test evaluation.",
+  "primary_decision": {
+    "coverage": "all 16 seed files present; at least 12 eligible; every eligible seed has both passing endpoints",
+    "paired_statistic": "mean log2(B_composed/B_componentwise)",
+    "bootstrap_resamples": 100000,
+    "bootstrap_rng_seed": 20260912,
+    "bootstrap_ci": "percentile 95%",
+    "pass_if_upper95_lt": 0.0,
+    "composed_lower_fraction_min": 0.75
+  },
+  "secondary_task_safeguard": {
+    "statistic": "selected composed minus selected component-wise test accuracy",
+    "paired_bootstrap_lower95_gt": -0.03
+  },
+  "numerical_environment": {
+    "runner_os": "ubuntu-24.04",
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.9.0",
+    "torch_cpu": "2.13.0",
+    "torch_threads": 1,
+    "deterministic_algorithms": true
+  },
+  "stopping_rule": "Run the fixed 16-seed cohort exactly once. Do not alter seeds, thresholds, grid, split, optimization, or decision rules after viewing outcomes. Any follow-up is a new experiment.",
+  "scope_boundary": "One fixed sklearn-digits split and one SmallViT family. Model seeds are not independent datasets. A pass is not Transformer/LLM universality or grammar-independent complexity subadditivity."
+}
