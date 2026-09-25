@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "experiment": "VIT_MATCHED_BUDGET_TOPOLOGY_CONFIRMATORY_V1",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "exploratory_parent_run": 36202776960,
+  "primary_hypothesis": "At approximately matched parameter budget, a single direct span compiler has lower held-out span NMSE than a two-block component replacement, while validation accuracy is non-inferior within 3pp.",
+  "fresh_seeds": [92726000,92726001,92726002,92726003,92726004,92726005,92726006,92726007,92726008,92726009,92726010,92726011,92726012,92726013,92726014,92726015],
+  "seed_replacement_allowed": false,
+  "architecture": "SmallViT depth4/d32/heads4/mlp64; central blocks [1,2]; fixed digits split 24680/13579",
+  "conditions": {
+    "component_pair8": {"parameters": 9808, "two_blocks": true},
+    "direct_single84": {"parameters": 9844, "one_block": true}
+  },
+  "budget_relative_difference": 0.00367047308319739,
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible": 12,
+  "training": {"teacher_epochs":45,"fit_samples":512,"hold_samples":256,"compiler_epochs":40,"compiler_batch":64,"lr":0.003,"weight_decay":0.00001},
+  "decision": {
+    "bootstrap_resamples":100000,
+    "bootstrap_seed":92726026,
+    "primary_statistic":"log(direct_hold_nmse/pair_hold_nmse)",
+    "primary_pass_if_upper95_lt":0.0,
+    "validation_safeguard":"direct minus pair validation accuracy",
+    "validation_pass_if_lower95_gt":-0.03
+  },
+  "test_policy":"No held-out test evaluation.",
+  "scope_boundary":"One fixed digits split and SmallViT family. Confirms a matched-budget topology effect, not grammar-independent universal complexity subadditivity."
+}
