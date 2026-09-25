@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY_OPERATIONALLY_HIDDEN_TEST",
+  "seed": 9205,
+  "baseline_val_acc": 0.9592592592592593,
+  "baseline_test_acc": 0.9666666666666667,
+  "eligible": true,
+  "span": [
+    1,
+    2
+  ],
+  "widths": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "fit_epochs": 40,
+  "test_policy": {
+    "candidate_test_metrics_computed_preselection": false,
+    "test_evaluations_before_selection": 0,
+    "selected_endpoint_test_evaluations_expected": 3,
+    "actual_test_evaluations_after_selection": 3
+  },
+  "componentwise": [
+    {
+      "choice": [
+        "id",
+        "id"
+      ],
+      "replacement_params": 0,
+      "hold_nmse": 0.8095973047629821,
+      "hold_mse": 0.8897331357002258,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.45185185185185184,
+      "val_utility": 0.47104247104247104,
+      "compiler_updates": 0,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "id",
+        "8"
+      ],
+      "replacement_params": 4904,
+      "hold_nmse": 0.732139200071533,
+      "hold_mse": 0.8046080470085144,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.5888888888888889,
+      "val_utility": 0.6138996138996139,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "id",
+        "16"
+      ],
+      "replacement_params": 5424,
+      "hold_nmse": 0.6889300734612448,
+      "hold_mse": 0.7571219801902771,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.562962962962963,
+      "val_utility": 0.5868725868725869,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "id",
+        "32"
+      ],
+      "replacement_params": 6464,
+      "hold_nmse": 0.6663561462427979,
+      "hold_mse": 0.7323136329650879,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.6037037037037037,
+      "val_utility": 0.6293436293436294,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "id",
+        "64"
+      ],
+      "replacement_params": 8544,
+      "hold_nmse": 0.6713215804167303,
+      "hold_mse": 0.7377705574035645,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.5777777777777777,
+      "val_utility": 0.6023166023166022,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "8",
+        "id"
+      ],
+      "replacement_params": 4904,
+      "hold_nmse": 0.43364103889651884,
+      "hold_mse": 0.47656384110450745,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.8888888888888888,
+      "val_utility": 0.9266409266409266,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "8",
+        "8"
+      ],
+      "replacement_params": 9808,
+      "hold_nmse": 0.09774727701638107,
+      "hold_mse": 0.10742253065109253,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9407407407407408,
+      "val_utility": 0.9806949806949807,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "8",
+        "16"
+      ],
+      "replacement_params": 10328,
+      "hold_nmse": 0.08697670999192426,
+      "hold_mse": 0.09558586776256561,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "8",
+        "32"
+      ],
+      "replacement_params": 11368,
+      "hold_nmse": 0.0768002397131637,
+      "hold_mse": 0.08440210670232773,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9884169884169884,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "8",
+        "64"
+      ],
+      "replacement_params": 13448,
+      "hold_nmse": 0.07511912713960466,
+      "hold_mse": 0.08255459368228912,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9518518518518518,
+      "val_utility": 0.9922779922779923,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "16",
+        "id"
+      ],
+      "replacement_params": 5424,
+      "hold_nmse": 0.4225344649463143,
+      "hold_mse": 0.4643579125404358,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.8814814814814815,
+      "val_utility": 0.918918918918919,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "16",
+        "8"
+      ],
+      "replacement_params": 10328,
+      "hold_nmse": 0.08076344282605864,
+      "hold_mse": 0.08875759690999985,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9592592592592593,
+      "val_utility": 1.0,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "16",
+        "16"
+      ],
+      "replacement_params": 10848,
+      "hold_nmse": 0.07027767695861195,
+      "hold_mse": 0.0772339254617691,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9884169884169884,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "16",
+        "32"
+      ],
+      "replacement_params": 11888,
+      "hold_nmse": 0.061949421039170297,
+      "hold_mse": 0.0680813193321228,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9884169884169884,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "16",
+        "64"
+      ],
+      "replacement_params": 13968,
+      "hold_nmse": 0.05877262273976063,
+      "hold_mse": 0.06459007412195206,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9444444444444444,
+      "val_utility": 0.9845559845559846,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "32",
+        "id"
+      ],
+      "replacement_params": 6464,
+      "hold_nmse": 0.406832591887714,
+      "hold_mse": 0.4471018314361572,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9037037037037037,
+      "val_utility": 0.9420849420849421,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "32",
+        "8"
+      ],
+      "replacement_params": 11368,
+      "hold_nmse": 0.06642392253239776,
+      "hold_mse": 0.07299871742725372,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9518518518518518,
+      "val_utility": 0.9922779922779923,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "32",
+        "16"
+      ],
+      "replacement_params": 11888,
+      "hold_nmse": 0.056449756734242795,
+      "hold_mse": 0.062037285417318344,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9518518518518518,
+      "val_utility": 0.9922779922779923,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "32",
+        "32"
+      ],
+      "replacement_params": 12928,
+      "hold_nmse": 0.049759959993151325,
+      "hold_mse": 0.0546853169798851,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "32",
+        "64"
+      ],
+      "replacement_params": 15008,
+      "hold_nmse": 0.0462123791833601,
+      "hold_mse": 0.050786588340997696,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "64",
+        "id"
+      ],
+      "replacement_params": 8544,
+      "hold_nmse": 0.3963221553208848,
+      "hold_mse": 0.4355510473251343,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9,
+      "val_utility": 0.9382239382239382,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "64",
+        "8"
+      ],
+      "replacement_params": 13448,
+      "hold_nmse": 0.05074687610230494,
+      "hold_mse": 0.055769920349121094,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9884169884169884,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "64",
+        "16"
+      ],
+      "replacement_params": 13968,
+      "hold_nmse": 0.041232074116573814,
+      "hold_mse": 0.04531332105398178,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9518518518518518,
+      "val_utility": 0.9922779922779923,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "64",
+        "32"
+      ],
+      "replacement_params": 15008,
+      "hold_nmse": 0.034230534377486764,
+      "hold_mse": 0.03761875256896019,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 640,
+      "test_acc": null
+    },
+    {
+      "choice": [
+        "64",
+        "64"
+      ],
+      "replacement_params": 17088,
+      "hold_nmse": 0.03065852693129126,
+      "hold_mse": 0.03369317948818207,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9592592592592593,
+      "val_utility": 1.0,
+      "compiler_updates": 640,
+      "test_acc": null
+    }
+  ],
+  "composed": [
+    {
+      "choice": "id",
+      "replacement_params": 0,
+      "hold_nmse": 0.8095973047629821,
+      "hold_mse": 0.8897331357002258,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.45185185185185184,
+      "val_utility": 0.47104247104247104,
+      "compiler_updates": 0,
+      "test_acc": null
+    },
+    {
+      "choice": "8",
+      "replacement_params": 4904,
+      "hold_nmse": 0.12833381892814952,
+      "hold_mse": 0.14103659987449646,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9333333333333333,
+      "val_utility": 0.972972972972973,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": "16",
+      "replacement_params": 5424,
+      "hold_nmse": 0.10138414758880415,
+      "hold_mse": 0.11141938716173172,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.937037037037037,
+      "val_utility": 0.9768339768339768,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": "32",
+      "replacement_params": 6464,
+      "hold_nmse": 0.09156656514000014,
+      "hold_mse": 0.10063003748655319,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 320,
+      "test_acc": null
+    },
+    {
+      "choice": "64",
+      "replacement_params": 8544,
+      "hold_nmse": 0.07506546718203044,
+      "hold_mse": 0.08249562233686447,
+      "hold_den": 1.098982334137963,
+      "val_acc": 0.9555555555555556,
+      "val_utility": 0.9961389961389961,
+      "compiler_updates": 320,
+      "test_acc": null
+    }
+  ],
+  "selected_componentwise_pretest": {
+    "choice": [
+      "8",
+      "8"
+    ],
+    "replacement_params": 9808,
+    "hold_nmse": 0.09774727701638107,
+    "hold_mse": 0.10742253065109253,
+    "hold_den": 1.098982334137963,
+    "val_acc": 0.9407407407407408,
+    "val_utility": 0.9806949806949807,
+    "compiler_updates": 640,
+    "test_acc": null
+  },
+  "selected_composed_pretest": {
+    "choice": "16",
+    "replacement_params": 5424,
+    "hold_nmse": 0.10138414758880415,
+    "hold_mse": 0.11141938716173172,
+    "hold_den": 1.098982334137963,
+    "val_acc": 0.937037037037037,
+    "val_utility": 0.9768339768339768,
+    "compiler_updates": 320,
+    "test_acc": null
+  },
+  "selected_componentwise": {
+    "choice": [
+      "8",
+      "8"
+    ],
+    "replacement_params": 9808,
+    "hold_nmse": 0.09774727701638107,
+    "hold_mse": 0.10742253065109253,
+    "hold_den": 1.098982334137963,
+    "val_acc": 0.9407407407407408,
+    "val_utility": 0.9806949806949807,
+    "compiler_updates": 640,
+    "test_acc": 0.9555555555555556,
+    "test_utility": 0.9885057471264368
+  },
+  "selected_composed": {
+    "choice": "16",
+    "replacement_params": 5424,
+    "hold_nmse": 0.10138414758880415,
+    "hold_mse": 0.11141938716173172,
+    "hold_den": 1.098982334137963,
+    "val_acc": 0.937037037037037,
+    "val_utility": 0.9768339768339768,
+    "compiler_updates": 320,
+    "test_acc": 0.9444444444444444,
+    "test_utility": 0.9770114942528735
+  },
+  "decision_state": "COMPLETE",
+  "runtime_sec": 34.12991714477539
+}

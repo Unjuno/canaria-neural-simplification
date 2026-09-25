@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "original_evaluator_exact": true,
+  "raw_seed_count": 16,
+  "eligible": 13,
+  "mutation_tests": [
+    "missing",
+    "duplicate",
+    "eligibility",
+    "budget",
+    "test",
+    "selection",
+    "nmse"
+  ],
+  "independent_statistics": [
+    {
+      "mean": -0.9664465693587163,
+      "ci95": [
+        -1.0,
+        -0.9328931387174327
+      ]
+    },
+    {
+      "mean": -0.006837606837606856,
+      "ci95": [
+        -0.013675213675213703,
+        -8.540177112501205e-18
+      ]
+    },
+    {
+      "mean": 0.9756938081656681,
+      "ci95": [
+        0.9666780811825998,
+        0.9842774514102954
+      ]
+    }
+  ],
+  "geometric_budget_ratio": 0.5117650148260235,
+  "two_block_floor_count": 13,
+  "single_block_floor_count": 10,
+  "code_control_flow_regression": {
+    "complete": {
+      "selections": 2,
+      "test_calls": 3
+    },
+    "ineligible": {
+      "selections": 0,
+      "test_calls": 0
+    },
+    "missing": {
+      "selections": 2,
+      "test_calls": 0
+    }
+  },
+  "new_independent_seeds": 0,
+  "scope": "Post-outcome record/code audit, not external review or historical process access logging. Floor analysis is descriptive and does not invalidate the locked grid-specific result."
+}

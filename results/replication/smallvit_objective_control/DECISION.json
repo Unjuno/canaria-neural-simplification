@@ -1,0 +1,74 @@
+{
+  "experiment": "SMALLVIT_OBJECTIVE_CONTROL_E1",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_MECHANISM",
+  "attempted": 16,
+  "new_scientific_model_seed_ids": [
+    194000,
+    194001,
+    194002,
+    194003,
+    194004,
+    194005,
+    194006,
+    194007,
+    194008,
+    194009,
+    194010,
+    194011,
+    194012,
+    194013,
+    194014,
+    194015
+  ],
+  "errors": [],
+  "decision": "SMALLVIT_OBJECTIVE_CONTROL_UNCERTAIN",
+  "eligible": 15,
+  "ineligible_seeds": [
+    194004
+  ],
+  "paired_log2_nmse_ratio": {
+    "mean": -0.019197258228218723,
+    "ci95": [
+      -0.09995590875027009,
+      0.06178874679473466
+    ]
+  },
+  "geometric_joint_over_local_nmse": 0.9867816150131984,
+  "joint_minus_local_test_accuracy": {
+    "mean": 0.002469135802469117,
+    "ci95": [
+      -0.00345679012345681,
+      0.008395061728395051
+    ]
+  },
+  "gates": {
+    "nmse_improvement": false,
+    "test_noninferiority": true
+  },
+  "descriptive_arm_means": {
+    "local_pair": {
+      "parameters": 9808.0,
+      "hold_nmse": 0.08849647105732106,
+      "val_acc": 0.9362962962962963,
+      "test_acc": 0.9476543209876543
+    },
+    "joint_pair": {
+      "parameters": 9808.0,
+      "hold_nmse": 0.08797978104210523,
+      "val_acc": 0.9382716049382717,
+      "test_acc": 0.9501234567901236
+    },
+    "direct_single": {
+      "parameters": 4904.0,
+      "hold_nmse": 0.1168045587286576,
+      "val_acc": 0.9246913580246914,
+      "test_acc": 0.9446913580246914
+    }
+  },
+  "bootstrap": {
+    "resamples": 100000,
+    "seed": 20260925
+  },
+  "test_and_prediction_audit": "PASS",
+  "scope": "One reused digits split, eligible model seeds, fixed width8 grammar; objective/input-distribution bundle intervention, not unique mechanism or new budget frontier."
+}

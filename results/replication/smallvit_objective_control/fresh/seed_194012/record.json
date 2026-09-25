@@ -1,0 +1,100 @@
+{
+  "experiment": "SMALLVIT_OBJECTIVE_CONTROL_E1",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_MECHANISM",
+  "seed": 194012,
+  "protocol_sha256": "895020fa0a49574d5fcd6b623116185ff9156fae641660c4a573745e2f236548",
+  "runner_sha256": "f4cf9accf5a919c81298901845b60aa034b19ddd5735271c5390b3a9794d1dc8",
+  "inherited_runner_blob": "cef2281914aaebc55dc6d92505c0ae28bb67193d",
+  "environment": {
+    "python": "3.11.16 (main, Aug 13 2026, 02:46:14) [GCC 13.3.0]",
+    "torch": "2.13.0+cpu",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.0",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "cpu": "AMD EPYC 7763 64-Core Processor",
+    "threads": 1,
+    "deterministic": true,
+    "aten_capability": "AVX2",
+    "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=cf30153c4c131c8164ee7798e5022d810682e2cb, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.13.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+    "clock_control": "not_fixed; no runtime/energy comparison"
+  },
+  "teacher_val_acc": 0.9555555555555556,
+  "eligible": true,
+  "teacher_initial_state_hash": "fa76871ba56b8aa1a486665545cb25f194677f546dd21328ea9218a3a9c7d87f",
+  "teacher_state_hash": "c75eea97c5174fdcd75d4ad3f1adb8f3f3066a3b015f218f76306fae40ae797e",
+  "data_hashes": {
+    "train": [
+      "d564f0b2ee8820af7bdf33154408f6fd0f1eeb85734a67939288ffb24af1f175",
+      "9c6fcba28e9a24680e716b4f621946691e98382b334bdd8b610a7c2879fc7c2c"
+    ],
+    "validation": [
+      "bc14350d71865c62ca56d1c96a54f60e3f1fd20ded18ba54a237fce41460460d",
+      "97d85ef20ec2ca1bc0f709bae53d583bb12a210a3680bf368e2b146e0d6be055"
+    ],
+    "test": [
+      "e1a7c2bc976adbdc8dd080246f8ea213fee4277a3934ffa58a0127580408a11b",
+      "6a2f91d292c02b1903773e1020ad8b55d0cd1832441cd045686c24a1e8671857"
+    ]
+  },
+  "test_calls_before_freeze": 0,
+  "test_calls_after_freeze": 4,
+  "arms": {
+    "local_pair": {
+      "parameters": 9808,
+      "hold_nmse": 0.08784320787819493,
+      "hold_mse": 0.07948008924722672,
+      "hold_den": 0.9047949314127431,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9922480620155039,
+      "state_hash": "e6efe2c708646cfabb7ab6f39e935b50b2aacc57ff73fa54ec8dd233619dc618",
+      "test_acc": 0.937037037037037
+    },
+    "joint_pair": {
+      "parameters": 9808,
+      "hold_nmse": 0.09351741508849383,
+      "hold_mse": 0.08461408317089081,
+      "hold_den": 0.9047949314127431,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9922480620155039,
+      "state_hash": "1981c65b1e905b560a9604eb3dfb882e5c822ed512ddda7b5ee545d9cf65890d",
+      "test_acc": 0.9407407407407408
+    },
+    "direct_single": {
+      "parameters": 4904,
+      "hold_nmse": 0.1275844305048544,
+      "hold_mse": 0.11543774604797363,
+      "hold_den": 0.9047949314127431,
+      "val_acc": 0.9259259259259259,
+      "val_utility": 0.9689922480620154,
+      "state_hash": "2cfb07c98d4d3b1f31d8c6c7120aff6778ef3820b3d8287ae97f7a454b79c34f",
+      "test_acc": 0.9333333333333333
+    }
+  },
+  "initial_states": {
+    "local0": "cd70f27decc24e19e235c37ea52c038ef3aef0236b72bcb21b3b3270e0c729b6",
+    "local1": "a34171348ddfe37481955cdd8170af5c03b383872134c15eb48b422038bf5355",
+    "joint0": "cd70f27decc24e19e235c37ea52c038ef3aef0236b72bcb21b3b3270e0c729b6",
+    "joint1": "a34171348ddfe37481955cdd8170af5c03b383872134c15eb48b422038bf5355",
+    "single": "937a03598d1f7b3af96bf3253236e2e6d01ca37c43d159f79de087daa91a8cc8"
+  },
+  "training": {
+    "per_parameter_updates": 320,
+    "batch_size": 64,
+    "schedule_sha256": "3d24e3bee05f9bd662f00fe8f8b5178601ef198dc7b11fcd91a6c2f74d64e088",
+    "schedule_shape": [
+      40,
+      512
+    ],
+    "last_batch_losses_descriptive": [
+      0.028151463717222214,
+      0.028513796627521515,
+      0.07683800905942917,
+      0.10808122903108597
+    ]
+  },
+  "teacher_test_acc": 0.9592592592592593,
+  "freeze_sha256": "c927156d682a571f9afc20a2b39cb07bdf27b7140356e0819e77854bd94ade71",
+  "state": "COMPLETE",
+  "runtime_sec": 22.25058126449585,
+  "predictions_sha256": "cb637ea2bb6722b3b086dbae660a860f5e70407bda62a0ae095964f6deeecf05"
+}

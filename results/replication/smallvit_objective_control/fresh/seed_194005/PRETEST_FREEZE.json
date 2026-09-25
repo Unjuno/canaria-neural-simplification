@@ -1,0 +1,35 @@
+{
+  "seed": 194005,
+  "protocol_sha256": "895020fa0a49574d5fcd6b623116185ff9156fae641660c4a573745e2f236548",
+  "arms": {
+    "local_pair": {
+      "parameters": 9808,
+      "hold_nmse": 0.09104364287217154,
+      "hold_mse": 0.06563010066747665,
+      "hold_den": 0.7208641767511831,
+      "val_acc": 0.9481481481481482,
+      "val_utility": 0.9884169884169884,
+      "state_hash": "e0da774083c654df0b55bf92b03bcec3b0a7c1fa3514ff797fb7ef48a032ce85"
+    },
+    "joint_pair": {
+      "parameters": 9808,
+      "hold_nmse": 0.08483578844339863,
+      "hold_mse": 0.061155080795288086,
+      "hold_den": 0.7208641767511831,
+      "val_acc": 0.9629629629629629,
+      "val_utility": 1.0038610038610039,
+      "state_hash": "6bdd6edf008d1efe0fb8e7ec2eb7ce30b4f0465d35b2f29e571ef9b07a2c03e0"
+    },
+    "direct_single": {
+      "parameters": 4904,
+      "hold_nmse": 0.11110367175897062,
+      "hold_mse": 0.08009065687656403,
+      "hold_den": 0.7208641767511831,
+      "val_acc": 0.9407407407407408,
+      "val_utility": 0.9806949806949807,
+      "state_hash": "b7b32efedcededa641dc20382a13a2c182a5b4b7aded8e6ea125e8d219552086"
+    }
+  },
+  "teacher_state_hash": "ed3bc952a5110732a7c819a9d1f798011f01701db19f0a76903750f333723f2f",
+  "test_metrics_computed": false
+}
