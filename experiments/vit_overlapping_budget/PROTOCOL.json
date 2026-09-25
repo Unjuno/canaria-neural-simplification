@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "experiment": "VIT_OVERLAPPING_BUDGET_GRAMMAR_E1",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "hypothesis": "At approximately matched replacement parameter budget, a single direct span compiler (width84) has lower held-out span NMSE than the component-wise two-block width8+8 compiler, without losing more than 3pp validation accuracy.",
+  "seeds": [92626000,92626001,92626002,92626003,92626004,92626005,92626006,92626007],
+  "seed_replacement_allowed": false,
+  "architecture": "SmallViT depth4/d32/heads4/mlp64; central blocks [1,2]; fixed digits split 24680/13579",
+  "teacher_epochs": 45,
+  "fit_samples": 512,
+  "hold_samples": 256,
+  "compiler_epochs": 40,
+  "compiler_batch": 64,
+  "conditions": {
+    "component_pair8": {"topology": "two sequential compiler blocks", "widths": [8,8], "expected_parameters": 9808},
+    "direct_single84": {"topology": "one compiler block", "width": 84, "expected_parameters": 9844}
+  },
+  "budget_relative_difference_max": 0.005,
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible": 6,
+  "analysis": {"bootstrap_resamples":100000,"bootstrap_seed":92626026,"advance_if_nmse_ratio_upper95_lt":1.0,"validation_diff_lower95_gt":-0.03},
+  "test_policy": "No test evaluation.",
+  "software": {"python":"3.13.5","torch":"2.10.0+cpu","numpy":"2.3.5","sklearn":"1.8.0","scipy":"1.17.0"},
+  "scope_boundary": "Exploratory matched-budget topology comparison on one fixed digits split; not grammar-independent proof."
+}
