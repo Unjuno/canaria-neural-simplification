@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY_OPERATIONALLY_HIDDEN_TEST",
+  "seed": 9202,
+  "baseline_val_acc": 0.9333333333333333,
+  "baseline_test_acc": null,
+  "eligible": false,
+  "span": [
+    1,
+    2
+  ],
+  "widths": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "fit_epochs": 40,
+  "test_policy": {
+    "candidate_test_metrics_computed_preselection": false,
+    "test_evaluations_before_selection": 0,
+    "selected_endpoint_test_evaluations_expected": 3
+  },
+  "decision_state": "INELIGIBLE_BASELINE",
+  "runtime_sec": 14.531436681747437
+}

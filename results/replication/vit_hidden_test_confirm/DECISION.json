@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "experiment": "SMALLVIT_HIDDEN_TEST_CONFIRMATORY_V1",
+  "decision": "SMALLVIT_HIDDEN_TEST_CONFIRMATORY_PASS",
+  "seed_plan": [
+    9200,
+    9201,
+    9202,
+    9203,
+    9204,
+    9205,
+    9206,
+    9207,
+    9208,
+    9209,
+    9210,
+    9211,
+    9212,
+    9213,
+    9214,
+    9215
+  ],
+  "attempted": 16,
+  "eligible": 13,
+  "ineligible_seeds": [
+    9202,
+    9203,
+    9213
+  ],
+  "complete_eligible": 13,
+  "missing_endpoint_seeds": [],
+  "primary_budget": {
+    "mean_log2_ratio": -0.9664465693587163,
+    "bootstrap95_mean_log2_ratio": [
+      -1.0,
+      -0.9328931387174327
+    ],
+    "geometric_composed_over_componentwise_ratio": 0.5117650148260235,
+    "composed_lower": 13,
+    "ties": 0,
+    "componentwise_lower": 0,
+    "required_composed_lower": 10,
+    "pass": true
+  },
+  "postselection_test_safeguard": {
+    "mean_composed_minus_componentwise_accuracy": -0.006837606837606856,
+    "bootstrap95_mean_difference": [
+      -0.013675213675213703,
+      -8.540177112501205e-18
+    ],
+    "noninferiority_margin": -0.03,
+    "pass": true,
+    "mean_composed_test_utility": 0.9756938081656681,
+    "bootstrap95_mean_composed_test_utility": [
+      0.9666780811825998,
+      0.9842774514102954
+    ]
+  },
+  "test_firewall_pass": true,
+  "bootstrap": {
+    "resamples": 100000,
+    "rng_seed": 20260912,
+    "method": "paired percentile seed bootstrap"
+  },
+  "selected_rows": [
+    {
+      "seed": 9200,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9407407407407408,
+      "composed_test_acc": 0.9407407407407408,
+      "test_diff_composed_minus_componentwise": 0.0,
+      "composed_test_utility": 0.9657794676806084
+    },
+    {
+      "seed": 9201,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9555555555555556,
+      "composed_test_acc": 0.937037037037037,
+      "test_diff_composed_minus_componentwise": -0.0185185185185186,
+      "composed_test_utility": 0.9656488549618321
+    },
+    {
+      "seed": 9204,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9481481481481482,
+      "composed_test_acc": 0.9333333333333333,
+      "test_diff_composed_minus_componentwise": -0.014814814814814836,
+      "composed_test_utility": 0.9692307692307693
+    },
+    {
+      "seed": 9205,
+      "componentwise_budget": 9808,
+      "composed_budget": 5424,
+      "budget_ratio": 0.5530179445350734,
+      "log2_budget_ratio": -0.8546018005544378,
+      "componentwise_test_acc": 0.9555555555555556,
+      "composed_test_acc": 0.9444444444444444,
+      "test_diff_composed_minus_componentwise": -0.011111111111111183,
+      "composed_test_utility": 0.9770114942528735
+    },
+    {
+      "seed": 9206,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9333333333333333,
+      "composed_test_acc": 0.937037037037037,
+      "test_diff_composed_minus_componentwise": 0.0037037037037036535,
+      "composed_test_utility": 0.9730769230769231
+    },
+    {
+      "seed": 9207,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9629629629629629,
+      "composed_test_acc": 0.9444444444444444,
+      "test_diff_composed_minus_componentwise": -0.01851851851851849,
+      "composed_test_utility": 0.9770114942528735
+    },
+    {
+      "seed": 9208,
+      "componentwise_budget": 9808,
+      "composed_budget": 5424,
+      "budget_ratio": 0.5530179445350734,
+      "log2_budget_ratio": -0.8546018005544378,
+      "componentwise_test_acc": 0.9222222222222223,
+      "composed_test_acc": 0.9296296296296296,
+      "test_diff_composed_minus_componentwise": 0.007407407407407307,
+      "composed_test_utility": 1.0120967741935483
+    },
+    {
+      "seed": 9209,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9777777777777777,
+      "composed_test_acc": 0.9518518518518518,
+      "test_diff_composed_minus_componentwise": -0.025925925925925908,
+      "composed_test_utility": 0.9846743295019157
+    },
+    {
+      "seed": 9210,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9444444444444444,
+      "composed_test_acc": 0.9185185185185185,
+      "test_diff_composed_minus_componentwise": -0.025925925925925908,
+      "composed_test_utility": 0.9358490566037736
+    },
+    {
+      "seed": 9211,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9629629629629629,
+      "composed_test_acc": 0.9555555555555556,
+      "test_diff_composed_minus_componentwise": -0.007407407407407307,
+      "composed_test_utility": 0.9772727272727274
+    },
+    {
+      "seed": 9212,
+      "componentwise_budget": 9808,
+      "composed_budget": 5424,
+      "budget_ratio": 0.5530179445350734,
+      "log2_budget_ratio": -0.8546018005544378,
+      "componentwise_test_acc": 0.9333333333333333,
+      "composed_test_acc": 0.937037037037037,
+      "test_diff_composed_minus_componentwise": 0.0037037037037036535,
+      "composed_test_utility": 0.9806201550387597
+    },
+    {
+      "seed": 9214,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9333333333333333,
+      "composed_test_acc": 0.9481481481481482,
+      "test_diff_composed_minus_componentwise": 0.014814814814814836,
+      "composed_test_utility": 0.9846153846153847
+    },
+    {
+      "seed": 9215,
+      "componentwise_budget": 9808,
+      "composed_budget": 4904,
+      "budget_ratio": 0.5,
+      "log2_budget_ratio": -1.0,
+      "componentwise_test_acc": 0.9592592592592593,
+      "composed_test_acc": 0.9629629629629629,
+      "test_diff_composed_minus_componentwise": 0.0037037037037036535,
+      "composed_test_utility": 0.981132075471698
+    }
+  ],
+  "errors": [],
+  "interpretation_boundary": "One fixed sklearn-digits split and SmallViT family. Model seeds are not independent datasets. Test was evaluated only after selection for baseline and the two selected endpoints; no candidate-grid test metrics were computed."
+}
