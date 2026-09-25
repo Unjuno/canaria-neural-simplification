@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "experiment": "SMALLVIT_OBJECTIVE_CONTROL_E1",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY_MECHANISM",
+  "status": "LOCKED_BEFORE_OUTCOMES",
+  "base_commit": "432fdeade26eb6016680b630a5d1eaf1c1a02ea3",
+  "teacher_source": "scripts/replication/vit_hidden_test_confirm.py",
+  "teacher_source_git_blob_sha1": "cef2281914aaebc55dc6d92505c0ae28bb67193d",
+  "motivation": "In the already observed hidden-test cohort, all 13 eligible component-wise endpoints select the minimum two-nonidentity-block budget 9808. This follow-up holds topology and trainable parameter count fixed instead of interpreting the near-half budget ratio as a universal law.",
+  "H": "With identical two-block topology, initialization, per-parameter update count and minibatch order, joint span-target fitting reduces held-out span NMSE relative to independent local-target fitting while selected fixed-arm test accuracy is noninferior within 3 percentage points.",
+  "T": {
+    "fresh_seeds": [194000,194001,194002,194003,194004,194005,194006,194007,194008,194009,194010,194011,194012,194013,194014,194015],
+    "verification_seed": 193999,
+    "replacement_allowed": false,
+    "minimum_eligible": 12,
+    "eligibility": "teacher validation accuracy >= 0.95, before any test evaluation",
+    "dataset": "sklearn digits, same reused split as prior SmallViT; not a new dataset or unseen test set",
+    "split_random_states": [24680,13579],
+    "teacher": "SmallViT depth4 d32 heads4 mlp64, original 45 epochs, AdamW lr0.002 wd0.0001 batch128",
+    "span": [1,2],
+    "calibration": "first512 training examples; next256 training examples are span holdout; exactly the existing collect_span function",
+    "arms": {
+      "local_pair": "two width8 Blocks, 9808 parameters; separately fit X->M and M->Y",
+      "joint_pair": "same two width8 Blocks, 9808 parameters, exact copies of local_pair initial states; jointly fit X->Y through both modules",
+      "direct_single": "one width8 Block, 4904 parameters, directly fit X->Y; descriptive topology reference only"
+    },
+    "initialization_seeds": {"first_block_offset":100008,"second_block_offset":200008,"direct_single_offset":300008},
+    "minibatch_schedule": "epoch0..39 randperm(512), dedicated torch.Generator seed=model_seed+410000+epoch; identical order for all arms and both local modules",
+    "optimization": "40 epochs x8 batches, batch64, 320 AdamW updates per learned parameter, lr0.003 wd0.00001; separate optimizers for each local module, one optimizer for the joint pair; float32 unchanged",
+    "test_policy": "No dimension or arm selection. Persist all fixed-arm state hashes and validation metrics before computing exactly four test evaluations: teacher and three fixed arms. Never use test for eligibility, tuning, reselection or stopping.",
+    "numerical_environment": {"os":"ubuntu-24.04","python":"3.11","torch_cpu":"2.13.0","numpy":"2.4.6","scikit_learn":"1.9.0","torch_threads":1,"deterministic_algorithms":true},
+    "sample_size_and_stopping": "Attempt all16 once; retain ineligible/missing/error records. No interim efficacy stopping. No replacement seeds. Technical verification/repetition adds zero scientific seeds."
+  },
+  "D": {
+    "bootstrap_resamples":100000,
+    "bootstrap_rng_seed":20260925,
+    "order":"first paired log2(joint_pair/local_pair holdout NMSE), then paired joint_pair-minus-local_pair test accuracy; percentile 2.5/97.5",
+    "coverage":"all16 records present; >=12 eligible; all eligible arms finite, complete and provenance-valid",
+    "PASS":"coverage and log2-NMSE-ratio CI upper<0 and test accuracy difference CI lower>-0.03",
+    "UNCERTAIN":"adequate coverage but one or both preregistered effect gates not established; report which; not proof of inferiority",
+    "STOP":"inadequate coverage, missing arm, nonpositive NMSE, nonfinite value, unequal paired initialization, wrong count or pre-freeze test access",
+    "descriptive_only":"direct_single comparisons, validation accuracy, train loss, width8 floor discussion; no multiple-comparison-confirmatory claims"
+  },
+  "C":"No objective benefit, task degradation despite NMSE improvement, eligibility instability, or residual differences dominated by fitting/generalization. The intervention changes supervision and second-module training inputs together; it cannot uniquely distinguish those mechanisms.",
+  "U":"Conditional on one digits split, SmallViT family, boundary, width8 grammar, training schedule and recorded CPU environment. No minimal-budget, architecture-universal, runtime/memory/energy or whole-model compression claim. Numerical equality across hosts is not assumed. Intervals are over model seeds only.",
+  "outcome_changes_forbidden":"Do not alter seeds, thresholds, widths, schedules, endpoints or bootstrap after outcomes. Any follow-up requires a separate prospectively locked experiment."
+}
