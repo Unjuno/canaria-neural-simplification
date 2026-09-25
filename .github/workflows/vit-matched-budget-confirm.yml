@@ -1,0 +1,50 @@
+name: vit-matched-budget-confirmatory
+on:
+  push:
+    branches: [research/vit-matched-budget-confirmation]
+permissions:
+  contents: read
+jobs:
+  seed:
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [92726000,92726001,92726002,92726003,92726004,92726005,92726006,92726007,92726008,92726009,92726010,92726011,92726012,92726013,92726014,92726015]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5 scikit-learn==1.8.0 scipy==1.17.0
+      - run: python experiments/vit_matched_budget_confirm/run.py --seed ${{ matrix.seed }} --out /tmp/seed_${{ matrix.seed }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: vit-match-${{ matrix.seed }}
+          path: /tmp/seed_${{ matrix.seed }}/RESULT.json
+          retention-days: 90
+  aggregate:
+    needs: seed
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - run: python -m pip install numpy==2.3.5
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: vit-match-*
+          path: /tmp/flat
+      - run: |
+          mkdir -p /tmp/all
+          for d in /tmp/flat/vit-match-*; do s=${d##*-}; mkdir -p /tmp/all/seed_$s; cp "$d/RESULT.json" /tmp/all/seed_$s/RESULT.json; done
+          python experiments/vit_matched_budget_confirm/evaluate.py /tmp/all
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: vit-matched-budget-confirmatory-result
+          path: /tmp/all
+          retention-days: 90
