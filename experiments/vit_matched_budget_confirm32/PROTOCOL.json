@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "experiment": "VIT_MATCHED_BUDGET_TOPOLOGY_CONFIRMATORY_V2",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY_INDEPENDENT_FOLLOWUP",
+  "reason": "V1 was UNCERTAIN_COVERAGE at 11/16 eligible versus locked minimum12; no seed replacement. V2 fixes a larger independent cohort before outcomes.",
+  "fresh_seeds": [
+    92826000,
+    92826001,
+    92826002,
+    92826003,
+    92826004,
+    92826005,
+    92826006,
+    92826007,
+    92826008,
+    92826009,
+    92826010,
+    92826011,
+    92826012,
+    92826013,
+    92826014,
+    92826015,
+    92826016,
+    92826017,
+    92826018,
+    92826019,
+    92826020,
+    92826021,
+    92826022,
+    92826023,
+    92826024,
+    92826025,
+    92826026,
+    92826027,
+    92826028,
+    92826029,
+    92826030,
+    92826031
+  ],
+  "seed_replacement_allowed": false,
+  "architecture": "SmallViT depth4/d32/heads4/mlp64; central blocks [1,2]; fixed digits split 24680/13579",
+  "conditions": {
+    "component_pair8": {
+      "parameters": 9808
+    },
+    "direct_single84": {
+      "parameters": 9844
+    }
+  },
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible": 20,
+  "training": {
+    "teacher_epochs": 45,
+    "fit_samples": 512,
+    "hold_samples": 256,
+    "compiler_epochs": 40,
+    "compiler_batch": 64,
+    "lr": 0.003,
+    "weight_decay": 0.00001
+  },
+  "decision": {
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 92826026,
+    "primary_pass_if_nmse_ratio_upper95_lt": 1,
+    "validation_pass_if_lower95_gt": -0.03
+  },
+  "test_policy": "No held-out test evaluation.",
+  "scope_boundary": "Independent coverage follow-up; one fixed digits split and SmallViT family."
+}
