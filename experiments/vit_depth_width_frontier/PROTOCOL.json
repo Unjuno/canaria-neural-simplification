@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "experiment": "VIT_DEPTH_WIDTH_REDISTRIBUTION_FRONTIER_E1",
+  "evidence_class": "PROSPECTIVE_EXPLORATORY",
+  "parent_confirmatory": "VIT_MATCHED_BUDGET_TOPOLOGY_CONFIRMATORY_V2",
+  "hypothesis": "The single-wide direct compiler advantage persists across multiple approximately matched parameter budgets.",
+  "seeds": [
+    92926000,
+    92926001,
+    92926002,
+    92926003,
+    92926004,
+    92926005,
+    92926006,
+    92926007
+  ],
+  "seed_replacement_allowed": false,
+  "pairs": [
+    {
+      "pair_width": 8,
+      "single_width": 83
+    },
+    {
+      "pair_width": 16,
+      "single_width": 99
+    },
+    {
+      "pair_width": 32,
+      "single_width": 131
+    },
+    {
+      "pair_width": 64,
+      "single_width": 195
+    }
+  ],
+  "max_absolute_budget_mismatch_fraction": 0.004,
+  "teacher_eligibility_validation_accuracy_min": 0.95,
+  "minimum_eligible": 6,
+  "training": {
+    "teacher_epochs": 45,
+    "fit_samples": 512,
+    "hold_samples": 256,
+    "compiler_epochs": 40,
+    "batch": 64,
+    "lr": 0.003,
+    "weight_decay": 0.00001
+  },
+  "analysis": {
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 92926026,
+    "metrics": "per-budget log(single NMSE / pair NMSE) and validation accuracy difference",
+    "interpretation": "exploratory frontier; no multiplicity-adjusted confirmatory claim"
+  },
+  "test_policy": "No test evaluation.",
+  "scope_boundary": "One fixed digits split and SmallViT family."
+}
