@@ -1,0 +1,22 @@
+{
+  "experiment": "VIT_MATCHED_BUDGET_TOPOLOGY_CONFIRMATORY_V2",
+  "workflow_run": 36203284365,
+  "artifact_id": 10892379942,
+  "artifact_sha256": "df06673a8a3b38e824463a2dc427393d3f5ab186363ef6ab1c33264b59ea189f",
+  "head_sha": "25b9005c20b735148d1d700518a3158abaa00470",
+  "attempted": 32,
+  "eligible": 20,
+  "decision": "VIT_MATCHED_BUDGET_CONFIRMATORY_V2_PASS",
+  "mean_nmse_ratio": 0.7305403158109092,
+  "bootstrap95_nmse_ratio": [
+    0.6983560754686364,
+    0.7636285502720536
+  ],
+  "mean_val_diff_pp": -0.12962962962962898,
+  "bootstrap95_val_diff_pp": [
+    -0.4629629629629645,
+    0.20370370370370539
+  ],
+  "test_used": false,
+  "boundary": "One fixed digits split and SmallViT family; matched-budget depth/width topology effect, not universal grammar-independent law."
+}
