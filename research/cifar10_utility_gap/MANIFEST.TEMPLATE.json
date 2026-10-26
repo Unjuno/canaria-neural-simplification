@@ -1,0 +1,90 @@
+{
+  "action": "proposal-not-approved",
+  "artifact_manifest_sha256": null,
+  "blockers": [
+    "original cohort completion/lock",
+    "published exact real calibration-ID partition",
+    "audited calibration-only artifact producer or explicit ingestion-boundary review",
+    "production stdlib bootstrap/worker lock/hard-deadline orchestration",
+    "independent source review",
+    "announced execution approval and out-of-band approval hash",
+    "live reserved CPU slot",
+    "separate one-look private diagnostic release approval"
+  ],
+  "ci": false,
+  "design": {
+    "adaptation": false,
+    "batch_size": 128,
+    "budgets": [
+      1024,
+      2048
+    ],
+    "cells": [
+      "w8_mse",
+      "w8_kl",
+      "w16_mse",
+      "w16_kl"
+    ],
+    "cohort_cap_seconds": 21600,
+    "diagnostic_cap_seconds": 1800,
+    "diagnostic_n": 1000,
+    "experiment": "canaria-utility-gap-v1",
+    "exploratory": true,
+    "fit_cap_seconds": 7200,
+    "fit_n": 4000,
+    "formal_noninferiority": false,
+    "fresh_initialization": true,
+    "global_deadline": 1793256600.0,
+    "global_science_threads_max": 8,
+    "interop": 1,
+    "last_batch": 32,
+    "objectives": [
+      "mse",
+      "kl"
+    ],
+    "official_test": false,
+    "optimizer": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "clipping": false,
+      "eps": 1e-08,
+      "lr": 0.001,
+      "name": "Adam",
+      "schedule": "constant",
+      "weight_decay": 0.0
+    },
+    "original_validation": false,
+    "passes": 64,
+    "primary_contrast": "w8_mse:1024->2048",
+    "schema": 1,
+    "seeds": [
+      26102601,
+      26102602,
+      26102603
+    ],
+    "span": [
+      4,
+      6
+    ],
+    "temperature": 1,
+    "threads": 4,
+    "updates": 2048,
+    "warm_start": false,
+    "widths": [
+      8,
+      16
+    ]
+  },
+  "evaluator_identity": null,
+  "fees": false,
+  "independent_review": "pending",
+  "network_writes": false,
+  "original_cohort_sha256": null,
+  "parent_announced": false,
+  "partition_sha256": null,
+  "resource_slot": null,
+  "source_sha256": null,
+  "status": "PREPARATION ONLY - SCIENTIFIC EXECUTION NOT GO"
+}

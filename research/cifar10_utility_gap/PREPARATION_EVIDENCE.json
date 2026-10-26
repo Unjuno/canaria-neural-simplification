@@ -1,0 +1,108 @@
+{
+  "actual_cifar_loaded": false,
+  "audit_publication": {
+    "announcement_status": "BLOCKED_REPRODUCTION_ISSUE_87",
+    "integrity_status": "PASS"
+  },
+  "audit_repo": "PASS",
+  "base_commit": "bb30713cca06519a000251a26668309b1a4ef82b",
+  "ci": false,
+  "evidence_sha256": {
+    "evidence/audit_publication.log": "ae9aa9feaa5b93b30469fdafbf728ad39a80c9dbde9e61cdeb3bef45cb90d13c",
+    "evidence/audit_repo.log": "48038592dea2fd11b1eadf9299ee30b993378b6bddabfe3b5ae719eef515def8",
+    "evidence/repository_tests.log": "ffde1a6f77d1d954bc13db1a277d12f4d75d9e2771248bc229c0ed2dac71b4fc",
+    "evidence/review_findings/PREPARATION_EVIDENCE_before_repair.json": "c46a5f720a75d41b8f89f67c22ddd71ad340c304a818a743bc167c30296a7b91",
+    "evidence/review_findings/SOURCE_FREEZE_before_repair.json": "875a0606ae20d437acc45a86962c49b0b91c793c5d6f38ef412303d0df07aa8d",
+    "evidence/review_findings/audit_publication_after_deadline_fix.log": "ae9aa9feaa5b93b30469fdafbf728ad39a80c9dbde9e61cdeb3bef45cb90d13c",
+    "evidence/review_findings/audit_publication_after_repair.log": "ae9aa9feaa5b93b30469fdafbf728ad39a80c9dbde9e61cdeb3bef45cb90d13c",
+    "evidence/review_findings/audit_repo_after_deadline_fix.log": "d7dd6e8baf2f44928a19e133221e9f6d266477a4ec2f111ccfb7769e1eac20a8",
+    "evidence/review_findings/audit_repo_after_repair.log": "366837bcff78d9f119e01d91c657c545d8a844ab0488f28df7c75ffb31cebb85",
+    "evidence/review_findings/before_repair_exit.json": "af63f53035587998eb9e0424b4e33bc63a1548a56f26334a3a0eca57ffc311a4",
+    "evidence/review_findings/independent_probes_original.log": "bc7c1fa2248e25a94d9afe65b0ba86b1f6182406ee8b1d841262587dea8f51e2",
+    "evidence/review_findings/independent_probes_original.py": "9a71dafff5ac915211d575dade1c689fcc3ae33443629acbc738ef5c5d591ae0",
+    "evidence/review_findings/independent_recheck_a9af0b0.log": "cf15a44bb5eaa6eaea5c25d30137ad1f89a87dfc4cb4f2858ac7eca44c73bf36",
+    "evidence/review_findings/independent_recheck_a9af0b0.py": "9400da7e09b024486792f56f83ecd6637b8f3649c38601727b3cfbc645311366",
+    "evidence/review_findings/negative_tests_before_repair.log": "cdd709ce6c2934ae1d699b25aa16c219b218b24efe388b08b0937dc6796fde2e",
+    "evidence/review_findings/reader_timeout_before_exit.json": "349c71045a81f6e8d00328059da899a80067cfc1a25b6aec4b8468d4d0c4c6c0",
+    "evidence/review_findings/reader_timeout_before_repair.log": "a1611b64a67b17f2afbf038f971aaa2155e6a42164bb1ed959c6149dc7e57089",
+    "evidence/review_findings/repair_iteration1.log": "9a27086dc367342f6d99edd6f3708b290e203f53b03f1cdedbf7f6f7b66335c4",
+    "evidence/review_findings/repository_tests_after_deadline_fix.log": "acf6511adc8fbdccc3a18953aee5c466de67681b22d4bac33cf615c5831bebba",
+    "evidence/review_findings/repository_tests_after_repair.log": "acf6511adc8fbdccc3a18953aee5c466de67681b22d4bac33cf615c5831bebba",
+    "evidence/review_findings/reproduced_before_repair.log": "bc7c1fa2248e25a94d9afe65b0ba86b1f6182406ee8b1d841262587dea8f51e2",
+    "evidence/review_findings/synthetic_tests_after_deadline_fix.log": "4e17891273d0ab4b68e6ad36904c958d33e139ca8d8674be28397f021792dd22",
+    "evidence/review_findings/synthetic_tests_after_repair.log": "f7b2e7ed8a2b19b959bb8b829343730d259f05f4dfdd1246c3fa7d8918a94fd1",
+    "evidence/synthetic_tests.log": "bc97d693249b4ff0ca35c0f92859f3557ec94c7a6644695e295fd875764d169a"
+  },
+  "network_writes": false,
+  "original_validation_or_test_decoded": false,
+  "real_checkpoint_loaded": false,
+  "real_optimization_updates": 0,
+  "repository_tests": {
+    "log": "evidence/review_findings/repository_tests_after_deadline_fix.log",
+    "passed": 18,
+    "total": 18
+  },
+  "review_repair": {
+    "deadline_classification_followup": {
+      "generic_reader_or_target_timeout_status": "failed",
+      "independent_snapshot_tests": 8,
+      "local_red_regression_preserved": true,
+      "owned_deadline_signal": "protocol.DeadlineExceeded",
+      "prior_commit": "a9af0b026090b47d8491364987a350771dc82ebf",
+      "remaining_failure_before_fix": 1,
+      "scientific_policy_changed": false
+    },
+    "expected_initial_failing_assertions": 9,
+    "independent_rereview": "pending",
+    "initial_negative_tests": 7,
+    "original_findings_reproduced": true,
+    "prior_failure_receipts_preserved": true,
+    "prior_preparation_commit": "a58d6ea2ba61f7a4cd79f96ab03f4692a7da4e56",
+    "repaired_guards": [
+      "complete bound one-use fit-metric receipt",
+      "terminal operations and failure/cap classification",
+      "training-log/Adam/initialization/RNG checkpoint consistency",
+      "actual full-fit metric bytes before diagnostic checkpoint admission",
+      "finite clocks",
+      "strict integer class labels/predictions",
+      "resource slot covers full two-hour allocation"
+    ],
+    "scientific_design_changed": false,
+    "scientific_execution": "NOT GO"
+  },
+  "scientific_execution": "NOT GO",
+  "source_sha256": {
+    "research/cifar10_replacements/core.py": "5d9480663f638effa5b87a057767462b601362129e946486ef3778f86dc9fef4",
+    "research/cifar10_replacements/data.py": "8601856ce86db26f6d256b875c1d5ec90137d3f0048b3d05c9f7524a624754f1",
+    "research/cifar10_teacher/model.py": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+    "research/cifar10_utility_gap/MANIFEST.TEMPLATE.json": "d4b857ee6b6d7f9020493aeac2875bbaa9aec1e6834e232699d742630b3d9a59",
+    "research/cifar10_utility_gap/PROPOSAL_CONTEXT.md": "3570b8a9ee0abe2a76f4df02346c0d53bceeffbb75bb8bcec64bddda2bb88bdc",
+    "research/cifar10_utility_gap/PROTOCOL.md": "18418db439ac630fa4e5bf8da0a60b49f3b9ac99610c4473f0969a4da6ed1003",
+    "research/cifar10_utility_gap/__init__.py": "5d472b4cb972e4d1867a5639d27c4a1089c245bf9c66f2e2b9a61a3e81d8e4a8",
+    "research/cifar10_utility_gap/core.py": "3ae9e8139ec53fee55ca6ac329d56a449fb222a4465ef4e7f92310c37fa2b3a4",
+    "research/cifar10_utility_gap/data.py": "68faf7968e9d4317e4b11bfad20fab5e68881fa2a89e5eb06fa7226d9b4ff2b4",
+    "research/cifar10_utility_gap/diagnostic.py": "88827ab6865b8d4271923e5bf49f2ec2adca10f1c6b60e249c9d41f8f84532b9",
+    "research/cifar10_utility_gap/protocol.py": "e2f4d98807fd2c0afba192dec07abb679e78fb38c09763b4ef6d45f24a320211",
+    "research/cifar10_utility_gap/report.py": "c7e28110008b2d9b8730a627b7fd2d3d445523bcc848c20122e123acda742f33",
+    "research/cifar10_utility_gap/runtime.py": "1fc0d575b75700b7fdf819e554361b242885fac3cb90d671939f55cc042c67fb",
+    "research/cifar10_utility_gap/test_review_regressions.py": "3206f13b16bea0e3debba48592c54d2a8b580a8dae0461595d516871070ebff6",
+    "research/cifar10_utility_gap/test_synthetic.py": "a48ffdcf5e80826351fae0a28890cf42496bc1875376ee8ed6110b90ff0ca443"
+  },
+  "status": "PASS repaired source-only checks; independent rereview pending",
+  "synthetic_tests": {
+    "existing_replacement_regression_tests": 21,
+    "initial_utility_gap_tests": 23,
+    "interop": 1,
+    "log": "evidence/review_findings/synthetic_tests_after_deadline_fix.log",
+    "review_regression_tests": 14,
+    "threads": 1,
+    "total": 58,
+    "wall_seconds_test_runner": 3.483
+  },
+  "test_scope_caveats": [
+    "Tiny randomly initialized synthetic networks only; no real-data runtime feasibility measured.",
+    "Checkpoint audit fixtures construct internally consistent logs/Adam/counters; they are not measured 1024/2048-update trajectories.",
+    "Old original evidence unchanged; stricter new no-original-validation-decode boundary is not a prior-results invalidation.",
+    "Production orchestrator and audited calibration-only producer remain explicitly pending."
+  ]
+}

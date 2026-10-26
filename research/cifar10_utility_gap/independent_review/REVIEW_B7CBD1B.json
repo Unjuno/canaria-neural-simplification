@@ -1,0 +1,23 @@
+{
+  "reviewed_commit": "b7cbd1b906e7a46cf8a6ed651b1cfa1bd5064a75",
+  "source_preparation": "GO",
+  "scientific_execution": "NOT GO",
+  "utility_gap_tests_passed": 37,
+  "independent_negative_tests_passed": 8,
+  "threads": 1,
+  "interop": 1,
+  "source_hashes_matched": 15,
+  "evidence_hashes_matched": 24,
+  "source_edited": false,
+  "real_model_or_cifar_artifact_loaded": false,
+  "real_optimization_updates": 0,
+  "network_writes": false,
+  "ci": false,
+  "sha256": {
+    "REVIEW_B7CBD1B.md": "ddd90b4fa19b077d28f1f521e53b4902353fdf0923813d11656c646b41d0e0d1",
+    "synthetic_tests_b7cbd1b.log": "68e87dbabe6d612ec4f43d54b7b8295b03bce4dd15ec50df495e20d30388fc8d",
+    "recheck_a9af0b0.py": "9400da7e09b024486792f56f83ecd6637b8f3649c38601727b3cfbc645311366",
+    "recheck_b7cbd1b.log": "7f7dc95de41ed558c0ca49a44008edf59546a1f4382e7d9dde36bb88cec9409d",
+    "hash_validation_b7cbd1b.json": "dc68f2235cc64f3670c5fbfa4fe327698e0f69d75dc8dacc07200171089004b9"
+  }
+}

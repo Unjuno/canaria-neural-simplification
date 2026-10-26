@@ -1,0 +1,97 @@
+test_counter_only_checkpoint_not_admitted_for_diagnostics (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_counter_only_checkpoint_not_admitted_for_diagnostics) ... FAIL
+test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) ... 
+  test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid=0.9) ... FAIL
+  test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid=True) ... FAIL
+  test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid='0') ... FAIL
+test_full_fit_failure_is_latched_and_not_relabelled_cap (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_full_fit_failure_is_latched_and_not_relabelled_cap) ... FAIL
+test_malformed_metrics_never_create_checkpoint (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_malformed_metrics_never_create_checkpoint) ... FAIL
+test_nonfinite_and_boolean_clocks_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_nonfinite_and_boolean_clocks_rejected) ... 
+  test_nonfinite_and_boolean_clocks_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_nonfinite_and_boolean_clocks_rejected) (now=nan) ... FAIL
+test_resource_slot_must_cover_full_teacher_allocation (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_resource_slot_must_cover_full_teacher_allocation) ... FAIL
+test_terminal_session_rejects_checkpoint_and_metrics (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_terminal_session_rejects_checkpoint_and_metrics) ... FAIL
+
+======================================================================
+FAIL: test_counter_only_checkpoint_not_admitted_for_diagnostics (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_counter_only_checkpoint_not_admitted_for_diagnostics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 46, in test_counter_only_checkpoint_not_admitted_for_diagnostics
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid=0.9)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 57, in test_fractional_boolean_and_string_classes_rejected
+    with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                                       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 57, in test_fractional_boolean_and_string_classes_rejected
+    with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                                       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_fractional_boolean_and_string_classes_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_fractional_boolean_and_string_classes_rejected) (invalid='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 57, in test_fractional_boolean_and_string_classes_rejected
+    with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                                       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_full_fit_failure_is_latched_and_not_relabelled_cap (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_full_fit_failure_is_latched_and_not_relabelled_cap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 35, in test_full_fit_failure_is_latched_and_not_relabelled_cap
+    self.assertIsNotNone(session.failure['w8_mse'])
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_malformed_metrics_never_create_checkpoint (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_malformed_metrics_never_create_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 18, in test_malformed_metrics_never_create_checkpoint
+    with tempfile.TemporaryDirectory() as directory,self.assertRaises(ValueError):
+                                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_nonfinite_and_boolean_clocks_rejected (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_nonfinite_and_boolean_clocks_rejected) (now=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 52, in test_nonfinite_and_boolean_clocks_rejected
+    with self.subTest(now=now),self.assertRaises((ValueError,TimeoutError)):
+                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TimeoutError'>) not raised
+
+======================================================================
+FAIL: test_resource_slot_must_cover_full_teacher_allocation (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_resource_slot_must_cover_full_teacher_allocation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 66, in test_resource_slot_must_cover_full_teacher_allocation
+    with self.assertRaises((PermissionError,ValueError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'PermissionError'>, <class 'ValueError'>) not raised
+
+======================================================================
+FAIL: test_terminal_session_rejects_checkpoint_and_metrics (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_terminal_session_rejects_checkpoint_and_metrics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 24, in test_terminal_session_rejects_checkpoint_and_metrics
+    with tempfile.TemporaryDirectory() as directory,self.assertRaises(RuntimeError):
+                                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.417s
+
+FAILED (failures=9)
