@@ -1,0 +1,45 @@
+{
+  "observed_utc": "2026-10-26T10:12:26.246285+00:00",
+  "seeds": [
+    {
+      "seed": 26102601,
+      "status": "launched",
+      "launch": {
+        "schema": 1,
+        "seed": 26102601,
+        "started": 1793006962.6811554,
+        "absolute_expiry": 1793042962.6811554,
+        "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+      },
+      "elapsed_seconds": 2583.5646641254425,
+      "last_checkpoint": {
+        "utc": "2026-10-26T10:11:51.240809+00:00",
+        "epoch": 38,
+        "cursor": 0,
+        "event": "checkpoint"
+      }
+    },
+    {
+      "seed": 26102602,
+      "status": "launched",
+      "launch": {
+        "schema": 1,
+        "seed": 26102602,
+        "started": 1793006979.15931,
+        "absolute_expiry": 1793042979.15931,
+        "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+      },
+      "elapsed_seconds": 2567.0865094661713,
+      "last_checkpoint": {
+        "utc": "2026-10-26T10:11:58.128816+00:00",
+        "epoch": 37,
+        "cursor": 0,
+        "event": "checkpoint"
+      }
+    },
+    {
+      "seed": 26102603,
+      "status": "not_launched"
+    }
+  ]
+}
