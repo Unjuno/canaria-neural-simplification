@@ -1,0 +1,122 @@
+{
+  "scope": "SUMMARY_AND_AUDIT_SUBSET_RAW_BUNDLE_PENDING",
+  "local_sources": {
+    "finish": "9067a013b861a9e75073177632e8a4bead061347",
+    "pilot": "88f7585cf9411029f078c5e736b7c52e97e68aa5",
+    "extension": "95580620c9e9e56bfe3423e6ea70482aa1861c34"
+  },
+  "files": [
+    {
+      "path": "results/verification/2026-10-26/README.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "8e62a2d379c519cf0b77b6b6ec3c919508dc7698",
+      "sha256": "52c302f103a67191d7f361baaafdf13d5d54429f842e0a0c3c414077a52d88cb",
+      "bytes": 8065
+    },
+    {
+      "path": "results/verification/2026-10-26/CONCLUSIONS.ja.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "a677b47dede9e5d80d1760023de63e4ca86f528c",
+      "sha256": "3ce0625506a2cffb9238f96dff2c3dcfde864bb78fa92fbeee5fc55f13b73d26",
+      "bytes": 8567
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/INDEPENDENT_REPRODUCTION_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "f8c1ef1dfa75bc55f1ae960bb442133ff55b88ef",
+      "sha256": "7a22fbfdb5548ccdab0540c46f24491121f3034e9e83f5af836a209ab52eddce",
+      "bytes": 5600
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/EXECUTION_SUMMARY.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "3d692e498785802020cf8465dafc03f10a779933",
+      "sha256": "a9196b74c8934a66851306e19f8f38ea2662830788018373c3a7e22fb1c8c488",
+      "bytes": 346
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/SUMMARY.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "3f481ec0a286ef9ff8c61aa73c034d4d5b573b3b",
+      "sha256": "678514074b9390ea55bf4fa32635669e763c2b06506c7946b754171460704ca4",
+      "bytes": 5616
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/INDEPENDENT_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "09ea712ac711a793878c56b278c41b8ec39a3baa",
+      "sha256": "3ae1616a5c497b3925cf8688bd3c6f3cfa8ea6705a4f9334695c24417a6e06b8",
+      "bytes": 9775
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/README.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "08049cc958c8e65b5e291434497a14641801d0d4",
+      "sha256": "ae0bb76efcfee55a7c10252db5728f7abe8f13ed413eaa5a8d9459eaedf15aed",
+      "bytes": 1475
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/PILOT_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "e0db6eaa20f90f82098e777259ff8818904fc206",
+      "sha256": "8407414d6c1feda0a84808964f701fac7ac4dfa0c8bff4fa342dc3385f6ef04e",
+      "bytes": 1878
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/EXTENSION_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "a573720cf7801fb9d631eb55f6c06aff79b76f3c",
+      "sha256": "7517ab24841387b81843e1f39a38f1caa2769320f343d97dc6e0603c7c1e6fe5",
+      "bytes": 24599
+    },
+    {
+      "path": "results/verification/2026-10-26/smallvit_readback/output/INDEPENDENT_PERSISTENCE_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "350d46a62292091d58fadeab6e96bd9e98c6e397",
+      "sha256": "2d24850b926c1588314b5ecd77380620785c2d31ea98a6adb5b0387697cdbbf3",
+      "bytes": 5576
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_readback/AUDIT_RECEIPT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "c0ae3a248e9b7a449989fbe86c13d3bc49a36961",
+      "sha256": "128ae14fc4d8046f7512e8a0a06a7c9703c1e70f23862cb4253b7b2551913dc8",
+      "bytes": 1148
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/AUDIT_RESULT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "267833a6baf068019e2140f9bbacba1754a1c70a",
+      "sha256": "09c66e06425cccbc0025672e3167dc9e34ce2c7770c4a83d212bab690a03124d",
+      "bytes": 1348
+    },
+    {
+      "path": "results/native_cost_pilot/SUMMARY.json",
+      "source_commit": "88f7585cf9411029f078c5e736b7c52e97e68aa5",
+      "source_blob": "220e28257e5151e1049e9448d1777c3c93ddbfa3",
+      "sha256": "f0c2e570b0695ce6c96379f1adb155efbb8abae339613acab8853c7f3f791874",
+      "bytes": 9357
+    },
+    {
+      "path": "results/native_cost_extension/SUMMARY.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "a1e9b906cbc67d431c371f0bd84c2bdf503bb86f",
+      "sha256": "f0d34b33f866273a3f9262c8fb948ccbeb3fb285cf3d2633ed191b760bf13fca",
+      "bytes": 26372
+    },
+    {
+      "path": "results/native_cost_extension/CENSUS.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "b30ecfb3de94783b96b91d0b4cc5e879f11e4614",
+      "sha256": "6d63e0dd52e8fc824ad707b3a170f2d81cab4e2a22b970509428fdbe441fbb2a",
+      "bytes": 10069
+    },
+    {
+      "path": "results/native_cost_extension/PAYLOAD_STRUCTURAL_AUDIT.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "b3fd2116bfe695a70ec52831ec19c4bdc98f9da7",
+      "sha256": "952cbb5a8f45a1d8d6f100d3ee6b8a2a66288494dabe14738b176e2174910c1b",
+      "bytes": 1719
+    }
+  ]
+}

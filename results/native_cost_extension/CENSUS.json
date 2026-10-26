@@ -1,0 +1,394 @@
+{
+  "evidence_class": "ANALYTIC_FROZEN_ENDPOINT_PAYLOAD_NOT_ARCHIVE_OR_LATENCY",
+  "fixed_shell_parameters": 38218,
+  "rows": [
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "efd87245810c2e75a614a6eb5d3e329d45d84634a965ffe5fc23e915fd19cf92",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871200,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "ae9f03eec022dfa805ef638621dd80a2e95014ea10c83ce38eade63ab2a6a7a3",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871201,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "5bc8c7d47e50662f0289f5b08a657ad6ebfaaf98464b201db7f2992570ac7514",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871202,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 40266,
+        "sep": 42314
+      },
+      "comp_sep_payload_ratio": 0.9515999432811836,
+      "float32_tensor_payload_bytes": {
+        "comp": 161064,
+        "sep": 169256
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "c6264728917c122fac4600edf066d4429f8181c3c17c455d426a87c20ddf8b5e",
+      "replacement_budget": {
+        "comp": 2048,
+        "sep": 4096
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871203,
+      "selected_h": {
+        "comp": 8,
+        "sep": 16
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "a5efc325c75eeeb2deb52cd0ee3a99143cc2ba891d2cc87f424e77625607f2e2",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871204,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "c442f345fdd7677e3920aed2c110e51571a95c5311067f362c818115990c8e3c",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871205,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 41290,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 1.0,
+      "float32_tensor_payload_bytes": {
+        "comp": 165160,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "a321fc7ce0da3cdbf3d0d7c89ad3e29eb78f84ceadcff485a13d80d5b3f38681",
+      "replacement_budget": {
+        "comp": 3072,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 1.0,
+      "seed": 871206,
+      "selected_h": {
+        "comp": 12,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "cf81887242ae37b16e1c345b5ba968a1d1e36170f1cdf21a5af59dd895b4cd72",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871207,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 40266,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9751998062484863,
+      "float32_tensor_payload_bytes": {
+        "comp": 161064,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "60a9327289ab1a46b27623b4dd8f7624c0cee5c3efdc04200e77967319f6d12f",
+      "replacement_budget": {
+        "comp": 2048,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.6666666666666666,
+      "seed": 871208,
+      "selected_h": {
+        "comp": 8,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "bec1319b2bde4e0f3982f1a5c96d40b685a8e840297cbf0d733741a179e954ef",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871209,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "e7367404ad7f2c784ccc712a65de6579590041a2f08c19bb7e42080acadd679f",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871210,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 40266,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9751998062484863,
+      "float32_tensor_payload_bytes": {
+        "comp": 161064,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "5017a8602b46d29b385daffdfae3fd9b2c5f52c6ab44f76f491d1943b0854516",
+      "replacement_budget": {
+        "comp": 2048,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.6666666666666666,
+      "seed": 871211,
+      "selected_h": {
+        "comp": 8,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 41290,
+        "sep": 44362
+      },
+      "comp_sep_payload_ratio": 0.9307515441143321,
+      "float32_tensor_payload_bytes": {
+        "comp": 165160,
+        "sep": 177448
+      },
+      "payload_gate_5percent": true,
+      "reference_sha256": "8eb6973b9f261b494c4e6e8f10caaa4e92db4f377e711caad92f2171588e6ee5",
+      "replacement_budget": {
+        "comp": 3072,
+        "sep": 6144
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871212,
+      "selected_h": {
+        "comp": 12,
+        "sep": 24
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 42314
+      },
+      "comp_sep_payload_ratio": 0.9394999291014794,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 169256
+      },
+      "payload_gate_5percent": true,
+      "reference_sha256": "c7fad8fd9a23bb2a9fc711be4e4dc8f08123d8a859e46d22dc6a428af28bb1a7",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 4096
+      },
+      "replacement_only_ratio": 0.375,
+      "seed": 871213,
+      "selected_h": {
+        "comp": 6,
+        "sep": 16
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "2de1539b90e375a56fa329104459b9ea70523b075e146f10951b88e18b0be210",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871214,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    },
+    {
+      "active_whole_parameters": {
+        "comp": 39754,
+        "sep": 41290
+      },
+      "comp_sep_payload_ratio": 0.9627997093727295,
+      "float32_tensor_payload_bytes": {
+        "comp": 159016,
+        "sep": 165160
+      },
+      "payload_gate_5percent": false,
+      "reference_sha256": "e6aeec9c67eb50b2e87481543809d4c5516b2bb7259a2b4fc41d6fbfa4079e9e",
+      "replacement_budget": {
+        "comp": 1536,
+        "sep": 3072
+      },
+      "replacement_only_ratio": 0.5,
+      "seed": 871215,
+      "selected_h": {
+        "comp": 6,
+        "sep": 12
+      }
+    }
+  ],
+  "scope_audit": {
+    "archive_bytes_for_unmaterialized_seeds": "NOT MEASURED",
+    "dtype_bytes": 4,
+    "latency_for_unmaterialized_seeds": "NOT MEASURED",
+    "shell_components": {
+      "head": 650,
+      "remaining_blocks": 33408,
+      "stem": 4160
+    },
+    "source_buffer_registration": false
+  },
+  "summary": {
+    "arithmetic_mean_ratio": 0.962515507670079,
+    "count_meeting_5percent_payload_gate": 2,
+    "geometric_mean_ratio": 0.9624057911320743,
+    "range": [
+      0.9307515441143321,
+      1.0
+    ]
+  }
+}

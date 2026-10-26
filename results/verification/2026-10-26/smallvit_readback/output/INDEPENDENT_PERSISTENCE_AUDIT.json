@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "completed_at_utc": "2026-10-26T07:11:48.555047+00:00",
+  "analysis_environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "numpy": "2.3.5"
+  },
+  "audit_script_sha256": "0e1d4f11918738bf0835f04d17e57781c553b155833139ae3f5d7027813736d2",
+  "source_commit": "50a73cd44a05a62e28c94a9e67c84f7b7e9e86cf",
+  "fresh_records_checked": 16,
+  "new_scientific_seeds": 0,
+  "new_training": false,
+  "comparisons": {
+    "DECISION.json": {
+      "json_exact": true,
+      "bytes_exact": true,
+      "expected_sha256": "3ed37b78aedb8450faf562d3a49c3382c2f8074060a03610d7d6bab3a7ed746f",
+      "observed_sha256": "3ed37b78aedb8450faf562d3a49c3382c2f8074060a03610d7d6bab3a7ed746f"
+    },
+    "FRESH_ROWS.json": {
+      "json_exact": true,
+      "bytes_exact": true,
+      "expected_sha256": "a788866d6f64ab706a929a06c1da7f4230017fbf1825816e161ed352a8a4ab01",
+      "observed_sha256": "a788866d6f64ab706a929a06c1da7f4230017fbf1825816e161ed352a8a4ab01"
+    }
+  },
+  "manifest_files_checked": 54,
+  "manifest_errors": [],
+  "checks": [
+    {
+      "seed": 194000,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9703703703703703,
+      "status": "PASS"
+    },
+    {
+      "seed": 194001,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9629629629629629,
+      "status": "PASS"
+    },
+    {
+      "seed": 194002,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9666666666666667,
+      "status": "PASS"
+    },
+    {
+      "seed": 194003,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9740740740740741,
+      "status": "PASS"
+    },
+    {
+      "seed": 194004,
+      "eligible": false,
+      "finite_logits_and_label_shapes": 1,
+      "accuracy_reconstruction": "PASS",
+      "status": "PASS"
+    },
+    {
+      "seed": 194005,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9629629629629629,
+      "status": "PASS"
+    },
+    {
+      "seed": 194006,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9703703703703703,
+      "status": "PASS"
+    },
+    {
+      "seed": 194007,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9740740740740741,
+      "status": "PASS"
+    },
+    {
+      "seed": 194008,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9740740740740741,
+      "status": "PASS"
+    },
+    {
+      "seed": 194009,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9777777777777777,
+      "status": "PASS"
+    },
+    {
+      "seed": 194010,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9777777777777777,
+      "status": "PASS"
+    },
+    {
+      "seed": 194011,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9777777777777777,
+      "status": "PASS"
+    },
+    {
+      "seed": 194012,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9592592592592593,
+      "status": "PASS"
+    },
+    {
+      "seed": 194013,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9666666666666667,
+      "status": "PASS"
+    },
+    {
+      "seed": 194014,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9740740740740741,
+      "status": "PASS"
+    },
+    {
+      "seed": 194015,
+      "eligible": true,
+      "finite_logits_and_label_shapes": 8,
+      "accuracy_reconstruction": "PASS",
+      "saved_state_hash_groups": 4,
+      "teacher_test_accuracy": 0.9777777777777777,
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Holdout NMSE is checked from stored MSE/denominator only, not independently regenerated hidden activations.",
+    "Saved state/labels/logits integrity does not establish historical temporal test isolation.",
+    "Readback across analysis environment is not training reproducibility; uncertainty remains unchanged.",
+    "Original decision field new_scientific_model_seed_ids describes original study, not new seeds in this audit."
+  ]
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "teacher",
+    "parameters": 71626,
+    "seed": 871201,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 286504
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "sep",
+    "parameters": 41290,
+    "seed": 871201,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 165160
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "comp",
+    "parameters": 39754,
+    "seed": 871201,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 159016
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "teacher",
+    "parameters": 71626,
+    "seed": 871202,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 286504
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "sep",
+    "parameters": 41290,
+    "seed": 871202,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 165160
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "comp",
+    "parameters": 39754,
+    "seed": 871202,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 159016
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "teacher",
+    "parameters": 71626,
+    "seed": 871203,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 286504
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "sep",
+    "parameters": 42314,
+    "seed": 871203,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 169256
+  },
+  {
+    "all_float32": true,
+    "buffers": [],
+    "kind": "comp",
+    "parameters": 40266,
+    "seed": 871203,
+    "state_keys_equal_parameter_keys": true,
+    "tensor_bytes": 161064
+  }
+]

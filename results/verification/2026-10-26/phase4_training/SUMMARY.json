@@ -1,0 +1,185 @@
+{
+  "completed_utc": "2026-10-26T07:34:52.183338+00:00",
+  "scope": "Fixed-cohort technical training replay, not independent replication or new prospective study",
+  "source_commit": "f7d23c9dad2788e64b94f2a268fe3e0b1084d77c",
+  "preflight_pass": true,
+  "cohort_seed_count": 8,
+  "full_records_exact": true,
+  "decision_exact": true,
+  "decision": "PHASE4_CONFIRMATORY_PASS",
+  "teacher_quality": {
+    "bootstrap_se": 0.0021888166171579013,
+    "ci95": [
+      0.7910913713697723,
+      0.7995540822785517
+    ],
+    "margin": 0.7,
+    "mean": 0.795060030449365,
+    "status": "PASS"
+  },
+  "composition_budget": {
+    "bootstrap_se": 0.12640711420554387,
+    "ci95": [
+      -1.328241785222183,
+      -0.832518749639422
+    ],
+    "composed_lower_count": 8,
+    "geometric_mean_ratio": 0.47602852309683874,
+    "mean": -1.070880074090487,
+    "status": "PASS",
+    "ties": 0
+  },
+  "selected_utility": {
+    "bootstrap_se": 0.001364243029397682,
+    "ci95": [
+      0.004358858924945988,
+      0.00967018123690487
+    ],
+    "margin": -0.03,
+    "mean": 0.00685780506405069,
+    "status": "PASS"
+  },
+  "runs": [
+    {
+      "time": "2026-10-26T07:32:04.345112+00:00",
+      "state": "seed_finished",
+      "seed": 2899,
+      "exit": 0,
+      "elapsed_seconds": 19.717128927004524,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2899",
+        "--out",
+        "local_evidence/preflight/seed_2899.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:32:24.506985+00:00",
+      "state": "seed_finished",
+      "seed": 2900,
+      "exit": 0,
+      "elapsed_seconds": 20.120155325974338,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2900",
+        "--out",
+        "local_evidence/cohort/seed_2900.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:32:45.340275+00:00",
+      "state": "seed_finished",
+      "seed": 2901,
+      "exit": 0,
+      "elapsed_seconds": 20.832939432002604,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2901",
+        "--out",
+        "local_evidence/cohort/seed_2901.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:33:05.812453+00:00",
+      "state": "seed_finished",
+      "seed": 2902,
+      "exit": 0,
+      "elapsed_seconds": 20.47185080300551,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2902",
+        "--out",
+        "local_evidence/cohort/seed_2902.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:33:26.083340+00:00",
+      "state": "seed_finished",
+      "seed": 2903,
+      "exit": 0,
+      "elapsed_seconds": 20.270530494017294,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2903",
+        "--out",
+        "local_evidence/cohort/seed_2903.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:33:47.007491+00:00",
+      "state": "seed_finished",
+      "seed": 2904,
+      "exit": 0,
+      "elapsed_seconds": 20.92384327200125,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2904",
+        "--out",
+        "local_evidence/cohort/seed_2904.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:34:08.836489+00:00",
+      "state": "seed_finished",
+      "seed": 2905,
+      "exit": 0,
+      "elapsed_seconds": 21.828627559007145,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2905",
+        "--out",
+        "local_evidence/cohort/seed_2905.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:34:30.212155+00:00",
+      "state": "seed_finished",
+      "seed": 2906,
+      "exit": 0,
+      "elapsed_seconds": 21.37533340099617,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2906",
+        "--out",
+        "local_evidence/cohort/seed_2906.json"
+      ]
+    },
+    {
+      "time": "2026-10-26T07:34:52.140655+00:00",
+      "state": "seed_finished",
+      "seed": 2907,
+      "exit": 0,
+      "elapsed_seconds": 21.928157610993367,
+      "command": [
+        "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+        "scripts/phase4/run_california_confirm_seed.py",
+        "--seed",
+        "2907",
+        "--out",
+        "local_evidence/cohort/seed_2907.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "No new independent model seeds; recorded seeds2900\u20132907 replayed",
+    "Pinned candidate lacks required base runner; used full Phase4 branch whose wrapper/protocol/evaluator/primary rows/decision match candidate byte-for-byte",
+    "lscpu cannot read sandbox /sys/devices/system/cpu/possible; error preserved and /proc/cpuinfo excerpt saved",
+    "Caches excluded from sealed evidence; sklearn validates official archive checksum, runner verifies final X/y hashes"
+  ]
+}
