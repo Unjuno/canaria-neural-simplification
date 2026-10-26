@@ -1,0 +1,32 @@
+{
+  "correct": 4550,
+  "n": 5000,
+  "accuracy": 0.91,
+  "adequate": true,
+  "status": "complete",
+  "seed": 26102601,
+  "epoch": 120,
+  "selection": "fixed final checkpoint; no early stopping",
+  "test_batch_decoded": false,
+  "calibration_used": false,
+  "data_manifest_sha256": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+  "checkpoint_sha256": "3e8f8a4d1dc15cfe034138150c56893383d4df07e5a1150aa50eba80cf79cfd1",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "source_sha256": "5ad585a1c61f99ed21f4e67431adea3fec8851dc132ea7d3b101953dfdecf288",
+    "machine": "x86_64",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "threads": 4,
+    "interop": 1,
+    "deterministic": true,
+    "thread_env": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    }
+  },
+  "elapsed_seconds": 8107.587103843689
+}

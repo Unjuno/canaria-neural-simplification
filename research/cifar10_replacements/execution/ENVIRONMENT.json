@@ -1,0 +1,106 @@
+{
+  "distributions": [
+    {
+      "metadata_sha256": "21335d1940ca00830e17594e81e9ed7b393211b1e03eda3c411a3507bf59f4b7",
+      "name": "filelock",
+      "record_sha256": "fe5813a0837473f227b8aeac82b6cde2a832c59773911a90f406a5b6c20f4b97",
+      "version": "3.29.0"
+    },
+    {
+      "metadata_sha256": "8f49c4404b507182ac953dfd4551641df0bf36ccf67e08ac8a68cce323bf1d4c",
+      "name": "fsspec",
+      "record_sha256": "0f544aaf6fd58db6a8940859a08c7750bc981c39eb1acb7209f310c2794d3f61",
+      "version": "2026.4.0"
+    },
+    {
+      "metadata_sha256": "68c5548fb67c4132a13898d9b31ec50c6bea2abdd915d921f214355c3a6499c8",
+      "name": "Jinja2",
+      "record_sha256": "c42da310fe0dbd5b11491c5468c50023da1ed522353a3326e261353a69874eb5",
+      "version": "3.1.6"
+    },
+    {
+      "metadata_sha256": "cee9c60896ae4e7a965a840fbde50d111d2f8018f61201d1ed2e9fc3dd4883e6",
+      "name": "joblib",
+      "record_sha256": "a0f3f5683fc81f0678dddf1dabcf87ab9322d5964f3166cf2e6e1bd4ead1c984",
+      "version": "1.5.3"
+    },
+    {
+      "metadata_sha256": "12b4cc61a7fa288cf7667ee3f213786d9619db57fb33ff6f934afbcb5c12ec81",
+      "name": "MarkupSafe",
+      "record_sha256": "98f610863d6b962b64de8a309aa79f770292da873e76328f9ee7c2744c8b1765",
+      "version": "3.0.3"
+    },
+    {
+      "metadata_sha256": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406",
+      "name": "mpmath",
+      "record_sha256": "abca0cace6fa4e8ffd47b026daae4511ea36a2e0ca627e4a62dfbc5e8540ac01",
+      "version": "1.3.0"
+    },
+    {
+      "metadata_sha256": "aca5d94a97d1f70f301d033addb635f6e66be8973a00aba4127637eed2ef316a",
+      "name": "networkx",
+      "record_sha256": "6f0fa3d21e1c6e9640c2cc5d15354630e5a6f7b723b737c0e6a0cfa7292d4224",
+      "version": "3.6.1"
+    },
+    {
+      "metadata_sha256": "6002f29765e5bc1a3be4a1b92ed56b64968a0fecba73e7f81cd536d0c40f4fa3",
+      "name": "numpy",
+      "record_sha256": "76d686cd20b1035be9d41527b7d69432bbd26ec822e89ee36cf4ddcca19df3bf",
+      "version": "2.3.5"
+    },
+    {
+      "metadata_sha256": "fe157a60a970b288770fad79a124001f538a325b0a2270c594792b6a475eb798",
+      "name": "pip",
+      "record_sha256": "cea5007b6444c9f86d357dbbb49f091a41766afb6dc26879c5b3875c61be7ee0",
+      "version": "26.2.2"
+    },
+    {
+      "metadata_sha256": "95a8f42f4170fc940a71fedfed4fd9353723eb44126130a971a072fe5305d967",
+      "name": "scikit-learn",
+      "record_sha256": "c1c8ca465eaa6a016214a26a5c53db1da05470d3d8eadff371728f370cbb8aca",
+      "version": "1.8.0"
+    },
+    {
+      "metadata_sha256": "6a5fbbbd6ccb4bedd34782730dd78cb840429a82e2f69e55390af1b51bf7999b",
+      "name": "scipy",
+      "record_sha256": "9bbb74b4aa7f50e480270a51df5fe52a3080b400b863d7be5a15c03636ff72d3",
+      "version": "1.17.0"
+    },
+    {
+      "metadata_sha256": "4444a6b549a8ebb02e1739f4375af7756c841f96f0c31077a183273c7462bd10",
+      "name": "setuptools",
+      "record_sha256": "5d41f3ce88147fc4053b4b97289431c3eafcd3d7c54baa9722d40ece9fd57ded",
+      "version": "78.1.0"
+    },
+    {
+      "metadata_sha256": "b756c2fbfd5be05ac5bdb0ebca61f55618f30f633ed92d88a5687429313a7595",
+      "name": "sympy",
+      "record_sha256": "f9290a04f6acaae2afaac0bb2c259c08af8db60a4e060cc29cf53c427de12574",
+      "version": "1.14.0"
+    },
+    {
+      "metadata_sha256": "a45df8d07ea1883d772183a501d7d526076aa70dfcfddb276a2cbdc04def5341",
+      "name": "threadpoolctl",
+      "record_sha256": "1d3b8cab824071e50c010cbb9aebc7d0995ed0233f5592f980b745e5776b47c1",
+      "version": "3.6.0"
+    },
+    {
+      "metadata_sha256": "d6031f9f56089c835e78a75875c1be87a34bcfdf5a79ef9f069084ed9244a5d4",
+      "name": "torch",
+      "record_sha256": "7fc130baf33f52ef496ffa0a628a3d58624216063e7ad1521020b6c9e9583d56",
+      "version": "2.10.0+cpu"
+    },
+    {
+      "metadata_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "name": "typing_extensions",
+      "record_sha256": "e6f5f1a68db8ed6ddd0e4b986a6c316c9f8b1a66e7125dbeb7fd041ffb28e43f",
+      "version": "4.16.0"
+    }
+  ],
+  "method": "stdlib metadata only; no numerical imports, actual data, teacher artifacts or validation reads",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python_binary_sha256": "889c603f0d17cb54060951bcf4c4f9b8c9ebd9e52b392c70209bbb9755d797d9",
+  "python_executable": "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+  "python_realpath": "/usr/bin/python3.13",
+  "python_version": "3.13.5"
+}

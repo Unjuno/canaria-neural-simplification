@@ -1,0 +1,208 @@
+{
+  "admission": "Each final teacher epoch120, complete adequate=true, exact correct/5000 >=4250/5000; independently verified export, metrics, full checkpoint/payload hashes, teacher source/config/preflight/normalization/split/order/state binding and strict finite weights-only load. Parent CPU admission and separate announced plan+GO required.",
+  "arms": {
+    "Comp-joint": {
+      "loss": "mean((M(x)-t2)^2)",
+      "ranks": [
+        16
+      ],
+      "weights": 5120
+    },
+    "Sep-joint": {
+      "loss": "mean((M2(M1(x))-t2)^2); own intermediate, both modules receive gradient",
+      "ranks": [
+        8,
+        8
+      ],
+      "weights": 5120
+    },
+    "Sep-local": {
+      "loss": "mean((M1(x)-t1)^2) + mean((M2(t1)-t2)^2); sum of local means, detached teacher endpoints",
+      "ranks": [
+        8,
+        8
+      ],
+      "weights": 5120
+    }
+  },
+  "batch_size": 128,
+  "calibration": {
+    "augmentation": false,
+    "labels_used": false,
+    "n": 5000,
+    "normalization": "admitted teachertrain-only normalization"
+  },
+  "cohort_policy": "Keep all planned seeds and failures; no selection, substitution or adaptive recipes. Separate parent-approved per-seed launch plans required.",
+  "environment_manifest_sha256": "dea3c26c8571ad21c8c07051c80cf344fcc33a0c4de8aa6046f990163ee81011",
+  "failure_policy": "No automatic retry. Last complete atomic finite checkpoint only; explicit parent resume permission plus new slot, original plan hash/cap retained. Partial or timed-out runs are failures, not final outcomes.",
+  "forbidden": [
+    "actual science before separate parent plan+GO",
+    "CI",
+    "network",
+    "push",
+    "charges",
+    "actual run registry during preparation"
+  ],
+  "initialization": "Torch default Conv2d Kaiming-uniform a=sqrt(5), isolated RNG seeded with teacher seed; construct Sep then Comp; Sep-joint independent deepcopy of exact Sep-local initialization. Persist all initial states and hashes before fitting.",
+  "interpretation": "n=3 exploratory pilot only. No NI or population-generalization claims. Comp/Sep differ in receptive fields (3x3/5x5 vs teacher9x9), depth, nonlinearities, additions and function class; parameter equality does not isolate composition. Sep-local/Sep-joint alone fix architecture and initialization.",
+  "map": "ReLU(x + Conv1x1(r->32)(ReLU(Conv3x3(32->r,pad1)(x))))",
+  "map_batchnorm": false,
+  "map_bias": false,
+  "official_test": "sealed; no test reader here. Separate parent-approved release only after recipes, final teacher/replacement hashes, failures and final validation for all intended seeds locked.",
+  "optimizer": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "clipping": false,
+    "eps": 1e-08,
+    "lr": 0.001,
+    "name": "Adam",
+    "schedule": "constant",
+    "weight_decay": 0
+  },
+  "planned_seeds": [
+    26102601,
+    26102602,
+    26102603
+  ],
+  "resources": {
+    "absolute_deadline": "2026-10-29T06:50:00Z",
+    "absolute_deadline_unix": 1793256600.0,
+    "cap_includes": "all three arms, numerical imports, loading, final validation and all resume downtime; immutable original launch",
+    "global_science_threads": 8,
+    "interop_threads": 1,
+    "max_replacement_workers": 1,
+    "per_teacher_cap_seconds": 7200,
+    "slot": "parent retains reserved free4-thread slot throughout process; teacher jobs have priority",
+    "threads": 4
+  },
+  "retained_partial_batch": 8,
+  "reviewed_runtime_commit": "54b4c18",
+  "reviewed_source_commit": "7a3046da9033d2b87b634d791585f480925edccc",
+  "schedule": "Immutable common calibration ID schedule; torch.Generator seeded with teacher seed; randperm(5000) every pass, ordered chunks128 and retained final8. 40 updates/pass, 25 passes, 125000 presentations per arm. Persist schedule hash before fitting.",
+  "schema": 1,
+  "source_sha256": {
+    "research/cifar10_replacements/core.py": "5d9480663f638effa5b87a057767462b601362129e946486ef3778f86dc9fef4",
+    "research/cifar10_replacements/data.py": "8601856ce86db26f6d256b875c1d5ec90137d3f0048b3d05c9f7524a624754f1",
+    "research/cifar10_replacements/entry.py": "02fc8a1d268540425f720425bccb564c29bb8ee396c8de53bb9120d405f0e54a",
+    "research/cifar10_replacements/launch.py": "ae806d47ba3a8b18ae9a939f7c7b1a6c08db65878d20a4e6c917c8bb94410aa4",
+    "research/cifar10_replacements/runtime.py": "33706b3c734d88c2bc4305b3416fd1f88744591f96b24b0a21b4c5019f321715",
+    "research/cifar10_teacher/model.py": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6"
+  },
+  "span": {
+    "input_intermediate_output": [
+      32,
+      16,
+      16
+    ],
+    "location": "stage2 blocks2-3",
+    "zero_based_half_open": [
+      4,
+      6
+    ]
+  },
+  "status": "fixed pre-outcome execution protocol; NOT a launch approval",
+  "teacher_and_bn": "Entire teacher/prefix/suffix/classifier frozen EVAL, including BN state; only replacement convolution weights train. No head/suffix/BN repair.",
+  "teacher_training_manifest_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+  "teacher_training_manifest_identity": {
+    "absolute_research_deadline": "2026-10-29T06:50:00Z",
+    "authorization": "parent announced plan 2026-10-26 09:27:38 UTC; reviewed GO source67bd076/codee2a678c nine tests PASS",
+    "batch_size": 128,
+    "batches_per_epoch": 313,
+    "calibration": "never train or evaluate",
+    "cap_origin": "first launch including imports, loading, and resume downtime; immutable launch.json",
+    "epochs": 120,
+    "failure_policy": "nonfinite state retains last atomic good checkpoint; no silent recovery or tuning",
+    "forbidden": [
+      "threshold tuning",
+      "seed substitution",
+      "early best selection",
+      "CI",
+      "network download",
+      "charges",
+      "push",
+      "merge",
+      "user PC"
+    ],
+    "frozen_utc": "2026-10-26T09:29:16.170989+00:00",
+    "last_batch_size": 64,
+    "lr_zero_based": [
+      [
+        0,
+        59,
+        0.1
+      ],
+      [
+        60,
+        89,
+        0.01
+      ],
+      [
+        90,
+        119,
+        0.001
+      ]
+    ],
+    "maximum_parallel_workers": 2,
+    "official_test": "never open or deserialize member; archive hash/traversal permitted",
+    "optimizer": {
+      "momentum": 0.9,
+      "name": "SGD",
+      "weight_decay": 0.0005
+    },
+    "per_seed_cap_seconds": 36000,
+    "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts",
+    "preflight_sha256": {
+      "calibration_indices.npy": "f89d7cbf9d9c0aa3eb0d07d54b93a4f1ce7aad23a3e0dfa19f8c4f9efbb7bc57",
+      "cifar-10-python.tar.gz": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+      "code_commit.txt": "1fc21cfb1e3f8213f02a29ab8ac6454a39e78172f9cfdef8d5b14324d3095f9c",
+      "data_manifest.json": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+      "dependencies.txt": "024f2902979ab442f5048c5f6302b6d78506c03252f2b6e450056355a280c7bf",
+      "events.jsonl": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+      "metrics.json": "3c49e1b69f6b35da083c51d194bdfb150bb1411519b535aaf2cfb70b6c21165d",
+      "source_sha256.txt": "57f0ae250b6a6c577d882de3da6da3be1c58f9ecc5cd5bd9778706db9a7c12d2",
+      "stdout.log": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+      "step_seconds.npy": "c363d2a14c20cef499721a42476da0cb69e25317e977c2db10a687a65d502222",
+      "teachertrain_indices.npy": "f9347f8a0c11b08c9f66c93274822e423136ce4ebbe280a48ffa9989499b57e8",
+      "validation_indices.npy": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83"
+    },
+    "python": "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+    "resource_policy": "check MemAvailable before second launch; require >=2 GiB additional free for second worker (preflight peak831MiB); otherwise sequential",
+    "restart_policy": "no automatic retry; inspect uncertain state and notify parent before same-job resume; original caps unchanged",
+    "seeds": [
+      26102601,
+      26102602,
+      26102603
+    ],
+    "source_commit": "67bd076ec10574dc372b86f94e1d937c8c324189",
+    "source_sha256": {
+      "research/cifar10_teacher/.gitignore": "553d888952a23e007d8de3f17e3a76af89c1cd62525beb7d8527ecb5b2bdc867",
+      "research/cifar10_teacher/PREPARATION_CHECKS.md": "df01f5589a72aef39d65c786f840632c33c42a2569e5a68e3dfa9a004519d38c",
+      "research/cifar10_teacher/PROTOCOL.md": "6c9919c76d2ba5282fc7bbe46300a5b8cd22e236ff3a6578bd2a2ba5a54eae94",
+      "research/cifar10_teacher/launch.py": "3867ea882b2c0f13334de7063236b7dc9b265cbf8a4b7927f8b96236ec39b6b0",
+      "research/cifar10_teacher/model.py": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+      "research/cifar10_teacher/run.py": "f33a9ebecf9fd5e7b59169c3771be324f7c5c7441d208a0dfd49986811f19fb6",
+      "research/cifar10_teacher/test_synthetic.py": "89b7a1dcbad7b9335d93f8fb59e10d40bdad150f93ad8bc5d9bbb6bb894ce26d"
+    },
+    "split_seed": 20261026,
+    "status": "frozen before first teacher launch",
+    "threads_per_worker": 4,
+    "validation": "only after epoch120; fixed final checkpoint; >=0.85 adequacy per seed"
+  },
+  "teacher_training_manifest_sha256": "904353458c41c5c03e0671f14a0ed4798b975ed65ba8c2e54faa1a7565cd39e5",
+  "teacher_training_source_commit": "67bd076ec10574dc372b86f94e1d937c8c324189",
+  "updates": 1000,
+  "validation": {
+    "centered_nmse": "SSE / (sum(Y^2) - sum_features(sum_samples(Y)^2/N) + 1e-12*N*C*H*W); full validation sample-axis mean separately per feature, float64 aggregation; never mean batch ratios",
+    "n": 5000,
+    "primary": [
+      "installed classification accuracy",
+      "centered common-span NMSE"
+    ],
+    "report": "all seeds, teacher/replacement accuracy and paired differences; all failures",
+    "secondary": "uncentered_energy_nmse, null if zero teacher energy",
+    "task_utility": "descriptive replacement_correct >= teacher_correct -100, equivalent <=2 percentage point drop; not noninferiority proof",
+    "when": "fixed final1000 only, no tuning, best selection or early stopping"
+  }
+}
