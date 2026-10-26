@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT SOURCE/SYNTHETIC PREPARATION ONLY",
+  "source_commit": "6cefa913fbd0b40d80c35f5eff453eed3d1cca70",
+  "replacement_source_commit": "54b4c1852481db3f809913d5b048e046e363a0b6",
+  "status": "NOT RELEASED / NOT RUN",
+  "actual_teacher_student_outcomes": "PENDING",
+  "release_authorization": false,
+  "source_review": "GO for bounded preparation, not authority to execute",
+  "synthetic_tests": {
+    "reported_passed": 10,
+    "reported_seconds": 2.249,
+    "evidence": "PREPARATION_CHECKS.md",
+    "rerun_for_publication": false
+  },
+  "bounded_checks": [
+    "Fixed source and recipe bindings",
+    "Reconstructed calibration schedule and initialization",
+    "Adam recipe/state coverage with per-parameter step1000",
+    "Durable exclusive one-look registry; file and directory fsync"
+  ],
+  "limitations": [
+    "Consistency checks are not proof of training history",
+    "Final approved artifact compatibility and real end-to-end execution untested",
+    "No release manifest supplied; no heldout look authorized",
+    "All actual outcomes pending; no broad readiness claim"
+  ],
+  "publication_excludes": [
+    "Actual data/test data",
+    "Model weights or checkpoints",
+    "Binary or trace payloads",
+    "Any pending binary publication operation"
+  ],
+  "files": [
+    {
+      "path": "research/cifar10_heldout/PREPARATION_CHECKS.md",
+      "sha256": "bf79c8e81d8f37e0dff88feb7bad975f8b111c211042c8c08a4f70f77178dae0",
+      "git_blob_sha": "c25a8946275fb6c527cfbf81627525cc959a01a7",
+      "bytes": 2028
+    },
+    {
+      "path": "research/cifar10_heldout/PROTOCOL.md",
+      "sha256": "adb255333536d550d0aa09ad00af63bf0a88bfc263082c222e3b6373e591d659",
+      "git_blob_sha": "6aa76c900be6d110e85f72b91d45bb98928226b1",
+      "bytes": 3308
+    },
+    {
+      "path": "research/cifar10_heldout/entry.py",
+      "sha256": "8290bf2fb90472a42a4a7314d43cba9d15a0f4a93f6ea97860ba58522de47985",
+      "git_blob_sha": "037e5c86c119dbcbf12ffa0b82107cca523993d4",
+      "bytes": 6870
+    },
+    {
+      "path": "research/cifar10_heldout/evaluate.py",
+      "sha256": "dabb3db0b623050019f4f05602ef257e902b123b8c7da2449f38c34a02d38612",
+      "git_blob_sha": "826880aafe1f8f543eee4506a0fea67d3ffb8697",
+      "bytes": 11164
+    },
+    {
+      "path": "research/cifar10_heldout/test_synthetic.py",
+      "sha256": "9068d7ec2e7928c1c6a7f07be384e9575b9218fe06c8256a22849c4452173979",
+      "git_blob_sha": "2a9186a7527b30c0ca1d2bc8ee3e1458702c3186",
+      "bytes": 9069
+    }
+  ]
+}
