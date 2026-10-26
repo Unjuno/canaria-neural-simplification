@@ -663,11 +663,79 @@
       "source_blob": "763c7b71ff8e58fea959bea218530048a2c27dfb",
       "sha256": "9f6763d866f7fc2d0a3590fa7b9b229e50af114d0502e3f09628a9407b9cf811",
       "bytes": 2567
+    },
+    {
+      "path": "research/cifar10_preflight/.gitignore",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "70cfce6936dc01bc2f639861fc2ed9d8881561aa",
+      "sha256": "553d888952a23e007d8de3f17e3a76af89c1cd62525beb7d8527ecb5b2bdc867",
+      "bytes": 24
+    },
+    {
+      "path": "research/cifar10_preflight/PROTOCOL.md",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "3fe4fc00bfdb9038346bf536fc16c51a54531c18",
+      "sha256": "1f697ba6b9d07b69fbb672e1f56d5ba401027f0fa1a1a3e1025536d079b01578",
+      "bytes": 2418
+    },
+    {
+      "path": "research/cifar10_preflight/run.py",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "1828e71e88ce15d3000d6bddd55a8d39a04c56ce",
+      "sha256": "44c2cf5d855db6319df36ba83bbc1b734aea2bb41b1ab29c18eb4d6fbc2fb0b1",
+      "bytes": 9190
+    },
+    {
+      "path": "research/cifar10_teacher/.gitignore",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "70cfce6936dc01bc2f639861fc2ed9d8881561aa",
+      "sha256": "553d888952a23e007d8de3f17e3a76af89c1cd62525beb7d8527ecb5b2bdc867",
+      "bytes": 24
+    },
+    {
+      "path": "research/cifar10_teacher/PREPARATION_CHECKS.md",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "d9b0b952a7529252b44753f669d66df77100103f",
+      "sha256": "9326cec804fe8bb12a681387b04828c2f7ed98420944c2d751e1d543b8fd6af4",
+      "bytes": 2329
+    },
+    {
+      "path": "research/cifar10_teacher/PROTOCOL.md",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "de7f9ed14ad5d115069d6823bbca32b25104dfe1",
+      "sha256": "f9bb7ee2e141545bc46a7ac070b832ee08160b17680fe8c1618b6bdf8a11afaa",
+      "bytes": 4573
+    },
+    {
+      "path": "research/cifar10_teacher/model.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "d7f2320b5210a17d482f1553ca5cf3433d183e92",
+      "sha256": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+      "bytes": 1403
+    },
+    {
+      "path": "research/cifar10_teacher/run.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "03a6c2d0f3caf184692210f8833a5b0fed878560",
+      "sha256": "542da4413e22d968a8f7ff1c1010608952cae4ae8a7a6ddfca0e3d6df8eba798",
+      "bytes": 17676
+    },
+    {
+      "path": "research/cifar10_teacher/test_synthetic.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "af6361e171b9c84f11411a0744bf2d28748d798a",
+      "sha256": "3c26388998a93881d65691d89350227b1ab89585b8326e3137439bf037088f3d",
+      "bytes": 5205
     }
   ],
   "remaining_pending": [
     "Binary training traces, captured tensors and serialized model artifacts",
     "Additional metadata, archived-primary snapshots, source/control dependencies and packaging repair not included in this bounded text layer",
     "Audits retaining original scratch paths require separately documented adaptation; this branch is not yet a standalone reproduction package"
-  ]
+  ],
+  "cifar_status": {
+    "snapshot": "2026-10-26T09:19Z",
+    "preflight": "PENDING: data download/runtime preflight not yet complete; no result included",
+    "teacher": "NOT RUN; provisional preparation and synthetic checks only; no quality or Canaria result"
+  }
 }
