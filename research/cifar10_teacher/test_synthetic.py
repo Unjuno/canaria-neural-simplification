@@ -1,5 +1,11 @@
 """Synthetic-only tests; never download, decode or evaluate real CIFAR."""
 import copy
+import io
+import pickle
+import json
+import time
+import subprocess
+import sys
 import pathlib
 import random
 import tempfile
@@ -29,6 +35,59 @@ class SyntheticTests(unittest.TestCase):
             self.assertEqual(len(a),len(b))
             for x,y in zip(a,b): self.assert_nested_equal(x,y)
         else: self.assertEqual(a,b)
+
+    def test_safe_loader_rejects_unregistered_objects(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp)/'state.ckpt'
+            buf = io.BytesIO(); torch.save({'unexpected': pathlib.Path('/not-opened')},buf)
+            payload = buf.getvalue()
+            path.write_bytes(b'CANARIA1\n'+hashlib.sha256(payload).hexdigest().encode()+b'\n'+payload)
+            with self.assertRaises(pickle.UnpicklingError): self.trainer().restore(path)
+
+    def test_overflow_keeps_last_good_checkpoint(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp)/'state.ckpt'; t = self.trainer(); t.save(path)
+            original = path.read_bytes()
+            def overflowing_step():
+                with torch.no_grad(): next(t.model.parameters()).fill_(float('inf'))
+            t.opt.step = overflowing_step
+            with self.assertRaises(FloatingPointError): t.step(3)
+            self.assertEqual(t.cursor,0)
+            with self.assertRaises(FloatingPointError): t.save(path)
+            self.assertEqual(original,path.read_bytes())
+            # Buffers and optimizer momentum are independently protected too.
+            q = self.trainer()
+            q.model.bn.running_mean[0] = float('nan')
+            with self.assertRaises(FloatingPointError): q.save(path)
+            q = self.trainer(); q.step(3)
+            next(iter(q.opt.state.values()))['momentum_buffer'].fill_(float('inf'))
+            with self.assertRaises(FloatingPointError): q.save(path)
+            self.assertEqual(original,path.read_bytes())
+
+    def test_expired_resume_rejected_before_numerical_imports(self):
+        from .launch import absolute_expiry, DEADLINE
+        with self.assertRaises(TimeoutError): absolute_expiry(time.time()-36001,time.time())
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp); out = root/'out'; out.mkdir(); src = root/'absent-data'
+            started = time.time()-36001
+            (out/'launch.json').write_text(json.dumps(dict(schema=1,seed=26102601,started=started,
+                absolute_expiry=min(DEADLINE,started+36000),preflight_artifacts=str(src))))
+            code = """import sys
+from research.cifar10_teacher.launch import bootstrap
+try:
+    bootstrap()
+except TimeoutError:
+    assert 'torch' not in sys.modules and 'numpy' not in sys.modules
+    print('expired-before-numerical-imports')
+else:
+    raise AssertionError('Expired resume admitted')
+"""
+            result = subprocess.run([sys.executable,'-c',code,'--execute-provisional-plan',
+                '--preflight-artifacts',str(src),'--output',str(out),'--seed','26102601','--resume'],
+                capture_output=True,text=True,timeout=10)
+            self.assertEqual(result.returncode,0,result.stderr)
+            self.assertIn('expired-before-numerical-imports',result.stdout)
 
     def test_portable_identity(self):
         import hashlib

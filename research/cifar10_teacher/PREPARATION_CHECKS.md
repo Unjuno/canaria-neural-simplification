@@ -37,3 +37,16 @@ implementation or execution. Export requires separate complete adequacy metrics
 before downstream admission. Six synthetic-only tests passed in0.970s at
 2026-10-26T09:14:21Z, including portable hash encoding checks and exact resume.
 Preflight worker confirmed download-only/below130MiB before these brief tests.
+
+## Static-review corrections (tests pending quiet window)
+
+Addressed original resume deadline bootstrap, post-update model/buffer/optimizer
+finite protection, and restricted weights-only checkpoint loading. Added tests
+for expired resume rejection before numerical imports, unsupported object rejection,
+and preserving last-good checkpoints after parameter/buffer/momentum corruption.
+These new tests have NOT yet run: preflight benchmark has priority; no CPU tests
+will run until parent/worker confirms its timing window has ended.
+
+Preflight worker confirmed timing ended2026-10-26T09:23:38Z. Subsequently all
+NINE synthetic-only tests passed in1.265s, completed09:24:26Z, including all
+three new blocker regressions. No real dataset access or formal training.

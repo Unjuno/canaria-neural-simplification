@@ -693,6 +693,159 @@
       "bytes": 24
     },
     {
+      "path": "research/cifar10_teacher/model.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "d7f2320b5210a17d482f1553ca5cf3433d183e92",
+      "sha256": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+      "bytes": 1403
+    },
+    {
+      "path": "research/cifar10_preflight/RESULT.md",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "c693cf2afedc8c1da68be97dae874bf8822778c7",
+      "sha256": "0972cdfeb51bbf3bac52425c24f7c7064cce94d6af28ac7c84b11d0a77b0beae",
+      "bytes": 2952
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/INDEPENDENT_REVIEW.md",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "a995a369c1a3c430490718e021399266fedd5043",
+      "sha256": "51154cd95deb453eb1cc36c4ef358f16e6fed1cf29febde5b124a2219b7be766",
+      "bytes": 825
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/SHA256.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "7d6dfe1f959fb813e18418db2604f3caf8c2df6a",
+      "sha256": "496ce9f245a8cb73d907e56aeab24253cefdf5220c584250745e0378d5834f6d",
+      "bytes": 1002
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/code_commit.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "4e56afa609161085b53279df4bcf1adc1df01efe",
+      "sha256": "1fc21cfb1e3f8213f02a29ab8ac6454a39e78172f9cfdef8d5b14324d3095f9c",
+      "bytes": 41
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/data_manifest.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "e4e2f2b6251a5a4f9ffdd95c8e1ff8484f840200",
+      "sha256": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+      "bytes": 2367
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/dependencies.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "a030543197d7a78c1d1fe51f0e8781c0b990f3c5",
+      "sha256": "024f2902979ab442f5048c5f6302b6d78506c03252f2b6e450056355a280c7bf",
+      "bytes": 255
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/events.jsonl",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "c5f8d8538d7146281da6e5fe5b6c6a8fb336061e",
+      "sha256": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+      "bytes": 11940
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/metrics.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "1c558a901f26640b247433fb2f0719d70f9905bc",
+      "sha256": "3c49e1b69f6b35da083c51d194bdfb150bb1411519b535aaf2cfb70b6c21165d",
+      "bytes": 2401
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/source_sha256.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "021bc1ac7736da1ae5e29b94776cd54e716ff76b",
+      "sha256": "57f0ae250b6a6c577d882de3da6da3be1c58f9ecc5cd5bd9778706db9a7c12d2",
+      "bytes": 205
+    },
+    {
+      "path": "research/cifar10_teacher/PREPARATION_CHECKS.md",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "dcef82452c4d3e01c29c86bc8aa480669875732c",
+      "sha256": "df01f5589a72aef39d65c786f840632c33c42a2569e5a68e3dfa9a004519d38c",
+      "bytes": 3093
+    },
+    {
+      "path": "research/cifar10_teacher/PROTOCOL.md",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "b1c950618a029ea52030e4b995d4187aa64cd0bb",
+      "sha256": "6c9919c76d2ba5282fc7bbe46300a5b8cd22e236ff3a6578bd2a2ba5a54eae94",
+      "bytes": 5421
+    },
+    {
+      "path": "research/cifar10_teacher/launch.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "a4934384cb6426772adfe7fffe284779904837a7",
+      "sha256": "3867ea882b2c0f13334de7063236b7dc9b265cbf8a4b7927f8b96236ec39b6b0",
+      "bytes": 3242
+    },
+    {
+      "path": "research/cifar10_teacher/run.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "5adb6e7bd60b2e938b1080078328ee1b43d5e4bf",
+      "sha256": "f33a9ebecf9fd5e7b59169c3771be324f7c5c7441d208a0dfd49986811f19fb6",
+      "bytes": 17906
+    },
+    {
+      "path": "research/cifar10_teacher/test_synthetic.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "27bb0e11c42d6434d3a82ef385977160afc56ed9",
+      "sha256": "89b7a1dcbad7b9335d93f8fb59e10d40bdad150f93ad8bc5d9bbb6bb894ce26d",
+      "bytes": 8193
+    },
+    {
+      "path": "research/cifar10_teacher/EXECUTION_PROTOCOL.json",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "923407751f6d10b7c72ba6823dae18dd39144186",
+      "sha256": "904353458c41c5c03e0671f14a0ed4798b975ed65ba8c2e54faa1a7565cd39e5",
+      "bytes": 3938
+    }
+  ],
+  "remaining_pending": [
+    "Binary training traces, captured tensors and serialized model artifacts",
+    "Additional metadata, archived-primary snapshots, source/control dependencies and packaging repair not included in this bounded text layer",
+    "Audits retaining original scratch paths require separately documented adaptation; this branch is not yet a standalone reproduction package"
+  ],
+  "cifar_status": {
+    "snapshot_utc": "2026-10-26T09:32:00Z",
+    "preflight": "PASS_DATA_RUNTIME_ONLY_NO_QUALITY_RESULT",
+    "teachers": {
+      "26102601": "RUNNING_QUALITY_PENDING",
+      "26102602": "RUNNING_QUALITY_PENDING",
+      "26102603": "QUEUED"
+    },
+    "execution_protocol_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+    "launch_records": {
+      "26102601": {
+        "immutable_launch": {
+          "schema": 1,
+          "seed": 26102601,
+          "started": 1793006962.6811554,
+          "absolute_expiry": 1793042962.6811554,
+          "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+        },
+        "source_sha256": "70cb39adf75797066288c82260d81e83992ad3eb478be67ba943c945033db919"
+      },
+      "26102602": {
+        "immutable_launch": {
+          "schema": 1,
+          "seed": 26102602,
+          "started": 1793006979.15931,
+          "absolute_expiry": 1793042979.15931,
+          "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+        },
+        "source_sha256": "b5da9d48955254d4cc2666735178afc67a51209d414cb7cc2a3d639d17fba78e"
+      }
+    },
+    "limits": "Fixed 120 epochs; final-only validation >=85%; maximum two workers; original 10h per-seed caps and 2026-10-29T06:50Z deadline; no official test evaluation",
+    "evidence_scope": "Status snapshot from parent process monitoring; immutable launch records preserved, no mutable log tail or checkpoint uploaded. No completed teacher or Canaria outcomes."
+  },
+  "superseded_files": [
+    {
       "path": "research/cifar10_teacher/PREPARATION_CHECKS.md",
       "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
       "source_blob": "d9b0b952a7529252b44753f669d66df77100103f",
@@ -705,13 +858,6 @@
       "source_blob": "de7f9ed14ad5d115069d6823bbca32b25104dfe1",
       "sha256": "f9bb7ee2e141545bc46a7ac070b832ee08160b17680fe8c1618b6bdf8a11afaa",
       "bytes": 4573
-    },
-    {
-      "path": "research/cifar10_teacher/model.py",
-      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
-      "source_blob": "d7f2320b5210a17d482f1553ca5cf3433d183e92",
-      "sha256": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
-      "bytes": 1403
     },
     {
       "path": "research/cifar10_teacher/run.py",
@@ -728,14 +874,14 @@
       "bytes": 5205
     }
   ],
-  "remaining_pending": [
-    "Binary training traces, captured tensors and serialized model artifacts",
-    "Additional metadata, archived-primary snapshots, source/control dependencies and packaging repair not included in this bounded text layer",
-    "Audits retaining original scratch paths require separately documented adaptation; this branch is not yet a standalone reproduction package"
-  ],
-  "cifar_status": {
-    "snapshot": "2026-10-26T09:19Z",
-    "preflight": "PENDING: data download/runtime preflight not yet complete; no result included",
-    "teacher": "NOT RUN; provisional preparation and synthetic checks only; no quality or Canaria result"
-  }
+  "derived_files": [
+    {
+      "path": "research/cifar10_preflight/evidence/step_seconds.json",
+      "note": "200 timing floats derived exactly from retained NPY, whose SHA256 is embedded"
+    },
+    {
+      "path": "research/cifar10_teacher/STATUS_20261026_0932.json",
+      "note": "09:32 UTC status snapshot plus immutable launch records"
+    }
+  ]
 }

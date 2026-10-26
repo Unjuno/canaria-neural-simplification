@@ -36,12 +36,19 @@ Atomic SHA256-enveloped checkpoints after each completed epoch and every five
 minutes at completed minibatch boundaries, plus final checkpoint. Persist model,
 optimizer, Python/global NumPy/PyTorch RNG, PCG64 augmentation/shuffle RNG, current
 permutation/cursor, completed epochs, train indices, normalization and binding.
-Local trusted checkpoint only (torch pickle is not safe for untrusted files).
+Checkpoint schema2 uses tensors and primitive structures only; NumPy RNG keys
+and permutations are lists reconstructed under a controlled schema. Loading uses
+`torch.load(weights_only=True)` exclusively, with no custom-global allowlist or
+unsafe fallback. Treat artifact origins/integrity as untrusted until verified.
 SIGTERM/SIGINT pause at next batch boundary and checkpoint. Failure mid-batch
 retains last good checkpoint, never serializes partially applied updates.
 
-10h per-seed wall-clock cap measured from first process launch, including data
-loading and downtime across resumes. Absolute research deadline
+10h per-seed wall-clock cap measured from the early stdlib bootstrap timestamp,
+including numerical-library imports, data loading and downtime across resumes.
+An exclusive durable `launch.json` is created once before numerical imports;
+resume reads that original timestamp and arms its original absolute expiry
+before numerical imports or any dataset access. Expired resume is rejected
+without decoding data. Checkpoint timestamp must agree with the launch record. Absolute research deadline
 2026-10-29T06:50:00Z. Checks at batch/validation boundaries plus kernel-default SIGALRM hard termination
 at the earlier cap. Hard termination retains the last atomic checkpoint; it
 never saves partially applied native operations. No subsequent batch may start
@@ -69,3 +76,7 @@ model configuration, all three split identities, normalization, and environment.
 This does not authorize any comparison or evaluation. Consumers must also require
 completed `metrics.json` and its adequacy gate; export presence alone means the
 fixed checkpoint exists, not that final validation succeeded or passed.
+
+Post-update finite checks cover every model parameter/buffer and optimizer tensor/scalar
+before advancing the cursor. Checkpoint save repeats these checks. Overflow never
+overwrites the last good checkpoint. Schema1 preparation checkpoints are not accepted.

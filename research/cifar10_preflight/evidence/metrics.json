@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "parameters": 269722,
+  "finite_checks_passed": true,
+  "timed_steps": 200,
+  "timed_seconds": 40.72242438304238,
+  "steps_per_second": 4.91129894720325,
+  "images_per_second": 628.646265242016,
+  "step_seconds_quantiles": [
+    0.15104363701539114,
+    0.20664591700187884,
+    0.23240872770547866,
+    0.27327241099555977
+  ],
+  "teacher_120epoch_3seed_updates": 112680,
+  "projected_teacher_3seed_seconds": 22943.013897406076,
+  "projected_teacher_per_seed_seconds": 7647.671299135359,
+  "projection_excludes": "validation/checkpoint/epoch-boundary overhead; timings include finite checks",
+  "preflight_elapsed_seconds": 2100.3437349796295,
+  "remaining_72h_after_preflight_and_projected_teachers_seconds": 234156.6423676143,
+  "memory": {
+    "proc_meminfo": "MemTotal:       10206484 kB\nMemFree:         7062336 kB\nMemAvailable:    8521228 kB\nBuffers:           33100 kB\nCached:          1612840 kB\nSwapCached:            0 kB\nActive:           619548 kB\nInactive:        1974124 kB\nActive(anon):       5508 kB\nInactive(anon):   979712 kB\nActive(file):     614040 kB\nInactive(file):   994412 kB\nUnevictable:       29924 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:              1604 kB\nWriteback:             0 kB\nAnonPages:        977668 kB\nMapped:           338384 kB\nShmem:              7728 kB\nKReclaimable:     159076 kB\nSlab:             218244 kB\nSReclaimable:     159076 kB\nSUnreclaim:        59168 kB\nKernelStack:        6368 kB\nPageTables:        13308 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     5103240 kB\nCommitted_AS:    2872368 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:        7688 kB\nVmallocChunk:          0 kB\nPercpu:             2736 kB\nAnonHugePages:    153600 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:     45056 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      141312 kB\nDirectMap2M:     6862848 kB\nDirectMap1G:    19922944 kB\n",
+    "maxrss_kib": 850968
+  },
+  "no_quality_inference": true,
+  "no_validation_or_test_evaluation": true
+}

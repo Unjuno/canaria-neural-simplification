@@ -1,0 +1,13 @@
+{
+  "code_commit.txt": "1fc21cfb1e3f8213f02a29ab8ac6454a39e78172f9cfdef8d5b14324d3095f9c",
+  "dependencies.txt": "024f2902979ab442f5048c5f6302b6d78506c03252f2b6e450056355a280c7bf",
+  "source_sha256.txt": "57f0ae250b6a6c577d882de3da6da3be1c58f9ecc5cd5bd9778706db9a7c12d2",
+  "events.jsonl": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+  "stdout.log": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+  "metrics.json": "3c49e1b69f6b35da083c51d194bdfb150bb1411519b535aaf2cfb70b6c21165d",
+  "data_manifest.json": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+  "teachertrain_indices.npy": "f9347f8a0c11b08c9f66c93274822e423136ce4ebbe280a48ffa9989499b57e8",
+  "calibration_indices.npy": "f89d7cbf9d9c0aa3eb0d07d54b93a4f1ce7aad23a3e0dfa19f8c4f9efbb7bc57",
+  "validation_indices.npy": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83",
+  "step_seconds.npy": "c363d2a14c20cef499721a42476da0cb69e25317e977c2db10a687a65d502222"
+}

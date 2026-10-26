@@ -1,4 +1,9 @@
 """PROVISIONAL: explicit invocation only, no downloads and no official test decoding."""
+# Bootstrap must precede ALL numerical imports on executable entry.
+_BOOT = None
+if __name__ == '__main__':
+    from .launch import bootstrap
+    _BOOT = bootstrap()
 import os
 for _key in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):
     os.environ[_key] = '4'
@@ -60,8 +65,8 @@ def configure(seed):
     torch.manual_seed(seed)
 
 def environment():
-    return dict(python=platform.python_version(), torch=torch.__version__, numpy=np.__version__,
-                source_sha256=sha(pathlib.Path(__file__).read_bytes()+pathlib.Path(__file__).with_name('model.py').read_bytes()),
+    return dict(python=platform.python_version(), torch=str(torch.__version__), numpy=np.__version__,
+                source_sha256=sha(pathlib.Path(__file__).read_bytes()+pathlib.Path(__file__).with_name('model.py').read_bytes()+pathlib.Path(__file__).with_name('launch.py').read_bytes()),
                 machine=platform.machine(), platform=platform.platform(), threads=torch.get_num_threads(),
                 interop=torch.get_num_interop_threads(), deterministic=torch.are_deterministic_algorithms_enabled(),
                 thread_env={k: os.environ[k] for k in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS','NUMEXPR_NUM_THREADS')})
@@ -173,22 +178,39 @@ class Trainer:
         loss.backward()
         if not all(p.grad is not None and torch.isfinite(p.grad).all() for p in self.model.parameters()):
             raise FloatingPointError('Non-finite/missing gradients')
-        self.opt.step(); self.cursor += len(ids)
+        self.opt.step()
+        self.assert_finite_state()
+        self.cursor += len(ids)
         completed = self.cursor == len(self.order)
         if completed:
             self.epoch += 1; self.cursor = 0
             self.order = self.rng.permutation(self.train) if self.epoch < 120 else np.array([], dtype=np.int64)
         return completed
 
+    def assert_finite_state(self):
+        def visit(value):
+            if torch.is_tensor(value):
+                if not torch.isfinite(value).all(): raise FloatingPointError('Non-finite model/optimizer state')
+            elif isinstance(value, dict):
+                for item in value.values(): visit(item)
+            elif isinstance(value, (list, tuple)):
+                for item in value: visit(item)
+            elif isinstance(value, float):
+                if not np.isfinite(value): raise FloatingPointError('Non-finite optimizer scalar')
+        visit(self.model.state_dict()); visit(self.opt.state_dict())
+
     def state(self):
-        return dict(schema=1, spec=SPEC, seed=self.seed, binding=self.binding, environment=self.env,
+        numpy_rng = np.random.get_state()
+        numpy_safe = [numpy_rng[0], numpy_rng[1].tolist(), int(numpy_rng[2]), int(numpy_rng[3]), float(numpy_rng[4])]
+        return dict(schema=2, spec=SPEC, seed=self.seed, binding=self.binding, environment=self.env,
                     evaluator_identity=self.identity,
                     started=self.started, model=self.model.state_dict(), optimizer=self.opt.state_dict(),
-                    epoch=self.epoch, cursor=self.cursor, order=self.order, train=self.train,
-                    mean=self.mean, std=self.std, python_rng=random.getstate(), numpy_rng=np.random.get_state(),
+                    epoch=self.epoch, cursor=self.cursor, order=self.order.tolist(), train=self.train.tolist(),
+                    mean=self.mean, std=self.std, python_rng=random.getstate(), numpy_rng=numpy_safe,
                     augmentation_shuffle_rng=self.rng.bit_generator.state, torch_rng=torch.get_rng_state())
 
     def save(self, path):
+        self.assert_finite_state()
         buf = io.BytesIO(); torch.save(self.state(), buf); payload = buf.getvalue()
         # One atomic envelope avoids checkpoint/sidecar torn-pair races.
         blob = b'CANARIA1\n'+sha(payload).encode()+b'\n'+payload
@@ -202,19 +224,22 @@ class Trainer:
     def restore(self, path):
         magic, digest, payload = path.read_bytes().split(b'\n', 2)
         if magic != b'CANARIA1' or sha(payload).encode() != digest: raise ValueError('Checkpoint integrity failure')
-        # Trusted local checkpoint only: torch serialization includes NumPy RNG state.
-        s = torch.load(io.BytesIO(payload), map_location='cpu', weights_only=False)
-        if not (s['schema'] == 1 and s['spec'] == SPEC and s['seed'] == self.seed and s['binding'] == self.binding
+        # Restricted tensor/primitive ingestion; no custom globals or pickle fallback.
+        s = torch.load(io.BytesIO(payload), map_location='cpu', weights_only=True)
+        if not (s['schema'] == 2 and s['spec'] == SPEC and s['seed'] == self.seed and s['binding'] == self.binding
                 and s['environment'] == self.env and s['evaluator_identity'] == self.identity and np.array_equal(s['train'], self.train)
                 and torch.equal(s['mean'], self.mean) and torch.equal(s['std'], self.std)):
             raise ValueError('Checkpoint protocol/data/environment mismatch')
-        epoch, cursor, order = s['epoch'], s['cursor'], s['order']
+        epoch, cursor, order = s['epoch'], s['cursor'], np.asarray(s['order'], dtype=np.int64)
         if not (0 <= epoch <= 120 and (epoch != 120 or (cursor == 0 and len(order) == 0))
                 and (epoch == 120 or (0 <= cursor < len(order) and np.array_equal(np.sort(order), np.sort(self.train))))):
             raise ValueError('Invalid dataloader cursor/order')
         self.model.load_state_dict(s['model']); self.opt.load_state_dict(s['optimizer'])
         self.epoch, self.cursor, self.order, self.started = epoch, cursor, order, s['started']
-        random.setstate(s['python_rng']); np.random.set_state(s['numpy_rng'])
+        self.assert_finite_state()
+        nr = s['numpy_rng']
+        if not (len(nr) == 5 and nr[0] == 'MT19937' and len(nr[1]) == 624): raise ValueError('Invalid NumPy RNG schema')
+        random.setstate(s['python_rng']); np.random.set_state((nr[0], np.asarray(nr[1], dtype=np.uint32), nr[2], nr[3], nr[4]))
         self.rng.bit_generator.state = s['augmentation_shuffle_rng']; torch.set_rng_state(s['torch_rng'])
 
     def validate_final(self, ids, check=lambda: None):
@@ -231,34 +256,19 @@ class Trainer:
         return dict(correct=correct, n=len(ids), accuracy=correct/len(ids), adequate=correct/len(ids) >= .85)
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--execute-provisional-plan', action='store_true', help='Parent must announce/finalize plan before use')
-    p.add_argument('--preflight-artifacts', type=pathlib.Path, required=True)
-    p.add_argument('--output', type=pathlib.Path, required=True)
-    p.add_argument('--seed', type=int, choices=SEEDS, required=True)
-    p.add_argument('--resume', action='store_true')
-    args = p.parse_args()
-    if not args.execute_provisional_plan: p.error('Execution gate required; preparation does not authorize training')
+    if _BOOT is None: raise RuntimeError('Use python -m research.cifar10_teacher.run; stdlib bootstrap required')
+    args = _BOOT['args']
     actual = dict(python=platform.python_version(), torch=str(torch.__version__), numpy=np.__version__)
     if actual != PINNED: raise RuntimeError(f'Pinned runtime required: {PINNED}; actual: {actual}')
-    if time.time() >= DEADLINE: raise TimeoutError('Research deadline reached')
     src, out = args.preflight_artifacts.resolve(), args.output.resolve()
-    if out == src or src in out.parents or out in src.parents: raise ValueError('Output must be separate from preflight artifacts')
-    out.mkdir(parents=True, exist_ok=True)
-    lock = (out/'.runner.lock').open('a')
-    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    if not args.resume and any(p.name != '.runner.lock' for p in out.iterdir()): raise ValueError('Fresh output must be empty')
-    launch = time.time()
-    # Kernel-delivered default SIGALRM terminates even during a long native op.
-    # Never checkpoint a potentially half-applied update on hard expiry.
-    signal.signal(signal.SIGALRM, signal.SIG_DFL)
-    signal.setitimer(signal.ITIMER_REAL, max(.001, min(DEADLINE, launch+10*3600)-time.time()))
+    launch = _BOOT['started']
+    if time.time() >= _BOOT['expiry']: raise TimeoutError('Original launch cap exhausted')
     x, y, splits, mean, std, binding = load_data(src)
     trainer = Trainer(x, y, splits['teachertrain'], mean, std, args.seed, binding, evaluator_identity(splits, mean, std))
     trainer.started = launch
     checkpoint = out/'latest.ckpt'
     if args.resume: trainer.restore(checkpoint)
-    signal.setitimer(signal.ITIMER_REAL, max(.001, min(DEADLINE, trainer.started+10*3600)-time.time()))
+    if trainer.started != launch: raise ValueError('Checkpoint and original launch timestamp disagree')
     def check():
         if STOP: raise InterruptedError('Signal requested checkpoint and pause')
         if time.time() >= min(DEADLINE, trainer.started+10*3600): raise TimeoutError('Per-seed/deadline cap reached')
