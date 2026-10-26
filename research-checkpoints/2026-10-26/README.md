@@ -14,3 +14,7 @@ No universal halving law, whole-model halving, general RAM/energy/GPU improvemen
 ## Publication controls
 
 Based on main c7fd4fb701064c9aeef5cc8109231d884e5258aa. All four workflow files were inspected before publication: repository-audit has push/pull_request triggers; the other three are workflow_dispatch-only. This commit uses [skip ci] and the new research branch is created directly at that commit. No PR or workflow dispatch is requested, and workflow settings/files remain unchanged. Post-write branch/hash and Actions readback are recorded separately by the publisher.
+
+## Second checkpoint layer
+
+The inventory now also includes all 16 R87R2 actual outcome objects, its known bridge and decision, all eight Phase4 actual cohort records and decision, frozen protocols, selected source/auditor files, and all 28 pilot/extension raw timing probe JSON files. Native-cost harness source is preserved with protocol records. These are original bytes, not new trials or stronger scientific claims. This remains a partial research evidence bundle: binary traces, captures/model artifacts and additional source/control dependencies are pending. Preserved scripts may depend on original scratch paths or missing companion files. **Do not treat this branch as a standalone runnable reproduction package.** The source/blob/SHA-256 inventory distinguishes exact included files from the remaining local bundle.
