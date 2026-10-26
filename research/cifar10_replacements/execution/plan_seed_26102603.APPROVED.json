@@ -1,0 +1,39 @@
+{
+  "absolute_deadline": 1793256600.0,
+  "execution_protocol_sha256": "05235e57d92e7d07e908c27e551952151d639c6fc60796a2e570fe652bba0f1c",
+  "global_science_threads": 8,
+  "interop_threads": 1,
+  "max_replacement_workers": 1,
+  "official_test": "sealed",
+  "per_teacher_cap_seconds": 7200,
+  "planned_seeds": [
+    26102601,
+    26102602,
+    26102603
+  ],
+  "preflight": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts",
+  "reviewed_source_commit": "7a3046da9033d2b87b634d791585f480925edccc",
+  "runs": {
+    "26102603": {
+      "output": "/workspace/shared/canaria_cifar_replacement_runs_20261026/research/cifar10_replacements/artifacts/seed_26102603",
+      "teacher_checkpoint": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102603/final_epoch120.ckpt",
+      "teacher_checkpoint_sha256": "0052d8aab50595068454ddc6080e2a6c0e18c43a93dbf0ab37f657a7a9ff407d",
+      "teacher_export": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102603/teacher_export.json",
+      "teacher_export_sha256": "33cb66f88b8aca92be037e1f285517dc5103e8ca9c7374d46c8ff48130cd69b3",
+      "teacher_metrics": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102603/metrics.json",
+      "teacher_metrics_sha256": "c9ab2e27a560c5beda4d13c68bbe709035956d3cd1877a672f7a1fadb2d2532c"
+    }
+  },
+  "schema": 1,
+  "source_sha256": {
+    "research/cifar10_replacements/core.py": "5d9480663f638effa5b87a057767462b601362129e946486ef3778f86dc9fef4",
+    "research/cifar10_replacements/data.py": "8601856ce86db26f6d256b875c1d5ec90137d3f0048b3d05c9f7524a624754f1",
+    "research/cifar10_replacements/entry.py": "02fc8a1d268540425f720425bccb564c29bb8ee396c8de53bb9120d405f0e54a",
+    "research/cifar10_replacements/launch.py": "ae806d47ba3a8b18ae9a939f7c7b1a6c08db65878d20a4e6c917c8bb94410aa4",
+    "research/cifar10_replacements/runtime.py": "33706b3c734d88c2bc4305b3416fd1f88744591f96b24b0a21b4c5019f321715",
+    "research/cifar10_teacher/model.py": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6"
+  },
+  "status": "parent-approved-and-user-announced",
+  "threads": 4,
+  "updates": 1000
+}
