@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Semantic validator additionally rejects duplicate JSON fields, duplicate IDs/source paths, unsafe paths and input symlinks. SHA values bind bytes, not permission or selection provenance.",
+  "properties": {
+    "cohort_size": {
+      "const": 16
+    },
+    "models": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "arms": {
+            "additionalProperties": false,
+            "properties": {
+              "C": {
+                "additionalProperties": false,
+                "properties": {
+                  "budget": {
+                    "enum": [
+                      512,
+                      1024,
+                      1536,
+                      2048,
+                      3072,
+                      4096,
+                      6144
+                    ],
+                    "type": "integer"
+                  },
+                  "file_sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "path": {
+                    "pattern": "^[A-Za-z0-9_-][A-Za-z0-9_.-]*(/[A-Za-z0-9_-][A-Za-z0-9_.-]*)*\\.npz$",
+                    "type": "string"
+                  },
+                  "state_sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "file_sha256",
+                  "state_sha256",
+                  "budget"
+                ],
+                "type": "object"
+              },
+              "J": {
+                "additionalProperties": false,
+                "properties": {
+                  "budget": {
+                    "enum": [
+                      512,
+                      1024,
+                      1536,
+                      2048,
+                      3072,
+                      4096,
+                      6144
+                    ],
+                    "type": "integer"
+                  },
+                  "file_sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "path": {
+                    "pattern": "^[A-Za-z0-9_-][A-Za-z0-9_.-]*(/[A-Za-z0-9_-][A-Za-z0-9_.-]*)*\\.npz$",
+                    "type": "string"
+                  },
+                  "state_sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "file_sha256",
+                  "state_sha256",
+                  "budget"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "C",
+              "J"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "maximum": 15,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "teacher": {
+            "additionalProperties": false,
+            "properties": {
+              "file_sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "path": {
+                "pattern": "^[A-Za-z0-9_-][A-Za-z0-9_.-]*(/[A-Za-z0-9_-][A-Za-z0-9_.-]*)*\\.npz$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "file_sha256"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "teacher",
+          "arms"
+        ],
+        "type": "object"
+      },
+      "maxItems": 16,
+      "minItems": 16,
+      "type": "array"
+    },
+    "schema": {
+      "const": "canaria.selected-whole-storage.v1"
+    },
+    "selection_origin_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "cohort_size",
+    "selection_origin_sha256",
+    "models"
+  ],
+  "title": "Frozen selected whole-model storage handoff",
+  "type": "object"
+}

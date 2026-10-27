@@ -1,0 +1,95 @@
+{
+  "all_safety_checks_explicit_not_asserts": true,
+  "bundled_array_payload_files": 0,
+  "candidate_executed": false,
+  "candidate_imported": false,
+  "network_or_install": false,
+  "not_established": [
+    "runtime compatibility",
+    "executed test outcome",
+    "historical selection provenance from unpublished artifacts",
+    "byte equality with historical archives",
+    "scientific reproduction",
+    "new execution authority"
+  ],
+  "original_exact_function_asts": [
+    "shapes_teacher",
+    "state_hash"
+  ],
+  "private_path_pattern_hits": 0,
+  "real_array_or_model_reads": false,
+  "required_cohort_teachers": 16,
+  "required_output_archives": 96,
+  "required_source_files": 48,
+  "schema": "canaria.storage-source-static-validation.v1",
+  "scientific_rerun": false,
+  "scope": "stdlib-only AST, text, JSON, hashes and source comparisons",
+  "serializer_writer_ast_equal_after_only_exclusive_open_mode_normalization": true,
+  "source_import_inventory": {
+    "manifest_contract.py": [
+      "__future__",
+      "hashlib",
+      "json",
+      "pathlib",
+      "re"
+    ],
+    "measure.py": [
+      "__future__",
+      "argparse",
+      "csv",
+      "hashlib",
+      "json",
+      "manifest_contract",
+      "math",
+      "os",
+      "pathlib",
+      "platform",
+      "resource",
+      "signal",
+      "storage_codec",
+      "sys",
+      "zlib"
+    ],
+    "storage_codec.py": [
+      "hashlib",
+      "io",
+      "json",
+      "numpy",
+      "pathlib",
+      "zipfile"
+    ],
+    "test_storage.py": [
+      "copy",
+      "hashlib",
+      "io",
+      "json",
+      "manifest_contract",
+      "measure",
+      "numpy",
+      "pathlib",
+      "storage_codec",
+      "tempfile",
+      "unittest",
+      "zipfile"
+    ]
+  },
+  "test_method_names": [
+    "test_valid_artificial_manifest",
+    "test_id_count_duplicate_bool_and_unknown_fields",
+    "test_path_and_digest_mismatches",
+    "test_budget_and_arm_census",
+    "test_manifest_digest_and_duplicate_json_fields",
+    "test_symlinks_forbidden",
+    "test_determinism_reference_roundtrip_and_metadata",
+    "test_archive_collision_never_overwrites",
+    "test_source_hash_shape_dtype_finite_keys",
+    "test_assembly_whole_model_denominator",
+    "test_existing_output_rejected_before_manifest_or_numerical_import",
+    "test_output_not_in_input_or_package_tree",
+    "test_complete_artificial_cohort_48_models_96_archives",
+    "test_logical_mismatch_retains_failure_and_incomplete_denominator",
+    "test_geometric_not_arithmetic_summary"
+  ],
+  "test_methods_supplied": 15,
+  "tests_executed": false
+}
