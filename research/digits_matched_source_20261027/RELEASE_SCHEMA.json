@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canaria matched NEW replication release, version 1",
+  "description": "Schema only, not a release or authority. Private operator/reviewer provenance must not be published.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "replication_id",
+    "evidence_class",
+    "historical_attempt",
+    "custody_attestation",
+    "parent_approved",
+    "independent_review",
+    "reviewer",
+    "approval_evidence",
+    "package_sha256",
+    "files",
+    "deadline_utc"
+  ],
+  "properties": {
+    "contract": {
+      "const": "canaria.matched-replication.v1"
+    },
+    "replication_id": {
+      "type": "string",
+      "pattern": "^replication-[a-z0-9][a-z0-9-]{0,63}$"
+    },
+    "evidence_class": {
+      "const": "new-replication-on-seen-digits"
+    },
+    "historical_attempt": {
+      "const": "CLOSED_NOT_REOPENED"
+    },
+    "custody_attestation": {
+      "const": "SINGLE_DURABLE_ROOT_NO_PRIOR_ATTEMPT_NO_RETRY"
+    },
+    "parent_approved": {
+      "const": true
+    },
+    "independent_review": {
+      "const": "GO"
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "description": "Exact key set and file contents are checked against portable_contract.REQUIRED_FILES, not merely this structural schema."
+    },
+    "deadline_utc": {
+      "type": "string",
+      "description": "ISO-8601 with explicit zero UTC offset; runtime rejects expired or non-UTC values."
+    }
+  }
+}

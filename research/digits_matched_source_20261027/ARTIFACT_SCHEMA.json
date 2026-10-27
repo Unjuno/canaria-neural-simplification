@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Matched cohort FILES_SHA256.json relative-path map",
+  "description": "Schema for future generated artifacts, not a distribution of original artifacts. Every key is relative to its manifest directory. The manifest never hashes itself.",
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$"
+  },
+  "additionalProperties": {
+    "type": "string",
+    "pattern": "^[0-9a-f]{64}$"
+  },
+  "x-cohort-layout": {
+    "scientific_root": "artifacts/<replication_id>/",
+    "private_custody_root": "custody/matched/<replication_id>/",
+    "required_complete_seed_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "complete_root_files": [
+      "run_contract.json",
+      "SUMMARY.json",
+      "FILES_SHA256.json"
+    ],
+    "per_seed_root": [
+      "seed_<id>.log",
+      "seed_<id>_EXIT.json"
+    ],
+    "per_seed_scientific_directory": "seed_<id>/",
+    "private_records_not_for_publication": [
+      "claim.json",
+      "cohort.json",
+      "seed_<id>.started.json",
+      "FINISHED.json",
+      "full release and live process token information"
+    ]
+  },
+  "x-per-seed-files": {
+    "START.json": "ID, numeric seeds, package identity, file hashes and time; no host/PID identity",
+    "environment.json": "Version/numerical settings and digest of raw torch build text, not host paths",
+    "split_ids.npz": {
+      "train": {
+        "shape": [
+          1077
+        ],
+        "dtype": "int64"
+      },
+      "validation": {
+        "shape": [
+          270
+        ],
+        "dtype": "int64"
+      }
+    },
+    "data_hashes.json": "Named tensor hashes of Xt, yt, Xv, yv, not the dataset bytes",
+    "teacher_initial.npz": "Named float32 Net state tensors before training",
+    "teacher_final.npz": "Named float32 Net state tensors after 60 epochs",
+    "fit_targets.npz": {
+      "a0": {
+        "shape": [
+          1077,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "a1": {
+        "shape": [
+          1077,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "a2": {
+        "shape": [
+          1077,
+          64
+        ],
+        "dtype": "float32"
+      }
+    },
+    "pair_initial.npz": "Shared L/J initialization, four bias-free float32 matrices",
+    "comp_initial.npz": "C initialization, two bias-free float32 matrices",
+    "schedule.npy": {
+      "shape": [
+        600,
+        128
+      ],
+      "dtype": "int64",
+      "bounds": [
+        0,
+        1076
+      ]
+    },
+    "L_final.npz": "Local pair final state",
+    "J_final.npz": "Joint pair final state",
+    "C_final.npz": "Single-map final state",
+    "L_updates.jsonl": "600 ordered update/loss records",
+    "J_updates.jsonl": "600 ordered update/loss records",
+    "C_updates.jsonl": "600 ordered update/loss records",
+    "validation_arrays.npz": {
+      "target": {
+        "shape": [
+          270,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "L_endpoint": {
+        "shape": [
+          270,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "J_endpoint": {
+        "shape": [
+          270,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "C_endpoint": {
+        "shape": [
+          270,
+          64
+        ],
+        "dtype": "float32"
+      },
+      "teacher_logits": {
+        "shape": [
+          270,
+          10
+        ],
+        "dtype": "float32"
+      },
+      "L_logits": {
+        "shape": [
+          270,
+          10
+        ],
+        "dtype": "float32"
+      },
+      "J_logits": {
+        "shape": [
+          270,
+          10
+        ],
+        "dtype": "float32"
+      },
+      "C_logits": {
+        "shape": [
+          270,
+          10
+        ],
+        "dtype": "float32"
+      },
+      "labels": {
+        "shape": [
+          270
+        ],
+        "dtype": "int64"
+      }
+    },
+    "result.json": "Final metrics, raw counts/SSE/centered sums, fit records, identities, elapsed/RSS; no checkpoint selection",
+    "FILES_SHA256.json": "Local basename-to-SHA256 map, excludes itself",
+    "FAILURE.json": "On failure only, retaining exception/census; no automatic retry"
+  }
+}

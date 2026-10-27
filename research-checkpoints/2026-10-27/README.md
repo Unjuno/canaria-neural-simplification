@@ -83,6 +83,8 @@ python analyze_thresholds.py SCALAR_INPUT.json reproduction
 
 入力欠落や不正値を除外して成功例だけを集計せず、エラーとして扱う。予算グリッドで一部の教師・手法に合格候補がなければ、到達範囲を報告し、完了例だけの全体比は作らない。再計算対象の原資料・変換内容・hash は [PROVENANCE.json](../../research/public_checkpoint_20261027/PROVENANCE.json)、[PATH_HASH_MANIFEST.json](../../research/public_checkpoint_20261027/PATH_HASH_MANIFEST.json)、[コードの変換説明](../../research/public_saved_analysis_20261027/TRANSFORMATION.md) を参照。hash の一致は来歴の全保証や独立した実験成功を意味しない。
 
+追加公開：[matched L/J/C のソース一式](../../research/digits_matched_source_20261027/README.md)。別途の独立レビューで合成テスト 27/27 に合格したが、元のモデル・配列・データは含まず、実データによる科学的再実行・独立再現は未実施である。パッケージ内の「実行未検証」等は先行する梱包時点の記録であり、その後の合成テスト合格は full-cohort 実行や数値結果の再現を保証しない。
+
 ## 結論
 
 **固定された小規模 digits 条件では、強い共同学習 J に対しても、単一写像 C の置換部分の初回合格候補予算と条件付き CPU 時間に利点が見られた。ただし、全モデル保存量の差は小さく、CIFAR-10 の品質条件は未達だった。** ここまでを、再計算可能な数表と未確認事項を併記した研究結果として公開する。

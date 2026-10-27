@@ -1,0 +1,195 @@
+{
+  "schema": "canaria.matched-source-map.v1",
+  "public_repository": "Unjuno/canaria-neural-simplification",
+  "public_baseline_commit": "d42dc542a433d3a3554a0f63abe0794a033890c5",
+  "source_only": true,
+  "artifact_payloads_included": false,
+  "candidate_executed": false,
+  "origins": [
+    {
+      "export_path": "runner.py",
+      "source_logical_path": "research/digits_matched_regime/runner.py",
+      "source_sha256": "f9faf359eec05c05ed1e23464160514c409c7eecd578d5e87ffa3fc819ad1b7e",
+      "export_sha256": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13",
+      "transformation": "portable matched-only lifecycle and metadata adaptation; mathematical bodies preserved",
+      "source_present_at_public_pin": false
+    },
+    {
+      "export_path": "test_runner.py",
+      "source_logical_path": "research/digits_matched_regime/test_runner.py",
+      "source_sha256": "ae7a7acfa6fe0c9d775d6480cf66503a33d72802c08b7d0d6044411cee12ad05",
+      "export_sha256": "2a2c30425450dd2600c9ba127fd74393f6f2a0408b029bf022a729f1639c5c92",
+      "transformation": "15 synthetic tests; contract fixture adaptations",
+      "source_present_at_public_pin": false
+    },
+    {
+      "export_path": "scientific_definitions.py",
+      "source_logical_path": "scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+      "source_sha256": "70407ed11607c409f4b24664d5a1dc9099f494b8136526c128b6a12098fea1bb",
+      "export_sha256": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2",
+      "transformation": "extract exact four allowlisted definitions plus minimal import/docstring header",
+      "source_present_at_public_pin": true,
+      "public_git_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6"
+    },
+    {
+      "export_path": "SEEDS.json",
+      "source_logical_path": "research/digits_matched_regime/SEEDS.json",
+      "source_sha256": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+      "export_sha256": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+      "transformation": "byte-identical",
+      "source_present_at_public_pin": false,
+      "public_equivalent_path": "research/public_checkpoint_20261027/research/digits_matched_regime/SEEDS.json",
+      "public_equivalent_git_blob": "8e13fe4d2419edaa4350c467341bdf22dcc6e79c"
+    },
+    {
+      "export_path": "PROTOCOL.md",
+      "source_logical_path": "research/public_checkpoint_20261027/research/digits_matched_regime/PROTOCOL.md",
+      "source_sha256": "3a91f319a21ab80fc6568868068701b9f5357580e59ec9fd763915fd4e598e6a",
+      "export_sha256": "170fab12faf5cfaaa5642ba758fb584681957ba6bb3a507429153f37c85ca517",
+      "transformation": "published scientific extract; change local provenance pointer only",
+      "source_present_at_public_pin": true,
+      "public_git_blob": "8fff461c69a157c2eb27b8ce56f61a4c507ed8d8",
+      "original_full_private_protocol_sha256": "0dd766d95553c2921e800ef9c09c109083d41f5ca77530bb180bb252a299a852"
+    },
+    {
+      "export_path": "LICENSE",
+      "source_logical_path": "LICENSE",
+      "source_sha256": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+      "export_sha256": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+      "transformation": "byte-identical license",
+      "source_present_at_public_pin": true
+    }
+  ],
+  "extracted_definitions": [
+    {
+      "name": "ResBlock",
+      "original_lines": [
+        19,
+        30
+      ],
+      "export_lines": [
+        12,
+        23
+      ],
+      "source_segment_sha256": "fef487b0902c1dbd40d8c3740edcb2c3fdc98576d247d15825d3d441ac604913",
+      "export_segment_sha256": "fef487b0902c1dbd40d8c3740edcb2c3fdc98576d247d15825d3d441ac604913",
+      "exact_text_equal": true
+    },
+    {
+      "name": "Net",
+      "original_lines": [
+        33,
+        48
+      ],
+      "export_lines": [
+        26,
+        41
+      ],
+      "source_segment_sha256": "7817c7ed4b4d1a52df969eaec24aefbd8b15b147527a4aac75595bde14ddaff5",
+      "export_segment_sha256": "7817c7ed4b4d1a52df969eaec24aefbd8b15b147527a4aac75595bde14ddaff5",
+      "exact_text_equal": true
+    },
+    {
+      "name": "TinyRes",
+      "original_lines": [
+        51,
+        59
+      ],
+      "export_lines": [
+        44,
+        52
+      ],
+      "source_segment_sha256": "7cb4e1e5a3371432a392f484e38f9ca0a0b62f432271d765d379e9a7f25b5f29",
+      "export_segment_sha256": "7cb4e1e5a3371432a392f484e38f9ca0a0b62f432271d765d379e9a7f25b5f29",
+      "exact_text_equal": true
+    },
+    {
+      "name": "train_model",
+      "original_lines": [
+        106,
+        118
+      ],
+      "export_lines": [
+        55,
+        67
+      ],
+      "source_segment_sha256": "af62a0ae40963686b7650940edbb4ced8a4fc99f864578af6a2f80de840dcc4f",
+      "export_segment_sha256": "af62a0ae40963686b7650940edbb4ced8a4fc99f864578af6a2f80de840dcc4f",
+      "exact_text_equal": true
+    }
+  ],
+  "identical_original_runner_function_asts": [
+    "dump",
+    "feature_metrics",
+    "fit_arm",
+    "freeze",
+    "initialize",
+    "load_partition",
+    "logits_from_endpoint",
+    "now",
+    "optimizer",
+    "partition_arrays",
+    "rss_bytes",
+    "save_state",
+    "schedule",
+    "sha",
+    "sqrt64",
+    "state_hash",
+    "tensor_hash",
+    "tree_bytes",
+    "verify_sources"
+  ],
+  "changed_original_runner_functions": [
+    "analyze",
+    "assert_environment",
+    "claim_attempt",
+    "cohort",
+    "main",
+    "manifest_hashes",
+    "run_seed",
+    "validate_release"
+  ],
+  "removed_original_functions": [
+    "git_head"
+  ],
+  "new_runner_functions": [
+    "source_identity",
+    "configure_context"
+  ],
+  "new_authored_files": [
+    "portable_contract.py",
+    "test_portable_contract.py",
+    "RELEASE_SCHEMA.json",
+    "ARTIFACT_SCHEMA.json",
+    "ARTIFACTS.md",
+    "ENVIRONMENT.md",
+    "requirements.lock.txt",
+    "README.md",
+    "TRANSFORMATION.md",
+    "STATIC_VALIDATION.json"
+  ],
+  "requirements_origin": {
+    "source_logical_path": "scripts/reproduction_diagnostics/requirements-r87r2-py313.txt",
+    "source_sha256": "ab0e39f7af43e6d1e7f07fa56e98f00b5bbde450e0dd977892a947b2c7ce8c18",
+    "augmentation": "torch and all observed runtime transitive version pins from historical installed distribution metadata; no resolution/install performed"
+  },
+  "export_file_sha256": {
+    "ARTIFACTS.md": "deca24899d7a33f88399b7ba648ac3978d8988e749e6062e60305cb4d577bd43",
+    "ARTIFACT_SCHEMA.json": "89e38169ff1a3e67511f7119d914de5bc8ecaba5869566508968601da2e93577",
+    "ENVIRONMENT.md": "aa8dd7434c9b14a53a44b6145e4a538d3d580a528bf7b4ea7033f7d3716f8e73",
+    "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+    "PROTOCOL.md": "170fab12faf5cfaaa5642ba758fb584681957ba6bb3a507429153f37c85ca517",
+    "README.md": "e60e9f2b768cfe0816e1f5c8147b1991a9efbd7783c1c73d915bdf7dd276d7fc",
+    "RELEASE_SCHEMA.json": "dc4567317a2193ac227861f55cc43fe5ed429593906e598ad9a2868769f8f322",
+    "SEEDS.json": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+    "STATIC_VALIDATION.json": "34f344d2e7596522a4bb93f2541a5f14b7dd92f2fdf0c335b9b08026f727fdba",
+    "TRANSFORMATION.md": "ffab346f55feb6f7fe8c32f5f763fd010e4c905ecc21c3af8d8e151133f19939",
+    "portable_contract.py": "159c3f7877df016854986aebe6735b8ebd0442758cacabc9bb5b726f128c7dac",
+    "requirements.lock.txt": "736f4e67dd5f3da4f909fe4079ddb814f39c845fb839f09d6a9bcf2777ef9190",
+    "runner.py": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13",
+    "scientific_definitions.py": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2",
+    "test_portable_contract.py": "84ce733f7a513764ccca0af587ffa5e4eaf678efcff3bad9aa5ad57e828d5e3f",
+    "test_runner.py": "2a2c30425450dd2600c9ba127fd74393f6f2a0408b029bf022a729f1639c5c92"
+  },
+  "manifest_exclusion": "SOURCE_MAP.json excludes itself to avoid a self-hash cycle; private payload inventory hashes the final map"
+}
