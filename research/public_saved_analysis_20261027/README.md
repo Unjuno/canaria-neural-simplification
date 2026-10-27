@@ -8,15 +8,15 @@ validate raw dataset/model tensors, or supply new scientific evidence.
 ## Run
 
 Python 3.11+ and NumPy 2.3.5. No torch, datasets, credentials or network are used.
-From this directory, with the existing checkpoint in `../checkpoint`:
+From this directory, with the existing checkpoint in `../public_checkpoint_20261027`:
 
 ```sh
 python -m unittest -v
-python check_checkpoint.py ../checkpoint
-python analyze_saved.py matched ../checkpoint/research/digits_matched_regime/results/SUMMARY.json
-python analyze_saved.py grid ../checkpoint/research/digits_joint_budget_grid/results/evidence/SUMMARY.json
-python analyze_saved.py storage ../checkpoint/research/selected_whole_storage/results/ROWS.csv
-python analyze_saved.py latency ../checkpoint/research/selected_latency/results/RAW.jsonl
+python check_checkpoint.py ../public_checkpoint_20261027
+python analyze_saved.py matched ../public_checkpoint_20261027/research/digits_matched_regime/results/SUMMARY.json
+python analyze_saved.py grid ../public_checkpoint_20261027/research/digits_joint_budget_grid/results/evidence/SUMMARY.json
+python analyze_saved.py storage ../public_checkpoint_20261027/research/selected_whole_storage/results/ROWS.csv
+python analyze_saved.py latency ../public_checkpoint_20261027/research/selected_latency/results/RAW.jsonl
 ```
 
 All inputs are caller-specified; examples use relative paths. Outputs go to stdout.
@@ -68,3 +68,14 @@ steady-state measurement, not a portable hardware or depth-only causal claim.
 `SOURCE_PROVENANCE.json` identifies original algorithm sources by repository-relative
 path, commit and SHA256. `TRANSFORMATION.md` describes changes. The source hash is
 not the hash of this newly written module. Public scalar inputs are not copied here.
+
+## Separate post-hoc threshold sensitivity
+
+The adjacent [saved-scalar threshold analysis](../threshold_robustness_20261027/README.md)
+examines 25 prespecified sensitivity settings on the same already-seen 224-cell
+validation grid. Its [report](../threshold_robustness_20261027/REPORT.md) retains
+all settings, suppresses cohort ratios when a seed/arm has no passing candidate,
+and reports selection margins. It does not alter this module's original quality
+criterion, selections, results, or historical 29-field / 12-test validation record.
+It is descriptive post-hoc analysis, not new data, model execution or independent
+experimental reproduction. Run it using its own standard-library-only instructions.

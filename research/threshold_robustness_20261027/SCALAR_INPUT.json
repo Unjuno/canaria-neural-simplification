@@ -1,0 +1,2223 @@
+{
+  "accepted_source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+  "accepted_source_summary_sha256": "b38d6f2175915cda5f738504299f8e7421b0579c6b0eb652fe23109d4e51d1ca",
+  "accepted_original": {
+    "geometric_ratio": 0.7883241833589479,
+    "minima": [
+      {
+        "C": 2048,
+        "J": 3072,
+        "id": 0
+      },
+      {
+        "C": 3072,
+        "J": 2048,
+        "id": 1
+      },
+      {
+        "C": 1536,
+        "J": 1536,
+        "id": 2
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 3
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 4
+      },
+      {
+        "C": 2048,
+        "J": 3072,
+        "id": 5
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 6
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 7
+      },
+      {
+        "C": 2048,
+        "J": 2048,
+        "id": 8
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 9
+      },
+      {
+        "C": 1536,
+        "J": 1536,
+        "id": 10
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 11
+      },
+      {
+        "C": 2048,
+        "J": 4096,
+        "id": 12
+      },
+      {
+        "C": 2048,
+        "J": 2048,
+        "id": 13
+      },
+      {
+        "C": 1536,
+        "J": 3072,
+        "id": 14
+      },
+      {
+        "C": 1536,
+        "J": 2048,
+        "id": 15
+      }
+    ],
+    "ratio_ci95": [
+      0.694449973999738,
+      0.904367624088204
+    ]
+  },
+  "rows": [
+    {
+      "id": 0,
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.062168398933975105,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.04790750581680466,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4195469041107128,
+          "correct": 168,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4361634001636836,
+          "correct": 177,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.1826479809126262,
+          "correct": 243,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.12920233717031357,
+          "correct": 253,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.09211750693105042,
+          "correct": 254,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06152097427482035,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04206296995284626,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.0380419716472275,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03218157956892562,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03179304836496931,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02182363368133755,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.027054854557460192,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06137935181617026,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05159650571516238,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.46202517859499564,
+          "correct": 156,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4185543098116008,
+          "correct": 188,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.17458818949658977,
+          "correct": 228,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.1411119688759801,
+          "correct": 251,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.07532635655022532,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07441208082852219,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.03943228752073394,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04059019600122367,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03359837601890938,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03437347653377711,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.022247326454518806,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02801196421027262,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06575356713058599,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05428259890772327,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.44486374257358746,
+          "correct": 174,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4345816752983483,
+          "correct": 180,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.17775693041661114,
+          "correct": 251,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13149643614273146,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.07807676547220781,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06676346802345431,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.040151180483040914,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.03991292416028937,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.031077211995923067,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03366241454894814,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.020941784455072922,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02702793324848877,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.05532178970953924,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.053952277957240474,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.47109394721525877,
+          "correct": 171,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4788451694435597,
+          "correct": 186,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.18435065556101865,
+          "correct": 251,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13962751586138994,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.09941295020634801,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06772403851337137,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04129845178063739,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.039821672990577366,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03364379150326601,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03264965642465745,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.023462113554187737,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.026856296518399977,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "status": "COMPLETE",
+      "teacher_correct": 266,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.060418634536784456,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05728204516132654,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4758888194970922,
+          "correct": 184,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.43374342260636395,
+          "correct": 172,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.18475213652512132,
+          "correct": 243,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.14948788646280706,
+          "correct": 252,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.10667767025151892,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07058865749204725,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.042787903075487126,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04244539564003922,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03148945054159626,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.037299797511400085,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02040579677903673,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.028203313500333966,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06629146161073536,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.052989974691293414,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.41760782838357574,
+          "correct": 183,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4023065356621714,
+          "correct": 192,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.18772963308744856,
+          "correct": 239,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.14148654282720532,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.09454641307694896,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06769525429940709,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.041414707699452324,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04380357576650272,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.031154842454418463,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03428916628233351,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02202481127360794,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02944014129758565,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.07088819711968938,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.057030708693869815,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4646684482360065,
+          "correct": 182,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.48322897675685395,
+          "correct": 206,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.16031788013525675,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13807365280872164,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.0872938408205751,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07244960658959727,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.051513484210701836,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04556164447407229,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03637112006842939,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03606403629639894,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02625847172467428,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.029557261740708864,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "status": "COMPLETE",
+      "teacher_correct": 262,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.0714548064482041,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.057017859525644414,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.46570360190436777,
+          "correct": 175,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.46105992792283923,
+          "correct": 196,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.17811996064888477,
+          "correct": 252,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.14725422092333992,
+          "correct": 254,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.10751100765778591,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07744044961680996,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.042660952063006866,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04132013596304159,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.034293447313413515,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.034481076206932165,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02525713001805338,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02695293879943862,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06321910980275416,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.058765153957612865,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4788791991347931,
+          "correct": 164,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.47721735421911365,
+          "correct": 198,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.18095165538481514,
+          "correct": 256,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.14739705951066434,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.0959474613058269,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.08061540255888489,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04998266211702664,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.043208974111743736,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.04184256043810446,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.035304362313427595,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02587320195549194,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02910868800723171,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.07217470039069758,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.058731736628442076,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4964615900462711,
+          "correct": 163,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.44378867278501083,
+          "correct": 169,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.20764244836137893,
+          "correct": 252,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.15538824141736052,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.10088694514651045,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07508120517967871,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.047361631967404436,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04266552354504127,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03422716551658983,
+          "correct": 266,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03686383133702922,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.024071620082015195,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.030536198910308846,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.05951323791740806,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05255993010949478,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.42517720320608954,
+          "correct": 189,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4235885277540032,
+          "correct": 174,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.18713775166169505,
+          "correct": 250,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13918032462809624,
+          "correct": 252,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.07988974335211885,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.061456979721404376,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.043150578870073106,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.03849876116258876,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.031798419987106835,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03321071489669884,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02284377385874388,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02887512054685775,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06708171148676098,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05287067425430299,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4891673982225805,
+          "correct": 178,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4793764537459369,
+          "correct": 201,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.21606026761929295,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.12188312057063545,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.08648241307092976,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07164465293464728,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04688530932405207,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04291099464047798,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.035949818392598316,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03458185345997751,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.023702038202600584,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.02887385090446461,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "status": "COMPLETE",
+      "teacher_correct": 266,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.07308623911092348,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.0517998266164333,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.462468990428885,
+          "correct": 167,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4172355082658759,
+          "correct": 196,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.15301444440145154,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13465976203237756,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.0886446069474803,
+          "correct": 255,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06496199301662459,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04513896524898104,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.0445978132714069,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03233988375407079,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.036530541029102886,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02522389194888985,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.030396786849337703,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06534564634051587,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05286153250212379,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4740225045409098,
+          "correct": 169,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.4340109305152462,
+          "correct": 201,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.2048100798553158,
+          "correct": 230,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.13722666991601756,
+          "correct": 258,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.08849267728335425,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.07584272690054858,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04400722179478986,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.03759291649915313,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03143812396052966,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03458663214467661,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.023526338561545655,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.027404437632356643,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06812385917149054,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05625218630972903,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4095285430899994,
+          "correct": 182,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.3973396593946603,
+          "correct": 186,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.1586942188425488,
+          "correct": 256,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.14581876277238975,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.09744095962289662,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.0667691380543483,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.04673425404182761,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04394930684182636,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.0320825718618745,
+          "correct": 264,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03818409218670099,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.023108704554641583,
+          "correct": 265,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.030749507039017177,
+          "correct": 262,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "cells": [
+        {
+          "arm": "J",
+          "budget": 2048,
+          "nmse": 0.06178117660629072,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "C",
+          "budget": 2048,
+          "nmse": 0.05249796641405187,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": true
+        },
+        {
+          "arm": "J",
+          "budget": 512,
+          "nmse": 0.4594016384066146,
+          "correct": 211,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 512,
+          "nmse": 0.44158662081562483,
+          "correct": 210,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1024,
+          "nmse": 0.16358757386067121,
+          "correct": 259,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1024,
+          "nmse": 0.1281626828480356,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 1536,
+          "nmse": 0.08741550664596212,
+          "correct": 257,
+          "n": 270,
+          "quality_pass": false,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 1536,
+          "nmse": 0.06579543218757085,
+          "correct": 260,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 3072,
+          "nmse": 0.046316892191386135,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 3072,
+          "nmse": 0.04272931083315437,
+          "correct": 261,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 4096,
+          "nmse": 0.03427573345425905,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 4096,
+          "nmse": 0.03644571878371195,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "J",
+          "budget": 6144,
+          "nmse": 0.02302850090287559,
+          "correct": 266,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        },
+        {
+          "arm": "C",
+          "budget": 6144,
+          "nmse": 0.029683537570554086,
+          "correct": 263,
+          "n": 270,
+          "quality_pass": true,
+          "reused": false
+        }
+      ]
+    }
+  ]
+}
