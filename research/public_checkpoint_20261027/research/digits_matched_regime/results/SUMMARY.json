@@ -1,0 +1,1827 @@
+{
+  "abort_reason": null,
+  "accuracy_ci95": [
+    0.011574074074074073,
+    0.023379629629629632
+  ],
+  "accuracy_gate": "PASS",
+  "accuracy_mean_J_minus_L": 0.01759259259259259,
+  "all_rows": [
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 22073.117096856407,
+          "correct": 262,
+          "denominator": 1.2773795127878653,
+          "elements": 17280,
+          "mse": 0.061196066439151764,
+          "n": 270,
+          "nmse": 0.04790750581680466,
+          "quality_pass": true,
+          "sse": 1057.4679494583195,
+          "state_sha256": "fd788c6901dbed65d1596870272a107f78ad50399c134dc3891b51ef943032fd"
+        },
+        "J": {
+          "accuracy": 0.9592592592592593,
+          "centered_ss": 22073.117096856407,
+          "correct": 259,
+          "denominator": 1.2773795127878653,
+          "elements": 17280,
+          "mse": 0.07941263914108276,
+          "n": 270,
+          "nmse": 0.062168398933975105,
+          "quality_pass": false,
+          "sse": 1372.250354258801,
+          "state_sha256": "e1596d797d039bbcb51be0ca65f0ecaf911963e4ded3563e80d24fb419738577"
+        },
+        "L": {
+          "accuracy": 0.9481481481481482,
+          "centered_ss": 22073.117096856407,
+          "correct": 256,
+          "denominator": 1.2773795127878653,
+          "elements": 17280,
+          "mse": 0.1836075633764267,
+          "n": 270,
+          "nmse": 0.14373767665625498,
+          "quality_pass": false,
+          "sse": 3172.738520517297,
+          "state_sha256": "abfab1b8cf86a3104c8396113cad58fd29e77f3f2b17480181182b31453bfa13"
+        }
+      },
+      "elapsed_seconds": 4.846441507019335,
+      "finished_utc": "2026-10-27T00:53:08.734269+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.4274326029990334,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.05895444005727768,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "9e44412b500779b1b32c57b7a47b2ee37ac37807859ac4a97f8d1ef5148ea9d3"
+        },
+        "J": {
+          "elapsed_seconds": 0.5240821980114561,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08546891808509827,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "9e44412b500779b1b32c57b7a47b2ee37ac37807859ac4a97f8d1ef5148ea9d3"
+        },
+        "L": {
+          "elapsed_seconds": 0.5654921120149083,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08622770011425018,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "9e44412b500779b1b32c57b7a47b2ee37ac37807859ac4a97f8d1ef5148ea9d3"
+        }
+      },
+      "id": 0,
+      "max_rss_kib": 414272,
+      "pair_initial_sha256": "a335aa71d0a3e34ef9d593296119178f1bf1ca1b66c3bf3e8db50545a048ceca",
+      "schedule_sha256": "9e44412b500779b1b32c57b7a47b2ee37ac37807859ac4a97f8d1ef5148ea9d3",
+      "seed": {
+        "comp": 1714983065,
+        "id": 0,
+        "pair1": 857918227,
+        "pair2": 734937261,
+        "schedule": 189707336,
+        "teacher": 1661945029
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "teacher_final_sha256": "d6c2660ab9fb7ff82cb55810cdf38018039ff20644f51b08a9822c43f884fa44",
+      "teacher_initial_sha256": "1e1afec16e55118229cc24b60fdf6db8281c5bf3c976fd8e78fe23c37ca0342e"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9518518518518518,
+          "centered_ss": 48609.356211405175,
+          "correct": 257,
+          "denominator": 2.813041687012719,
+          "elements": 17280,
+          "mse": 0.14514312148094177,
+          "n": 270,
+          "nmse": 0.05159650571516238,
+          "quality_pass": false,
+          "sse": 2508.073133719967,
+          "state_sha256": "2ff5777684a56a6549e0589dcddc3f9e38d518ac5647ffa16335ee0437bcd54b"
+        },
+        "J": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 48609.356211405175,
+          "correct": 260,
+          "denominator": 2.813041687012719,
+          "elements": 17280,
+          "mse": 0.1726626753807068,
+          "n": 270,
+          "nmse": 0.06137935181617026,
+          "quality_pass": true,
+          "sse": 2983.610792707097,
+          "state_sha256": "964c5afaa183acaa26b6a7bb8d683606aa3ffaa2c7f9a426befcda46dec32674"
+        },
+        "L": {
+          "accuracy": 0.9259259259259259,
+          "centered_ss": 48609.356211405175,
+          "correct": 250,
+          "denominator": 2.813041687012719,
+          "elements": 17280,
+          "mse": 0.406757652759552,
+          "n": 270,
+          "nmse": 0.1445970938281772,
+          "quality_pass": false,
+          "sse": 7028.773031816488,
+          "state_sha256": "2649cf6d6917793a2b9b6ed652bc0f072338ea701169ceeba5c15d6d1df1bbe0"
+        }
+      },
+      "elapsed_seconds": 4.808454187994357,
+      "finished_utc": "2026-10-27T00:53:08.704439+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.3819024090189487,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.1255924552679062,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "f9e6353fdde3f4129fb79ada3446a16edc2f02187d80ec3ada5a4ce343e6169f"
+        },
+        "J": {
+          "elapsed_seconds": 0.5354195639956743,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.14427527785301208,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "f9e6353fdde3f4129fb79ada3446a16edc2f02187d80ec3ada5a4ce343e6169f"
+        },
+        "L": {
+          "elapsed_seconds": 0.5675442809879314,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.17751243710517883,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "f9e6353fdde3f4129fb79ada3446a16edc2f02187d80ec3ada5a4ce343e6169f"
+        }
+      },
+      "id": 1,
+      "max_rss_kib": 412624,
+      "pair_initial_sha256": "678b33b7566262b635f0cb0f59428c1447e70c74b8cdd3c70d2005c7a90bb51f",
+      "schedule_sha256": "f9e6353fdde3f4129fb79ada3446a16edc2f02187d80ec3ada5a4ce343e6169f",
+      "seed": {
+        "comp": 1625807406,
+        "id": 1,
+        "pair1": 1835296647,
+        "pair2": 1889471924,
+        "schedule": 1831324545,
+        "teacher": 1854396266
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "teacher_final_sha256": "acef470f314f088c2972b2d7d535b4f08892a967efc8bf53578bef52721cd3ea",
+      "teacher_initial_sha256": "81f159f4dde264e4121f0278ab7671c1286f1b9e4de1c1c8174967512abfcc50"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 34611.09257737799,
+          "correct": 260,
+          "denominator": 2.0029568672190177,
+          "elements": 17280,
+          "mse": 0.10872570425271988,
+          "n": 270,
+          "nmse": 0.05428259890772327,
+          "quality_pass": true,
+          "sse": 1878.7801721922742,
+          "state_sha256": "b1a1b911407921f6751e31a93557a017a0edc0fcc24f2c17d5f734b67f87239c"
+        },
+        "J": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 34611.09257737799,
+          "correct": 262,
+          "denominator": 2.0029568672190177,
+          "elements": 17280,
+          "mse": 0.13170155882835388,
+          "n": 270,
+          "nmse": 0.06575356713058599,
+          "quality_pass": true,
+          "sse": 2275.8029904519426,
+          "state_sha256": "a4ea396dd9181b08815249819a44b8b86a204ecc09fa2586ec22dc9f14bdf850"
+        },
+        "L": {
+          "accuracy": 0.9444444444444444,
+          "centered_ss": 34611.09257737799,
+          "correct": 255,
+          "denominator": 2.0029568672190177,
+          "elements": 17280,
+          "mse": 0.28750044107437134,
+          "n": 270,
+          "nmse": 0.1435380091202603,
+          "quality_pass": false,
+          "sse": 4968.008174602779,
+          "state_sha256": "7a5b45d57d05fa774dc6395f7af644de7bd3adbb8d1d38ddc690a93bd1a891fd"
+        }
+      },
+      "elapsed_seconds": 4.815281696006423,
+      "finished_utc": "2026-10-27T00:53:16.610922+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.43071724800392985,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.09412471950054169,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "67a9b891d031757db04020259326d312761338623f369a2b48b645aaae58e314"
+        },
+        "J": {
+          "elapsed_seconds": 0.5733773790125269,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.11698541790246964,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "67a9b891d031757db04020259326d312761338623f369a2b48b645aaae58e314"
+        },
+        "L": {
+          "elapsed_seconds": 0.5461991819902323,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.15674202144145966,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "67a9b891d031757db04020259326d312761338623f369a2b48b645aaae58e314"
+        }
+      },
+      "id": 2,
+      "max_rss_kib": 417152,
+      "pair_initial_sha256": "b7559c86e9021dbf2fe32952ae79268759c6e380b66fc84ca956eaedae205eb2",
+      "schedule_sha256": "67a9b891d031757db04020259326d312761338623f369a2b48b645aaae58e314",
+      "seed": {
+        "comp": 1367660502,
+        "id": 2,
+        "pair1": 742063993,
+        "pair2": 1343085731,
+        "schedule": 1116383096,
+        "teacher": 1803101582
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "teacher_final_sha256": "8cf5d8e3509e18a45711441b17a388f4ec83e8e322630711ac4242127cf22693",
+      "teacher_initial_sha256": "16a50772df3aa01380b5823ba8cd0478fb5d69057f7d12b22a2e2c8f62053fc1"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 41094.96854885221,
+          "correct": 260,
+          "denominator": 2.378180980683373,
+          "elements": 17280,
+          "mse": 0.1283082813024521,
+          "n": 270,
+          "nmse": 0.053952277957240474,
+          "quality_pass": true,
+          "sse": 2217.167097288672,
+          "state_sha256": "bba6831337ac0f2c2307b3eb0251a2adf8e54bffa78e3b16443ca4c715814416"
+        },
+        "J": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 41094.96854885221,
+          "correct": 262,
+          "denominator": 2.378180980683373,
+          "elements": 17280,
+          "mse": 0.13156522810459137,
+          "n": 270,
+          "nmse": 0.05532178970953924,
+          "quality_pass": true,
+          "sse": 2273.447267251021,
+          "state_sha256": "3325161e893821087e52b28e0b418082c02d045813c5cf23035faa5d0e09b54e"
+        },
+        "L": {
+          "accuracy": 0.9407407407407408,
+          "centered_ss": 41094.96854885221,
+          "correct": 254,
+          "denominator": 2.378180980683373,
+          "elements": 17280,
+          "mse": 0.3779582679271698,
+          "n": 270,
+          "nmse": 0.15892746220624598,
+          "quality_pass": false,
+          "sse": 6531.118422405039,
+          "state_sha256": "5f764d235cf62a313bcd279c50b548acc6012280f85372c7bf44c74dbef82ede"
+        }
+      },
+      "elapsed_seconds": 4.945409069012385,
+      "finished_utc": "2026-10-27T00:53:16.745845+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.4019014310033526,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.130337193608284,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "74df3cb2e6ed91250f0805af87a6108e58ab5cce9cead2dc8501f8325b94a1e5"
+        },
+        "J": {
+          "elapsed_seconds": 0.5146036829974037,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.14084404706954956,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "74df3cb2e6ed91250f0805af87a6108e58ab5cce9cead2dc8501f8325b94a1e5"
+        },
+        "L": {
+          "elapsed_seconds": 0.6514785239996854,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.17190250754356384,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "74df3cb2e6ed91250f0805af87a6108e58ab5cce9cead2dc8501f8325b94a1e5"
+        }
+      },
+      "id": 3,
+      "max_rss_kib": 413676,
+      "pair_initial_sha256": "5501a211fce26a22971d72343bf94ecb52e9defc3f534aca2d4249f0dfda7b95",
+      "schedule_sha256": "74df3cb2e6ed91250f0805af87a6108e58ab5cce9cead2dc8501f8325b94a1e5",
+      "seed": {
+        "comp": 86805532,
+        "id": 3,
+        "pair1": 1211045821,
+        "pair2": 1697684484,
+        "schedule": 4915749,
+        "teacher": 197976722
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "teacher_final_sha256": "7a818be2dbdba6a7693b50b5cd71d3afcdc087ecfe9517daef43325fe126295c",
+      "teacher_initial_sha256": "67b6f60d92d0e1b59d40a53c1ade582e6704a95a26771784569934762b958a15"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9740740740740741,
+          "centered_ss": 40187.81511121942,
+          "correct": 263,
+          "denominator": 2.325683593751,
+          "elements": 17280,
+          "mse": 0.133219912648201,
+          "n": 270,
+          "nmse": 0.05728204516132654,
+          "quality_pass": true,
+          "sse": 2302.0401343277144,
+          "state_sha256": "685835d29e7174e42435fc4e293f08dbea675655b43a9868d34a3cf32459d9c0"
+        },
+        "J": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 40187.81511121942,
+          "correct": 262,
+          "denominator": 2.325683593751,
+          "elements": 17280,
+          "mse": 0.14051462709903717,
+          "n": 270,
+          "nmse": 0.060418634536784456,
+          "quality_pass": true,
+          "sse": 2428.092970970773,
+          "state_sha256": "aca27a5cdf4972cee4de6783171c88b024cbd821b5039152e9d520f2406394a9"
+        },
+        "L": {
+          "accuracy": 0.937037037037037,
+          "centered_ss": 40187.81511121942,
+          "correct": 253,
+          "denominator": 2.325683593751,
+          "elements": 17280,
+          "mse": 0.38220348954200745,
+          "n": 270,
+          "nmse": 0.1643402785180967,
+          "quality_pass": false,
+          "sse": 6604.475741938268,
+          "state_sha256": "1ba61eb58d9c153cce1af7ceab923f06c308985b414ac53363d703c72969352a"
+        }
+      },
+      "elapsed_seconds": 5.113022757024737,
+      "finished_utc": "2026-10-27T00:53:24.807313+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.37953832501079887,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.10936137288808823,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "5712947b874304666e050ea8e22f20fec669ed36b3144aa5c29352ef7e8132c9"
+        },
+        "J": {
+          "elapsed_seconds": 0.5232454680080991,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.12628379464149475,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "5712947b874304666e050ea8e22f20fec669ed36b3144aa5c29352ef7e8132c9"
+        },
+        "L": {
+          "elapsed_seconds": 0.5433764700137544,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.1444406360387802,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "5712947b874304666e050ea8e22f20fec669ed36b3144aa5c29352ef7e8132c9"
+        }
+      },
+      "id": 4,
+      "max_rss_kib": 414816,
+      "pair_initial_sha256": "44fef1f72ea63e8e61617649946f3a1e1c492f4b240d687cfbc07cb66de50b1d",
+      "schedule_sha256": "5712947b874304666e050ea8e22f20fec669ed36b3144aa5c29352ef7e8132c9",
+      "seed": {
+        "comp": 144879916,
+        "id": 4,
+        "pair1": 280484216,
+        "pair2": 334157951,
+        "schedule": 452715974,
+        "teacher": 1387226690
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 266,
+      "teacher_final_sha256": "6cb0cf23cb9cf8565e365577af98b3a8c740fc31e8b1b6abd424e74458fdbcc2",
+      "teacher_initial_sha256": "4113e179b0256c07815b16334f294caf43005b117822c34979b92823ff5cc9e0"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9666666666666667,
+          "centered_ss": 40583.918838893725,
+          "correct": 261,
+          "denominator": 2.34860634803872,
+          "elements": 17280,
+          "mse": 0.12445259094238281,
+          "n": 270,
+          "nmse": 0.052989974691293414,
+          "quality_pass": true,
+          "sse": 2150.540665759936,
+          "state_sha256": "cb0327b79274d5d719674d589c7669e5c97ebd4a723a27a3c8f507179555cebd"
+        },
+        "J": {
+          "accuracy": 0.9592592592592593,
+          "centered_ss": 40583.918838893725,
+          "correct": 259,
+          "denominator": 2.34860634803872,
+          "elements": 17280,
+          "mse": 0.15569254755973816,
+          "n": 270,
+          "nmse": 0.06629146161073536,
+          "quality_pass": false,
+          "sse": 2690.366965782074,
+          "state_sha256": "2cb3780f72af19bb31b2cabc2e6d724413e5e97a3239cf02832de64566da80f9"
+        },
+        "L": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 40583.918838893725,
+          "correct": 260,
+          "denominator": 2.34860634803872,
+          "elements": 17280,
+          "mse": 0.3579005002975464,
+          "n": 270,
+          "nmse": 0.1523884582005081,
+          "quality_pass": false,
+          "sse": 6184.519958716545,
+          "state_sha256": "a992d2eeb1cd602f5c4788ab081b766dca2f3ec9471c9d1986dc8f15e4f1c3a8"
+        }
+      },
+      "elapsed_seconds": 4.771942745981505,
+      "finished_utc": "2026-10-27T00:53:24.711891+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.3429704929876607,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.10865379869937897,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "21321c189a1f26642980acbb8668d39daaca250b90376f3482da6393f47d0f6f"
+        },
+        "J": {
+          "elapsed_seconds": 0.48652199300704524,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.13072693347930908,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "21321c189a1f26642980acbb8668d39daaca250b90376f3482da6393f47d0f6f"
+        },
+        "L": {
+          "elapsed_seconds": 0.5758331429969985,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.14601610600948334,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "21321c189a1f26642980acbb8668d39daaca250b90376f3482da6393f47d0f6f"
+        }
+      },
+      "id": 5,
+      "max_rss_kib": 412492,
+      "pair_initial_sha256": "06c376abba45046315e86fb7cb385b63a1f37fb3a3c128170dfe714dbfb117b0",
+      "schedule_sha256": "21321c189a1f26642980acbb8668d39daaca250b90376f3482da6393f47d0f6f",
+      "seed": {
+        "comp": 775291796,
+        "id": 5,
+        "pair1": 469731922,
+        "pair2": 1451381880,
+        "schedule": 1683648378,
+        "teacher": 1820358963
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "teacher_final_sha256": "42bacb9b299dec04a861a8e28948fe9dd3b489d3cb266919013cc53ce1bb702f",
+      "teacher_initial_sha256": "dd628a7758cd4892fad07b56632a49d21e37fcabd36a60f5f4c8582d89bbf487"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9666666666666667,
+          "centered_ss": 19512.071960493216,
+          "correct": 261,
+          "denominator": 1.1291707754145133,
+          "elements": 17280,
+          "mse": 0.0643974095582962,
+          "n": 270,
+          "nmse": 0.057030708693869815,
+          "quality_pass": true,
+          "sse": 1112.7872362492628,
+          "state_sha256": "e3a41132bbe5cc82408d9033986adab6ed9702af1aac9f53339e4e3c78a99c6d"
+        },
+        "J": {
+          "accuracy": 0.9592592592592593,
+          "centered_ss": 19512.071960493216,
+          "correct": 259,
+          "denominator": 1.1291707754145133,
+          "elements": 17280,
+          "mse": 0.08004488050937653,
+          "n": 270,
+          "nmse": 0.07088819711968938,
+          "quality_pass": true,
+          "sse": 1383.175609104918,
+          "state_sha256": "07bc4ae784fa812aec55f416043e62d49df2e62b6f495847ed360dccb504a42f"
+        },
+        "L": {
+          "accuracy": 0.9555555555555556,
+          "centered_ss": 19512.071960493216,
+          "correct": 258,
+          "denominator": 1.1291707754145133,
+          "elements": 17280,
+          "mse": 0.15907299518585205,
+          "n": 270,
+          "nmse": 0.14087594068971285,
+          "quality_pass": false,
+          "sse": 2748.7812494189307,
+          "state_sha256": "88af0ab91431f810cf3904fe36dff0ec9af4b4575be8a903f2ad874a64aff8bc"
+        }
+      },
+      "elapsed_seconds": 5.018451418000041,
+      "finished_utc": "2026-10-27T00:53:32.720037+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.35616967402165756,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.05648545175790787,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a31fd12408c7a41a5e9d57aa82e2324d92f398e67b0184a58526c046dfe7cd3e"
+        },
+        "J": {
+          "elapsed_seconds": 0.5812322509882506,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.0670459121465683,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a31fd12408c7a41a5e9d57aa82e2324d92f398e67b0184a58526c046dfe7cd3e"
+        },
+        "L": {
+          "elapsed_seconds": 0.5491056989994831,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.0803116112947464,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a31fd12408c7a41a5e9d57aa82e2324d92f398e67b0184a58526c046dfe7cd3e"
+        }
+      },
+      "id": 6,
+      "max_rss_kib": 415020,
+      "pair_initial_sha256": "a92fdc71a46adf26a27f0f86786acc74671c1865bc08ea26f7c2e584d914f0c2",
+      "schedule_sha256": "a31fd12408c7a41a5e9d57aa82e2324d92f398e67b0184a58526c046dfe7cd3e",
+      "seed": {
+        "comp": 1244179798,
+        "id": 6,
+        "pair1": 1961364872,
+        "pair2": 1710442505,
+        "schedule": 1321529133,
+        "teacher": 547001709
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "teacher_final_sha256": "fcb1dcf7abaa3818b77cc92c7811b65421d4ced3fb66c84da05c1c0c3be02388",
+      "teacher_initial_sha256": "f16bda4a9525658a110c2a661bedbeab18c6c423370da33b4b24072482cf6ca4"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9592592592592593,
+          "centered_ss": 32156.164839813035,
+          "correct": 259,
+          "denominator": 1.8608890771875846,
+          "elements": 17280,
+          "mse": 0.10610391199588776,
+          "n": 270,
+          "nmse": 0.057017859525644414,
+          "quality_pass": true,
+          "sse": 1833.4755826550468,
+          "state_sha256": "2ae590c7aac2d6dc5359198b500665fa5fee4b6068113746e97b144677524374"
+        },
+        "J": {
+          "accuracy": 0.9555555555555556,
+          "centered_ss": 32156.164839813035,
+          "correct": 258,
+          "denominator": 1.8608890771875846,
+          "elements": 17280,
+          "mse": 0.132969468832016,
+          "n": 270,
+          "nmse": 0.0714548064482041,
+          "quality_pass": true,
+          "sse": 2297.7123796517553,
+          "state_sha256": "a161794796c541ab1614497739f5c7f69731a5a6d259caffd5df524995ada5a7"
+        },
+        "L": {
+          "accuracy": 0.9555555555555556,
+          "centered_ss": 32156.164839813035,
+          "correct": 258,
+          "denominator": 1.8608890771875846,
+          "elements": 17280,
+          "mse": 0.2601071000099182,
+          "n": 270,
+          "nmse": 0.13977571430696212,
+          "quality_pass": false,
+          "sse": 4494.65119731841,
+          "state_sha256": "56fab858520b30e1eea05c77b7d1ec56614885eac3216442269b6b8356c9698f"
+        }
+      },
+      "elapsed_seconds": 4.874355612992076,
+      "finished_utc": "2026-10-27T00:53:32.840980+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.37881719699362293,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.098470538854599,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "3e7b8dbbca8336b27208c1bf71419ac1b249fa4ba13a172cd0f5a1f275b4f7d4"
+        },
+        "J": {
+          "elapsed_seconds": 0.5480569369974546,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.11706230789422989,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "3e7b8dbbca8336b27208c1bf71419ac1b249fa4ba13a172cd0f5a1f275b4f7d4"
+        },
+        "L": {
+          "elapsed_seconds": 0.5722777949995361,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.11637257784605026,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "3e7b8dbbca8336b27208c1bf71419ac1b249fa4ba13a172cd0f5a1f275b4f7d4"
+        }
+      },
+      "id": 7,
+      "max_rss_kib": 417116,
+      "pair_initial_sha256": "be3e985b81b5dd9a3e20b08829509263424d7e0e89a74888b72d9f943fe5c6aa",
+      "schedule_sha256": "3e7b8dbbca8336b27208c1bf71419ac1b249fa4ba13a172cd0f5a1f275b4f7d4",
+      "seed": {
+        "comp": 197704168,
+        "id": 7,
+        "pair1": 1812503604,
+        "pair2": 352155899,
+        "schedule": 316060744,
+        "teacher": 161397327
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 262,
+      "teacher_final_sha256": "56dc86074ed6b1e4e539d53ea49e7663412218f4d952f2a4c038d4ca526d5f0d",
+      "teacher_initial_sha256": "2f2b8864bb7c47c88c37dd082072ea70ec66815b9b1d564aa0c2b05b918ca8f5"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9666666666666667,
+          "centered_ss": 26227.595094406326,
+          "correct": 261,
+          "denominator": 1.5178006887445914,
+          "elements": 17280,
+          "mse": 0.08919379115104675,
+          "n": 270,
+          "nmse": 0.058765153957612865,
+          "quality_pass": true,
+          "sse": 1541.2686478490098,
+          "state_sha256": "447f3669f1f3f02142e69bac7173514756eaef22b367d54f00907648e8ae7bf4"
+        },
+        "J": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 26227.595094406326,
+          "correct": 260,
+          "denominator": 1.5178006887445914,
+          "elements": 17280,
+          "mse": 0.09595400840044022,
+          "n": 270,
+          "nmse": 0.06321910980275416,
+          "quality_pass": true,
+          "sse": 1658.0852600144062,
+          "state_sha256": "c8d10903d2e9291b9261dd439856e0159d60604d30d8d6ee235b95cb9745eb04"
+        },
+        "L": {
+          "accuracy": 0.9444444444444444,
+          "centered_ss": 26227.595094406326,
+          "correct": 255,
+          "denominator": 1.5178006887445914,
+          "elements": 17280,
+          "mse": 0.22781044244766235,
+          "n": 270,
+          "nmse": 0.15009246216384953,
+          "quality_pass": false,
+          "sse": 3936.5642905627183,
+          "state_sha256": "0058cb8cd721a531766e8245bdb3635c544c9e204c1fafbe9868d734a16c43cf"
+        }
+      },
+      "elapsed_seconds": 4.453568601020379,
+      "finished_utc": "2026-10-27T00:53:40.124083+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.3882114320003893,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.07663178443908691,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "0c6fd227f0df1a30450b2a610a3d8d30f13e2365d0e3d22a157dced42f30234e"
+        },
+        "J": {
+          "elapsed_seconds": 0.4847417129785754,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08760473132133484,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "0c6fd227f0df1a30450b2a610a3d8d30f13e2365d0e3d22a157dced42f30234e"
+        },
+        "L": {
+          "elapsed_seconds": 0.5220083950262051,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.11157707870006561,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "0c6fd227f0df1a30450b2a610a3d8d30f13e2365d0e3d22a157dced42f30234e"
+        }
+      },
+      "id": 8,
+      "max_rss_kib": 411168,
+      "pair_initial_sha256": "c0cee023b21547a209334c5594951407e9f469a54083f19d0ad260e4a9f63f15",
+      "schedule_sha256": "0c6fd227f0df1a30450b2a610a3d8d30f13e2365d0e3d22a157dced42f30234e",
+      "seed": {
+        "comp": 1865985321,
+        "id": 8,
+        "pair1": 1764322271,
+        "pair2": 18100452,
+        "schedule": 1891230209,
+        "teacher": 95479358
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "teacher_final_sha256": "e3a9c0fbd441e44a219e278b5b479b75e6017c2f7e5beb630887bd47b164b67c",
+      "teacher_initial_sha256": "aaa1c46cc5873b8c46a6dcba824572b0fc48c435d46d7ac15647240230faa48d"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9814814814814815,
+          "centered_ss": 25851.88559174297,
+          "correct": 265,
+          "denominator": 1.496058225632714,
+          "elements": 17280,
+          "mse": 0.08786609768867493,
+          "n": 270,
+          "nmse": 0.058731736628442076,
+          "quality_pass": true,
+          "sse": 1518.326278858002,
+          "state_sha256": "7452273773a45c72a7d7ec82a116d4bf08ce736e0ebc801dee4d2d4cd5d28a9c"
+        },
+        "J": {
+          "accuracy": 0.9740740740740741,
+          "centered_ss": 25851.88559174297,
+          "correct": 263,
+          "denominator": 1.496058225632714,
+          "elements": 17280,
+          "mse": 0.10797755420207977,
+          "n": 270,
+          "nmse": 0.07217470039069758,
+          "quality_pass": true,
+          "sse": 1865.8522092763249,
+          "state_sha256": "016e74c6999b3a8814eb8dd7e959136073843dc99bbca08c067ebf08e468f63a"
+        },
+        "L": {
+          "accuracy": 0.9444444444444444,
+          "centered_ss": 25851.88559174297,
+          "correct": 255,
+          "denominator": 1.496058225632714,
+          "elements": 17280,
+          "mse": 0.23882757127285004,
+          "n": 270,
+          "nmse": 0.1596378851978471,
+          "quality_pass": false,
+          "sse": 4126.940410035677,
+          "state_sha256": "1290c3e59873d4a2cb523713156fe7b8c4ff01003e41e899eb81b70c050c66cb"
+        }
+      },
+      "elapsed_seconds": 4.485634206997929,
+      "finished_utc": "2026-10-27T00:53:40.245022+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.38386426999932155,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.07219451665878296,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a97aedf71aad6204e4b770aa516937477634f46544fdf87a507f90671cab3fd8"
+        },
+        "J": {
+          "elapsed_seconds": 0.5079544009931851,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08437537401914597,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a97aedf71aad6204e4b770aa516937477634f46544fdf87a507f90671cab3fd8"
+        },
+        "L": {
+          "elapsed_seconds": 0.5321273910230957,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.10149746388196945,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "a97aedf71aad6204e4b770aa516937477634f46544fdf87a507f90671cab3fd8"
+        }
+      },
+      "id": 9,
+      "max_rss_kib": 416344,
+      "pair_initial_sha256": "8b23e9d43d1141efd17bc96d66b46e944c48d1688b3caa9ecc2ecd9e0401aeaf",
+      "schedule_sha256": "a97aedf71aad6204e4b770aa516937477634f46544fdf87a507f90671cab3fd8",
+      "seed": {
+        "comp": 1375654376,
+        "id": 9,
+        "pair1": 716773173,
+        "pair2": 1567963611,
+        "schedule": 1211442708,
+        "teacher": 690057574
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "teacher_final_sha256": "c429dbb78ae8b93363410fbd64e053351b81dcbc20be5bd9d2cafbe00e1275ae",
+      "teacher_initial_sha256": "bf4e50bf3bd0b3a6ab0c3122f560529519874269a845137e7439629a88473a99"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 25634.527272305277,
+          "correct": 262,
+          "denominator": 1.4834796190271842,
+          "elements": 17280,
+          "mse": 0.07797158509492874,
+          "n": 270,
+          "nmse": 0.05255993010949478,
+          "quality_pass": true,
+          "sse": 1347.3489966054076,
+          "state_sha256": "711ca268cf44a07bd8da06fe9097facb9f6413d7521e729bb8d4a1b0436650de"
+        },
+        "J": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 25634.527272305277,
+          "correct": 260,
+          "denominator": 1.4834796190271842,
+          "elements": 17280,
+          "mse": 0.08828667551279068,
+          "n": 270,
+          "nmse": 0.05951323791740806,
+          "quality_pass": true,
+          "sse": 1525.5937380778657,
+          "state_sha256": "0860b0f69abc71f41fa19c50d7c5226540157b3eb0e166eafdbe4c204746a4ae"
+        },
+        "L": {
+          "accuracy": 0.9407407407407408,
+          "centered_ss": 25634.527272305277,
+          "correct": 254,
+          "denominator": 1.4834796190271842,
+          "elements": 17280,
+          "mse": 0.2033349573612213,
+          "n": 270,
+          "nmse": 0.13706622912322955,
+          "quality_pass": false,
+          "sse": 3513.628295016702,
+          "state_sha256": "fe9156ad1797b66637906003897cc164858b775df18121d8260ad33a287588b1"
+        }
+      },
+      "elapsed_seconds": 4.801903082989156,
+      "finished_utc": "2026-10-27T00:53:48.132061+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.384295313997427,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.0702281966805458,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "e9354559189259a1a8478c54b79f0cf6cae289726bca904e1b3648f481e07f12"
+        },
+        "J": {
+          "elapsed_seconds": 0.5134053959918674,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.07822839915752411,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "e9354559189259a1a8478c54b79f0cf6cae289726bca904e1b3648f481e07f12"
+        },
+        "L": {
+          "elapsed_seconds": 0.5897723569942173,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08875875174999237,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "e9354559189259a1a8478c54b79f0cf6cae289726bca904e1b3648f481e07f12"
+        }
+      },
+      "id": 10,
+      "max_rss_kib": 413252,
+      "pair_initial_sha256": "f7707874e6a06273356d12ce3317895ac5ec3c2e65f0fbced4ead169ec9438fd",
+      "schedule_sha256": "e9354559189259a1a8478c54b79f0cf6cae289726bca904e1b3648f481e07f12",
+      "seed": {
+        "comp": 329113894,
+        "id": 10,
+        "pair1": 276896108,
+        "pair2": 1229172520,
+        "schedule": 55624826,
+        "teacher": 70447896
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "teacher_final_sha256": "e3febc0ba451ddede7bb867ce3c7988fdeebd5de8c1e9766e1f23834e6afefd0",
+      "teacher_initial_sha256": "d7d1cdf462f669a11aaae4ab6fe1a5e7e1f3f1f18cf799319c6dec74e6502bde"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9814814814814815,
+          "centered_ss": 21764.000058922124,
+          "correct": 265,
+          "denominator": 1.2594908475885855,
+          "elements": 17280,
+          "mse": 0.06659013032913208,
+          "n": 270,
+          "nmse": 0.05287067425430299,
+          "quality_pass": true,
+          "sse": 1150.6774932134654,
+          "state_sha256": "e28cbe8655d6cb56f560866c51569d0beb14ccc4378d014b6d76ed1b71ab3219"
+        },
+        "J": {
+          "accuracy": 0.9703703703703703,
+          "centered_ss": 21764.000058922124,
+          "correct": 262,
+          "denominator": 1.2594908475885855,
+          "elements": 17280,
+          "mse": 0.08448880165815353,
+          "n": 270,
+          "nmse": 0.06708171148676098,
+          "quality_pass": true,
+          "sse": 1459.9665628509688,
+          "state_sha256": "104f5a0b2b232618004bce9411600878b9cbf47acc69a7f13d6541719afef4b0"
+        },
+        "L": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 21764.000058922124,
+          "correct": 260,
+          "denominator": 1.2594908475885855,
+          "elements": 17280,
+          "mse": 0.1802201122045517,
+          "n": 270,
+          "nmse": 0.14308965606983184,
+          "quality_pass": false,
+          "sse": 3114.2036407626238,
+          "state_sha256": "98954dafceb2ce56887813a7d81cd6d4d4ca76e3c63bd0ffd291299f65f9ec44"
+        }
+      },
+      "elapsed_seconds": 4.746489170007408,
+      "finished_utc": "2026-10-27T00:53:48.082727+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.3592671529913787,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.06217342987656593,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "df435ebe082bc5bae7e967b45d245b6255b6e8a6b675624b9a871eef5e3c88b8"
+        },
+        "J": {
+          "elapsed_seconds": 0.5035094649938401,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.0805680900812149,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "df435ebe082bc5bae7e967b45d245b6255b6e8a6b675624b9a871eef5e3c88b8"
+        },
+        "L": {
+          "elapsed_seconds": 0.5872427549911663,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08960780501365662,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "df435ebe082bc5bae7e967b45d245b6255b6e8a6b675624b9a871eef5e3c88b8"
+        }
+      },
+      "id": 11,
+      "max_rss_kib": 411520,
+      "pair_initial_sha256": "e1873192a31734147df110f1079ed4b4e624a0ffda12211e056492d30156bfbc",
+      "schedule_sha256": "df435ebe082bc5bae7e967b45d245b6255b6e8a6b675624b9a871eef5e3c88b8",
+      "seed": {
+        "comp": 1124217323,
+        "id": 11,
+        "pair1": 189793196,
+        "pair2": 1802530031,
+        "schedule": 1018407597,
+        "teacher": 1306811499
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 263,
+      "teacher_final_sha256": "1fdf95e9773551f68022a89170b8e7d5d9ad9a08ca2c6f2557c8863452994aed",
+      "teacher_initial_sha256": "6b2e033cfba86d73011d79f405136795b6f73c13b02555de7686b2d39c0f2f9d"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9666666666666667,
+          "centered_ss": 28756.308688615743,
+          "correct": 261,
+          "denominator": 1.6641381978998648,
+          "elements": 17280,
+          "mse": 0.08620207011699677,
+          "n": 270,
+          "nmse": 0.0517998266164333,
+          "quality_pass": true,
+          "sse": 1489.5716151136562,
+          "state_sha256": "759556c45d358b470981325ba2645968d7c1d4618a5f94a6d95d80135c20ade7"
+        },
+        "J": {
+          "accuracy": 0.9518518518518518,
+          "centered_ss": 28756.308688615743,
+          "correct": 257,
+          "denominator": 1.6641381978998648,
+          "elements": 17280,
+          "mse": 0.12162560224533081,
+          "n": 270,
+          "nmse": 0.07308623911092348,
+          "quality_pass": false,
+          "sse": 2101.6904000549403,
+          "state_sha256": "0d08e8e2c8e2d2d2f26f9687359b5e4a8d3b04226c2406ce3e4630f8432e040b"
+        },
+        "L": {
+          "accuracy": 0.9444444444444444,
+          "centered_ss": 28756.308688615743,
+          "correct": 255,
+          "denominator": 1.6641381978998648,
+          "elements": 17280,
+          "mse": 0.2180553674697876,
+          "n": 270,
+          "nmse": 0.1310320066836832,
+          "quality_pass": false,
+          "sse": 3767.9966314118446,
+          "state_sha256": "d8591a84f58b32992e352452ce6e41100d002cf59eaf82ffce31d5fa38ae82ca"
+        }
+      },
+      "elapsed_seconds": 4.8887907459866256,
+      "finished_utc": "2026-10-27T00:53:56.159794+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.4150418229983188,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08379644900560379,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ab3b5970e5fb5aa7a5909d585a3b6f159d05b62ebffe64f5558829878474c970"
+        },
+        "J": {
+          "elapsed_seconds": 0.559367662994191,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.10409033298492432,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ab3b5970e5fb5aa7a5909d585a3b6f159d05b62ebffe64f5558829878474c970"
+        },
+        "L": {
+          "elapsed_seconds": 0.6371696220012382,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.09606971591711044,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ab3b5970e5fb5aa7a5909d585a3b6f159d05b62ebffe64f5558829878474c970"
+        }
+      },
+      "id": 12,
+      "max_rss_kib": 414164,
+      "pair_initial_sha256": "19222b89c370fee2b207375964f203bbf7c2861a07ca381e912d88869d7e6aab",
+      "schedule_sha256": "ab3b5970e5fb5aa7a5909d585a3b6f159d05b62ebffe64f5558829878474c970",
+      "seed": {
+        "comp": 1666719100,
+        "id": 12,
+        "pair1": 1537962486,
+        "pair2": 270989736,
+        "schedule": 812835881,
+        "teacher": 1358847254
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 266,
+      "teacher_final_sha256": "1d4c84b10ef69252d189e33db0722c489105491d727b99a7edcc9d536e5cc24a",
+      "teacher_initial_sha256": "984077dc904eaa91530828ef734250b9787f716f8bdf7dc16b726a3ae318a20d"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 41383.73767609005,
+          "correct": 260,
+          "denominator": 2.39489221572976,
+          "elements": 17280,
+          "mse": 0.12659767270088196,
+          "n": 270,
+          "nmse": 0.05286153250212379,
+          "quality_pass": true,
+          "sse": 2187.6079162659084,
+          "state_sha256": "c6b5577cc9e2dd3ecc70c0931f215554866cb55d6123bdedfe8b1802a651adc0"
+        },
+        "J": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 41383.73767609005,
+          "correct": 260,
+          "denominator": 2.39489221572976,
+          "elements": 17280,
+          "mse": 0.15649577975273132,
+          "n": 270,
+          "nmse": 0.06534564634051587,
+          "quality_pass": true,
+          "sse": 2704.2469274209425,
+          "state_sha256": "1b14a52ffd0cf21094561855d4185ec6d00af028bb28eda1458a1d74805b7b6d"
+        },
+        "L": {
+          "accuracy": 0.9407407407407408,
+          "centered_ss": 41383.73767609005,
+          "correct": 254,
+          "denominator": 2.39489221572976,
+          "elements": 17280,
+          "mse": 0.3453572690486908,
+          "n": 270,
+          "nmse": 0.14420576708227983,
+          "quality_pass": false,
+          "sse": 5967.772851538521,
+          "state_sha256": "03af89a9cf4357d0160edf605a2a5bca28c17a88112c12b9838f09ac9d0f3929"
+        }
+      },
+      "elapsed_seconds": 4.841021490021376,
+      "finished_utc": "2026-10-27T00:53:56.365277+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.40974454398383386,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.11179604381322861,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "87713f2b9ccdc84ee19c8e9872ffb00c99212137c6d0586ada4e7668a49722e0"
+        },
+        "J": {
+          "elapsed_seconds": 0.5301423729979433,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.14913703501224518,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "87713f2b9ccdc84ee19c8e9872ffb00c99212137c6d0586ada4e7668a49722e0"
+        },
+        "L": {
+          "elapsed_seconds": 0.6238593629968818,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.149148628115654,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "87713f2b9ccdc84ee19c8e9872ffb00c99212137c6d0586ada4e7668a49722e0"
+        }
+      },
+      "id": 13,
+      "max_rss_kib": 414128,
+      "pair_initial_sha256": "7efaa3e3c7f2508ca36ba3c909002b0a6316f3ebc897e8a0f3ef9ad43ef10aed",
+      "schedule_sha256": "87713f2b9ccdc84ee19c8e9872ffb00c99212137c6d0586ada4e7668a49722e0",
+      "seed": {
+        "comp": 1711448563,
+        "id": 13,
+        "pair1": 1770774662,
+        "pair2": 971695677,
+        "schedule": 1495560023,
+        "teacher": 1953260371
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 265,
+      "teacher_final_sha256": "12865fe638435b622a334c6de26cb339d130f3b71c2ea136095d30647afb4e57",
+      "teacher_initial_sha256": "7cda74bc2d87446f9fcb478307ffe162bf1a7c96dba290cb2363f053f6f69805"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 35485.53184070095,
+          "correct": 260,
+          "denominator": 2.053560733796166,
+          "elements": 17280,
+          "mse": 0.1155172809958458,
+          "n": 270,
+          "nmse": 0.05625218630972903,
+          "quality_pass": true,
+          "sse": 1996.1386178736961,
+          "state_sha256": "ad95f9d78d756ebf4c6148e2b5c0db4a630d735eee75197559949b2ad916ee35"
+        },
+        "J": {
+          "accuracy": 0.9518518518518518,
+          "centered_ss": 35485.53184070095,
+          "correct": 257,
+          "denominator": 2.053560733796166,
+          "elements": 17280,
+          "mse": 0.1398964822292328,
+          "n": 270,
+          "nmse": 0.06812385917149054,
+          "quality_pass": false,
+          "sse": 2417.4110129845712,
+          "state_sha256": "c1d2520e764c7052800d9d6c2ad037b3d90c811ff1caaec8ac3aedb45ea07b28"
+        },
+        "L": {
+          "accuracy": 0.9407407407407408,
+          "centered_ss": 35485.53184070095,
+          "correct": 254,
+          "denominator": 2.053560733796166,
+          "elements": 17280,
+          "mse": 0.3088366687297821,
+          "n": 270,
+          "nmse": 0.15039081320905157,
+          "quality_pass": false,
+          "sse": 5336.697590473892,
+          "state_sha256": "9b3700468324a5b384a6f96424bc254fd224cd522ea46785ce47a1d034a27c97"
+        }
+      },
+      "elapsed_seconds": 4.652077930979431,
+      "finished_utc": "2026-10-27T00:54:03.864197+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.38937296098447405,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.12926004827022552,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ec658d1774f87e5b46a5d086d157c4775821077036216f223a1916615c95daab"
+        },
+        "J": {
+          "elapsed_seconds": 0.5418138579989318,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.1532912701368332,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ec658d1774f87e5b46a5d086d157c4775821077036216f223a1916615c95daab"
+        },
+        "L": {
+          "elapsed_seconds": 0.5692577750014607,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.14500321447849274,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "ec658d1774f87e5b46a5d086d157c4775821077036216f223a1916615c95daab"
+        }
+      },
+      "id": 14,
+      "max_rss_kib": 414292,
+      "pair_initial_sha256": "9c6e4d28f32a68d65cb950a2cc11c4370b43f333970a6debd061af88865cd572",
+      "schedule_sha256": "ec658d1774f87e5b46a5d086d157c4775821077036216f223a1916615c95daab",
+      "seed": {
+        "comp": 581389078,
+        "id": 14,
+        "pair1": 331106359,
+        "pair2": 1202352350,
+        "schedule": 560968075,
+        "teacher": 194735160
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "teacher_final_sha256": "04b032e4371a97227cdbf1a7c89b6eb65266d54dd24af77866718301b8a58552",
+      "teacher_initial_sha256": "5929cc2387cc444b8abd439e06231b7a2e380c9fe94ad946f861461140d15081"
+    },
+    {
+      "arms": {
+        "C": {
+          "accuracy": 0.9629629629629629,
+          "centered_ss": 26101.3868334965,
+          "correct": 260,
+          "denominator": 1.5104969739923941,
+          "elements": 17280,
+          "mse": 0.07929801940917969,
+          "n": 270,
+          "nmse": 0.05249796641405187,
+          "quality_pass": true,
+          "sse": 1370.2698882677373,
+          "state_sha256": "29613d2a82ea3874c6632725806882a0b14c119546502b3c0176b241abc4bb39"
+        },
+        "J": {
+          "accuracy": 0.9666666666666667,
+          "centered_ss": 26101.3868334965,
+          "correct": 261,
+          "denominator": 1.5104969739923941,
+          "elements": 17280,
+          "mse": 0.09332028031349182,
+          "n": 270,
+          "nmse": 0.06178117660629072,
+          "quality_pass": true,
+          "sse": 1612.574458449796,
+          "state_sha256": "6aaf64cf3dff8de7c577421550b5d616bd38a9501cfab5dc2e5b4c4678a54fad"
+        },
+        "L": {
+          "accuracy": 0.9407407407407408,
+          "centered_ss": 26101.3868334965,
+          "correct": 254,
+          "denominator": 1.5104969739923941,
+          "elements": 17280,
+          "mse": 0.21169842779636383,
+          "n": 270,
+          "nmse": 0.1401515073789415,
+          "quality_pass": false,
+          "sse": 3658.14884257034,
+          "state_sha256": "a25a6851bd87804930962e89a54de050ddc36431cb6243e2b7a1ca1b4b2c8bf8"
+        }
+      },
+      "elapsed_seconds": 4.556470369017916,
+      "finished_utc": "2026-10-27T00:54:03.828995+00:00",
+      "fit_records": {
+        "C": {
+          "elapsed_seconds": 0.37807230799808167,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.0708225816488266,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "6b360bafcd5a3e2db2b92960d671f7673429513fcff753462ace4f63bf169127"
+        },
+        "J": {
+          "elapsed_seconds": 0.5109742479980923,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08076359331607819,
+          "loss_component_calls": 600,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "6b360bafcd5a3e2db2b92960d671f7673429513fcff753462ace4f63bf169127"
+        },
+        "L": {
+          "elapsed_seconds": 0.5139658889966086,
+          "examples_per_parameter": 76800,
+          "final_loss": 0.08726286888122559,
+          "loss_component_calls": 1200,
+          "parameter_steps": [
+            600,
+            600,
+            600,
+            600
+          ],
+          "rss_semantics": "process lifetime high-water at arm end; not isolated arm peak",
+          "schedule_sha256": "6b360bafcd5a3e2db2b92960d671f7673429513fcff753462ace4f63bf169127"
+        }
+      },
+      "id": 15,
+      "max_rss_kib": 412476,
+      "pair_initial_sha256": "a074c478434ff5010a292e7abae37b45f4ce85e102b15d887477b4ecab0cea51",
+      "schedule_sha256": "6b360bafcd5a3e2db2b92960d671f7673429513fcff753462ace4f63bf169127",
+      "seed": {
+        "comp": 425548402,
+        "id": 15,
+        "pair1": 1754352220,
+        "pair2": 1228367727,
+        "schedule": 91832870,
+        "teacher": 892216021
+      },
+      "sqrt_counts": {
+        "float32_sqrt_calls": 34560
+      },
+      "status": "COMPLETE",
+      "teacher_correct": 264,
+      "teacher_final_sha256": "541d75783e5075f6b081b1ddbc3563cf7f093f6e370e520517a3f769aa14397f",
+      "teacher_initial_sha256": "9b6c5155be45726306cad1c190c6566bb097fa69eef72df6e22cee0cc2625048"
+    }
+  ],
+  "attempts": [
+    {
+      "elapsed_seconds": 7.834423542022705,
+      "id": 0,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.834161043167114,
+      "id": 1,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.658790111541748,
+      "id": 2,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.860158205032349,
+      "id": 3,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.662257671356201,
+      "id": 5,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 8.066549301147461,
+      "id": 4,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.8595850467681885,
+      "id": 6,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.859454870223999,
+      "id": 7,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.266809940338135,
+      "id": 8,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.064602375030518,
+      "id": 9,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.684162378311157,
+      "id": 11,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.889947175979614,
+      "id": 10,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.896228075027466,
+      "id": 12,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.894941329956055,
+      "id": 13,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.087273836135864,
+      "id": 15,
+      "reason": null,
+      "returncode": 0
+    },
+    {
+      "elapsed_seconds": 7.493823766708374,
+      "id": 14,
+      "reason": null,
+      "returncode": 0
+    }
+  ],
+  "bootstrap_draws": 100000,
+  "bootstrap_seed": 271027042,
+  "decision": "CONDITIONAL_REGIME_SUPPORTED",
+  "feature_gate": "PASS",
+  "finished_utc": "2026-10-27T00:54:04.889542+00:00",
+  "nmse_sign_J_minus_L": {
+    "equal": 0,
+    "higher": 0,
+    "lower": 16
+  },
+  "not_started": [],
+  "primary_ci95": [
+    -1.2472787769836995,
+    -1.0922529371386938
+  ],
+  "primary_mean_log2_J_over_L": -1.1684411149858227,
+  "quality_counts": {
+    "C": 15,
+    "J": 12,
+    "L": 0
+  },
+  "scope": "new optimization randomness on reused digits; training-regime bundle, not objective-only or fresh-data confirmation"
+}

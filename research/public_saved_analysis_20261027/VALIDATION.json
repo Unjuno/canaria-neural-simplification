@@ -1,0 +1,107 @@
+{
+  "cli_checks": {
+    "grid": {
+      "exit_code": 0,
+      "output_sha256": "506e20f5a80090c1a5e06387922e0b9611862db1544918aeecf744c69071353e"
+    },
+    "latency": {
+      "exit_code": 0,
+      "output_sha256": "ea950cb4b9e7003e97df91c998b2c7435dcd2d58b547d70c2406e2d1535677b5"
+    },
+    "matched": {
+      "exit_code": 0,
+      "output_sha256": "642bd73ab54621a3149247338e3e7606e6827c555fb391ddf14de2113434b69d"
+    },
+    "storage": {
+      "exit_code": 0,
+      "output_sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5"
+    }
+  },
+  "comparison": {
+    "grid": {
+      "exact_equal_summary_fields": [
+        "bootstrap_draws",
+        "bootstrap_seed",
+        "ci95_log2",
+        "coverage",
+        "decision",
+        "geometric_ratio",
+        "mean_log2_C_over_J",
+        "minima",
+        "pass_counts",
+        "patterns",
+        "ratio_ci95"
+      ],
+      "field_count": 11
+    },
+    "latency": {
+      "exact_equal_summary_fields": [
+        "paired",
+        "ratios",
+        "status"
+      ],
+      "field_count": 3
+    },
+    "matched": {
+      "exact_equal_summary_fields": [
+        "accuracy_ci95",
+        "accuracy_gate",
+        "accuracy_mean_J_minus_L",
+        "bootstrap_draws",
+        "bootstrap_seed",
+        "decision",
+        "feature_gate",
+        "nmse_sign_J_minus_L",
+        "primary_ci95",
+        "primary_mean_log2_J_over_L",
+        "quality_counts"
+      ],
+      "field_count": 11,
+      "recomputed_mean_nmse": {
+        "C": 0.05427490520382848,
+        "J": 0.06525011800828283,
+        "L": 0.14649043502718329
+      }
+    },
+    "storage": {
+      "exact_equal_summary_fields": [
+        "cohort",
+        "complete",
+        "failures",
+        "ratios"
+      ],
+      "field_count": 4
+    }
+  },
+  "implementation_commit": "ebe73fb8d13902a5c59c5595f222a03272177a47",
+  "inputs": [
+    {
+      "path": "research/digits_matched_regime/results/SUMMARY.json",
+      "sha256": "796661792c53f756f013915f392e1b3d8c81fb2c340dbabfd67a99b010248599"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+      "sha256": "f36a18564de42c9ba972f2eaa625bdbb4792cd3f93e86e89cafd900877d39325"
+    },
+    {
+      "path": "research/selected_whole_storage/results/ROWS.csv",
+      "sha256": "389b669d9f42ea0018d6b1c0de2bcacef4155b6db73998a3cf679554478c2688"
+    },
+    {
+      "path": "research/selected_whole_storage/results/SUMMARY.json",
+      "sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5"
+    },
+    {
+      "path": "research/selected_latency/results/RAW.jsonl",
+      "sha256": "a8dc849c8855e10a183dc978d3581d26caa1020b665dabd54e5e7cf48d9a47e6"
+    },
+    {
+      "path": "research/selected_latency/results/SUMMARY.json",
+      "sha256": "7f6ec9b73608b426678005f9d6c2f25b2cc1234990c9f26299bff6f82ab9c80f"
+    }
+  ],
+  "kind": "implementation validation on saved scalar tables; no new scientific experiment",
+  "numpy_version": "2.3.5",
+  "python_version": "3.12.14",
+  "synthetic_unittest_methods_passed": 12
+}

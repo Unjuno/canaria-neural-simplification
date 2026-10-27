@@ -1,0 +1,115 @@
+{
+  "status": "PASS_WITH_STATED_LIMITS",
+  "checks": 5823,
+  "errors": [],
+  "scientific_commit": "4c9e277d5f1ee913a8a75f1eadeb5c6f0ab9e96a",
+  "summary_sha256": "b38d6f2175915cda5f738504299f8e7421b0579c6b0eb652fe23109d4e51d1ca",
+  "new_fits": 192,
+  "reused_cells": 32,
+  "coverage": {
+    "both": 16,
+    "C_only": 0,
+    "J_only": 0,
+    "neither": 0
+  },
+  "minima": [
+    {
+      "id": 0,
+      "C": 2048,
+      "J": 3072
+    },
+    {
+      "id": 1,
+      "C": 3072,
+      "J": 2048
+    },
+    {
+      "id": 2,
+      "C": 1536,
+      "J": 1536
+    },
+    {
+      "id": 3,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 4,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 5,
+      "C": 2048,
+      "J": 3072
+    },
+    {
+      "id": 6,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 7,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 8,
+      "C": 2048,
+      "J": 2048
+    },
+    {
+      "id": 9,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 10,
+      "C": 1536,
+      "J": 1536
+    },
+    {
+      "id": 11,
+      "C": 1536,
+      "J": 2048
+    },
+    {
+      "id": 12,
+      "C": 2048,
+      "J": 4096
+    },
+    {
+      "id": 13,
+      "C": 2048,
+      "J": 2048
+    },
+    {
+      "id": 14,
+      "C": 1536,
+      "J": 3072
+    },
+    {
+      "id": 15,
+      "C": 1536,
+      "J": 2048
+    }
+  ],
+  "geometric_ratio": 0.7883241833589479,
+  "ratio_ci95": [
+    0.694449973999738,
+    0.904367624088204
+  ],
+  "signs": {
+    "C_smaller": 11,
+    "tie": 4,
+    "C_larger": 1
+  },
+  "nonmonotone_patterns": 3,
+  "limitations": [
+    "Saved arrays/scalars, source and state hashes independently checked; training and inference not rerun.",
+    "Initial seeds and immutable-teacher/shared-schedule trajectories supported by source and recorded hashes, not every update re-executed.",
+    "Adaptive seen-digits teacher cohort;32 reused cells are not independent new measurements. Finite candidate-grid minima, not global capacity minima.",
+    "No test or external generalization audit; CI conditional on the selected seen cohort and fixed procedure."
+  ],
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

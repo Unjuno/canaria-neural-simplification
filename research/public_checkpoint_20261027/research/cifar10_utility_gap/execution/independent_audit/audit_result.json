@@ -1,0 +1,4770 @@
+{
+  "checks": [
+    {
+      "name": "expected report hash",
+      "pass": true
+    },
+    {
+      "name": "expected frozen predictions hash",
+      "pass": true
+    },
+    {
+      "name": "1000 valid labels",
+      "pass": true
+    },
+    {
+      "name": "predictions all three seeds",
+      "pass": true
+    },
+    {
+      "name": "report all three seeds",
+      "pass": true
+    },
+    {
+      "name": "frozen all three seeds",
+      "pass": true
+    },
+    {
+      "name": "prediction-to-cohort hash",
+      "pass": true
+    },
+    {
+      "name": "report-to-prediction hash",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher predictions argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601 all checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102601 all report checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102601 terminal frozen equality",
+      "pass": true
+    },
+    {
+      "name": "26102601 terminal outcome equality",
+      "pass": true
+    },
+    {
+      "name": "26102601 terminal session hash",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher immutable recorded",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher before session",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher identity",
+      "pass": true
+    },
+    {
+      "name": "26102601 teacher checkpoint bytes",
+      "pass": true
+    },
+    {
+      "name": "26102601 trajectories census",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.30798140986845846,
+        "recorded": 0.30798140986845846
+      },
+      "name": "26102601w8_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.30944321568120636,
+        "recorded": 0.30944321568120636
+      },
+      "name": "26102601w8_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.6446788375645838e-11,
+        "computed": 0.2788194391600858,
+        "recorded": 0.278819439143639
+      },
+      "name": "26102601w8_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2891186062306048,
+        "recorded": 0.2891186062306048
+      },
+      "name": "26102601w8_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2905302896107056,
+        "recorded": 0.2905302896107056
+      },
+      "name": "26102601w8_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 6.8552341858652e-09,
+        "computed": 0.2459138421113561,
+        "recorded": 0.2459138489665903
+      },
+      "name": "26102601w8_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5543577264099524,
+        "recorded": 0.5543577264099524
+      },
+      "name": "26102601w8_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5564463851558324,
+        "recorded": 0.5564463851558324
+      },
+      "name": "26102601w8_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 8.796639527908212e-10,
+        "computed": 0.27105409066945474,
+        "recorded": 0.2710540915491187
+      },
+      "name": "26102601w8_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5848592657867934,
+        "recorded": 0.5848592657867934
+      },
+      "name": "26102601w8_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5869226394792654,
+        "recorded": 0.5869226394792654
+      },
+      "name": "26102601w8_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 5.838218242182336e-09,
+        "computed": 0.2628628517004623,
+        "recorded": 0.26286285753868055
+      },
+      "name": "26102601w8_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w8_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2534262318035267,
+        "recorded": 0.2534262318035267
+      },
+      "name": "26102601w16_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2544895649632034,
+        "recorded": 0.2544895649632034
+      },
+      "name": "26102601w16_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 4.027473243795043e-09,
+        "computed": 0.16009687033459769,
+        "recorded": 0.16009687436207093
+      },
+      "name": "26102601w16_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2296922105932372,
+        "recorded": 0.2296922105932372
+      },
+      "name": "26102601w16_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2307009002001946,
+        "recorded": 0.2307009002001946
+      },
+      "name": "26102601w16_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 4.709993228768639e-10,
+        "computed": 0.14006810264214895,
+        "recorded": 0.14006810217114962
+      },
+      "name": "26102601w16_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.51312368803593,
+        "recorded": 0.51312368803593
+      },
+      "name": "26102601w16_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5151942634171084,
+        "recorded": 0.5151942634171084
+      },
+      "name": "26102601w16_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 5.507001549220902e-09,
+        "computed": 0.2097848876771779,
+        "recorded": 0.20978489318417945
+      },
+      "name": "26102601w16_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5428342208216435,
+        "recorded": 0.5428342208216435
+      },
+      "name": "26102601w16_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5449537426446065,
+        "recorded": 0.5449537426446065
+      },
+      "name": "26102601w16_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 5.452535312144846e-09,
+        "computed": 0.1996424971691579,
+        "recorded": 0.19964250262169322
+      },
+      "name": "26102601w16_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102601w16_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.061246565647939955,
+        "recorded": 0.061246565647939955
+      },
+      "name": "26102601budgetw8_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.06111921383981863,
+        "recorded": 0.06111921383981863
+      },
+      "name": "26102601budgetw8_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.0550214021086536,
+        "recorded": -0.0550214021086536
+      },
+      "name": "26102601budgetw8_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.05476943536060185,
+        "recorded": -0.05476943536060185
+      },
+      "name": "26102601budgetw8_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw8_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.09365258300762541,
+        "recorded": 0.09365258300762541
+      },
+      "name": "26102601budgetw16_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.093475992881863,
+        "recorded": 0.093475992881863
+      },
+      "name": "26102601budgetw16_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.05790130816107062,
+        "recorded": -0.05790130816107062
+      },
+      "name": "26102601budgetw16_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.05776360751789743,
+        "recorded": -0.05776360751789743
+      },
+      "name": "26102601budgetw16_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102601budgetw16_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmsestatus",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmsewidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmsetask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmsewidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmseproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102601widthmseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601widthklstatus",
+      "pass": true
+    },
+    {
+      "name": "26102601widthklwidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102601widthkltask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102601widthklwidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102601widthklproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102601widthklaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment8status",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment8alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment8alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment8uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment8accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment16status",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment16alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment16alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment16uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102601alignment16accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher predictions argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602 all checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102602 all report checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102602 terminal frozen equality",
+      "pass": true
+    },
+    {
+      "name": "26102602 terminal outcome equality",
+      "pass": true
+    },
+    {
+      "name": "26102602 terminal session hash",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher immutable recorded",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher before session",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher identity",
+      "pass": true
+    },
+    {
+      "name": "26102602 teacher checkpoint bytes",
+      "pass": true
+    },
+    {
+      "name": "26102602 trajectories census",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2761235619286099,
+        "recorded": 0.2761235619286099
+      },
+      "name": "26102602w8_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.27604898778132897,
+        "recorded": 0.27604898778132897
+      },
+      "name": "26102602w8_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 3.503294765394571e-09,
+        "computed": 0.2193225807830339,
+        "recorded": 0.21932258428632867
+      },
+      "name": "26102602w8_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2544363636246489,
+        "recorded": 0.2544363636246489
+      },
+      "name": "26102602w8_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.25406736606642305,
+        "recorded": 0.25406736606642305
+      },
+      "name": "26102602w8_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 3.716121160790564e-09,
+        "computed": 0.18452950848207827,
+        "recorded": 0.18452951219819944
+      },
+      "name": "26102602w8_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5306780625369006,
+        "recorded": 0.5306780625369006
+      },
+      "name": "26102602w8_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5307207287726697,
+        "recorded": 0.5307207287726697
+      },
+      "name": "26102602w8_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 8.761626119069277e-09,
+        "computed": 0.24016628146158167,
+        "recorded": 0.2401662902232078
+      },
+      "name": "26102602w8_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5454681781330578,
+        "recorded": 0.5454681781330578
+      },
+      "name": "26102602w8_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5463831464043188,
+        "recorded": 0.5463831464043188
+      },
+      "name": "26102602w8_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 3.4577678220681918e-09,
+        "computed": 0.24254656555057835,
+        "recorded": 0.24254656900834617
+      },
+      "name": "26102602w8_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w8_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2125952167117466,
+        "recorded": 0.2125952167117466
+      },
+      "name": "26102602w16_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2123112982320239,
+        "recorded": 0.2123112982320239
+      },
+      "name": "26102602w16_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.123603210473334e-09,
+        "computed": 0.14561451936273628,
+        "recorded": 0.1456145204863395
+      },
+      "name": "26102602w16_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.203995267833008,
+        "recorded": 0.203995267833008
+      },
+      "name": "26102602w16_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2035761767021722,
+        "recorded": 0.2035761767021722
+      },
+      "name": "26102602w16_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 7.361483561618698e-09,
+        "computed": 0.13571192999039722,
+        "recorded": 0.13571193735188078
+      },
+      "name": "26102602w16_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.47580354458939444,
+        "recorded": 0.47580354458939444
+      },
+      "name": "26102602w16_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.4779115797671213,
+        "recorded": 0.4779115797671213
+      },
+      "name": "26102602w16_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 2.3690777117835182e-09,
+        "computed": 0.19748393580595996,
+        "recorded": 0.19748393817503768
+      },
+      "name": "26102602w16_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5082312587221314,
+        "recorded": 0.5082312587221314
+      },
+      "name": "26102602w16_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5099814583336961,
+        "recorded": 0.5099814583336961
+      },
+      "name": "26102602w16_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 5.576142630969727e-09,
+        "computed": 0.18066423218053457,
+        "recorded": 0.1806642377566772
+      },
+      "name": "26102602w16_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102602w16_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.07854164328637801,
+        "recorded": 0.07854164328637801
+      },
+      "name": "26102602budgetw8_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.07962942335553343,
+        "recorded": 0.07962942335553343
+      },
+      "name": "26102602budgetw8_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.027870222344321502,
+        "recorded": -0.027870222344321502
+      },
+      "name": "26102602budgetw8_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.029511599571152205,
+        "recorded": -0.029511599571152205
+      },
+      "name": "26102602budgetw8_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw8_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.040452221887941606,
+        "recorded": 0.040452221887941606
+      },
+      "name": "26102602budgetw16_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.041142989575173455,
+        "recorded": 0.041142989575173455
+      },
+      "name": "26102602budgetw16_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.06815357830240876,
+        "recorded": -0.06815357830240876
+      },
+      "name": "26102602budgetw16_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.06710420907189983,
+        "recorded": -0.06710420907189983
+      },
+      "name": "26102602budgetw16_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102602budgetw16_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmsestatus",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmsewidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmsetask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmsewidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmseproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102602widthmseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602widthklstatus",
+      "pass": true
+    },
+    {
+      "name": "26102602widthklwidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102602widthkltask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102602widthklwidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102602widthklproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102602widthklaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment8status",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment8alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment8alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment8uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment8accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment16status",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment16alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment16alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment16uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102602alignment16accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher predictions argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603 all checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102603 all report checkpoints",
+      "pass": true
+    },
+    {
+      "name": "26102603 terminal frozen equality",
+      "pass": true
+    },
+    {
+      "name": "26102603 terminal outcome equality",
+      "pass": true
+    },
+    {
+      "name": "26102603 terminal session hash",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher immutable recorded",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher before session",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher identity",
+      "pass": true
+    },
+    {
+      "name": "26102603 teacher checkpoint bytes",
+      "pass": true
+    },
+    {
+      "name": "26102603 trajectories census",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.29126249354324085,
+        "recorded": 0.29126249354324085
+      },
+      "name": "26102603w8_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2918996831140028,
+        "recorded": 0.2918996831140028
+      },
+      "name": "26102603w8_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.3944357335482493e-09,
+        "computed": 0.267749688436169,
+        "recorded": 0.2677496898306047
+      },
+      "name": "26102603w8_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2621201464952535,
+        "recorded": 0.2621201464952535
+      },
+      "name": "26102603w8_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.2624649858466715,
+        "recorded": 0.2624649858466715
+      },
+      "name": "26102603w8_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 4.3472378474795903e-10,
+        "computed": 0.187075059577429,
+        "recorded": 0.1870750600121528
+      },
+      "name": "26102603w8_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5512482677217477,
+        "recorded": 0.5512482677217477
+      },
+      "name": "26102603w8_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5526991253346734,
+        "recorded": 0.5526991253346734
+      },
+      "name": "26102603w8_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.1655196530124812e-09,
+        "computed": 0.22515054946549282,
+        "recorded": 0.22515054829997316
+      },
+      "name": "26102603w8_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5592068058906268,
+        "recorded": 0.5592068058906268
+      },
+      "name": "26102603w8_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5606559573856603,
+        "recorded": 0.5606559573856603
+      },
+      "name": "26102603w8_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.9025420128215842e-11,
+        "computed": 0.20075651914382392,
+        "recorded": 0.2007565191247985
+      },
+      "name": "26102603w8_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w8_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse budget census",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.20564215609245953,
+        "recorded": 0.20564215609245953
+      },
+      "name": "26102603w16_mse@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.20568129593631576,
+        "recorded": 0.20568129593631576
+      },
+      "name": "26102603w16_mse@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 1.4879827370251064e-09,
+        "computed": 0.15255099809683867,
+        "recorded": 0.15255099660885593
+      },
+      "name": "26102603w16_mse@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.198841329192528,
+        "recorded": 0.198841329192528
+      },
+      "name": "26102603w16_mse@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.19897507675555365,
+        "recorded": 0.19897507675555365
+      },
+      "name": "26102603w16_mse@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 8.198816348059523e-10,
+        "computed": 0.13623507450981992,
+        "recorded": 0.13623507532970155
+      },
+      "name": "26102603w16_mse@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_mse@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl terminal complete",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl budget census",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5028917036932988,
+        "recorded": 0.5028917036932988
+      },
+      "name": "26102603w16_kl@1024 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5036631931639557,
+        "recorded": 0.5036631931639557
+      },
+      "name": "26102603w16_kl@1024 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 3.1004178113747116e-09,
+        "computed": 0.18913414678523596,
+        "recorded": 0.18913414988565377
+      },
+      "name": "26102603w16_kl@1024 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@1024 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 checkpoint saved status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 prediction status",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 checkpoint byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 prediction checkpoint hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 fit byte hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 prediction fit hash",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 fit binding",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 student logits dimensions",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 student argmax",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 n",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 teacher_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 teacher_accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 accuracy",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 teacher_drop",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 both_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 teacher_correct_student_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 teacher_wrong_student_correct",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 both_wrong",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 prediction_disagreements",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5272065019254485,
+        "recorded": 0.5272065019254485
+      },
+      "name": "26102603w16_kl@2048 fit centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.5277227912009042,
+        "recorded": 0.5277227912009042
+      },
+      "name": "26102603w16_kl@2048 diagnostic centered NMSE arithmetic",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 3.785803448508318e-09,
+        "computed": 0.20513307416432727,
+        "recorded": 0.20513307795013072
+      },
+      "name": "26102603w16_kl@2048 diagnostic KL float64 recomputation",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 report NMSE",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 report KL",
+      "pass": true
+    },
+    {
+      "name": "26102603w16_kl@2048 fit KL finite nonnegative",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.10005526868038322,
+        "recorded": 0.10005526868038322
+      },
+      "name": "26102603budgetw8_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.10083840089622646,
+        "recorded": 0.10083840089622646
+      },
+      "name": "26102603budgetw8_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.014437302817786357,
+        "recorded": -0.014437302817786357
+      },
+      "name": "26102603budgetw8_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.014396317428888453,
+        "recorded": -0.014396317428888453
+      },
+      "name": "26102603budgetw8_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw8_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_msestatus",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_mseprimary",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_msebudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_msetask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.033071170956181686,
+        "recorded": 0.033071170956181686
+      },
+      "name": "26102603budgetw16_msefit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": 0.03260490532322653,
+        "recorded": 0.03260490532322653
+      },
+      "name": "26102603budgetw16_msediagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_mseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_klstatus",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_klprimary",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_klbudget_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_kltask_relevant",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.048349968897038416,
+        "recorded": -0.048349968897038416
+      },
+      "name": "26102603budgetw16_klfit_relative_reduction",
+      "pass": true
+    },
+    {
+      "detail": {
+        "absolute_error": 0.0,
+        "computed": -0.04776922031131313,
+        "recorded": -0.04776922031131313
+      },
+      "name": "26102603budgetw16_kldiagnostic_relative_reduction",
+      "pass": true
+    },
+    {
+      "name": "26102603budgetw16_klaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmsestatus",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmsewidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmsetask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmsewidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmseproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102603widthmseaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603widthklstatus",
+      "pass": true
+    },
+    {
+      "name": "26102603widthklwidth_sensitivity",
+      "pass": true
+    },
+    {
+      "name": "26102603widthkltask_relevant",
+      "pass": true
+    },
+    {
+      "name": "26102603widthklwidth_benefit_after_apparent_plateau",
+      "pass": true
+    },
+    {
+      "name": "26102603widthklproven_insufficient_expressivity",
+      "pass": true
+    },
+    {
+      "name": "26102603widthklaccuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment8status",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment8alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment8alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment8uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment8accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment16status",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment16alignment_evidence",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment16alternative_objective_helps_without_isolated_alignment",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment16uniquely_causal",
+      "pass": true
+    },
+    {
+      "name": "26102603alignment16accuracy_gain_count",
+      "pass": true
+    },
+    {
+      "name": "source freeze/context",
+      "pass": true
+    },
+    {
+      "name": "source freeze/frozen",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_replacements/core.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_replacements/data.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_teacher/model.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/.gitignore",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/FIT_PLAN.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/INGESTION_PLAN.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/INPUTS.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/MANIFEST.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/ORCHESTRATION.md",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/PROPOSAL_CONTEXT.md",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/PROTOCOL.md",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/__init__.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/core.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/data.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/diagnostic.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/entry.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/launch.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/producer.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/protocol.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/report.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/runtime.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/test_orchestrator_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/test_producer_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/test_review_regressions.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/test_runner_failures.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/test_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "frozen source research/cifar10_utility_gap/worker.py",
+      "pass": true
+    },
+    {
+      "name": "deterministic diagnostic split",
+      "pass": true
+    },
+    {
+      "name": "deterministic fit split",
+      "pass": true
+    },
+    {
+      "name": "all prediction IDs frozen order",
+      "pass": true
+    },
+    {
+      "name": "calibration_ids membership hash",
+      "pass": true
+    },
+    {
+      "name": "fit_ids membership hash",
+      "pass": true
+    },
+    {
+      "name": "diagnostic_ids membership hash",
+      "pass": true
+    },
+    {
+      "name": "ingestion context exact",
+      "pass": true
+    },
+    {
+      "name": "fit original design",
+      "pass": true
+    },
+    {
+      "name": "fixed source commit",
+      "pass": true
+    },
+    {
+      "name": "frozen design_sha256",
+      "pass": true
+    },
+    {
+      "name": "frozen partition_sha256",
+      "pass": true
+    },
+    {
+      "name": "frozen cohort_launch_sha256",
+      "pass": true
+    },
+    {
+      "name": "frozen original_cohort_sha256",
+      "pass": true
+    },
+    {
+      "name": "actual calibration manifest binding",
+      "pass": true
+    },
+    {
+      "name": "fit actual calibration binding",
+      "pass": true
+    },
+    {
+      "name": "cohort six-hour cap",
+      "pass": true
+    },
+    {
+      "name": "fit cutoff reserve30min",
+      "pass": true
+    },
+    {
+      "name": "26102601 original cohort clock",
+      "pass": true
+    },
+    {
+      "name": "26102601 original teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102601 session teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102601 fit request hash",
+      "pass": true
+    },
+    {
+      "name": "26102601 two-hour cap",
+      "pass": true
+    },
+    {
+      "name": "26102601 full allocation before cutoff",
+      "pass": true
+    },
+    {
+      "name": "26102601 serial within clocks",
+      "pass": true
+    },
+    {
+      "name": "26102601 reaped success no retry",
+      "pass": true
+    },
+    {
+      "name": "26102601 session cohort_clock",
+      "pass": true
+    },
+    {
+      "name": "26102601 session source_sha256",
+      "pass": true
+    },
+    {
+      "name": "26102601 session partition_sha256",
+      "pass": true
+    },
+    {
+      "name": "26102602 original cohort clock",
+      "pass": true
+    },
+    {
+      "name": "26102602 original teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102602 session teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102602 fit request hash",
+      "pass": true
+    },
+    {
+      "name": "26102602 two-hour cap",
+      "pass": true
+    },
+    {
+      "name": "26102602 full allocation before cutoff",
+      "pass": true
+    },
+    {
+      "name": "26102602 serial within clocks",
+      "pass": true
+    },
+    {
+      "name": "26102602 reaped success no retry",
+      "pass": true
+    },
+    {
+      "name": "26102602 session cohort_clock",
+      "pass": true
+    },
+    {
+      "name": "26102602 session source_sha256",
+      "pass": true
+    },
+    {
+      "name": "26102602 session partition_sha256",
+      "pass": true
+    },
+    {
+      "name": "26102603 original cohort clock",
+      "pass": true
+    },
+    {
+      "name": "26102603 original teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102603 session teacher clock",
+      "pass": true
+    },
+    {
+      "name": "26102603 fit request hash",
+      "pass": true
+    },
+    {
+      "name": "26102603 two-hour cap",
+      "pass": true
+    },
+    {
+      "name": "26102603 full allocation before cutoff",
+      "pass": true
+    },
+    {
+      "name": "26102603 serial within clocks",
+      "pass": true
+    },
+    {
+      "name": "26102603 reaped success no retry",
+      "pass": true
+    },
+    {
+      "name": "26102603 session cohort_clock",
+      "pass": true
+    },
+    {
+      "name": "26102603 session source_sha256",
+      "pass": true
+    },
+    {
+      "name": "26102603 session partition_sha256",
+      "pass": true
+    },
+    {
+      "name": "diagnostic request frozen",
+      "pass": true
+    },
+    {
+      "name": "diagnostic request context",
+      "pass": true
+    },
+    {
+      "name": "diagnostic request original clock",
+      "pass": true
+    },
+    {
+      "name": "diagnostic request child hash",
+      "pass": true
+    },
+    {
+      "name": "process result equality",
+      "pass": true
+    },
+    {
+      "name": "result report hash",
+      "pass": true
+    },
+    {
+      "name": "consumed request equality",
+      "pass": true
+    },
+    {
+      "name": "consumed cohort hash",
+      "pass": true
+    },
+    {
+      "name": "consumed original clock",
+      "pass": true
+    },
+    {
+      "name": "image marker cohort",
+      "pass": true
+    },
+    {
+      "name": "label marker prediction",
+      "pass": true
+    },
+    {
+      "name": "ledger target",
+      "pass": true
+    },
+    {
+      "name": "diagnostic30min cap",
+      "pass": true
+    },
+    {
+      "name": "diagnostic begins after all fit terminals",
+      "pass": true
+    },
+    {
+      "name": "diagnostic complete within original clocks",
+      "pass": true
+    },
+    {
+      "name": "diagnostic complete reaped no retry",
+      "pass": true
+    },
+    {
+      "detail": {
+        "diagnostic_consumed.json": 1793029445001800974,
+        "diagnostic_images_opened.json": 1793029448355066502,
+        "diagnostic_labels_opened.json": 1793029456892890021,
+        "diagnostic_report.json": 1793029457082538795,
+        "diagnostic_result.json": 1793029457774908865,
+        "frozen_cohort.json": 1793029246955686863,
+        "predictions_frozen.json": 1793029456444800058
+      },
+      "name": "filesystem corroborates one-look ordering",
+      "pass": true
+    },
+    {
+      "name": "interpretation complete_three_seed_matrix",
+      "pass": true
+    },
+    {
+      "name": "interpretation exploratory",
+      "pass": true
+    },
+    {
+      "name": "interpretation formal_noninferiority",
+      "pass": true
+    },
+    {
+      "name": "interpretation pristine_study_holdout",
+      "pass": true
+    },
+    {
+      "name": "interpretation original_validation_used",
+      "pass": true
+    },
+    {
+      "name": "interpretation official_test_accessed",
+      "pass": true
+    },
+    {
+      "name": "ingestion boundary explicit not validation use",
+      "pass": true
+    },
+    {
+      "name": "INGESTION no CI fees retry clock reset",
+      "pass": true
+    },
+    {
+      "name": "FIT no CI fees retry clock reset",
+      "pass": true
+    },
+    {
+      "name": "DIAGNOSTIC no CI fees retry clock reset",
+      "pass": true
+    },
+    {
+      "name": "26102601 original terminal artifact unchanged",
+      "pass": true
+    },
+    {
+      "name": "26102601 original negative results preserved declaration",
+      "pass": true
+    },
+    {
+      "name": "26102602 original terminal artifact unchanged",
+      "pass": true
+    },
+    {
+      "name": "26102602 original negative results preserved declaration",
+      "pass": true
+    },
+    {
+      "name": "26102603 original terminal artifact unchanged",
+      "pass": true
+    },
+    {
+      "name": "26102603 original negative results preserved declaration",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_replacements/core.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_replacements/data.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_teacher/model.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/.gitignore",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/FIT_PLAN.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/INGESTION_PLAN.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/INPUTS.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/MANIFEST.TEMPLATE.json",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/ORCHESTRATION.md",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/PROPOSAL_CONTEXT.md",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/PROTOCOL.md",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/__init__.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/core.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/data.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/diagnostic.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/entry.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/launch.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/producer.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/protocol.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/report.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/runtime.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/test_orchestrator_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/test_producer_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/test_review_regressions.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/test_runner_failures.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/test_synthetic.py",
+      "pass": true
+    },
+    {
+      "name": "reviewed git source research/cifar10_utility_gap/worker.py",
+      "pass": true
+    },
+    {
+      "name": "actual fixed checkpoint filesystem census",
+      "pass": true
+    },
+    {
+      "name": "actual fit metrics filesystem census",
+      "pass": true
+    },
+    {
+      "name": "26102601 no warm start fresh Adam",
+      "pass": true
+    },
+    {
+      "name": "26102601 width8 objective initialization pair",
+      "pass": true
+    },
+    {
+      "name": "26102601 width16 objective initialization pair",
+      "pass": true
+    },
+    {
+      "name": "26102602 no warm start fresh Adam",
+      "pass": true
+    },
+    {
+      "name": "26102602 width8 objective initialization pair",
+      "pass": true
+    },
+    {
+      "name": "26102602 width16 objective initialization pair",
+      "pass": true
+    },
+    {
+      "name": "26102603 no warm start fresh Adam",
+      "pass": true
+    },
+    {
+      "name": "26102603 width8 objective initialization pair",
+      "pass": true
+    },
+    {
+      "name": "26102603 width16 objective initialization pair",
+      "pass": true
+    }
+  ],
+  "contrasts": {
+    "26102601": {
+      "alignment": {
+        "16": {
+          "accuracy_gain_count": -14,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        },
+        "8": {
+          "accuracy_gain_count": -19,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        }
+      },
+      "budget": {
+        "w16_kl": {
+          "accuracy_gain_count": 4,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.05776360751789743,
+          "fit_relative_reduction": -0.05790130816107062,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w16_mse": {
+          "accuracy_gain_count": 7,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": 0.093475992881863,
+          "fit_relative_reduction": 0.09365258300762541,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_kl": {
+          "accuracy_gain_count": 0,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.05476943536060185,
+          "fit_relative_reduction": -0.0550214021086536,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_mse": {
+          "accuracy_gain_count": 8,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": 0.06111921383981863,
+          "fit_relative_reduction": 0.061246565647939955,
+          "primary": true,
+          "status": "observed",
+          "task_relevant": false
+        }
+      },
+      "width": {
+        "kl": {
+          "accuracy_gain_count": 24,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": false,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": false
+        },
+        "mse": {
+          "accuracy_gain_count": 19,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": true,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": true
+        }
+      }
+    },
+    "26102602": {
+      "alignment": {
+        "16": {
+          "accuracy_gain_count": -17,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        },
+        "8": {
+          "accuracy_gain_count": -7,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        }
+      },
+      "budget": {
+        "w16_kl": {
+          "accuracy_gain_count": 0,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.06710420907189983,
+          "fit_relative_reduction": -0.06815357830240876,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w16_mse": {
+          "accuracy_gain_count": -1,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": 0.041142989575173455,
+          "fit_relative_reduction": 0.040452221887941606,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_kl": {
+          "accuracy_gain_count": 12,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.029511599571152205,
+          "fit_relative_reduction": -0.027870222344321502,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_mse": {
+          "accuracy_gain_count": 8,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": 0.07962942335553343,
+          "fit_relative_reduction": 0.07854164328637801,
+          "primary": true,
+          "status": "observed",
+          "task_relevant": false
+        }
+      },
+      "width": {
+        "kl": {
+          "accuracy_gain_count": 1,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": false,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": false
+        },
+        "mse": {
+          "accuracy_gain_count": 11,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": true,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": true
+        }
+      }
+    },
+    "26102603": {
+      "alignment": {
+        "16": {
+          "accuracy_gain_count": -4,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        },
+        "8": {
+          "accuracy_gain_count": -6,
+          "alignment_evidence": false,
+          "alternative_objective_helps_without_isolated_alignment": false,
+          "status": "observed",
+          "uniquely_causal": false
+        }
+      },
+      "budget": {
+        "w16_kl": {
+          "accuracy_gain_count": -1,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.04776922031131313,
+          "fit_relative_reduction": -0.048349968897038416,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w16_mse": {
+          "accuracy_gain_count": 5,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": 0.03260490532322653,
+          "fit_relative_reduction": 0.033071170956181686,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_kl": {
+          "accuracy_gain_count": 6,
+          "budget_sensitivity": false,
+          "diagnostic_relative_reduction": -0.014396317428888453,
+          "fit_relative_reduction": -0.014437302817786357,
+          "primary": false,
+          "status": "observed",
+          "task_relevant": false
+        },
+        "w8_mse": {
+          "accuracy_gain_count": 3,
+          "budget_sensitivity": true,
+          "diagnostic_relative_reduction": 0.10083840089622646,
+          "fit_relative_reduction": 0.10005526868038322,
+          "primary": true,
+          "status": "observed",
+          "task_relevant": false
+        }
+      },
+      "width": {
+        "kl": {
+          "accuracy_gain_count": 10,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": false,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": false
+        },
+        "mse": {
+          "accuracy_gain_count": 8,
+          "proven_insufficient_expressivity": false,
+          "status": "observed",
+          "task_relevant": false,
+          "width_benefit_after_apparent_plateau": false,
+          "width_sensitivity": true
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Saved-output arithmetic and artifact-binding audit only; no training or inference rerun, model/optimizer/checkpoint deserialization, image/label-payload loading, original-validation/test/archive access, network call, or CI. Checkpoint files were opaque SHA256 byte-streams only.",
+    "Centered NMSE was recomputed from saved SSE, centered teacher SS, n and fixed 32x16x16 features; underlying endpoint tensors are not retained in these outputs.",
+    "Diagnostic KL recomputed independently in Python float64 from saved per-example logits; production float32 arithmetic permits absolute tolerance 1e-7. Fit KL has no saved per-example logits/sums here, so only its finite/nonnegative value and hash binding can be verified, not independently reproduced. Uncentered energy NMSE cannot be independently reproduced because teacher energy is not saved.",
+    "Teacher before/after state hashes match recorded metadata; no independent tensor-state rehash was performed (would require prohibited weight deserialization). Current original teacher checkpoint raw byte hashes match pinned identities.",
+    "One-look lineage is consistent across exclusive-marker source, canonical hashes, process receipts, ledger and filesystem ordering. Saved evidence alone is not an adversarial proof of absence of unlogged access.",
+    "All >2 percentage-point drops are descriptive on shared 1000 calibration diagnostics, not formal noninferiority, independent seed/image replications, pristine study holdout, or original heldout failure replacement."
+  ],
+  "summary": {
+    "alignment_evidence": [],
+    "all24_teacher_drop_gt_2pp": true,
+    "all_checks_pass": true,
+    "budget_sensitive": [
+      [
+        "26102603",
+        "w8_mse"
+      ]
+    ],
+    "budget_task_relevant": [],
+    "checks": 1015,
+    "clocks": {
+      "26102601": {
+        "elapsed_seconds": 1151.3239760398865,
+        "ended_utc": "2026-10-26T15:01:16.089937+00:00",
+        "started_utc": "2026-10-26T14:42:04.765961+00:00"
+      },
+      "26102602": {
+        "elapsed_seconds": 1160.1942956447601,
+        "ended_utc": "2026-10-26T15:20:36.297964+00:00",
+        "started_utc": "2026-10-26T15:01:16.103669+00:00"
+      },
+      "26102603": {
+        "elapsed_seconds": 1210.6264262199402,
+        "ended_utc": "2026-10-26T15:40:46.936270+00:00",
+        "started_utc": "2026-10-26T15:20:36.309843+00:00"
+      }
+    },
+    "failures": [],
+    "fixed_checkpoints": 24,
+    "max_diagnostic_kl_absolute_error": 8.761626119069277e-09,
+    "max_teacher_drop_pp": 6.4,
+    "min_teacher_drop_pp": 2.1,
+    "predictions_sha256": "0ac9b67457133962b4a25db56c3bdfa4d1411c9ca087d867e24225284ee569ec",
+    "report_sha256": "60cb3fde0437c352999b1a818c88aeb8316524bbb3361665414e8f2b44930cac",
+    "teacher_state_hashes": {
+      "26102601": {
+        "after": "372c568c816559c3bc5b74e3c9eb7f9ac8c6b944af324b2a950144537e586c90",
+        "before": "372c568c816559c3bc5b74e3c9eb7f9ac8c6b944af324b2a950144537e586c90"
+      },
+      "26102602": {
+        "after": "6acf83233052d13c1c1b1763fca47d0f9e67ddc3cd03f1ded0da5bac43d45891",
+        "before": "6acf83233052d13c1c1b1763fca47d0f9e67ddc3cd03f1ded0da5bac43d45891"
+      },
+      "26102603": {
+        "after": "107c99064683afbf71512d1771c1ea239a6a6953783f513d552c457901964e29",
+        "before": "107c99064683afbf71512d1771c1ea239a6a6953783f513d552c457901964e29"
+      }
+    },
+    "terminal_trajectories": 12,
+    "width_sensitive": [
+      [
+        "26102601",
+        "mse"
+      ],
+      [
+        "26102602",
+        "mse"
+      ],
+      [
+        "26102603",
+        "mse"
+      ]
+    ],
+    "width_task_relevant": [
+      [
+        "26102601",
+        "mse"
+      ],
+      [
+        "26102602",
+        "mse"
+      ]
+    ]
+  },
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

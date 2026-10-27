@@ -1,0 +1,301 @@
+{
+  "file_count_excluding_this_manifest": 59,
+  "bytes_excluding_this_manifest": 1236355,
+  "files": [
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 35612,
+      "sha256": "931dc8c029e768fe944680d7ae27e6b9ad6a1adfa92f337e46744c86f285f8d3"
+    },
+    {
+      "path": "README.ja.md",
+      "bytes": 2035,
+      "sha256": "2705b6a2390182ed64f7052f46b505a177b071f055b6ddc706265987fe2ef0fb"
+    },
+    {
+      "path": "docs/claims_checkpoint_20261027/README.ja.md",
+      "bytes": 4982,
+      "sha256": "11e289816e5a1e46e895de396bfaa441c73c927046635aeca602081c30383ee6"
+    },
+    {
+      "path": "docs/claims_checkpoint_20261027/SOURCES.md",
+      "bytes": 2764,
+      "sha256": "d79ca339127635c46cc16b8657598ef7f9d6c7cd9fc1e990e075a16ba17010a1"
+    },
+    {
+      "path": "docs/claims_checkpoint_20261027/SOURCE_INDEX.json",
+      "bytes": 2727,
+      "sha256": "fa864fcba2d2beaed9a483d64e03a84197ac60cdebf8baa412ad717a9068e394"
+    },
+    {
+      "path": "docs/research_checkpoint_20261026/README.ja.md",
+      "bytes": 3519,
+      "sha256": "811df75f2c3c0ce4b8e23830c191ff8f98da22b132cc77a8c2b5a57305993139"
+    },
+    {
+      "path": "docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md",
+      "bytes": 5148,
+      "sha256": "cebadb8430e0c9b6001be8b3b87dc8b8c206cf1830fc3cd7685480a969a2745e"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/INDEPENDENT_REVIEW.md",
+      "bytes": 1040,
+      "sha256": "0bf990d7a18d7790a737ca5ac4a02802aad9537bd4f34879992b15be94e4f3d5"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/PROTOCOL.md",
+      "bytes": 6375,
+      "sha256": "7bef4bdd1442dd0adc65712a6ceaeee947a707fcc2c314f2e796c4deea3c737e"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/core.py",
+      "bytes": 8836,
+      "sha256": "ce9a56382a79ae99272281037f164fada1162562cd2b1dce8b1cbb720039619f"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/AUDIT.json",
+      "bytes": 4030,
+      "sha256": "a351af4ec909109fcd9ff93ceb47a556df4ed0b545bdb5f16d1e168b42932675"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/REVIEW.md",
+      "bytes": 6892,
+      "sha256": "837a9e041af0fc67f77fe09b5da3f3ed73421f49fa263c8df08efa5f310b2e52"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/counts_and_quintiles.json",
+      "bytes": 9020,
+      "sha256": "7236c128a490f4b7a2986e3e805253e76fba971025e99d9ed385db7269f2c4ab"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/fixed_criteria.json",
+      "bytes": 1659,
+      "sha256": "159cdfc26496c81ae673af3ab1d660274e15308c19f996a515c2f269447e07b0"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/objective_and_scale_table.json",
+      "bytes": 3228,
+      "sha256": "a65d16ad88d61780a402c4e177488d061a6b1d2f1b6407af4bad0b52e1c1f297"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/shared_unique_harms.json",
+      "bytes": 2428,
+      "sha256": "ab51ab9bfd5bd685870f87408c092bf7bafef08ff6a69d6d9f77095dff24b553"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/training_log_descriptive.json",
+      "bytes": 79242,
+      "sha256": "3d2f013a369d0374acd46b4af724221e8e7f1c99982d6cf75812b9da62ec201e"
+    },
+    {
+      "path": "research/cifar10_heldout/PROTOCOL.md",
+      "bytes": 2258,
+      "sha256": "12b1fbf2aa45154aa41f14ce902c426acb3703aca0c5d837aa6fa1e2ef4c6b08"
+    },
+    {
+      "path": "research/cifar10_heldout/execution/results.json",
+      "bytes": 12826,
+      "sha256": "f38adea11beb09b4bc79e5512d7b8d6b279b0daf97a3dbdcee93b33daf5bdcdb"
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/PROTOCOL.md",
+      "bytes": 8464,
+      "sha256": "cf24550dbe886a8659a7d55155ddddca70f096c35cbc591079d46616605ec62c"
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/audit_result.json",
+      "bytes": 23207,
+      "sha256": "ebd12f32406392ec15c9f6c623fc426f8924198e46137949d4d83797a58c2b4c"
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/contrasts.csv",
+      "bytes": 1103,
+      "sha256": "a97f9f75fddfc5fd40da16dcb0552b2afeb978f9e849e14ebdc6c4c9531370bd"
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/regional_nmse.csv",
+      "bytes": 5214,
+      "sha256": "126491ffc17ed999ade0352f20f6f04ab1a1f6847b7bb15db060b5f53ba4cc2a"
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/secondary_accuracy.csv",
+      "bytes": 549,
+      "sha256": "536f8e4608ea1f55f7026aa0391a8a331a0fe8531c275941e068207e50ee2596"
+    },
+    {
+      "path": "research/cifar10_utility_gap/PROTOCOL.md",
+      "bytes": 11063,
+      "sha256": "6d8dd4451c23cd1eefee7cb151d6f50dece822f70997cd2058349af5173e1dc2"
+    },
+    {
+      "path": "research/cifar10_utility_gap/core.py",
+      "bytes": 4546,
+      "sha256": "3ae9e8139ec53fee55ca6ac329d56a449fb222a4465ef4e7f92310c37fa2b3a4"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/COUNTS.csv",
+      "bytes": 1476,
+      "sha256": "50ead513edbc279122c00b426bb37ae819ef4061ab917b6fba36676a86cf43e6"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/AUDIT.md",
+      "bytes": 6278,
+      "sha256": "927f6e533f9325ebf56635da34296439ac7789cfcad871cba1c982b514be0a84"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/audit_result.json",
+      "bytes": 112972,
+      "sha256": "1d4a59e2cb9687103505b38dc30ae3f116b5111bc11ac5cf6eb3ca14289f300f"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/recomputed_all24.csv",
+      "bytes": 4417,
+      "sha256": "e2edd7698eecc4f69baad16c34144e657901372982944f4c7b3138fb0fc67969"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/PROTOCOL.md",
+      "bytes": 3921,
+      "sha256": "9a2baa523a06ef9de46cec04a86a3c0c5d835c3cf83276962eb915744d6fe0e0"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/SEEDS.json",
+      "bytes": 15004,
+      "sha256": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/CELLS.csv",
+      "bytes": 10924,
+      "sha256": "228fe6d483f7131df67ad39e383f01b93a626b7a0c8828f70021559cb13d96f5"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/REPORT.md",
+      "bytes": 5194,
+      "sha256": "a3e6a46d65be816fecdb9261ac9c23688c9e36837da1d54359354c2fee8efae9"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+      "bytes": 237203,
+      "sha256": "f36a18564de42c9ba972f2eaa625bdbb4792cd3f93e86e89cafd900877d39325"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/independent_audit/AUDIT.json",
+      "bytes": 2290,
+      "sha256": "59c747eabeabfe8358569a08698662ac803fc9a1de0634deb05a11fa16a1ec91"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/independent_audit/REVIEW.md",
+      "bytes": 2671,
+      "sha256": "962e7462d9da352c0a05886b68b5d54aad73eedf606b610937dfdc4b1c00361e"
+    },
+    {
+      "path": "research/digits_matched_regime/PROTOCOL.md",
+      "bytes": 11296,
+      "sha256": "3a91f319a21ab80fc6568868068701b9f5357580e59ec9fd763915fd4e598e6a"
+    },
+    {
+      "path": "research/digits_matched_regime/SEEDS.json",
+      "bytes": 2798,
+      "sha256": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418"
+    },
+    {
+      "path": "research/digits_matched_regime/results/INDEPENDENT_AUDIT.json",
+      "bytes": 1412,
+      "sha256": "0a5959a8daa97d5d0509d25474bc679e4e0f1561bc64f0132516e924778a34b2"
+    },
+    {
+      "path": "research/digits_matched_regime/results/INDEPENDENT_REVIEW.md",
+      "bytes": 834,
+      "sha256": "244c8c572ff015efbd7c0300ccef086a482092ebe9fa6a54860668323faf58d5"
+    },
+    {
+      "path": "research/digits_matched_regime/results/REPORT.md",
+      "bytes": 2723,
+      "sha256": "eca897932580dfd0f0cbd4f45147b4f502dfe5cc4312385cf9f222b684a4924d"
+    },
+    {
+      "path": "research/digits_matched_regime/results/SUMMARY.json",
+      "bytes": 63417,
+      "sha256": "796661792c53f756f013915f392e1b3d8c81fb2c340dbabfd67a99b010248599"
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/PROTOCOL.md",
+      "bytes": 6082,
+      "sha256": "71ce304fcdb402549d64266586fbb811917767059d16446c82ba5a9c6c4346c8"
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/REPORT.md",
+      "bytes": 4400,
+      "sha256": "dc057955ea106763a174eded90d8beae10da595ab64e2737e659066795d0afcf"
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/artifacts/AUDIT.json",
+      "bytes": 3400,
+      "sha256": "9d5c0bd4c4ffc01adf98e53a9df1266c8037db057085832f5d14387bbaa6ebdb"
+    },
+    {
+      "path": "research/selected_latency/INDEPENDENT_AUDIT/AUDIT.json",
+      "bytes": 59640,
+      "sha256": "33fa894c8503348792db0cd0516a69f9deb111626c963a7aa2e076d705891ee1"
+    },
+    {
+      "path": "research/selected_latency/INDEPENDENT_AUDIT/REVIEW.md",
+      "bytes": 1986,
+      "sha256": "6c0c38f8ccf737b842630c7de1c2309deb9147233b6eb70ba2aa4a846211850b"
+    },
+    {
+      "path": "research/selected_latency/PROTOCOL.md",
+      "bytes": 2234,
+      "sha256": "b6d86666791bdba2b81c048060b2674ec3104727e7210a6fb1dcca659e438c89"
+    },
+    {
+      "path": "research/selected_latency/REPORT_JA.md",
+      "bytes": 3431,
+      "sha256": "b2ecc11c2a52da3896d620c601b22a03f545ae295e0738fd3a9629e567dc4e18"
+    },
+    {
+      "path": "research/selected_latency/results/CORRECTNESS.json",
+      "bytes": 12350,
+      "sha256": "216c8ca9feae2bedc9341726a95dfd2f9c191f6b6f274cefd2f6f6a0f89baafb"
+    },
+    {
+      "path": "research/selected_latency/results/RAW.jsonl",
+      "bytes": 381551,
+      "sha256": "a8dc849c8855e10a183dc978d3581d26caa1020b665dabd54e5e7cf48d9a47e6"
+    },
+    {
+      "path": "research/selected_latency/results/SUMMARY.json",
+      "bytes": 9606,
+      "sha256": "7f6ec9b73608b426678005f9d6c2f25b2cc1234990c9f26299bff6f82ab9c80f"
+    },
+    {
+      "path": "research/selected_whole_storage/INDEPENDENT_AUDIT/AUDIT.json",
+      "bytes": 880,
+      "sha256": "ac8d13fead9fb7e48b565929e276e2b48f5e8295af3ba165b7ea4f0bc217ee40"
+    },
+    {
+      "path": "research/selected_whole_storage/PROTOCOL.md",
+      "bytes": 2653,
+      "sha256": "d6e4d93393998d0f0b43cde4c1e6dfc6aa4c3a6a16b2466a54e86c7f5fea7daf"
+    },
+    {
+      "path": "research/selected_whole_storage/REPORT_JA.md",
+      "bytes": 2322,
+      "sha256": "3d610db86113d1fa2b939f5a9420605e90b5395e66f3ae4d11b92d94b38d3ff7"
+    },
+    {
+      "path": "research/selected_whole_storage/measure.py",
+      "bytes": 5556,
+      "sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77"
+    },
+    {
+      "path": "research/selected_whole_storage/results/ROWS.csv",
+      "bytes": 4798,
+      "sha256": "389b669d9f42ea0018d6b1c0de2bcacef4155b6db73998a3cf679554478c2688"
+    },
+    {
+      "path": "research/selected_whole_storage/results/SUMMARY.json",
+      "bytes": 1869,
+      "sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5"
+    }
+  ]
+}

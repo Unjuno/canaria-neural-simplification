@@ -1,0 +1,128 @@
+[
+  {
+    "decision_only_harms": 93,
+    "feature_only_harms": 16,
+    "group": "all",
+    "seed": "26102601",
+    "shared_harms": 39
+  },
+  {
+    "decision_only_harms": 31,
+    "feature_only_harms": 10,
+    "group": "Q1",
+    "seed": "26102601",
+    "shared_harms": 25
+  },
+  {
+    "decision_only_harms": 31,
+    "feature_only_harms": 5,
+    "group": "Q2",
+    "seed": "26102601",
+    "shared_harms": 13
+  },
+  {
+    "decision_only_harms": 21,
+    "feature_only_harms": 1,
+    "group": "Q3",
+    "seed": "26102601",
+    "shared_harms": 1
+  },
+  {
+    "decision_only_harms": 8,
+    "feature_only_harms": 0,
+    "group": "Q4",
+    "seed": "26102601",
+    "shared_harms": 0
+  },
+  {
+    "decision_only_harms": 2,
+    "feature_only_harms": 0,
+    "group": "Q5",
+    "seed": "26102601",
+    "shared_harms": 0
+  },
+  {
+    "decision_only_harms": 82,
+    "feature_only_harms": 16,
+    "group": "all",
+    "seed": "26102602",
+    "shared_harms": 37
+  },
+  {
+    "decision_only_harms": 28,
+    "feature_only_harms": 13,
+    "group": "Q1",
+    "seed": "26102602",
+    "shared_harms": 28
+  },
+  {
+    "decision_only_harms": 33,
+    "feature_only_harms": 3,
+    "group": "Q2",
+    "seed": "26102602",
+    "shared_harms": 9
+  },
+  {
+    "decision_only_harms": 13,
+    "feature_only_harms": 0,
+    "group": "Q3",
+    "seed": "26102602",
+    "shared_harms": 0
+  },
+  {
+    "decision_only_harms": 5,
+    "feature_only_harms": 0,
+    "group": "Q4",
+    "seed": "26102602",
+    "shared_harms": 0
+  },
+  {
+    "decision_only_harms": 3,
+    "feature_only_harms": 0,
+    "group": "Q5",
+    "seed": "26102602",
+    "shared_harms": 0
+  },
+  {
+    "decision_only_harms": 197,
+    "feature_only_harms": 15,
+    "group": "all",
+    "seed": "26102603",
+    "shared_harms": 44
+  },
+  {
+    "decision_only_harms": 39,
+    "feature_only_harms": 10,
+    "group": "Q1",
+    "seed": "26102603",
+    "shared_harms": 28
+  },
+  {
+    "decision_only_harms": 63,
+    "feature_only_harms": 3,
+    "group": "Q2",
+    "seed": "26102603",
+    "shared_harms": 9
+  },
+  {
+    "decision_only_harms": 42,
+    "feature_only_harms": 1,
+    "group": "Q3",
+    "seed": "26102603",
+    "shared_harms": 6
+  },
+  {
+    "decision_only_harms": 40,
+    "feature_only_harms": 1,
+    "group": "Q4",
+    "seed": "26102603",
+    "shared_harms": 1
+  },
+  {
+    "decision_only_harms": 13,
+    "feature_only_harms": 0,
+    "group": "Q5",
+    "seed": "26102603",
+    "shared_harms": 0
+  }
+]

@@ -1,0 +1,812 @@
+{
+  "audit": "independent-saved-output-only-spatial-v1",
+  "audit_development_note": "The first audit draft assumed the fit block came first in hash order; source review established first1000 diagnostic and remaining4000 fit. Only auditor code was corrected; no production input or scientific execution changed.",
+  "checks": [
+    {
+      "check": "target report bytes pinned",
+      "passed": true
+    },
+    {
+      "check": "predictions byte hash bound in report",
+      "passed": true
+    },
+    {
+      "check": "execution context equals raw frozen context",
+      "passed": true
+    },
+    {
+      "check": "frozen cohort digest bindings",
+      "passed": true
+    },
+    {
+      "check": "cohort hash bindings",
+      "passed": true
+    },
+    {
+      "check": "fixed six complete census",
+      "passed": true
+    },
+    {
+      "check": "fixed design",
+      "passed": true
+    },
+    {
+      "check": "fixed optimizer",
+      "passed": true
+    },
+    {
+      "check": "design scope flags",
+      "passed": true
+    },
+    {
+      "check": "report descriptive restrictions",
+      "passed": true
+    },
+    {
+      "check": "fixed partition sizes and membership",
+      "passed": true
+    },
+    {
+      "check": "fixed partition deterministic ordering",
+      "passed": true
+    },
+    {
+      "check": "fixed partition byte hashes",
+      "passed": true
+    },
+    {
+      "check": "diagnostic order exactly bound",
+      "passed": true
+    },
+    {
+      "check": "labels valid full 1000",
+      "passed": true
+    },
+    {
+      "check": "label-opening receipt binds saved predictions",
+      "passed": true
+    },
+    {
+      "check": "all context-bound source text bytes",
+      "evidence": {
+        "files": 37
+      },
+      "passed": true
+    },
+    {
+      "check": "source freeze subset exactly bound",
+      "passed": true
+    },
+    {
+      "check": "reviewed source commit frozen bytes",
+      "evidence": {
+        "commit": "5e0617891b9ff776e4738cc4f7cf408f2d3efc90",
+        "files": 33
+      },
+      "passed": true
+    },
+    {
+      "check": "evaluator identity digest",
+      "passed": true
+    },
+    {
+      "check": "cohort fixed clock",
+      "passed": true
+    },
+    {
+      "check": "report fixed clock",
+      "passed": true
+    },
+    {
+      "check": "resource reservation covers cohort",
+      "passed": true
+    },
+    {
+      "check": "phase authorities precede clocks",
+      "passed": true
+    },
+    {
+      "check": "prior gap predictions report hash bound",
+      "passed": true
+    },
+    {
+      "check": "prior gap labels and diagnostic order identical",
+      "passed": true
+    },
+    {
+      "check": "prior gap partition identical",
+      "passed": true
+    },
+    {
+      "check": "26102601 teacher logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102601 teacher unchanged metadata",
+      "passed": true
+    },
+    {
+      "check": "26102601 teacher export/metrics metadata byte bindings",
+      "passed": true
+    },
+    {
+      "check": "26102601 paired init/schedule precommitted",
+      "passed": true
+    },
+    {
+      "check": "26102601 lock context/design/partition/clock bindings",
+      "passed": true
+    },
+    {
+      "check": "26102601 fit request bindings",
+      "passed": true
+    },
+    {
+      "check": "26102601 process completion and request hash",
+      "passed": true
+    },
+    {
+      "check": "26102601 teacher clock bound",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf5 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102601:rf9 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102601 paired teacher regional denominators exact",
+      "passed": true
+    },
+    {
+      "check": "26102601 independent primary/fullguard contrast",
+      "passed": true
+    },
+    {
+      "check": "26102601 gap w8 MSE2048 control saved-output identity",
+      "passed": true
+    },
+    {
+      "check": "26102602 teacher logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102602 teacher unchanged metadata",
+      "passed": true
+    },
+    {
+      "check": "26102602 teacher export/metrics metadata byte bindings",
+      "passed": true
+    },
+    {
+      "check": "26102602 paired init/schedule precommitted",
+      "passed": true
+    },
+    {
+      "check": "26102602 lock context/design/partition/clock bindings",
+      "passed": true
+    },
+    {
+      "check": "26102602 fit request bindings",
+      "passed": true
+    },
+    {
+      "check": "26102602 process completion and request hash",
+      "passed": true
+    },
+    {
+      "check": "26102602 teacher clock bound",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf5 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102602:rf9 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102602 paired teacher regional denominators exact",
+      "passed": true
+    },
+    {
+      "check": "26102602 independent primary/fullguard contrast",
+      "passed": true
+    },
+    {
+      "check": "26102602 gap w8 MSE2048 control saved-output identity",
+      "passed": true
+    },
+    {
+      "check": "26102603 teacher logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102603 teacher unchanged metadata",
+      "passed": true
+    },
+    {
+      "check": "26102603 teacher export/metrics metadata byte bindings",
+      "passed": true
+    },
+    {
+      "check": "26102603 paired init/schedule precommitted",
+      "passed": true
+    },
+    {
+      "check": "26102603 lock context/design/partition/clock bindings",
+      "passed": true
+    },
+    {
+      "check": "26102603 fit request bindings",
+      "passed": true
+    },
+    {
+      "check": "26102603 process completion and request hash",
+      "passed": true
+    },
+    {
+      "check": "26102603 teacher clock bound",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf5 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 terminal census equality",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 saved logits finite / argmax",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 all secondary paired counts exact",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 fit/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 fit/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 fit/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 fit additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 diagnostic/interior centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 diagnostic/full centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 diagnostic/border centered NMSE",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 diagnostic additive regional statistics",
+      "passed": true
+    },
+    {
+      "check": "26102603:rf9 complete fixed update log",
+      "passed": true
+    },
+    {
+      "check": "26102603 paired teacher regional denominators exact",
+      "passed": true
+    },
+    {
+      "check": "26102603 independent primary/fullguard contrast",
+      "passed": true
+    },
+    {
+      "check": "26102603 gap w8 MSE2048 control saved-output identity",
+      "passed": true
+    },
+    {
+      "check": "fit workers nonoverlapping and before report",
+      "passed": true
+    },
+    {
+      "check": "report request bindings",
+      "passed": true
+    },
+    {
+      "check": "report process complete before deadline",
+      "passed": true
+    },
+    {
+      "check": "report result bound complete",
+      "passed": true
+    },
+    {
+      "check": "all-three primary independently fails",
+      "passed": true
+    },
+    {
+      "check": "total update census",
+      "passed": true
+    }
+  ],
+  "checks_passed": 146,
+  "checks_total": 146,
+  "clock": {
+    "cohort_expiry_utc": "2026-10-26T23:07:46.729456+00:00",
+    "cohort_started_utc": "2026-10-26T16:37:46.729456+00:00",
+    "phases": [
+      {
+        "duration_seconds": 349.04705238342285,
+        "ended_utc": "2026-10-26T16:43:35.785921+00:00",
+        "expiry_utc": "2026-10-26T18:37:46.736527+00:00",
+        "phase": "fit_26102601",
+        "started_utc": "2026-10-26T16:37:46.738868+00:00"
+      },
+      {
+        "duration_seconds": 397.0389449596405,
+        "ended_utc": "2026-10-26T16:50:12.847081+00:00",
+        "expiry_utc": "2026-10-26T18:43:35.805375+00:00",
+        "phase": "fit_26102602",
+        "started_utc": "2026-10-26T16:43:35.808136+00:00"
+      },
+      {
+        "duration_seconds": 376.25752806663513,
+        "ended_utc": "2026-10-26T16:56:29.122194+00:00",
+        "expiry_utc": "2026-10-26T18:50:12.862129+00:00",
+        "phase": "fit_26102603",
+        "started_utc": "2026-10-26T16:50:12.864666+00:00"
+      },
+      {
+        "duration_seconds": 17.370202779769897,
+        "ended_utc": "2026-10-26T17:00:03.087104+00:00",
+        "expiry_utc": "2026-10-26T17:29:45.713250+00:00",
+        "phase": "report",
+        "started_utc": "2026-10-26T16:59:45.716901+00:00"
+      }
+    ]
+  },
+  "contrasts": [
+    {
+      "arm_prediction_disagreements": 36,
+      "diagnostic_at_least_10percent_better": false,
+      "fit_at_least_10percent_better": false,
+      "full_map_guard": false,
+      "primary_conjunction": false,
+      "rf5_correct_rf9_wrong": 19,
+      "rf5_diagnostic_full_nmse": 0.2905302896107056,
+      "rf5_diagnostic_interior_nmse": 0.3110177696528152,
+      "rf5_fit_interior_nmse": 0.30960260358287356,
+      "rf5_wrong_rf9_correct": 13,
+      "rf9_accuracy_delta_pp": -0.6,
+      "rf9_diagnostic_full_nmse": 0.30715328714435125,
+      "rf9_diagnostic_interior_nmse": 0.3267337380138827,
+      "rf9_diagnostic_worsening_percent": 5.053077314074708,
+      "rf9_fit_interior_nmse": 0.3255528552508092,
+      "rf9_fit_worsening_percent": 5.151846749139531,
+      "rf9_full_diagnostic_worsening_percent": 5.721605673514987,
+      "seed": 26102601
+    },
+    {
+      "arm_prediction_disagreements": 49,
+      "diagnostic_at_least_10percent_better": false,
+      "fit_at_least_10percent_better": false,
+      "full_map_guard": false,
+      "primary_conjunction": false,
+      "rf5_correct_rf9_wrong": 19,
+      "rf5_diagnostic_full_nmse": 0.25406736606642305,
+      "rf5_diagnostic_interior_nmse": 0.27024943382064076,
+      "rf5_fit_interior_nmse": 0.27066595830042584,
+      "rf5_wrong_rf9_correct": 15,
+      "rf9_accuracy_delta_pp": -0.4,
+      "rf9_diagnostic_full_nmse": 0.2603662218304119,
+      "rf9_diagnostic_interior_nmse": 0.27626622319988053,
+      "rf9_diagnostic_worsening_percent": 2.2263837130674613,
+      "rf9_fit_interior_nmse": 0.2761479212509356,
+      "rf9_fit_worsening_percent": 2.025361070498966,
+      "rf9_full_diagnostic_worsening_percent": 2.47920693692794,
+      "seed": 26102602
+    },
+    {
+      "arm_prediction_disagreements": 32,
+      "diagnostic_at_least_10percent_better": false,
+      "fit_at_least_10percent_better": false,
+      "full_map_guard": false,
+      "primary_conjunction": false,
+      "rf5_correct_rf9_wrong": 18,
+      "rf5_diagnostic_full_nmse": 0.2624649858466715,
+      "rf5_diagnostic_interior_nmse": 0.278218982826732,
+      "rf5_fit_interior_nmse": 0.27573468483794744,
+      "rf5_wrong_rf9_correct": 9,
+      "rf9_accuracy_delta_pp": -0.9,
+      "rf9_diagnostic_full_nmse": 0.2794243694012839,
+      "rf9_diagnostic_interior_nmse": 0.29458354403129294,
+      "rf9_diagnostic_worsening_percent": 5.881899587977565,
+      "rf9_fit_interior_nmse": 0.29222434600354513,
+      "rf9_fit_worsening_percent": 5.980263663705878,
+      "rf9_full_diagnostic_worsening_percent": 6.461579436931009,
+      "seed": 26102603
+    }
+  ],
+  "control_identity": [
+    {
+      "diagnostic_full_stats_exact": true,
+      "diagnostic_logits_exact": true,
+      "diagnostic_predictions_exact": true,
+      "fit_full_stats_exact": true,
+      "initialization_hash_exact": true,
+      "partition_hash_exact": true,
+      "schedule_hash_exact": true,
+      "secondary_counts_exact": true,
+      "seed": 26102601,
+      "teacher_logits_exact": true,
+      "teacher_predictions_exact": true
+    },
+    {
+      "diagnostic_full_stats_exact": true,
+      "diagnostic_logits_exact": true,
+      "diagnostic_predictions_exact": true,
+      "fit_full_stats_exact": true,
+      "initialization_hash_exact": true,
+      "partition_hash_exact": true,
+      "schedule_hash_exact": true,
+      "secondary_counts_exact": true,
+      "seed": 26102602,
+      "teacher_logits_exact": true,
+      "teacher_predictions_exact": true
+    },
+    {
+      "diagnostic_full_stats_exact": true,
+      "diagnostic_logits_exact": true,
+      "diagnostic_predictions_exact": true,
+      "fit_full_stats_exact": true,
+      "initialization_hash_exact": true,
+      "partition_hash_exact": true,
+      "schedule_hash_exact": true,
+      "secondary_counts_exact": true,
+      "seed": 26102603,
+      "teacher_logits_exact": true,
+      "teacher_predictions_exact": true
+    }
+  ],
+  "limits": [
+    "Saved-output arithmetic and metadata audit only: no inference, fit, evaluation rerun, model/checkpoint read or deserialization, image/data-array/archive access, experiment code import, network request, CI or paid service.",
+    "Centered NMSE independently recomputed from saved SSE and centered teacher SS for all 36 cell/split/region combinations. Raw endpoint tensors are not saved here, so the production of sufficient statistics is not independently reproduced.",
+    "Uncentered energy NMSE is retained as a saved secondary value, not independently recomputed: the underlying uncentered teacher-energy denominator is not persisted.",
+    "Initial tensor, minibatch schedule, checkpoint and teacher state hashes are verified for metadata consistency only; no weights were read and no tensor initialization/schedule was regenerated. Saved hash receipts do not prove honest execution or parameter immutability.",
+    "Exact fresh rf5 control identity with prior gap width8 MSE2048 covers saved logits/predictions, full-map fit/diagnostic sufficient statistics, paired counts, and init/schedule metadata. It is a repeat of the same deterministic recipe on reused data, not a new independent confirmation.",
+    "Both calibration images and diagnostic outcomes were already seen, including diagnostic images used by prior pilot fitting. Results are descriptive only; no formal noninferiority, population significance, utility pass, fresh holdout confirmation or revision of earlier negative evidence follows.",
+    "Failure is of the fixed rf9-versus-rf5 architecture/optimizer/budget prediction here. Dilation also changes sampling geometry, optimization and boundary effects; this does not isolate receptive-field size or prove a universal impossibility."
+  ],
+  "observed_head_at_audit": "05706aca4b965b0b420688b119d44c8595c4719d",
+  "report_sha256": "cf434b131337fe88dcb7185109e4b27a12d8d265b5a088c455d94d5948fcef98",
+  "schema": 1,
+  "scientific_conclusion": "Specified primary prediction failed in all three teachers; full-map guard also failed in all three. Seen-data descriptive evidence only.",
+  "secondary_accuracy": [
+    {
+      "accuracy": 0.875,
+      "arm": "rf5",
+      "both_correct": 852,
+      "both_wrong": 57,
+      "n": 1000,
+      "prediction_disagreements": 104,
+      "seed": 26102601,
+      "student_correct": 875,
+      "teacher_accuracy": 0.92,
+      "teacher_correct": 920,
+      "teacher_correct_student_wrong": 68,
+      "teacher_drop": 0.045,
+      "teacher_wrong_student_correct": 23
+    },
+    {
+      "accuracy": 0.869,
+      "arm": "rf9",
+      "both_correct": 851,
+      "both_wrong": 62,
+      "n": 1000,
+      "prediction_disagreements": 103,
+      "seed": 26102601,
+      "student_correct": 869,
+      "teacher_accuracy": 0.92,
+      "teacher_correct": 920,
+      "teacher_correct_student_wrong": 69,
+      "teacher_drop": 0.051,
+      "teacher_wrong_student_correct": 18
+    },
+    {
+      "accuracy": 0.884,
+      "arm": "rf5",
+      "both_correct": 860,
+      "both_wrong": 58,
+      "n": 1000,
+      "prediction_disagreements": 95,
+      "seed": 26102602,
+      "student_correct": 884,
+      "teacher_accuracy": 0.918,
+      "teacher_correct": 918,
+      "teacher_correct_student_wrong": 58,
+      "teacher_drop": 0.034,
+      "teacher_wrong_student_correct": 24
+    },
+    {
+      "accuracy": 0.88,
+      "arm": "rf9",
+      "both_correct": 856,
+      "both_wrong": 58,
+      "n": 1000,
+      "prediction_disagreements": 99,
+      "seed": 26102602,
+      "student_correct": 880,
+      "teacher_accuracy": 0.918,
+      "teacher_correct": 918,
+      "teacher_correct_student_wrong": 62,
+      "teacher_drop": 0.038,
+      "teacher_wrong_student_correct": 24
+    },
+    {
+      "accuracy": 0.881,
+      "arm": "rf5",
+      "both_correct": 858,
+      "both_wrong": 67,
+      "n": 1000,
+      "prediction_disagreements": 93,
+      "seed": 26102603,
+      "student_correct": 881,
+      "teacher_accuracy": 0.91,
+      "teacher_correct": 910,
+      "teacher_correct_student_wrong": 52,
+      "teacher_drop": 0.029,
+      "teacher_wrong_student_correct": 23
+    },
+    {
+      "accuracy": 0.872,
+      "arm": "rf9",
+      "both_correct": 848,
+      "both_wrong": 66,
+      "n": 1000,
+      "prediction_disagreements": 103,
+      "seed": 26102603,
+      "student_correct": 872,
+      "teacher_accuracy": 0.91,
+      "teacher_correct": 910,
+      "teacher_correct_student_wrong": 62,
+      "teacher_drop": 0.038,
+      "teacher_wrong_student_correct": 24
+    }
+  ],
+  "source_commit": "5e0617891b9ff776e4738cc4f7cf408f2d3efc90",
+  "status": "PASS",
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}
