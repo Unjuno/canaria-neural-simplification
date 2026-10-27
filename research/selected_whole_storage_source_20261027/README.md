@@ -1,14 +1,14 @@
 # Selected whole-model storage — portable source-only package
 
-**Status: source-only candidate, statically inspected; no execution or scientific
-reproduction is claimed.** No historical weights, data, selected-model manifest,
+**Status: source-only package. The fresh-selection helper has artificial-only
+local tests; no scientific execution or reproduction is claimed.** No historical weights, data, selected-model manifest,
 archives, results, logs, or operational records are included. The historical
 measurement is complete elsewhere; this package does not authorize another run.
 
-This package extracts the fixed storage algorithm into an explicit CLI without
+The historical storage path extracts the fixed storage algorithm into an explicit CLI without
 import-time output creation. It deliberately does **not** implement training,
-selection generation, inference, latency, deployment, network access, or dataset
-loading. Its sole numerical dependency is NumPy.
+historical selection generation, inference, latency, deployment, network access,
+or dataset loading. The separately versioned fresh helper is described below. Its sole numerical dependency is NumPy.
 
 ## Files and dependencies
 
@@ -26,11 +26,23 @@ loading. Its sole numerical dependency is NumPy.
 - [STATIC_VALIDATION.json](STATIC_VALIDATION.json): what static inspection checks,
   and, explicitly, what it does not establish.
 
-No runtime dependency on the sibling
+The original measurement entry point has no runtime dependency on the sibling
 [matched source](../digits_matched_source_20261027/README.md) or
 [grid source](../digits_joint_budget_source_20261027/README.md) is imported. Those
 packages explain the upstream scientific chain; their publication is not evidence
 that this package has all historical model payloads.
+
+## Separate fresh-replication handoff
+
+[Fresh selection contract](FRESH_SELECTION.md) documents the new bounded
+`prepare_fresh_selection.py` helper and exact `SELECTION_DEPENDENCY.json` pins.
+It verifies complete already-finished fresh matched/grid custody, preserves the
+fixed 224-cell first-observed selection, rejects censoring, and copies 48 exact
+NPZ sources into an explicitly **pending custodian review** bundle. It imports
+only the pinned sibling stdlib contracts, never numerical runners. This is not
+the original historical archive route and does not authorize storage execution.
+`test_fresh_selection.py` uses artificial temporary arrays/metadata only; no real
+inputs or outputs are supplied. The fresh storage → latency handoff remains open.
 
 ## Authorized use after separate review and input custody approval
 

@@ -11,8 +11,10 @@ release those bytes or grant access.
 
 Storage cannot independently reproduce historical bytes without authorized exact
 inputs. Rebuilding new matched/grid models would be a separate scientific run,
-not a source-packaging or storage-only task. No inference, fitting or upstream
-manifest-generation helper is provided here.
+not a source-packaging or storage-only task. No inference, fitting or historical upstream
+manifest-generation helper is provided here. The separate [fresh-replication
+handoff](FRESH_SELECTION.md) consumes completed fresh outputs only; it does not
+recover or relabel this historical archive.
 
 ## Portable manifest v1
 
@@ -39,7 +41,7 @@ empty components, symlink components and files outside the input root are reject
 Source files are not renamed inside their NPZ tensor keys. Resolving an input root
 is a user-supplied local custody choice, never an embedded historical location.
 
-## Custodian handoff — must precede an authorized storage run
+## Historical custodian handoff — must precede an authorized storage run
 
 1. Retain the exact historical selection record privately and verify its recorded
    hash. Do not rescore models, choose new thresholds, optimize compression,
