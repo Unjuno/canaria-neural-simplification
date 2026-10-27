@@ -10,8 +10,8 @@
       "export_path": "runner.py",
       "source_logical_path": "research/digits_matched_regime/runner.py",
       "source_sha256": "f9faf359eec05c05ed1e23464160514c409c7eecd578d5e87ffa3fc819ad1b7e",
-      "export_sha256": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13",
-      "transformation": "portable matched-only lifecycle and metadata adaptation; mathematical bodies preserved",
+      "export_sha256": "da4211c7af6a9f877b2cb6c2d760b58e1facd4ed0aaf3b47a87483a00629873d",
+      "transformation": "portable matched-only lifecycle and metadata adaptation; mathematical bodies preserved; single-capture post-analysis deadline status amendment",
       "source_present_at_public_pin": false
     },
     {
@@ -166,7 +166,8 @@
     "requirements.lock.txt",
     "README.md",
     "TRANSFORMATION.md",
-    "STATIC_VALIDATION.json"
+    "STATIC_VALIDATION.json",
+    "test_cohort_finalization.py"
   ],
   "requirements_origin": {
     "source_logical_path": "scripts/reproduction_diagnostics/requirements-r87r2-py313.txt",
@@ -186,10 +187,23 @@
     "TRANSFORMATION.md": "ffab346f55feb6f7fe8c32f5f763fd010e4c905ecc21c3af8d8e151133f19939",
     "portable_contract.py": "159c3f7877df016854986aebe6735b8ebd0442758cacabc9bb5b726f128c7dac",
     "requirements.lock.txt": "736f4e67dd5f3da4f909fe4079ddb814f39c845fb839f09d6a9bcf2777ef9190",
-    "runner.py": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13",
+    "runner.py": "da4211c7af6a9f877b2cb6c2d760b58e1facd4ed0aaf3b47a87483a00629873d",
     "scientific_definitions.py": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2",
+    "test_cohort_finalization.py": "54102eac36bf09370d99ff0577a1f0cbd16b98f4985a378404575a42c4453c20",
     "test_portable_contract.py": "84ce733f7a513764ccca0af587ffa5e4eaf678efcff3bad9aa5ad57e828d5e3f",
     "test_runner.py": "2a2c30425450dd2600c9ba127fd74393f6f2a0408b029bf022a729f1639c5c92"
   },
-  "manifest_exclusion": "SOURCE_MAP.json excludes itself to avoid a self-hash cycle; private payload inventory hashes the final map"
+  "manifest_exclusion": "SOURCE_MAP.json excludes itself to avoid a self-hash cycle; private payload inventory hashes the final map",
+  "amendments": [
+    {
+      "base_commit": "71a74c88d420d9aa4b616df7cfc1f6e914aa6984",
+      "scope": "Post-analysis finalization status only; one captured UTC value for deadline comparison and SUMMARY/FINISHED stamps.",
+      "deadline_boundary": "finished_utc <= existing cohort end remains eligible; later completion is INCOMPLETE; no extension or retry.",
+      "regression_source": "test_cohort_finalization.py",
+      "regression_scope": "AST-extracted coordinator with fake clock/workers/analysis, artificial metadata only; no runner import, numerical imports, models, data, processes or science.",
+      "preserved": "All other runner function ASTs, historical origin hashes, scientific definitions, source contracts and prior static-validation report.",
+      "prior_static_validation_scope": "STATIC_VALIDATION.json records the original export checks, not the new regression run.",
+      "execution_status_scope": "candidate_executed records the original whole-runner export status; the amendment regression executes only the AST-extracted coordinator with artificial dependencies."
+    }
+  ]
 }

@@ -3,12 +3,12 @@
   "candidate_executed": false,
   "export_file_sha256": {
     "ARTIFACTS.md": "7f02341606f8a56f9aea8cc2ffbec1f5a48526b55b5b4aad72b14f67d4262db1",
-    "DEPENDENCY.json": "0261d4cb4aaeb75ea3ab427a0f12bcb5e86f079234b242f6e00eb8fb2fce7579",
+    "DEPENDENCY.json": "4c3d2f005b9e92fe51efa52e2132f2185d14859d425db6cfc6591f58d3aae669",
     "ENVIRONMENT.md": "738ba159e8e8570bb358875fc425c5aecb13957f48ed1865135a868ac5c0b26a",
     "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
     "PARENT_SCHEMA.json": "c924b17034d4786653a9f9f1aaa6667fbb85268975318c4290bbeec88eb81659",
     "PROTOCOL.md": "7fa941e8262e5a9869c20b5fbc45df8c7e61faa0710aa5b87b65df0ceef36fa2",
-    "README.md": "549fdb55dd11a29b65c271e0c9245ddc1acd9fc9359c8d42d4f700a5d0d58cf2",
+    "README.md": "bd9d9b7e7f91a96ccc3775ab65cf88ea728bc33b288f6e774267f726ce796a31",
     "RELEASE_SCHEMA.json": "629f672dc681410fb55e3548d76db801b937d2bd112d2c0d1b0202aea387ec10",
     "SEEDS.json": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
     "STATIC_VALIDATION.json": "ae2d92ab46f927813a246932ac719ef7541be77a1b24d256a6f7a0e1c5a56a4f",
@@ -47,7 +47,7 @@
     "source_sha256": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13"
   },
   "manifest_exclusion": "SOURCE_MAP excludes itself; private exact publication allowlist binds final map",
-  "matched_dependency_manifest_sha256": "0261d4cb4aaeb75ea3ab427a0f12bcb5e86f079234b242f6e00eb8fb2fce7579",
+  "matched_dependency_manifest_sha256": "4c3d2f005b9e92fe51efa52e2132f2185d14859d425db6cfc6591f58d3aae669",
   "origins": [
     {
       "export_path": "runner.py",
@@ -143,5 +143,13 @@
       "unittest.mock"
     ]
   },
-  "source_only": true
+  "source_only": true,
+  "public_dependency_commit_scope": "Original dependency publication provenance; amended sibling bytes are pinned by DEPENDENCY.json.",
+  "amendments": [
+    {
+      "base_commit": "71a74c88d420d9aa4b616df7cfc1f6e914aa6984",
+      "scope": "Refresh matched sibling byte maps and package identity for the finalization-status amendment; grid executable code and fail-closed parent gate unchanged.",
+      "historical_origin_preserved": "lifecycle_origin.source_sha256 remains the original copied lifecycle source, not the live dependency pin."
+    }
+  ]
 }

@@ -28,13 +28,16 @@ No output is guaranteed numerically or byte-identical across hosts.
 Keep these two directories as siblings under `research/`:
 
 ```text
-digits_matched_source_20261027/       # all 17 pinned public source/doc files
+digits_matched_source_20261027/       # all 18 pinned public source/doc/test files
 digits_joint_budget_source_20261027/ # this package
 ```
 
-`DEPENDENCY.json` pins every matched file to commit
-`1de2b5f046ef2219270af2e029c5479a3eeee10a`, and separately records the matched
-release-required file map/package identity. `parent_contract.dependency()` verifies
+`DEPENDENCY.json` pins every file in the co-published matched sibling by SHA256,
+and separately records the matched release-required file map/package identity.
+Its `commit` is the original publication provenance, not the amended bytes;
+`amendment_base_commit` identifies the reviewed base for the finalization-status
+repair and added fake-clock regression. Keep the amended siblings together.
+`parent_contract.dependency()` verifies
 all pinned bytes before numerical import. The grid imports the matched restricted
 runner, which compiles only the four allowlisted scientific definitions. There
 is no dependency on the absent original matched/grid helpers, repository Git

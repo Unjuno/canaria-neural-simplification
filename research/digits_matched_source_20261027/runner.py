@@ -246,8 +246,10 @@ def cohort(release_path,out):
   path=out/f"seed_{s['id']}"/'result.json'
   if path.exists():rows.append(json.loads(path.read_text()))
  summary=analyze(rows)
+ finished_utc=now()  # One post-analysis capture binds the deadline check and both completion stamps.
+ if contract.deadline_timestamp(finished_utc)>end:abort=abort or 'cohort deadline/cap during finalization'
  if abort is not None or len(records)!=16 or any(r['returncode']!=0 for r in records):summary={'decision':'INCOMPLETE','reason':abort or 'incomplete successful exits','completed_results':len(rows),'no_exclusion_or_replacement':True}
- summary.update(attempts=records,not_started=[s['id'] for s in pending],abort_reason=abort,finished_utc=now());dump(out/'SUMMARY.json',summary);dump(REGISTRY/'FINISHED.json',{'utc':now(),'decision':summary['decision'],'summary_sha256':sha(out/'SUMMARY.json')});dump(out/'FILES_SHA256.json',{str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file()})
+ summary.update(attempts=records,not_started=[s['id'] for s in pending],abort_reason=abort,finished_utc=finished_utc);dump(out/'SUMMARY.json',summary);dump(REGISTRY/'FINISHED.json',{'utc':finished_utc,'decision':summary['decision'],'summary_sha256':sha(out/'SUMMARY.json')});dump(out/'FILES_SHA256.json',{str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file()})
  return summary
 
 def main():
