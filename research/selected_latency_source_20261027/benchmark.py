@@ -29,6 +29,11 @@ def environment(d):
 
 
 def run(args):
+    active_contract=contract
+    if getattr(args,'input_mode','historical-v1')=='fresh-v1':
+        import fresh_latency_contract as active_contract
+    else:
+        contract.require(getattr(args,'input_mode','historical-v1')=='historical-v1','unknown input mode')
     contract.require(__debug__,'optimized Python is forbidden: integrity assertions required')
     contract.require(os.environ.get('CANARIA_LATENCY_SUPERVISOR')==str(os.getppid()),'sole entry point is supervise.py')
     out=pathlib.Path(args.out);registry=pathlib.Path(args.registry)
@@ -36,9 +41,9 @@ def run(args):
     writer=EvidenceWriter([out,registry]);census=full_census();raw=[];checks=[];failure=None;trace=None;out_created=False
     def timeout(*_):raise TimeoutError('600 second total cap or separately approved deadline')
     try:
-        release=contract.read_json(args.release)
-        source_hashes=contract.package_hashes(HERE)
-        deadline=contract.validate_release(release,args.manifest_sha256,source_hashes,contract.git_identity(ROOT),time.time())
+        release=active_contract.read_json(args.release)
+        source_hashes=active_contract.package_hashes(HERE)
+        deadline=active_contract.validate_release(release,args.manifest_sha256,source_hashes,contract.git_identity(ROOT),time.time())
         request=contract.read_json(registry/'REQUEST.json')
         contract.require(request['release_sha256']==contract.sha(args.release) and request['input_manifest_sha256']==args.manifest_sha256,'claimed request binding')
         signal.signal(signal.SIGALRM,timeout);signal.alarm(min(600,max(1,int(deadline-time.time()))))
@@ -48,7 +53,7 @@ def run(args):
         d=configure_runtime();np=d.np;torch=d.torch
         writer.json(out/'PRIVATE_ENV_BEFORE.json',environment(d))
         writer.json(out/'RELEASE.json',release)
-        inputs=contract.load_inputs(args.manifest,args.manifest_sha256,args.input_root)
+        inputs=active_contract.load_inputs(args.manifest,args.manifest_sha256,args.input_root)
         allmods={}
         for item in inputs['models']:
             s=item['selection']
@@ -73,8 +78,8 @@ def run(args):
                             writer.write(out/'RAW.jsonl',json.dumps(row)+'\n',append=True);raw.append(row)
                     for c in current:c['status']='COMPLETE'
         validate_raw(raw)
-        assert contract.package_hashes(HERE)==source_hashes
-        contract.load_inputs(args.manifest,args.manifest_sha256,args.input_root)
+        assert active_contract.package_hashes(HERE)==source_hashes
+        active_contract.load_inputs(args.manifest,args.manifest_sha256,args.input_root)
         writer.json(out/'PRIVATE_ENV_AFTER.json',environment(d))
     except BaseException as error:
         failure=type(error).__name__;trace=traceback.format_exc();failure_census(census)
@@ -93,6 +98,7 @@ def run(args):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('out','registry','release','manifest','manifest-sha256','input-root'):p.add_argument('--'+name,required=True)
+    p.add_argument('--input-mode',choices=('historical-v1','fresh-v1'),default='historical-v1')
     run(p.parse_args(argv))
 
 

@@ -1,5 +1,17 @@
 # Selected whole-model latency — source-only derivative
 
+## Separate fresh-replication handoff
+
+[FRESH_INPUTS.md](FRESH_INPUTS.md) specifies the new explicit `fresh-v1` input
+and release mode, immutable selection review gate, exact existing saved-reference
+mapping and metadata-only preparation helper. It does not replace historical v1
+or provide inputs, approval, execution or historical reproduction. The original
+three historical provenance pins and frozen CSV pin remain unchanged.
+
+The inspection/execution statements below describe the original source-package
+preparation. This fresh revision has a separate, explicitly artificial-only test
+proof; no real scientific payload or benchmark is executed.
+
 **Inspectability package, not a completed reproduction or a timing release.**
 No candidate module was imported or executed, no supplied test was run, and no
 model, array or dataset was loaded while this package was prepared. Only static

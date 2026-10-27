@@ -1,7 +1,8 @@
 {
   "artifact_payloads_included": false,
   "base_public_commit": "6b27220ada063ae1362e8efd412ecfeae238fc42",
-  "candidate_executed": false,
+  "candidate_executed": true,
+  "candidate_execution_scope": "finite artificial arrays/metadata/fake-clock controls only; no real scientific payload, model forward, or benchmark timing",
   "dependencies": [
     {
       "export_path": "storage_manifest_contract.py",
@@ -21,25 +22,40 @@
     "failure_census"
   ],
   "export_file_sha256": {
-    "ARTIFACTS.md": "e6f743c21732449d7b8d4367d286edf327a24a925dd4e98dcbb00487c9e69ff4",
+    "ARTIFACTS.md": "24785e6c4b5bb8f29f2cca2a9f89d33067983e284b892f017bfa4f3174c28622",
     "ENVIRONMENT.md": "c46e2ff5d1f7a5312b7b6b32c77641ef7b26ebaf9cd66b5b23b0f8fd63a86b51",
+    "FRESH_DEPENDENCY.json": "2761e988fe447c36fe370d90c5e999aaa66a52c869493aff36538185ddbf65f8",
+    "FRESH_INPUTS.md": "6b4beddc6175381b5863b7cfb5531f2fef5819d2c34177355d9dfb748601b31a",
     "INPUT_SCHEMA.json": "5f299ee23972f760258e440eee34f55b86b3bf9459f254efb97658882857aead",
     "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
     "OUTPUT_SCHEMA.json": "68c18509e55a42586c9c6b219b79238debc04d4077edfa88f5b92c006f5fe023",
     "PROTOCOL.md": "d2095d47a76b287272048a6b98e59833cc3c0e4d9606e7b21d5cfbad06a4c4b3",
-    "README.md": "ae3f98ca08744edccb81f7bb21bb7441c5ca0176e3ff8aaa8055aae9611645c7",
+    "README.md": "cb99fe4cc3b53c00d80a8087124c2aef11ef72f3994eef8cd48144cb8427f642",
     "RELEASE_SCHEMA.json": "bc6a1178be50d2c094bf7973f51b2ac5e1979c9d3f82017894a7d0f72014675f",
     "STATIC_VALIDATION.json": "9c4c4dc4278b761b16039bd446fd3c05c6315e3895fb548bb765187bc6f82f50",
     "TRANSFORMATION.md": "c55df7b3360a671d49195f390113efac905766c9d811039f10a820c5d0a2e3a6",
-    "benchmark.py": "b949bd1badec08d314d5ffcc9ec69fb7f3a888c50ff73089d5a1ec6438c5fd75",
+    "benchmark.py": "d5d2e99899d684ec619dd750a6f40c94fe5f9b60f9c5d59d3333560d79576cc0",
     "deployment.py": "461b23868a2cdf2e09209859a08fe05e811cbe955df98c968a242f3c368beb8a",
+    "fresh_latency_contract.py": "4218750387e2b153d9cc3e9cca8c51359ebc6293cefadf1507492c8d348ebe71",
     "latency_contract.py": "3bd858370319168c9e0d6067fa3b1da64f47c84c962a5dea83ac37a69335cfaa",
     "model_definitions.py": "e40aa22f95a339985580f8102b94b4c023fcc2ccd8681b9b1a6fb56fc497d477",
+    "prepare_fresh_latency.py": "0381e2411144d9215c1520c33669e8f370ddf2e0f1d50acf7bdcfc346dc39edb",
     "requirements.lock.txt": "0f6f7c7d768f2a076c6d9b57ae7245d8dfc06c72391208e2c68d8291fb1e0dac",
     "storage_manifest_contract.py": "478f44c24fc8ab875d3aee0a5fe6cef5c2797e6ca219df4100bb79e32a0d2200",
-    "supervise.py": "0b92c22671c01b41571ddba8b6ed66a545027099e43b99643bce3ab433fc234f",
+    "supervise.py": "e0d2c08b041444a5b26267b96b480a5e86be18d768c3909a1955f4ed473b173c",
     "test_controls.py": "a3ad328d8b2ecff971ac4775c2780a9bd081d839cb43d4690a67dcd1c1f42c6f",
+    "test_fresh_latency.py": "6caebe2b60a8923dec5e77498fe4f7075a36cc093924be4f1bdb01de151be3fc",
     "timing_core.py": "e578ce5a65a3f14cefa369d7156e8c5418164b8187330679a8d66b34582b7c38"
+  },
+  "fresh_input_revision": {
+    "base_public_commit": "0602e2ae17ac40c034c7a51d25590a10471eafa5",
+    "historical_input_contract_unchanged": true,
+    "historical_route_default": "historical-v1",
+    "input_mode": "fresh-v1",
+    "real_scientific_execution": false,
+    "review_status": "local source candidate; independent review required",
+    "source_only": true,
+    "upstream_dependency_files": 53
   },
   "historical_accepted_latency_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
   "origins": [

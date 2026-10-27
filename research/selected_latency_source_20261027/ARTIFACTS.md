@@ -1,5 +1,9 @@
 # Required private handoff and output meanings
 
+For the separate fresh-replication input schema and reviewed selection/storage/
+saved-reference handoff, see [FRESH_INPUTS.md](FRESH_INPUTS.md). The historical
+v1 requirements below are unchanged and are not relaxed by fresh mode.
+
 No data/model/log/registry payload is included. The code cannot run a historical
 model experiment from this package alone. Source closure is not payload release,
 full historical operational replay, independent replication or new permission.

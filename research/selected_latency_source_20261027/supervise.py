@@ -55,10 +55,14 @@ def main(argv=None):
     start=time.monotonic()
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('out','release','manifest','manifest-sha256','input-root','control-root'):p.add_argument('--'+name,required=True)
+    p.add_argument('--input-mode',choices=('historical-v1','fresh-v1'),default='historical-v1')
     args=p.parse_args(argv)
+    active_contract=contract
+    if args.input_mode=='fresh-v1':
+        import fresh_latency_contract as active_contract
     contract.require(__debug__,'optimized Python forbidden')
-    release=contract.read_json(args.release)
-    deadline=contract.validate_release(release,args.manifest_sha256,contract.package_hashes(HERE),contract.git_identity(ROOT),time.time())
+    release=active_contract.read_json(args.release)
+    deadline=active_contract.validate_release(release,args.manifest_sha256,active_contract.package_hashes(HERE),contract.git_identity(ROOT),time.time())
     out,control,registry=contract.paths(args.out,args.input_root,args.control_root,ROOT,release['attempt_id'])
     contract.require(hashlib.sha256(str(control).encode()).hexdigest()==release['control_root_sha256'],'authorizer-selected control root binding')
     stop_at=min(start+600,time.monotonic()+deadline-time.time())
@@ -73,7 +77,7 @@ def main(argv=None):
         out,control,registry=contract.paths(args.out,args.input_root,args.control_root,ROOT,release['attempt_id'])
         registry.mkdir(exist_ok=False);claimed=True
         writer=EvidenceWriter([out,registry])
-        writer.json(registry/'REQUEST.json',{'schema':contract.RELEASE_SCHEMA,'attempt_id':release['attempt_id'],
+        writer.json(registry/'REQUEST.json',{'schema':active_contract.RELEASE_SCHEMA,'attempt_id':release['attempt_id'],
             'release_sha256':contract.sha(args.release),'input_manifest_sha256':args.manifest_sha256})
         seconds=min(590-(time.monotonic()-start),deadline-time.time()-10)
         contract.require(seconds>0,'insufficient supervisor window')
@@ -82,6 +86,7 @@ def main(argv=None):
                 'manifest':str(pathlib.Path(args.manifest).resolve()),'manifest-sha256':args.manifest_sha256,
                 'input-root':str(pathlib.Path(args.input_root).resolve())}
         for name,value in values.items():command.extend(['--'+name,value])
+        if args.input_mode=='fresh-v1':command.extend(['--input-mode','fresh-v1'])
         proc=subprocess.Popen(command,start_new_session=True,env={**os.environ,'CANARIA_LATENCY_SUPERVISOR':str(os.getpid())})
         seconds=min(seconds,max(0,stop_at-time.monotonic()-10))
         rc,timed_out=bounded_wait(proc,seconds,stop_at=stop_at)
