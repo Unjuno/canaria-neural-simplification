@@ -1,0 +1,1841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Full 339-file scientific output plus 19-file private custody maps. Runtime also verifies nested manifests, successful complete census, source identity, scalar reuse, private approval and completion/deadline cross-bindings. No payload or usable descriptor included.",
+  "properties": {
+    "contract": {
+      "const": "canaria.grid-parent.v1"
+    },
+    "custody_files": {
+      "additionalProperties": false,
+      "properties": {
+        "FINISHED.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "claim.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "cohort.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9.started.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FINISHED.json",
+        "claim.json",
+        "cohort.json",
+        "seed_0.started.json",
+        "seed_1.started.json",
+        "seed_10.started.json",
+        "seed_11.started.json",
+        "seed_12.started.json",
+        "seed_13.started.json",
+        "seed_14.started.json",
+        "seed_15.started.json",
+        "seed_2.started.json",
+        "seed_3.started.json",
+        "seed_4.started.json",
+        "seed_5.started.json",
+        "seed_6.started.json",
+        "seed_7.started.json",
+        "seed_8.started.json",
+        "seed_9.started.json"
+      ],
+      "type": "object"
+    },
+    "files": {
+      "additionalProperties": false,
+      "properties": {
+        "FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "SUMMARY.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "run_contract.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_0_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_10_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_11_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_12_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_13_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_14_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_15_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_1_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_2_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_3_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_4_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_5_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_6_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_7_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_8_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9.log": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/C_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/C_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/FILES_SHA256.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/J_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/J_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/L_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/L_updates.jsonl": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/START.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/comp_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/data_hashes.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/environment.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/fit_targets.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/pair_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/result.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/schedule.npy": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/split_ids.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/teacher_final.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/teacher_initial.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9/validation_arrays.npz": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "seed_9_EXIT.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FILES_SHA256.json",
+        "SUMMARY.json",
+        "run_contract.json",
+        "seed_0.log",
+        "seed_0/C_final.npz",
+        "seed_0/C_updates.jsonl",
+        "seed_0/FILES_SHA256.json",
+        "seed_0/J_final.npz",
+        "seed_0/J_updates.jsonl",
+        "seed_0/L_final.npz",
+        "seed_0/L_updates.jsonl",
+        "seed_0/START.json",
+        "seed_0/comp_initial.npz",
+        "seed_0/data_hashes.json",
+        "seed_0/environment.json",
+        "seed_0/fit_targets.npz",
+        "seed_0/pair_initial.npz",
+        "seed_0/result.json",
+        "seed_0/schedule.npy",
+        "seed_0/split_ids.npz",
+        "seed_0/teacher_final.npz",
+        "seed_0/teacher_initial.npz",
+        "seed_0/validation_arrays.npz",
+        "seed_0_EXIT.json",
+        "seed_1.log",
+        "seed_1/C_final.npz",
+        "seed_1/C_updates.jsonl",
+        "seed_1/FILES_SHA256.json",
+        "seed_1/J_final.npz",
+        "seed_1/J_updates.jsonl",
+        "seed_1/L_final.npz",
+        "seed_1/L_updates.jsonl",
+        "seed_1/START.json",
+        "seed_1/comp_initial.npz",
+        "seed_1/data_hashes.json",
+        "seed_1/environment.json",
+        "seed_1/fit_targets.npz",
+        "seed_1/pair_initial.npz",
+        "seed_1/result.json",
+        "seed_1/schedule.npy",
+        "seed_1/split_ids.npz",
+        "seed_1/teacher_final.npz",
+        "seed_1/teacher_initial.npz",
+        "seed_1/validation_arrays.npz",
+        "seed_10.log",
+        "seed_10/C_final.npz",
+        "seed_10/C_updates.jsonl",
+        "seed_10/FILES_SHA256.json",
+        "seed_10/J_final.npz",
+        "seed_10/J_updates.jsonl",
+        "seed_10/L_final.npz",
+        "seed_10/L_updates.jsonl",
+        "seed_10/START.json",
+        "seed_10/comp_initial.npz",
+        "seed_10/data_hashes.json",
+        "seed_10/environment.json",
+        "seed_10/fit_targets.npz",
+        "seed_10/pair_initial.npz",
+        "seed_10/result.json",
+        "seed_10/schedule.npy",
+        "seed_10/split_ids.npz",
+        "seed_10/teacher_final.npz",
+        "seed_10/teacher_initial.npz",
+        "seed_10/validation_arrays.npz",
+        "seed_10_EXIT.json",
+        "seed_11.log",
+        "seed_11/C_final.npz",
+        "seed_11/C_updates.jsonl",
+        "seed_11/FILES_SHA256.json",
+        "seed_11/J_final.npz",
+        "seed_11/J_updates.jsonl",
+        "seed_11/L_final.npz",
+        "seed_11/L_updates.jsonl",
+        "seed_11/START.json",
+        "seed_11/comp_initial.npz",
+        "seed_11/data_hashes.json",
+        "seed_11/environment.json",
+        "seed_11/fit_targets.npz",
+        "seed_11/pair_initial.npz",
+        "seed_11/result.json",
+        "seed_11/schedule.npy",
+        "seed_11/split_ids.npz",
+        "seed_11/teacher_final.npz",
+        "seed_11/teacher_initial.npz",
+        "seed_11/validation_arrays.npz",
+        "seed_11_EXIT.json",
+        "seed_12.log",
+        "seed_12/C_final.npz",
+        "seed_12/C_updates.jsonl",
+        "seed_12/FILES_SHA256.json",
+        "seed_12/J_final.npz",
+        "seed_12/J_updates.jsonl",
+        "seed_12/L_final.npz",
+        "seed_12/L_updates.jsonl",
+        "seed_12/START.json",
+        "seed_12/comp_initial.npz",
+        "seed_12/data_hashes.json",
+        "seed_12/environment.json",
+        "seed_12/fit_targets.npz",
+        "seed_12/pair_initial.npz",
+        "seed_12/result.json",
+        "seed_12/schedule.npy",
+        "seed_12/split_ids.npz",
+        "seed_12/teacher_final.npz",
+        "seed_12/teacher_initial.npz",
+        "seed_12/validation_arrays.npz",
+        "seed_12_EXIT.json",
+        "seed_13.log",
+        "seed_13/C_final.npz",
+        "seed_13/C_updates.jsonl",
+        "seed_13/FILES_SHA256.json",
+        "seed_13/J_final.npz",
+        "seed_13/J_updates.jsonl",
+        "seed_13/L_final.npz",
+        "seed_13/L_updates.jsonl",
+        "seed_13/START.json",
+        "seed_13/comp_initial.npz",
+        "seed_13/data_hashes.json",
+        "seed_13/environment.json",
+        "seed_13/fit_targets.npz",
+        "seed_13/pair_initial.npz",
+        "seed_13/result.json",
+        "seed_13/schedule.npy",
+        "seed_13/split_ids.npz",
+        "seed_13/teacher_final.npz",
+        "seed_13/teacher_initial.npz",
+        "seed_13/validation_arrays.npz",
+        "seed_13_EXIT.json",
+        "seed_14.log",
+        "seed_14/C_final.npz",
+        "seed_14/C_updates.jsonl",
+        "seed_14/FILES_SHA256.json",
+        "seed_14/J_final.npz",
+        "seed_14/J_updates.jsonl",
+        "seed_14/L_final.npz",
+        "seed_14/L_updates.jsonl",
+        "seed_14/START.json",
+        "seed_14/comp_initial.npz",
+        "seed_14/data_hashes.json",
+        "seed_14/environment.json",
+        "seed_14/fit_targets.npz",
+        "seed_14/pair_initial.npz",
+        "seed_14/result.json",
+        "seed_14/schedule.npy",
+        "seed_14/split_ids.npz",
+        "seed_14/teacher_final.npz",
+        "seed_14/teacher_initial.npz",
+        "seed_14/validation_arrays.npz",
+        "seed_14_EXIT.json",
+        "seed_15.log",
+        "seed_15/C_final.npz",
+        "seed_15/C_updates.jsonl",
+        "seed_15/FILES_SHA256.json",
+        "seed_15/J_final.npz",
+        "seed_15/J_updates.jsonl",
+        "seed_15/L_final.npz",
+        "seed_15/L_updates.jsonl",
+        "seed_15/START.json",
+        "seed_15/comp_initial.npz",
+        "seed_15/data_hashes.json",
+        "seed_15/environment.json",
+        "seed_15/fit_targets.npz",
+        "seed_15/pair_initial.npz",
+        "seed_15/result.json",
+        "seed_15/schedule.npy",
+        "seed_15/split_ids.npz",
+        "seed_15/teacher_final.npz",
+        "seed_15/teacher_initial.npz",
+        "seed_15/validation_arrays.npz",
+        "seed_15_EXIT.json",
+        "seed_1_EXIT.json",
+        "seed_2.log",
+        "seed_2/C_final.npz",
+        "seed_2/C_updates.jsonl",
+        "seed_2/FILES_SHA256.json",
+        "seed_2/J_final.npz",
+        "seed_2/J_updates.jsonl",
+        "seed_2/L_final.npz",
+        "seed_2/L_updates.jsonl",
+        "seed_2/START.json",
+        "seed_2/comp_initial.npz",
+        "seed_2/data_hashes.json",
+        "seed_2/environment.json",
+        "seed_2/fit_targets.npz",
+        "seed_2/pair_initial.npz",
+        "seed_2/result.json",
+        "seed_2/schedule.npy",
+        "seed_2/split_ids.npz",
+        "seed_2/teacher_final.npz",
+        "seed_2/teacher_initial.npz",
+        "seed_2/validation_arrays.npz",
+        "seed_2_EXIT.json",
+        "seed_3.log",
+        "seed_3/C_final.npz",
+        "seed_3/C_updates.jsonl",
+        "seed_3/FILES_SHA256.json",
+        "seed_3/J_final.npz",
+        "seed_3/J_updates.jsonl",
+        "seed_3/L_final.npz",
+        "seed_3/L_updates.jsonl",
+        "seed_3/START.json",
+        "seed_3/comp_initial.npz",
+        "seed_3/data_hashes.json",
+        "seed_3/environment.json",
+        "seed_3/fit_targets.npz",
+        "seed_3/pair_initial.npz",
+        "seed_3/result.json",
+        "seed_3/schedule.npy",
+        "seed_3/split_ids.npz",
+        "seed_3/teacher_final.npz",
+        "seed_3/teacher_initial.npz",
+        "seed_3/validation_arrays.npz",
+        "seed_3_EXIT.json",
+        "seed_4.log",
+        "seed_4/C_final.npz",
+        "seed_4/C_updates.jsonl",
+        "seed_4/FILES_SHA256.json",
+        "seed_4/J_final.npz",
+        "seed_4/J_updates.jsonl",
+        "seed_4/L_final.npz",
+        "seed_4/L_updates.jsonl",
+        "seed_4/START.json",
+        "seed_4/comp_initial.npz",
+        "seed_4/data_hashes.json",
+        "seed_4/environment.json",
+        "seed_4/fit_targets.npz",
+        "seed_4/pair_initial.npz",
+        "seed_4/result.json",
+        "seed_4/schedule.npy",
+        "seed_4/split_ids.npz",
+        "seed_4/teacher_final.npz",
+        "seed_4/teacher_initial.npz",
+        "seed_4/validation_arrays.npz",
+        "seed_4_EXIT.json",
+        "seed_5.log",
+        "seed_5/C_final.npz",
+        "seed_5/C_updates.jsonl",
+        "seed_5/FILES_SHA256.json",
+        "seed_5/J_final.npz",
+        "seed_5/J_updates.jsonl",
+        "seed_5/L_final.npz",
+        "seed_5/L_updates.jsonl",
+        "seed_5/START.json",
+        "seed_5/comp_initial.npz",
+        "seed_5/data_hashes.json",
+        "seed_5/environment.json",
+        "seed_5/fit_targets.npz",
+        "seed_5/pair_initial.npz",
+        "seed_5/result.json",
+        "seed_5/schedule.npy",
+        "seed_5/split_ids.npz",
+        "seed_5/teacher_final.npz",
+        "seed_5/teacher_initial.npz",
+        "seed_5/validation_arrays.npz",
+        "seed_5_EXIT.json",
+        "seed_6.log",
+        "seed_6/C_final.npz",
+        "seed_6/C_updates.jsonl",
+        "seed_6/FILES_SHA256.json",
+        "seed_6/J_final.npz",
+        "seed_6/J_updates.jsonl",
+        "seed_6/L_final.npz",
+        "seed_6/L_updates.jsonl",
+        "seed_6/START.json",
+        "seed_6/comp_initial.npz",
+        "seed_6/data_hashes.json",
+        "seed_6/environment.json",
+        "seed_6/fit_targets.npz",
+        "seed_6/pair_initial.npz",
+        "seed_6/result.json",
+        "seed_6/schedule.npy",
+        "seed_6/split_ids.npz",
+        "seed_6/teacher_final.npz",
+        "seed_6/teacher_initial.npz",
+        "seed_6/validation_arrays.npz",
+        "seed_6_EXIT.json",
+        "seed_7.log",
+        "seed_7/C_final.npz",
+        "seed_7/C_updates.jsonl",
+        "seed_7/FILES_SHA256.json",
+        "seed_7/J_final.npz",
+        "seed_7/J_updates.jsonl",
+        "seed_7/L_final.npz",
+        "seed_7/L_updates.jsonl",
+        "seed_7/START.json",
+        "seed_7/comp_initial.npz",
+        "seed_7/data_hashes.json",
+        "seed_7/environment.json",
+        "seed_7/fit_targets.npz",
+        "seed_7/pair_initial.npz",
+        "seed_7/result.json",
+        "seed_7/schedule.npy",
+        "seed_7/split_ids.npz",
+        "seed_7/teacher_final.npz",
+        "seed_7/teacher_initial.npz",
+        "seed_7/validation_arrays.npz",
+        "seed_7_EXIT.json",
+        "seed_8.log",
+        "seed_8/C_final.npz",
+        "seed_8/C_updates.jsonl",
+        "seed_8/FILES_SHA256.json",
+        "seed_8/J_final.npz",
+        "seed_8/J_updates.jsonl",
+        "seed_8/L_final.npz",
+        "seed_8/L_updates.jsonl",
+        "seed_8/START.json",
+        "seed_8/comp_initial.npz",
+        "seed_8/data_hashes.json",
+        "seed_8/environment.json",
+        "seed_8/fit_targets.npz",
+        "seed_8/pair_initial.npz",
+        "seed_8/result.json",
+        "seed_8/schedule.npy",
+        "seed_8/split_ids.npz",
+        "seed_8/teacher_final.npz",
+        "seed_8/teacher_initial.npz",
+        "seed_8/validation_arrays.npz",
+        "seed_8_EXIT.json",
+        "seed_9.log",
+        "seed_9/C_final.npz",
+        "seed_9/C_updates.jsonl",
+        "seed_9/FILES_SHA256.json",
+        "seed_9/J_final.npz",
+        "seed_9/J_updates.jsonl",
+        "seed_9/L_final.npz",
+        "seed_9/L_updates.jsonl",
+        "seed_9/START.json",
+        "seed_9/comp_initial.npz",
+        "seed_9/data_hashes.json",
+        "seed_9/environment.json",
+        "seed_9/fit_targets.npz",
+        "seed_9/pair_initial.npz",
+        "seed_9/result.json",
+        "seed_9/schedule.npy",
+        "seed_9/split_ids.npz",
+        "seed_9/teacher_final.npz",
+        "seed_9/teacher_initial.npz",
+        "seed_9/validation_arrays.npz",
+        "seed_9_EXIT.json"
+      ],
+      "type": "object"
+    },
+    "historical_attempt": {
+      "const": "CLOSED_NOT_REOPENED"
+    },
+    "matched_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parent_contract": {
+      "const": "canaria.matched-replication.v1"
+    },
+    "parent_replication_id": {
+      "pattern": "^replication-[a-z0-9][a-z0-9-]{0,63}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "parent_contract",
+    "historical_attempt",
+    "parent_replication_id",
+    "matched_package_sha256",
+    "files",
+    "custody_files"
+  ],
+  "title": "PRIVATE fresh matched parent descriptor, never historical-chain proof",
+  "type": "object"
+}
