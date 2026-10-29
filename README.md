@@ -4,7 +4,7 @@
 
 **Task-conditioned neural simplification — research code, evidence, and limitations.**
 
-[日本語](README.ja.md) · [Reproduce](QUICKSTART.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
+[日本語](README.ja.md) · [Current J/C report and recomputation routes](RESEARCH_CHECKPOINT.md) · [Historical eight-seed baseline reproduction](QUICKSTART.md) · [Historical baseline evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
 
 Canaria asks whether a trained neural-network span can be replaced by a smaller computation when it is fitted as a composed input–output function rather than simplified one implementation block at a time.
 

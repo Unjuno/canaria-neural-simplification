@@ -4,7 +4,7 @@
 
 **タスクに条件付けたニューラル計算の簡略化を調べる研究リポジトリ。**
 
-[English](README.md) · [再現手順](QUICKSTART.md) · [主張と証拠](docs/CLAIMS_AND_EVIDENCE.md) · [研究索引](docs/RESEARCH_INDEX.md)
+[English](README.md) · [最新 J/C 報告と再計算経路](RESEARCH_CHECKPOINT.md) · [旧 8 seed baseline の再現手順](QUICKSTART.md) · [旧 baseline の主張と証拠](docs/CLAIMS_AND_EVIDENCE.md) · [研究索引](docs/RESEARCH_INDEX.md)
 
 学習済みネットワークの一部を置換するとき、実装ブロックごとに近似するより、合成した入出力関数として近似した方が、小さい置換モデルでタスク性能を保てる場合があるかを調べています。
 
