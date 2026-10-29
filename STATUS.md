@@ -1,37 +1,40 @@
-# Project status
+# Research-branch status
 
-> **Research-branch status, 2026-10-29:** [Current checkpoint and direction decision](RESEARCH_CHECKPOINT.md) distinguishes the newer bounded 16-teacher J/C report from the historical baseline status below. The current decision is sufficient for a limited research report, not a product/general-compression claim. Original reproduction debt remains unresolved; no new run, release, or main promotion is implied.
+**2026-10-29 · `research/checkpoint-20261026` · limited research report, not a production release.**
 
-**Mode: publication preparation; strict numerical reproduction BLOCKED (Issue87).**
+[Current assessment and direction](RESEARCH_CHECKPOINT.md) · [Full methods/results report](research-checkpoints/2026-10-27/README.md)
 
-Two complete known-cohort repeats disagree with some archived values. [Discrepancy](docs/REPRODUCTION_DISCREPANCY.md). The directional effect persisted, but no exact-reproduction PASS or announcement closure is declared.
+## What is ready to read
 
-The repository is already public. Announcement readiness is separate from repository visibility, protocol PASS, and peer review. The current gate is [ANNOUNCEMENT_READINESS.md](docs/ANNOUNCEMENT_READINESS.md), tracked by Issue #13. No social announcement or new scientific release is made by editing this file.
+The current report describes the bounded 16-teacher Digits J/C comparison, the small whole-model savings, conditional CPU timing, and the unsuccessful CIFAR-10 series. It is sufficient to share as a **limited research report with explicit limitations**, not as general compression success or completed independent replication.
 
-## What belongs to the headline
+This replaces the old entry-page emphasis on the eight-seed baseline; it does not merge the two cohorts or repair the baseline's unresolved numbers. [Historical entry pages](archives/README.md) retain the earlier wording.
 
-Only the baseline residual-MLP / digits / first-two-block component-wise-versus-composed experiment is the proposed headline for this preview, with its reproduction discrepancy disclosed. Its original eight model seeds and outcomes are unchanged. [Claim registry](docs/CLAIMS_AND_EVIDENCE.md)
+## What has and has not been validated
 
-The baseline included other bounded results after the recorded 2026-08-26 re-review. They remain inspectable, but are not all advertised as independently rerun in this publication preparation.
+| Item | Recorded status |
+|---|---|
+| Published scalar summaries and post-hoc threshold analysis | Recalculation code, inputs, and test records are available; not new scientific samples |
+| Matched / grid / storage / latency source-only packages | Published with synthetic-test records and input requirements; not a complete original artifact bundle |
+| Selected original artifacts | Limited existence/hash, tensor, and saved-logit consistency checks reported; not regenerated predictions from the weights |
+| Fresh real-data end-to-end reproduction from public source | **Not completed.** The 2026-10-29 attempt ended during checkout preparation, before scientific stages began |
+| External writer/generalization check | **Not completed:** acquisition did not succeed; no model result |
+| Historical eight-seed baseline exact numerical reproduction | **Unresolved (Issue87):** directional pattern persisted in two repeats, but some archived endpoints/statistics disagreed |
+| Production utility / general compression | **Not established** |
 
-## What remains research
+The setup failure is an execution-preparation result, not a measured failure of Canaria's approximation method. Its cause and untested stages remain in the [supplemental reproduction record](research-checkpoints/2026-10-29/REPRODUCTION_STATUS.md). It does not change the recorded scientific estimates.
 
-C75E, C76R and C77E are linked with their exploratory/confirmatory classes in the [research index](docs/RESEARCH_INDEX.md), not merged as new baseline evidence. C76R supports a sufficient head-derived correction dimension under one fixed protocol, not a universal minimum or measured model/communication reduction. Its candidate-to-teacher absolute safeguard is uncertain in that cohort; C77E does not retroactively change that outcome.
+[Current report's validation boundary](research-checkpoints/2026-10-27/README.md) · [Historical reproduction discrepancy](docs/REPRODUCTION_DISCREPANCY.md) · [Historical baseline reports](results/reproduction/README.md)
 
-The imported Residual-CNN C59/C60 line is distinct from the Residual-MLP C61R+ line. Original C61 remains unresolved. Regression external-validity work, unreviewed recursive-composition extensions, and systems S1–S7 remain outside the headline. New experiments are not prerequisites for an accurately scoped code/evidence preview.
+## Historical gates and preservation
 
-## Preservation and corrections
+The repository is public; visibility, limited-report sharing, exact numerical reproduction, and a formal release are separate states. The [older announcement checklist](docs/ANNOUNCEMENT_READINESS.md) and Issue #13 concern the baseline preparation and are retained as historical gates, not evidence that the current limited report is scientifically complete. No social posting, release, main promotion, or gate closure is performed by this documentation update.
 
-- Frozen tag: `v0.2.0-public-snapshot`, commit `556dce21c7a5516a16780cb28d528d1ff3968e53`; never rewritten.
-- Baseline before this preparation: `41872aca00ee5750556c93e114f705bce2e9c611`.
-- Legacy paths moved under [archives](archives/README.md), with byte-hash migration records; outcome-producing code and original numerical records are unchanged.
-- Phase 2E remains **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**. Phase 2I causal attribution stays retracted; Phase 2O stays uncertain.
+- Frozen tag `v0.2.0-public-snapshot` (`556dce21c7a5516a16780cb28d528d1ff3968e53`) is unchanged.
+- Phase 2E stays **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**; Phase 2I causal attribution stays retracted; Phase 2O remains uncertain.
+- Older correction-subspace, recursive-composition, systems, and regression studies remain separate in the [historical research index](docs/RESEARCH_INDEX.md). A smaller correction subspace is not a smaller whole model.
+- Source protocols, code, numerical outcomes, missing results, and correction history are not rewritten by entry-page cleanup.
 
-## Validation boundary
+## Direction
 
-The publication workflow executes the recorded eight-seed core reproduction in a pinned CPU environment. Its machine-readable report and full logs are distinct from the original scientific experiment. Numerical/source audit is not independent scientific peer review. See [reproduction reports](results/reproduction/README.md) for the observed status; no PASS is inferred from this prose.
-
-## Next research questions
-
-Independent dataset and boundary replication; physically restricting teacher feedback rather than computing full residuals; and fixed-device resource measurement. These are open directions, not advertised achieved capabilities. The public-facing docs/code should be stable while such work proceeds on isolated research branches.
-
+Preserve and explain the bounded result first. Broader claims require separate evidence: a properly scoped full-pipeline reproduction, an unexposed independent confirmation path, or quality and whole-model resource gains on a defined target. CIFAR's examined interventions remain negative results, not instructions for endless retuning on an already-observed test set. See the [decision and explicit unknowns](RESEARCH_CHECKPOINT.md).

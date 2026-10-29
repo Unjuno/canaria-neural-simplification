@@ -1,67 +1,55 @@
 # Canaria
 
-> **Research-branch checkpoint (2026-10-29):** Start with the [current research decision and evidence map](RESEARCH_CHECKPOINT.md) (Japanese), then the [bounded 16-teacher J/C report](research-checkpoints/2026-10-27/README.md). These newer results are separate from the historical eight-seed baseline below. Limited-report readiness is not strict numerical reproduction, a production release, or general compression success.
+**Task-conditioned neural simplification: a limited research report, with code, evidence, and failures.**
 
-**Task-conditioned neural simplification — research code, evidence, and limitations.**
+[日本語](README.ja.md) · [Research assessment](RESEARCH_CHECKPOINT.md) · [Status](STATUS.md) · [Historical studies](docs/RESEARCH_INDEX.md)
 
-[日本語](README.ja.md) · [Current J/C report and recomputation routes](RESEARCH_CHECKPOINT.md) · [Historical eight-seed baseline reproduction](QUICKSTART.md) · [Historical baseline evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
+Can a trained neural-network span be replaced more economically by approximating its composed input–output function rather than its implementation blocks separately?
 
-Canaria asks whether a trained neural-network span can be replaced by a smaller computation when it is fitted as a composed input–output function rather than simplified one implementation block at a time.
+## Current conclusion
 
-**This is a research preview, not a universal compression method or a production inference library.** `main` provides the baseline experiment and a bounded evidence registry. Newer experiments are indexed separately at immutable commits; linking them does not promote them into the headline claim.
+**There is a conditional benefit in a small, fixed Digits experiment—not an established general or production compression method.** The replacement span becomes smaller on average, but the whole model barely shrinks. The examined CIFAR-10 series did not meet the required quality.
 
-> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional 8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
+Start with the **[current research assessment](RESEARCH_CHECKPOINT.md)** for what worked, what failed, what remains unknown, and whether to continue. The **[full report](research-checkpoints/2026-10-27/README.md)** is the canonical source for methods, confidence intervals, evidence, and reproduction boundaries. This page summarizes existing results; it introduces no new experiment.
 
-## Start with the recorded result and its reproduction status
+## What the recorded results show
 
-In the recorded **residual-MLP / sklearn digits / first-two-block** experiment, the composed replacement needed fewer learned replacement parameters in all eight model seeds. “Minimum” means the smallest passing point on the tested budget grid, not a mathematical minimum.
+In Digits, the first two blocks of a four-block residual MLP were replaced; the remaining network stayed fixed. **J** jointly trains two maps; **C** approximates the same endpoint with one map. Sixteen teachers share one dataset split—not sixteen independent datasets. Passing requires validation endpoint NMSE ≤ 0.08 and accuracy loss ≤ 2 percentage points relative to the same teacher.
 
-| Recorded result | Component-wise | Composed |
-|---|---:|---:|
-| Seed 1200: minimum passing replacement parameters | 3,072 | 1,536 |
-| Seeds 1200–1207: mean selected replacement parameters | 3,584 | 1,728 |
+| Question | Recorded result | Boundary |
+|---|---|---|
+| Smaller replacement than the strong J comparison? | First-passing candidate-budget ratio C/J **0.788324**: about **21.2% smaller**; 11 teachers smaller, 4 equal, 1 larger | Paired geometric mean over a finite grid, not a theoretical minimum or whole-model reduction |
+| Smaller whole model? | Parameters about **1.26%** lower; NPZ bytes about **1.53–1.56%** lower | Not RAM, VRAM, or deployment-package savings |
+| Faster forward pass? | CPU time about **16.33%** lower at batch 1 and **5.67%** at batch 128 | Shared CPU, one thread, fixed synthetic inputs; excludes loading; not a general speed guarantee |
+| Successful beyond this setting? | CIFAR-10 original Comp lost **4.26 / 4.22 / 4.38 pp** on the already-evaluated official test | Exceeds the 2 pp quality allowance; the examined improvement series also failed |
 
-[Locked protocol](results/core_discovery_digits/PROTOCOL_LOCK.json) · [Complete recorded summary](results/core_discovery_digits/confirm_summary.json) · [Scope and interpretation](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md)
+[Full results and source links](research-checkpoints/2026-10-27/README.md) · [CIFAR-10 negative results](research-checkpoints/2026-10-27/README.md)
 
-Validation selects candidate budgets; candidate test metrics are evaluated at selected endpoints. The teacher and a prespecified mechanistic control also have test metrics; test is excluded from budget selection. These are **replacement parameters**, not total model parameters, bytes, FLOPs, latency, or memory. The eight models share one dataset split; they are not eight independent dataset replications.
+## Recompute, inspect, or reproduce
 
-## Run it
-
-From a checkout of this repository, using **Python 3.11 on CPU**:
-
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py --seed 1200 --out outputs/seed1200.json
-```
-
-[Quickstart](QUICKSTART.md) includes the full eight-seed verifier, expected results, environment checks, and failure reporting. A rerun of these already-observed seeds is **reproduction**, not additional confirmatory evidence.
-
-## What is — and is not — supported
-
-The headline is a bounded empirical comparison under one declared architecture, span, replacement family, and passing rule. See the [claim registry](docs/CLAIMS_AND_EVIDENCE.md) for supporting baseline work and explicit exclusions.
-
-We do **not** claim universal or LLM-scale compression, a general minimum-dimension predictor, or general runtime, RAM, VRAM, or energy savings. Recent head-derived correction experiments reduce a **correction subspace**, not the 4,096-parameter final model; they still compute full teacher residuals during calibration.
-
-**Correction history is part of the evidence:** Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`. Phase 2O did not establish a repair-sample advantage. [Corrections and negative results](docs/NEGATIVE_RESULTS.md)
-
-## Explore without confusing evidence classes
-
-| Entry | What it contains |
+| Goal | Start here |
 |---|---|
-| [Claims and evidence](docs/CLAIMS_AND_EVIDENCE.md) | The headline, supporting baseline, caveats, and exclusions |
-| [Research index](docs/RESEARCH_INDEX.md) | Recursive composition, systems, Gaussian-shift studies, and C75E–C77E; pinned source/evidence links |
-| [Reproducibility](docs/REPRODUCIBILITY.md) | Checks, statistical units, environment limits, and reporting failures |
-| [Status and readiness](STATUS.md) | Research-preview boundary and the current announcement gate |
-| [Archives](archives/README.md) | Preserved legacy protocols/results, invalidation history, and path migration |
+| Recalculate published scalar summaries without training | [Saved-result analysis](research/public_saved_analysis_20261027/README.md) |
+| Inspect all 25 post-hoc threshold conditions, including censored cases | [Threshold sensitivity](research/threshold_robustness_20261027/README.md) |
+| Inspect the source-only pipeline and missing inputs | [Matched L/J/C](research/digits_matched_source_20261027/README.md) → [Budget grid](research/digits_joint_budget_source_20261027/README.md) → [Whole-model storage](research/selected_whole_storage_source_20261027/README.md) → [Latency](research/selected_latency_source_20261027/README.md) |
+| Reproduce the separate historical eight-seed baseline | [Historical baseline quickstart](QUICKSTART.md), with its [unresolved discrepancy](docs/REPRODUCTION_DISCREPANCY.md) |
 
-The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a certificate of current readiness. No research protocol or outcome is rewritten by this reorganization.
+Scalar recomputation, synthetic tests, and artifact hash checks are **not** fresh real-data end-to-end reproduction or independent scientific replication. The source-only packages do not include the original weights, arrays, or dataset. See [current validation status](STATUS.md) before choosing a route.
 
-## Contribute and cite
+## Limits and open questions
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Reproduction failures and well-controlled counterexamples are useful contributions. Cite the **exact commit and experiment artifacts**, not an unversioned claim. [CITATION.cff](CITATION.cff)
+- **External generalization is unconfirmed.** The separate writer-data acquisition did not complete; there is no model-evaluation result for it.
+- The historical 450-example Digits test set was already evaluated. Excluding its predictions from the newer matched/grid work does not make it unseen again.
+- Threshold sensitivity is post-hoc: 20 conditions yielded complete ratios, while 5 stricter conditions were censored. Individual selections can sit at the quality boundary.
+- CIFAR failure does not identify a unique cause or prove all future composition methods impossible. Loss, capacity, parameterization, and optimization remain unresolved explanations.
+- The older baseline reproduction discrepancy, invalidated Phase 2E, and earlier negative cost result remain part of the record. [Corrections and negative results](docs/NEGATIVE_RESULTS.md)
+
+**The present scope is sufficient for a limited research report, not a claim of practical large-scale compression.** Further work needs an identifiable question and independent evidence, not indefinite retuning on already-observed data.
+
+## History, contribution, and citation
+
+This is the `research/checkpoint-20261026` view, not a main release. [Historical research index](docs/RESEARCH_INDEX.md) · [Preserved earlier entry pages](archives/README.md) · [Contributing](CONTRIBUTING.md) · [Citation](CITATION.cff)
+
+Cite the exact commit, protocol, and result artifacts. Historical records and failures are preserved; reorganizing documentation does not change their evidence status.
 
 Original code and documentation: [Apache-2.0](LICENSE). Third-party data and dependencies retain their own licenses.
-

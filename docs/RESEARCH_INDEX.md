@@ -1,10 +1,14 @@
-# Research index — pinned sources, not automatic claim promotion
+# Research index — current report and historical families
 
-> **Current research-branch entry (2026-10-29):** [Checkpoint, failure analysis, and direction decision](../RESEARCH_CHECKPOINT.md) → [16-teacher J/C report and source/recalculation links](../research-checkpoints/2026-10-27/README.md). The pinned historical families below remain unchanged; this navigation does not promote them into a headline or resolve their recorded uncertainties.
+## Current limited report
 
-The baseline and its currently disclosed [reproduction discrepancy](REPRODUCTION_DISCREPANCY.md) are separate from the studies below. These links identify immutable source/evidence commits; PR state is a review surface, not a scientific quality score. All source histories remain intact.
+Start at the [research assessment](../RESEARCH_CHECKPOINT.md), then the [16-teacher Digits J/C report](../research-checkpoints/2026-10-27/README.md) for methods, confidence intervals, CIFAR failures, source packages, and recomputation. [Current validation status](../STATUS.md)
 
-[Machine-readable catalog](../publication/RESEARCH_CATALOG.json) · [Current headline/exclusions](CLAIMS_AND_EVIDENCE.md)
+## Historical studies and baseline
+
+The entries below retain their pinned source/evidence commits and evidence classes. They are not automatically promoted into the current report, and PR state is not a scientific quality score. The [historical eight-seed baseline claim registry](CLAIMS_AND_EVIDENCE.md) and its [unresolved reproduction discrepancy](REPRODUCTION_DISCREPANCY.md) belong to a separate cohort.
+
+[Historical machine-readable catalog](../publication/RESEARCH_CATALOG.json) · [Preserved entry-page history](../archives/README.md)
 
 ## recursive-composition
 

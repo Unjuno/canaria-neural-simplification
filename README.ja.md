@@ -1,34 +1,55 @@
 # Canaria — カナリア
 
-> **研究ブランチの整理（2026-10-29）：** まず[現在の暫定判断・成果と失敗・証拠への入口](RESEARCH_CHECKPOINT.md)、次に[16 教師の J/C 比較を含む限定研究報告](research-checkpoints/2026-10-27/README.md)を参照してください。下記の旧 8 seed baseline とは別系列です。限定報告としての整理と、厳密再現・製品化・一般的圧縮の成功は区別します。
+**ニューラル計算の一部を簡略化する研究。成果・失敗・限界と、コード・証拠を公開しています。**
 
-**タスクに条件付けたニューラル計算の簡略化を調べる研究リポジトリ。**
+[English](README.md) · [研究の整理と暫定判断](RESEARCH_CHECKPOINT.md) · [検証状況](STATUS.md) · [過去の研究系列](docs/RESEARCH_INDEX.md)
 
-[English](README.md) · [最新 J/C 報告と再計算経路](RESEARCH_CHECKPOINT.md) · [旧 8 seed baseline の再現手順](QUICKSTART.md) · [旧 baseline の主張と証拠](docs/CLAIMS_AND_EVIDENCE.md) · [研究索引](docs/RESEARCH_INDEX.md)
+学習済みネットワークの一部を置換するとき、ブロックごとに近似するより、合成した入出力関数として近似した方が、小さな計算でタスク性能を保てるかを調べています。
 
-学習済みネットワークの一部を置換するとき、実装ブロックごとに近似するより、合成した入出力関数として近似した方が、小さい置換モデルでタスク性能を保てる場合があるかを調べています。
+## いまの結論
 
-**研究プレビューです。普遍的な圧縮法や、実運用向けの推論ライブラリではありません。**
+**小規模・固定条件の Digits では条件付きの利点がありました。ただし、実用的な大幅圧縮や一般的な圧縮法を確立したわけではありません。** 置換部分は平均的に小さくなりましたが、全モデルの削減は小さく、検査した CIFAR-10 系列は要求品質を満たしませんでした。
 
-> **告知前の再現確認で不一致を検出しました。** 2環境の全8 seed再実行で合成方式が小さい傾向は維持されましたが、一部の選択予算と精度は過去の保存値に一致しません。[再現不一致](docs/REPRODUCTION_DISCREPANCY.md)を参照してください。厳密再現と告知準備の完了は宣言していません。
+まず **[研究の整理と暫定判断](RESEARCH_CHECKPOINT.md)** を読むと、良かった点・失敗・原因の限界・今後の方向が分かります。方法、区間推定、証拠、再現範囲の正本は **[限定研究報告](research-checkpoints/2026-10-27/README.md)** です。このページは保存済み結果の要約であり、新しい実験ではありません。
 
-## 過去に記録された結果
+## 分かったこと
 
-Residual-MLP・digits・最初の2ブロックという固定条件で、8つのモデルseedすべてで、合成方式の選択された置換パラメータ数が少なくなりました。seed 1200では個別方式3,072、合成方式1,536。8 seed平均はそれぞれ3,584と1,728です。「最小」は試した候補グリッド内の合格点を指し、理論的最小値ではありません。
+Digits の 4 ブロック residual MLP の前半 2 ブロックを置換し、残りを固定しました。**J** は二写像を共同学習、**C** は同じ終点を単一写像で近似します。16 教師は同じデータ分割を使い、16 個の独立データセットではありません。合格条件は validation の終点 NMSE ≤ 0.08 と、同じ教師からの精度低下 ≤ 2 percentage points（pp）の両方です。
 
-[事前プロトコル](results/core_discovery_digits/PROTOCOL_LOCK.json)と[保存済み結果](results/core_discovery_digits/confirm_summary.json)に照合できます。同じデータ分割上の8モデルであり、8データセットの検証ではありません。再現手順はPython 3.11・CPU環境を固定した[QUICKSTART.md](QUICKSTART.md)にあります。
+| 問い | 保存された結果 | 言える範囲 |
+|---|---|---|
+| 強い比較対象 J より置換部分を小さくできたか | 初回合格候補予算比 C/J **0.788324**、約 **21.2% 少ない**。小さい 11、同じ 4、大きい 1 教師 | 固定候補グリッドでの対応付き幾何平均。理論最小でも全モデル削減率でもない |
+| 全モデルは小さくなったか | パラメータ約 **1.26%**、NPZ bytes 約 **1.53–1.56%** 減 | RAM・VRAM・配備パッケージの削減率ではない |
+| forward は速かったか | CPU 時間は batch 1 で約 **16.33%**、batch 128 で約 **5.67%** 短い | 共有 CPU・1 thread・固定 synthetic 入力、ロード時間除外。他環境の保証ではない |
+| 別設定でも成功したか | CIFAR-10 の元 Comp は既視 official test で **4.26 / 4.22 / 4.38 pp** 低下 | 許容 2 pp を超過。検査した改善系列も要求品質を満たさなかった |
 
-## 誤解してはいけないこと
+[全結果と出典](research-checkpoints/2026-10-27/README.md) · [CIFAR-10 の負の結果](research-checkpoints/2026-10-27/README.md)
 
-置換パラメータ数、補正部分空間の次元、保存バイト数、推論時間、実メモリは別の指標です。いずれかの削減から他の削減は導けません。最近の9次元補正の確認実験も、全モデルを64から9へ圧縮した結果ではありません。
+## 再計算・ソース確認・再現の入口
 
-最新系列は[研究索引](docs/RESEARCH_INDEX.md)から元commitのコードと結果へ進めます。確認実験・探索・事後診断・原資料未回収を区別し、mainの見出し成果に自動昇格させません。元C59/C60のResidual CNNと、C61R以降のResidual-MLPは別系列です。
+| やりたいこと | 読む場所 |
+|---|---|
+| 学習せず、掲載数表を再計算する | [保存結果解析](research/public_saved_analysis_20261027/README.md) |
+| 打ち切りも含む事後の 25 条件を確認する | [しきい値感度解析](research/threshold_robustness_20261027/README.md) |
+| 公開ソースと不足入力を確認する | [matched L/J/C](research/digits_matched_source_20261027/README.md) → [予算グリッド](research/digits_joint_budget_source_20261027/README.md) → [全モデル保存量](research/selected_whole_storage_source_20261027/README.md) → [latency](research/selected_latency_source_20261027/README.md) |
+| 別系列の旧 8 seed baseline を再現する | [旧 baseline quickstart](QUICKSTART.md)。[未解決の再現不一致](docs/REPRODUCTION_DISCREPANCY.md)も併読 |
 
-失敗・不確実・無効化も保存しています。Phase 2Eは`INVALIDATED_IMPLEMENTATION_BUG`で推論に使えません。Phase 2Oは修復サンプル数の優位性を確立していません。[訂正と否定的結果](docs/NEGATIVE_RESULTS.md)
+数表の再計算・合成テスト・保存物 hash 照合は、**実データによる新規全工程再現や独立した科学的再現とは別**です。source-only パッケージは元の重み・配列・データを含みません。実行経路を選ぶ前に [現在の検証状況](STATUS.md) を確認してください。
 
-## 状態
+## 分かっていないこと・残す限界
 
-[STATUS.md](STATUS.md)と[告知チェック](docs/ANNOUNCEMENT_READINESS.md)が現行の公開範囲を定義します。凍結タグ`v0.2.0-public-snapshot`や過去のレビュー完了は、現在の全研究の完成・独立第三者再現を意味しません。
+- **外部一般化は未確認。** 別 writer データの取得が成立せず、モデル評価結果はありません。
+- Digits の test 450 件は過去に評価済みです。新 matched/grid で予測を使わなくても未見集合には戻りません。
+- しきい値感度は事後解析です。全組の比を出せた 20 条件と、厳しい条件で打ち切りとなった 5 条件を区別します。個別選定は品質境界に近い場合があります。
+- CIFAR の失敗原因は一つに同定できていません。目的・容量・パラメータ化・最適化等の可能性を残し、手法全体が不可能とも断定しません。
+- 旧 baseline の再現不一致、Phase 2E の無効化、旧コスト条件の未達は消していません。[訂正・否定的結果](docs/NEGATIVE_RESULTS.md)
 
-[履歴](archives/README.md)は内容を変えずに保存し、引用時は正確なcommitと使用したプロトコル・結果を指定してください。ライセンスは[Apache-2.0](LICENSE)です。
+**現時点では限定研究報告として区切るには十分ですが、実用的な大幅圧縮の主張には不十分です。** 次に進むなら、既視データの際限ない再調整ではなく、識別できる問いと独立した証拠が必要です。
 
+## 履歴・貢献・引用
+
+これは `research/checkpoint-20261026` の整理で、main の正式リリースではありません。[過去の研究索引](docs/RESEARCH_INDEX.md) · [旧入口文書の保存場所](archives/README.md) · [貢献方法](CONTRIBUTING.md) · [引用](CITATION.cff)
+
+引用には正確な commit・プロトコル・結果資料を指定してください。文書整理は原記録や失敗の証拠上の位置付けを変えません。
+
+コード・文書は [Apache-2.0](LICENSE)。第三者データ・依存物には各ライセンスが適用されます。

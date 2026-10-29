@@ -8,12 +8,13 @@
 | `results/history/`, `results/phaseA_v11/`, `results/phaseB_v11/`, `results/v12/`–`v25/` | `research-history/results/` |
 | `scripts/phases/v11/`, `v17/`–`v23/` | `research-history/scripts/phases/` |
 | `environment/history/` | `research-history/environment/history/` |
+| Research-branch README / Japanese README / STATUS before the 2026-10-29 reader-first rewrite | [entry-pages-20261029](entry-pages-20261029/README.md) (exact bytes from `eed19ca35ca5b9d7864612436d921db2488137b7`; relative links resolve at that original commit) |
 | Earlier broad planning/status documents | `research-history/legacy-docs/` |
 | Root `REVIEW_HANDOFF.md` | `reviews/REVIEW_HANDOFF_2026-08-26.md` |
 | Previous baseline claim registry | `reviews/CLAIMS_AND_EVIDENCE_2026-08-26.md` |
 | Old snapshot/checklist/citation | `releases/v0.2.0/` |
 
-[Exact per-file path map](../publication/PATH_MIGRATION.json) · [Preservation hashes](../publication/PRESERVATION_MANIFEST.json) · [Current claims](../docs/CLAIMS_AND_EVIDENCE.md)
+[Exact per-file path map](../publication/PATH_MIGRATION.json) · [Preservation hashes](../publication/PRESERVATION_MANIFEST.json) · [Current research assessment](../RESEARCH_CHECKPOINT.md)
 
 Moved files keep their original bytes. Consequently archived documents may contain stale relative links, historical package versions, or “next experiment” instructions. Resolve old paths with the map or inspect the original commit. Do not treat historical closure language as the current announcement gate.
 
