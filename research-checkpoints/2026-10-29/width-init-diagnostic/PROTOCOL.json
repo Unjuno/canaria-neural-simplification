@@ -1,0 +1,42 @@
+{
+  "batch_size": 128,
+  "budgets": [
+    2048,
+    3072
+  ],
+  "cpu_seconds": 120,
+  "fits": 32,
+  "id": "canaria_digits_c_width_init_diagnostic_20261029",
+  "input_sha256": {
+    "digits.csv.gz": "09f66e6debdee2cd2b5ae59e0d6abbb73fc2b0e0185d2e1957e9ebb51e23aa22",
+    "saved/seed_0/data_hashes.json": "f350eacdfaffc42a676eb3fe55962b9c02ad01e9d71c94bec5c74c8253f53ac8",
+    "saved/seed_0/fit_targets.npz": "8fdd09deee68ab9c92ac2f232ce7026c94cf88bebfe24afe1da17f3b19a4b26a",
+    "saved/seed_0/result.json": "d73d1c8027d3968bfab8ad27b34f0afd85b1c062d9509f5954531f88b8d796b5",
+    "saved/seed_0/schedule.npy": "66507fedd2729987ba1b6e2d3f3ffe1ee91db573ce4835064f8ecf426623056f",
+    "saved/seed_0/split_ids.npz": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42",
+    "saved/seed_0/teacher_final.npz": "5abbd38f17b84642293427f8f9d31263a3ecfca92b90fa38a980ccf49c1f9ebd",
+    "saved/seed_0/validation_arrays.npz": "15f274c5fa33444e24a5a5334d61ef8aa813e1a6c50e56f7e0423cdcc871da33",
+    "saved/seed_4/data_hashes.json": "f350eacdfaffc42a676eb3fe55962b9c02ad01e9d71c94bec5c74c8253f53ac8",
+    "saved/seed_4/fit_targets.npz": "730ae19d884837bc4fb3f1ca6417c5c10887573dd1c77a935311744a28559300",
+    "saved/seed_4/result.json": "6cde03a894ebf2c2ca683ea3ae5621800b7a38de856dbeebe11ed935dcfe3a85",
+    "saved/seed_4/schedule.npy": "2f2a7c1ed5e42bcff25ae825dbd96271508c7fe3a5e9bf1d59d3d7ba8d22547a",
+    "saved/seed_4/split_ids.npz": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42",
+    "saved/seed_4/teacher_final.npz": "5b1a81fe52f2cba0f40c3a5cb6d1a5efd5bb625d70330fc20819cddfb526abf6",
+    "saved/seed_4/validation_arrays.npz": "217188d85470691e0d2d41b7a31cc9a9742fad91b5e2ff9462f713888d2e0b6f",
+    "source/portable_contract.py": "159c3f7877df016854986aebe6735b8ebd0442758cacabc9bb5b726f128c7dac",
+    "source/runner.py": "da4211c7af6a9f877b2cb6c2d760b58e1facd4ed0aaf3b47a87483a00629873d",
+    "source/scientific_definitions.py": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2"
+  },
+  "primary": "per teacher mean log2(NMSE3072/NMSE2048), paired-initialization percentile bootstrap100000, RNG3000001000 sequential teachers0,4; PASS upper95<0; FAIL lower95>0; otherwiseUNCERTAIN",
+  "quality_gate": "NMSE<=.08 AND correct/270>=teacher_correct/270-.02",
+  "replicates": 8,
+  "scope": "Posthoc selected two teachers on seen fixed digits split; 8 initialization pairs per teacher; small-sample conditional diagnostic not independent generalization. Same seeds across widths do not imply identical weights; same updates not same FLOPs/time. All32fits before validation. No450 scoring; historical450 already seen. No interim selection/no retry/no old claim reuse. Failure retains partial outputs and scientific UNCERTAIN.",
+  "seed_formula": "3000000000 + teacher_id*100 + r; r=0..7; same seed at both widths, not identical weights",
+  "source_commit": "06301e653b69151107af39100e0d4a82445867c5",
+  "teachers": [
+    0,
+    4
+  ],
+  "updates": 600,
+  "wall_seconds": 180
+}

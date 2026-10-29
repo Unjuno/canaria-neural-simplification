@@ -1,0 +1,12 @@
+{
+  "data_payloads_published": false,
+  "original_executed_file_sha256": {
+    "INDEPENDENT_GO.json": "e3014860d1d5e88bb3de077f8a4c5b87003cf0f662bcfd770121b1bf80e54ffe",
+    "PROTOCOL.json": "fe4f1a9089e5f704c8b31830f7faf95616cf77b4929052ff5b5bc899f3c470fc",
+    "watchdog.py": "99d003ef5b2987e147d6ace94bdb08a85270be63f70be67ed31318013d5fdf85",
+    "worker.py": "90e6cfdc3138ef03a7ee97691c65c1c7900ab521e892eefd70f510a8f7140fce"
+  },
+  "original_summary_sha256": "1959f657e6395d5e675dbcd981121a1dd56bb611081446fec742e7dd90e142b9",
+  "source_commit": "06301e653b69151107af39100e0d4a82445867c5",
+  "source_export": "Public source review text replaces local absolute paths with named placeholders; not byte-identical to executed source and not a launch-ready release. Original executed hashes retained."
+}

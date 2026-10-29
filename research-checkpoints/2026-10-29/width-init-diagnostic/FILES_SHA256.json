@@ -1,0 +1,11 @@
+{
+  "CELLS.csv": "4c5c93b98715c8df7014d87420a1d29a9ee2f42de1ec0c0000eaad42b967d68a",
+  "PROTOCOL.json": "5508afe416b192f2e52ad5717755de3d2185c72520602f0e2dd3a7754fc9edd8",
+  "PROVENANCE.json": "d59c7de9942347ea22ced11c2311ba8526179e18b5f3092bc75c7afd353d5245",
+  "REPORT.ja.md": "3de2aed24572b1fa2e3692b1b8f976de28197cf1d11cc1863acd7677daabc77e",
+  "SUMMARY.json": "ff126e7d60f97d6518a22c35e6ff6134297caf28da3e0166f14b9e3de3e6999d",
+  "TERMINAL.json": "dad0f4190390707d294a995467e382a03559ca86184e62df42673e1c7579d7a5",
+  "recompute_summary.py": "5c7aebbfcd221bfcb68ae79590cf4ab1e029aa2d6b0e89c023ef472426d85cd3",
+  "watchdog.py.review.txt": "27d00b923bfd574b6ef00dbb784e62efe3985ac9a1a54094d6b018cf141196a5",
+  "worker.py.review.txt": "0278f0cca6707eaca0d784278bf2fbb18eb8bb7b38e7965472f41df59ea2fe85"
+}
