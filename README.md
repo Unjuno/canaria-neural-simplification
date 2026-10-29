@@ -1,5 +1,7 @@
 # Canaria
 
+> **Research-branch checkpoint (2026-10-29):** Start with the [current research decision and evidence map](RESEARCH_CHECKPOINT.md) (Japanese), then the [bounded 16-teacher J/C report](research-checkpoints/2026-10-27/README.md). These newer results are separate from the historical eight-seed baseline below. Limited-report readiness is not strict numerical reproduction, a production release, or general compression success.
+
 **Task-conditioned neural simplification — research code, evidence, and limitations.**
 
 [日本語](README.ja.md) · [Reproduce](QUICKSTART.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
@@ -62,3 +64,4 @@ The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a cer
 See [CONTRIBUTING.md](CONTRIBUTING.md). Reproduction failures and well-controlled counterexamples are useful contributions. Cite the **exact commit and experiment artifacts**, not an unversioned claim. [CITATION.cff](CITATION.cff)
 
 Original code and documentation: [Apache-2.0](LICENSE). Third-party data and dependencies retain their own licenses.
+

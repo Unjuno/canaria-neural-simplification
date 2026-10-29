@@ -1,5 +1,7 @@
 # Research index — pinned sources, not automatic claim promotion
 
+> **Current research-branch entry (2026-10-29):** [Checkpoint, failure analysis, and direction decision](../RESEARCH_CHECKPOINT.md) → [16-teacher J/C report and source/recalculation links](../research-checkpoints/2026-10-27/README.md). The pinned historical families below remain unchanged; this navigation does not promote them into a headline or resolve their recorded uncertainties.
+
 The baseline and its currently disclosed [reproduction discrepancy](REPRODUCTION_DISCREPANCY.md) are separate from the studies below. These links identify immutable source/evidence commits; PR state is a review surface, not a scientific quality score. All source histories remain intact.
 
 [Machine-readable catalog](../publication/RESEARCH_CATALOG.json) · [Current headline/exclusions](CLAIMS_AND_EVIDENCE.md)
@@ -96,3 +98,4 @@ The baseline and its currently disclosed [reproduction discrepancy](REPRODUCTION
 C76R/C77E use full teacher residuals during calibration, and their final mappings remain4096 parameters. A smaller correction subspace is not a demonstrated communication or memory reduction. Their seed bootstraps condition on one fixed dataset split. Implementation/data audits are not independent scientific peer review.
 
 No missing result is inferred from experiment numbering. Original C61 remains unresolved. All known open scientific families are excluded from the baseline headline unless the current claim registry explicitly states otherwise. The large research stack is not automatically merged by this publication preparation.
+

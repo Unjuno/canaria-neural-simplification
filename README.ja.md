@@ -1,5 +1,7 @@
 # Canaria — カナリア
 
+> **研究ブランチの整理（2026-10-29）：** まず[現在の暫定判断・成果と失敗・証拠への入口](RESEARCH_CHECKPOINT.md)、次に[16 教師の J/C 比較を含む限定研究報告](research-checkpoints/2026-10-27/README.md)を参照してください。下記の旧 8 seed baseline とは別系列です。限定報告としての整理と、厳密再現・製品化・一般的圧縮の成功は区別します。
+
 **タスクに条件付けたニューラル計算の簡略化を調べる研究リポジトリ。**
 
 [English](README.md) · [再現手順](QUICKSTART.md) · [主張と証拠](docs/CLAIMS_AND_EVIDENCE.md) · [研究索引](docs/RESEARCH_INDEX.md)
@@ -29,3 +31,4 @@ Residual-MLP・digits・最初の2ブロックという固定条件で、8つの
 [STATUS.md](STATUS.md)と[告知チェック](docs/ANNOUNCEMENT_READINESS.md)が現行の公開範囲を定義します。凍結タグ`v0.2.0-public-snapshot`や過去のレビュー完了は、現在の全研究の完成・独立第三者再現を意味しません。
 
 [履歴](archives/README.md)は内容を変えずに保存し、引用時は正確なcommitと使用したプロトコル・結果を指定してください。ライセンスは[Apache-2.0](LICENSE)です。
+

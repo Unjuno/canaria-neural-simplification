@@ -1,5 +1,7 @@
 # Project status
 
+> **Research-branch status, 2026-10-29:** [Current checkpoint and direction decision](RESEARCH_CHECKPOINT.md) distinguishes the newer bounded 16-teacher J/C report from the historical baseline status below. The current decision is sufficient for a limited research report, not a product/general-compression claim. Original reproduction debt remains unresolved; no new run, release, or main promotion is implied.
+
 **Mode: publication preparation; strict numerical reproduction BLOCKED (Issue87).**
 
 Two complete known-cohort repeats disagree with some archived values. [Discrepancy](docs/REPRODUCTION_DISCREPANCY.md). The directional effect persisted, but no exact-reproduction PASS or announcement closure is declared.
@@ -32,3 +34,4 @@ The publication workflow executes the recorded eight-seed core reproduction in a
 ## Next research questions
 
 Independent dataset and boundary replication; physically restricting teacher feedback rather than computing full residuals; and fixed-device resource measurement. These are open directions, not advertised achieved capabilities. The public-facing docs/code should be stable while such work proceeds on isolated research branches.
+
