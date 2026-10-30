@@ -1,5 +1,8 @@
 # Claims and evidence: research-preview scope
 
+> **Historical scope (editorial clarification 2026-10-30):** This document records the original baseline and its review state. References below to “current” or “strongest” describe that historical scope, not a ranking of all later Canaria families. See the [whole-project research index](RESEARCH_INDEX.md) and [current Digits / CIFAR assessment](../RESEARCH_CHECKPOINT.md). Original numerical claims and historical wording below are preserved; this clarification is not new experimental evidence.
+
+
 This is the current editorial selection for the research preview. It **narrows the headline**, does not change locked outcomes, and does not promote unmerged research because it reports PASS. The previous registry is preserved [byte-for-byte](../archives/reviews/CLAIMS_AND_EVIDENCE_2026-08-26.md); its decision history is [here](INDEPENDENT_REREVIEW_2026-08-26.md).
 
 > **New qualification (2026-09-08):** the complete baseline rerun did not strictly match all historical numerical values. [Discrepancy](REPRODUCTION_DISCREPANCY.md). The numbers below are historical recorded results, not a guarantee of present exact reproduction.
@@ -43,3 +46,4 @@ The [research index](RESEARCH_INDEX.md) pins the original sources and describes 
 Non-inferiority is not equality. Failure to establish non-inferiority is not automatically established inferiority. Use the original protocol decision unchanged; explain uncertainty rather than relabeling old files. Model-seed confidence intervals do not quantify dataset-level uncertainty. Replacement parameters, correction rank, artifact bytes, timing, RAM and energy are different quantities.
 
 No universal complexity law, codec-independent minimum, broad architecture transfer, or general hardware benefit is advertised. [Negative results](NEGATIVE_RESULTS.md) and [correction registry](../results/phase2/precision_composition/CORRECTION_STATUS.json) remain visible beside positive results.
+

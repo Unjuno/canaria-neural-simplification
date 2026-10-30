@@ -1,5 +1,8 @@
 # Direct replication of compositional simplification on a residual MLP
 
+> **Historical scope (editorial clarification 2026-10-30):** This document records the original baseline and its review state. References below to “current” or “strongest” describe that historical scope, not a ranking of all later Canaria families. See the [whole-project research index](RESEARCH_INDEX.md) and [current Digits / CIFAR assessment](../RESEARCH_CHECKPOINT.md). Original numerical claims and historical wording below are preserved; this clarification is not new experimental evidence.
+
+
 > Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
 
 
@@ -144,3 +147,4 @@ This experiment additionally provides descriptive evidence that changing the obj
 - hardware/runtime benefit from the parameter reduction.
 
 Machine-readable artifacts are under `results/core_discovery_digits/` and the public runner is `scripts/reproduce/core_discovery_digits/run_confirmatory.py`.
+

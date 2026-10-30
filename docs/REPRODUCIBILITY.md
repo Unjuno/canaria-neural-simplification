@@ -18,6 +18,17 @@ Use each linked package's environment, input, output and provenance contracts; d
 
 The remainder preserves historical procedures and general interpretation guidance. Installation commands change an environment; scientific runners train/evaluate models. They are not required for saved-result recalculation and are not instructions to restart a closed attempt.
 
+## Code entrypoints are not interchangeable
+
+- `src/canaria/ternary_codec.py` is the small reusable pure-Python codec layer. Editable installation does not install the numerical dependencies for all research runners.
+- `scripts/reproduce/core_discovery_digits/run_confirmatory.py` trains the historical baseline; `verify_confirmatory.py` normally spawns all original seeds. Its existing `--input-dir` mode instead reads a complete saved raw cohort, but still produces an audit report; it is not the current L/J/C pipeline.
+- `scripts/reproduce/g7_confirmatory/run_seed.py` is the separately packaged G7 route. Use its Python/package contract in a separate environment, not over the baseline environment.
+- `scripts/phases/training_time/` preserves G11/G15/G17 evidence scripts with absolute `/mnt/data` imports. Those dependencies are not supplied as standalone installed modules; see its [provenance warning](../scripts/phases/training_time/README.md). Do not silently substitute G7 code and claim exact reproduction.
+- Current source packages must remain together at the pinned snapshot. The grid pins the matched sibling; fresh selection validates completed matched/grid artifacts; latency additionally requires completed storage, selected weights, original saved validation arrays and a separately supplied frozen CSV. Public scalar tables cannot supply those payloads.
+- The historical publication audit checks the baseline preservation/announcement policy. A repository-integrity PASS or its hard-coded Issue 87 announcement status is not a scientific decision for every later family.
+
+Package-local preparation statements are timestamped: the storage handoff originally left latency provenance open, while the later [fresh latency contract](../research/selected_latency_source_20261027/FRESH_INPUTS.md) adds a guarded source route. It still supplies no real input instance or completed end-to-end run.
+
 ## Evidence classes
 
 - **Confirmatory** — protocol/seed policy/endpoints locked before fresh outcomes were inspected.
@@ -166,12 +177,13 @@ Historical code may contain environment-specific paths. Preserve such code as pr
 
 ## Historical core publication-quality gate
 
-See [ANNOUNCEMENT_READINESS.md](ANNOUNCEMENT_READINESS.md) and [Quickstart](../QUICKSTART.md). That historical core workflow targets Python3.11 and pinned CPU numerical dependencies. A complete environment record is saved alongside the reproduction. [PyTorch documents](https://docs.pytorch.org/docs/stable/notes/randomness.html) that bitwise reproducibility is not guaranteed across versions/platforms. Do not promise CPU/GPU parity from equal seeds.
+See [ANNOUNCEMENT_READINESS.md](ANNOUNCEMENT_READINESS.md) and [Quickstart](../QUICKSTART.md). That historical core workflow targets Python 3.11 and pinned CPU numerical dependencies. A complete environment record is saved alongside the reproduction. [PyTorch documents](https://docs.pytorch.org/docs/stable/notes/randomness.html) that bitwise reproducibility is not guaranteed across versions/platforms. Do not promise CPU/GPU parity from equal seeds.
 
 The historical re-review ledger is retained; new numerical audits do not constitute independent external scientific review. Other historical studies are linked through the [research index](RESEARCH_INDEX.md); the current J/C report uses the routes above.
 
-Fixed update count600 with batch128 already fixes total sampled-example draws at76800. Calibration and validation NMSE can have different denominators; do not subtract them as if they were a common-scale generalization gap. A failed non-inferiority gate need not establish inferiority.
+Fixed update count 600 with batch 128 already fixes total sampled-example draws at 76800. Calibration and validation NMSE can have different denominators; do not subtract them as if they were a common-scale generalization gap. A failed non-inferiority gate need not establish inferiority.
 
 ## Unresolved historical core discrepancy
 
-The full-cohort check found a strict mismatch in two version/platform stacks. [Evidence and limitation](REPRODUCTION_DISCREPANCY.md). Do not substitute the one-seed smoke result or a qualitative8/8 agreement for exact numerical reproduction.
+The full-cohort check found a strict mismatch in two version/platform stacks. [Evidence and limitation](REPRODUCTION_DISCREPANCY.md). Do not substitute the one-seed smoke result or a qualitative 8/8 agreement for exact numerical reproduction.
+
