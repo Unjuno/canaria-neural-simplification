@@ -1,0 +1,98 @@
+name: checkpoint-integration-preservation
+on:
+  push:
+    branches: [main, integration/checkpoint-main-20261031]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  preserve-original-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify original evidence, source and frozen tag
+        run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          BASE = 'c7fd4fb701064c9aeef5cc8109231d884e5258aa'
+          CHECKPOINT = '0c88988869364d7ae24f812309fd6b7e63853ca4'
+          TAG = '556dce21c7a5516a16780cb28d528d1ff3968e53'
+          # Only these previously tracked editorial pages/catalogs may differ.
+          EDITORIAL = {
+              'QUICKSTART.md', 'README.md', 'README.ja.md', 'STATUS.md',
+              'REPOSITORY_LAYOUT.md', 'RESEARCH_CHECKPOINT.md',
+              'archives/README.md', 'docs/README.md', 'docs/ROADMAP.md',
+              'docs/OPEN_QUESTIONS.md', 'docs/RESEARCH_INDEX.md',
+              'docs/CLAIMS_AND_EVIDENCE.md', 'docs/CORE_DISCOVERY_REPLICATION_DIGITS.md',
+              'docs/HISTORICAL_INDEX.md', 'docs/REPRODUCIBILITY.md',
+              'publication/RESEARCH_CATALOG.json', 'publication/README.md',
+              'docs/REPOSITORY_OPERATIONS.md', 'docs/WORKSTREAMS.md', 'src/README.md',
+          }
+
+          def tree(ref):
+              raw = subprocess.check_output(['git', 'ls-tree', '-rz', ref])
+              result = {}
+              for item in raw.split(b'\0'):
+                  if not item:
+                      continue
+                  meta, path = item.split(b'\t', 1)
+                  mode, kind, digest = meta.decode().split()
+                  if kind == 'blob':
+                      result[path.decode()] = [mode, digest]
+              return result
+
+          def check(old, new):
+              return [name for name, blob in old.items()
+                      if name not in new or (name not in EDITORIAL and new[name] != blob)]
+
+          # Verify that deletions and altered primary evidence are rejected,
+          # including deleting an otherwise editable navigation page.
+          probe = {'results/raw.json': ['100644', 'original'], 'README.md': ['100644', 'doc']}
+          assert not check(probe, dict(probe))
+          assert check(probe, {'README.md': probe['README.md']}) == ['results/raw.json']
+          assert check(probe, {'results/raw.json': ['100644', 'changed'], 'README.md': probe['README.md']})
+          assert check(probe, {'results/raw.json': probe['results/raw.json']}) == ['README.md']
+
+          current = tree('HEAD')
+          errors = []
+          report = {'status': 'PENDING', 'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                    'scope': 'Git-object preservation; not scientific replication or release authorization',
+                    'baselines': {}, 'errors': errors}
+          for ref in (BASE, CHECKPOINT):
+              previous = tree(ref)
+              changed = check(previous, current)
+              report['baselines'][ref] = {'tracked_files': len(previous),
+                  'protected_files': sum(p not in EDITORIAL for p in previous),
+                  'violations': changed}
+              errors.extend(f'{ref}: original file removed or non-editorial bytes changed: {p}' for p in changed)
+              subprocess.run(['git', 'merge-base', '--is-ancestor', ref, 'HEAD'], check=True)
+          frozen = subprocess.check_output(['git', 'rev-parse', 'refs/tags/v0.2.0-public-snapshot^{commit}'], text=True).strip()
+          report['frozen_tag_sha'] = frozen
+          if frozen != TAG:
+              errors.append('frozen historical tag changed')
+          policy = json.loads(Path('publication/CLAIM_POLICY.json').read_text())
+          if policy.get('exact_cohort_reproduction_established') is not False or 87 not in policy.get('blockers', []):
+              errors.append('historical Issue87 reproduction boundary changed')
+          for name in ('peer_review_claimed', 'independent_external_reproduction_claimed', 'announcement_automatically_posted'):
+              if policy.get(name) is not False:
+                  errors.append(f'unapproved publication claim: {name}')
+          report['status'] = 'FAIL' if errors else 'PASS'
+          Path('/tmp/checkpoint-integration-preservation.json').write_text(json.dumps(report, indent=2) + '\n')
+          print(json.dumps(report, indent=2))
+          raise SystemExit(bool(errors))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: checkpoint-integration-preservation
+          path: /tmp/checkpoint-integration-preservation.json
+          retention-days: 90
+          if-no-files-found: error
