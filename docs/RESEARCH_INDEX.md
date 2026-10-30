@@ -1,4 +1,17 @@
-# Research index — current report and historical families
+# Research index — whole-project families and evidence levels
+
+
+This index separates families, cohorts, comparison denominators and evidence maturity. Recorded primary results, summary-only records, manifest-only receipts and exploratory/invalidated work are different. Organization is not a new scientific replication or blanket promotion.
+
+## Whole-project reading map
+
+| Question | Families |
+|---|---|
+| Does composition help compared with local/joint replacements? | Historical baseline, R87 new recipe, current Digits L/J/C, hidden-test SmallViT, California Housing |
+| Can simplification help during learning? | Training-time consolidation and staged versus immediate-factorization controls |
+| What counts as compression? | Replacement budgets, structured/precision code, whole-model parameters, exact payload/state bytes; never silently substitute RAM |
+| What behavior is preserved? | Vision/sequence/LM adaptation gates; CIFAR failures; real-text rollout failures; task-risk prediction |
+| What mechanisms and execution bounds were tested? | Recursive/interface/shift families, exact rank oracle, S1–S7 managed arenas |
 
 ## Current limited report
 
@@ -101,5 +114,93 @@ The entries below retain their pinned source/evidence commits and evidence class
 
 C76R/C77E use full teacher residuals during calibration, and their final mappings remain4096 parameters. A smaller correction subspace is not a demonstrated communication or memory reduction. Their seed bootstraps condition on one fixed dataset split. Implementation/data audits are not independent scientific peer review.
 
-No missing result is inferred from experiment numbering. Original C61 remains unresolved. All known open scientific families are excluded from the baseline headline unless the current claim registry explicitly states otherwise. The large research stack is not automatically merged by this publication preparation.
+No missing result is inferred from experiment numbering. Original C61 remains unresolved. Historical baseline promotion decisions do not determine the evidence status of later families; read the family-specific entries below. The large research stack is not automatically merged by this publication preparation.
 
+
+
+## Expanded family entries
+
+The entries below complement the preserved historical catalog above; they do not overwrite its original evidence classes.
+
+### current-digits-cifar
+
+**Evidence class:** `RECORDED_PRIMARY_CURRENT_CHECKPOINT`. 16 teachers on one reused Digits split; L/J/C fit and finite-grid budgets; teacher-to-C whole parameters about44.14% lower versus incremental J-to-C1.26%. CIFAR selected recipe fails2pp gate. Latency is conditional CPU forward, not hardware-general.
+
+- [research-checkpoints/2026-10-27/README.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/research-checkpoints/2026-10-27/README.md)
+- [research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md)
+
+### training-time-and-risk
+
+**Evidence class:** `RECORDED_SUMMARIES_WITH_ORIGINAL_ARTIFACT_GAPS`. Small character-LM consolidation, intervening-learning controls and direction-aware task-risk prediction. G23–G26 original observations/predictor implementations unavailable in reviewed snapshots; summary/hash agreement is not independent implementation validation. Prediction does not solve scheduling.
+
+- [docs/TRAINING_TIME_CONSOLIDATION.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/docs/TRAINING_TIME_CONSOLIDATION.md)
+- [docs/LATE_STAGE_FINDINGS.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/docs/LATE_STAGE_FINDINGS.md)
+- [results/training_time/ARTIFACT_INVENTORY.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/results/training_time/ARTIFACT_INVENTORY.md)
+
+### precision-corrections
+
+**Evidence class:** `CORRECTED_HISTORY_MIXED_EVIDENCE`. Quantizer, scale overhead and activation-domain repair. Invalid2E is not a scientific negative; RNG-only explanation retracted; corrected repair does not establish a reliable composed sample-advantage. Replacement code bits are not whole-model RAM.
+
+- [docs/phase2/PRECISION_COMPOSITION.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/docs/phase2/PRECISION_COMPOSITION.md)
+- [results/phase2/precision_composition/INVALIDATED_HISTORY.md](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/results/phase2/precision_composition/INVALIDATED_HISTORY.md)
+
+### historical-codec-and-cross-model
+
+**Evidence class:** `RECORDED_PRIMARY_ARCHIVED_PROTOCOLS`. v18 matched-repair code reductions; v19 fixed9926B payload exact roundtrip; v20–22 model-parameter reductions under different utility/adaptation gates. v20 immediate utility fails; v22 immediate generation fails; examined real-text rollout protocols also fail. No whole-executable or arbitrary-LLM claim.
+
+- [archives/research-history/results/v18/raw/phaseX_summary.json](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/archives/research-history/results/v18/raw/phaseX_summary.json)
+- [archives/research-history/results/v19/raw_AD/confirmatory_codec_summary.json](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/archives/research-history/results/v19/raw_AD/confirmatory_codec_summary.json)
+- [archives/research-history/results/v20/g3_confirmatory_summary.json](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/archives/research-history/results/v20/g3_confirmatory_summary.json)
+- [archives/research-history/results/v21/g5_confirmatory_summary.json](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/archives/research-history/results/v21/g5_confirmatory_summary.json)
+- [archives/research-history/results/v22/g6_confirmatory_summary.json](https://github.com/Unjuno/canaria-neural-simplification/blob/a56510dae611d79730d28b84a51f454027255f8e/archives/research-history/results/v22/g6_confirmatory_summary.json)
+
+### r87-tested-recipe-fresh-cohort
+
+**Evidence class:** `RECORDED_PRIMARY_NOT_HISTORICAL_RECOVERY`. portable_v2_sqrt64 tested Intel/AMD numerical agreement; distinct fresh16-model-seed R87R2 composed/component-wise budget confirmation on reused fixed split. Old archive/provenance remains unrecovered. Technical replica hosts are not extra scientific seeds.
+
+- [results/reproduction/r87_resolution/RESULT.md](https://github.com/Unjuno/canaria-neural-simplification/blob/56a8d1a50f15cad0d930cc899336071fa8efe7dc/results/reproduction/r87_resolution/RESULT.md)
+
+### regression-teacher-validity-controls
+
+**Evidence class:** `UNCERTAIN_AND_STOPPED_PREREQUISITE`. Phase3B replacement gate passes but teacher-quality prerequisites do not: overall UNCERTAIN. Phase3C stops without stable eligible teacher; outer test not evaluated. Not a general compression failure.
+
+- [results/phase3b/stronger_teacher_regression/stage_b_confirmatory/RESULT.md](https://github.com/Unjuno/canaria-neural-simplification/blob/54cd79fc7b254c5d99576ed5c5b448580cc45138/results/phase3b/stronger_teacher_regression/stage_b_confirmatory/RESULT.md)
+- [results/phase3c/nested_cv_teacher/RESULT.json](https://github.com/Unjuno/canaria-neural-simplification/blob/54cd79fc7b254c5d99576ed5c5b448580cc45138/results/phase3c/nested_cv_teacher/RESULT.json)
+
+### california-housing-confirmation
+
+**Evidence class:** `RECORDED_PRIMARY_PROSPECTIVE_CONFIRMATORY`. 8 model seeds on one fixed California Housing split; replacement-budget ratio.476029,testR2 difference+.006858CI[+.004359,+.009670]. Same residual-MLP first-two-block grammar, finite-grid validation selection, test noninferiority−.03. Not whole-model bytes or8 datasets.
+
+- [results/phase4/california_regression/stage_b_confirmatory/RESULT.md](https://github.com/Unjuno/canaria-neural-simplification/blob/f7d23c9dad2788e64b94f2a268fe3e0b1084d77c/results/phase4/california_regression/stage_b_confirmatory/RESULT.md)
+
+### smallvit-hidden-test-confirmation
+
+**Evidence class:** `RECORDED_PRIMARY_PROSPECTIVE_CONFIRMATORY`. 13/16 eligible; selected replacement-budget ratio.511765; test utility.975694CI[.966678,.984277], defined as selected accuracy/teacher accuracy. Validation min-budget selection precedes test; one fixed Digits split.
+
+- [results/replication/vit_hidden_test_confirm/DECISION.json](https://github.com/Unjuno/canaria-neural-simplification/blob/432fdeade26eb6016680b630a5d1eaf1c1a02ea3/results/replication/vit_hidden_test_confirm/DECISION.json)
+
+### vit-matched-budget32
+
+**Evidence class:** `MANIFEST_VERIFIED_ARTIFACT_NOT_REAUDITED`. 32 attempted20 eligible; manifest NMSEratio.730540CI[.698356,.763629],validationaccuracy difference−.129630ppCI[−.462963,+.203704],test unused. Underlying artifact not independently reaudited; feature improvement is not established accuracy gain.
+
+- [results/replication/vit_matched_budget_confirm32/RUN_MANIFEST.json](https://github.com/Unjuno/canaria-neural-simplification/blob/aff40367a21738a58096df1ba5cab0e0584d9fb1/results/replication/vit_matched_budget_confirm32/RUN_MANIFEST.json)
+
+### smallvit-objective-control
+
+**Evidence class:** `PROSPECTIVE_EXPLORATORY_UNCERTAIN`. Joint fit changes supervision and second-module input distribution; no uniquely isolated objective-only mechanism or universal depth/width law.
+
+- [results/replication/smallvit_objective_control/RESULT.md](https://github.com/Unjuno/canaria-neural-simplification/blob/50a73cd44a05a62e28c94a9e67c84f7b7e9e86cf/results/replication/smallvit_objective_control/RESULT.md)
+
+### synthetic-rank-oracle
+
+**Evidence class:** `EXACT_CONSTRUCTED_ORACLE_NOT_LEARNED_TASK`. Constructed32D linear residual oracle: independent/shared/inverse-cancellation regimes yield composed rank8/4/0 against4+4. Demonstrates dependencies in constructed algebra; not neural intrinsic dimension, task utility or optimizer proof.
+
+- [results/mechanisms/synthetic_rank_null/DECISION.json](https://github.com/Unjuno/canaria-neural-simplification/blob/ffc4f62034743b2d57c86437958a2e4b14aa52db/results/mechanisms/synthetic_rank_null/DECISION.json)
+
+### Capacity and structured-code controls
+
+Historical v11 downstream-repair positives had capacity confounding; v12 equal-capacity controls do not establish a pure downstream-location advantage. In v16, the181B structured replacement held up without repair, while108B required the matched-repair setting. These are replacement-code figures, not full-model memory. See [v11](../archives/research-history/docs/phases/27_V11_PHASEB_SHELL_CAPACITY_RESULTS.md), [v12 protocol](../archives/research-history/docs/phases/28_PHASEC_EQUAL_CAPACITY_BOUNDARY_PROTOCOL_V12.md), and [v16 results](../archives/research-history/docs/phases/v16/39_PHASEL_M_STRUCTURED_RESULTS_V16.md).
+
+### Protocol/source-only branches: outcomes not established here
+
+The reviewed trees expose [C26 protocol](https://github.com/Unjuno/canaria-neural-simplification/blob/552dfd6b0bf194f5efdcf09a86920379d4b2c0fd/results/recursive_composition/exploration/c26_calibration_sample_frontier/PROTOCOL.json), [C35 protocol](https://github.com/Unjuno/canaria-neural-simplification/blob/3d62d7324981702051b9b7abf277a59fa37abcb2/results/recursive_composition/confirmatory/c35_scaling_equivalence/PROTOCOL.json), and [C36 targets](https://github.com/Unjuno/canaria-neural-simplification/blob/9893ed1b390ee182ba4e519c55b9a66c5fa67877/results/recursive_composition/exploration/c36_boundary_complexity/TARGETS.json). No result decision was located under their named paths in the enumerated heads. This is an evidence-coverage limit, not proof that no experiment ever ran. Do not infer missing C-series outcomes from numbering.
