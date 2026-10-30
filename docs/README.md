@@ -2,6 +2,10 @@
 
 Start with the [whole-project research index](RESEARCH_INDEX.md), [current checkpoint](../RESEARCH_CHECKPOINT.md), and [status](../STATUS.md). The [Quickstart](../QUICKSTART.md) and [eight-seed claims](CLAIMS_AND_EVIDENCE.md) concern the historical baseline.
 
+## Research workstreams and maintainer navigation
+
+[Operational branch/evidence map](REPOSITORY_OPERATIONS.md) · [Research PR/workstream index](WORKSTREAMS.md) · [Research packages](../research/README.md) · [Dated checkpoints](../research-checkpoints/README.md). These are dated navigation guides, not additional experiments or merge approval.
+
 ## Reproduction, baseline publication gates and navigation
 
 [Historical baseline announcement gate](ANNOUNCEMENT_READINESS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Publication wording](PUBLICATION_NOTES.md) · [Repository map](../REPOSITORY_LAYOUT.md)

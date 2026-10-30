@@ -1,9 +1,9 @@
 # Research roadmap — reviewed baseline / future-work handoff
 
-> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+> **Historical v0.2.0 roadmap, not the current October release decision.** The `2026-08-26` snapshot/closure language below concerns that older process. For the later Digits/CIFAR scientific limits see [the October assessment](../RESEARCH_CHECKPOINT.md), for current branch roles see [repository operations](REPOSITORY_OPERATIONS.md), and for publication blockers see [Issue #87](https://github.com/Unjuno/canaria-neural-simplification/issues/87) and [Issue #13](https://github.com/Unjuno/canaria-neural-simplification/issues/13). Historical predictions are not current execution instructions.
 
 
-**Current state:** the publication-quality gate is complete. The frozen v0.2.0 baseline is tagged/released and the independently reviewed post-snapshot state is on `main`. New science proceeds as isolated research phases rather than by extending the completed publication-closure sequence.
+**Historical snapshot state (2026-08-26; NOT a statement that the current announcement gate passed):** the v0.2.0 snapshot-closure sequence was complete. The frozen v0.2.0 baseline is tagged/released and the independently reviewed post-snapshot state is on `main`. New science proceeds as isolated research phases rather than by extending the completed publication-closure sequence.
 
 ## Completed closure — scientific/public review
 

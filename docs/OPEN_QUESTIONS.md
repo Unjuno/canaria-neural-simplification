@@ -1,11 +1,11 @@
 # Open research questions
 
-> Supporting baseline/reference material. The current headline selection is in [Claims and evidence](CLAIMS_AND_EVIDENCE.md); newer work is in the [research index](RESEARCH_INDEX.md). Historical predictions here are not current execution instructions.
+> **Earlier baseline question inventory, not a current execution plan.** The older cohorts and statuses below are preserved for interpretation. See [October assessment](../RESEARCH_CHECKPOINT.md), [research families](RESEARCH_INDEX.md), and [workstreams](WORKSTREAMS.md) before planning a fresh study; Issue #87 remains unresolved for strict historical reproduction.
 
 
-**Project mode: publication-quality gate / handoff.**
+**Historical project mode at the v0.2.0 handoff:** publication-quality gate / handoff.
 
-This file lists future questions. It is not a reason to open broad new experiments before Issue #9 and Issue #5 are completed.
+This file lists the earlier question inventory. Its former Issue #9/#5 dependency is historical context, not a new requirement to run or block experiments today. Fresh research requires its own locked protocol and review.
 
 ## Evidence already retained
 

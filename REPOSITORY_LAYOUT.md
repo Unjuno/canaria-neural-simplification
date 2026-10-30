@@ -28,6 +28,10 @@ This map describes `research/checkpoint-20261026`, not a main release. Use the e
 | [`local_evidence/`](local_evidence/) | Existing tracked native-cost evidence; the directory name does not make its contents private |
 | [`archives/`](archives/) | Preserved historical protocols, code, outcomes, and former entry/review/release documents |
 
+## Maintainability and workstreams (2026-10-31)
+
+The [repository operations map](docs/REPOSITORY_OPERATIONS.md) identifies which checkout carries each research/publication role. The [workstream and open-PR index](docs/WORKSTREAMS.md) groups the 33 open PRs observed on 2026-10-31 without treating them as a unified merge queue. [Research package guide](research/README.md) and [dated checkpoints](research-checkpoints/README.md) distinguish source-only experiments from reports and failed/unfinished reproduction attempts. These links are navigation, not new science or a promotion to `main`.
+
 ## Preservation and boundaries
 
 The [archive guide](archives/README.md) explains how to read relocated historical pages in their original context. The [migration map](publication/PATH_MIGRATION.json) records earlier moves. This map does not move or rewrite scientific records.
