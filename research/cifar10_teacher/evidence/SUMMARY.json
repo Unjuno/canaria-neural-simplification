@@ -1,0 +1,68 @@
+{
+  "status": "all three completed fixed120 and passed85percent adequacy",
+  "recorded_utc": "2026-10-26T14:12:10.044038+00:00",
+  "protocol_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+  "source_commit": "67bd076ec10574dc372b86f94e1d937c8c324189",
+  "source_hashes_unchanged": {
+    "research/cifar10_teacher/.gitignore": true,
+    "research/cifar10_teacher/PREPARATION_CHECKS.md": true,
+    "research/cifar10_teacher/PROTOCOL.md": true,
+    "research/cifar10_teacher/launch.py": true,
+    "research/cifar10_teacher/model.py": true,
+    "research/cifar10_teacher/run.py": true,
+    "research/cifar10_teacher/test_synthetic.py": true
+  },
+  "seeds": [
+    {
+      "seed": 26102601,
+      "correct": 4550,
+      "n": 5000,
+      "accuracy": 0.91,
+      "adequate": true,
+      "elapsed_seconds": 8107.587103843689,
+      "exit_code": 0,
+      "epochs": 120,
+      "updates_from_epoch_events": 37560
+    },
+    {
+      "seed": 26102602,
+      "correct": 4559,
+      "n": 5000,
+      "accuracy": 0.9118,
+      "adequate": true,
+      "elapsed_seconds": 8348.295876264572,
+      "exit_code": 0,
+      "epochs": 120,
+      "updates_from_epoch_events": 37560
+    },
+    {
+      "seed": 26102603,
+      "correct": 4545,
+      "n": 5000,
+      "accuracy": 0.909,
+      "adequate": true,
+      "elapsed_seconds": 8778.654785871506,
+      "exit_code": 0,
+      "epochs": 120,
+      "updates_from_epoch_events": 37560
+    }
+  ],
+  "restarts": 0,
+  "seed_substitutions": 0,
+  "validation_selection": "fixed final only",
+  "test_decoded": false,
+  "calibration_used": false,
+  "limitations": [
+    "raw validation predictions not retained by trainer; independent audit handled separately",
+    "initial two worker PIDs not visible across per-exec PID namespaces; authoritative tool session handles retained",
+    "training event log records epoch completion; exact minibatch update count independently auditable via checkpoint BN counters"
+  ],
+  "excluded": [
+    "public dataset archive",
+    "dataset tensors/cache",
+    "latest.ckpt duplicate of final (hash retained in terminal receipts)",
+    "empty runner locks"
+  ],
+  "observer_session": 41837,
+  "observer_exit_code": 0
+}

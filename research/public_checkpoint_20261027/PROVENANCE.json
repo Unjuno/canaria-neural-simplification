@@ -1,0 +1,550 @@
+{
+  "scope": "publication extracts, not executed anew",
+  "files": [
+    {
+      "path": "docs/claims_checkpoint_20261027/README.ja.md",
+      "source_commit": "628e789fd542a61d0f507bfc9832d74388c0833e",
+      "source_path": "docs/claims_checkpoint_20261027/README.ja.md",
+      "original_sha256": "97039525f15ae9422cf26cce33123f0f70e84f1b4743547970b058cebe8ca47e",
+      "export_sha256": "11e289816e5a1e46e895de396bfaa441c73c927046635aeca602081c30383ee6",
+      "bytes": 4982,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "docs/claims_checkpoint_20261027/SOURCES.md",
+      "source_commit": "628e789fd542a61d0f507bfc9832d74388c0833e",
+      "source_path": "docs/claims_checkpoint_20261027/SOURCES.md",
+      "original_sha256": "8e6509d64ab5fb8d468ec6f9ab3db1e7dc2ee7fa9959a85945995dbdbc7b7def",
+      "export_sha256": "d79ca339127635c46cc16b8657598ef7f9d6c7cd9fc1e990e075a16ba17010a1",
+      "bytes": 2764,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "docs/research_checkpoint_20261026/README.ja.md",
+      "source_commit": "0a507cfb199416408f71c450ed0c5c665eb7fb95",
+      "source_path": "docs/research_checkpoint_20261026/README.ja.md",
+      "original_sha256": "8c3d0f406fd51107035c5757a59164f6d43d4af493e1455773505f07c9d705f2",
+      "export_sha256": "811df75f2c3c0ce4b8e23830c191ff8f98da22b132cc77a8c2b5a57305993139",
+      "bytes": 3519,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md",
+      "source_commit": "0a507cfb199416408f71c450ed0c5c665eb7fb95",
+      "source_path": "docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md",
+      "original_sha256": "9ae7b54c535549845c7fa19d35362ee5c8e05f24104bdc54b771046148b0429c",
+      "export_sha256": "cebadb8430e0c9b6001be8b3b87dc8b8c206cf1830fc3cd7685480a969a2745e",
+      "bytes": 5148,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/PROTOCOL.md",
+      "source_commit": "a32ffbb9bc79711a8f2849acd2b7766860d254b7",
+      "source_path": "research/r87r2_equal_budget_validation/PROTOCOL.md",
+      "original_sha256": "f13772ad41d80bc94c2707d2f4c40c40434af8d00539276b9c193b8af31c66e9",
+      "export_sha256": "71ce304fcdb402549d64266586fbb811917767059d16446c82ba5a9c6c4346c8",
+      "bytes": 6082,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/REPORT.md",
+      "source_commit": "a32ffbb9bc79711a8f2849acd2b7766860d254b7",
+      "source_path": "research/r87r2_equal_budget_validation/REPORT.md",
+      "original_sha256": "9be18c1eb07cb66b747ae81ee78d9c57f2c42a4394e09f39a5f45b30b3f60894",
+      "export_sha256": "dc057955ea106763a174eded90d8beae10da595ab64e2737e659066795d0afcf",
+      "bytes": 4400,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/r87r2_equal_budget_validation/artifacts/AUDIT.json",
+      "source_commit": "a32ffbb9bc79711a8f2849acd2b7766860d254b7",
+      "source_path": "research/r87r2_equal_budget_validation/artifacts/AUDIT.json",
+      "original_sha256": "85632a691421ed11d98ada71ff84730ab90e84557577e2a438dade6bb2db24d3",
+      "export_sha256": "9d5c0bd4c4ffc01adf98e53a9df1266c8037db057085832f5d14387bbaa6ebdb",
+      "bytes": 3400,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_matched_regime/PROTOCOL.md",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/PROTOCOL.md",
+      "original_sha256": "0dd766d95553c2921e800ef9c09c109083d41f5ca77530bb180bb252a299a852",
+      "export_sha256": "3a91f319a21ab80fc6568868068701b9f5357580e59ec9fd763915fd4e598e6a",
+      "bytes": 11296,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_matched_regime/SEEDS.json",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/SEEDS.json",
+      "original_sha256": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+      "export_sha256": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+      "bytes": 2798,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/digits_matched_regime/results/INDEPENDENT_AUDIT.json",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/results/INDEPENDENT_AUDIT.json",
+      "original_sha256": "10c6aad909ace9d2787c04286bedb5e11ccb3bf2222266040de9ce51b9113adb",
+      "export_sha256": "0a5959a8daa97d5d0509d25474bc679e4e0f1561bc64f0132516e924778a34b2",
+      "bytes": 1412,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_matched_regime/results/INDEPENDENT_REVIEW.md",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/results/INDEPENDENT_REVIEW.md",
+      "original_sha256": "e43ed1e34ed65466ae784efc75c142c29f7dee89bb3493718784d1580acd6f02",
+      "export_sha256": "244c8c572ff015efbd7c0300ccef086a482092ebe9fa6a54860668323faf58d5",
+      "bytes": 834,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_matched_regime/results/REPORT.md",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/results/REPORT.md",
+      "original_sha256": "d1fc52240e43fee519f7776d58a33bca8729b708548e33202e161e3052c3ef1c",
+      "export_sha256": "eca897932580dfd0f0cbd4f45147b4f502dfe5cc4312385cf9f222b684a4924d",
+      "bytes": 2723,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_matched_regime/results/SUMMARY.json",
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/results/SUMMARY.json",
+      "original_sha256": "b268eb1a4c9dc4ab091f0af0f8bdbaa12d023bcef9b7d612c0f0adb239853fa0",
+      "export_sha256": "796661792c53f756f013915f392e1b3d8c81fb2c340dbabfd67a99b010248599",
+      "bytes": 63417,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/PROTOCOL.md",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/PROTOCOL.md",
+      "original_sha256": "4ac1c70aebc349d290ddccb0ca0d43d3ef009b1b11073655560f32e74d6f1d37",
+      "export_sha256": "9a2baa523a06ef9de46cec04a86a3c0c5d835c3cf83276962eb915744d6fe0e0",
+      "bytes": 3921,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/SEEDS.json",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/SEEDS.json",
+      "original_sha256": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
+      "export_sha256": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
+      "bytes": 15004,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/CELLS.csv",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/results/CELLS.csv",
+      "original_sha256": "766d6a86d69b14e3b911daf0168bf0656b1421c02f986039c47732e14e493873",
+      "export_sha256": "228fe6d483f7131df67ad39e383f01b93a626b7a0c8828f70021559cb13d96f5",
+      "bytes": 10924,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/REPORT.md",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/results/REPORT.md",
+      "original_sha256": "37f700088a16e2b791a8b8517d4c344e0c0544fafd80ae904fb254f176a7a05b",
+      "export_sha256": "a3e6a46d65be816fecdb9261ac9c23688c9e36837da1d54359354c2fee8efae9",
+      "bytes": 5194,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+      "original_sha256": "b38d6f2175915cda5f738504299f8e7421b0579c6b0eb652fe23109d4e51d1ca",
+      "export_sha256": "f36a18564de42c9ba972f2eaa625bdbb4792cd3f93e86e89cafd900877d39325",
+      "bytes": 237203,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/independent_audit/AUDIT.json",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/results/independent_audit/AUDIT.json",
+      "original_sha256": "6b2bd1f8979c60d7306b7b03387b825c8c608f49a7d939c15ddcd14db0d24f78",
+      "export_sha256": "59c747eabeabfe8358569a08698662ac803fc9a1de0634deb05a11fa16a1ec91",
+      "bytes": 2290,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/digits_joint_budget_grid/results/independent_audit/REVIEW.md",
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/results/independent_audit/REVIEW.md",
+      "original_sha256": "ec4865cb3747ed6beed6c6961f3368578e195ef7160f43df7192ff188414d45e",
+      "export_sha256": "962e7462d9da352c0a05886b68b5d54aad73eedf606b610937dfdc4b1c00361e",
+      "bytes": 2671,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_whole_storage/INDEPENDENT_AUDIT/AUDIT.json",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/INDEPENDENT_AUDIT/AUDIT.json",
+      "original_sha256": "c5361cbc367586cb29d256801b69348a0e9ec817b9b94238be6b58cfb9b72b3d",
+      "export_sha256": "ac8d13fead9fb7e48b565929e276e2b48f5e8295af3ba165b7ea4f0bc217ee40",
+      "bytes": 880,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_whole_storage/PROTOCOL.md",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/PROTOCOL.md",
+      "original_sha256": "feb387d3dcd5636f39e55a4fdc7d4091f0c70b820e4c127e6365e5ff4d43929a",
+      "export_sha256": "d6e4d93393998d0f0b43cde4c1e6dfc6aa4c3a6a16b2466a54e86c7f5fea7daf",
+      "bytes": 2653,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_whole_storage/REPORT_JA.md",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/REPORT_JA.md",
+      "original_sha256": "d007f91687b6625b38623e3d9cc13ffb528dcf93b8ecd0556dd3a8feea0a2e83",
+      "export_sha256": "3d610db86113d1fa2b939f5a9420605e90b5395e66f3ae4d11b92d94b38d3ff7",
+      "bytes": 2322,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_whole_storage/measure.py",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/measure.py",
+      "original_sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77",
+      "export_sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77",
+      "bytes": 5556,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/selected_whole_storage/results/ROWS.csv",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/results/ROWS.csv",
+      "original_sha256": "148f50618a14d61e8d2cfb6a1dd31d1f479593ec3f95429383e6ea8d8219bb62",
+      "export_sha256": "389b669d9f42ea0018d6b1c0de2bcacef4155b6db73998a3cf679554478c2688",
+      "bytes": 4798,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_whole_storage/results/SUMMARY.json",
+      "source_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+      "source_path": "research/selected_whole_storage/results/SUMMARY.json",
+      "original_sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5",
+      "export_sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5",
+      "bytes": 1869,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/selected_latency/INDEPENDENT_AUDIT/AUDIT.json",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/INDEPENDENT_AUDIT/AUDIT.json",
+      "original_sha256": "33d626d685371b3c361e93c5f555896d64d1d53a2b06fcd13bb166fa26b74a77",
+      "export_sha256": "33fa894c8503348792db0cd0516a69f9deb111626c963a7aa2e076d705891ee1",
+      "bytes": 59640,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_latency/INDEPENDENT_AUDIT/REVIEW.md",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/INDEPENDENT_AUDIT/REVIEW.md",
+      "original_sha256": "7daea1ba4b95f6beb6276989fda5fc6124d15cf147ead59926088ad2bdd368f6",
+      "export_sha256": "6c0c38f8ccf737b842630c7de1c2309deb9147233b6eb70ba2aa4a846211850b",
+      "bytes": 1986,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_latency/PROTOCOL.md",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/PROTOCOL.md",
+      "original_sha256": "373c1425eb76ee30fa33d2fe9fee754cbcd73efa72ac80f3b037529725ea7364",
+      "export_sha256": "b6d86666791bdba2b81c048060b2674ec3104727e7210a6fb1dcca659e438c89",
+      "bytes": 2234,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_latency/REPORT_JA.md",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/REPORT_JA.md",
+      "original_sha256": "97fabfedf6151bd11bea577f80c7bdb5e22821e0a6367bcad3b9a34fc7c41082",
+      "export_sha256": "b2ecc11c2a52da3896d620c601b22a03f545ae295e0738fd3a9629e567dc4e18",
+      "bytes": 3431,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_latency/results/CORRECTNESS.json",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/results/CORRECTNESS.json",
+      "original_sha256": "20621f93eaa4fa76a8661232edd80c9cec55418d18b41695e8f24fad39e97ba8",
+      "export_sha256": "216c8ca9feae2bedc9341726a95dfd2f9c191f6b6f274cefd2f6f6a0f89baafb",
+      "bytes": 12350,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/selected_latency/results/RAW.jsonl",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/results/RAW.jsonl",
+      "original_sha256": "a8dc849c8855e10a183dc978d3581d26caa1020b665dabd54e5e7cf48d9a47e6",
+      "export_sha256": "a8dc849c8855e10a183dc978d3581d26caa1020b665dabd54e5e7cf48d9a47e6",
+      "bytes": 381551,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/selected_latency/results/SUMMARY.json",
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/results/SUMMARY.json",
+      "original_sha256": "7f6ec9b73608b426678005f9d6c2f25b2cc1234990c9f26299bff6f82ab9c80f",
+      "export_sha256": "7f6ec9b73608b426678005f9d6c2f25b2cc1234990c9f26299bff6f82ab9c80f",
+      "bytes": 9606,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_heldout/PROTOCOL.md",
+      "source_commit": "1db917355e488e4c6dfebcd33183742cc9286813",
+      "source_path": "research/cifar10_heldout/PROTOCOL.md",
+      "original_sha256": "adb255333536d550d0aa09ad00af63bf0a88bfc263082c222e3b6373e591d659",
+      "export_sha256": "12b1fbf2aa45154aa41f14ce902c426acb3703aca0c5d837aa6fa1e2ef4c6b08",
+      "bytes": 2258,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_heldout/execution/results.json",
+      "source_commit": "1db917355e488e4c6dfebcd33183742cc9286813",
+      "source_path": "research/cifar10_heldout/execution/results.json",
+      "original_sha256": "506fd9312b11f8e5722f70ab31c322fa5119f59d864f32d29b5f433d5c396f26",
+      "export_sha256": "f38adea11beb09b4bc79e5512d7b8d6b279b0daf97a3dbdcee93b33daf5bdcdb",
+      "bytes": 12826,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_utility_gap/PROTOCOL.md",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/PROTOCOL.md",
+      "original_sha256": "3a611b2b22350266ace689e802cdf509caaed2cb06db54e786f64849f8bc02fc",
+      "export_sha256": "6d8dd4451c23cd1eefee7cb151d6f50dece822f70997cd2058349af5173e1dc2",
+      "bytes": 11063,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_utility_gap/core.py",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/core.py",
+      "original_sha256": "3ae9e8139ec53fee55ca6ac329d56a449fb222a4465ef4e7f92310c37fa2b3a4",
+      "export_sha256": "3ae9e8139ec53fee55ca6ac329d56a449fb222a4465ef4e7f92310c37fa2b3a4",
+      "bytes": 4546,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/COUNTS.csv",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/execution/COUNTS.csv",
+      "original_sha256": "50ead513edbc279122c00b426bb37ae819ef4061ab917b6fba36676a86cf43e6",
+      "export_sha256": "50ead513edbc279122c00b426bb37ae819ef4061ab917b6fba36676a86cf43e6",
+      "bytes": 1476,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/AUDIT.md",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/execution/independent_audit/AUDIT.md",
+      "original_sha256": "a035167917ed4c3e554fa74f7a05580f7a4eef56200ac3454b21a5ac6a629a7a",
+      "export_sha256": "927f6e533f9325ebf56635da34296439ac7789cfcad871cba1c982b514be0a84",
+      "bytes": 6278,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/audit_result.json",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/execution/independent_audit/audit_result.json",
+      "original_sha256": "cc495184bb6bc429ca5e6ec8298b77e54e923abc63ec08e2dc712b05b5b443e3",
+      "export_sha256": "1d4a59e2cb9687103505b38dc30ae3f116b5111bc11ac5cf6eb3ca14289f300f",
+      "bytes": 112972,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_utility_gap/execution/independent_audit/recomputed_all24.csv",
+      "source_commit": "9b05bb1b1406ee416270b31b4274ae963e745781",
+      "source_path": "research/cifar10_utility_gap/execution/independent_audit/recomputed_all24.csv",
+      "original_sha256": "e27bffec13e9549907f3f2f96ce98aca6f0173d5a3d9203b1f72d96cad979735",
+      "export_sha256": "e2edd7698eecc4f69baad16c34144e657901372982944f4c7b3138fb0fc67969",
+      "bytes": 4417,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/PROTOCOL.md",
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/PROTOCOL.md",
+      "original_sha256": "3170288da517b848b1be1ee22e2cc53116078fbc8149b854549ef20fd9767c83",
+      "export_sha256": "cf24550dbe886a8659a7d55155ddddca70f096c35cbc591079d46616605ec62c",
+      "bytes": 8464,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/audit_result.json",
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/execution/independent_audit/audit_result.json",
+      "original_sha256": "c1aec1a41ef54c82336f2a9784ecda31a153d657f61343553137416600400b0b",
+      "export_sha256": "ebd12f32406392ec15c9f6c623fc426f8924198e46137949d4d83797a58c2b4c",
+      "bytes": 23207,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/contrasts.csv",
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/execution/independent_audit/contrasts.csv",
+      "original_sha256": "d5f90683ab625ca01bf27ec85743facb56566b999f9a7ae82d268204c9d7fb97",
+      "export_sha256": "a97f9f75fddfc5fd40da16dcb0552b2afeb978f9e849e14ebdc6c4c9531370bd",
+      "bytes": 1103,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/regional_nmse.csv",
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/execution/independent_audit/regional_nmse.csv",
+      "original_sha256": "1c6a1602021dfefbfa5c748b274e6d21953dbb773cfdea2b725011309605636d",
+      "export_sha256": "126491ffc17ed999ade0352f20f6f04ab1a1f6847b7bb15db060b5f53ba4cc2a",
+      "bytes": 5214,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_spatial_contrast/execution/independent_audit/secondary_accuracy.csv",
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/execution/independent_audit/secondary_accuracy.csv",
+      "original_sha256": "1747c963955340b3137cbfff5b508e37a4edce3ecb7ea3604300731554e519e3",
+      "export_sha256": "536f8e4608ea1f55f7026aa0391a8a331a0fe8531c275941e068207e50ee2596",
+      "bytes": 549,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_decision_preservation/INDEPENDENT_REVIEW.md",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/INDEPENDENT_REVIEW.md",
+      "original_sha256": "aef21012d6671f60c657e2dfa5ff334650e0e2fa0714cd268409a273a6a30454",
+      "export_sha256": "0bf990d7a18d7790a737ca5ac4a02802aad9537bd4f34879992b15be94e4f3d5",
+      "bytes": 1040,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_decision_preservation/PROTOCOL.md",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/PROTOCOL.md",
+      "original_sha256": "635484a1ea97ca7ccaf25cc49773175101615bc5d828d401e32f2279dae4fc6d",
+      "export_sha256": "7bef4bdd1442dd0adc65712a6ceaeee947a707fcc2c314f2e796c4deea3c737e",
+      "bytes": 6375,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_decision_preservation/core.py",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/core.py",
+      "original_sha256": "ce9a56382a79ae99272281037f164fada1162562cd2b1dce8b1cbb720039619f",
+      "export_sha256": "ce9a56382a79ae99272281037f164fada1162562cd2b1dce8b1cbb720039619f",
+      "bytes": 8836,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/AUDIT.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/AUDIT.json",
+      "original_sha256": "41f57b5d485df999a87377bed97115cff1ca4414bef26b28a405984753c5bf16",
+      "export_sha256": "a351af4ec909109fcd9ff93ceb47a556df4ed0b545bdb5f16d1e168b42932675",
+      "bytes": 4030,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/REVIEW.md",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/REVIEW.md",
+      "original_sha256": "90cf23e93b4b07a18b81695189fffd94746e1b4df836119364f7058b9a16adf2",
+      "export_sha256": "837a9e041af0fc67f77fe09b5da3f3ed73421f49fa263c8df08efa5f310b2e52",
+      "bytes": 6892,
+      "transformation": "Privacy-filtered excerpt; document context notice and absent-link labels added where applicable; audit totals refer to original full audit; not re-executed."
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/counts_and_quintiles.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/counts_and_quintiles.json",
+      "original_sha256": "7236c128a490f4b7a2986e3e805253e76fba971025e99d9ed385db7269f2c4ab",
+      "export_sha256": "7236c128a490f4b7a2986e3e805253e76fba971025e99d9ed385db7269f2c4ab",
+      "bytes": 9020,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/fixed_criteria.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/fixed_criteria.json",
+      "original_sha256": "159cdfc26496c81ae673af3ab1d660274e15308c19f996a515c2f269447e07b0",
+      "export_sha256": "159cdfc26496c81ae673af3ab1d660274e15308c19f996a515c2f269447e07b0",
+      "bytes": 1659,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/objective_and_scale_table.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/objective_and_scale_table.json",
+      "original_sha256": "a65d16ad88d61780a402c4e177488d061a6b1d2f1b6407af4bad0b52e1c1f297",
+      "export_sha256": "a65d16ad88d61780a402c4e177488d061a6b1d2f1b6407af4bad0b52e1c1f297",
+      "bytes": 3228,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/shared_unique_harms.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/shared_unique_harms.json",
+      "original_sha256": "ab51ab9bfd5bd685870f87408c092bf7bafef08ff6a69d6d9f77095dff24b553",
+      "export_sha256": "ab51ab9bfd5bd685870f87408c092bf7bafef08ff6a69d6d9f77095dff24b553",
+      "bytes": 2428,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "research/cifar10_decision_preservation/execution/independent_audit/training_log_descriptive.json",
+      "source_commit": "38725ff33fd02596e5a659c9aa5639c26f4f403f",
+      "source_path": "research/cifar10_decision_preservation/execution/independent_audit/training_log_descriptive.json",
+      "original_sha256": "3d2f013a369d0374acd46b4af724221e8e7f1c99982d6cf75812b9da62ec201e",
+      "export_sha256": "3d2f013a369d0374acd46b4af724221e8e7f1c99982d6cf75812b9da62ec201e",
+      "bytes": 79242,
+      "transformation": "byte-identical committed source; not re-executed"
+    },
+    {
+      "path": "docs/claims_checkpoint_20261027/SOURCE_INDEX.json",
+      "source_commit": "628e789fd542a61d0f507bfc9832d74388c0833e",
+      "source_path": "docs/claims_checkpoint_20261027/SOURCE_INDEX.json",
+      "original_sha256": "fa864fcba2d2beaed9a483d64e03a84197ac60cdebf8baa412ad717a9068e394",
+      "export_sha256": "fa864fcba2d2beaed9a483d64e03a84197ac60cdebf8baa412ad717a9068e394",
+      "bytes": 2727,
+      "transformation": "byte-identical committed source; not re-executed"
+    }
+  ],
+  "omitted_code": [
+    {
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/report_saved.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    },
+    {
+      "source_commit": "ba47c247f21a5fa34c696648b54ba355c35aa06e",
+      "source_path": "research/digits_matched_regime/runner.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    },
+    {
+      "source_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+      "source_path": "research/digits_joint_budget_grid/runner.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    },
+    {
+      "source_commit": "09efa9d7323c696cc0a5a73d5361d053d34a0319",
+      "source_path": "research/selected_latency/benchmark.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    },
+    {
+      "source_commit": "1db917355e488e4c6dfebcd33183742cc9286813",
+      "source_path": "research/cifar10_heldout/evaluate.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    },
+    {
+      "source_commit": "9d8430c969f10781f2479dba80792ffcdc6f14ef",
+      "source_path": "research/cifar10_spatial_contrast/core.py",
+      "reason": "contains coordination logic; source omitted rather than silently altering behavior"
+    }
+  ]
+}

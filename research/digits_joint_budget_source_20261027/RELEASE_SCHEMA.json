@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Schema only, not a release or authority. Private operator/reviewer provenance must not be published.",
+  "properties": {
+    "approval_evidence": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract": {
+      "const": "canaria.grid-replication.v1"
+    },
+    "custody_attestation": {
+      "const": "SINGLE_DURABLE_ROOT_NO_PRIOR_ATTEMPT_NO_RETRY"
+    },
+    "deadline_utc": {
+      "description": "ISO-8601 with explicit zero UTC offset; runtime rejects expired or non-UTC values.",
+      "type": "string"
+    },
+    "evidence_class": {
+      "const": "new-grid-replication-on-seen-digits"
+    },
+    "files": {
+      "additionalProperties": false,
+      "properties": {
+        "ARTIFACTS.md": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "DEPENDENCY.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "ENVIRONMENT.md": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "PARENT_SCHEMA.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "PROTOCOL.md": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "RELEASE_SCHEMA.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "SEEDS.json": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "grid_contract.py": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "parent_contract.py": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "runner.py": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "test_parent_contract.py": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "test_runner.py": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ARTIFACTS.md",
+        "DEPENDENCY.json",
+        "ENVIRONMENT.md",
+        "PARENT_SCHEMA.json",
+        "PROTOCOL.md",
+        "RELEASE_SCHEMA.json",
+        "SEEDS.json",
+        "grid_contract.py",
+        "parent_contract.py",
+        "runner.py",
+        "test_parent_contract.py",
+        "test_runner.py"
+      ],
+      "type": "object"
+    },
+    "historical_attempt": {
+      "const": "CLOSED_NOT_REOPENED"
+    },
+    "independent_review": {
+      "const": "GO"
+    },
+    "matched_package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parent_approved": {
+      "const": true
+    },
+    "parent_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parent_replication_id": {
+      "pattern": "^replication-[a-z0-9][a-z0-9-]{0,63}$",
+      "type": "string"
+    },
+    "replication_id": {
+      "pattern": "^replication-[a-z0-9][a-z0-9-]{0,63}$",
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract",
+    "replication_id",
+    "evidence_class",
+    "historical_attempt",
+    "custody_attestation",
+    "parent_approved",
+    "independent_review",
+    "reviewer",
+    "approval_evidence",
+    "package_sha256",
+    "files",
+    "deadline_utc",
+    "parent_manifest_sha256",
+    "parent_replication_id",
+    "matched_package_sha256"
+  ],
+  "title": "Private NEW grid-replication authorization record; no record supplied",
+  "type": "object"
+}

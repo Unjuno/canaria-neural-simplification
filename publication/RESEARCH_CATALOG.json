@@ -107,6 +107,143 @@
       "review": "15",
       "review_type": "issues",
       "scope": "Stronger-teacher regression work remains separate. Target quality and external validity are not accepted as a headline by this preview."
+    },
+    {
+      "id": "current-digits-cifar",
+      "class": "RECORDED_PRIMARY_CURRENT_CHECKPOINT",
+      "commit": "a56510dae611d79730d28b84a51f454027255f8e",
+      "paths": [
+        "research-checkpoints/2026-10-27/README.md",
+        "research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md"
+      ],
+      "scope": "16 teachers on one reused Digits split; L/J/C fit and finite-grid budgets; teacher-to-C whole parameters about 44.14% lower versus incremental J-to-C1.26%. CIFAR selected recipe fails 2 pp gate. Latency is conditional CPU forward, not hardware-general."
+    },
+    {
+      "id": "training-time-and-risk",
+      "class": "RECORDED_SUMMARIES_WITH_ORIGINAL_ARTIFACT_GAPS",
+      "commit": "a56510dae611d79730d28b84a51f454027255f8e",
+      "paths": [
+        "docs/TRAINING_TIME_CONSOLIDATION.md",
+        "docs/LATE_STAGE_FINDINGS.md",
+        "results/training_time/ARTIFACT_INVENTORY.md"
+      ],
+      "scope": "Small character-LM consolidation, intervening-learning controls and direction-aware task-risk prediction. G23–G26 original observations/predictor implementations unavailable in reviewed snapshots; summary/hash agreement is not independent implementation validation. Prediction does not solve scheduling."
+    },
+    {
+      "id": "precision-corrections",
+      "class": "CORRECTED_HISTORY_MIXED_EVIDENCE",
+      "commit": "a56510dae611d79730d28b84a51f454027255f8e",
+      "paths": [
+        "docs/phase2/PRECISION_COMPOSITION.md",
+        "results/phase2/precision_composition/INVALIDATED_HISTORY.md"
+      ],
+      "scope": "Quantizer, scale overhead and activation-domain repair. Invalid 2E is not a scientific negative; RNG-only explanation retracted; corrected repair does not establish a reliable composed sample-advantage. Replacement code bits are not whole-model RAM."
+    },
+    {
+      "id": "historical-codec-and-cross-model",
+      "class": "RECORDED_PRIMARY_ARCHIVED_PROTOCOLS",
+      "commit": "a56510dae611d79730d28b84a51f454027255f8e",
+      "paths": [
+        "archives/research-history/results/v18/raw/phaseX_summary.json",
+        "archives/research-history/results/v19/raw_AD/confirmatory_codec_summary.json",
+        "archives/research-history/results/v20/g3_confirmatory_summary.json",
+        "archives/research-history/results/v21/g5_confirmatory_summary.json",
+        "archives/research-history/results/v22/g6_confirmatory_summary.json"
+      ],
+      "scope": "v 18 matched-repair code reductions; v 19 fixed 9926B payload exact roundtrip; v 20–22 model-parameter reductions under different utility/adaptation gates. v 20 immediate utility fails; v 22 immediate generation fails; examined real-text rollout protocols also fail. No whole-executable or arbitrary-LLM claim."
+    },
+    {
+      "id": "r87-tested-recipe-fresh-cohort",
+      "class": "RECORDED_PRIMARY_NOT_HISTORICAL_RECOVERY",
+      "commit": "56a8d1a50f15cad0d930cc899336071fa8efe7dc",
+      "paths": [
+        "results/reproduction/r87_resolution/RESULT.md"
+      ],
+      "scope": "portable_v 2_sqrt 64 tested Intel/AMD numerical agreement; distinct fresh 16-model-seed R87R2 composed/component-wise budget confirmation on reused fixed split. Old archive/provenance remains unrecovered. Technical replica hosts are not extra scientific seeds."
+    },
+    {
+      "id": "regression-teacher-validity-controls",
+      "class": "UNCERTAIN_AND_STOPPED_PREREQUISITE",
+      "commit": "54cd79fc7b254c5d99576ed5c5b448580cc45138",
+      "paths": [
+        "results/phase3b/stronger_teacher_regression/stage_b_confirmatory/RESULT.md",
+        "results/phase3c/nested_cv_teacher/RESULT.json"
+      ],
+      "scope": "Phase 3B replacement gate passes but teacher-quality prerequisites do not: overall UNCERTAIN. Phase 3C stops without stable eligible teacher; outer test not evaluated. Not a general compression failure."
+    },
+    {
+      "id": "california-housing-confirmation",
+      "class": "RECORDED_PRIMARY_PROSPECTIVE_CONFIRMATORY",
+      "commit": "f7d23c9dad2788e64b94f2a268fe3e0b1084d77c",
+      "paths": [
+        "results/phase4/california_regression/stage_b_confirmatory/RESULT.md"
+      ],
+      "scope": "8 model seeds on one fixed California Housing split; replacement-budget ratio .476029,testR2 difference +.006858CI [+.004359,+.009670]. Same residual-MLP first-two-block grammar, finite-grid validation selection, test noninferiority−.03. Not whole-model bytes or 8 datasets."
+    },
+    {
+      "id": "smallvit-hidden-test-confirmation",
+      "class": "RECORDED_PRIMARY_PROSPECTIVE_CONFIRMATORY",
+      "commit": "432fdeade26eb6016680b630a5d1eaf1c1a02ea3",
+      "paths": [
+        "results/replication/vit_hidden_test_confirm/DECISION.json"
+      ],
+      "scope": "13/16 eligible; selected replacement-budget ratio .511765; test utility.975694CI [.966678,.984277], defined as selected accuracy/teacher accuracy. Validation min-budget selection precedes test; one fixed Digits split."
+    },
+    {
+      "id": "vit-matched-budget32",
+      "class": "MANIFEST_VERIFIED_ARTIFACT_NOT_REAUDITED",
+      "commit": "aff40367a21738a58096df1ba5cab0e0584d9fb1",
+      "paths": [
+        "results/replication/vit_matched_budget_confirm32/RUN_MANIFEST.json"
+      ],
+      "scope": "32 attempted 20 eligible; manifest NMSEratio .730540CI [.698356,.763629],validationaccuracy difference−.129630 ppCI [−.462963,+.203704],test unused. Underlying artifact not independently reaudited; feature improvement is not established accuracy gain."
+    },
+    {
+      "id": "smallvit-objective-control",
+      "class": "PROSPECTIVE_EXPLORATORY_UNCERTAIN",
+      "commit": "50a73cd44a05a62e28c94a9e67c84f7b7e9e86cf",
+      "paths": [
+        "results/replication/smallvit_objective_control/RESULT.md"
+      ],
+      "scope": "Joint fit changes supervision and second-module input distribution; no uniquely isolated objective-only mechanism or universal depth/width law."
+    },
+    {
+      "id": "synthetic-rank-oracle",
+      "class": "EXACT_CONSTRUCTED_ORACLE_NOT_LEARNED_TASK",
+      "commit": "ffc4f62034743b2d57c86437958a2e4b14aa52db",
+      "paths": [
+        "results/mechanisms/synthetic_rank_null/DECISION.json"
+      ],
+      "scope": "Constructed 32D linear residual oracle: independent/shared/inverse-cancellation regimes yield composed rank 8/4/0 against 4+4. Demonstrates dependencies in constructed algebra; not neural intrinsic dimension, task utility or optimizer proof."
+    },
+    {
+      "id": "C26-protocol",
+      "class": "PROTOCOL_SOURCE_ONLY_OUTCOME_UNVERIFIED",
+      "commit": "552dfd6b0bf194f5efdcf09a86920379d4b2c0fd",
+      "paths": [
+        "results/recursive_composition/exploration/c26_calibration_sample_frontier/PROTOCOL.json"
+      ],
+      "scope": "Named protocol/source exists; no result decision found under reviewed named paths. Not evidence of execution or absence of execution."
+    },
+    {
+      "id": "C35-protocol",
+      "class": "PROTOCOL_SOURCE_ONLY_OUTCOME_UNVERIFIED",
+      "commit": "3d62d7324981702051b9b7abf277a59fa37abcb2",
+      "paths": [
+        "results/recursive_composition/confirmatory/c35_scaling_equivalence/PROTOCOL.json"
+      ],
+      "scope": "Named protocol/source exists; no result decision found under reviewed named paths. Not evidence of execution or absence of execution."
+    },
+    {
+      "id": "C36-targets",
+      "class": "PROTOCOL_SOURCE_ONLY_OUTCOME_UNVERIFIED",
+      "commit": "9893ed1b390ee182ba4e519c55b9a66c5fa67877",
+      "paths": [
+        "results/recursive_composition/exploration/c36_boundary_complexity/TARGETS.json"
+      ],
+      "scope": "Named protocol/source exists; no result decision found under reviewed named paths. Not evidence of execution or absence of execution."
     }
-  ]
+  ],
+  "organization_review_date": "2026-10-30",
+  "scope_note": "Family index; evidence classes are not pooled or automatically promoted. Snapshot dates and original entries remain provenance."
 }

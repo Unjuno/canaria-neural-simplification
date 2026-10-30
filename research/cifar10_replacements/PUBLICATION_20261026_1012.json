@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT PREPARATION-ONLY SOURCE CHECKPOINT; no binary artifact publication",
+  "created_utc": "2026-10-26T10:12:36.378066+00:00",
+  "local_source_commit": "54b4c1852481db3f809913d5b048e046e363a0b6",
+  "base_remote_commit": "6f4b517248b2cc10cdec780ae26469c958b53fa5",
+  "replacement_science_status": "NOT RUN",
+  "teacher_quality_status": "PENDING; progress is not quality evidence",
+  "teacher_progress_observed_utc": "2026-10-26T10:12:26.246285+00:00",
+  "tests": {
+    "status": "21 synthetic tests reported passed in source preparation receipt (18 numerical/plumbing plus 3 mocked entry tests); not rerun for publication",
+    "evidence": "PREPARATION_CHECKS.md"
+  },
+  "restrictions": [
+    "No real comparison fit/evaluation",
+    "No teacher/model/weights loaded for publication",
+    "No binary/data/trace upload",
+    "No CI requested; [skip ci] commit",
+    "No main/PR/merge/release/settings changes"
+  ],
+  "files": [
+    {
+      "path": "research/cifar10_replacements/PREPARATION_CHECKS.md",
+      "sha256": "3ba8b48437e66bfb3bb895720c99244453fb5c21b567649a6daaaed70401592f",
+      "git_blob_sha": "0bf4f8c34d8465e32f06dc87a9f85c3f4727fb83",
+      "bytes": 4561
+    },
+    {
+      "path": "research/cifar10_replacements/PROTOCOL.md",
+      "sha256": "aa764d3ee024af1f4a6681aa6fc456badd9edf98dfdcd7353097cfa51c478e17",
+      "git_blob_sha": "d53ad4ec6ba9d0d42f69e63349d0e12f8e57b1cd",
+      "bytes": 15585
+    },
+    {
+      "path": "research/cifar10_replacements/core.py",
+      "sha256": "5d9480663f638effa5b87a057767462b601362129e946486ef3778f86dc9fef4",
+      "git_blob_sha": "5c3a670ce520955afac096e0017973deda20839d",
+      "bytes": 10005
+    },
+    {
+      "path": "research/cifar10_replacements/data.py",
+      "sha256": "8601856ce86db26f6d256b875c1d5ec90137d3f0048b3d05c9f7524a624754f1",
+      "git_blob_sha": "852d0e4863cc28802323536afff969b12d29d6aa",
+      "bytes": 16043
+    },
+    {
+      "path": "research/cifar10_replacements/entry.py",
+      "sha256": "02fc8a1d268540425f720425bccb564c29bb8ee396c8de53bb9120d405f0e54a",
+      "git_blob_sha": "4ad6ec31fc43515407b6e536671ef95ebdb18f9e",
+      "bytes": 7619
+    },
+    {
+      "path": "research/cifar10_replacements/launch.py",
+      "sha256": "ae806d47ba3a8b18ae9a939f7c7b1a6c08db65878d20a4e6c917c8bb94410aa4",
+      "git_blob_sha": "a4e33e103389849bac0a6bf942ed781df0821af9",
+      "bytes": 3012
+    },
+    {
+      "path": "research/cifar10_replacements/runtime.py",
+      "sha256": "33706b3c734d88c2bc4305b3416fd1f88744591f96b24b0a21b4c5019f321715",
+      "git_blob_sha": "7ba583b27fed077a016c95c92e63375dc5bc964b",
+      "bytes": 14632
+    },
+    {
+      "path": "research/cifar10_replacements/test_data_synthetic.py",
+      "sha256": "88e34e8c8ab08f8476bc57984ecec56cfbeabdf1fe123a41e160da5a3e344ad9",
+      "git_blob_sha": "cb63e13b60ccd2ddabf447aab8aa5289d2e651bd",
+      "bytes": 6753
+    },
+    {
+      "path": "research/cifar10_replacements/test_entry_synthetic.py",
+      "sha256": "2333f454a6c50aad269eac35bde5c08c9736be494d32f176c11a46904083a443",
+      "git_blob_sha": "202e1acbcc2fe5fe9d918a36c5bff95573bf4669",
+      "bytes": 5418
+    },
+    {
+      "path": "research/cifar10_replacements/test_runtime_synthetic.py",
+      "sha256": "37efbe830d80b6b8f9b7b076402b6eafe34cd93b4f2c8e5e368c73c66d907127",
+      "git_blob_sha": "7d1b3b049aa1cc4008e511a7130ed55d6e8f590f",
+      "bytes": 6243
+    },
+    {
+      "path": "research/cifar10_replacements/test_synthetic.py",
+      "sha256": "801c430c6e3462045e0382e867ee19c37a56afcb3262eb3850c9c6c3d5c86bd5",
+      "git_blob_sha": "6e8b78d9aee3ce0d24ebb5f3936244a9b29adee9",
+      "bytes": 7077
+    },
+    {
+      "path": "research/cifar10_teacher/STATUS_20261026_1012.json",
+      "sha256": "ccfb1503ac97aa2c7c3e06e4b8b34f01ee64aa68e496e804e4662ba60233e50e",
+      "git_blob_sha": "9c98f7de6711e7b175072845176951095d7db827",
+      "bytes": 1235
+    }
+  ]
+}

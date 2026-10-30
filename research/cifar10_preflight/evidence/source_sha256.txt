@@ -1,0 +1,2 @@
+44c2cf5d855db6319df36ba83bbc1b734aea2bb41b1ab29c18eb4d6fbc2fb0b1  research/cifar10_preflight/run.py
+1f697ba6b9d07b69fbb672e1f56d5ba401027f0fa1a1a3e1025536d079b01578  research/cifar10_preflight/PROTOCOL.md

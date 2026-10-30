@@ -1,0 +1,89 @@
+{
+  "audit": "independent-saved-output-arithmetic-and-custody",
+  "checked_report_result": {
+    "descriptive_only": true,
+    "independent_confirmation": false,
+    "labels_opened": true,
+    "no_retry": true,
+    "official_test_opened": false,
+    "original_validation_used": false,
+    "report_sha256": "ea1ad3cb9b0fc6baa0c32e85f3bda15d31e6c82666c13436aa57718dc4f4ea66",
+    "status": "complete"
+  },
+  "checks": 528776,
+  "checks_by_category": {
+    "NMSE": 174,
+    "argmax": 9,
+    "census": 39,
+    "clock": 25,
+    "conservation": 36,
+    "correction_pairing": 72,
+    "criteria": 95,
+    "fit_objective": 6,
+    "git": 47,
+    "groups": 3024,
+    "hash": 37,
+    "limits": 6,
+    "overlap": 72,
+    "packaging": 1981,
+    "samples": 486000,
+    "source_hash": 40,
+    "strata": 170,
+    "targets": 36,
+    "training_log": 36882
+  },
+  "execution_head": "7296904082167cb6d93b80f08aa891460f75b464",
+  "failures": [],
+  "filesystem_times": {
+    "diagnostic_strata_frozen.json": {
+      "ctime_utc": "2026-10-26T18:03:39.822449+00:00",
+      "mtime_utc": "2026-10-26T18:03:39.822449+00:00"
+    },
+    "frozen_cohort.json": {
+      "ctime_utc": "2026-10-26T18:20:40.260380+00:00",
+      "mtime_utc": "2026-10-26T18:20:40.260380+00:00"
+    },
+    "predictions_frozen.json": {
+      "ctime_utc": "2026-10-26T18:25:11.889376+00:00",
+      "mtime_utc": "2026-10-26T18:25:11.889376+00:00"
+    },
+    "report.json": {
+      "ctime_utc": "2026-10-26T18:25:13.097394+00:00",
+      "mtime_utc": "2026-10-26T18:25:13.097394+00:00"
+    },
+    "report_labels_opened.json": {
+      "ctime_utc": "2026-10-26T18:25:12.023660+00:00",
+      "mtime_utc": "2026-10-26T18:25:12.023660+00:00"
+    },
+    "reporting_consumed.json": {
+      "ctime_utc": "2026-10-26T18:24:52.828342+00:00",
+      "mtime_utc": "2026-10-26T18:24:52.828342+00:00"
+    },
+    "strata_receipt.json": {
+      "ctime_utc": "2026-10-26T18:03:40.508438+00:00",
+      "mtime_utc": "2026-10-26T18:03:40.508438+00:00"
+    }
+  },
+  "fit_mu": {
+    "26102601": 0.04994397945218263,
+    "26102602": 0.04916923945471031,
+    "26102603": 0.051111225107462084
+  },
+  "limits": [
+    "Saved outputs only; no inference, model/target/checkpoint deserialization, archive read, new fit, new test, network or CI.",
+    "All 6,000 per-arm diagnostic rows, saved logits and 54,000 rival erosions checked; teacher rows span three views of the SAME 1,000 IDs, not independent new samples.",
+    "NMSE recomputed from 42 saved sufficient-statistic records; original endpoint tensors are not saved in JSON, so SSE/centered teacher SS are not independently regenerated.",
+    "Full-fit mu and target tensors are opaque .pt payloads: raw SHA256 and pre-optimizer identity/lock/source bindings verified, but mu numerical reconstruction requires deserialization and was intentionally not done.",
+    "Full-fit D has no saved fit student logits in JSON, so its numeric value is a report field, not independently regenerated. Diagnostic D is newly derived only from saved diagnostic logits using locked fit mu; it is descriptive and does not replace the prespecified criteria.",
+    "Filesystem ordering corroborates source control-flow and hash bindings; filesystem times are not signed independent timestamps.",
+    "No posthoc threshold, new utility pass, significance, generalization or causal claim. Seen calibration diagnostics; historical original-validation/official-test negatives remain unchanged.",
+    "Resource compliance is verified from saved supervisor/clock records and source identities, not a retrospective independent measurement of every process/thread."
+  ],
+  "report_sha256": "ea1ad3cb9b0fc6baa0c32e85f3bda15d31e6c82666c13436aa57718dc4f4ea66",
+  "scope_no_deserialization": true,
+  "scope_no_inference": true,
+  "scope_no_network": true,
+  "scope_threads": 1,
+  "status": "PASS_WITH_STATED_LIMITS",
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

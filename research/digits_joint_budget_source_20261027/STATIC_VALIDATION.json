@@ -1,0 +1,54 @@
+{
+  "candidate_imported": false,
+  "derived_seed_count": 288,
+  "fixed_budgets": [
+    512,
+    1024,
+    1536,
+    2048,
+    3072,
+    4096,
+    6144
+  ],
+  "grid_seed_bytes_unchanged": true,
+  "identical_original_runner_function_asts": [
+    "analyze",
+    "load_npz",
+    "load_state",
+    "make_student",
+    "reused_cells",
+    "sha"
+  ],
+  "json_parse_pass": true,
+  "limitations": [
+    "AST/text/hash checks are not runtime validation.",
+    "No model, data or artifact payload has been loaded or decoded.",
+    "Fresh parent/grids are separate from the historical consumed chains."
+  ],
+  "matched_dependency_bytes_match": true,
+  "matched_dependency_file_count": 17,
+  "new_fit_count": 192,
+  "parent_artifact_census": 339,
+  "parent_private_custody_census": 19,
+  "public_forbidden_path_identity_scan": "PASS",
+  "python_ast_parsed": [
+    "grid_contract.py",
+    "parent_contract.py",
+    "runner.py",
+    "test_parent_contract.py",
+    "test_runner.py"
+  ],
+  "relative_markdown_links_resolved": 5,
+  "reused_cell_count": 32,
+  "run_seed_changes_match_declared_two_substitutions": true,
+  "schema": "canaria.grid-static-validation.v1",
+  "scientific_execution": false,
+  "seed_collisions": 0,
+  "status": "STATIC_ONLY_PASS_EXECUTION_PENDING",
+  "synthetic_tests_supplied": {
+    "test_parent_contract.py": 19,
+    "test_runner.py": 21
+  },
+  "tests_executed": false,
+  "total_cell_count": 224
+}

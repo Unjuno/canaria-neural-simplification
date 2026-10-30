@@ -1,0 +1,43 @@
+{
+  "commit": "1de2b5f046ef2219270af2e029c5479a3eeee10a",
+  "contract": "canaria.matched-replication.v1",
+  "files": {
+    "ARTIFACTS.md": "deca24899d7a33f88399b7ba648ac3978d8988e749e6062e60305cb4d577bd43",
+    "ARTIFACT_SCHEMA.json": "89e38169ff1a3e67511f7119d914de5bc8ecaba5869566508968601da2e93577",
+    "ENVIRONMENT.md": "aa8dd7434c9b14a53a44b6145e4a538d3d580a528bf7b4ea7033f7d3716f8e73",
+    "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+    "PROTOCOL.md": "170fab12faf5cfaaa5642ba758fb584681957ba6bb3a507429153f37c85ca517",
+    "README.md": "e60e9f2b768cfe0816e1f5c8147b1991a9efbd7783c1c73d915bdf7dd276d7fc",
+    "RELEASE_SCHEMA.json": "dc4567317a2193ac227861f55cc43fe5ed429593906e598ad9a2868769f8f322",
+    "SEEDS.json": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+    "SOURCE_MAP.json": "768ce7b7bc11f241427fb5bbda19f30b4f9db58f9132f31835ef2d0e56e188f3",
+    "STATIC_VALIDATION.json": "34f344d2e7596522a4bb93f2541a5f14b7dd92f2fdf0c335b9b08026f727fdba",
+    "TRANSFORMATION.md": "ffab346f55feb6f7fe8c32f5f763fd010e4c905ecc21c3af8d8e151133f19939",
+    "portable_contract.py": "159c3f7877df016854986aebe6735b8ebd0442758cacabc9bb5b726f128c7dac",
+    "requirements.lock.txt": "736f4e67dd5f3da4f909fe4079ddb814f39c845fb839f09d6a9bcf2777ef9190",
+    "runner.py": "da4211c7af6a9f877b2cb6c2d760b58e1facd4ed0aaf3b47a87483a00629873d",
+    "scientific_definitions.py": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2",
+    "test_cohort_finalization.py": "54102eac36bf09370d99ff0577a1f0cbd16b98f4985a378404575a42c4453c20",
+    "test_portable_contract.py": "84ce733f7a513764ccca0af587ffa5e4eaf678efcff3bad9aa5ad57e828d5e3f",
+    "test_runner.py": "2a2c30425450dd2600c9ba127fd74393f6f2a0408b029bf022a729f1639c5c92"
+  },
+  "matched_package_sha256": "5276ddec3264db829dea61a7f95a4d9a2296cbbfd6671ad4484f2d88bc957e80",
+  "matched_required_files": {
+    "ARTIFACT_SCHEMA.json": "89e38169ff1a3e67511f7119d914de5bc8ecaba5869566508968601da2e93577",
+    "ENVIRONMENT.md": "aa8dd7434c9b14a53a44b6145e4a538d3d580a528bf7b4ea7033f7d3716f8e73",
+    "PROTOCOL.md": "170fab12faf5cfaaa5642ba758fb584681957ba6bb3a507429153f37c85ca517",
+    "RELEASE_SCHEMA.json": "dc4567317a2193ac227861f55cc43fe5ed429593906e598ad9a2868769f8f322",
+    "SEEDS.json": "c33229a6d6976b16c7e559cdf931fcf0ce73c0905f9244640c6200ad2a9dd418",
+    "portable_contract.py": "159c3f7877df016854986aebe6735b8ebd0442758cacabc9bb5b726f128c7dac",
+    "requirements.lock.txt": "736f4e67dd5f3da4f909fe4079ddb814f39c845fb839f09d6a9bcf2777ef9190",
+    "runner.py": "da4211c7af6a9f877b2cb6c2d760b58e1facd4ed0aaf3b47a87483a00629873d",
+    "scientific_definitions.py": "d629f501136a83e2b958d5ec61537d4719ea7fd568e54d692189947c416453f2",
+    "test_portable_contract.py": "84ce733f7a513764ccca0af587ffa5e4eaf678efcff3bad9aa5ad57e828d5e3f",
+    "test_runner.py": "2a2c30425450dd2600c9ba127fd74393f6f2a0408b029bf022a729f1639c5c92"
+  },
+  "repository": "Unjuno/canaria-neural-simplification",
+  "schema": "canaria.grid-matched-dependency.v1",
+  "sibling_directory": "digits_matched_source_20261027",
+  "commit_scope": "Original matched publication provenance only; amended co-published sibling bytes are bound by files and matched_required_files, not by this historical commit.",
+  "amendment_base_commit": "71a74c88d420d9aa4b616df7cfc1f6e914aa6984"
+}

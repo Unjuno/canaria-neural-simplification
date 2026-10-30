@@ -1,0 +1,2462 @@
+[
+  {
+    "arm": "feature",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 0.07912408594443726,
+      "objective_mean": 0.07636669278144836,
+      "objective_sum": 9.77493667602539,
+      "relative_parameter_update_norm": 0.017896768097610982,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 0.01117210732902661,
+      "objective_mean": 0.030579328536987305,
+      "objective_sum": 0.9785385131835938,
+      "relative_parameter_update_norm": 0.0021141313901408823,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 0.07912408594443726,
+    "maximum_relative_update": 0.017896768097610982,
+    "passes": [
+      {
+        "gradient_norm_mean": 0.03133916259688768,
+        "objective_mean": 0.06484410834312439,
+        "pass_number": 1,
+        "relative_update_mean": 0.008629700786006687
+      },
+      {
+        "gradient_norm_mean": 0.023689362877479914,
+        "objective_mean": 0.053925622165203094,
+        "pass_number": 2,
+        "relative_update_mean": 0.0065020896463950355
+      },
+      {
+        "gradient_norm_mean": 0.01265833714216482,
+        "objective_mean": 0.047439108431339264,
+        "pass_number": 3,
+        "relative_update_mean": 0.006059435251761638
+      },
+      {
+        "gradient_norm_mean": 0.007470336473043584,
+        "objective_mean": 0.04473227316141128,
+        "pass_number": 4,
+        "relative_update_mean": 0.004724415703844064
+      },
+      {
+        "gradient_norm_mean": 0.007301708402279306,
+        "objective_mean": 0.04309815773367882,
+        "pass_number": 5,
+        "relative_update_mean": 0.00405292971181959
+      },
+      {
+        "gradient_norm_mean": 0.0071601924945334985,
+        "objective_mean": 0.041668455302715304,
+        "pass_number": 6,
+        "relative_update_mean": 0.0042008947832293825
+      },
+      {
+        "gradient_norm_mean": 0.0061089428843182445,
+        "objective_mean": 0.040297363936901094,
+        "pass_number": 7,
+        "relative_update_mean": 0.0038042083736719023
+      },
+      {
+        "gradient_norm_mean": 0.006278644959017036,
+        "objective_mean": 0.039204953461885454,
+        "pass_number": 8,
+        "relative_update_mean": 0.003260965055873714
+      },
+      {
+        "gradient_norm_mean": 0.006044325586771179,
+        "objective_mean": 0.03837341117858887,
+        "pass_number": 9,
+        "relative_update_mean": 0.0027849371946768466
+      },
+      {
+        "gradient_norm_mean": 0.006075107565297891,
+        "objective_mean": 0.03773832762241364,
+        "pass_number": 10,
+        "relative_update_mean": 0.002487698199371913
+      },
+      {
+        "gradient_norm_mean": 0.0069855202159949895,
+        "objective_mean": 0.03724532812833786,
+        "pass_number": 11,
+        "relative_update_mean": 0.002419312515274549
+      },
+      {
+        "gradient_norm_mean": 0.005681432752566523,
+        "objective_mean": 0.03681398847699165,
+        "pass_number": 12,
+        "relative_update_mean": 0.002809466895243021
+      },
+      {
+        "gradient_norm_mean": 0.006913895930174026,
+        "objective_mean": 0.03619117519259453,
+        "pass_number": 13,
+        "relative_update_mean": 0.0044765829925197545
+      },
+      {
+        "gradient_norm_mean": 0.007492809217247657,
+        "objective_mean": 0.035517645865678786,
+        "pass_number": 14,
+        "relative_update_mean": 0.003576959967083859
+      },
+      {
+        "gradient_norm_mean": 0.007885615820337881,
+        "objective_mean": 0.03500861495733261,
+        "pass_number": 15,
+        "relative_update_mean": 0.00350855298435733
+      },
+      {
+        "gradient_norm_mean": 0.007466897909427861,
+        "objective_mean": 0.03439474830031395,
+        "pass_number": 16,
+        "relative_update_mean": 0.003549103632563005
+      },
+      {
+        "gradient_norm_mean": 0.008445448822322822,
+        "objective_mean": 0.033938156127929685,
+        "pass_number": 17,
+        "relative_update_mean": 0.002796636812135879
+      },
+      {
+        "gradient_norm_mean": 0.007724778690276434,
+        "objective_mean": 0.033669114395976064,
+        "pass_number": 18,
+        "relative_update_mean": 0.002265546288494306
+      },
+      {
+        "gradient_norm_mean": 0.009002897536447837,
+        "objective_mean": 0.033467742532491684,
+        "pass_number": 19,
+        "relative_update_mean": 0.0029443633733865298
+      },
+      {
+        "gradient_norm_mean": 0.008870178682054265,
+        "objective_mean": 0.033192087456583974,
+        "pass_number": 20,
+        "relative_update_mean": 0.003683738212460331
+      },
+      {
+        "gradient_norm_mean": 0.009195671380539085,
+        "objective_mean": 0.03290387615561485,
+        "pass_number": 21,
+        "relative_update_mean": 0.0032520447533469924
+      },
+      {
+        "gradient_norm_mean": 0.009911457132323557,
+        "objective_mean": 0.032659349054098126,
+        "pass_number": 22,
+        "relative_update_mean": 0.002904007974453904
+      },
+      {
+        "gradient_norm_mean": 0.008837440281219251,
+        "objective_mean": 0.032474332332611086,
+        "pass_number": 23,
+        "relative_update_mean": 0.0022488530213493224
+      },
+      {
+        "gradient_norm_mean": 0.009631096134556483,
+        "objective_mean": 0.0323432929366827,
+        "pass_number": 24,
+        "relative_update_mean": 0.002079166913908686
+      },
+      {
+        "gradient_norm_mean": 0.009630338075264108,
+        "objective_mean": 0.03222876897454262,
+        "pass_number": 25,
+        "relative_update_mean": 0.0019756253035028686
+      },
+      {
+        "gradient_norm_mean": 0.008788846911801328,
+        "objective_mean": 0.03212030875682831,
+        "pass_number": 26,
+        "relative_update_mean": 0.0017588406738288853
+      },
+      {
+        "gradient_norm_mean": 0.009127935343702966,
+        "objective_mean": 0.032039820492267605,
+        "pass_number": 27,
+        "relative_update_mean": 0.0017820457980382456
+      },
+      {
+        "gradient_norm_mean": 0.009406279868085371,
+        "objective_mean": 0.0319647578895092,
+        "pass_number": 28,
+        "relative_update_mean": 0.0016788120459341976
+      },
+      {
+        "gradient_norm_mean": 0.008735493872818816,
+        "objective_mean": 0.03189907765388489,
+        "pass_number": 29,
+        "relative_update_mean": 0.001536095965712381
+      },
+      {
+        "gradient_norm_mean": 0.008529993616394543,
+        "objective_mean": 0.031846376210451124,
+        "pass_number": 30,
+        "relative_update_mean": 0.0014957968091182093
+      },
+      {
+        "gradient_norm_mean": 0.011185811948512182,
+        "objective_mean": 0.031827080637216565,
+        "pass_number": 31,
+        "relative_update_mean": 0.0018129482392686986
+      },
+      {
+        "gradient_norm_mean": 0.010527399472880363,
+        "objective_mean": 0.03179085958003998,
+        "pass_number": 32,
+        "relative_update_mean": 0.001679263855371856
+      },
+      {
+        "gradient_norm_mean": 0.00862060989386157,
+        "objective_mean": 0.031748580724000934,
+        "pass_number": 33,
+        "relative_update_mean": 0.0014345810147175886
+      },
+      {
+        "gradient_norm_mean": 0.009613257041974852,
+        "objective_mean": 0.03173071140050888,
+        "pass_number": 34,
+        "relative_update_mean": 0.0014573348814516883
+      },
+      {
+        "gradient_norm_mean": 0.010324691920994665,
+        "objective_mean": 0.03171776455640793,
+        "pass_number": 35,
+        "relative_update_mean": 0.0015406943685566982
+      },
+      {
+        "gradient_norm_mean": 0.009261487542662773,
+        "objective_mean": 0.03169368658959865,
+        "pass_number": 36,
+        "relative_update_mean": 0.0013924806628842958
+      },
+      {
+        "gradient_norm_mean": 0.009006061619588498,
+        "objective_mean": 0.03167689967155456,
+        "pass_number": 37,
+        "relative_update_mean": 0.0013366833850137253
+      },
+      {
+        "gradient_norm_mean": 0.009236403573475077,
+        "objective_mean": 0.031665615499019625,
+        "pass_number": 38,
+        "relative_update_mean": 0.0013308659040978277
+      },
+      {
+        "gradient_norm_mean": 0.00809016556228276,
+        "objective_mean": 0.03165176320075989,
+        "pass_number": 39,
+        "relative_update_mean": 0.0012724925124059606
+      },
+      {
+        "gradient_norm_mean": 0.008685145359757066,
+        "objective_mean": 0.0316444923132658,
+        "pass_number": 40,
+        "relative_update_mean": 0.0012998108927695612
+      },
+      {
+        "gradient_norm_mean": 0.009850667810191371,
+        "objective_mean": 0.031647018253803255,
+        "pass_number": 41,
+        "relative_update_mean": 0.001512274979549617
+      },
+      {
+        "gradient_norm_mean": 0.011177447592548347,
+        "objective_mean": 0.0316488125026226,
+        "pass_number": 42,
+        "relative_update_mean": 0.001580372446329367
+      },
+      {
+        "gradient_norm_mean": 0.010653494256311435,
+        "objective_mean": 0.0316396424472332,
+        "pass_number": 43,
+        "relative_update_mean": 0.0015759308513543522
+      },
+      {
+        "gradient_norm_mean": 0.009205993275484069,
+        "objective_mean": 0.03161982761323452,
+        "pass_number": 44,
+        "relative_update_mean": 0.00131866461949716
+      },
+      {
+        "gradient_norm_mean": 0.00980674926810205,
+        "objective_mean": 0.03161908070743084,
+        "pass_number": 45,
+        "relative_update_mean": 0.001343548916987083
+      },
+      {
+        "gradient_norm_mean": 0.010226933695931424,
+        "objective_mean": 0.031619071662425995,
+        "pass_number": 46,
+        "relative_update_mean": 0.0014318212330912854
+      },
+      {
+        "gradient_norm_mean": 0.009588350539096364,
+        "objective_mean": 0.03160978165268898,
+        "pass_number": 47,
+        "relative_update_mean": 0.0013942528341700387
+      },
+      {
+        "gradient_norm_mean": 0.010876619710762933,
+        "objective_mean": 0.03161336153745651,
+        "pass_number": 48,
+        "relative_update_mean": 0.0014790670729306016
+      },
+      {
+        "gradient_norm_mean": 0.011011374425045921,
+        "objective_mean": 0.03161366745829582,
+        "pass_number": 49,
+        "relative_update_mean": 0.001480079922034263
+      },
+      {
+        "gradient_norm_mean": 0.010053263934900915,
+        "objective_mean": 0.03159967619180679,
+        "pass_number": 50,
+        "relative_update_mean": 0.0013594505005008676
+      },
+      {
+        "gradient_norm_mean": 0.008628661364090549,
+        "objective_mean": 0.03158875972032547,
+        "pass_number": 51,
+        "relative_update_mean": 0.0011959746317617903
+      },
+      {
+        "gradient_norm_mean": 0.010140578200297895,
+        "objective_mean": 0.03159343457221985,
+        "pass_number": 52,
+        "relative_update_mean": 0.0013997087522472727
+      },
+      {
+        "gradient_norm_mean": 0.009484751870360637,
+        "objective_mean": 0.03158945164084435,
+        "pass_number": 53,
+        "relative_update_mean": 0.001276850477019495
+      },
+      {
+        "gradient_norm_mean": 0.010546882525146717,
+        "objective_mean": 0.03159246523678303,
+        "pass_number": 54,
+        "relative_update_mean": 0.0013894691052714256
+      },
+      {
+        "gradient_norm_mean": 0.009748703939399523,
+        "objective_mean": 0.03158483469486237,
+        "pass_number": 55,
+        "relative_update_mean": 0.0013252843936684263
+      },
+      {
+        "gradient_norm_mean": 0.009116473179008985,
+        "objective_mean": 0.03157725377380848,
+        "pass_number": 56,
+        "relative_update_mean": 0.0012473435453947133
+      },
+      {
+        "gradient_norm_mean": 0.008876867713679881,
+        "objective_mean": 0.031577400892972944,
+        "pass_number": 57,
+        "relative_update_mean": 0.0012446093130043347
+      },
+      {
+        "gradient_norm_mean": 0.00980504964189944,
+        "objective_mean": 0.03157832109928131,
+        "pass_number": 58,
+        "relative_update_mean": 0.0013023893754835903
+      },
+      {
+        "gradient_norm_mean": 0.009681680705967834,
+        "objective_mean": 0.0315773064494133,
+        "pass_number": 59,
+        "relative_update_mean": 0.0012360985393677297
+      },
+      {
+        "gradient_norm_mean": 0.009379026995610378,
+        "objective_mean": 0.031571432530879975,
+        "pass_number": 60,
+        "relative_update_mean": 0.0012598244210027274
+      },
+      {
+        "gradient_norm_mean": 0.008761073354430998,
+        "objective_mean": 0.031565568923950196,
+        "pass_number": 61,
+        "relative_update_mean": 0.0012151625679099613
+      },
+      {
+        "gradient_norm_mean": 0.009394323626708827,
+        "objective_mean": 0.03156687358021736,
+        "pass_number": 62,
+        "relative_update_mean": 0.0012602222924027612
+      },
+      {
+        "gradient_norm_mean": 0.010548496725822299,
+        "objective_mean": 0.03157883468270302,
+        "pass_number": 63,
+        "relative_update_mean": 0.0014696364693182723
+      },
+      {
+        "gradient_norm_mean": 0.00837805331723913,
+        "objective_mean": 0.03155650669336319,
+        "pass_number": 64,
+        "relative_update_mean": 0.001596919317403017
+      }
+    ],
+    "seed": "26102601",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  },
+  {
+    "arm": "decision",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 223.28400179409687,
+      "objective_mean": 19.608303258125467,
+      "objective_sum": 2509.86281704006,
+      "relative_parameter_update_norm": 0.01789933670623082,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 7.578885250400429,
+      "objective_mean": 0.30329532384840024,
+      "objective_sum": 9.705450363148808,
+      "relative_parameter_update_norm": 0.001718645016635946,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 242.4180926920921,
+    "maximum_relative_update": 0.01789933670623082,
+    "passes": [
+      {
+        "gradient_norm_mean": 70.72742227305878,
+        "objective_mean": 12.532746581067302,
+        "pass_number": 1,
+        "relative_update_mean": 0.005274097795639959
+      },
+      {
+        "gradient_norm_mean": 62.31360659631552,
+        "objective_mean": 9.896419227702655,
+        "pass_number": 2,
+        "relative_update_mean": 0.0027282132859828027
+      },
+      {
+        "gradient_norm_mean": 61.500144978399234,
+        "objective_mean": 8.639867874250806,
+        "pass_number": 3,
+        "relative_update_mean": 0.003046211322323505
+      },
+      {
+        "gradient_norm_mean": 59.67750870525607,
+        "objective_mean": 7.712361283392331,
+        "pass_number": 4,
+        "relative_update_mean": 0.002497314120851524
+      },
+      {
+        "gradient_norm_mean": 63.827517926229966,
+        "objective_mean": 7.532254365816708,
+        "pass_number": 5,
+        "relative_update_mean": 0.0029416665346592664
+      },
+      {
+        "gradient_norm_mean": 56.141169425337395,
+        "objective_mean": 6.5193817825146985,
+        "pass_number": 6,
+        "relative_update_mean": 0.0023009817486432725
+      },
+      {
+        "gradient_norm_mean": 63.329464513141275,
+        "objective_mean": 6.258735269997183,
+        "pass_number": 7,
+        "relative_update_mean": 0.0026419001952874607
+      },
+      {
+        "gradient_norm_mean": 55.702834942308456,
+        "objective_mean": 5.980730063874253,
+        "pass_number": 8,
+        "relative_update_mean": 0.002639824701340484
+      },
+      {
+        "gradient_norm_mean": 47.73167624161728,
+        "objective_mean": 5.437869583793859,
+        "pass_number": 9,
+        "relative_update_mean": 0.0021008974262285616
+      },
+      {
+        "gradient_norm_mean": 52.05579047188404,
+        "objective_mean": 5.203700439896055,
+        "pass_number": 10,
+        "relative_update_mean": 0.0020167579805134605
+      },
+      {
+        "gradient_norm_mean": 51.777384047403174,
+        "objective_mean": 5.207374223880878,
+        "pass_number": 11,
+        "relative_update_mean": 0.002317834812926928
+      },
+      {
+        "gradient_norm_mean": 59.60395699299124,
+        "objective_mean": 4.985244874581399,
+        "pass_number": 12,
+        "relative_update_mean": 0.0022018831096769957
+      },
+      {
+        "gradient_norm_mean": 54.32133735627708,
+        "objective_mean": 4.804844476038384,
+        "pass_number": 13,
+        "relative_update_mean": 0.0025504833870575623
+      },
+      {
+        "gradient_norm_mean": 45.7097652303309,
+        "objective_mean": 4.6848119346030686,
+        "pass_number": 14,
+        "relative_update_mean": 0.004396166429788709
+      },
+      {
+        "gradient_norm_mean": 34.661686921023424,
+        "objective_mean": 4.237517967036177,
+        "pass_number": 15,
+        "relative_update_mean": 0.0016378289348661615
+      },
+      {
+        "gradient_norm_mean": 40.769782759394154,
+        "objective_mean": 4.120333124909548,
+        "pass_number": 16,
+        "relative_update_mean": 0.0022549327976814516
+      },
+      {
+        "gradient_norm_mean": 38.89599348594492,
+        "objective_mean": 4.039023278702592,
+        "pass_number": 17,
+        "relative_update_mean": 0.0028248048228516494
+      },
+      {
+        "gradient_norm_mean": 43.412038875056396,
+        "objective_mean": 3.927707546862226,
+        "pass_number": 18,
+        "relative_update_mean": 0.0027569790971177146
+      },
+      {
+        "gradient_norm_mean": 41.01924110733368,
+        "objective_mean": 3.853419474437722,
+        "pass_number": 19,
+        "relative_update_mean": 0.003172567416998289
+      },
+      {
+        "gradient_norm_mean": 39.41042099589553,
+        "objective_mean": 3.6458899519714154,
+        "pass_number": 20,
+        "relative_update_mean": 0.0027550482413677057
+      },
+      {
+        "gradient_norm_mean": 43.64601434837695,
+        "objective_mean": 3.6912084591112495,
+        "pass_number": 21,
+        "relative_update_mean": 0.003915751871996573
+      },
+      {
+        "gradient_norm_mean": 34.12653104277605,
+        "objective_mean": 3.2971862875427616,
+        "pass_number": 22,
+        "relative_update_mean": 0.00356366223467729
+      },
+      {
+        "gradient_norm_mean": 34.610884142417795,
+        "objective_mean": 3.20537540815935,
+        "pass_number": 23,
+        "relative_update_mean": 0.004275898923002166
+      },
+      {
+        "gradient_norm_mean": 32.33974878915356,
+        "objective_mean": 3.098265789691652,
+        "pass_number": 24,
+        "relative_update_mean": 0.0022298141210024412
+      },
+      {
+        "gradient_norm_mean": 35.79660152163252,
+        "objective_mean": 3.0598863879154092,
+        "pass_number": 25,
+        "relative_update_mean": 0.0030955620582629405
+      },
+      {
+        "gradient_norm_mean": 31.330105574990064,
+        "objective_mean": 2.9167208835298664,
+        "pass_number": 26,
+        "relative_update_mean": 0.0019549945153289534
+      },
+      {
+        "gradient_norm_mean": 33.93886934816225,
+        "objective_mean": 2.9212128734357963,
+        "pass_number": 27,
+        "relative_update_mean": 0.00212530982673514
+      },
+      {
+        "gradient_norm_mean": 34.970271703416294,
+        "objective_mean": 2.8701505912333225,
+        "pass_number": 28,
+        "relative_update_mean": 0.002745000068603971
+      },
+      {
+        "gradient_norm_mean": 38.34429097712116,
+        "objective_mean": 2.8886848341873033,
+        "pass_number": 29,
+        "relative_update_mean": 0.0024746334167376127
+      },
+      {
+        "gradient_norm_mean": 30.45756707251883,
+        "objective_mean": 2.696257821234371,
+        "pass_number": 30,
+        "relative_update_mean": 0.002323393055903719
+      },
+      {
+        "gradient_norm_mean": 28.485897548674277,
+        "objective_mean": 2.5453974615058064,
+        "pass_number": 31,
+        "relative_update_mean": 0.0023908910073416802
+      },
+      {
+        "gradient_norm_mean": 30.628197569771984,
+        "objective_mean": 2.5529782386273823,
+        "pass_number": 32,
+        "relative_update_mean": 0.002491427187841598
+      },
+      {
+        "gradient_norm_mean": 27.595000823632283,
+        "objective_mean": 2.395296513287673,
+        "pass_number": 33,
+        "relative_update_mean": 0.002018073469268782
+      },
+      {
+        "gradient_norm_mean": 28.212515711789404,
+        "objective_mean": 2.3801451360310604,
+        "pass_number": 34,
+        "relative_update_mean": 0.0022888830277577165
+      },
+      {
+        "gradient_norm_mean": 26.366667369500952,
+        "objective_mean": 2.2907950805251422,
+        "pass_number": 35,
+        "relative_update_mean": 0.002244802439497094
+      },
+      {
+        "gradient_norm_mean": 24.43430608108948,
+        "objective_mean": 2.190529827826351,
+        "pass_number": 36,
+        "relative_update_mean": 0.0025385878337629824
+      },
+      {
+        "gradient_norm_mean": 31.756122836092413,
+        "objective_mean": 2.2484621314757445,
+        "pass_number": 37,
+        "relative_update_mean": 0.0035902331303055484
+      },
+      {
+        "gradient_norm_mean": 28.361726748222726,
+        "objective_mean": 2.1579905326221245,
+        "pass_number": 38,
+        "relative_update_mean": 0.0023605813363641167
+      },
+      {
+        "gradient_norm_mean": 29.09677012145625,
+        "objective_mean": 2.129189925529883,
+        "pass_number": 39,
+        "relative_update_mean": 0.00257769781486858
+      },
+      {
+        "gradient_norm_mean": 28.778240444303723,
+        "objective_mean": 2.0632102391019527,
+        "pass_number": 40,
+        "relative_update_mean": 0.002511747174741998
+      },
+      {
+        "gradient_norm_mean": 27.040565498680742,
+        "objective_mean": 2.026843181876984,
+        "pass_number": 41,
+        "relative_update_mean": 0.0028787603867862365
+      },
+      {
+        "gradient_norm_mean": 24.694713286248287,
+        "objective_mean": 1.9539899554811584,
+        "pass_number": 42,
+        "relative_update_mean": 0.0022253087545296385
+      },
+      {
+        "gradient_norm_mean": 24.172532128931035,
+        "objective_mean": 1.8560305471891838,
+        "pass_number": 43,
+        "relative_update_mean": 0.0020056826596850565
+      },
+      {
+        "gradient_norm_mean": 27.425563837698572,
+        "objective_mean": 1.8590261494630678,
+        "pass_number": 44,
+        "relative_update_mean": 0.0023239891179517224
+      },
+      {
+        "gradient_norm_mean": 34.75854071088259,
+        "objective_mean": 1.9756705480338337,
+        "pass_number": 45,
+        "relative_update_mean": 0.0026904089938078065
+      },
+      {
+        "gradient_norm_mean": 29.797681781683803,
+        "objective_mean": 2.0267493362828173,
+        "pass_number": 46,
+        "relative_update_mean": 0.003133075517334747
+      },
+      {
+        "gradient_norm_mean": 24.184448393580055,
+        "objective_mean": 1.763678742305869,
+        "pass_number": 47,
+        "relative_update_mean": 0.0022570556452933548
+      },
+      {
+        "gradient_norm_mean": 27.267320254372187,
+        "objective_mean": 1.8260452356407346,
+        "pass_number": 48,
+        "relative_update_mean": 0.0024542048879181056
+      },
+      {
+        "gradient_norm_mean": 25.695226305819077,
+        "objective_mean": 1.765812047729626,
+        "pass_number": 49,
+        "relative_update_mean": 0.002308746619313951
+      },
+      {
+        "gradient_norm_mean": 20.68439693055118,
+        "objective_mean": 1.6101795338770166,
+        "pass_number": 50,
+        "relative_update_mean": 0.0018570906751387898
+      },
+      {
+        "gradient_norm_mean": 21.06671447891019,
+        "objective_mean": 1.58439655244432,
+        "pass_number": 51,
+        "relative_update_mean": 0.001903950676214482
+      },
+      {
+        "gradient_norm_mean": 23.633171185315565,
+        "objective_mean": 1.6186348326472333,
+        "pass_number": 52,
+        "relative_update_mean": 0.0021276398306834827
+      },
+      {
+        "gradient_norm_mean": 20.639131910843826,
+        "objective_mean": 1.5419542035902871,
+        "pass_number": 53,
+        "relative_update_mean": 0.001820530146030365
+      },
+      {
+        "gradient_norm_mean": 19.136104706359664,
+        "objective_mean": 1.4711019350681682,
+        "pass_number": 54,
+        "relative_update_mean": 0.0018088070100944946
+      },
+      {
+        "gradient_norm_mean": 19.544488539748624,
+        "objective_mean": 1.4302178315290226,
+        "pass_number": 55,
+        "relative_update_mean": 0.0018382130185980348
+      },
+      {
+        "gradient_norm_mean": 17.334720942729966,
+        "objective_mean": 1.388300583528068,
+        "pass_number": 56,
+        "relative_update_mean": 0.0016363358106831725
+      },
+      {
+        "gradient_norm_mean": 17.591159376192813,
+        "objective_mean": 1.352333563498234,
+        "pass_number": 57,
+        "relative_update_mean": 0.00143577576794942
+      },
+      {
+        "gradient_norm_mean": 18.32913481253874,
+        "objective_mean": 1.34349437028544,
+        "pass_number": 58,
+        "relative_update_mean": 0.0016627361283382493
+      },
+      {
+        "gradient_norm_mean": 17.19883586167192,
+        "objective_mean": 1.2873071326994965,
+        "pass_number": 59,
+        "relative_update_mean": 0.0016063592985950282
+      },
+      {
+        "gradient_norm_mean": 25.28989045724818,
+        "objective_mean": 1.3990442863605848,
+        "pass_number": 60,
+        "relative_update_mean": 0.0020277277745956255
+      },
+      {
+        "gradient_norm_mean": 17.11992866518875,
+        "objective_mean": 1.2618483723718057,
+        "pass_number": 61,
+        "relative_update_mean": 0.0015177939240880835
+      },
+      {
+        "gradient_norm_mean": 22.181655293074336,
+        "objective_mean": 1.3270606371161888,
+        "pass_number": 62,
+        "relative_update_mean": 0.0019798701293644648
+      },
+      {
+        "gradient_norm_mean": 20.948395263245963,
+        "objective_mean": 1.2734829155084997,
+        "pass_number": 63,
+        "relative_update_mean": 0.0017914287738415651
+      },
+      {
+        "gradient_norm_mean": 22.432959733965287,
+        "objective_mean": 1.33185735661083,
+        "pass_number": 64,
+        "relative_update_mean": 0.0022279744724105492
+      }
+    ],
+    "seed": "26102601",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  },
+  {
+    "arm": "feature",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 0.12466338278885643,
+      "objective_mean": 0.08521994948387146,
+      "objective_sum": 10.908153533935547,
+      "relative_parameter_update_norm": 0.01794701299315178,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 0.011212388879153988,
+      "objective_mean": 0.027193689718842506,
+      "objective_sum": 0.8701980710029602,
+      "relative_parameter_update_norm": 0.0018226942320198562,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 0.12466338278885643,
+    "maximum_relative_update": 0.01794701299315178,
+    "passes": [
+      {
+        "gradient_norm_mean": 0.04058700288859454,
+        "objective_mean": 0.06766116774082184,
+        "pass_number": 1,
+        "relative_update_mean": 0.010285537021198086
+      },
+      {
+        "gradient_norm_mean": 0.028369887162022253,
+        "objective_mean": 0.05013602536916733,
+        "pass_number": 2,
+        "relative_update_mean": 0.0072095335908932325
+      },
+      {
+        "gradient_norm_mean": 0.013478724869572075,
+        "objective_mean": 0.04164944949746132,
+        "pass_number": 3,
+        "relative_update_mean": 0.005080475711615603
+      },
+      {
+        "gradient_norm_mean": 0.008653803609308498,
+        "objective_mean": 0.03888249361515045,
+        "pass_number": 4,
+        "relative_update_mean": 0.003824038387267444
+      },
+      {
+        "gradient_norm_mean": 0.007895447536530438,
+        "objective_mean": 0.037187119483947755,
+        "pass_number": 5,
+        "relative_update_mean": 0.0033179060548605512
+      },
+      {
+        "gradient_norm_mean": 0.00706484932648439,
+        "objective_mean": 0.03593774211406708,
+        "pass_number": 6,
+        "relative_update_mean": 0.0029787750549003155
+      },
+      {
+        "gradient_norm_mean": 0.007281711224148001,
+        "objective_mean": 0.034984351605176926,
+        "pass_number": 7,
+        "relative_update_mean": 0.0027574618440997945
+      },
+      {
+        "gradient_norm_mean": 0.006789799477733765,
+        "objective_mean": 0.034243693172931675,
+        "pass_number": 8,
+        "relative_update_mean": 0.002519179803207969
+      },
+      {
+        "gradient_norm_mean": 0.007076454493802445,
+        "objective_mean": 0.033656933426856994,
+        "pass_number": 9,
+        "relative_update_mean": 0.002302448093265404
+      },
+      {
+        "gradient_norm_mean": 0.0068293275449829655,
+        "objective_mean": 0.03317910879850387,
+        "pass_number": 10,
+        "relative_update_mean": 0.0021826115447768184
+      },
+      {
+        "gradient_norm_mean": 0.006551050035990691,
+        "objective_mean": 0.032778435945510866,
+        "pass_number": 11,
+        "relative_update_mean": 0.002203694455145494
+      },
+      {
+        "gradient_norm_mean": 0.006811472782437656,
+        "objective_mean": 0.032348306566476824,
+        "pass_number": 12,
+        "relative_update_mean": 0.0039397053402379775
+      },
+      {
+        "gradient_norm_mean": 0.0074094151402527885,
+        "objective_mean": 0.03172440674901009,
+        "pass_number": 13,
+        "relative_update_mean": 0.004299905454255763
+      },
+      {
+        "gradient_norm_mean": 0.008025013415538353,
+        "objective_mean": 0.031212517112493517,
+        "pass_number": 14,
+        "relative_update_mean": 0.003157384726331857
+      },
+      {
+        "gradient_norm_mean": 0.007339104966617841,
+        "objective_mean": 0.030888004571199418,
+        "pass_number": 15,
+        "relative_update_mean": 0.002390769423708555
+      },
+      {
+        "gradient_norm_mean": 0.007783642749084717,
+        "objective_mean": 0.030659270167350768,
+        "pass_number": 16,
+        "relative_update_mean": 0.002168421985175979
+      },
+      {
+        "gradient_norm_mean": 0.007825363425554805,
+        "objective_mean": 0.03047456681728363,
+        "pass_number": 17,
+        "relative_update_mean": 0.0019748911341057897
+      },
+      {
+        "gradient_norm_mean": 0.007950047304217143,
+        "objective_mean": 0.030317906320095064,
+        "pass_number": 18,
+        "relative_update_mean": 0.0018896654603705032
+      },
+      {
+        "gradient_norm_mean": 0.009017232662640871,
+        "objective_mean": 0.030197283193469048,
+        "pass_number": 19,
+        "relative_update_mean": 0.001973382879690842
+      },
+      {
+        "gradient_norm_mean": 0.009637727513518046,
+        "objective_mean": 0.030086515337228774,
+        "pass_number": 20,
+        "relative_update_mean": 0.001877573456385262
+      },
+      {
+        "gradient_norm_mean": 0.008599275965489254,
+        "objective_mean": 0.02998243507742882,
+        "pass_number": 21,
+        "relative_update_mean": 0.001706334997051041
+      },
+      {
+        "gradient_norm_mean": 0.00944324805690134,
+        "objective_mean": 0.029906822979450225,
+        "pass_number": 22,
+        "relative_update_mean": 0.0017341974422041238
+      },
+      {
+        "gradient_norm_mean": 0.009102069263458874,
+        "objective_mean": 0.02982931134104729,
+        "pass_number": 23,
+        "relative_update_mean": 0.0016518688543143438
+      },
+      {
+        "gradient_norm_mean": 0.008544572788670353,
+        "objective_mean": 0.029762029230594636,
+        "pass_number": 24,
+        "relative_update_mean": 0.0014924209914154065
+      },
+      {
+        "gradient_norm_mean": 0.008520463572998124,
+        "objective_mean": 0.029704520106315614,
+        "pass_number": 25,
+        "relative_update_mean": 0.001534043603637522
+      },
+      {
+        "gradient_norm_mean": 0.008471006741086648,
+        "objective_mean": 0.02965462489426136,
+        "pass_number": 26,
+        "relative_update_mean": 0.0014855223401633994
+      },
+      {
+        "gradient_norm_mean": 0.009779707689456216,
+        "objective_mean": 0.029616072446107863,
+        "pass_number": 27,
+        "relative_update_mean": 0.0016214804119858046
+      },
+      {
+        "gradient_norm_mean": 0.009598205875258775,
+        "objective_mean": 0.02955735883116722,
+        "pass_number": 28,
+        "relative_update_mean": 0.0018336655926759298
+      },
+      {
+        "gradient_norm_mean": 0.009196343014566353,
+        "objective_mean": 0.029412923067808152,
+        "pass_number": 29,
+        "relative_update_mean": 0.0032667697840560485
+      },
+      {
+        "gradient_norm_mean": 0.011426785379321652,
+        "objective_mean": 0.028879956111311913,
+        "pass_number": 30,
+        "relative_update_mean": 0.005965488629752623
+      },
+      {
+        "gradient_norm_mean": 0.010112833963029302,
+        "objective_mean": 0.02827747216820717,
+        "pass_number": 31,
+        "relative_update_mean": 0.003701613498500749
+      },
+      {
+        "gradient_norm_mean": 0.010101722932465149,
+        "objective_mean": 0.028021495416760446,
+        "pass_number": 32,
+        "relative_update_mean": 0.0025310679710242937
+      },
+      {
+        "gradient_norm_mean": 0.009913244478669607,
+        "objective_mean": 0.02788197146356106,
+        "pass_number": 33,
+        "relative_update_mean": 0.0021091641323413932
+      },
+      {
+        "gradient_norm_mean": 0.010155215922392593,
+        "objective_mean": 0.027792406141757965,
+        "pass_number": 34,
+        "relative_update_mean": 0.0018756154795486466
+      },
+      {
+        "gradient_norm_mean": 0.00838687013675882,
+        "objective_mean": 0.027716606274247168,
+        "pass_number": 35,
+        "relative_update_mean": 0.0015459243571858657
+      },
+      {
+        "gradient_norm_mean": 0.009473430450902397,
+        "objective_mean": 0.027678187519311906,
+        "pass_number": 36,
+        "relative_update_mean": 0.0016323318400107752
+      },
+      {
+        "gradient_norm_mean": 0.010443961281676746,
+        "objective_mean": 0.02764589324593544,
+        "pass_number": 37,
+        "relative_update_mean": 0.0016476477787787127
+      },
+      {
+        "gradient_norm_mean": 0.01079731869710921,
+        "objective_mean": 0.027619291514158248,
+        "pass_number": 38,
+        "relative_update_mean": 0.0016652724874494573
+      },
+      {
+        "gradient_norm_mean": 0.008814042784023889,
+        "objective_mean": 0.027583060294389724,
+        "pass_number": 39,
+        "relative_update_mean": 0.0014558030896958684
+      },
+      {
+        "gradient_norm_mean": 0.009855230914540223,
+        "objective_mean": 0.02756957194209099,
+        "pass_number": 40,
+        "relative_update_mean": 0.001577502400029086
+      },
+      {
+        "gradient_norm_mean": 0.009634465102275587,
+        "objective_mean": 0.027546790689229966,
+        "pass_number": 41,
+        "relative_update_mean": 0.001428380127070861
+      },
+      {
+        "gradient_norm_mean": 0.01084254450217745,
+        "objective_mean": 0.027544349804520606,
+        "pass_number": 42,
+        "relative_update_mean": 0.0015935128739869252
+      },
+      {
+        "gradient_norm_mean": 0.009245365634564462,
+        "objective_mean": 0.027516540348529815,
+        "pass_number": 43,
+        "relative_update_mean": 0.0014420024263839578
+      },
+      {
+        "gradient_norm_mean": 0.009445827922660837,
+        "objective_mean": 0.027490279108285904,
+        "pass_number": 44,
+        "relative_update_mean": 0.0024180215689798145
+      },
+      {
+        "gradient_norm_mean": 0.011474459794269391,
+        "objective_mean": 0.02738380342721939,
+        "pass_number": 45,
+        "relative_update_mean": 0.0036650387168762266
+      },
+      {
+        "gradient_norm_mean": 0.010098979650057826,
+        "objective_mean": 0.027146162584424018,
+        "pass_number": 46,
+        "relative_update_mean": 0.00322212816890891
+      },
+      {
+        "gradient_norm_mean": 0.00979325812887313,
+        "objective_mean": 0.026973018020391464,
+        "pass_number": 47,
+        "relative_update_mean": 0.002433078032306559
+      },
+      {
+        "gradient_norm_mean": 0.011046661191082606,
+        "objective_mean": 0.026890778571367263,
+        "pass_number": 48,
+        "relative_update_mean": 0.002174370584628315
+      },
+      {
+        "gradient_norm_mean": 0.010304248759336452,
+        "objective_mean": 0.026833086520433425,
+        "pass_number": 49,
+        "relative_update_mean": 0.0018273002965972427
+      },
+      {
+        "gradient_norm_mean": 0.011068661699952666,
+        "objective_mean": 0.026799696683883666,
+        "pass_number": 50,
+        "relative_update_mean": 0.0017881744388298013
+      },
+      {
+        "gradient_norm_mean": 0.010713100599082048,
+        "objective_mean": 0.02676007467508316,
+        "pass_number": 51,
+        "relative_update_mean": 0.0016598317772295002
+      },
+      {
+        "gradient_norm_mean": 0.009898517434174643,
+        "objective_mean": 0.02672696202993393,
+        "pass_number": 52,
+        "relative_update_mean": 0.0015746646745306077
+      },
+      {
+        "gradient_norm_mean": 0.010932499734138422,
+        "objective_mean": 0.02671613557636738,
+        "pass_number": 53,
+        "relative_update_mean": 0.001668217188596858
+      },
+      {
+        "gradient_norm_mean": 0.011694361711682444,
+        "objective_mean": 0.026705275043845178,
+        "pass_number": 54,
+        "relative_update_mean": 0.001684011491009417
+      },
+      {
+        "gradient_norm_mean": 0.009844837196347824,
+        "objective_mean": 0.02667840927839279,
+        "pass_number": 55,
+        "relative_update_mean": 0.0016058739773257482
+      },
+      {
+        "gradient_norm_mean": 0.01108383053867458,
+        "objective_mean": 0.026675438925623893,
+        "pass_number": 56,
+        "relative_update_mean": 0.001642949820283429
+      },
+      {
+        "gradient_norm_mean": 0.011075932759032694,
+        "objective_mean": 0.02666620001196861,
+        "pass_number": 57,
+        "relative_update_mean": 0.0016317833883419462
+      },
+      {
+        "gradient_norm_mean": 0.009622437870067554,
+        "objective_mean": 0.02664278456568718,
+        "pass_number": 58,
+        "relative_update_mean": 0.0013665388268167382
+      },
+      {
+        "gradient_norm_mean": 0.009378040078876753,
+        "objective_mean": 0.026633786767721178,
+        "pass_number": 59,
+        "relative_update_mean": 0.001360660792628939
+      },
+      {
+        "gradient_norm_mean": 0.010304889819268337,
+        "objective_mean": 0.02663084012269974,
+        "pass_number": 60,
+        "relative_update_mean": 0.0014504145086736793
+      },
+      {
+        "gradient_norm_mean": 0.010695499746526253,
+        "objective_mean": 0.026630305752158166,
+        "pass_number": 61,
+        "relative_update_mean": 0.0015634801874532564
+      },
+      {
+        "gradient_norm_mean": 0.010282681523554557,
+        "objective_mean": 0.02662106528878212,
+        "pass_number": 62,
+        "relative_update_mean": 0.0014898719207723074
+      },
+      {
+        "gradient_norm_mean": 0.009706283180555967,
+        "objective_mean": 0.026610461577773095,
+        "pass_number": 63,
+        "relative_update_mean": 0.0013919847965196248
+      },
+      {
+        "gradient_norm_mean": 0.01083840072463656,
+        "objective_mean": 0.026612417414784432,
+        "pass_number": 64,
+        "relative_update_mean": 0.00146145503511602
+      }
+    ],
+    "seed": "26102602",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  },
+  {
+    "arm": "decision",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 223.41633050383433,
+      "objective_mean": 24.889927999796456,
+      "objective_sum": 3185.9107839739463,
+      "relative_parameter_update_norm": 0.017950926193902848,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 25.95475942429408,
+      "objective_mean": 0.8807284610562143,
+      "objective_sum": 28.183310753798857,
+      "relative_parameter_update_norm": 0.0013674041941107399,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 412.4493344785665,
+    "maximum_relative_update": 0.017950926193902848,
+    "passes": [
+      {
+        "gradient_norm_mean": 106.33839655212199,
+        "objective_mean": 15.082284743426829,
+        "pass_number": 1,
+        "relative_update_mean": 0.006362522715669768
+      },
+      {
+        "gradient_norm_mean": 73.66782349319003,
+        "objective_mean": 10.700792444233524,
+        "pass_number": 2,
+        "relative_update_mean": 0.002335210962841227
+      },
+      {
+        "gradient_norm_mean": 64.01658253872681,
+        "objective_mean": 9.371408000098539,
+        "pass_number": 3,
+        "relative_update_mean": 0.0026840059521006485
+      },
+      {
+        "gradient_norm_mean": 57.49412132242716,
+        "objective_mean": 8.14511253409391,
+        "pass_number": 4,
+        "relative_update_mean": 0.0023498273991340254
+      },
+      {
+        "gradient_norm_mean": 52.56777234353204,
+        "objective_mean": 7.242652647755762,
+        "pass_number": 5,
+        "relative_update_mean": 0.0022640273497784007
+      },
+      {
+        "gradient_norm_mean": 51.2647870058722,
+        "objective_mean": 6.520267866586757,
+        "pass_number": 6,
+        "relative_update_mean": 0.0020324171432433537
+      },
+      {
+        "gradient_norm_mean": 50.92799701961014,
+        "objective_mean": 5.99562579745949,
+        "pass_number": 7,
+        "relative_update_mean": 0.00239203271797736
+      },
+      {
+        "gradient_norm_mean": 48.87339782232168,
+        "objective_mean": 5.5721211751272595,
+        "pass_number": 8,
+        "relative_update_mean": 0.0023195113429892136
+      },
+      {
+        "gradient_norm_mean": 47.20486922233628,
+        "objective_mean": 5.080834509699866,
+        "pass_number": 9,
+        "relative_update_mean": 0.0023511834102459615
+      },
+      {
+        "gradient_norm_mean": 46.4707940582234,
+        "objective_mean": 4.984354569505746,
+        "pass_number": 10,
+        "relative_update_mean": 0.002950508619124522
+      },
+      {
+        "gradient_norm_mean": 42.45201763785323,
+        "objective_mean": 4.582064235998279,
+        "pass_number": 11,
+        "relative_update_mean": 0.002300775721270473
+      },
+      {
+        "gradient_norm_mean": 54.32405999355329,
+        "objective_mean": 4.414738150946294,
+        "pass_number": 12,
+        "relative_update_mean": 0.002702761900939388
+      },
+      {
+        "gradient_norm_mean": 47.16194886155509,
+        "objective_mean": 4.438348799035979,
+        "pass_number": 13,
+        "relative_update_mean": 0.003460731645338299
+      },
+      {
+        "gradient_norm_mean": 38.610356494402666,
+        "objective_mean": 3.8700071984439015,
+        "pass_number": 14,
+        "relative_update_mean": 0.003404386244722751
+      },
+      {
+        "gradient_norm_mean": 38.85101052002137,
+        "objective_mean": 3.739125755100758,
+        "pass_number": 15,
+        "relative_update_mean": 0.0025661927410222814
+      },
+      {
+        "gradient_norm_mean": 34.08322090646576,
+        "objective_mean": 3.544241654621584,
+        "pass_number": 16,
+        "relative_update_mean": 0.002411586872626343
+      },
+      {
+        "gradient_norm_mean": 36.92421481088617,
+        "objective_mean": 3.3782415301435798,
+        "pass_number": 17,
+        "relative_update_mean": 0.002248293386606198
+      },
+      {
+        "gradient_norm_mean": 36.34585463879197,
+        "objective_mean": 3.2197012612760214,
+        "pass_number": 18,
+        "relative_update_mean": 0.002896175584134962
+      },
+      {
+        "gradient_norm_mean": 34.076014562734976,
+        "objective_mean": 3.066083192344911,
+        "pass_number": 19,
+        "relative_update_mean": 0.00288288506790189
+      },
+      {
+        "gradient_norm_mean": 32.91405194607643,
+        "objective_mean": 2.942872294645049,
+        "pass_number": 20,
+        "relative_update_mean": 0.0026395990681702614
+      },
+      {
+        "gradient_norm_mean": 33.66904624670012,
+        "objective_mean": 2.826070374562108,
+        "pass_number": 21,
+        "relative_update_mean": 0.0027719049309663985
+      },
+      {
+        "gradient_norm_mean": 34.282970331837134,
+        "objective_mean": 2.6454718407195013,
+        "pass_number": 22,
+        "relative_update_mean": 0.0027094652850076116
+      },
+      {
+        "gradient_norm_mean": 31.459815544022693,
+        "objective_mean": 2.5881285991405294,
+        "pass_number": 23,
+        "relative_update_mean": 0.0027574208913736025
+      },
+      {
+        "gradient_norm_mean": 29.766789449199045,
+        "objective_mean": 2.4602630128623715,
+        "pass_number": 24,
+        "relative_update_mean": 0.0027384044713958094
+      },
+      {
+        "gradient_norm_mean": 29.524896476809335,
+        "objective_mean": 2.4148801628341445,
+        "pass_number": 25,
+        "relative_update_mean": 0.0027768589672621095
+      },
+      {
+        "gradient_norm_mean": 32.2147272287023,
+        "objective_mean": 2.36623259511324,
+        "pass_number": 26,
+        "relative_update_mean": 0.002592956015652004
+      },
+      {
+        "gradient_norm_mean": 28.616043337393286,
+        "objective_mean": 2.2515087656893344,
+        "pass_number": 27,
+        "relative_update_mean": 0.002795381638363563
+      },
+      {
+        "gradient_norm_mean": 28.180500988606553,
+        "objective_mean": 2.1706146633967065,
+        "pass_number": 28,
+        "relative_update_mean": 0.0024947680199539505
+      },
+      {
+        "gradient_norm_mean": 27.10128630028063,
+        "objective_mean": 2.032669459855135,
+        "pass_number": 29,
+        "relative_update_mean": 0.0022385687036818322
+      },
+      {
+        "gradient_norm_mean": 28.187785495924057,
+        "objective_mean": 2.01499566364568,
+        "pass_number": 30,
+        "relative_update_mean": 0.002493312754234033
+      },
+      {
+        "gradient_norm_mean": 25.61574254517554,
+        "objective_mean": 1.9223547846649238,
+        "pass_number": 31,
+        "relative_update_mean": 0.0024820022982113203
+      },
+      {
+        "gradient_norm_mean": 23.958183356299532,
+        "objective_mean": 1.8292735218963097,
+        "pass_number": 32,
+        "relative_update_mean": 0.0022346892992776536
+      },
+      {
+        "gradient_norm_mean": 21.409703078867057,
+        "objective_mean": 1.739529092775791,
+        "pass_number": 33,
+        "relative_update_mean": 0.0019914125273898416
+      },
+      {
+        "gradient_norm_mean": 21.199260478679623,
+        "objective_mean": 1.6402752890175236,
+        "pass_number": 34,
+        "relative_update_mean": 0.0017662950510232646
+      },
+      {
+        "gradient_norm_mean": 20.152565994415752,
+        "objective_mean": 1.5985537757457127,
+        "pass_number": 35,
+        "relative_update_mean": 0.001905098270830147
+      },
+      {
+        "gradient_norm_mean": 26.981643203607838,
+        "objective_mean": 1.7517946745179052,
+        "pass_number": 36,
+        "relative_update_mean": 0.002703037268861121
+      },
+      {
+        "gradient_norm_mean": 20.912465063997573,
+        "objective_mean": 1.5763611879915425,
+        "pass_number": 37,
+        "relative_update_mean": 0.0022564605294518583
+      },
+      {
+        "gradient_norm_mean": 23.63430649930944,
+        "objective_mean": 1.5251313303204197,
+        "pass_number": 38,
+        "relative_update_mean": 0.0021171636935640647
+      },
+      {
+        "gradient_norm_mean": 19.923861652030762,
+        "objective_mean": 1.4899825529069433,
+        "pass_number": 39,
+        "relative_update_mean": 0.0019924866722951526
+      },
+      {
+        "gradient_norm_mean": 19.010621496654707,
+        "objective_mean": 1.3873254224518323,
+        "pass_number": 40,
+        "relative_update_mean": 0.0018113910406128812
+      },
+      {
+        "gradient_norm_mean": 19.725753968243666,
+        "objective_mean": 1.3771414847033927,
+        "pass_number": 41,
+        "relative_update_mean": 0.0017882348789822215
+      },
+      {
+        "gradient_norm_mean": 18.502072587704248,
+        "objective_mean": 1.307551554207997,
+        "pass_number": 42,
+        "relative_update_mean": 0.0015982107315125193
+      },
+      {
+        "gradient_norm_mean": 17.673194351442554,
+        "objective_mean": 1.2767519997468189,
+        "pass_number": 43,
+        "relative_update_mean": 0.0017621922939373607
+      },
+      {
+        "gradient_norm_mean": 19.56889457994369,
+        "objective_mean": 1.2901880349471815,
+        "pass_number": 44,
+        "relative_update_mean": 0.0020120119019777383
+      },
+      {
+        "gradient_norm_mean": 17.64492770937099,
+        "objective_mean": 1.2032420443914205,
+        "pass_number": 45,
+        "relative_update_mean": 0.0016572376167053248
+      },
+      {
+        "gradient_norm_mean": 16.13946894365326,
+        "objective_mean": 1.1807529630970335,
+        "pass_number": 46,
+        "relative_update_mean": 0.0017946237608275671
+      },
+      {
+        "gradient_norm_mean": 21.110056664735072,
+        "objective_mean": 1.1676690410489732,
+        "pass_number": 47,
+        "relative_update_mean": 0.001816472908567435
+      },
+      {
+        "gradient_norm_mean": 20.970126689259196,
+        "objective_mean": 1.282874680349656,
+        "pass_number": 48,
+        "relative_update_mean": 0.0025851815595385433
+      },
+      {
+        "gradient_norm_mean": 21.091352797633004,
+        "objective_mean": 1.2254312820184856,
+        "pass_number": 49,
+        "relative_update_mean": 0.002395788841767456
+      },
+      {
+        "gradient_norm_mean": 17.954448956868944,
+        "objective_mean": 1.1256710105586651,
+        "pass_number": 50,
+        "relative_update_mean": 0.0018722701369231485
+      },
+      {
+        "gradient_norm_mean": 19.48475317787958,
+        "objective_mean": 1.091247579367017,
+        "pass_number": 51,
+        "relative_update_mean": 0.0018544715242162018
+      },
+      {
+        "gradient_norm_mean": 17.59688154579593,
+        "objective_mean": 1.0898285083476027,
+        "pass_number": 52,
+        "relative_update_mean": 0.0022113573794126143
+      },
+      {
+        "gradient_norm_mean": 16.323240786745274,
+        "objective_mean": 1.0332083442908946,
+        "pass_number": 53,
+        "relative_update_mean": 0.0017585930818460904
+      },
+      {
+        "gradient_norm_mean": 17.45229274430838,
+        "objective_mean": 0.9876780807840323,
+        "pass_number": 54,
+        "relative_update_mean": 0.001755904635567173
+      },
+      {
+        "gradient_norm_mean": 20.151317177409407,
+        "objective_mean": 1.0676096037925624,
+        "pass_number": 55,
+        "relative_update_mean": 0.0021349837052803324
+      },
+      {
+        "gradient_norm_mean": 13.433098870301837,
+        "objective_mean": 0.9121560691784802,
+        "pass_number": 56,
+        "relative_update_mean": 0.001403809189291673
+      },
+      {
+        "gradient_norm_mean": 14.741841470030542,
+        "objective_mean": 0.884806122793934,
+        "pass_number": 57,
+        "relative_update_mean": 0.0014416310696603984
+      },
+      {
+        "gradient_norm_mean": 17.061153024981135,
+        "objective_mean": 0.920447402005251,
+        "pass_number": 58,
+        "relative_update_mean": 0.0019265565943905236
+      },
+      {
+        "gradient_norm_mean": 15.17584574381141,
+        "objective_mean": 0.9093621587443587,
+        "pass_number": 59,
+        "relative_update_mean": 0.0017489375257471556
+      },
+      {
+        "gradient_norm_mean": 13.553247368712052,
+        "objective_mean": 0.8553810907157404,
+        "pass_number": 60,
+        "relative_update_mean": 0.0015937823996579363
+      },
+      {
+        "gradient_norm_mean": 14.093730788000482,
+        "objective_mean": 0.8292705457336647,
+        "pass_number": 61,
+        "relative_update_mean": 0.001704394508722421
+      },
+      {
+        "gradient_norm_mean": 16.48685111467721,
+        "objective_mean": 0.8561047475779227,
+        "pass_number": 62,
+        "relative_update_mean": 0.001898374468211909
+      },
+      {
+        "gradient_norm_mean": 13.085027043056092,
+        "objective_mean": 0.7745924295260105,
+        "pass_number": 63,
+        "relative_update_mean": 0.001554878272777498
+      },
+      {
+        "gradient_norm_mean": 13.54889272558651,
+        "objective_mean": 0.7725217959551915,
+        "pass_number": 64,
+        "relative_update_mean": 0.001596274652925022
+      }
+    ],
+    "seed": "26102602",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  },
+  {
+    "arm": "feature",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 0.1803131612439988,
+      "objective_mean": 0.099127858877182,
+      "objective_sum": 12.688365936279297,
+      "relative_parameter_update_norm": 0.018210916443301594,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 0.019570810862619557,
+      "objective_mean": 0.02820725366473198,
+      "objective_sum": 0.9026321172714233,
+      "relative_parameter_update_norm": 0.0014350539472849928,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 0.1803131612439988,
+    "maximum_relative_update": 0.018210916443301594,
+    "passes": [
+      {
+        "gradient_norm_mean": 0.06028503324534286,
+        "objective_mean": 0.07420791620016098,
+        "pass_number": 1,
+        "relative_update_mean": 0.007440072722426095
+      },
+      {
+        "gradient_norm_mean": 0.04113469273303596,
+        "objective_mean": 0.05971120211482048,
+        "pass_number": 2,
+        "relative_update_mean": 0.004349435893361844
+      },
+      {
+        "gradient_norm_mean": 0.025328796082976324,
+        "objective_mean": 0.048927311062812805,
+        "pass_number": 3,
+        "relative_update_mean": 0.004111579016513473
+      },
+      {
+        "gradient_norm_mean": 0.009947962644268164,
+        "objective_mean": 0.04431988498568535,
+        "pass_number": 4,
+        "relative_update_mean": 0.003052663546795725
+      },
+      {
+        "gradient_norm_mean": 0.008305291223259762,
+        "objective_mean": 0.04261012089252472,
+        "pass_number": 5,
+        "relative_update_mean": 0.0032797283933654483
+      },
+      {
+        "gradient_norm_mean": 0.0072716301775722445,
+        "objective_mean": 0.041075552701950076,
+        "pass_number": 6,
+        "relative_update_mean": 0.0038571906209976087
+      },
+      {
+        "gradient_norm_mean": 0.0069792920069412555,
+        "objective_mean": 0.03974213179945946,
+        "pass_number": 7,
+        "relative_update_mean": 0.0032831290558658867
+      },
+      {
+        "gradient_norm_mean": 0.006484069046553184,
+        "objective_mean": 0.038669833064079284,
+        "pass_number": 8,
+        "relative_update_mean": 0.0029049437649477
+      },
+      {
+        "gradient_norm_mean": 0.006975094821906708,
+        "objective_mean": 0.03776388105750084,
+        "pass_number": 9,
+        "relative_update_mean": 0.002807028846164684
+      },
+      {
+        "gradient_norm_mean": 0.0056034324036519185,
+        "objective_mean": 0.036998636782169345,
+        "pass_number": 10,
+        "relative_update_mean": 0.002506083598237338
+      },
+      {
+        "gradient_norm_mean": 0.005732552013287071,
+        "objective_mean": 0.03637659847736359,
+        "pass_number": 11,
+        "relative_update_mean": 0.0022683788003184176
+      },
+      {
+        "gradient_norm_mean": 0.0065269347492205795,
+        "objective_mean": 0.03585322034358978,
+        "pass_number": 12,
+        "relative_update_mean": 0.0021289076145202816
+      },
+      {
+        "gradient_norm_mean": 0.00587346218886953,
+        "objective_mean": 0.03540009164810181,
+        "pass_number": 13,
+        "relative_update_mean": 0.0019492215834275056
+      },
+      {
+        "gradient_norm_mean": 0.006715467256434629,
+        "objective_mean": 0.03500314649939537,
+        "pass_number": 14,
+        "relative_update_mean": 0.0019513408414283465
+      },
+      {
+        "gradient_norm_mean": 0.007045246571811725,
+        "objective_mean": 0.03462228414416313,
+        "pass_number": 15,
+        "relative_update_mean": 0.002667882944371145
+      },
+      {
+        "gradient_norm_mean": 0.007865062080534203,
+        "objective_mean": 0.03388772812485695,
+        "pass_number": 16,
+        "relative_update_mean": 0.00626805693479155
+      },
+      {
+        "gradient_norm_mean": 0.009170242020492738,
+        "objective_mean": 0.0328755005300045,
+        "pass_number": 17,
+        "relative_update_mean": 0.004172022076764069
+      },
+      {
+        "gradient_norm_mean": 0.008320819174349398,
+        "objective_mean": 0.03224501502513886,
+        "pass_number": 18,
+        "relative_update_mean": 0.002827413056596285
+      },
+      {
+        "gradient_norm_mean": 0.008863343451111557,
+        "objective_mean": 0.03186860117316246,
+        "pass_number": 19,
+        "relative_update_mean": 0.002194722219289647
+      },
+      {
+        "gradient_norm_mean": 0.007866818722074983,
+        "objective_mean": 0.031622414857149124,
+        "pass_number": 20,
+        "relative_update_mean": 0.0017768715496501455
+      },
+      {
+        "gradient_norm_mean": 0.008883460712081927,
+        "objective_mean": 0.03145770546793938,
+        "pass_number": 21,
+        "relative_update_mean": 0.001651441890292845
+      },
+      {
+        "gradient_norm_mean": 0.007121026679154694,
+        "objective_mean": 0.03131154865026474,
+        "pass_number": 22,
+        "relative_update_mean": 0.0013935221823440224
+      },
+      {
+        "gradient_norm_mean": 0.007544828515371146,
+        "objective_mean": 0.031196691632270814,
+        "pass_number": 23,
+        "relative_update_mean": 0.0013498008008105157
+      },
+      {
+        "gradient_norm_mean": 0.010262806087199748,
+        "objective_mean": 0.03111586833000183,
+        "pass_number": 24,
+        "relative_update_mean": 0.0016141336254031345
+      },
+      {
+        "gradient_norm_mean": 0.010160445152097958,
+        "objective_mean": 0.031033463597297667,
+        "pass_number": 25,
+        "relative_update_mean": 0.001705344909665459
+      },
+      {
+        "gradient_norm_mean": 0.008590107887692336,
+        "objective_mean": 0.030871994867920874,
+        "pass_number": 26,
+        "relative_update_mean": 0.002771430987565365
+      },
+      {
+        "gradient_norm_mean": 0.010138062703937108,
+        "objective_mean": 0.03041135473549366,
+        "pass_number": 27,
+        "relative_update_mean": 0.0035742163018263173
+      },
+      {
+        "gradient_norm_mean": 0.008296354517691182,
+        "objective_mean": 0.030087661802768707,
+        "pass_number": 28,
+        "relative_update_mean": 0.0022228276606805915
+      },
+      {
+        "gradient_norm_mean": 0.008893827550607115,
+        "objective_mean": 0.02993032729625702,
+        "pass_number": 29,
+        "relative_update_mean": 0.001833395759336678
+      },
+      {
+        "gradient_norm_mean": 0.008921821380688123,
+        "objective_mean": 0.029820408910512925,
+        "pass_number": 30,
+        "relative_update_mean": 0.0015634748775625134
+      },
+      {
+        "gradient_norm_mean": 0.008847984304511006,
+        "objective_mean": 0.029745763838291167,
+        "pass_number": 31,
+        "relative_update_mean": 0.0015316203130153125
+      },
+      {
+        "gradient_norm_mean": 0.009479475168784219,
+        "objective_mean": 0.029686786383390427,
+        "pass_number": 32,
+        "relative_update_mean": 0.001457948815620395
+      },
+      {
+        "gradient_norm_mean": 0.008959113559177766,
+        "objective_mean": 0.02963565607368946,
+        "pass_number": 33,
+        "relative_update_mean": 0.0013406811665448825
+      },
+      {
+        "gradient_norm_mean": 0.008763692271771786,
+        "objective_mean": 0.029595718711614608,
+        "pass_number": 34,
+        "relative_update_mean": 0.001320403188678284
+      },
+      {
+        "gradient_norm_mean": 0.007893542602307563,
+        "objective_mean": 0.029557433992624282,
+        "pass_number": 35,
+        "relative_update_mean": 0.0012229442268119875
+      },
+      {
+        "gradient_norm_mean": 0.010048578624795123,
+        "objective_mean": 0.029538888037204742,
+        "pass_number": 36,
+        "relative_update_mean": 0.00138569170258956
+      },
+      {
+        "gradient_norm_mean": 0.009405550343179898,
+        "objective_mean": 0.029507609322667123,
+        "pass_number": 37,
+        "relative_update_mean": 0.0013014687506893055
+      },
+      {
+        "gradient_norm_mean": 0.011449383200273514,
+        "objective_mean": 0.029498087078332902,
+        "pass_number": 38,
+        "relative_update_mean": 0.0014905014764651796
+      },
+      {
+        "gradient_norm_mean": 0.009160083415150016,
+        "objective_mean": 0.029467906445264817,
+        "pass_number": 39,
+        "relative_update_mean": 0.0013564333185557193
+      },
+      {
+        "gradient_norm_mean": 0.009622488896780202,
+        "objective_mean": 0.02944932544231415,
+        "pass_number": 40,
+        "relative_update_mean": 0.0012992424275260284
+      },
+      {
+        "gradient_norm_mean": 0.009387381719398426,
+        "objective_mean": 0.02943002277612686,
+        "pass_number": 41,
+        "relative_update_mean": 0.0012969027409702207
+      },
+      {
+        "gradient_norm_mean": 0.009241597431060353,
+        "objective_mean": 0.029414857760071755,
+        "pass_number": 42,
+        "relative_update_mean": 0.0012407946942114634
+      },
+      {
+        "gradient_norm_mean": 0.009296938758549651,
+        "objective_mean": 0.02940127392113209,
+        "pass_number": 43,
+        "relative_update_mean": 0.0012552152917153707
+      },
+      {
+        "gradient_norm_mean": 0.008586996042035399,
+        "objective_mean": 0.029380472868680955,
+        "pass_number": 44,
+        "relative_update_mean": 0.0011427441940379968
+      },
+      {
+        "gradient_norm_mean": 0.009247296321204107,
+        "objective_mean": 0.029372752279043197,
+        "pass_number": 45,
+        "relative_update_mean": 0.0012229272173986836
+      },
+      {
+        "gradient_norm_mean": 0.0107788216027297,
+        "objective_mean": 0.029370822057127953,
+        "pass_number": 46,
+        "relative_update_mean": 0.0013342628319693173
+      },
+      {
+        "gradient_norm_mean": 0.007517380806468931,
+        "objective_mean": 0.029339573621749878,
+        "pass_number": 47,
+        "relative_update_mean": 0.0010528629776880428
+      },
+      {
+        "gradient_norm_mean": 0.009860979541283807,
+        "objective_mean": 0.029341625779867174,
+        "pass_number": 48,
+        "relative_update_mean": 0.0012604287155243078
+      },
+      {
+        "gradient_norm_mean": 0.009531690115621088,
+        "objective_mean": 0.02932705022394657,
+        "pass_number": 49,
+        "relative_update_mean": 0.0011886452567942591
+      },
+      {
+        "gradient_norm_mean": 0.009625103850830256,
+        "objective_mean": 0.029318183347582818,
+        "pass_number": 50,
+        "relative_update_mean": 0.0011941810628714607
+      },
+      {
+        "gradient_norm_mean": 0.00844601960151534,
+        "objective_mean": 0.029300934284925462,
+        "pass_number": 51,
+        "relative_update_mean": 0.0010817854134257568
+      },
+      {
+        "gradient_norm_mean": 0.009399908714390394,
+        "objective_mean": 0.029295009434223175,
+        "pass_number": 52,
+        "relative_update_mean": 0.001177959311271094
+      },
+      {
+        "gradient_norm_mean": 0.008327051987962547,
+        "objective_mean": 0.029283429563045502,
+        "pass_number": 53,
+        "relative_update_mean": 0.0011076683337188544
+      },
+      {
+        "gradient_norm_mean": 0.009174747355105983,
+        "objective_mean": 0.02927680116891861,
+        "pass_number": 54,
+        "relative_update_mean": 0.0012262465280254739
+      },
+      {
+        "gradient_norm_mean": 0.009911936137906452,
+        "objective_mean": 0.02927296245098114,
+        "pass_number": 55,
+        "relative_update_mean": 0.001282913306807907
+      },
+      {
+        "gradient_norm_mean": 0.00967515264138124,
+        "objective_mean": 0.029257779479026795,
+        "pass_number": 56,
+        "relative_update_mean": 0.001224439403638136
+      },
+      {
+        "gradient_norm_mean": 0.00871020624879667,
+        "objective_mean": 0.02924474769830704,
+        "pass_number": 57,
+        "relative_update_mean": 0.0011365891387646449
+      },
+      {
+        "gradient_norm_mean": 0.009698503814639818,
+        "objective_mean": 0.02923867344856262,
+        "pass_number": 58,
+        "relative_update_mean": 0.0012241987860857212
+      },
+      {
+        "gradient_norm_mean": 0.010241670795271086,
+        "objective_mean": 0.02923211397230625,
+        "pass_number": 59,
+        "relative_update_mean": 0.001269476851843996
+      },
+      {
+        "gradient_norm_mean": 0.008006949842495054,
+        "objective_mean": 0.029211372122168542,
+        "pass_number": 60,
+        "relative_update_mean": 0.001073810020621739
+      },
+      {
+        "gradient_norm_mean": 0.009045926626531085,
+        "objective_mean": 0.02920573028922081,
+        "pass_number": 61,
+        "relative_update_mean": 0.001139936463239461
+      },
+      {
+        "gradient_norm_mean": 0.008920398627206037,
+        "objective_mean": 0.02919641736149788,
+        "pass_number": 62,
+        "relative_update_mean": 0.0011718878053424337
+      },
+      {
+        "gradient_norm_mean": 0.008572396736428858,
+        "objective_mean": 0.029183862656354906,
+        "pass_number": 63,
+        "relative_update_mean": 0.0011329531747635952
+      },
+      {
+        "gradient_norm_mean": 0.009496578594830137,
+        "objective_mean": 0.02917912420630455,
+        "pass_number": 64,
+        "relative_update_mean": 0.0012280858120168525
+      }
+    ],
+    "seed": "26102603",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  },
+  {
+    "arm": "decision",
+    "first": {
+      "examples": 128,
+      "gradient_norm": 95.15674370069677,
+      "objective_mean": 25.67487771060319,
+      "objective_sum": 3286.3843469572084,
+      "relative_parameter_update_norm": 0.018219086104225263,
+      "update": 1
+    },
+    "last": {
+      "examples": 32,
+      "gradient_norm": 30.89020733927695,
+      "objective_mean": 2.3232719864197633,
+      "objective_sum": 74.34470356543243,
+      "relative_parameter_update_norm": 0.002463589276051711,
+      "update": 2048
+    },
+    "maximum_gradient_norm": 190.19364049897115,
+    "maximum_relative_update": 0.018219086104225263,
+    "passes": [
+      {
+        "gradient_norm_mean": 84.46407745890488,
+        "objective_mean": 12.82599081870882,
+        "pass_number": 1,
+        "relative_update_mean": 0.00636511624742691
+      },
+      {
+        "gradient_norm_mean": 53.88612738479348,
+        "objective_mean": 8.608140996888595,
+        "pass_number": 2,
+        "relative_update_mean": 0.002873749009503307
+      },
+      {
+        "gradient_norm_mean": 54.17258076957605,
+        "objective_mean": 7.99753905334309,
+        "pass_number": 3,
+        "relative_update_mean": 0.003348931909003987
+      },
+      {
+        "gradient_norm_mean": 50.09303130320225,
+        "objective_mean": 7.192639790274066,
+        "pass_number": 4,
+        "relative_update_mean": 0.0028893683603606665
+      },
+      {
+        "gradient_norm_mean": 42.93981009384757,
+        "objective_mean": 7.0697469804905815,
+        "pass_number": 5,
+        "relative_update_mean": 0.0037502809114672254
+      },
+      {
+        "gradient_norm_mean": 35.092017075662994,
+        "objective_mean": 6.072624828113452,
+        "pass_number": 6,
+        "relative_update_mean": 0.003529837746158161
+      },
+      {
+        "gradient_norm_mean": 23.954736539869685,
+        "objective_mean": 5.201186336980856,
+        "pass_number": 7,
+        "relative_update_mean": 0.002760762250698615
+      },
+      {
+        "gradient_norm_mean": 14.956850406690574,
+        "objective_mean": 4.766274062424276,
+        "pass_number": 8,
+        "relative_update_mean": 0.001821687040123384
+      },
+      {
+        "gradient_norm_mean": 16.12160080780059,
+        "objective_mean": 4.557891993531787,
+        "pass_number": 9,
+        "relative_update_mean": 0.001886652648048607
+      },
+      {
+        "gradient_norm_mean": 15.241135307714815,
+        "objective_mean": 4.449652390670784,
+        "pass_number": 10,
+        "relative_update_mean": 0.0017117657185577468
+      },
+      {
+        "gradient_norm_mean": 14.060537459018885,
+        "objective_mean": 4.29487370099523,
+        "pass_number": 11,
+        "relative_update_mean": 0.0013593311667231308
+      },
+      {
+        "gradient_norm_mean": 13.550015895882426,
+        "objective_mean": 4.2336134396152705,
+        "pass_number": 12,
+        "relative_update_mean": 0.0013902884742455096
+      },
+      {
+        "gradient_norm_mean": 13.00718685574341,
+        "objective_mean": 4.164266356910107,
+        "pass_number": 13,
+        "relative_update_mean": 0.0012716309839756895
+      },
+      {
+        "gradient_norm_mean": 13.9360324094611,
+        "objective_mean": 4.109643403830595,
+        "pass_number": 14,
+        "relative_update_mean": 0.0013204857892054537
+      },
+      {
+        "gradient_norm_mean": 12.607703742612081,
+        "objective_mean": 4.058786275247903,
+        "pass_number": 15,
+        "relative_update_mean": 0.0013049420366746862
+      },
+      {
+        "gradient_norm_mean": 14.06882412968674,
+        "objective_mean": 4.075490012711651,
+        "pass_number": 16,
+        "relative_update_mean": 0.0017448135010302197
+      },
+      {
+        "gradient_norm_mean": 13.059446245492449,
+        "objective_mean": 3.9863118590748203,
+        "pass_number": 17,
+        "relative_update_mean": 0.0013102577024834427
+      },
+      {
+        "gradient_norm_mean": 12.247493032939891,
+        "objective_mean": 3.9367393745488823,
+        "pass_number": 18,
+        "relative_update_mean": 0.0011730732576892056
+      },
+      {
+        "gradient_norm_mean": 15.261442493176345,
+        "objective_mean": 3.931138831257421,
+        "pass_number": 19,
+        "relative_update_mean": 0.0015478161928781918
+      },
+      {
+        "gradient_norm_mean": 14.408993448613487,
+        "objective_mean": 3.9290372881417888,
+        "pass_number": 20,
+        "relative_update_mean": 0.0016864251270918302
+      },
+      {
+        "gradient_norm_mean": 14.194258310953026,
+        "objective_mean": 3.947842277318678,
+        "pass_number": 21,
+        "relative_update_mean": 0.001987647457865308
+      },
+      {
+        "gradient_norm_mean": 14.560397868437988,
+        "objective_mean": 3.9287300786903847,
+        "pass_number": 22,
+        "relative_update_mean": 0.0018658863157583344
+      },
+      {
+        "gradient_norm_mean": 13.984887681238286,
+        "objective_mean": 3.8559866551773494,
+        "pass_number": 23,
+        "relative_update_mean": 0.0017504231247559225
+      },
+      {
+        "gradient_norm_mean": 14.817831664858227,
+        "objective_mean": 3.824847536454073,
+        "pass_number": 24,
+        "relative_update_mean": 0.0016872942125197275
+      },
+      {
+        "gradient_norm_mean": 14.382479093680955,
+        "objective_mean": 3.809088726036418,
+        "pass_number": 25,
+        "relative_update_mean": 0.0017299690969295976
+      },
+      {
+        "gradient_norm_mean": 15.351233027708359,
+        "objective_mean": 3.806336853014242,
+        "pass_number": 26,
+        "relative_update_mean": 0.0017292127855931744
+      },
+      {
+        "gradient_norm_mean": 14.824721005901843,
+        "objective_mean": 3.767926802930481,
+        "pass_number": 27,
+        "relative_update_mean": 0.0015923950875759304
+      },
+      {
+        "gradient_norm_mean": 15.536359534864053,
+        "objective_mean": 3.7154806818043205,
+        "pass_number": 28,
+        "relative_update_mean": 0.0015386138372822584
+      },
+      {
+        "gradient_norm_mean": 16.413054082807317,
+        "objective_mean": 3.7863027599821018,
+        "pass_number": 29,
+        "relative_update_mean": 0.002019460307186463
+      },
+      {
+        "gradient_norm_mean": 16.397711426363752,
+        "objective_mean": 3.7022417890985704,
+        "pass_number": 30,
+        "relative_update_mean": 0.002003752776403412
+      },
+      {
+        "gradient_norm_mean": 15.157863108532023,
+        "objective_mean": 3.6549679494660943,
+        "pass_number": 31,
+        "relative_update_mean": 0.001751303955941643
+      },
+      {
+        "gradient_norm_mean": 15.571283315320567,
+        "objective_mean": 3.655958366331036,
+        "pass_number": 32,
+        "relative_update_mean": 0.0018989079106200963
+      },
+      {
+        "gradient_norm_mean": 16.416623812417715,
+        "objective_mean": 3.580209281328546,
+        "pass_number": 33,
+        "relative_update_mean": 0.0018007261895499466
+      },
+      {
+        "gradient_norm_mean": 16.583565658451715,
+        "objective_mean": 3.58172021925581,
+        "pass_number": 34,
+        "relative_update_mean": 0.0021986295354642867
+      },
+      {
+        "gradient_norm_mean": 18.405420796763096,
+        "objective_mean": 3.629215208477521,
+        "pass_number": 35,
+        "relative_update_mean": 0.002301325484229688
+      },
+      {
+        "gradient_norm_mean": 17.322174220284158,
+        "objective_mean": 3.6317696474364207,
+        "pass_number": 36,
+        "relative_update_mean": 0.0022417450281043403
+      },
+      {
+        "gradient_norm_mean": 16.34972328392379,
+        "objective_mean": 3.4867089595139604,
+        "pass_number": 37,
+        "relative_update_mean": 0.0020477952389047795
+      },
+      {
+        "gradient_norm_mean": 15.778086752905365,
+        "objective_mean": 3.4558991736616402,
+        "pass_number": 38,
+        "relative_update_mean": 0.001869478026519639
+      },
+      {
+        "gradient_norm_mean": 17.70546312158023,
+        "objective_mean": 3.522665484411361,
+        "pass_number": 39,
+        "relative_update_mean": 0.0022560290063683274
+      },
+      {
+        "gradient_norm_mean": 16.527001632709027,
+        "objective_mean": 3.4512388520358974,
+        "pass_number": 40,
+        "relative_update_mean": 0.0022011699871669777
+      },
+      {
+        "gradient_norm_mean": 19.792781887127784,
+        "objective_mean": 3.5270217973461975,
+        "pass_number": 41,
+        "relative_update_mean": 0.002740222284759674
+      },
+      {
+        "gradient_norm_mean": 19.19550610461784,
+        "objective_mean": 3.481942207649831,
+        "pass_number": 42,
+        "relative_update_mean": 0.0025553969314646404
+      },
+      {
+        "gradient_norm_mean": 16.669680142945136,
+        "objective_mean": 3.385474408227985,
+        "pass_number": 43,
+        "relative_update_mean": 0.002093129571681733
+      },
+      {
+        "gradient_norm_mean": 16.702875745235485,
+        "objective_mean": 3.298322117599824,
+        "pass_number": 44,
+        "relative_update_mean": 0.0017803334927696658
+      },
+      {
+        "gradient_norm_mean": 17.328529648801638,
+        "objective_mean": 3.2874537595129003,
+        "pass_number": 45,
+        "relative_update_mean": 0.0019380226848202254
+      },
+      {
+        "gradient_norm_mean": 17.242157802173896,
+        "objective_mean": 3.270366780026172,
+        "pass_number": 46,
+        "relative_update_mean": 0.0022456718872391427
+      },
+      {
+        "gradient_norm_mean": 17.30097989739374,
+        "objective_mean": 3.4086493775339535,
+        "pass_number": 47,
+        "relative_update_mean": 0.0026512348556037295
+      },
+      {
+        "gradient_norm_mean": 17.84328798913969,
+        "objective_mean": 3.2269923223487806,
+        "pass_number": 48,
+        "relative_update_mean": 0.0021758710084098074
+      },
+      {
+        "gradient_norm_mean": 18.757077428766152,
+        "objective_mean": 3.2402806002400792,
+        "pass_number": 49,
+        "relative_update_mean": 0.002343532818758261
+      },
+      {
+        "gradient_norm_mean": 19.243172644414038,
+        "objective_mean": 3.2279979709133078,
+        "pass_number": 50,
+        "relative_update_mean": 0.0024877041863521766
+      },
+      {
+        "gradient_norm_mean": 19.05533833232155,
+        "objective_mean": 3.16846629786798,
+        "pass_number": 51,
+        "relative_update_mean": 0.0022824387384060524
+      },
+      {
+        "gradient_norm_mean": 18.13061351015066,
+        "objective_mean": 3.109815513209824,
+        "pass_number": 52,
+        "relative_update_mean": 0.0020589217724602286
+      },
+      {
+        "gradient_norm_mean": 16.470701889831975,
+        "objective_mean": 3.052902677458994,
+        "pass_number": 53,
+        "relative_update_mean": 0.0020677947656536715
+      },
+      {
+        "gradient_norm_mean": 18.411252658249623,
+        "objective_mean": 3.0509198778687643,
+        "pass_number": 54,
+        "relative_update_mean": 0.002313936206549084
+      },
+      {
+        "gradient_norm_mean": 17.053249649982515,
+        "objective_mean": 3.0012126577497114,
+        "pass_number": 55,
+        "relative_update_mean": 0.0018785893200637513
+      },
+      {
+        "gradient_norm_mean": 19.771109810256576,
+        "objective_mean": 3.030586686657137,
+        "pass_number": 56,
+        "relative_update_mean": 0.002452559975491585
+      },
+      {
+        "gradient_norm_mean": 17.868498777643428,
+        "objective_mean": 2.90933212328215,
+        "pass_number": 57,
+        "relative_update_mean": 0.002166557837727657
+      },
+      {
+        "gradient_norm_mean": 18.825830454860284,
+        "objective_mean": 2.9220693621017078,
+        "pass_number": 58,
+        "relative_update_mean": 0.0023508885198024903
+      },
+      {
+        "gradient_norm_mean": 16.211710078182264,
+        "objective_mean": 2.8873155585808643,
+        "pass_number": 59,
+        "relative_update_mean": 0.0021004666070490543
+      },
+      {
+        "gradient_norm_mean": 18.038885544436983,
+        "objective_mean": 2.8157055013836967,
+        "pass_number": 60,
+        "relative_update_mean": 0.002211320134399275
+      },
+      {
+        "gradient_norm_mean": 19.592763943382764,
+        "objective_mean": 2.82221317141861,
+        "pass_number": 61,
+        "relative_update_mean": 0.002180015604340497
+      },
+      {
+        "gradient_norm_mean": 19.0069496094201,
+        "objective_mean": 2.813742822523326,
+        "pass_number": 62,
+        "relative_update_mean": 0.0025488056919436065
+      },
+      {
+        "gradient_norm_mean": 20.20006581884054,
+        "objective_mean": 2.7717384368046867,
+        "pass_number": 63,
+        "relative_update_mean": 0.0024127333623434125
+      },
+      {
+        "gradient_norm_mean": 18.368229166040308,
+        "objective_mean": 2.700823692176314,
+        "pass_number": 64,
+        "relative_update_mean": 0.002292208968198992
+      }
+    ],
+    "seed": "26102603",
+    "zero_gradient_updates": 0,
+    "zero_loss_updates": 0
+  }
+]

@@ -1,0 +1,7 @@
+# Exploratory native whole-model costs
+
+These known-seed systems measurements extend, rather than replace, the earlier confirmation readbacks. Full protocols, captures, serialized artifacts and timing records are committed on the isolated branches research/r87r2-native-cost-pilot-20261026 and research/r87r2-native-cost-extension-20261026 in this repository's local object database. Commit references and independent audit receipts are recorded here; no remote publication is implied.
+
+Seed871200 pilot and chronological871201–871203 all pass exact original scientific-trajectory and deployed-logit gates. All four fail the predeclared joint requirement of at least5% smaller whole artifact AND5% lower median batch128 latency, because whole-artifact size reduction is below5%. Size ratios: pilot0.961053397; extension0.961053397,0.961053397,0.950318609. The last result is not rounded into a PASS. Median batch128 timing ratios show modest reductions but several process ranges cross0.95. All technical repetitions are preserved; these are not new independent model seeds or confirmatory population evidence.
+
+The unchanged pipeline contributes38218 parameters; halving a3072-parameter replacement to1536 yields only3.72% fewer whole-model parameters. The all16 frozen-cohort tensor-payload census has only2/16 with at least5% payload reduction. Payload calculations are not archive measurements and imply no latency result. No general RAM/energy/GPU benefit is claimed.

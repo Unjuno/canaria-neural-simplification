@@ -1,0 +1,34 @@
+{
+  "snapshot_utc": "2026-10-26T09:32:00Z",
+  "preflight": "PASS_DATA_RUNTIME_ONLY_NO_QUALITY_RESULT",
+  "teachers": {
+    "26102601": "RUNNING_QUALITY_PENDING",
+    "26102602": "RUNNING_QUALITY_PENDING",
+    "26102603": "QUEUED"
+  },
+  "execution_protocol_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+  "launch_records": {
+    "26102601": {
+      "immutable_launch": {
+        "schema": 1,
+        "seed": 26102601,
+        "started": 1793006962.6811554,
+        "absolute_expiry": 1793042962.6811554,
+        "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+      },
+      "source_sha256": "70cb39adf75797066288c82260d81e83992ad3eb478be67ba943c945033db919"
+    },
+    "26102602": {
+      "immutable_launch": {
+        "schema": 1,
+        "seed": 26102602,
+        "started": 1793006979.15931,
+        "absolute_expiry": 1793042979.15931,
+        "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+      },
+      "source_sha256": "b5da9d48955254d4cc2666735178afc67a51209d414cb7cc2a3d639d17fba78e"
+    }
+  },
+  "limits": "Fixed 120 epochs; final-only validation >=85%; maximum two workers; original 10h per-seed caps and 2026-10-29T06:50Z deadline; no official test evaluation",
+  "evidence_scope": "Status snapshot from parent process monitoring; immutable launch records preserved, no mutable log tail or checkpoint uploaded. No completed teacher or Canaria outcomes."
+}

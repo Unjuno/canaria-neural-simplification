@@ -1,0 +1,118 @@
+{
+  "elapsed_seconds": 9.876830339431763,
+  "environment": {
+    "deterministic": true,
+    "interop": 1,
+    "numpy": "2.3.5",
+    "python": "3.13.5",
+    "threads": 4,
+    "torch": "2.10.0+cpu"
+  },
+  "git_chronology": "125126f01dd509f93e9eced9febebf859a382987 2026-10-26T23:15:25+09:00 [skip ci] Lock teacher03 replacement results and complete validation cohort evidence\n5fce730658ce338db477172ec2967402a0c97a71 2026-10-26T23:12:50+09:00 [skip ci] Approve independently admitted teacher03 fixed replacement execution\nb63143a3cfb28ba0fdaa408775fcde0f7911d42b 2026-10-26T23:12:33+09:00 [skip ci] Prepare teacher03 filled plan pending independent admission and GO\nbb30713cca06519a000251a26668309b1a4ef82b 2026-10-26T20:59:19+09:00 [skip ci] Preserve first two fixed replacement fits and verified final validation evidence\n2e7656a46ab9f942526a61ee4ef4d9881632c4b7 2026-10-26T20:56:27+09:00 [skip ci] Approve audited teacher02 sequential three-arm execution plan\n0229f2aba5ab0e95f04e2d0f9f375b014a205730 2026-10-26T20:53:50+09:00 [skip ci] Approve audited teacher01 fixed three-arm execution plan",
+  "limits": [
+    "Independent functional inference and aggregate metrics reproduced; production evaluator was not imported.",
+    "Actual historical 1000-update trajectory and per-update IDs not replayed; final counters, deterministic schedule, persisted initialization, source and hash bindings verified.",
+    "Teacher is frozen by reviewed source and excluded from saved optimizers. No before/after teacher tensors were persisted by fit, so historical state immutability cannot be independently proved from snapshots; original teacher used unchanged in this audit.",
+    "This numerical audit confirms seed03; independently audited seeds01/02 are preserved separately. Validation is not official-test evidence and descriptive <=2pp failure is not a population noninferiority analysis.",
+    "Cryptographic hashes establish local integrity/binding, not independent artifact authorship or proof that no unlogged activity occurred."
+  ],
+  "new_optimizer_steps": 0,
+  "normalization_sha256": "5394c83e682b22bd5282760f84f214a6610de45095f4cc941050779e1a3a062f",
+  "official_test_decoded": false,
+  "official_test_member_opened": false,
+  "read_members": [
+    "cifar-10-batches-py/data_batch_1",
+    "cifar-10-batches-py/data_batch_2",
+    "cifar-10-batches-py/data_batch_3",
+    "cifar-10-batches-py/data_batch_4",
+    "cifar-10-batches-py/data_batch_5"
+  ],
+  "results": {
+    "26102603": {
+      "arms": {
+        "Comp-joint": {
+          "accuracy": 0.8704,
+          "centered_span_nmse": 0.25802613600887314,
+          "centered_teacher_ss": 4739015.701700229,
+          "correct": 4352,
+          "drop_pp": 3.86,
+          "nmse_absolute_difference_from_original": 2.7755575615628914e-16,
+          "sse": 1222789.9100056572,
+          "uncentered_energy_nmse": 0.1431144587516803,
+          "utility_drop_le_2pp": false
+        },
+        "Sep-joint": {
+          "accuracy": 0.848,
+          "centered_span_nmse": 0.29176350441922005,
+          "centered_teacher_ss": 4739015.701700229,
+          "correct": 4240,
+          "drop_pp": 6.1,
+          "nmse_absolute_difference_from_original": 2.7755575615628914e-16,
+          "sse": 1382671.8286377185,
+          "uncentered_energy_nmse": 0.16182692445161542,
+          "utility_drop_le_2pp": false
+        },
+        "Sep-local": {
+          "accuracy": 0.8446,
+          "centered_span_nmse": 0.3011174433866968,
+          "centered_teacher_ss": 4739015.701700229,
+          "correct": 4223,
+          "drop_pp": 6.44,
+          "nmse_absolute_difference_from_original": 2.7755575615628914e-16,
+          "sse": 1427000.2922777198,
+          "uncentered_energy_nmse": 0.16701509621294686,
+          "utility_drop_le_2pp": false
+        }
+      },
+      "checks": {
+        "all_optimizer_steps": 1000,
+        "final": {
+          "bytes": 278752,
+          "file_sha256": "bcae0814976fbdda2c8f9a1b44e277c892d81b54a93853b6c6fa08e03d17713a",
+          "payload_sha256": "628a10984573c5f521ca08f99dbe1df7c377f60fae41d02b2c6b827434563445"
+        },
+        "final_equals_last": true,
+        "independent_sep_storage": true,
+        "initial": {
+          "bytes": 147642,
+          "file_sha256": "d2b6c44ded753ac61cb08443c24b3b5c5464cb38d91dc6d0de73cc031eec8ff5",
+          "payload_sha256": "2c5f9e385c31c350729a95cafa09f329fe863ce0025317e4f37845a224373c8b"
+        },
+        "initialization": {
+          "Comp-joint": "7756b28bca3fa808253f127eb2d6ce15c4cf45888188a6bf55f907a87796420e",
+          "Sep-joint": "cf058af0e53010c1f37195b0d5f2978903e6189d9244c535b604e0f58990401d",
+          "Sep-local": "cf058af0e53010c1f37195b0d5f2978903e6189d9244c535b604e0f58990401d"
+        },
+        "last": {
+          "bytes": 278752,
+          "file_sha256": "bcae0814976fbdda2c8f9a1b44e277c892d81b54a93853b6c6fa08e03d17713a",
+          "payload_sha256": "628a10984573c5f521ca08f99dbe1df7c377f60fae41d02b2c6b827434563445"
+        },
+        "parameters_per_arm": 5120,
+        "schedule": {
+          "last_batch_each_pass": 8,
+          "passes": 25,
+          "presentations_per_arm": 125000,
+          "sha256": "90e1ab24042692fafd885cff8038815de67a6a99ca64b877e00f7e502caa1df7",
+          "updates": 1000
+        },
+        "seed_initialization_exact": true,
+        "teacher": {
+          "bytes": 2352293,
+          "file_sha256": "0052d8aab50595068454ddc6080e2a6c0e18c43a93dbf0ab37f657a7a9ff407d",
+          "payload_sha256": "74b3f25d0edba957cc7b2d38066f24da544fd3a1c252e2eb58dccac0c62bc6ea"
+        }
+      },
+      "n": 5000,
+      "seed": 26102603,
+      "teacher_accuracy": 0.909,
+      "teacher_correct": 4545,
+      "teacher_state_sha256": "38d44d3d6ac49b1e45eb21e84882801607291d825341182f4650497ec6146118",
+      "teacher_state_unchanged_during_audit": true
+    }
+  },
+  "source_commit": "125126f01dd509f93e9eced9febebf859a382987",
+  "source_evidence_unchanged": true,
+  "status": "PASS",
+  "training_replayed": false
+}

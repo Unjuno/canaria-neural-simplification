@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+import os
+os.environ['PYTHONDONTWRITEBYTECODE']='1'
+import pathlib,sys,json,hashlib,time,resource,traceback,signal
+HERE=pathlib.Path(__file__).resolve().parent
+SRC=pathlib.Path('__REVIEWED_SOURCE_DIRECTORY__')
+BASE=pathlib.Path('__REVIEWED_SAVED_INPUT_DIRECTORY__')
+def sha(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+def put(p,obj):
+ with pathlib.Path(p).open('x') as f:json.dump(obj,f,indent=2,sort_keys=True,allow_nan=False);f.flush();os.fsync(f.fileno())
+def load(p):return json.loads(pathlib.Path(p).read_text())
+P=load(HERE/'PROTOCOL.json')
+resource.setrlimit(resource.RLIMIT_CPU,(120,121))
+signal.signal(signal.SIGTERM,lambda *_: (_ for _ in ()).throw(TimeoutError('watchdog TERM')))
+signal.signal(signal.SIGXCPU,lambda *_: (_ for _ in ()).throw(TimeoutError('CPU120seconds')))
+OUT=HERE/'output';OUT.mkdir(exist_ok=False)
+t0=time.monotonic();rows=[]
+try:
+ for p,h in P['pins'].items():
+  if sha(p)!=h:raise RuntimeError('input changed '+p)
+ sys.path.insert(0,str(SRC));import runner as m
+ np,torch=m.np,m.torch
+ env=m.assert_environment();put(OUT/'environment.json',env)
+ def arrays(p):
+  with np.load(p,allow_pickle=False) as f:return {k:f[k].copy() for k in f.files}
+ def state(module,p):
+  d=arrays(p);e=module.state_dict()
+  if set(d)!=set(e):raise RuntimeError('state keys')
+  for k,a in d.items():
+   if a.shape!=tuple(e[k].shape) or a.dtype!=e[k].numpy().dtype or not np.isfinite(a).all():raise RuntimeError('state dtype/shape/finite')
+  module.load_state_dict({k:torch.from_numpy(v) for k,v in d.items()});return module
+ models={};teachers={};meta={}
+ for tid in P['teachers']:
+  b=BASE/f'seed_{tid}';old=load(b/'result.json');teacher=m.freeze(state(m.Net(old['seed']['teacher']),b/'teacher_final.npz'))
+  if m.state_hash(teacher)!=old['teacher_final_sha256']:raise RuntimeError('teacher identity')
+  teachers[tid]=teacher;meta[tid]=old
+  a=arrays(b/'fit_targets.npz')
+  if set(a)!={'a0','a1','a2'} or any(x.shape!=(1077,64) or x.dtype!=np.float32 or not np.isfinite(x).all() for x in a.values()):raise RuntimeError('targets')
+  targets=[torch.from_numpy(a[k]) for k in ('a0','a1','a2')];sched=torch.from_numpy(np.load(b/'schedule.npy',allow_pickle=False))
+  if sched.shape!=(600,128) or sched.dtype!=torch.int64 or int(sched.min())<0 or int(sched.max())>=1077 or m.tensor_hash(sched)!=old['schedule_sha256']:raise RuntimeError('schedule')
+  for r in range(8):
+   seed=3000000000+tid*100+r
+   for budget in (2048,3072):
+    key=f't{tid}_r{r}_b{budget}';mod=m.TinyRes(64,budget//128,seed)
+    if sum(p.numel() for p in mod.parameters())!=budget:raise RuntimeError('budget')
+    m.save_state(OUT/f'{key}_initial.npz',mod)
+    put(OUT/f'{key}_START.json',{'teacher':tid,'replicate':r,'seed':seed,'budget':budget,'initial_hash':m.state_hash(mod)})
+    with m.sqrt64() as cnt:fit=m.fit_arm('C',mod,targets,sched,OUT/f'{key}_updates.jsonl')
+    m.save_state(OUT/f'{key}_final.npz',mod);models[(tid,r,budget)]=mod
+    put(OUT/f'{key}_FIT.json',{'fit':fit,'sqrt_counts':cnt,'final_hash':m.state_hash(mod)})
+    if m.state_hash(teacher)!=old['teacher_final_sha256'] or any(p.grad is not None for p in teacher.parameters()):raise RuntimeError('teacher mutated')
+ if len(models)!=32:raise RuntimeError('fit census')
+ put(OUT/'ALL_FITS_COMPLETE.json',{'count':32,'elapsed':time.monotonic()-t0})
+ # Only now materialize validation; no validation forward/labels during fitting.
+ data=m.load_partition()
+ for tid in P['teachers']:
+  b=BASE/f'seed_{tid}';teacher=teachers[tid];old=meta[tid];split=arrays(b/'split_ids.npz');saved=arrays(b/'validation_arrays.npz')
+  if not np.array_equal(split['train'],data['train_ids']) or not np.array_equal(split['validation'],data['validation_ids']):raise RuntimeError('split identity')
+  dh=load(b/'data_hashes.json')
+  if {k:m.tensor_hash(data[k]) for k in ('Xt','yt','Xv','yv')}!=dh:raise RuntimeError('data identity')
+  with torch.no_grad():
+   tl,va=teacher(data['Xv'],return_acts=True)
+   if not np.array_equal(tl.numpy(),saved['teacher_logits']) or not np.array_equal(va[2].numpy(),saved['target']) or not np.array_equal(data['yv'].numpy(),saved['labels']):raise RuntimeError('validation identity')
+   tc=int((tl.argmax(1)==data['yv']).sum())
+   if tc!=old['teacher_correct']:raise RuntimeError('teacher count')
+   for r in range(8):
+    for budget in (2048,3072):
+     key=f't{tid}_r{r}_b{budget}';mod=models[(tid,r,budget)];h=mod(va[0]);logits=m.logits_from_endpoint(teacher,h)
+     if not torch.isfinite(h).all() or not torch.isfinite(logits).all():raise RuntimeError('nonfinite evaluation')
+     correct=int((logits.argmax(1)==data['yv']).sum());row=m.feature_metrics(h,va[2]);row.update(teacher=tid,replicate=r,seed=3000000000+tid*100+r,budget=budget,correct=correct,teacher_correct=tc,n=270,drop_pp=100*(tc-correct)/270,quality_pass=row['nmse']<=.08 and correct/270>=tc/270-.02)
+     rows.append(row);put(OUT/f'{key}_EVAL.json',row);np.savez_compressed(OUT/f'{key}_validation.npz',endpoint=h.numpy(),logits=logits.numpy())
+ summaries=[]
+ rng=np.random.default_rng(3000001000)
+ for tid in P['teachers']:
+  pairs=[[next(x for x in rows if x['teacher']==tid and x['replicate']==r and x['budget']==b) for b in (2048,3072)] for r in range(8)]
+  v=np.array([np.log2(y['nmse']/x['nmse']) for x,y in pairs]);acc=np.array([100*(y['correct']-x['correct'])/270 for x,y in pairs]);ix=rng.integers(0,8,(100000,8));ci=np.quantile(v[ix].mean(1),[.025,.975]);aci=np.quantile(acc[ix].mean(1),[.025,.975])
+  summaries.append({'teacher':tid,'mean_log2_nmse3072_over2048':float(v.mean()),'ci95':ci.tolist(),'nmse_improvement_decision':'PASS' if ci[1]<0 else 'FAIL' if ci[0]>0 else 'UNCERTAIN','mean_accuracy_difference_pp':float(acc.mean()),'accuracy_ci95_pp':aci.tolist(),'passes':{str(b):sum(x['quality_pass'] for x in rows if x['teacher']==tid and x['budget']==b) for b in (2048,3072)},'pass_to_fail':sum(x['quality_pass'] and not y['quality_pass'] for x,y in pairs),'fail_to_pass':sum(not x['quality_pass'] and y['quality_pass'] for x,y in pairs)})
+ for p,h in P['pins'].items():
+  if sha(p)!=h:raise RuntimeError('input changed after experiment '+p)
+ put(OUT/'SUMMARY.json',{'status':'COMPLETE','rows':rows,'summaries':summaries,'elapsed':time.monotonic()-t0,'scope':P['scope']})
+ put(OUT/'WORKER_TERMINAL.json',{'status':'COMPLETE','cells':len(rows)})
+except BaseException as e:
+ put(OUT/'WORKER_TERMINAL.json',{'status':'FAILED','scientific_decision':'UNCERTAIN','reason':repr(e),'traceback':traceback.format_exc(),'completed_evaluations':len(rows),'elapsed':time.monotonic()-t0});raise

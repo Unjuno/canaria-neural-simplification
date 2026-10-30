@@ -1,0 +1,155 @@
+{
+  "artifact_payloads_included": false,
+  "candidate_executed": false,
+  "export_file_sha256": {
+    "ARTIFACTS.md": "7f02341606f8a56f9aea8cc2ffbec1f5a48526b55b5b4aad72b14f67d4262db1",
+    "DEPENDENCY.json": "4c3d2f005b9e92fe51efa52e2132f2185d14859d425db6cfc6591f58d3aae669",
+    "ENVIRONMENT.md": "738ba159e8e8570bb358875fc425c5aecb13957f48ed1865135a868ac5c0b26a",
+    "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+    "PARENT_SCHEMA.json": "c924b17034d4786653a9f9f1aaa6667fbb85268975318c4290bbeec88eb81659",
+    "PROTOCOL.md": "7fa941e8262e5a9869c20b5fbc45df8c7e61faa0710aa5b87b65df0ceef36fa2",
+    "README.md": "bd9d9b7e7f91a96ccc3775ab65cf88ea728bc33b288f6e774267f726ce796a31",
+    "RELEASE_SCHEMA.json": "629f672dc681410fb55e3548d76db801b937d2bd112d2c0d1b0202aea387ec10",
+    "SEEDS.json": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
+    "STATIC_VALIDATION.json": "ae2d92ab46f927813a246932ac719ef7541be77a1b24d256a6f7a0e1c5a56a4f",
+    "TRANSFORMATION.md": "faa001ca69fbf12fe436ef014ad4eff81e4afd92a76432b65455665e58583f22",
+    "grid_contract.py": "d10cdd64679fa9dff65bb717dc706c6175b276eb2d2ccbc922359821e5912a4a",
+    "parent_contract.py": "9e6e484c03b7d508902170732f8042770aba17a9a06e41a7ae3241bd0546db39",
+    "runner.py": "4714bfe3a50945569665413f7a79d7e0a60f1db0b0c96e128b1f11dc73a9e97d",
+    "test_parent_contract.py": "5cec3d110331abfae00e853ea53644b21297d88d0a0fb90d25a7bbf6e1b76652",
+    "test_runner.py": "65ba102769d78a2f4fbc53548746c3eef086063e4abc6bf8782da2eb572e5fb8"
+  },
+  "historical_accepted_grid_commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+  "historical_full_protocol_sha256": "4ac1c70aebc349d290ddccb0ca0d43d3ef009b1b11073655560f32e74d6f1d37",
+  "historical_parent_manifest": {
+    "exported": false,
+    "file_count": 339,
+    "reason": "historical private-chain contents are not a new-replication descriptor",
+    "source_logical_path": "research/digits_joint_budget_grid/PARENT.json",
+    "source_sha256": "e4e25fd5be39987b259d3a641fdc47c4fb6a9cae152c9ca020a457e4bc4efc6c"
+  },
+  "historical_runtime_commit": "4c9e277d5f1ee913a8a75f1eadeb5c6f0ab9e96a",
+  "identical_original_runner_function_asts": [
+    "analyze",
+    "load_npz",
+    "load_state",
+    "make_student",
+    "reused_cells",
+    "sha"
+  ],
+  "lifecycle_origin": {
+    "changes": [
+      "grid token namespace",
+      "parent workspace/descriptor CLI arguments",
+      "explicit source rather than AST lifecycle compilation"
+    ],
+    "source_public_path": "research/digits_matched_source_20261027/runner.py",
+    "source_sha256": "4a8da240515d84fe05483b089c61b317d637336aca4c7df255c4c6449076be13"
+  },
+  "manifest_exclusion": "SOURCE_MAP excludes itself; private exact publication allowlist binds final map",
+  "matched_dependency_manifest_sha256": "4c3d2f005b9e92fe51efa52e2132f2185d14859d425db6cfc6591f58d3aae669",
+  "origins": [
+    {
+      "export_path": "runner.py",
+      "export_sha256": "4714bfe3a50945569665413f7a79d7e0a60f1db0b0c96e128b1f11dc73a9e97d",
+      "source_logical_path": "research/digits_joint_budget_grid/runner.py",
+      "source_sha256": "2c8e3a911b0eb25fd1b8434286dbc96f52e6d88829ee6e2de87e92c5da451bd2",
+      "transformation": "portable parent/custody adaptation; see TRANSFORMATION.md"
+    },
+    {
+      "export_path": "test_runner.py",
+      "export_sha256": "65ba102769d78a2f4fbc53548746c3eef086063e4abc6bf8782da2eb572e5fb8",
+      "source_logical_path": "research/digits_joint_budget_grid/test_runner.py",
+      "source_sha256": "9d033b835b44d4fc0764269070f9c5447c8dea011de33105179101a1d4f4a399",
+      "transformation": "portable parent/custody adaptation; see TRANSFORMATION.md"
+    },
+    {
+      "export_path": "SEEDS.json",
+      "export_sha256": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
+      "source_logical_path": "research/digits_joint_budget_grid/SEEDS.json",
+      "source_sha256": "8dd4cf701fe8d334cd154c18a8eaf60a5356d758998d4297cc9515ae3d30c582",
+      "transformation": "byte-identical"
+    }
+  ],
+  "protocol_transformation": "scientific extract; add explicit new-contract distinction and clarify that excluded inference is held-out-test inference",
+  "public_dependency_commit": "1de2b5f046ef2219270af2e029c5479a3eeee10a",
+  "public_repository": "Unjuno/canaria-neural-simplification",
+  "run_seed_transformations": [
+    "replace START host/PID/Git metadata with source package identity",
+    "replace two-field parent check with pinned seed/scalar/600-update parent validation"
+  ],
+  "schema": "canaria.grid-source-map.v1",
+  "scientific_extract_source_sha256": "2c6bff1ebbe81c725d425eec8518ffdf23cecd3a928b457d826a8caec9ffc2e4",
+  "source_import_inventory": {
+    "grid_contract.py": [
+      "__future__",
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "re",
+      "time"
+    ],
+    "parent_contract.py": [
+      "__future__",
+      "argparse",
+      "datetime",
+      "hashlib",
+      "json",
+      "math",
+      "pathlib",
+      "re"
+    ],
+    "runner.py": [
+      "__future__",
+      "argparse",
+      "ast",
+      "datetime",
+      "grid_contract",
+      "hashlib",
+      "importlib.util",
+      "json",
+      "math",
+      "os",
+      "parent_contract",
+      "pathlib",
+      "resource",
+      "signal",
+      "subprocess",
+      "sys",
+      "time"
+    ],
+    "test_parent_contract.py": [
+      "copy",
+      "grid_contract",
+      "json",
+      "parent_contract",
+      "pathlib",
+      "tempfile",
+      "unittest",
+      "unittest.mock"
+    ],
+    "test_runner.py": [
+      "ast",
+      "copy",
+      "importlib.util",
+      "inspect",
+      "json",
+      "numpy",
+      "pathlib",
+      "tempfile",
+      "test_parent_contract",
+      "unittest",
+      "unittest.mock"
+    ]
+  },
+  "source_only": true,
+  "public_dependency_commit_scope": "Original dependency publication provenance; amended sibling bytes are pinned by DEPENDENCY.json.",
+  "amendments": [
+    {
+      "base_commit": "71a74c88d420d9aa4b616df7cfc1f6e914aa6984",
+      "scope": "Refresh matched sibling byte maps and package identity for the finalization-status amendment; grid executable code and fail-closed parent gate unchanged.",
+      "historical_origin_preserved": "lifecycle_origin.source_sha256 remains the original copied lifecycle source, not the live dependency pin."
+    }
+  ]
+}

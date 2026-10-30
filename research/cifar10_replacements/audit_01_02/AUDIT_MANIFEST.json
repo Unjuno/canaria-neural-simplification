@@ -1,0 +1,66 @@
+{
+  "PLAN.md": {
+    "bytes": 2237,
+    "sha256": "8f3e38363bb4fa3fc27db09222a7e1675345372a6c6be3caca2a55aba2ca064d"
+  },
+  "README.md": {
+    "bytes": 3279,
+    "sha256": "d7312406f6d55f96bac179a0b823d7a922b184aad153fa1cda3370bb943f0232"
+  },
+  "SOURCE_REVIEW.md": {
+    "bytes": 3135,
+    "sha256": "bf4adcedbb1c608567567c4d2e437374d453db8c48d8c35e8761642383ca0ca1"
+  },
+  "attempt1.stdout.log": {
+    "bytes": 274,
+    "sha256": "df3f9b1c855dfadca5e40df269b89a9618892a398d3d724a553d67890ba544b9"
+  },
+  "audit.py": {
+    "bytes": 23834,
+    "sha256": "edafec9264ecaefcc172fa6a40f8896a26e7cee8aaf0ce112a91e5c1e2c91429"
+  },
+  "audit_attempt1.py": {
+    "bytes": 22417,
+    "sha256": "29ee7d8d690f3f1a7e41ec9e068ce51a82197e323864a400772a330faa1d6251"
+  },
+  "audit_result.json": {
+    "bytes": 9331,
+    "sha256": "b86ad10310d77f761e1fc274b41ce30f3dcf041535280f9d6cb2afda72b85ed8"
+  },
+  "endpoint_statistics_seed_26102601.npz": {
+    "bytes": 119911,
+    "sha256": "589df0753de05a4281f4db5341af5df35412a4e79c1aca9cfc43142727996cfe"
+  },
+  "endpoint_statistics_seed_26102602.npz": {
+    "bytes": 119858,
+    "sha256": "9288059f0f38bcb179a083d993bbb400288e4536c2e8747ed1128847f1b6d792"
+  },
+  "evidence_sha256.json": {
+    "bytes": 7300,
+    "sha256": "5fa9219fe61e338e77bf94a23e5a65920c27e8813648990ac9e09f180f1f2bc5"
+  },
+  "predictions_seed_26102601.npz": {
+    "bytes": 762098,
+    "sha256": "b627b97e44569739a0a1f119035d7ea3be4b5243fcc5f0444aa799cf0a0a722e"
+  },
+  "predictions_seed_26102602.npz": {
+    "bytes": 761440,
+    "sha256": "526095c320194a74fbda7853c7f2de31da3469e8cfdd621384f1224e589d1101"
+  },
+  "process_exit.json": {
+    "bytes": 131,
+    "sha256": "4839fa9135cd66beaa24fa2b9d284096fe1f40e0538661f28083e7e6d50025eb"
+  },
+  "result_seed_26102601.json": {
+    "bytes": 3017,
+    "sha256": "7e86a39c10410f2b116b0c9717ae7bba3ac1a1598b03a7d1a878fce8025cb26c"
+  },
+  "result_seed_26102602.json": {
+    "bytes": 3023,
+    "sha256": "08c2ca85b68f9f91923733a6e1927ea43beed92f8f0ec2f1ace1205ae7de985d"
+  },
+  "stdout.log": {
+    "bytes": 2301,
+    "sha256": "32cd785d872050430c3bd2dad6fb2ad5ab1f6f7e23015ecf12c6d8322da51a91"
+  }
+}

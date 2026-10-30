@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": 5635,
+  "discrepancies": [],
+  "source_files": 48,
+  "whole_archives": 96,
+  "deterministic_reproductions": 6,
+  "checker_sha256": "9f265e69cc1f4efcc599a0b33d279e8c64580f6f6b2ed15d9ac5c825aba4340e",
+  "summary_sha256": "a6fe7fd0952e212d9e4b8934628e14ee1ae1e5b138be27302d45868645f4bfe5",
+  "protocol_sha256": "feb387d3dcd5636f39e55a4fdc7d4091f0c70b820e4c127e6365e5ff4d43929a",
+  "runtime_sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77",
+  "limitations": "No model execution or deployment verification. Deterministic byte reproduction sampled seed 0 all three models both codecs; exact source-to-artifact comparisons cover all 96 archives.",
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

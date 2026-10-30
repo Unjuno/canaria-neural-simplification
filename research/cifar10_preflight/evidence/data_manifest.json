@@ -1,0 +1,83 @@
+{
+  "archive_md5": "c58f30108f718f92721af3b95e74349a",
+  "train_member_sha256": {
+    "cifar-10-batches-py/data_batch_1": "54636561a3ce25bd3e19253c6b0d8538147b0ae398331ac4a2d86c6d987368cd",
+    "cifar-10-batches-py/data_batch_2": "766b2cef9fbc745cf056b3152224f7cf77163b330ea9a15f9392beb8b89bc5a8",
+    "cifar-10-batches-py/data_batch_3": "0f00d98ebfb30b3ec0ad19f9756dc2630b89003e10525f5e148445e82aa6a1f9",
+    "cifar-10-batches-py/data_batch_4": "3f7bb240661948b8f4d53e36ec720d8306f5668bd0071dcb4e6c947f78e9682b",
+    "cifar-10-batches-py/data_batch_5": "d91802434d8376bbaeeadf58a737e3a1b12ac839077e931237e0dcd43adcb154"
+  },
+  "read_members": [
+    "cifar-10-batches-py/data_batch_1",
+    "cifar-10-batches-py/data_batch_2",
+    "cifar-10-batches-py/data_batch_3",
+    "cifar-10-batches-py/data_batch_4",
+    "cifar-10-batches-py/data_batch_5"
+  ],
+  "test_batch_deserialized": false,
+  "split_seed": 20261026,
+  "splits": {
+    "teachertrain": {
+      "n": 40000,
+      "index_bytes_sha256": "bdcdd6023a7a644b0c162ceead3899be01bfe2faa97d731e68b056a30a576c21",
+      "file_sha256": "f9347f8a0c11b08c9f66c93274822e423136ce4ebbe280a48ffa9989499b57e8",
+      "class_counts": [
+        4000,
+        4000,
+        4000,
+        4000,
+        4000,
+        4000,
+        4000,
+        4000,
+        4000,
+        4000
+      ]
+    },
+    "calibration": {
+      "n": 5000,
+      "index_bytes_sha256": "2dc1c329112f85dd5ab61a89759d77d66bb1cf8fe83a733f96dea6846959b6d5",
+      "file_sha256": "f89d7cbf9d9c0aa3eb0d07d54b93a4f1ce7aad23a3e0dfa19f8c4f9efbb7bc57",
+      "class_counts": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ]
+    },
+    "validation": {
+      "n": 5000,
+      "index_bytes_sha256": "f5504dab001da187a70126fc83602513c049b1f1dae5aae6131e37c8a71e9dbb",
+      "file_sha256": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83",
+      "class_counts": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ]
+    }
+  },
+  "normalization_mean": [
+    0.4916628271484376,
+    0.48244988520603554,
+    0.4469642490042892
+  ],
+  "normalization_std": [
+    0.24707588404875444,
+    0.24345178147553412,
+    0.2615557884964867
+  ],
+  "normalization_source": "teachertrain only"
+}

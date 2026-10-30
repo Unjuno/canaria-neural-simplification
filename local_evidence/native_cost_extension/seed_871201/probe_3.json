@@ -1,0 +1,683 @@
+{
+  "batches": {
+    "batch1": {
+      "comp_sep_ratio": 0.8495456265324993,
+      "median_ns_per_forward": {
+        "comp": 61576.49,
+        "sep": 72481.675
+      },
+      "rounds": [
+        {
+          "comp": 6672747,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 0,
+          "sep": 7378949
+        },
+        {
+          "comp": 5959946,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 1,
+          "sep": 7345439
+        },
+        {
+          "comp": 6516613,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 2,
+          "sep": 6874541
+        },
+        {
+          "comp": 5898003,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 3,
+          "sep": 6997345
+        },
+        {
+          "comp": 6165035,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 4,
+          "sep": 7029083
+        },
+        {
+          "comp": 6406798,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 5,
+          "sep": 6715953
+        },
+        {
+          "comp": 5690752,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 6,
+          "sep": 6574741
+        },
+        {
+          "comp": 6037203,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 7,
+          "sep": 6779308
+        },
+        {
+          "comp": 6453358,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 8,
+          "sep": 7545830
+        },
+        {
+          "comp": 6293438,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 9,
+          "sep": 7307281
+        },
+        {
+          "comp": 6249882,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 10,
+          "sep": 7155643
+        },
+        {
+          "comp": 5903092,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 11,
+          "sep": 6916003
+        },
+        {
+          "comp": 6108660,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 12,
+          "sep": 6851926
+        },
+        {
+          "comp": 5760717,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 13,
+          "sep": 7875725
+        },
+        {
+          "comp": 5624553,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 14,
+          "sep": 7003134
+        },
+        {
+          "comp": 6740419,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 15,
+          "sep": 7315543
+        },
+        {
+          "comp": 6564916,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 16,
+          "sep": 7969847
+        },
+        {
+          "comp": 5990021,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 17,
+          "sep": 7486621
+        },
+        {
+          "comp": 5680176,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 18,
+          "sep": 7189054
+        },
+        {
+          "comp": 6238755,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 19,
+          "sep": 6835002
+        },
+        {
+          "comp": 5784683,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 20,
+          "sep": 12530852
+        },
+        {
+          "comp": 5901278,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 21,
+          "sep": 7022603
+        },
+        {
+          "comp": 5751032,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 22,
+          "sep": 7686240
+        },
+        {
+          "comp": 6150263,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 23,
+          "sep": 7705900
+        },
+        {
+          "comp": 7558358,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 24,
+          "sep": 6936043
+        },
+        {
+          "comp": 6098675,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 25,
+          "sep": 7150936
+        },
+        {
+          "comp": 6226718,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 26,
+          "sep": 15330398
+        },
+        {
+          "comp": 6461721,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 27,
+          "sep": 7414262
+        },
+        {
+          "comp": 7960163,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 28,
+          "sep": 7493241
+        },
+        {
+          "comp": 6719769,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 29,
+          "sep": 7658199
+        }
+      ],
+      "teacher_rounds_ns": [
+        10254530,
+        9543081,
+        8592743,
+        8883169,
+        9340637,
+        8818863,
+        8697371,
+        9954209,
+        9380797,
+        8983119,
+        10251706,
+        9083591,
+        9259065,
+        8950470,
+        8639924,
+        10453940,
+        12573575,
+        12364982,
+        13569553,
+        9134447,
+        8654145,
+        9054337,
+        8856008,
+        9191974,
+        8412492,
+        8725292,
+        8740325,
+        9321128,
+        9365654,
+        8521466
+      ]
+    },
+    "batch128": {
+      "comp_sep_ratio": 0.9297271489354448,
+      "median_ns_per_forward": {
+        "comp": 488750.05,
+        "sep": 525691.92
+      },
+      "rounds": [
+        {
+          "comp": 57075002,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 0,
+          "sep": 59768491
+        },
+        {
+          "comp": 50231749,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 1,
+          "sep": 55553516
+        },
+        {
+          "comp": 60290927,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 2,
+          "sep": 57368655
+        },
+        {
+          "comp": 60378507,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 3,
+          "sep": 59525270
+        },
+        {
+          "comp": 54502908,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 4,
+          "sep": 56532308
+        },
+        {
+          "comp": 47968227,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 5,
+          "sep": 52701891
+        },
+        {
+          "comp": 51246745,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 6,
+          "sep": 53635163
+        },
+        {
+          "comp": 48844524,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 7,
+          "sep": 50561354
+        },
+        {
+          "comp": 50824089,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 8,
+          "sep": 53866777
+        },
+        {
+          "comp": 53813231,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 9,
+          "sep": 62618139
+        },
+        {
+          "comp": 53210285,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 10,
+          "sep": 54608046
+        },
+        {
+          "comp": 50938682,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 11,
+          "sep": 54771461
+        },
+        {
+          "comp": 48905486,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 12,
+          "sep": 51567607
+        },
+        {
+          "comp": 52679638,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 13,
+          "sep": 52704384
+        },
+        {
+          "comp": 49395082,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 14,
+          "sep": 52769343
+        },
+        {
+          "comp": 51258843,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 15,
+          "sep": 55456591
+        },
+        {
+          "comp": 48095003,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 16,
+          "sep": 49977206
+        },
+        {
+          "comp": 47447625,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 17,
+          "sep": 49993461
+        },
+        {
+          "comp": 46391728,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 18,
+          "sep": 48797284
+        },
+        {
+          "comp": 45862754,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 19,
+          "sep": 50435054
+        },
+        {
+          "comp": 45045174,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 20,
+          "sep": 50468244
+        },
+        {
+          "comp": 45596934,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 21,
+          "sep": 49380210
+        },
+        {
+          "comp": 47040082,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 22,
+          "sep": 52338714
+        },
+        {
+          "comp": 47318100,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 23,
+          "sep": 52436493
+        },
+        {
+          "comp": 47735257,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 24,
+          "sep": 51036899
+        },
+        {
+          "comp": 48608199,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 25,
+          "sep": 53197446
+        },
+        {
+          "comp": 46447421,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 26,
+          "sep": 51545383
+        },
+        {
+          "comp": 50659021,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 27,
+          "sep": 49600941
+        },
+        {
+          "comp": 48667759,
+          "order": [
+            "comp",
+            "sep"
+          ],
+          "round": 28,
+          "sep": 51477902
+        },
+        {
+          "comp": 47780735,
+          "order": [
+            "sep",
+            "comp"
+          ],
+          "round": 29,
+          "sep": 49288792
+        }
+      ],
+      "teacher_rounds_ns": [
+        79492230,
+        82133158,
+        78647279,
+        82228611,
+        80189667,
+        77582169,
+        92905927,
+        78694139,
+        78029621,
+        79570237,
+        81118543,
+        83725130,
+        88705375,
+        83238419,
+        82015892,
+        81939707,
+        92101964,
+        88464342,
+        83802577,
+        86876996,
+        81700978,
+        82643926,
+        80642378,
+        81412585,
+        81084772,
+        88366706,
+        82027759,
+        82479618,
+        82670235,
+        85468886
+      ]
+    }
+  },
+  "environment_end": {
+    "affinity": [
+      0
+    ],
+    "capability": "AVX2",
+    "deterministic": true,
+    "env": {
+      "ATEN_CPU_CAPABILITY": "avx2",
+      "MKL_CBWR": "COMPATIBLE",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "executable": "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+    "interop": 1,
+    "load": [
+      0.60302734375,
+      0.232421875,
+      0.119140625
+    ],
+    "mkldnn": false,
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+    "threads": 1,
+    "torch": "2.10.0+cpu",
+    "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=449b1768410104d3ed79d3bcfe4ba1d65c7f22c0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.10.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "environment_start": {
+    "affinity": [
+      0
+    ],
+    "capability": "AVX2",
+    "deterministic": true,
+    "env": {
+      "ATEN_CPU_CAPABILITY": "avx2",
+      "MKL_CBWR": "COMPATIBLE",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "executable": "/workspace/shared/canaria_r87r2_training_20261026/.venv-locked/bin/python",
+    "interop": 1,
+    "load": [
+      0.568359375,
+      0.21923828125,
+      0.1142578125
+    ],
+    "mkldnn": false,
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+    "threads": 1,
+    "torch": "2.10.0+cpu",
+    "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=449b1768410104d3ed79d3bcfe4ba1d65c7f22c0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.10.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "index": 3
+}

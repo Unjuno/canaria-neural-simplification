@@ -1,0 +1,762 @@
+{
+  "census_summary": {
+    "arithmetic_mean_ratio": 0.962515507670079,
+    "count_meeting_5percent_payload_gate": 2,
+    "geometric_mean_ratio": 0.9624057911320743,
+    "range": [
+      0.9307515441143321,
+      1.0
+    ]
+  },
+  "evidence_class": "EXPLORATORY_TECHNICAL_KNOWN_SEED_EXTENSION_NOT_CONFIRMATORY_OR_NEW_N",
+  "execution": {
+    "all_science_attempts_succeeded": true,
+    "attempt_count": 24,
+    "elapsed_seconds": 249.438303232193,
+    "epoch": 1793003420.2927477
+  },
+  "limitations": [
+    "Three chronological already-known seeds, not fresh cohort",
+    "No pooling with pilot to claim universality",
+    "Technical repeats are not independent scientific seeds",
+    "No inference of runtime or saved-file size from parameter payload",
+    "No RAM, VRAM, energy, noninferiority or generalization claim"
+  ],
+  "seeds": [
+    {
+      "artifact_metrics": {
+        "comp": {
+          "archive_overhead_bytes": 5509,
+          "manifest_bytes": 608,
+          "manifest_sha256": "a8aba7a903f148f5111452916dcbf90579123e2657dfc2134fcb5bfe6baef2bc",
+          "name": "comp",
+          "parameters": 39754,
+          "state_bytes": 164525,
+          "state_sha256": "8aab0de4a408293a974b4d2db474467968d1f3833572636cfcb22e519c83b9f7",
+          "tensor_bytes": 159016,
+          "total_bytes": 165133,
+          "total_nonpayload_bytes": 6117
+        },
+        "comp_raw": {
+          "archive_overhead_bytes": 8609,
+          "manifest_bytes": 933,
+          "manifest_sha256": "8ef96248a6f0bdd44cb1126153788b5a15ecd309a356cb19773a900e2bc24b7f",
+          "name": "comp_raw",
+          "parameters": 73162,
+          "state_bytes": 301257,
+          "state_sha256": "bee6665d52d4907b097048f3f6a8779e07e28248d3e546ca65049e1fb70aa6dc",
+          "tensor_bytes": 292648,
+          "total_bytes": 302190,
+          "total_nonpayload_bytes": 9542
+        },
+        "comp_replacement": {
+          "archive_overhead_bytes": 1765,
+          "manifest_bytes": 198,
+          "manifest_sha256": "fbb2df365df521f28e15af7e2b2d6b104b92ce66dd26a4fdf5993a0ac209a361",
+          "name": "comp_replacement",
+          "parameters": 1536,
+          "state_bytes": 7909,
+          "state_sha256": "0439a595e980dca1422e4bdf8a9830341023b53569fc143062dc29eccdf2ee6b",
+          "tensor_bytes": 6144,
+          "total_bytes": 8107,
+          "total_nonpayload_bytes": 1963
+        },
+        "sep": {
+          "archive_overhead_bytes": 6015,
+          "manifest_bytes": 650,
+          "manifest_sha256": "45eadb96e6f4be5907b30dc042a6ec91f294f777ceaa83d6f59e3805a76de818",
+          "name": "sep",
+          "parameters": 41290,
+          "state_bytes": 171175,
+          "state_sha256": "db052baf50aad96f4ccd23c19c58b2a3984ad518b8c86a6de93ce6a35e6d20b6",
+          "tensor_bytes": 165160,
+          "total_bytes": 171825,
+          "total_nonpayload_bytes": 6665
+        },
+        "sep_raw": {
+          "archive_overhead_bytes": 9179,
+          "manifest_bytes": 975,
+          "manifest_sha256": "2277173b20b6ef3aba765f2d01c70cbbe99509457a52bb3e74719f6670d66af8",
+          "name": "sep_raw",
+          "parameters": 74698,
+          "state_bytes": 307971,
+          "state_sha256": "3cb6d0b4130c6f518f04f4be93747076fe351cc712eb9acf8c71dad41f86bd1c",
+          "tensor_bytes": 298792,
+          "total_bytes": 308946,
+          "total_nonpayload_bytes": 10154
+        },
+        "sep_replacement": {
+          "archive_overhead_bytes": 2205,
+          "manifest_bytes": 246,
+          "manifest_sha256": "6357ad04c5329a8cd2c069b657b598e0b1f70dc4685cc2a9315295359cd3ddc7",
+          "name": "sep_replacement",
+          "parameters": 3072,
+          "state_bytes": 14493,
+          "state_sha256": "3e90b0200df49f5a315e6e71907601d1f29bd4f075dab3d3fa78001e329ad28f",
+          "tensor_bytes": 12288,
+          "total_bytes": 14739,
+          "total_nonpayload_bytes": 2451
+        },
+        "teacher": {
+          "archive_overhead_bytes": 8103,
+          "manifest_bytes": 890,
+          "manifest_sha256": "de435cde9e483f62cc37b8722e509eae818fa46a311e318df713804d23b19596",
+          "name": "teacher",
+          "parameters": 71626,
+          "state_bytes": 294607,
+          "state_sha256": "7ef8792a37e0ae47a6dd4aecd1bb7a8be1c0ef0d5644de35c9e99514d740ec3e",
+          "tensor_bytes": 286504,
+          "total_bytes": 295497,
+          "total_nonpayload_bytes": 8993
+        }
+      },
+      "byte_ratio": 0.9610533973519569,
+      "byte_status": "observed <5% benefit",
+      "exact_logits_gate": "PASS",
+      "joint_5percent_support": false,
+      "overhead_reconciliation": {
+        "nonpayload_saved": 548,
+        "tensor_payload_saved": 6144,
+        "total_bytes_saved": 6692
+      },
+      "science_gate": "PASS",
+      "seed": 871201,
+      "task_outcome_carried_forward": {
+        "grid": [
+          {
+            "budget": 512,
+            "comp_nmse": 0.4831691052571822,
+            "comp_pass": false,
+            "comp_val_acc": 0.5888888835906982,
+            "h": 2,
+            "sep_nmse": 0.7261211285102018,
+            "sep_pass": false,
+            "sep_val_acc": 0.4185185134410858
+          },
+          {
+            "budget": 1024,
+            "comp_nmse": 0.15090153801795125,
+            "comp_pass": false,
+            "comp_val_acc": 0.9555555582046509,
+            "h": 4,
+            "sep_nmse": 0.5353326251708646,
+            "sep_pass": false,
+            "sep_val_acc": 0.7481481432914734
+          },
+          {
+            "budget": 1536,
+            "comp_nmse": 0.07231997732486725,
+            "comp_pass": true,
+            "comp_test_acc": 0.9733333587646484,
+            "comp_val_acc": 0.9592592716217041,
+            "h": 6,
+            "sep_nmse": 0.33574765241236887,
+            "sep_pass": false,
+            "sep_val_acc": 0.8814814686775208
+          },
+          {
+            "budget": 2048,
+            "comp_nmse": 0.050696262234518306,
+            "comp_pass": true,
+            "comp_val_acc": 0.9555555582046509,
+            "h": 8,
+            "sep_nmse": 0.1594653158198928,
+            "sep_pass": false,
+            "sep_val_acc": 0.9370370507240295
+          },
+          {
+            "budget": 3072,
+            "comp_nmse": 0.03723165972904153,
+            "comp_pass": true,
+            "comp_val_acc": 0.970370352268219,
+            "h": 12,
+            "sep_nmse": 0.059554792062990455,
+            "sep_pass": true,
+            "sep_test_acc": 0.9777777791023254,
+            "sep_val_acc": 0.9518518447875977
+          },
+          {
+            "budget": 4096,
+            "comp_nmse": 0.033757735591787005,
+            "comp_pass": true,
+            "comp_val_acc": 0.9740740656852722,
+            "h": 16,
+            "sep_nmse": 0.04678886576971963,
+            "sep_pass": true,
+            "sep_val_acc": 0.9592592716217041
+          },
+          {
+            "budget": 6144,
+            "comp_nmse": 0.029036934960055157,
+            "comp_pass": true,
+            "comp_val_acc": 0.9740740656852722,
+            "h": 24,
+            "sep_nmse": 0.03190076717465462,
+            "sep_pass": true,
+            "sep_val_acc": 0.9666666388511658
+          }
+        ],
+        "joint_factorized_2048": {
+          "nmse": 0.060829835509932005,
+          "test_acc": 0.9688888788223267,
+          "val_acc": 0.9629629850387573
+        },
+        "log2_budget_ratio": -1.0,
+        "seed": 871201,
+        "selected_comp": {
+          "budget": 1536,
+          "comp_nmse": 0.07231997732486725,
+          "comp_pass": true,
+          "comp_test_acc": 0.9733333587646484,
+          "comp_val_acc": 0.9592592716217041,
+          "h": 6,
+          "sep_nmse": 0.33574765241236887,
+          "sep_pass": false,
+          "sep_val_acc": 0.8814814686775208
+        },
+        "selected_sep": {
+          "budget": 3072,
+          "comp_nmse": 0.03723165972904153,
+          "comp_pass": true,
+          "comp_val_acc": 0.970370352268219,
+          "h": 12,
+          "sep_nmse": 0.059554792062990455,
+          "sep_pass": true,
+          "sep_test_acc": 0.9777777791023254,
+          "sep_val_acc": 0.9518518447875977
+        },
+        "teacher_test_acc": 0.9800000190734863,
+        "teacher_val_acc": 0.970370352268219,
+        "test_acc_diff_comp_minus_sep": -0.004444420337677002
+      },
+      "timing": {
+        "batch1": {
+          "all_seven_ratios": [
+            0.8600423907029326,
+            0.8136558646423067,
+            0.8150089975375996,
+            0.8495456265324993,
+            0.8496834029843653,
+            0.8506420326731224,
+            0.8387629250956102
+          ],
+          "median_ratio": 0.8495456265324993,
+          "range": [
+            0.8136558646423067,
+            0.8600423907029326
+          ],
+          "range_crosses_0_95": false,
+          "status": "observed >=5% benefit"
+        },
+        "batch128": {
+          "all_seven_ratios": [
+            0.9502219450911538,
+            0.9350664856873123,
+            0.9238095801596182,
+            0.9297271489354448,
+            0.9340268926227768,
+            0.92600278858752,
+            0.932721115235899
+          ],
+          "median_ratio": 0.932721115235899,
+          "range": [
+            0.9238095801596182,
+            0.9502219450911538
+          ],
+          "range_crosses_0_95": true,
+          "status": "observed >=5% benefit"
+        }
+      }
+    },
+    {
+      "artifact_metrics": {
+        "comp": {
+          "archive_overhead_bytes": 5509,
+          "manifest_bytes": 608,
+          "manifest_sha256": "a8aba7a903f148f5111452916dcbf90579123e2657dfc2134fcb5bfe6baef2bc",
+          "name": "comp",
+          "parameters": 39754,
+          "state_bytes": 164525,
+          "state_sha256": "9a20ef031af6e7824960c532aa34c3cb741ee2d1f26219dfb60b9db135751ee9",
+          "tensor_bytes": 159016,
+          "total_bytes": 165133,
+          "total_nonpayload_bytes": 6117
+        },
+        "comp_raw": {
+          "archive_overhead_bytes": 8609,
+          "manifest_bytes": 933,
+          "manifest_sha256": "8ef96248a6f0bdd44cb1126153788b5a15ecd309a356cb19773a900e2bc24b7f",
+          "name": "comp_raw",
+          "parameters": 73162,
+          "state_bytes": 301257,
+          "state_sha256": "c0fee890af65976dc2fc10778c2aa46ec42493c45c2b754ca3de8edc803fc923",
+          "tensor_bytes": 292648,
+          "total_bytes": 302190,
+          "total_nonpayload_bytes": 9542
+        },
+        "comp_replacement": {
+          "archive_overhead_bytes": 1765,
+          "manifest_bytes": 198,
+          "manifest_sha256": "fbb2df365df521f28e15af7e2b2d6b104b92ce66dd26a4fdf5993a0ac209a361",
+          "name": "comp_replacement",
+          "parameters": 1536,
+          "state_bytes": 7909,
+          "state_sha256": "b90f8d3d393fedafc3193734bdc45afc22c7c2473bb0bfbf5dff4f7253eb2fbf",
+          "tensor_bytes": 6144,
+          "total_bytes": 8107,
+          "total_nonpayload_bytes": 1963
+        },
+        "sep": {
+          "archive_overhead_bytes": 6015,
+          "manifest_bytes": 650,
+          "manifest_sha256": "45eadb96e6f4be5907b30dc042a6ec91f294f777ceaa83d6f59e3805a76de818",
+          "name": "sep",
+          "parameters": 41290,
+          "state_bytes": 171175,
+          "state_sha256": "ee2c6ae03cb17169946b16a37d738c7ae363be03de836a55ee38651949443dbf",
+          "tensor_bytes": 165160,
+          "total_bytes": 171825,
+          "total_nonpayload_bytes": 6665
+        },
+        "sep_raw": {
+          "archive_overhead_bytes": 9179,
+          "manifest_bytes": 975,
+          "manifest_sha256": "2277173b20b6ef3aba765f2d01c70cbbe99509457a52bb3e74719f6670d66af8",
+          "name": "sep_raw",
+          "parameters": 74698,
+          "state_bytes": 307971,
+          "state_sha256": "f85e4a3ef891c6d98c41715eaa6062062fac85adc40afed5db473862b319ade1",
+          "tensor_bytes": 298792,
+          "total_bytes": 308946,
+          "total_nonpayload_bytes": 10154
+        },
+        "sep_replacement": {
+          "archive_overhead_bytes": 2205,
+          "manifest_bytes": 246,
+          "manifest_sha256": "6357ad04c5329a8cd2c069b657b598e0b1f70dc4685cc2a9315295359cd3ddc7",
+          "name": "sep_replacement",
+          "parameters": 3072,
+          "state_bytes": 14493,
+          "state_sha256": "ea0ad65a331e554e4d534f9b950c0b870b29d00a48b2ab6f1244cbeb055b2e2b",
+          "tensor_bytes": 12288,
+          "total_bytes": 14739,
+          "total_nonpayload_bytes": 2451
+        },
+        "teacher": {
+          "archive_overhead_bytes": 8103,
+          "manifest_bytes": 890,
+          "manifest_sha256": "de435cde9e483f62cc37b8722e509eae818fa46a311e318df713804d23b19596",
+          "name": "teacher",
+          "parameters": 71626,
+          "state_bytes": 294607,
+          "state_sha256": "8d2200a40041cc290e5da55a84951ed579d733a168a216216b14f724c034f425",
+          "tensor_bytes": 286504,
+          "total_bytes": 295497,
+          "total_nonpayload_bytes": 8993
+        }
+      },
+      "byte_ratio": 0.9610533973519569,
+      "byte_status": "observed <5% benefit",
+      "exact_logits_gate": "PASS",
+      "joint_5percent_support": false,
+      "overhead_reconciliation": {
+        "nonpayload_saved": 548,
+        "tensor_payload_saved": 6144,
+        "total_bytes_saved": 6692
+      },
+      "science_gate": "PASS",
+      "seed": 871202,
+      "task_outcome_carried_forward": {
+        "grid": [
+          {
+            "budget": 512,
+            "comp_nmse": 0.4504356154559628,
+            "comp_pass": false,
+            "comp_val_acc": 0.7740740776062012,
+            "h": 2,
+            "sep_nmse": 0.6918165619808565,
+            "sep_pass": false,
+            "sep_val_acc": 0.5222222208976746
+          },
+          {
+            "budget": 1024,
+            "comp_nmse": 0.14503235209299226,
+            "comp_pass": false,
+            "comp_val_acc": 0.9555555582046509,
+            "h": 4,
+            "sep_nmse": 0.4749297841084191,
+            "sep_pass": false,
+            "sep_val_acc": 0.729629635810852
+          },
+          {
+            "budget": 1536,
+            "comp_nmse": 0.059535938264441375,
+            "comp_pass": true,
+            "comp_test_acc": 0.9688888788223267,
+            "comp_val_acc": 0.9629629850387573,
+            "h": 6,
+            "sep_nmse": 0.2908868729415404,
+            "sep_pass": false,
+            "sep_val_acc": 0.8592592477798462
+          },
+          {
+            "budget": 2048,
+            "comp_nmse": 0.050403840050353234,
+            "comp_pass": true,
+            "comp_val_acc": 0.9629629850387573,
+            "h": 8,
+            "sep_nmse": 0.1452014539602472,
+            "sep_pass": false,
+            "sep_val_acc": 0.9592592716217041
+          },
+          {
+            "budget": 3072,
+            "comp_nmse": 0.035687529234384605,
+            "comp_pass": true,
+            "comp_val_acc": 0.9629629850387573,
+            "h": 12,
+            "sep_nmse": 0.04923604828520069,
+            "sep_pass": true,
+            "sep_test_acc": 0.9733333587646484,
+            "sep_val_acc": 0.9629629850387573
+          },
+          {
+            "budget": 4096,
+            "comp_nmse": 0.031856743089491234,
+            "comp_pass": true,
+            "comp_val_acc": 0.970370352268219,
+            "h": 16,
+            "sep_nmse": 0.04193584962997918,
+            "sep_pass": false,
+            "sep_val_acc": 0.9555555582046509
+          },
+          {
+            "budget": 6144,
+            "comp_nmse": 0.02508908677224814,
+            "comp_pass": true,
+            "comp_val_acc": 0.9666666388511658,
+            "h": 24,
+            "sep_nmse": 0.0301627588404155,
+            "sep_pass": true,
+            "sep_val_acc": 0.9666666388511658
+          }
+        ],
+        "joint_factorized_2048": {
+          "nmse": 0.06409209322677949,
+          "test_acc": 0.9666666388511658,
+          "val_acc": 0.9629629850387573
+        },
+        "log2_budget_ratio": -1.0,
+        "seed": 871202,
+        "selected_comp": {
+          "budget": 1536,
+          "comp_nmse": 0.059535938264441375,
+          "comp_pass": true,
+          "comp_test_acc": 0.9688888788223267,
+          "comp_val_acc": 0.9629629850387573,
+          "h": 6,
+          "sep_nmse": 0.2908868729415404,
+          "sep_pass": false,
+          "sep_val_acc": 0.8592592477798462
+        },
+        "selected_sep": {
+          "budget": 3072,
+          "comp_nmse": 0.035687529234384605,
+          "comp_pass": true,
+          "comp_val_acc": 0.9629629850387573,
+          "h": 12,
+          "sep_nmse": 0.04923604828520069,
+          "sep_pass": true,
+          "sep_test_acc": 0.9733333587646484,
+          "sep_val_acc": 0.9629629850387573
+        },
+        "teacher_test_acc": 0.9822221994400024,
+        "teacher_val_acc": 0.9777777791023254,
+        "test_acc_diff_comp_minus_sep": -0.004444479942321777
+      },
+      "timing": {
+        "batch1": {
+          "all_seven_ratios": [
+            0.8598578687775982,
+            0.8397848392124052,
+            0.8499107312334812,
+            0.8563088183588329,
+            0.8570657685237574,
+            0.8114988258151875,
+            0.8483213816910388
+          ],
+          "median_ratio": 0.8499107312334812,
+          "range": [
+            0.8114988258151875,
+            0.8598578687775982
+          ],
+          "range_crosses_0_95": false,
+          "status": "observed >=5% benefit"
+        },
+        "batch128": {
+          "all_seven_ratios": [
+            0.9247230715763501,
+            0.9295218460629762,
+            0.9652394548298177,
+            0.9605022229522439,
+            0.9399902120441895,
+            0.9444013001378753,
+            0.9549508784070112
+          ],
+          "median_ratio": 0.9444013001378753,
+          "range": [
+            0.9247230715763501,
+            0.9652394548298177
+          ],
+          "range_crosses_0_95": true,
+          "status": "observed >=5% benefit"
+        }
+      }
+    },
+    {
+      "artifact_metrics": {
+        "comp": {
+          "archive_overhead_bytes": 5509,
+          "manifest_bytes": 608,
+          "manifest_sha256": "bbbde4616b0f874ef3f8379018be8845b91e3ba9d23d555ee8c6dff9abaf1d4d",
+          "name": "comp",
+          "parameters": 40266,
+          "state_bytes": 166573,
+          "state_sha256": "b5872bfea2cfbeb2e98ffe2fd518728c63ab6e8cb2c707ab20717e90a83ef72a",
+          "tensor_bytes": 161064,
+          "total_bytes": 167181,
+          "total_nonpayload_bytes": 6117
+        },
+        "comp_raw": {
+          "archive_overhead_bytes": 8609,
+          "manifest_bytes": 933,
+          "manifest_sha256": "f67330e24f7d96c0fe832b3c51944ec0d5e8ef8ca43ef1fb5eb79761d82d19f3",
+          "name": "comp_raw",
+          "parameters": 73674,
+          "state_bytes": 303305,
+          "state_sha256": "d17c9d4d570d74d63401d2a702b6cd08d91f283db36b119335e5a82b473a0e86",
+          "tensor_bytes": 294696,
+          "total_bytes": 304238,
+          "total_nonpayload_bytes": 9542
+        },
+        "comp_replacement": {
+          "archive_overhead_bytes": 1765,
+          "manifest_bytes": 198,
+          "manifest_sha256": "18aa9871a4c6a17388c23f0813871750c28f12a28caed162f8fbdb8c13ae8aa1",
+          "name": "comp_replacement",
+          "parameters": 2048,
+          "state_bytes": 9957,
+          "state_sha256": "66a328379c66448823754646d61dec8d19abfefdeb94ff6035821fa7eb9e4b3a",
+          "tensor_bytes": 8192,
+          "total_bytes": 10155,
+          "total_nonpayload_bytes": 1963
+        },
+        "sep": {
+          "archive_overhead_bytes": 6015,
+          "manifest_bytes": 650,
+          "manifest_sha256": "e1a5988fd1a2ac9176a67301fe414b6c168298c087216b15004f4516df1fbad7",
+          "name": "sep",
+          "parameters": 42314,
+          "state_bytes": 175271,
+          "state_sha256": "dd4a7466b071162f3344b9a67e5201f7db5af0afdd190309efc5cb9f0931ce03",
+          "tensor_bytes": 169256,
+          "total_bytes": 175921,
+          "total_nonpayload_bytes": 6665
+        },
+        "sep_raw": {
+          "archive_overhead_bytes": 9179,
+          "manifest_bytes": 975,
+          "manifest_sha256": "e9275616559a68c731c57fc2f6f1d10028a8cd723d0d36bc89f830ec511cdd5b",
+          "name": "sep_raw",
+          "parameters": 75722,
+          "state_bytes": 312067,
+          "state_sha256": "d278b0d058f4be8684c7c0261324b7331e75a133eb4056d8197b060d023a3645",
+          "tensor_bytes": 302888,
+          "total_bytes": 313042,
+          "total_nonpayload_bytes": 10154
+        },
+        "sep_replacement": {
+          "archive_overhead_bytes": 2205,
+          "manifest_bytes": 246,
+          "manifest_sha256": "7fb30c2c11661b8f7bde8a151cb60fc9e78fd233b966459e61948107be113ba2",
+          "name": "sep_replacement",
+          "parameters": 4096,
+          "state_bytes": 18589,
+          "state_sha256": "c0186bff99028b7d82b90f83851f00e0f22f1e2fb3b93c66464ded50dda3bdfe",
+          "tensor_bytes": 16384,
+          "total_bytes": 18835,
+          "total_nonpayload_bytes": 2451
+        },
+        "teacher": {
+          "archive_overhead_bytes": 8103,
+          "manifest_bytes": 890,
+          "manifest_sha256": "de435cde9e483f62cc37b8722e509eae818fa46a311e318df713804d23b19596",
+          "name": "teacher",
+          "parameters": 71626,
+          "state_bytes": 294607,
+          "state_sha256": "aff430f9be5c0eee885772ef96bb4cf15eb3fb76d3e8f3df0cc29e67727f2f90",
+          "tensor_bytes": 286504,
+          "total_bytes": 295497,
+          "total_nonpayload_bytes": 8993
+        }
+      },
+      "byte_ratio": 0.9503186089210498,
+      "byte_status": "observed <5% benefit",
+      "exact_logits_gate": "PASS",
+      "joint_5percent_support": false,
+      "overhead_reconciliation": {
+        "nonpayload_saved": 548,
+        "tensor_payload_saved": 8192,
+        "total_bytes_saved": 8740
+      },
+      "science_gate": "PASS",
+      "seed": 871203,
+      "task_outcome_carried_forward": {
+        "grid": [
+          {
+            "budget": 512,
+            "comp_nmse": 0.4222425105100146,
+            "comp_pass": false,
+            "comp_val_acc": 0.6185185313224792,
+            "h": 2,
+            "sep_nmse": 0.73005873398631,
+            "sep_pass": false,
+            "sep_val_acc": 0.4962962865829468
+          },
+          {
+            "budget": 1024,
+            "comp_nmse": 0.13176530102608686,
+            "comp_pass": false,
+            "comp_val_acc": 0.9111111164093018,
+            "h": 4,
+            "sep_nmse": 0.47381986111647406,
+            "sep_pass": false,
+            "sep_val_acc": 0.6962962746620178
+          },
+          {
+            "budget": 1536,
+            "comp_nmse": 0.06328721253542784,
+            "comp_pass": false,
+            "comp_val_acc": 0.9592592716217041,
+            "h": 6,
+            "sep_nmse": 0.2980999814253233,
+            "sep_pass": false,
+            "sep_val_acc": 0.8925926089286804
+          },
+          {
+            "budget": 2048,
+            "comp_nmse": 0.04568188177414362,
+            "comp_pass": true,
+            "comp_test_acc": 0.9822221994400024,
+            "comp_val_acc": 0.9666666388511658,
+            "h": 8,
+            "sep_nmse": 0.12533687205690522,
+            "sep_pass": false,
+            "sep_val_acc": 0.9111111164093018
+          },
+          {
+            "budget": 3072,
+            "comp_nmse": 0.03696171481434567,
+            "comp_pass": true,
+            "comp_val_acc": 0.970370352268219,
+            "h": 12,
+            "sep_nmse": 0.05274589225508032,
+            "sep_pass": false,
+            "sep_val_acc": 0.9592592716217041
+          },
+          {
+            "budget": 4096,
+            "comp_nmse": 0.03229199442033181,
+            "comp_pass": true,
+            "comp_val_acc": 0.970370352268219,
+            "h": 16,
+            "sep_nmse": 0.04015965130623236,
+            "sep_pass": true,
+            "sep_test_acc": 0.9688888788223267,
+            "sep_val_acc": 0.9666666388511658
+          },
+          {
+            "budget": 6144,
+            "comp_nmse": 0.026906636163759615,
+            "comp_pass": true,
+            "comp_val_acc": 0.9740740656852722,
+            "h": 24,
+            "sep_nmse": 0.029356067054057473,
+            "sep_pass": true,
+            "sep_val_acc": 0.9740740656852722
+          }
+        ],
+        "joint_factorized_2048": {
+          "nmse": 0.05345216761203105,
+          "test_acc": 0.9866666793823242,
+          "val_acc": 0.9592592716217041
+        },
+        "log2_budget_ratio": -1.0,
+        "seed": 871203,
+        "selected_comp": {
+          "budget": 2048,
+          "comp_nmse": 0.04568188177414362,
+          "comp_pass": true,
+          "comp_test_acc": 0.9822221994400024,
+          "comp_val_acc": 0.9666666388511658,
+          "h": 8,
+          "sep_nmse": 0.12533687205690522,
+          "sep_pass": false,
+          "sep_val_acc": 0.9111111164093018
+        },
+        "selected_sep": {
+          "budget": 4096,
+          "comp_nmse": 0.03229199442033181,
+          "comp_pass": true,
+          "comp_val_acc": 0.970370352268219,
+          "h": 16,
+          "sep_nmse": 0.04015965130623236,
+          "sep_pass": true,
+          "sep_test_acc": 0.9688888788223267,
+          "sep_val_acc": 0.9666666388511658
+        },
+        "teacher_test_acc": 0.9822221994400024,
+        "teacher_val_acc": 0.9814814925193787,
+        "test_acc_diff_comp_minus_sep": 0.013333320617675781
+      },
+      "timing": {
+        "batch1": {
+          "all_seven_ratios": [
+            0.854708143819304,
+            0.8495060093701999,
+            0.8635077465743723,
+            0.8763079019352604,
+            0.8472006063759494,
+            0.8455685096564646,
+            0.8435857613258058
+          ],
+          "median_ratio": 0.8495060093701999,
+          "range": [
+            0.8435857613258058,
+            0.8763079019352604
+          ],
+          "range_crosses_0_95": false,
+          "status": "observed >=5% benefit"
+        },
+        "batch128": {
+          "all_seven_ratios": [
+            0.930947697286515,
+            0.9293174189802874,
+            0.9140324027596948,
+            0.939895940827315,
+            0.9299950465816815,
+            0.9228713564964753,
+            0.9109256524087767
+          ],
+          "median_ratio": 0.9293174189802874,
+          "range": [
+            0.9109256524087767,
+            0.939895940827315
+          ],
+          "range_crosses_0_95": false,
+          "status": "observed >=5% benefit"
+        }
+      }
+    }
+  ]
+}

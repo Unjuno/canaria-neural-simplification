@@ -1,0 +1,79 @@
+{
+  "artifact_payloads_included": false,
+  "base_public_commit": "941dfbd49bae449b2c270b339aa901ed2d8bdd52",
+  "candidate_executed": false,
+  "export_file_sha256": {
+    "ARTIFACTS.md": "e558da00dceaa2b23cd10282ad83d2c4e5e76a0efce2c5ca0fef8182cbaae322",
+    "ENVIRONMENT.md": "20df3936f077221b855948485fb7e6afd0f467ee24e58f5aac29a48558f36b0a",
+    "FRESH_SELECTION.md": "0d17177f52ce0613d91a339bb61aea5f53209cdbaaa091674df287bb06797308",
+    "LICENSE": "2183ca449d254713a6f8a5cef0b797e999ac59e57f2ddcf7c8f2f70ad4d12b1c",
+    "PROTOCOL.md": "ae3de9148e3bc46f3fca7bd8e5dd040391054a3454f57e646656c099e52734fd",
+    "README.md": "d86c529c85ba6e4cd7cba1f7f164c5d355333b6cb75f601f0557af98fb2ff022",
+    "SELECTION_DEPENDENCY.json": "b1738185d75613598803e21a9681a0e44abff501227630ddae313ad863d3ca7b",
+    "SELECTION_SCHEMA.json": "6683836a66fc8f1422ab72cb150af0330daed16c0d625a8dc2156deb6c19fe90",
+    "STATIC_VALIDATION.json": "a854f6d8994e0b5c749b1cc3cc4a953ce3d135196de928c960b8bbd385860c4d",
+    "TRANSFORMATION.md": "dc56a4775a2a6be0ef54ada213444823a2411d167484f6bded6063527a958115",
+    "manifest_contract.py": "478f44c24fc8ab875d3aee0a5fe6cef5c2797e6ca219df4100bb79e32a0d2200",
+    "measure.py": "5e000009167fe8ce235bb1163ff0a2b2788b9dfcbda95a6396742c1d8b13ae7b",
+    "prepare_fresh_selection.py": "9b8b61564148164bc2e4bd9ad62fc6c3db228ca9791d884df03ad694dea604b7",
+    "requirements.lock.txt": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
+    "storage_codec.py": "a35ebd5c0a26cdaacc22c9f6e6484fb084260bc38a7f4a0048a81e1a6def6818",
+    "test_fresh_selection.py": "fa5f9a54860cc45e813e5024cc1493d94ffbb222fa5bd41d7bc24b27b0942c9f",
+    "test_storage.py": "713d75c6c5ca4909596c1eb5012a1f21ba0dd6e707836dcee7f1caac1ba99f38"
+  },
+  "fresh_selection_adapter": {
+    "base_public_commit": "dd8b8e012bcf9acdb3f78641062b2c8343394d99",
+    "dependency_file": "SELECTION_DEPENDENCY.json",
+    "downstream_gate": "Independent custodian review and separate storage execution authority remain mandatory.",
+    "historical_pins_unchanged": true,
+    "new_files": [
+      "FRESH_SELECTION.md",
+      "SELECTION_DEPENDENCY.json",
+      "prepare_fresh_selection.py",
+      "test_fresh_selection.py"
+    ],
+    "schema": "canaria.fresh-grid-storage-selection.v1",
+    "scope": "already-completed fresh matched/grid outputs only; not the original historical archive",
+    "source_only": true,
+    "test_scope": "34 local artificial-only tests; no real model/data reads or scientific execution"
+  },
+  "historical_accepted_storage_commit": "90629b18fe007b95dc089321022c4d1f73e3f2a9",
+  "historical_runtime_commit": "5de74e45bd36aedfff30e7daecf06794866f4bed",
+  "identical_original_function_asts": [
+    "shapes_teacher",
+    "state_hash"
+  ],
+  "manifest_exclusion": "SOURCE_MAP excludes itself; private exact publication allowlist binds the final map",
+  "original_export_metadata_note": "candidate_executed, base_public_commit, STATIC_VALIDATION and historical provenance describe the original storage source export; the separately added fresh helper has only artificial local tests.",
+  "origins": [
+    {
+      "export_paths": [
+        "measure.py",
+        "storage_codec.py",
+        "manifest_contract.py"
+      ],
+      "source_logical_path": "research/selected_whole_storage/measure.py",
+      "source_sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77",
+      "transformation": "versioned portable derivative; see TRANSFORMATION.md"
+    },
+    {
+      "export_paths": [
+        "PROTOCOL.md"
+      ],
+      "source_logical_path": "research/selected_whole_storage/PROTOCOL.md",
+      "source_sha256": "feb387d3dcd5636f39e55a4fdc7d4091f0c70b820e4c127e6365e5ff4d43929a",
+      "transformation": "scientific extract and explicit non-authorizing portable input contract"
+    },
+    {
+      "exported": false,
+      "reason": "private original selection; new schema and custody handoff only",
+      "source_logical_path": "research/selected_whole_storage/SELECTION.json",
+      "source_sha256": "d31543ed32bef5705f92f1a80974ad63bbca3c46e12d60b62d446c29f1e8bd1e"
+    }
+  ],
+  "public_repository": "Unjuno/canaria-neural-simplification",
+  "schema": "canaria.storage-source-map.v1",
+  "selection_policy": "Historical relocation remains separate; fresh helper verifies the existing first-observed 224-cell rule and emits only pending-custodian-review inputs.",
+  "serializer_writer_equivalence": "AST-identical after only x-to-w open-mode normalization; readback asserts became explicit checks",
+  "source_only": true
+}

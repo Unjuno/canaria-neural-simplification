@@ -2,6 +2,33 @@
 
 Canaria separates repository integrity, experimental reproduction, and independent scientific replication.
 
+## Choose the reproduction route
+
+For the current 16-teacher J/C study, start with the [research assessment](../RESEARCH_CHECKPOINT.md) and [full report](../research-checkpoints/2026-10-27/README.md). The older residual-MLP and G7 commands below reproduce **different historical studies**, not this current pipeline.
+
+| Goal | Prerequisites and entry | Output and evidence boundary |
+|---|---|---|
+| Recalculate recorded summaries | [Saved-result analysis](../research/public_saved_analysis_20261027/README.md): Python 3.11+, NumPy 2.3.5, and the checked-in scalar checkpoint | Summaries/checks on stdout; no training, model loading, new timing, or dataset/network access |
+| Recalculate post-hoc threshold sensitivity | [Threshold analysis](../research/threshold_robustness_20261027/README.md): standard library and bundled scalar input | Five files in a new, absent output directory; preserves censored cases; not independent trials |
+| Inspect or plan a fresh technical reproduction | [Matched source](../research/digits_matched_source_20261027/README.md) → [grid source](../research/digits_joint_budget_source_20261027/README.md) → [fresh selection](../research/selected_whole_storage_source_20261027/FRESH_SELECTION.md) → [storage](../research/selected_whole_storage_source_20261027/README.md) → [fresh latency inputs](../research/selected_latency_source_20261027/FRESH_INPUTS.md) → [latency](../research/selected_latency_source_20261027/README.md) | New private artifacts from separately authorized stages; source packages alone do not supply original weights/arrays, approved releases, or completed custody records |
+
+Use each linked package's environment, input, output and provenance contracts; do not substitute historical quickstart outputs for a fresh matched/grid parent. Keep pinned sibling packages together. Saved scalar tables cannot reconstruct missing weights or validation arrays. Source maps and hash checks establish specified byte relationships, not execution authority or independent scientific replication.
+
+**Known fresh-run failure:** the [2026-10-29 attempt](../research-checkpoints/2026-10-29/REPRODUCTION_STATUS.md) failed during checkout preparation, before scientific stages or runtime/resource preflight completed. It produced no new scientific result, and its consumed attempt is not reusable. Current validation status is in [STATUS.md](../STATUS.md); package-local “pending” statements may describe their original packaging date. Recorded synthetic-test passes do not establish fresh end-to-end reproduction.
+
+The remainder preserves historical procedures and general interpretation guidance. Installation commands change an environment; scientific runners train/evaluate models. They are not required for saved-result recalculation and are not instructions to restart a closed attempt.
+
+## Code entrypoints are not interchangeable
+
+- `src/canaria/ternary_codec.py` is the small reusable pure-Python codec layer. Editable installation does not install the numerical dependencies for all research runners.
+- `scripts/reproduce/core_discovery_digits/run_confirmatory.py` trains the historical baseline; `verify_confirmatory.py` normally spawns all original seeds. Its existing `--input-dir` mode instead reads a complete saved raw cohort, but still produces an audit report; it is not the current L/J/C pipeline.
+- `scripts/reproduce/g7_confirmatory/run_seed.py` is the separately packaged G7 route. Use its Python/package contract in a separate environment, not over the baseline environment.
+- `scripts/phases/training_time/` preserves G11/G15/G17 evidence scripts with absolute `/mnt/data` imports. Those dependencies are not supplied as standalone installed modules; see its [provenance warning](../scripts/phases/training_time/README.md). Do not silently substitute G7 code and claim exact reproduction.
+- Current source packages must remain together at the pinned snapshot. The grid pins the matched sibling; fresh selection validates completed matched/grid artifacts; latency additionally requires completed storage, selected weights, original saved validation arrays and a separately supplied frozen CSV. Public scalar tables cannot supply those payloads.
+- The historical publication audit checks the baseline preservation/announcement policy. A repository-integrity PASS or its hard-coded Issue 87 announcement status is not a scientific decision for every later family.
+
+Package-local preparation statements are timestamped: the storage handoff originally left latency provenance open, while the later [fresh latency contract](../research/selected_latency_source_20261027/FRESH_INPUTS.md) adds a guarded source route. It still supplies no real input instance or completed end-to-end run.
+
 ## Evidence classes
 
 - **Confirmatory** — protocol/seed policy/endpoints locked before fresh outcomes were inspected.
@@ -21,11 +48,11 @@ python -m pip install -e .
 python tools/audit_repo.py
 ```
 
-GitHub CI also runs unit tests and `tools/audit_repo.py`. The publication workflow also repeats the complete recorded core cohort. Issue #9 is historical; the current gate is Issue #13 and `ANNOUNCEMENT_READINESS.md`.
+GitHub CI also runs unit tests and `tools/audit_repo.py`. The publication workflow also repeats the complete recorded core cohort. For the historical core publication workflow, Issue #9 was superseded by Issue #13 and `ANNOUNCEMENT_READINESS.md`; this is not a completion gate for the current J/C pipeline.
 
 An integrity PASS means repository syntax, schemas, required files, correction invariants, and selected semantic guards are consistent. It is **not** a claim that every historical experiment is bitwise reproducible.
 
-## Preferred minimal scientific entry point — residual MLP
+## Historical residual-MLP scientific entry point
 
 ```bash
 python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
@@ -53,7 +80,7 @@ Therefore:
 - the primary result remains usable because the code hash, selection rule, and fresh-seed policy were locked before fresh outcomes;
 - future runners should delay test evaluation until after selection, as the residual-MLP runner does.
 
-## Portable reproduction — G7 seed 4300
+## Historical portable reproduction — G7 seed 4300
 
 ```bash
 python -m pip install -r scripts/reproduce/g7_confirmatory/requirements.txt
@@ -148,14 +175,15 @@ Early experiments did not preserve a complete exact package lock. Do not backfil
 
 Historical code may contain environment-specific paths. Preserve such code as provenance; add portable runners instead of silently rewriting history.
 
-## Current publication-quality gate
+## Historical core publication-quality gate
 
-See [ANNOUNCEMENT_READINESS.md](ANNOUNCEMENT_READINESS.md) and [Quickstart](../QUICKSTART.md). The current headline targets Python3.11 and pinned CPU numerical dependencies. A complete environment record is saved alongside the reproduction. [PyTorch documents](https://docs.pytorch.org/docs/stable/notes/randomness.html) that bitwise reproducibility is not guaranteed across versions/platforms. Do not promise CPU/GPU parity from equal seeds.
+See [ANNOUNCEMENT_READINESS.md](ANNOUNCEMENT_READINESS.md) and [Quickstart](../QUICKSTART.md). That historical core workflow targets Python 3.11 and pinned CPU numerical dependencies. A complete environment record is saved alongside the reproduction. [PyTorch documents](https://docs.pytorch.org/docs/stable/notes/randomness.html) that bitwise reproducibility is not guaranteed across versions/platforms. Do not promise CPU/GPU parity from equal seeds.
 
-The historical re-review ledger is retained; new numerical audits do not constitute independent external scientific review. Recent research is linked through [immutable commits](RESEARCH_INDEX.md) and is not automatically part of the headline.
+The historical re-review ledger is retained; new numerical audits do not constitute independent external scientific review. Other historical studies are linked through the [research index](RESEARCH_INDEX.md); the current J/C report uses the routes above.
 
-Fixed update count600 with batch128 already fixes total sampled-example draws at76800. Calibration and validation NMSE can have different denominators; do not subtract them as if they were a common-scale generalization gap. A failed non-inferiority gate need not establish inferiority.
+Fixed update count 600 with batch 128 already fixes total sampled-example draws at 76800. Calibration and validation NMSE can have different denominators; do not subtract them as if they were a common-scale generalization gap. A failed non-inferiority gate need not establish inferiority.
 
-## Current core discrepancy
+## Unresolved historical core discrepancy
 
-The full-cohort check found a strict mismatch in two version/platform stacks. [Evidence and limitation](REPRODUCTION_DISCREPANCY.md). Do not substitute the one-seed smoke result or a qualitative8/8 agreement for exact numerical reproduction.
+The full-cohort check found a strict mismatch in two version/platform stacks. [Evidence and limitation](REPRODUCTION_DISCREPANCY.md). Do not substitute the one-seed smoke result or a qualitative 8/8 agreement for exact numerical reproduction.
+

@@ -1,0 +1,125 @@
+{
+  "status": "verified",
+  "seed": 26102602,
+  "epoch": 120,
+  "updates": 37560,
+  "update_evidence": "All 19 BN num_batches_tracked plus complete epoch events, frozen source",
+  "correct": 4559,
+  "n": 5000,
+  "accuracy": 0.9118,
+  "adequate": true,
+  "checkpoint_sha256": "842cb4d10a9d66fc50051d223218cbcd4c96842697e066cc1a56fac38e955ca0",
+  "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+  "source_sha256": "5ad585a1c61f99ed21f4e67431adea3fec8851dc132ea7d3b101953dfdecf288",
+  "data_manifest_sha256": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+  "raw": {
+    "validation_indices": {
+      "raw_bytes_sha256": "f5504dab001da187a70126fc83602513c049b1f1dae5aae6131e37c8a71e9dbb",
+      "npy_sha256": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83",
+      "encoding": "little-endian int64 C-order"
+    },
+    "predictions": {
+      "raw_bytes_sha256": "5b29bc778cab87ed9be92ba25c2b65ac0f702f921ac0dd1c7a479e2162b493d7",
+      "npy_sha256": "27d26239de6b55277123bc51afd528b0d67271219f666ad6f0b20e6dbf0a1409",
+      "encoding": "little-endian int64 C-order"
+    },
+    "labels": {
+      "raw_bytes_sha256": "c3556f4a243d7dc7c1fb41d5302fb5050146cd15b4b1e72e41d57339c79a1367",
+      "npy_sha256": "8d6ffbd471f68554596db3fd97468e00ec7598123ae40ccdd050c57fa2036e11",
+      "encoding": "little-endian int64 C-order"
+    }
+  },
+  "decoded_members": [
+    "cifar-10-batches-py/data_batch_1",
+    "cifar-10-batches-py/data_batch_2",
+    "cifar-10-batches-py/data_batch_3",
+    "cifar-10-batches-py/data_batch_4",
+    "cifar-10-batches-py/data_batch_5"
+  ],
+  "official_test_decoded": false,
+  "calibration_evaluated": false,
+  "profile": {
+    "threads": 4,
+    "interop": 1,
+    "deterministic": true
+  },
+  "owner_evidence": {
+    "seed": 26102602,
+    "session_id": 59304,
+    "teacher_output": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602",
+    "exit_code": 0,
+    "process_exited": true,
+    "threads": 4,
+    "interop": 1,
+    "deterministic": true,
+    "observed_utc": "2026-10-26T11:48:59.105677+00:00",
+    "files": {
+      "metrics.json": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/metrics.json",
+        "sha256": "f8e5fae264a46fb87648494d660be55a5e97da7ee415e81b442ee203d8637ee1",
+        "bytes": 964
+      },
+      "latest.ckpt": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/latest.ckpt",
+        "sha256": "842cb4d10a9d66fc50051d223218cbcd4c96842697e066cc1a56fac38e955ca0",
+        "bytes": 2352229
+      },
+      "launch.json": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/launch.json",
+        "sha256": "b5da9d48955254d4cc2666735178afc67a51209d414cb7cc2a3d639d17fba78e",
+        "bytes": 211
+      },
+      "events.jsonl": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/events.jsonl",
+        "sha256": "6f59811c14fdfffb74918367d38dd0570a55433c9dc368d6383a7727b3641194",
+        "bytes": 11172
+      },
+      "final_epoch120.ckpt": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/final_epoch120.ckpt",
+        "sha256": "842cb4d10a9d66fc50051d223218cbcd4c96842697e066cc1a56fac38e955ca0",
+        "bytes": 2352229
+      },
+      "teacher_export.json": {
+        "path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/seed26102602/teacher_export.json",
+        "sha256": "e8c6e254a2c76ad78b6830565060b44bbd57a11a2f34468ae6948b56eed4de16",
+        "bytes": 3033
+      }
+    },
+    "metrics": {
+      "correct": 4559,
+      "n": 5000,
+      "accuracy": 0.9118,
+      "adequate": true,
+      "status": "complete",
+      "seed": 26102602,
+      "epoch": 120,
+      "selection": "fixed final checkpoint; no early stopping",
+      "test_batch_decoded": false,
+      "calibration_used": false,
+      "data_manifest_sha256": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+      "checkpoint_sha256": "842cb4d10a9d66fc50051d223218cbcd4c96842697e066cc1a56fac38e955ca0",
+      "environment": {
+        "python": "3.13.5",
+        "torch": "2.10.0+cpu",
+        "numpy": "2.3.5",
+        "source_sha256": "5ad585a1c61f99ed21f4e67431adea3fec8851dc132ea7d3b101953dfdecf288",
+        "machine": "x86_64",
+        "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+        "threads": 4,
+        "interop": 1,
+        "deterministic": true,
+        "thread_env": {
+          "OMP_NUM_THREADS": "4",
+          "MKL_NUM_THREADS": "4",
+          "OPENBLAS_NUM_THREADS": "4",
+          "NUMEXPR_NUM_THREADS": "4"
+        }
+      },
+      "elapsed_seconds": 8348.295876264572
+    },
+    "receipt_path": "/workspace/shared/canaria_cifar_teachers_20261026/local_evidence/teachers/terminal_receipts.json",
+    "receipt_sha256": "fe36ea3b7b719eb53ca4d456de5c5dc0dc65d88814eb099675feddc55da2ac1e"
+  },
+  "owner_evidence_sha256": "11ac595689552f6a1901dc04e70ac23452a50d769a8d8837ee4037197457b015",
+  "audit_script_sha256": "fa6b5457fa385273c2e37e3575a675230850d4e1850299cefe59e9dd7cf45cd3"
+}

@@ -1,0 +1,64 @@
+> 以下のハッシュは原資料の識別子であり、変換済み公開本文のハッシュではない。公開本文のハッシュはルート PROVENANCE.json と PATH_HASH_MANIFEST.json を参照。
+
+> 公開用抜粋。元の完全な実行資料とは区別する。変換と原 SHA256 はルート PROVENANCE.json を参照。
+
+# 不変証拠索引
+
+ローカル Git の `git show <commit>:<path>` で本文を取得できる。未公開 commit を公開済み URL として扱わない。報告書を hash で固定した索引であり、全 raw 重みを含む配布物ではない。
+
+<a id="S1"></a>
+## S1
+- commit: `0a507cfb199416408f71c450ed0c5c665eb7fb95`
+- source: `docs/research_checkpoint_20261026/README.ja.md`
+- Git blob: `118675d36d4d0a380d5105a6f151c27d5cb1d121`
+- SHA-256: `8c3d0f406fd51107035c5757a59164f6d43d4af493e1455773505f07c9d705f2`
+
+<a id="S2"></a>
+## S2
+- commit: `0a507cfb199416408f71c450ed0c5c665eb7fb95`
+- source: `docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md`
+- Git blob: `6ed9343db41902e35a4c8eddd962676d894ef9e1`
+- SHA-256: `9ae7b54c535549845c7fa19d35362ee5c8e05f24104bdc54b771046148b0429c`
+
+<a id="S3"></a>
+## S3
+- commit: `a32ffbb9bc79711a8f2849acd2b7766860d254b7`
+- source: `research/r87r2_equal_budget_validation/REPORT.md`
+- Git blob: `4896e181b0f750f89350ead5e97253c538f97e37`
+- SHA-256: `9be18c1eb07cb66b747ae81ee78d9c57f2c42a4394e09f39a5f45b30b3f60894`
+
+<a id="S4"></a>
+## S4
+- commit: `ba47c247f21a5fa34c696648b54ba355c35aa06e`
+- source: `research/digits_matched_regime/results/REPORT.md`
+- Git blob: `eb1d14246c096dc4a102f09636f59277c4cef1c1`
+- SHA-256: `d1fc52240e43fee519f7776d58a33bca8729b708548e33202e161e3052c3ef1c`
+
+<a id="S5"></a>
+## S5
+- commit: `dbbce006c07e703376dfe7cd0832e5bb3bd2c584`
+- source: `research/digits_joint_budget_grid/results/REPORT.md`
+- Git blob: `661be047e580bb9ca372a29f9d5dfa49d76c8517`
+- SHA-256: `37f700088a16e2b791a8b8517d4c344e0c0544fafd80ae904fb254f176a7a05b`
+
+<a id="S6"></a>
+## S6
+- commit: `90629b18fe007b95dc089321022c4d1f73e3f2a9`
+- source: `research/selected_whole_storage/REPORT_JA.md`
+- Git blob: `426406a286c811a45439902e796908248fb217a8`
+- SHA-256: `d007f91687b6625b38623e3d9cc13ffb528dcf93b8ecd0556dd3a8feea0a2e83`
+
+<a id="S7"></a>
+## S7
+- commit: `09efa9d7323c696cc0a5a73d5361d053d34a0319`
+- source: `research/selected_latency/REPORT_JA.md`
+- Git blob: `200413f7027f55b8baae49a27fe47cd05d5911ad`
+- SHA-256: `97fabfedf6151bd11bea577f80c7bdb5e22821e0a6367bcad3b9a34fc7c41082`
+
+<a id="S8"></a>
+## S8
+- commit: `09efa9d7323c696cc0a5a73d5361d053d34a0319`
+- source: `research/selected_latency/INDEPENDENT_AUDIT/AUDIT.json`
+- Git blob: `6eb83c2e28bb8a61c42b788c9b249468b85d06ae`
+- SHA-256: `33d626d685371b3c361e93c5f555896d64d1d53a2b06fcd13bb166fa26b74a77`
+

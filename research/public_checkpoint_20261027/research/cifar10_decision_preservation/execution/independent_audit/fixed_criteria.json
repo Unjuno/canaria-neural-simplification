@@ -1,0 +1,53 @@
+[
+  {
+    "Q5_harms_do_not_increase": false,
+    "decision_Q1_harms": 56,
+    "decision_Q2_Q5_harms": 76,
+    "decision_Q5_harms": 2,
+    "feature_Q1_harms": 35,
+    "feature_Q2_Q5_harms": 20,
+    "feature_Q5_harms": 0,
+    "higher_margin_harms_do_not_increase": false,
+    "low_margin_harms_reduce_at_least_twenty_percent": false,
+    "mechanistic_flag": false,
+    "nonzero_baseline_low_margin_harms": true,
+    "overall_correct_gain_count": -78,
+    "overall_gain_at_least_one_pp": false,
+    "seed": "26102601",
+    "task_relevant_flag": false
+  },
+  {
+    "Q5_harms_do_not_increase": false,
+    "decision_Q1_harms": 56,
+    "decision_Q2_Q5_harms": 63,
+    "decision_Q5_harms": 3,
+    "feature_Q1_harms": 41,
+    "feature_Q2_Q5_harms": 12,
+    "feature_Q5_harms": 0,
+    "higher_margin_harms_do_not_increase": false,
+    "low_margin_harms_reduce_at_least_twenty_percent": false,
+    "mechanistic_flag": false,
+    "nonzero_baseline_low_margin_harms": true,
+    "overall_correct_gain_count": -65,
+    "overall_gain_at_least_one_pp": false,
+    "seed": "26102602",
+    "task_relevant_flag": false
+  },
+  {
+    "Q5_harms_do_not_increase": false,
+    "decision_Q1_harms": 67,
+    "decision_Q2_Q5_harms": 174,
+    "decision_Q5_harms": 13,
+    "feature_Q1_harms": 38,
+    "feature_Q2_Q5_harms": 21,
+    "feature_Q5_harms": 0,
+    "higher_margin_harms_do_not_increase": false,
+    "low_margin_harms_reduce_at_least_twenty_percent": false,
+    "mechanistic_flag": false,
+    "nonzero_baseline_low_margin_harms": true,
+    "overall_correct_gain_count": -175,
+    "overall_gain_at_least_one_pp": false,
+    "seed": "26102603",
+    "task_relevant_flag": false
+  }
+]

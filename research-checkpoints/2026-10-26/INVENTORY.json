@@ -1,0 +1,887 @@
+{
+  "scope": "SUMMARY_AUDITS_OUTCOMES_PROTOCOLS_SOURCES_AND_TIMING_PROBES_PARTIAL_BUNDLE",
+  "local_sources": {
+    "finish": "9067a013b861a9e75073177632e8a4bead061347",
+    "pilot": "88f7585cf9411029f078c5e736b7c52e97e68aa5",
+    "extension": "95580620c9e9e56bfe3423e6ea70482aa1861c34"
+  },
+  "files": [
+    {
+      "path": "results/verification/2026-10-26/README.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "8e62a2d379c519cf0b77b6b6ec3c919508dc7698",
+      "sha256": "52c302f103a67191d7f361baaafdf13d5d54429f842e0a0c3c414077a52d88cb",
+      "bytes": 8065
+    },
+    {
+      "path": "results/verification/2026-10-26/CONCLUSIONS.ja.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "a677b47dede9e5d80d1760023de63e4ca86f528c",
+      "sha256": "3ce0625506a2cffb9238f96dff2c3dcfde864bb78fa92fbeee5fc55f13b73d26",
+      "bytes": 8567
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/INDEPENDENT_REPRODUCTION_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "f8c1ef1dfa75bc55f1ae960bb442133ff55b88ef",
+      "sha256": "7a22fbfdb5548ccdab0540c46f24491121f3034e9e83f5af836a209ab52eddce",
+      "bytes": 5600
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/EXECUTION_SUMMARY.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "3d692e498785802020cf8465dafc03f10a779933",
+      "sha256": "a9196b74c8934a66851306e19f8f38ea2662830788018373c3a7e22fb1c8c488",
+      "bytes": 346
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/SUMMARY.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "3f481ec0a286ef9ff8c61aa73c034d4d5b573b3b",
+      "sha256": "678514074b9390ea55bf4fa32635669e763c2b06506c7946b754171460704ca4",
+      "bytes": 5616
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/INDEPENDENT_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "09ea712ac711a793878c56b278c41b8ec39a3baa",
+      "sha256": "3ae1616a5c497b3925cf8688bd3c6f3cfa8ea6705a4f9334695c24417a6e06b8",
+      "bytes": 9775
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/README.md",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "08049cc958c8e65b5e291434497a14641801d0d4",
+      "sha256": "ae0bb76efcfee55a7c10252db5728f7abe8f13ed413eaa5a8d9459eaedf15aed",
+      "bytes": 1475
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/PILOT_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "e0db6eaa20f90f82098e777259ff8818904fc206",
+      "sha256": "8407414d6c1feda0a84808964f701fac7ac4dfa0c8bff4fa342dc3385f6ef04e",
+      "bytes": 1878
+    },
+    {
+      "path": "results/verification/2026-10-26/native_cost/EXTENSION_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "a573720cf7801fb9d631eb55f6c06aff79b76f3c",
+      "sha256": "7517ab24841387b81843e1f39a38f1caa2769320f343d97dc6e0603c7c1e6fe5",
+      "bytes": 24599
+    },
+    {
+      "path": "results/verification/2026-10-26/smallvit_readback/output/INDEPENDENT_PERSISTENCE_AUDIT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "350d46a62292091d58fadeab6e96bd9e98c6e397",
+      "sha256": "2d24850b926c1588314b5ecd77380620785c2d31ea98a6adb5b0387697cdbbf3",
+      "bytes": 5576
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_readback/AUDIT_RECEIPT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "c0ae3a248e9b7a449989fbe86c13d3bc49a36961",
+      "sha256": "128ae14fc4d8046f7512e8a0a06a7c9703c1e70f23862cb4253b7b2551913dc8",
+      "bytes": 1148
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/AUDIT_RESULT.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "267833a6baf068019e2140f9bbacba1754a1c70a",
+      "sha256": "09c66e06425cccbc0025672e3167dc9e34ce2c7770c4a83d212bab690a03124d",
+      "bytes": 1348
+    },
+    {
+      "path": "results/native_cost_pilot/SUMMARY.json",
+      "source_commit": "88f7585cf9411029f078c5e736b7c52e97e68aa5",
+      "source_blob": "220e28257e5151e1049e9448d1777c3c93ddbfa3",
+      "sha256": "f0c2e570b0695ce6c96379f1adb155efbb8abae339613acab8853c7f3f791874",
+      "bytes": 9357
+    },
+    {
+      "path": "results/native_cost_extension/SUMMARY.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "a1e9b906cbc67d431c371f0bd84c2bdf503bb86f",
+      "sha256": "f0d34b33f866273a3f9262c8fb948ccbeb3fb285cf3d2633ed191b760bf13fca",
+      "bytes": 26372
+    },
+    {
+      "path": "results/native_cost_extension/CENSUS.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "b30ecfb3de94783b96b91d0b4cc5e879f11e4614",
+      "sha256": "6d63e0dd52e8fc824ad707b3a170f2d81cab4e2a22b970509428fdbe441fbb2a",
+      "bytes": 10069
+    },
+    {
+      "path": "results/native_cost_extension/PAYLOAD_STRUCTURAL_AUDIT.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "b3fd2116bfe695a70ec52831ec19c4bdc98f9da7",
+      "sha256": "952cbb5a8f45a1d8d6f100d3ee6b8a2a66288494dabe14738b176e2174910c1b",
+      "bytes": 1719
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871200/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "e6160886020b6d823779231ca3bf8b24a1e2bcf9",
+      "sha256": "efd87245810c2e75a614a6eb5d3e329d45d84634a965ffe5fc23e915fd19cf92",
+      "bytes": 2813
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871201/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "7966d40966b9d0f6f3bec90e576829b934cfa15b",
+      "sha256": "ae9f03eec022dfa805ef638621dd80a2e95014ea10c83ce38eade63ab2a6a7a3",
+      "bytes": 2842
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871202/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "0dfdec0c712ac161dc2aece1dac794326cb12edf",
+      "sha256": "5bc8c7d47e50662f0289f5b08a657ad6ebfaaf98464b201db7f2992570ac7514",
+      "bytes": 2841
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871203/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "9c71284ced8e6198f3f412ee795280a8e5bdbc51",
+      "sha256": "c6264728917c122fac4600edf066d4429f8181c3c17c455d426a87c20ddf8b5e",
+      "bytes": 2838
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871204/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "b00f4153b1a6e6f35774ac853a2d50e1f2244ca2",
+      "sha256": "a5efc325c75eeeb2deb52cd0ee3a99143cc2ba891d2cc87f424e77625607f2e2",
+      "bytes": 2837
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871205/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "5b18cbd5069b4965bded969df7ad613cd1df5803",
+      "sha256": "c442f345fdd7677e3920aed2c110e51571a95c5311067f362c818115990c8e3c",
+      "bytes": 2834
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871206/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "4e7c1db96343cbdb62ad627a87907663e2f82cae",
+      "sha256": "a321fc7ce0da3cdbf3d0d7c89ad3e29eb78f84ceadcff485a13d80d5b3f38681",
+      "bytes": 2883
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871207/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "ad8c630d864abbd018f9e97dd1949c2be691c619",
+      "sha256": "cf81887242ae37b16e1c345b5ba968a1d1e36170f1cdf21a5af59dd895b4cd72",
+      "bytes": 2816
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871208/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "5a22af594bc3f2b4a8835554ef25097fad31bfae",
+      "sha256": "60a9327289ab1a46b27623b4dd8f7624c0cee5c3efdc04200e77967319f6d12f",
+      "bytes": 2850
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871209/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "5f5e5607c53b9776d3bc74f5329d37074f4b8479",
+      "sha256": "bec1319b2bde4e0f3982f1a5c96d40b685a8e840297cbf0d733741a179e954ef",
+      "bytes": 2832
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871210/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "aa1b29fc518e34ca952cb688bbfb9431af9f4cd5",
+      "sha256": "e7367404ad7f2c784ccc712a65de6579590041a2f08c19bb7e42080acadd679f",
+      "bytes": 2844
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871211/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "1fa369591016e3a60a6bc6ea80fe74b69ee54064",
+      "sha256": "5017a8602b46d29b385daffdfae3fd9b2c5f52c6ab44f76f491d1943b0854516",
+      "bytes": 2848
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871212/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "d140379f75646dc6ab6d4f4454312709d99214ee",
+      "sha256": "8eb6973b9f261b494c4e6e8f10caaa4e92db4f377e711caad92f2171588e6ee5",
+      "bytes": 2847
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871213/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "8ec0fe84805c5da6d28993b26e4ca1b0931bb7de",
+      "sha256": "c7fad8fd9a23bb2a9fc711be4e4dc8f08123d8a859e46d22dc6a428af28bb1a7",
+      "bytes": 2853
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871214/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "be74489a2ecc937c459661450f085ec9349f361f",
+      "sha256": "2de1539b90e375a56fa329104459b9ea70523b075e146f10951b88e18b0be210",
+      "bytes": 2843
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/seed_871215/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "ea553e61d1e9a4121bf622708c7ef96b20208816",
+      "sha256": "e6aeec9c67eb50b2e87481543809d4c5516b2bb7259a2b4fc41d6fbfa4079e9e",
+      "bytes": 2833
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/preflight/outcome.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "96a7d2e514ccb30bb6284c98c9221d0f32ef9c19",
+      "sha256": "be01a5381d9d5326890e1c893e8b1b50f62cbe73bd1329e48d584220faf3f3f4",
+      "bytes": 2837
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/run/DECISION.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "746e2a00724126f117addd5f20d0894235f4f42a",
+      "sha256": "651b9b72cd422af0bfb1de60e9e3b86230122cf34af825f348a7865c3ca18bb6",
+      "bytes": 1174
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2900.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "c7085e012693b2d6772f96b063b6e3b360f5b788",
+      "sha256": "9feee7d503f0c2ace1dd7eaebda78070ddf954d32349d6e97ffc8611dbbeedae",
+      "bytes": 5328
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2901.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "bc1e1c1fb8b9c1c328d74f5e2b5d251557db3b1b",
+      "sha256": "0baa22ba221e128eb50139686219a86000ddef96a4d3b044fc9830a24ca07ffe",
+      "bytes": 5346
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2902.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "918551b5ca588b8ca68380f3271f083d10cc4d02",
+      "sha256": "bbceb66db6712426abd1fee47ca279e96fcf9bfcc8f9e2e398f8968275606182",
+      "bytes": 5337
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2903.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "033417160b068c80873312b3c015f429acac7741",
+      "sha256": "4768c883eef608a341180836d79d79008b6aa308d19be385f8d9f3597ae17fe4",
+      "bytes": 5346
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2904.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "fe0546f4530d76baaafb350d8c43fde497b57f0a",
+      "sha256": "79b8331036ed3d81827036c2a51458d54a5d96611a42646983590ccfaf824215",
+      "bytes": 5327
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2905.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "d1a4b97e30b4f0341c545ac5291b6068d10ee126",
+      "sha256": "164bcdb14c6a41d63890f32e1e3a03681a35acd9844ae90428fd62e1ec54c235",
+      "bytes": 5320
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2906.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "c76ceea148aef5266cda099b2ce170df87daaf22",
+      "sha256": "56b1bb872d6f925c3e0e7d43dc24f363b3e6d890869b749739b3613987ddd436",
+      "bytes": 5324
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/seed_2907.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "618712c7ed1e7fc03cc5d6e7f613416cdc564b63",
+      "sha256": "6fdd11c37bfff7823f8db264877a5f4b2dc73bbc75cf5cb2cea35d2dc8072a85",
+      "bytes": 5334
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/cohort/DECISION.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "1f3848738e054f9e86071b39918cc7215853b2f8",
+      "sha256": "251a5e0d962316d6ccf8da6936b2456fe944220bfb3992aaf8d3ac503120022e",
+      "bytes": 3805
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/sources/STAGE_B_CONFIRMATORY_PROTOCOL.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "4b3508bd78d6bb6ff3a98043500d39393ecfef9c",
+      "sha256": "5788f035a2fb7c8dade0b715453e7c335f0593776e5df1e00a4f853f96b3c387",
+      "bytes": 4355
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/sources/evaluate_california_confirm.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "91dccd700185dce181eaf4a28c023c009022d98c",
+      "sha256": "c9e2f49b79eb8eba5a78e4533d8c3c9102c6bee4f201f64c600eb88615295f5b",
+      "bytes": 4520
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/sources/run_california_confirm_seed.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "b5380db6c28fbb1204f5e3a8cadf5475118941e7",
+      "sha256": "47ef5f35642c43aec2287a09129f43215ef9d106ea8e0b56c32319b893098107",
+      "bytes": 8388
+    },
+    {
+      "path": "results/verification/2026-10-26/phase4_training/sources/run_seed.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+      "sha256": "701ae354f627cf9cf7612502749e6305c67f92eb2dbc6183887a75eaf4b99fae",
+      "bytes": 11205
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_training/metadata/PROTOCOL.json",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "d86d7aadf433f2f54e22ad34342020cf620e2969",
+      "sha256": "2e66e99e9f526cdc9e27ddb176abe91a0c5369cf1e7da5f082cea0aee4b52e8f",
+      "bytes": 4733
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/audit.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "83e1279b4b9e2e9c2ad9f679e3d9d0bd05cd148f",
+      "sha256": "7641891d14d20db3ea33cb9862dad5a143094fac9f759f596484798d3a382e72",
+      "bytes": 6970
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/source/scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "8759933ed2bb95014c3afc835acafa1743e40ea6",
+      "sha256": "70407ed11607c409f4b24664d5a1dc9099f494b8136526c128b6a12098fea1bb",
+      "bytes": 8446
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/source/scripts/reproduction_diagnostics/r87_dispatch.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "7a0ee3bc0dcac7127d9a40e2a01c68e41f1eb940",
+      "sha256": "24c849420debcd3f225f13362127ecba7949237041cef7ad61e3209588e61912",
+      "bytes": 11523
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/source/scripts/reproduction_diagnostics/r87_profile.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "17384136a9ffb69e0cc5a7e05981ea0d2b53f7d1",
+      "sha256": "58aea99bfa63f8a475b50625462d056693921ed64a170534d8457ca681f30a9a",
+      "bytes": 8100
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/source/scripts/reproduction_diagnostics/r87_sqrt_profile.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "ebb11910770454a2a0a41aa353630bdb48386d0f",
+      "sha256": "582e39de49cfaa1403bcb60cfab95ca8e6e3aa266b13cd8dc10fdc836fe5bfe6",
+      "bytes": 4311
+    },
+    {
+      "path": "results/verification/2026-10-26/r87r2_readback/source/scripts/reproduction_diagnostics/r87r2_confirm.py",
+      "source_commit": "9067a013b861a9e75073177632e8a4bead061347",
+      "source_blob": "e0b3485a73fc841347440bbf4ef33b925da2c870",
+      "sha256": "1fa277e480768156f5daae7e531c9c79fd628f2f4a6e91b2268d646094ae2c74",
+      "bytes": 8590
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_0.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "c6b54cea1b8eb0fbfd9e28cddcf1e656e080e882",
+      "sha256": "cec7103662f4da75a571ef26ed26e9c2a3db5c83f4665ced1ac4a7a272e9998a",
+      "bytes": 16383
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_1.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "0f29606e701ebc817bec2de3e79dca0b18d76870",
+      "sha256": "d18cef04c54c2764601e81480df3e3f16776c384ebb2b0db5e05937f7be0b25e",
+      "bytes": 16391
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_2.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "835bad7cda05a84308a304f06054b8e7a894334e",
+      "sha256": "035ac7aae9273422cd17efcd7b307e5811ee2321bbedacf46acd7bc3c6ed1395",
+      "bytes": 16381
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_3.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "ab5c0e5782f4e8b51b1dfe1091397cea35bed557",
+      "sha256": "decc7819429b3ac41fd041508b8e849dcb2e41da0c6fd010d0fcdeb74bafac0a",
+      "bytes": 16368
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_4.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "24da01dcb3240c6fa1b70b0ac8f4bb92981c2af2",
+      "sha256": "27c7ee638abb75de657dd55b1867461c904b7446cd80e9ed2b86c5e13138097c",
+      "bytes": 16389
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_5.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "92ae881f2ede63793edc62b8f30902792a63323c",
+      "sha256": "23c20bd3567a1d81fee967d5a77530094b2c4309ef1738de119808ccee634e48",
+      "bytes": 16361
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871201/probe_6.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "f69d64c07005219fc66ae35ad2f662123b268671",
+      "sha256": "356a7fa4787febafef76c31781d202ee815bac5f88786991201c935a66636f88",
+      "bytes": 16377
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_0.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "1767f93dcb36ca271f2e7d7974e930be85680992",
+      "sha256": "3540830dfe62d5a5e9fdf699a0858a7780e22e5f3da60fee417e3eb740725e4b",
+      "bytes": 16363
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_1.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "b230c11f04e745ccf6c310072f85f16312fa5c74",
+      "sha256": "ce1ea9153f447c321a228cfa0543a972a2fa8b8457eb997e8ba0abab1470ecaf",
+      "bytes": 16377
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_2.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "073f46e382b8985107b2283a12ec57b2fa0eddce",
+      "sha256": "233ce40c256ce9df10f21c51bb89bc80cfaf6f919c6c4d80402297feba5d953e",
+      "bytes": 16384
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_3.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "f35b18898aafd288c8b1a47dac6459ad7f2af1d6",
+      "sha256": "f24516fff4bed22bfc85045edd78ae6b9d4a1de8356471ac8ed987b58f5a1cc8",
+      "bytes": 16373
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_4.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "8f5c3e8d316166eb6db254ea4bf15e7c952f6a9b",
+      "sha256": "6ae3f4d101e80d471090291d8559e94ca988f7ab3176ec5c48553a00f286ccb3",
+      "bytes": 16371
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_5.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "a3b243744cd66a0b1d5955ed6ca4ed3bbe780a5e",
+      "sha256": "d9a9cae6698b8a078fe041538ad4a2174bc29fddab92b3635976ae6f35cc0d35",
+      "bytes": 16359
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871202/probe_6.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "37cb7bb000932953b748155e75794a2a5a3385aa",
+      "sha256": "f4a7ab3e5076cdeb8ecdea6be10739d578cb2ca9d7d5740be246a675f05d12a4",
+      "bytes": 16384
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_0.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "636217e29e4574509913eade1408e22b83f1055b",
+      "sha256": "346d92179e5cf14ae2500db05153ecf3be7d048aae74bad9adfe6444387efcd5",
+      "bytes": 16367
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_1.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "ca41e84dcc2c96cb646034b8388f87acff085c53",
+      "sha256": "ec98f3bca0a9493e5944dad01ab736b1f2ba54e68f700c6ea3ca8c861ff3813f",
+      "bytes": 16366
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_2.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "fdde33c59b2e518b076eff32345b5a78f2425cbe",
+      "sha256": "6af96d558d19744c49db1b1c9a1bd34217236faa05cb1d25308fa0927414f5ca",
+      "bytes": 16361
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_3.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "5ca1a6fcc4fc614a5f61faf9907e32f2d9449bfb",
+      "sha256": "ed64b300e140da5142d9423f6b9f8a17439740f9ca0617fd95c13f828b980934",
+      "bytes": 16364
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_4.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "64db870a435f0d2ad75aa4701a3defb8be2b4c05",
+      "sha256": "a42fcfbac0500b650bb338d1010ab6b6d5cb5905a05d7c93bda6fe99bb9720db",
+      "bytes": 16367
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_5.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "18a5b76b984367c43d706a06b19de2931c7e450b",
+      "sha256": "750a39038e4b995d57922a157dd3d07502be522ae84fc7e16b769b9101013889",
+      "bytes": 16358
+    },
+    {
+      "path": "local_evidence/native_cost_extension/seed_871203/probe_6.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "c81e4724fe84b14745dcf495a5c072057cd85bdf",
+      "sha256": "2fe13d59e3b62583fd7f5f802afd5451c15c4cf51e0a98623cf925c34baf4c9b",
+      "bytes": 16372
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_0.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "afc75706b6a5aeb4dc6bd0782c870371f7689617",
+      "sha256": "1a11762718567b5aeec7c4738e5b673cccf7511af0905dfcc019500355e4eafe",
+      "bytes": 16367
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_1.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "49911d1f5a401e1db6abedab4f94c3ba0a8e253e",
+      "sha256": "5a6c1571b538d5d79178840695dd594c7ed99621edc87a3cd417419f4f6bfc4a",
+      "bytes": 16364
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_2.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "a2f10b4c324722c3e85f7ac78891f117de3ad907",
+      "sha256": "1b38844bd407cbdeb0616a205cf47fa9347b744ede178632284068efe2d9d7d6",
+      "bytes": 16368
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_3.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "02035114d38a6e8ab5495d46866bfdb0ac014592",
+      "sha256": "3efc661111cd4cd13aefc6ac776111fdb766e95084d6dc14eb0808ebb27feb8c",
+      "bytes": 16363
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_4.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "d34c05dab89e6606ab010863ffd28aef3f5007c8",
+      "sha256": "836b68becfb92b1595117cb2270b33634c12db644ab082925cc5d3867d04b38c",
+      "bytes": 16365
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_5.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "cd75d92ec422e31b7181ddc6ca05da1c67ef7dad",
+      "sha256": "25a25a876c4112bd8cb4931b486d07ef8f1ebbaf3a47dbe096e9f3256001d10f",
+      "bytes": 16368
+    },
+    {
+      "path": "local_evidence/native_cost_pilot/probe_6.json",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "32de19fec980fc99c7cabb8e6501b58d431d3cad",
+      "sha256": "cfa79bae2d7f6924b41780d537480dcd958c398236f455eecf85875e42dfe21a",
+      "bytes": 16358
+    },
+    {
+      "path": "scripts/native_cost_extension/pilot.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "68e63283f05ba94355335f73dbb21953047b1cd7",
+      "sha256": "a4ac26c749b580cc6f5bace72aea5f653887be3ea1ab8d7f60e7130f98700ca7",
+      "bytes": 9878
+    },
+    {
+      "path": "scripts/native_cost_extension/run.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "a4184eab129a95eb025159a6cf6f11ca9988d893",
+      "sha256": "0a65e1cb3c137e612944fb3c7e8dd6f36de4c450f51442d8f64cdb446e18c085",
+      "bytes": 3017
+    },
+    {
+      "path": "scripts/native_cost_extension/summarize.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "99e3613a56641db4536c4e6a40db7e3e0e56cf9c",
+      "sha256": "2c7ae08509b2227a122f72f10dc546d489c4d75683f679455b9b61a0b87eb6e0",
+      "bytes": 6198
+    },
+    {
+      "path": "scripts/native_cost_pilot/pilot.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "c1cf3119c0c81be94c70ee98b7baaabe6f352f7e",
+      "sha256": "e01e484f0fcfc09fb4485e3126a68e88e738582a81c68531632a87ba63a0b23f",
+      "bytes": 9693
+    },
+    {
+      "path": "scripts/native_cost_pilot/r87_dispatch.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "7a0ee3bc0dcac7127d9a40e2a01c68e41f1eb940",
+      "sha256": "24c849420debcd3f225f13362127ecba7949237041cef7ad61e3209588e61912",
+      "bytes": 11523
+    },
+    {
+      "path": "scripts/native_cost_pilot/r87_profile.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "17384136a9ffb69e0cc5a7e05981ea0d2b53f7d1",
+      "sha256": "58aea99bfa63f8a475b50625462d056693921ed64a170534d8457ca681f30a9a",
+      "bytes": 8100
+    },
+    {
+      "path": "scripts/native_cost_pilot/r87_sqrt_profile.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "ebb11910770454a2a0a41aa353630bdb48386d0f",
+      "sha256": "582e39de49cfaa1403bcb60cfab95ca8e6e3aa266b13cd8dc10fdc836fe5bfe6",
+      "bytes": 4311
+    },
+    {
+      "path": "scripts/native_cost_pilot/r87r2_confirm.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "e0b3485a73fc841347440bbf4ef33b925da2c870",
+      "sha256": "1fa277e480768156f5daae7e531c9c79fd628f2f4a6e91b2268d646094ae2c74",
+      "bytes": 8590
+    },
+    {
+      "path": "scripts/native_cost_pilot/run_probes.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "74eea8a4db987735a6144647e794544eca3acd88",
+      "sha256": "6ee16155697919432d727e825168e991dfe348852612aeb541ef1f06f27155b5",
+      "bytes": 1601
+    },
+    {
+      "path": "scripts/native_cost_pilot/summarize.py",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "1c32e17fd5aa8e881a7d33643ab75aaff4e7b41b",
+      "sha256": "2994a6e03ff28483608b893e38b8fe4201eb960bd0e4e3903948402597394994",
+      "bytes": 5399
+    },
+    {
+      "path": "results/native_cost_pilot/PROTOCOL.md",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "fef37fec421cb45264bbafdc152d960ffeca062a",
+      "sha256": "22f9c00da2eac2e90db2831a76ef1c01bd90a328f885d6a6659632b5db0a2ed4",
+      "bytes": 6073
+    },
+    {
+      "path": "results/native_cost_extension/PROTOCOL.md",
+      "source_commit": "95580620c9e9e56bfe3423e6ea70482aa1861c34",
+      "source_blob": "763c7b71ff8e58fea959bea218530048a2c27dfb",
+      "sha256": "9f6763d866f7fc2d0a3590fa7b9b229e50af114d0502e3f09628a9407b9cf811",
+      "bytes": 2567
+    },
+    {
+      "path": "research/cifar10_preflight/.gitignore",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "70cfce6936dc01bc2f639861fc2ed9d8881561aa",
+      "sha256": "553d888952a23e007d8de3f17e3a76af89c1cd62525beb7d8527ecb5b2bdc867",
+      "bytes": 24
+    },
+    {
+      "path": "research/cifar10_preflight/PROTOCOL.md",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "3fe4fc00bfdb9038346bf536fc16c51a54531c18",
+      "sha256": "1f697ba6b9d07b69fbb672e1f56d5ba401027f0fa1a1a3e1025536d079b01578",
+      "bytes": 2418
+    },
+    {
+      "path": "research/cifar10_preflight/run.py",
+      "source_commit": "91543395e52e2f8aa1eb91c740c5dce15a903d9d",
+      "source_blob": "1828e71e88ce15d3000d6bddd55a8d39a04c56ce",
+      "sha256": "44c2cf5d855db6319df36ba83bbc1b734aea2bb41b1ab29c18eb4d6fbc2fb0b1",
+      "bytes": 9190
+    },
+    {
+      "path": "research/cifar10_teacher/.gitignore",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "70cfce6936dc01bc2f639861fc2ed9d8881561aa",
+      "sha256": "553d888952a23e007d8de3f17e3a76af89c1cd62525beb7d8527ecb5b2bdc867",
+      "bytes": 24
+    },
+    {
+      "path": "research/cifar10_teacher/model.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "d7f2320b5210a17d482f1553ca5cf3433d183e92",
+      "sha256": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+      "bytes": 1403
+    },
+    {
+      "path": "research/cifar10_preflight/RESULT.md",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "c693cf2afedc8c1da68be97dae874bf8822778c7",
+      "sha256": "0972cdfeb51bbf3bac52425c24f7c7064cce94d6af28ac7c84b11d0a77b0beae",
+      "bytes": 2952
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/INDEPENDENT_REVIEW.md",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "a995a369c1a3c430490718e021399266fedd5043",
+      "sha256": "51154cd95deb453eb1cc36c4ef358f16e6fed1cf29febde5b124a2219b7be766",
+      "bytes": 825
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/SHA256.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "7d6dfe1f959fb813e18418db2604f3caf8c2df6a",
+      "sha256": "496ce9f245a8cb73d907e56aeab24253cefdf5220c584250745e0378d5834f6d",
+      "bytes": 1002
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/code_commit.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "4e56afa609161085b53279df4bcf1adc1df01efe",
+      "sha256": "1fc21cfb1e3f8213f02a29ab8ac6454a39e78172f9cfdef8d5b14324d3095f9c",
+      "bytes": 41
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/data_manifest.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "e4e2f2b6251a5a4f9ffdd95c8e1ff8484f840200",
+      "sha256": "8913afbe6b3e74d96f0cc4adf9411a11ac38da9a4eed1f3de735da200aa494cf",
+      "bytes": 2367
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/dependencies.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "a030543197d7a78c1d1fe51f0e8781c0b990f3c5",
+      "sha256": "024f2902979ab442f5048c5f6302b6d78506c03252f2b6e450056355a280c7bf",
+      "bytes": 255
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/events.jsonl",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "c5f8d8538d7146281da6e5fe5b6c6a8fb336061e",
+      "sha256": "fe0a86bbe0f2971abb811ec2ab2160b8ccf367bb7af0d454c583ef08f1620085",
+      "bytes": 11940
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/metrics.json",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "1c558a901f26640b247433fb2f0719d70f9905bc",
+      "sha256": "3c49e1b69f6b35da083c51d194bdfb150bb1411519b535aaf2cfb70b6c21165d",
+      "bytes": 2401
+    },
+    {
+      "path": "research/cifar10_preflight/evidence/source_sha256.txt",
+      "source_commit": "80d4e3e370d54d1ed8127fa7dd6db2a4a1d8830b",
+      "source_blob": "021bc1ac7736da1ae5e29b94776cd54e716ff76b",
+      "sha256": "57f0ae250b6a6c577d882de3da6da3be1c58f9ecc5cd5bd9778706db9a7c12d2",
+      "bytes": 205
+    },
+    {
+      "path": "research/cifar10_teacher/PREPARATION_CHECKS.md",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "dcef82452c4d3e01c29c86bc8aa480669875732c",
+      "sha256": "df01f5589a72aef39d65c786f840632c33c42a2569e5a68e3dfa9a004519d38c",
+      "bytes": 3093
+    },
+    {
+      "path": "research/cifar10_teacher/PROTOCOL.md",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "b1c950618a029ea52030e4b995d4187aa64cd0bb",
+      "sha256": "6c9919c76d2ba5282fc7bbe46300a5b8cd22e236ff3a6578bd2a2ba5a54eae94",
+      "bytes": 5421
+    },
+    {
+      "path": "research/cifar10_teacher/launch.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "a4934384cb6426772adfe7fffe284779904837a7",
+      "sha256": "3867ea882b2c0f13334de7063236b7dc9b265cbf8a4b7927f8b96236ec39b6b0",
+      "bytes": 3242
+    },
+    {
+      "path": "research/cifar10_teacher/run.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "5adb6e7bd60b2e938b1080078328ee1b43d5e4bf",
+      "sha256": "f33a9ebecf9fd5e7b59169c3771be324f7c5c7441d208a0dfd49986811f19fb6",
+      "bytes": 17906
+    },
+    {
+      "path": "research/cifar10_teacher/test_synthetic.py",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "27bb0e11c42d6434d3a82ef385977160afc56ed9",
+      "sha256": "89b7a1dcbad7b9335d93f8fb59e10d40bdad150f93ad8bc5d9bbb6bb894ce26d",
+      "bytes": 8193
+    },
+    {
+      "path": "research/cifar10_teacher/EXECUTION_PROTOCOL.json",
+      "source_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+      "source_blob": "923407751f6d10b7c72ba6823dae18dd39144186",
+      "sha256": "904353458c41c5c03e0671f14a0ed4798b975ed65ba8c2e54faa1a7565cd39e5",
+      "bytes": 3938
+    }
+  ],
+  "remaining_pending": [
+    "Binary training traces, captured tensors and serialized model artifacts",
+    "Additional metadata, archived-primary snapshots, source/control dependencies and packaging repair not included in this bounded text layer",
+    "Audits retaining original scratch paths require separately documented adaptation; this branch is not yet a standalone reproduction package"
+  ],
+  "cifar_status": {
+    "snapshot_utc": "2026-10-26T09:32:00Z",
+    "preflight": "PASS_DATA_RUNTIME_ONLY_NO_QUALITY_RESULT",
+    "teachers": {
+      "26102601": "RUNNING_QUALITY_PENDING",
+      "26102602": "RUNNING_QUALITY_PENDING",
+      "26102603": "QUEUED"
+    },
+    "execution_protocol_commit": "cfcc08223ac9aef556384581c6c92b04a75e5714",
+    "launch_records": {
+      "26102601": {
+        "immutable_launch": {
+          "schema": 1,
+          "seed": 26102601,
+          "started": 1793006962.6811554,
+          "absolute_expiry": 1793042962.6811554,
+          "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+        },
+        "source_sha256": "70cb39adf75797066288c82260d81e83992ad3eb478be67ba943c945033db919"
+      },
+      "26102602": {
+        "immutable_launch": {
+          "schema": 1,
+          "seed": 26102602,
+          "started": 1793006979.15931,
+          "absolute_expiry": 1793042979.15931,
+          "preflight_artifacts": "/workspace/shared/canaria_cifar_preflight_20261026/research/cifar10_preflight/artifacts"
+        },
+        "source_sha256": "b5da9d48955254d4cc2666735178afc67a51209d414cb7cc2a3d639d17fba78e"
+      }
+    },
+    "limits": "Fixed 120 epochs; final-only validation >=85%; maximum two workers; original 10h per-seed caps and 2026-10-29T06:50Z deadline; no official test evaluation",
+    "evidence_scope": "Status snapshot from parent process monitoring; immutable launch records preserved, no mutable log tail or checkpoint uploaded. No completed teacher or Canaria outcomes."
+  },
+  "superseded_files": [
+    {
+      "path": "research/cifar10_teacher/PREPARATION_CHECKS.md",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "d9b0b952a7529252b44753f669d66df77100103f",
+      "sha256": "9326cec804fe8bb12a681387b04828c2f7ed98420944c2d751e1d543b8fd6af4",
+      "bytes": 2329
+    },
+    {
+      "path": "research/cifar10_teacher/PROTOCOL.md",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "de7f9ed14ad5d115069d6823bbca32b25104dfe1",
+      "sha256": "f9bb7ee2e141545bc46a7ac070b832ee08160b17680fe8c1618b6bdf8a11afaa",
+      "bytes": 4573
+    },
+    {
+      "path": "research/cifar10_teacher/run.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "03a6c2d0f3caf184692210f8833a5b0fed878560",
+      "sha256": "542da4413e22d968a8f7ff1c1010608952cae4ae8a7a6ddfca0e3d6df8eba798",
+      "bytes": 17676
+    },
+    {
+      "path": "research/cifar10_teacher/test_synthetic.py",
+      "source_commit": "16e899ef30d46e626382235fbd5d7c8f1b303452",
+      "source_blob": "af6361e171b9c84f11411a0744bf2d28748d798a",
+      "sha256": "3c26388998a93881d65691d89350227b1ab89585b8326e3137439bf037088f3d",
+      "bytes": 5205
+    }
+  ],
+  "derived_files": [
+    {
+      "path": "research/cifar10_preflight/evidence/step_seconds.json",
+      "note": "200 timing floats derived exactly from retained NPY, whose SHA256 is embedded"
+    },
+    {
+      "path": "research/cifar10_teacher/STATUS_20261026_0932.json",
+      "note": "09:32 UTC status snapshot plus immutable launch records"
+    }
+  ]
+}

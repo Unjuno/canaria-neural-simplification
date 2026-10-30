@@ -1,0 +1,324 @@
+{
+  "all_seven_probes_complete": true,
+  "ancillary_metadata_errors": [
+    "Post-run lscpu unavailable CPU sysfs; retained error and /proc/cpuinfo fallback"
+  ],
+  "artifact_metrics": {
+    "comp": {
+      "archive_overhead_bytes": 5509,
+      "manifest_bytes": 608,
+      "manifest_sha256": "a8aba7a903f148f5111452916dcbf90579123e2657dfc2134fcb5bfe6baef2bc",
+      "name": "comp",
+      "parameters": 39754,
+      "state_bytes": 164525,
+      "state_sha256": "4acd71f48fb4a44990be7ad67fbcbce7c0ffbb4e0b986bb5daac2802a7c941f0",
+      "tensor_bytes": 159016,
+      "total_bytes": 165133
+    },
+    "comp_raw": {
+      "archive_overhead_bytes": 8609,
+      "manifest_bytes": 933,
+      "manifest_sha256": "8ef96248a6f0bdd44cb1126153788b5a15ecd309a356cb19773a900e2bc24b7f",
+      "name": "comp_raw",
+      "parameters": 73162,
+      "state_bytes": 301257,
+      "state_sha256": "f1aef20c94013f31ef01e15699a9cf973021ad80915df7cb744d472ca5cdf1cb",
+      "tensor_bytes": 292648,
+      "total_bytes": 302190
+    },
+    "comp_replacement": {
+      "archive_overhead_bytes": 1765,
+      "manifest_bytes": 198,
+      "manifest_sha256": "fbb2df365df521f28e15af7e2b2d6b104b92ce66dd26a4fdf5993a0ac209a361",
+      "name": "comp_replacement",
+      "parameters": 1536,
+      "state_bytes": 7909,
+      "state_sha256": "52ae8bb27a7cf1dd9c5e8188755085735a5d861da73b9e98369ead38419faa03",
+      "tensor_bytes": 6144,
+      "total_bytes": 8107
+    },
+    "sep": {
+      "archive_overhead_bytes": 6015,
+      "manifest_bytes": 650,
+      "manifest_sha256": "45eadb96e6f4be5907b30dc042a6ec91f294f777ceaa83d6f59e3805a76de818",
+      "name": "sep",
+      "parameters": 41290,
+      "state_bytes": 171175,
+      "state_sha256": "ea6886717d40f9ef861c6829c10b40acbdfae67bf36bea4f736187f3f4d2f5c0",
+      "tensor_bytes": 165160,
+      "total_bytes": 171825
+    },
+    "sep_raw": {
+      "archive_overhead_bytes": 9179,
+      "manifest_bytes": 975,
+      "manifest_sha256": "2277173b20b6ef3aba765f2d01c70cbbe99509457a52bb3e74719f6670d66af8",
+      "name": "sep_raw",
+      "parameters": 74698,
+      "state_bytes": 307971,
+      "state_sha256": "9802ebd64cbfd4c4a93b0bf95cf66e793b5f6f7d04ba3d4389bedad59b47c7b9",
+      "tensor_bytes": 298792,
+      "total_bytes": 308946
+    },
+    "sep_replacement": {
+      "archive_overhead_bytes": 2205,
+      "manifest_bytes": 246,
+      "manifest_sha256": "6357ad04c5329a8cd2c069b657b598e0b1f70dc4685cc2a9315295359cd3ddc7",
+      "name": "sep_replacement",
+      "parameters": 3072,
+      "state_bytes": 14493,
+      "state_sha256": "0877bffe08bdc489585a78e8356f552783ea5a865b60439d25746766115c6be0",
+      "tensor_bytes": 12288,
+      "total_bytes": 14739
+    },
+    "teacher": {
+      "archive_overhead_bytes": 8103,
+      "manifest_bytes": 890,
+      "manifest_sha256": "de435cde9e483f62cc37b8722e509eae818fa46a311e318df713804d23b19596",
+      "name": "teacher",
+      "parameters": 71626,
+      "state_bytes": 294607,
+      "state_sha256": "afb6e3966b58833ab86a4cd218e8b2f8ae5f4c1dfb749112ffc39be463ff10a0",
+      "tensor_bytes": 286504,
+      "total_bytes": 295497
+    }
+  },
+  "byte_ratio": 0.9610533973519569,
+  "byte_status": "observed <5% benefit",
+  "decision": "PILOT_NOT_SUPPORTED",
+  "elapsed_seconds": 126.68311214447021,
+  "evidence_class": "EXPLORATORY_SINGLE_KNOWN_SEED",
+  "exact_logits_gate": "PASS",
+  "experiment": "R87R2_NATIVE_COST_PILOT",
+  "limitations": [
+    "One already-known seed, not fresh-cohort evidence",
+    "Timing descriptive and noisy; no cross-model confidence interval",
+    "Teacher context only; primary comparison active componentwise vs active composed",
+    "No RAM, VRAM, energy, generalization or noninferiority claim"
+  ],
+  "ratios": {
+    "active_whole": {
+      "parameters": 0.9627997093727295,
+      "tensor_bytes": 0.9627997093727295,
+      "total_bytes": 0.9610533973519569
+    },
+    "raw_wrapper": {
+      "parameters": 0.9794372004605211,
+      "tensor_bytes": 0.9794372004605211,
+      "total_bytes": 0.9781321007554719
+    },
+    "replacement_only": {
+      "parameters": 0.5,
+      "tensor_bytes": 0.5,
+      "total_bytes": 0.550037315964448
+    }
+  },
+  "science_gate": "PASS",
+  "scientific_or_timing_failed_attempts": [],
+  "seed": 871200,
+  "task_outcome_carried_forward": {
+    "grid": [
+      {
+        "budget": 512,
+        "comp_nmse": 0.4486426301065253,
+        "comp_pass": false,
+        "comp_val_acc": 0.6666666865348816,
+        "h": 2,
+        "sep_nmse": 0.7324217850857969,
+        "sep_pass": false,
+        "sep_val_acc": 0.3481481373310089
+      },
+      {
+        "budget": 1024,
+        "comp_nmse": 0.1147751855480006,
+        "comp_pass": false,
+        "comp_val_acc": 0.9629629850387573,
+        "h": 4,
+        "sep_nmse": 0.5071152862955015,
+        "sep_pass": false,
+        "sep_val_acc": 0.729629635810852
+      },
+      {
+        "budget": 1536,
+        "comp_nmse": 0.06773154669711755,
+        "comp_pass": true,
+        "comp_test_acc": 0.9711111187934875,
+        "comp_val_acc": 0.9777777791023254,
+        "h": 6,
+        "sep_nmse": 0.3005872316657658,
+        "sep_pass": false,
+        "sep_val_acc": 0.8148148059844971
+      },
+      {
+        "budget": 2048,
+        "comp_nmse": 0.05360072069522899,
+        "comp_pass": true,
+        "comp_val_acc": 0.970370352268219,
+        "h": 8,
+        "sep_nmse": 0.11495676883051521,
+        "sep_pass": false,
+        "sep_val_acc": 0.970370352268219
+      },
+      {
+        "budget": 3072,
+        "comp_nmse": 0.03677187271149757,
+        "comp_pass": true,
+        "comp_val_acc": 0.9777777791023254,
+        "h": 12,
+        "sep_nmse": 0.05885108355758972,
+        "sep_pass": true,
+        "sep_test_acc": 0.9711111187934875,
+        "sep_val_acc": 0.970370352268219
+      },
+      {
+        "budget": 4096,
+        "comp_nmse": 0.03193183090298186,
+        "comp_pass": true,
+        "comp_val_acc": 0.9777777791023254,
+        "h": 16,
+        "sep_nmse": 0.043883445207004025,
+        "sep_pass": true,
+        "sep_val_acc": 0.970370352268219
+      },
+      {
+        "budget": 6144,
+        "comp_nmse": 0.02495960355016944,
+        "comp_pass": true,
+        "comp_val_acc": 0.9740740656852722,
+        "h": 24,
+        "sep_nmse": 0.02846998605536524,
+        "sep_pass": true,
+        "sep_val_acc": 0.9777777791023254
+      }
+    ],
+    "joint_factorized_2048": {
+      "nmse": 0.06773491827000244,
+      "test_acc": 0.9622222185134888,
+      "val_acc": 0.970370352268219
+    },
+    "log2_budget_ratio": -1.0,
+    "seed": 871200,
+    "selected_comp": {
+      "budget": 1536,
+      "comp_nmse": 0.06773154669711755,
+      "comp_pass": true,
+      "comp_test_acc": 0.9711111187934875,
+      "comp_val_acc": 0.9777777791023254,
+      "h": 6,
+      "sep_nmse": 0.3005872316657658,
+      "sep_pass": false,
+      "sep_val_acc": 0.8148148059844971
+    },
+    "selected_sep": {
+      "budget": 3072,
+      "comp_nmse": 0.03677187271149757,
+      "comp_pass": true,
+      "comp_val_acc": 0.9777777791023254,
+      "h": 12,
+      "sep_nmse": 0.05885108355758972,
+      "sep_pass": true,
+      "sep_test_acc": 0.9711111187934875,
+      "sep_val_acc": 0.970370352268219
+    },
+    "teacher_test_acc": 0.9777777791023254,
+    "teacher_val_acc": 0.9851852059364319,
+    "test_acc_diff_comp_minus_sep": 0.0
+  },
+  "timing": {
+    "batch1": {
+      "all_seven_ratios": [
+        0.8318452154493334,
+        0.8297477515576903,
+        0.8266134560825589,
+        0.8403792516747108,
+        0.8502834514616006,
+        0.8498804307517088,
+        0.8545912937942242
+      ],
+      "median_ratio": 0.8403792516747108,
+      "per_process_median_ns": [
+        {
+          "comp": 58214.77,
+          "sep": 69982.695
+        },
+        {
+          "comp": 59881.02,
+          "sep": 72167.74
+        },
+        {
+          "comp": 59535.4,
+          "sep": 72023.265
+        },
+        {
+          "comp": 57235.945,
+          "sep": 68107.28
+        },
+        {
+          "comp": 64850.09,
+          "sep": 76268.79
+        },
+        {
+          "comp": 66323.36,
+          "sep": 78038.46
+        },
+        {
+          "comp": 58563.445,
+          "sep": 68528.015
+        }
+      ],
+      "range": [
+        0.8266134560825589,
+        0.8545912937942242
+      ],
+      "range_crosses_0_95": false,
+      "status": "observed >=5% benefit"
+    },
+    "batch128": {
+      "all_seven_ratios": [
+        0.9218695826542856,
+        0.9218111290096943,
+        0.9256081778743007,
+        0.9513294672525605,
+        0.9395099431915999,
+        0.9498873462111612,
+        0.9385924023227438
+      ],
+      "median_ratio": 0.9385924023227438,
+      "per_process_median_ns": [
+        {
+          "comp": 525585.92,
+          "sep": 570130.45
+        },
+        {
+          "comp": 473408.37,
+          "sep": 513563.305
+        },
+        {
+          "comp": 499029.32,
+          "sep": 539136.68
+        },
+        {
+          "comp": 479112.09,
+          "sep": 503623.725
+        },
+        {
+          "comp": 470689.38,
+          "sep": 500994.57
+        },
+        {
+          "comp": 465987.76,
+          "sep": 490571.605
+        },
+        {
+          "comp": 462656.27,
+          "sep": 492925.65
+        }
+      ],
+      "range": [
+        0.9218111290096943,
+        0.9513294672525605
+      ],
+      "range_crosses_0_95": true,
+      "status": "observed >=5% benefit"
+    }
+  }
+}

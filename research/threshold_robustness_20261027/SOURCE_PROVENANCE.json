@@ -1,0 +1,98 @@
+{
+  "kind": "public saved-scalar post-hoc descriptive analysis; not original model experiment",
+  "original_source": {
+    "commit": "dbbce006c07e703376dfe7cd0832e5bb3bd2c584",
+    "path": "research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+    "sha256": "b38d6f2175915cda5f738504299f8e7421b0579c6b0eb652fe23109d4e51d1ca",
+    "identity_note": "Original source identifier; public availability is not asserted."
+  },
+  "public_source": {
+    "commit": "661f1c0648c510ab9303649173dda2bc0997e39e",
+    "path": "research/public_checkpoint_20261027/research/digits_joint_budget_grid/results/evidence/SUMMARY.json",
+    "sha256": "f36a18564de42c9ba972f2eaa625bdbb4792cd3f93e86e89cafd900877d39325",
+    "scalar_projection_exact_to_original": true
+  },
+  "original_analysis_artifact_commit": "221fe8584a13649cdc3a6c6a62fc94baf3fb665a",
+  "chronology": {
+    "kind": "locally recorded sequence, not externally timestamped preregistration",
+    "original_protocol_commit": "1a36b0e93eb0299bef1ecaad39b17ed6a06e054c",
+    "original_protocol_sha256": "a8325e1dfa5bce7e670cadf45678f6cea7ea4c70671b59e6000bf0a24b7cd683",
+    "analyzer_and_tests_commit_before_real_input_computation": "6b25aa2a6ea40a8db96f9fb1fb1358431fbd7bf7",
+    "post_hoc_to_original_experimental_outcomes": true
+  },
+  "portable_input_sha256": "7138c23550ce9cd05abfb19843aab5aba212aeecac1a630b0609a22960a7d962",
+  "files": [
+    {
+      "path": "SCALAR_INPUT.json",
+      "original_sha256": "7138c23550ce9cd05abfb19843aab5aba212aeecac1a630b0609a22960a7d962",
+      "export_sha256": "7138c23550ce9cd05abfb19843aab5aba212aeecac1a630b0609a22960a7d962",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "analyze_thresholds.py",
+      "original_sha256": "834da4bd543a1a050286eea8ae191df28d4f718a7d75d23811f81c854483e37a",
+      "export_sha256": "834da4bd543a1a050286eea8ae191df28d4f718a7d75d23811f81c854483e37a",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "test_analyze_thresholds.py",
+      "original_sha256": "f400f30b3424398e1c721b82feae884ea78144bbcc74a061dec3a4072037ca99",
+      "export_sha256": "f400f30b3424398e1c721b82feae884ea78144bbcc74a061dec3a4072037ca99",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "results/FIRST_PASSES.csv",
+      "original_sha256": "79f086f9132aeb6468edf74e165443ffbe752219e2bdfcb633b1ea3dac557f20",
+      "export_sha256": "79f086f9132aeb6468edf74e165443ffbe752219e2bdfcb633b1ea3dac557f20",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "results/PASS_COUNTS.csv",
+      "original_sha256": "f088e75168c0dd5269bf77e74c00436154eb839277d81b7a343ca3dd617b8a9a",
+      "export_sha256": "f088e75168c0dd5269bf77e74c00436154eb839277d81b7a343ca3dd617b8a9a",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "results/RESULTS.json",
+      "original_sha256": "378a453f78767992dda0fb429cb8ff867114c211d5da74fde1fe435a8277ae0f",
+      "export_sha256": "378a453f78767992dda0fb429cb8ff867114c211d5da74fde1fe435a8277ae0f",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "results/SELECTED_MARGINS.csv",
+      "original_sha256": "eb397a473820222a5fb095ffcee1bf0303bdc5d23f007eb2ee740c722cbc756f",
+      "export_sha256": "eb397a473820222a5fb095ffcee1bf0303bdc5d23f007eb2ee740c722cbc756f",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "results/SURFACE.csv",
+      "original_sha256": "a864f41971bd602c0fbc2f2f8e94f8766b134fc5e58cb681695ec5f3b3fa9cf5",
+      "export_sha256": "a864f41971bd602c0fbc2f2f8e94f8766b134fc5e58cb681695ec5f3b3fa9cf5",
+      "transformation": "byte-identical original artifact"
+    },
+    {
+      "path": "README.md",
+      "original_sha256": "0682546229ebca60dd9ff3ee9b5e1784c670b34f867565a77f44cb04bddd61fa",
+      "export_sha256": "4f6d55599146e4eb830f1335a52b708b19067c89c23654f0c1b5384d5506b067",
+      "transformation": "public-facing rewrite; scientific values and analysis definitions preserved"
+    },
+    {
+      "path": "PROTOCOL.md",
+      "original_sha256": "a8325e1dfa5bce7e670cadf45678f6cea7ea4c70671b59e6000bf0a24b7cd683",
+      "export_sha256": "d8970d24b66d1356f34b27b37b1f56b7b800577362b41090ad8c7867d9427396",
+      "transformation": "public-facing rewrite; scientific values and analysis definitions preserved"
+    },
+    {
+      "path": "REPORT.md",
+      "original_sha256": "b60734178166390dc944146394580ad23a1a86acc7e7de8669161fa2d8bcedaa",
+      "export_sha256": "6e56d48688f29ba7cbcce27523b5990f6728eaf38e568309ae4420df8a6d9e34",
+      "transformation": "public-facing rewrite; scientific values and analysis definitions preserved"
+    },
+    {
+      "path": "prepare_input.py",
+      "original_sha256": "968d83deddc060771479cd5dbcdbfc22e8707e36f25e7be85a66fccff5ab4bbb",
+      "export_sha256": "f79eb9c0cb709e31db16ade23da20ab90f7ab240e49046d7980913a757a505ff",
+      "transformation": "public-facing rewrite; scientific values and analysis definitions preserved"
+    }
+  ]
+}

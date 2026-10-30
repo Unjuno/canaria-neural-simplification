@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$",
+      "type": "string"
+    },
+    "control_root_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "deadline_utc": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "implementation_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "independent_review": {
+      "const": "GO"
+    },
+    "input_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "no_active_parallel_benchmark": {
+      "const": true
+    },
+    "parent_approved": {
+      "const": true
+    },
+    "purpose": {
+      "const": "separate-authorized-technical-attempt-not-historical"
+    },
+    "schema": {
+      "const": "canaria.selected-latency-release.v1"
+    },
+    "source_manifest": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minProperties": 1,
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "purpose",
+    "attempt_id",
+    "control_root_sha256",
+    "deadline_utc",
+    "parent_approved",
+    "independent_review",
+    "no_active_parallel_benchmark",
+    "input_manifest_sha256",
+    "source_manifest",
+    "implementation_commit"
+  ],
+  "title": "Separate private latency attempt release v1",
+  "type": "object"
+}

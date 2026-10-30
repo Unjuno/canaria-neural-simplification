@@ -1,0 +1,434 @@
+[
+  {
+    "id": 0,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "15f274c5fa33444e24a5a5334d61ef8aa813e1a6c50e56f7e0423cdcc871da33"
+      },
+      "J": {
+        "key": "J_3072_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "40ab9027fc55c47e7138be28c88aa3ea35a64b68d4067f35b7151581648cb220"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "15f274c5fa33444e24a5a5334d61ef8aa813e1a6c50e56f7e0423cdcc871da33"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 1,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_3072_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "1428c6617b962165d5335b81d92e558c6e7977350c03fa8b27503b862f4e29f3"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "e006e38cd2fd7fb0b1073003e7c6707ed125c84e1400d74795a638d005654a83"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "e006e38cd2fd7fb0b1073003e7c6707ed125c84e1400d74795a638d005654a83"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 2,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "577d19e087116c8bd7d50c4873574162bace6243354f687d7f97d84762a8c36f"
+      },
+      "J": {
+        "key": "J_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "577d19e087116c8bd7d50c4873574162bace6243354f687d7f97d84762a8c36f"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "45f29e1647a6c4493a21d0f8cf6fd53e2919b2d3d6f08d3d19223192aa644711"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 3,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "2af40a5f010b7b5a844ea571bcfdb072b57a0371f68c0e03c7e841ea7da4a505"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "4914a74fc9c5e02af8b78e4d07f2996cb39f4e50a18ef96bb4d96886ede5b715"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "4914a74fc9c5e02af8b78e4d07f2996cb39f4e50a18ef96bb4d96886ede5b715"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 4,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "48090b22b4c4f6d2c3918ddbf4c0529c800457350413cf1a5209349869e668da"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "217188d85470691e0d2d41b7a31cc9a9742fad91b5e2ff9462f713888d2e0b6f"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "217188d85470691e0d2d41b7a31cc9a9742fad91b5e2ff9462f713888d2e0b6f"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 5,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "c72291dff3e222254fd8793fcf3dc81c7ba2b5c86fea93eba4a2aaf6f5781079"
+      },
+      "J": {
+        "key": "J_3072_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "db2d877cbf76d4fcce2579113dd627acbb549665fae09c03048b4891fa4881f3"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "c72291dff3e222254fd8793fcf3dc81c7ba2b5c86fea93eba4a2aaf6f5781079"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 6,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "55775d6b552051036c755ec6cdf1c55acacbad7a98ec13dfd5d3cc77a47619b3"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "08a9817b22d95223efc4cb0a1dabc2e575fbcc7dc2e96b9241d9fe37ee7eeafc"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "08a9817b22d95223efc4cb0a1dabc2e575fbcc7dc2e96b9241d9fe37ee7eeafc"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 7,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "c606a5f150cec163f0b65dcd55f0f906a4165c1a2d23c0f8294efdc5c3e1b4a0"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "a773e0e771c26f2750ff72e5da62dc0ae60e0f6cb3cd2ee81cdf0b437fc97727"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "a773e0e771c26f2750ff72e5da62dc0ae60e0f6cb3cd2ee81cdf0b437fc97727"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 8,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "1e87ed92ffcf74c0566026441fbd81c3fb0c8ad3541aa2abf1abc8f5bfb609ae"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "1e87ed92ffcf74c0566026441fbd81c3fb0c8ad3541aa2abf1abc8f5bfb609ae"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "1e87ed92ffcf74c0566026441fbd81c3fb0c8ad3541aa2abf1abc8f5bfb609ae"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 9,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "42682a3530147e1506fa4aa3255dd03941014099ec0fbea083f5a1f475848323"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "65d05894c9d7dadb5b976a6fd9ba8508fe55bda469b7b133dbd12aa17b8f45b7"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "65d05894c9d7dadb5b976a6fd9ba8508fe55bda469b7b133dbd12aa17b8f45b7"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 10,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "73629eab92e685ceb699e8f16a08fdca952fe024492678e91a895b1142691c1f"
+      },
+      "J": {
+        "key": "J_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "73629eab92e685ceb699e8f16a08fdca952fe024492678e91a895b1142691c1f"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "e2b8937076339481be680c240d482ced6adec4c51787d3db6159de741e89b4c2"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 11,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "49c809fd4f2bfedf9ef2da2ba0d21e5f8f4895cf5659467e7de44bfe366566a2"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "aac3a1bb0981e09527be90d225880cbdafab57f2bb58a01df214f863745f559e"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "aac3a1bb0981e09527be90d225880cbdafab57f2bb58a01df214f863745f559e"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 12,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "56f705c0d781abb4d2404ac078c9707f041e18b6afc11bc5282e309e5f8320ec"
+      },
+      "J": {
+        "key": "J_4096_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "c53a2311f0036394a9b9b3bc9b8f26faea71dea5704a5629eabb969ede56f06d"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "56f705c0d781abb4d2404ac078c9707f041e18b6afc11bc5282e309e5f8320ec"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 13,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "6dd9f0ff7181fbb9fdee25c0ec7d72f1dba8252cffdb1d20a512817c5b800143"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "6dd9f0ff7181fbb9fdee25c0ec7d72f1dba8252cffdb1d20a512817c5b800143"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "6dd9f0ff7181fbb9fdee25c0ec7d72f1dba8252cffdb1d20a512817c5b800143"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 14,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "3bc724154c86f526e1cfa95d687b4877a83b1607055eed5cfa71afc74d21ae90"
+      },
+      "J": {
+        "key": "J_3072_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "3bc724154c86f526e1cfa95d687b4877a83b1607055eed5cfa71afc74d21ae90"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "f24cde67fe0bb8b89d0a1f3546bbb6fe91e212bc0e7c84a260f003e840980a39"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  },
+  {
+    "id": 15,
+    "max_abs": {
+      "C": 0.0,
+      "J": 0.0,
+      "teacher": 0.0
+    },
+    "n": 270,
+    "references": {
+      "C": {
+        "key": "C_1536_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "cec452fef789f43b15941f4b60ae194e7f0cabe8acd76c96bb1798a56c80a47f"
+      },
+      "J": {
+        "key": "J_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "26f4c64a7b4ca313cc3e666dd927f9e62378133dc6d6ef40744679f61c3a1d48"
+      },
+      "teacher": {
+        "key": "teacher_logits",
+        "path": "ARTIFACT_ROOT/REDACTED",
+        "sha256": "26f4c64a7b4ca313cc3e666dd927f9e62378133dc6d6ef40744679f61c3a1d48"
+      }
+    },
+    "split_sha256": "ae8bdf8f9431089b7a6006d26fc4729722b5b9626d75ac7de5e6f7428bdc2c42"
+  }
+]

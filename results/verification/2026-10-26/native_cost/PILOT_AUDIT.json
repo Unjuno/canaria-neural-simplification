@@ -1,0 +1,66 @@
+{
+  "decision": "ACCEPT_RESULT_NO_BLOCKING_DEFECT",
+  "custody_files_verified": 62,
+  "source_hashes_verified": 9,
+  "capture_fit_records_verified": 21,
+  "equality_rows_verified": 15,
+  "artifact_count_verified": 7,
+  "byte_ratio": 0.9610533973519569,
+  "byte_reduction_percent": 3.894660264804306,
+  "batch128": {
+    "all_seven_ratios": [
+      0.9218695826542856,
+      0.9218111290096943,
+      0.9256081778743007,
+      0.9513294672525605,
+      0.9395099431915999,
+      0.9498873462111612,
+      0.9385924023227438
+    ],
+    "median_ratio": 0.9385924023227438,
+    "per_process_median_ns": [
+      {
+        "comp": 525585.92,
+        "sep": 570130.45
+      },
+      {
+        "comp": 473408.37,
+        "sep": 513563.305
+      },
+      {
+        "comp": 499029.32,
+        "sep": 539136.68
+      },
+      {
+        "comp": 479112.09,
+        "sep": 503623.725
+      },
+      {
+        "comp": 470689.38,
+        "sep": 500994.57
+      },
+      {
+        "comp": 465987.76,
+        "sep": 490571.605
+      },
+      {
+        "comp": 462656.27,
+        "sep": 492925.65
+      }
+    ],
+    "range": [
+      0.9218111290096943,
+      0.9513294672525605
+    ],
+    "range_crosses_0_95": true,
+    "status": "observed >=5% benefit"
+  },
+  "batch1_median_ratio": 0.8403792516747108,
+  "protocol_clarification_commit_epoch": 1793002685,
+  "capture_start_epoch": 1793002688.2444704,
+  "conclusion": "PILOT_NOT_SUPPORTED: serialized whole-model >=5% gate fails; primary timing median passes but repeat range crosses 0.95. No threshold relaxation or dropped probes.",
+  "limitations": [
+    "No independent re-execution of logits or training; recorded exact gates corroborated by source inspection and hashes.",
+    "No proof of absence of unrelated system contention; supervisor parent attestation, low recorded load and sequential affinity corroborate intended control."
+  ]
+}

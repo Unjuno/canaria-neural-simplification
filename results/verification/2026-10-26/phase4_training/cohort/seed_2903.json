@@ -1,0 +1,195 @@
+{
+  "budget_grid_h": [
+    2,
+    4,
+    6,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32
+  ],
+  "data": {
+    "X_sha256": "ef53061b11adc508abf7f3d57bbeb8a90302caedaa3201b846cdd5f65caddfd5",
+    "input_dim": 8,
+    "n_test": 4128,
+    "n_total": 20640,
+    "n_train": 13209,
+    "n_val": 3303,
+    "test_indices_sha256": "df4036d56e7bc6ba56b0700f9903d259e063ca32ea7002c04ffc708c96dc84af",
+    "train_indices_sha256": "1184e6539dfeeb968467030de1ecbefd7f98af50ab8ad5736d563d962f16996c",
+    "validation_indices_sha256": "f54cb8a4422961083380cb18d9b71a6c3a68a324c37cd335db594b9f1fac4c5b",
+    "y_sha256": "4fcec16744c2835e99b638e9ac95cde0619da1673dfdf7e638d31cd83f32fd14"
+  },
+  "dataset": "sklearn California Housing",
+  "evidence_class": "PROSPECTIVE_CONFIRMATORY",
+  "experiment": "PHASE4_CALIFORNIA_CONFIRMATORY",
+  "grid": [
+    {
+      "budget": 512,
+      "comp_nmse": 0.23255331502673857,
+      "comp_pass": false,
+      "comp_val_r2": 0.6333770726804084,
+      "h": 2,
+      "sep_nmse": 0.39854205470412934,
+      "sep_pass": false,
+      "sep_val_r2": 0.48272737016368916
+    },
+    {
+      "budget": 1024,
+      "comp_nmse": 0.1442060250513382,
+      "comp_pass": false,
+      "comp_val_r2": 0.665535401452097,
+      "h": 4,
+      "sep_nmse": 0.2909423665037254,
+      "sep_pass": false,
+      "sep_val_r2": 0.4561526156283351
+    },
+    {
+      "budget": 1536,
+      "comp_nmse": 0.09781016040238319,
+      "comp_pass": false,
+      "comp_val_r2": 0.7162992843896898,
+      "h": 6,
+      "sep_nmse": 0.2152674834482055,
+      "sep_pass": false,
+      "sep_val_r2": 0.5782280542024001
+    },
+    {
+      "budget": 2048,
+      "comp_nmse": 0.07581187625857878,
+      "comp_pass": false,
+      "comp_val_r2": 0.7422642207022707,
+      "h": 8,
+      "sep_nmse": 0.15764906743269155,
+      "sep_pass": false,
+      "sep_val_r2": 0.6095878650693083
+    },
+    {
+      "budget": 3072,
+      "comp_nmse": 0.05705731604060368,
+      "comp_pass": true,
+      "comp_test_mse": 0.2340720146894455,
+      "comp_test_r2": 0.7610469587253011,
+      "comp_val_r2": 0.7632402543487912,
+      "h": 12,
+      "sep_nmse": 0.10657793640664151,
+      "sep_pass": false,
+      "sep_val_r2": 0.727426003969671
+    },
+    {
+      "budget": 4096,
+      "comp_nmse": 0.046984631082942756,
+      "comp_pass": true,
+      "comp_val_r2": 0.7607201047626446,
+      "h": 16,
+      "sep_nmse": 0.07424195687551471,
+      "sep_pass": true,
+      "sep_test_mse": 0.24712297320365906,
+      "sep_test_r2": 0.7477238446125429,
+      "sep_val_r2": 0.7526305821087363
+    },
+    {
+      "budget": 5120,
+      "comp_nmse": 0.04329477840324193,
+      "comp_pass": true,
+      "comp_val_r2": 0.7587293505365017,
+      "h": 20,
+      "sep_nmse": 0.05938061282552539,
+      "sep_pass": true,
+      "sep_val_r2": 0.7588700385447325
+    },
+    {
+      "budget": 6144,
+      "comp_nmse": 0.03975505420498573,
+      "comp_pass": true,
+      "comp_val_r2": 0.772188522233584,
+      "h": 24,
+      "sep_nmse": 0.05499841694915676,
+      "sep_pass": true,
+      "sep_val_r2": 0.7521055927038292
+    },
+    {
+      "budget": 8192,
+      "comp_nmse": 0.034117909692633376,
+      "comp_pass": true,
+      "comp_val_r2": 0.7741199567981921,
+      "h": 32,
+      "sep_nmse": 0.04080374204382833,
+      "sep_pass": true,
+      "sep_val_r2": 0.7667583433094495
+    }
+  ],
+  "internal_width": 64,
+  "learned_parameter_budget_formula": "256*h for both conditions",
+  "log2_budget_ratio": -0.4150374992788438,
+  "map_updates": 600,
+  "numeric_profile": {
+    "MKL_CBWR": "COMPATIBLE",
+    "deterministic": true,
+    "effective_cpu_capability": "AVX2",
+    "mkldnn": false,
+    "sqrt_intervention": {
+      "adamw_steps": 17760,
+      "float32_sqrt_calls": 76080
+    },
+    "threads": 1
+  },
+  "provenance": {
+    "base_runner_git_blob": "8dd3ddefb59ba250f5deca2d98d04fbff0055748",
+    "numpy": "2.3.5",
+    "protocol_sha256": "5788f035a2fb7c8dade0b715453e7c335f0593776e5df1e00a4f853f96b3c387",
+    "python": "3.13.5",
+    "sklearn": "1.8.0",
+    "torch": "2.10.0+cpu",
+    "wrapper_sha256": "47ef5f35642c43aec2287a09129f43215ef9d106ea8e0b56c32319b893098107"
+  },
+  "seed": 2903,
+  "selected_comp": {
+    "budget": 3072,
+    "comp_nmse": 0.05705731604060368,
+    "comp_pass": true,
+    "comp_test_mse": 0.2340720146894455,
+    "comp_test_r2": 0.7610469587253011,
+    "comp_val_r2": 0.7632402543487912,
+    "h": 12,
+    "sep_nmse": 0.10657793640664151,
+    "sep_pass": false,
+    "sep_val_r2": 0.727426003969671
+  },
+  "selected_sep": {
+    "budget": 4096,
+    "comp_nmse": 0.046984631082942756,
+    "comp_pass": true,
+    "comp_val_r2": 0.7607201047626446,
+    "h": 16,
+    "sep_nmse": 0.07424195687551471,
+    "sep_pass": true,
+    "sep_test_mse": 0.24712297320365906,
+    "sep_test_r2": 0.7477238446125429,
+    "sep_val_r2": 0.7526305821087363
+  },
+  "selection_rule": {
+    "span_nmse_lte": 0.12,
+    "test_used_for_selection": false,
+    "val_r2_gte_teacher_minus": 0.05
+  },
+  "span": [
+    0,
+    1
+  ],
+  "task": "tabular_regression",
+  "teacher_recipe": {
+    "batch_size": 256,
+    "epochs": 30,
+    "id": "low_lr_30",
+    "lr": 0.0005,
+    "weight_decay": 0.001
+  },
+  "teacher_test_mse": 0.20348140597343445,
+  "teacher_test_r2": 0.7922754592536202,
+  "teacher_val_mse": 0.20048744976520538,
+  "teacher_val_r2": 0.7948366252940551,
+  "test_r2_diff_comp_minus_sep": 0.013323114112758216
+}

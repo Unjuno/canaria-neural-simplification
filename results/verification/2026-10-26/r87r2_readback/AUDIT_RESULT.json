@@ -1,0 +1,27 @@
+{
+  "archive_vs_independent_differences": [],
+  "archive_vs_saved_evaluator_differences": [],
+  "audit": "R87R2_SAVED_CANDIDATE_TO_DECISION",
+  "candidate_count": 112,
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "finished_utc": "2026-10-26T07:17:19.508348+00:00",
+  "first_passing_endpoints_checked": 32,
+  "limitations": [
+    "Saved scalar metrics only; no raw predictions or model weights audited.",
+    "Chronological preregistration and absence of test-informed source/profile selection not established.",
+    "Test-field placement is consistent with selection code but cannot prove runtime test-access history.",
+    "Protocol/evaluator provenance/evidence-class fields and test_used_for_selection=false are declarations, not independently verified historical facts.",
+    "Launch gate and tested-host trace/state-hash parity not audited here.",
+    "Seed bootstrap conditional on reused digits split; no independent dataset or task-general inference.",
+    "Fresh numeric recipe and seed cohort are separate from historical 1200\u20131207 archive."
+  ],
+  "saved_evaluator_synthetic_selftest": "PASS",
+  "selection_errors": [],
+  "status": "PASS",
+  "torch_loaded": false,
+  "validation_booleans_checked": 224
+}

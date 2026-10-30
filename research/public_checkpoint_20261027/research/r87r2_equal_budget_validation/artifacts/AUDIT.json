@@ -1,0 +1,121 @@
+{
+  "status": "CONSISTENT_WITHIN_DECLARED_NUMERICAL_TOLERANCE",
+  "scope": "Independent arithmetic consistency of validation_input.json, result.json and table.csv only; protocol read solely to verify fixed threshold definition. No mixed source/test fields, models, inference, training or network accessed. Does not independently establish source projection integrity, equal parameter budget, equal compute, experimental provenance, causal attribution or statistical confirmation.",
+  "method": "Python standard-library Decimal, 60-digit precision; direct copied fields exact; derived statistics and identities absolute tolerance 1e-15 for serialized binary64 rounding. Counts and signs exact.",
+  "input_sha256": {
+    "validation_input.json": "fc555bd6057104a35ce2f4a89659f955f979d405489cedcd247e30921d6cd238",
+    "result.json": "898e8c677fbab9c78ce687079bbae942d406020ef990852c124bcb925a72c9bd",
+    "table.csv": "f46e237f189c46761ccdd063624a1e01812ff6b2384526b6bc50cc1da2221333"
+  },
+  "protocol_sha256": "f13772ad41d80bc94c2707d2f4c40c40434af8d00539276b9c193b8af31c66e9",
+  "n_seeds": 16,
+  "n_cells": 48,
+  "seed_range": [
+    871200,
+    871215
+  ],
+  "completed_comparisons": 793,
+  "discrepancies": [],
+  "max_numeric_absolute_difference": "5.625E-17",
+  "max_numeric_difference_field": "arms.J.val_acc.mean",
+  "checked": [
+    "All input schema and finite/range constraints",
+    "All 84 arm and paired-contrast summary statistics/counts",
+    "All 16 result and CSV rows and source-value identities",
+    "All 48 decomposition terms and 16 additive identities",
+    "All 48 utility indicators in JSON and CSV",
+    "All utility totals and eight cross-tab bins"
+  ],
+  "all_16_nmse_order": "C < J < L",
+  "utility_definition": {
+    "nmse_max": "0.08",
+    "accuracy_rule": "val_acc >= teacher_val_acc - 0.02",
+    "definition_source": "../PROTOCOL.md, Fixed finite calculations item 2",
+    "threshold_metadata_in_result_json": false
+  },
+  "utility_counts": {
+    "C": 14,
+    "J": 12,
+    "L": 0
+  },
+  "utility_cross_tab_order": "LJC",
+  "utility_cross_tab": {
+    "000": 2,
+    "001": 2,
+    "010": 0,
+    "011": 12,
+    "100": 0,
+    "101": 0,
+    "110": 0,
+    "111": 0
+  },
+  "utility_failure_seeds": {
+    "C": [
+      871206,
+      871212
+    ],
+    "J": [
+      871203,
+      871206,
+      871211,
+      871212
+    ],
+    "L": [
+      871200,
+      871201,
+      871202,
+      871203,
+      871204,
+      871205,
+      871206,
+      871207,
+      871208,
+      871209,
+      871210,
+      871211,
+      871212,
+      871213,
+      871214,
+      871215
+    ]
+  },
+  "contrast_sign_counts": {
+    "C-J": {
+      "nmse": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 0
+      },
+      "val_acc": {
+        "negative": 3,
+        "zero": 5,
+        "positive": 8
+      }
+    },
+    "C-L": {
+      "nmse": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 0
+      },
+      "val_acc": {
+        "negative": 0,
+        "zero": 4,
+        "positive": 12
+      }
+    },
+    "J-L": {
+      "nmse": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 0
+      },
+      "val_acc": {
+        "negative": 1,
+        "zero": 2,
+        "positive": 13
+      }
+    }
+  },
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

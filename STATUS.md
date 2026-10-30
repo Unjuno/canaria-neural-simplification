@@ -1,34 +1,50 @@
-# Project status
+# Project status — integrated October research checkpoint
 
-**Mode: publication preparation; strict numerical reproduction BLOCKED (Issue87).**
+**Scientific report 2026-10-29; editorial organization 2026-10-30; main-integration change 2026-10-31 · limited research report, not a production release.**
 
-Two complete known-cohort repeats disagree with some archived values. [Discrepancy](docs/REPRODUCTION_DISCREPANCY.md). The directional effect persisted, but no exact-reproduction PASS or announcement closure is declared.
+[Current assessment and direction](RESEARCH_CHECKPOINT.md) · [Full methods/results report](research-checkpoints/2026-10-27/README.md) · [Integration record](docs/INTEGRATION_2026-10-31.md)
 
-The repository is already public. Announcement readiness is separate from repository visibility, protocol PASS, and peer review. The current gate is [ANNOUNCEMENT_READINESS.md](docs/ANNOUNCEMENT_READINESS.md), tracked by Issue #13. No social announcement or new scientific release is made by editing this file.
+The October checkpoint and documentation/navigation changes are integrated through [PR #108](https://github.com/Unjuno/canaria-neural-simplification/pull/108), following merged PRs #106 and #107. The PR state records whether a checkout is a pre-merge candidate or the integrated main. Repository integration is not scientific peer review, new experimental confirmation, release tagging, or an external announcement.
 
-## What belongs to the headline
+## What is ready to read
 
-Only the baseline residual-MLP / digits / first-two-block component-wise-versus-composed experiment is the proposed headline for this preview, with its reproduction discrepancy disclosed. Its original eight model seeds and outcomes are unchanged. [Claim registry](docs/CLAIMS_AND_EVIDENCE.md)
+The current report describes the bounded 16-teacher Digits J/C comparison, substantial teacher-relative whole-model reduction but small additional C-over-J savings, conditional CPU timing, and the unsuccessful CIFAR-10 series. It is sufficient to share as a **limited research report with explicit limitations**, not as general compression success or completed independent replication.
 
-The baseline included other bounded results after the recorded 2026-08-26 re-review. They remain inspectable, but are not all advertised as independently rerun in this publication preparation.
+This replaces the old entry-page emphasis on the eight-seed baseline; it does not merge the two cohorts or repair the baseline's unresolved numbers. [Historical entry pages](archives/README.md) retain the earlier wording.
 
-## What remains research
+## What has and has not been validated
 
-C75E, C76R and C77E are linked with their exploratory/confirmatory classes in the [research index](docs/RESEARCH_INDEX.md), not merged as new baseline evidence. C76R supports a sufficient head-derived correction dimension under one fixed protocol, not a universal minimum or measured model/communication reduction. Its candidate-to-teacher absolute safeguard is uncertain in that cohort; C77E does not retroactively change that outcome.
+| Item | Recorded status |
+|---|---|
+| Published scalar summaries and post-hoc threshold analysis | Recalculation code, inputs, and test records are available; not new scientific samples |
+| Matched / grid / storage / latency source-only packages | Published with synthetic-test records and input requirements; not a complete original artifact bundle |
+| Selected original artifacts | Limited existence/hash, tensor, and saved-logit consistency checks reported; not regenerated predictions from the weights |
+| Fresh real-data end-to-end reproduction from public source | **Not completed.** The 2026-10-29 attempt ended during checkout preparation, before scientific stages began |
+| External writer/generalization check | **Not completed:** acquisition did not succeed; no model result |
+| Historical eight-seed baseline exact numerical reproduction | **Unresolved (Issue 87):** directional pattern persisted in two repeats, but some archived endpoints/statistics disagreed |
+| Production utility / general compression | **Not established** |
 
-The imported Residual-CNN C59/C60 line is distinct from the Residual-MLP C61R+ line. Original C61 remains unresolved. Regression external-validity work, unreviewed recursive-composition extensions, and systems S1–S7 remain outside the headline. New experiments are not prerequisites for an accurately scoped code/evidence preview.
+The setup failure is an execution-preparation result, not a measured failure of Canaria's approximation method. Its cause and untested stages remain in the [supplemental reproduction record](research-checkpoints/2026-10-29/REPRODUCTION_STATUS.md). It does not change the recorded scientific estimates.
 
-## Preservation and corrections
+[Current report's validation boundary](research-checkpoints/2026-10-27/README.md) · [Historical reproduction discrepancy](docs/REPRODUCTION_DISCREPANCY.md) · [Historical baseline reports](results/reproduction/README.md)
 
-- Frozen tag: `v0.2.0-public-snapshot`, commit `556dce21c7a5516a16780cb28d528d1ff3968e53`; never rewritten.
-- Baseline before this preparation: `41872aca00ee5750556c93e114f705bce2e9c611`.
-- Legacy paths moved under [archives](archives/README.md), with byte-hash migration records; outcome-producing code and original numerical records are unchanged.
-- Phase 2E remains **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**. Phase 2I causal attribution stays retracted; Phase 2O stays uncertain.
+## Historical gates and preservation
 
-## Validation boundary
+The repository is public; visibility, limited-report sharing, exact numerical reproduction, and a formal release are separate states. The [older announcement checklist](docs/ANNOUNCEMENT_READINESS.md) and Issue #13 concern the baseline preparation and are retained as historical gates, not evidence that the current limited report is scientifically complete. Main integration under the owner's explicit request does **not** close #13 or #87, authorize a new release, or post an announcement.
 
-The publication workflow executes the recorded eight-seed core reproduction in a pinned CPU environment. Its machine-readable report and full logs are distinct from the original scientific experiment. Numerical/source audit is not independent scientific peer review. See [reproduction reports](results/reproduction/README.md) for the observed status; no PASS is inferred from this prose.
+- Frozen tag `v0.2.0-public-snapshot` (`556dce21c7a5516a16780cb28d528d1ff3968e53`) is unchanged.
+- Phase 2E stays **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**; Phase 2I causal attribution stays retracted; Phase 2O remains uncertain.
+- Older correction-subspace, recursive-composition, systems, and regression studies remain separate in the [historical research index](docs/RESEARCH_INDEX.md). A smaller correction subspace is not a smaller whole model.
+- Source protocols, code, numerical outcomes, missing results, and correction history are not rewritten by entry-page cleanup.
 
-## Next research questions
+## Direction
 
-Independent dataset and boundary replication; physically restricting teacher feedback rather than computing full residuals; and fixed-device resource measurement. These are open directions, not advertised achieved capabilities. The public-facing docs/code should be stable while such work proceeds on isolated research branches.
+Broader claims require separate evidence: a properly scoped full-pipeline reproduction, an unexposed independent confirmation path, or quality and whole-model resource gains on a defined target. CIFAR's examined interventions remain negative results, not instructions for endless retuning on an already-observed test set. See the [decision and explicit unknowns](RESEARCH_CHECKPOINT.md).
+
+## Scope of this status page
+
+This checkpoint status is not a verdict on every historical or branch-only family. See the [whole-project research index](docs/RESEARCH_INDEX.md). Whole-model parameter reduction relative to the teacher is about 44.14% for C and 43.43% for J; the additional C-over-J reduction is 1.26%. These are different comparisons.
+
+## Later R87 evidence versus historical recovery
+
+The [portable recipe / R87R2 result](https://github.com/Unjuno/canaria-neural-simplification/blob/56a8d1a50f15cad0d930cc899336071fa8efe7dc/results/reproduction/r87_resolution/RESULT.md) reports tested Intel/AMD numerical agreement and a distinct fresh 16-model-seed confirmation. It does not recover the original eight-seed archive, close its provenance discrepancy, or provide a new independent dataset. New scientific confirmation and historical exact reproduction are separate statuses.

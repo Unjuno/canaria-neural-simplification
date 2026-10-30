@@ -1,0 +1,25 @@
+{
+  "kind": "new portable saved-scalar analysis implementation; not original experiment runner",
+  "sources": [
+    {
+      "source_repository_relative_path": "research/digits_matched_regime/runner.py",
+      "source_algorithm_commit": "6d9e60a127aa83f3e966ced17767a980441593db",
+      "source_sha256": "f9faf359eec05c05ed1e23464160514c409c7eecd578d5e87ffa3fc819ad1b7e"
+    },
+    {
+      "source_repository_relative_path": "research/digits_joint_budget_grid/runner.py",
+      "source_algorithm_commit": "4c9e277d5f1ee913a8a75f1eadeb5c6f0ab9e96a",
+      "source_sha256": "2c8e3a911b0eb25fd1b8434286dbc96f52e6d88829ee6e2de87e92c5da451bd2"
+    },
+    {
+      "source_repository_relative_path": "research/selected_whole_storage/measure.py",
+      "source_algorithm_commit": "5de74e45bd36aedfff30e7daecf06794866f4bed",
+      "source_sha256": "e27f84ae4ee77b1785b8ff5650831f76471436e6996709169caa77dd8e09dc77"
+    },
+    {
+      "source_repository_relative_path": "research/selected_latency/benchmark.py",
+      "source_algorithm_commit": "d653a73406525b42c19c7266046f3cfa0317e56c",
+      "source_sha256": "9416ec5a2531fe11bf884c21a3b35deefdeae6d2a96dd9ba3bc78b3acb7dc9d1"
+    }
+  ]
+}

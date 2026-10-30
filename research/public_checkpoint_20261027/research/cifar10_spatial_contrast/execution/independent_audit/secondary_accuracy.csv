@@ -1,0 +1,7 @@
+seed,arm,n,teacher_correct,student_correct,teacher_accuracy,accuracy,teacher_drop,both_correct,teacher_correct_student_wrong,teacher_wrong_student_correct,both_wrong,prediction_disagreements
+26102601,rf5,1000,920,875,0.92,0.875,0.045,852,68,23,57,104
+26102601,rf9,1000,920,869,0.92,0.869,0.051,851,69,18,62,103
+26102602,rf5,1000,918,884,0.918,0.884,0.034,860,58,24,58,95
+26102602,rf9,1000,918,880,0.918,0.88,0.038,856,62,24,58,99
+26102603,rf5,1000,910,881,0.91,0.881,0.029,858,52,23,67,93
+26102603,rf9,1000,910,872,0.91,0.872,0.038,848,62,24,66,103

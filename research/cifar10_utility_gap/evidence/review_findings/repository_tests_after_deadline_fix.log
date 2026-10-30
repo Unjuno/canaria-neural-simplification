@@ -1,0 +1,23 @@
+test_archived_summary_self_consistent (test_publication.CohortVerifierTests.test_archived_summary_self_consistent) ... ok
+test_bootstrap_nan_rejected (test_publication.CohortVerifierTests.test_bootstrap_nan_rejected) ... ok
+test_directional_success_does_not_erase_mismatch (test_publication.CohortVerifierTests.test_directional_success_does_not_erase_mismatch) ... ok
+test_duplicate_seed_rejected (test_publication.CohortVerifierTests.test_duplicate_seed_rejected) ... ok
+test_exact_budget_mismatch_rejected (test_publication.CohortVerifierTests.test_exact_budget_mismatch_rejected) ... ok
+test_log_tolerance_not_expanded (test_publication.CohortVerifierTests.test_log_tolerance_not_expanded) ... ok
+test_missing_seed_rejected (test_publication.CohortVerifierTests.test_missing_seed_rejected) ... ok
+test_nonfinite_rejected (test_publication.CohortVerifierTests.test_nonfinite_rejected) ... ok
+test_test_accuracy_tolerance_not_expanded (test_publication.CohortVerifierTests.test_test_accuracy_tolerance_not_expanded) ... ok
+test_unexpected_seed_rejected (test_publication.CohortVerifierTests.test_unexpected_seed_rejected) ... ok
+test_actual_repository_preserved (test_publication.PreservationTests.test_actual_repository_preserved) ... ok
+test_announcement_gate_remains_blocked (test_publication.PreservationTests.test_announcement_gate_remains_blocked) ... ok
+test_escape_rejected (test_publication.PreservationTests.test_escape_rejected) ... ok
+test_tampered_bytes_rejected (test_publication.PreservationTests.test_tampered_bytes_rejected) ... ok
+test_enumerative_roundtrip_dense (test_ternary_codec.TernaryCodecTests.test_enumerative_roundtrip_dense) ... ok
+test_enumerative_roundtrip_sparse (test_ternary_codec.TernaryCodecTests.test_enumerative_roundtrip_sparse) ... ok
+test_fixed_v17_is_38_bytes_and_exact (test_ternary_codec.TernaryCodecTests.test_fixed_v17_is_38_bytes_and_exact) ... ok
+test_trit_roundtrip (test_ternary_codec.TernaryCodecTests.test_trit_roundtrip) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.129s
+
+OK

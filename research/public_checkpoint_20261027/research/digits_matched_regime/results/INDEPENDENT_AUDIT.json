@@ -1,0 +1,30 @@
+{
+  "status": "PASS_WITH_STATED_LIMITS",
+  "checks": 2128,
+  "failures": [],
+  "source_commit": "6d9e60a127aa83f3e966ced17767a980441593db",
+  "summary_sha256": "b268eb1a4c9dc4ab091f0af0f8bdbaa12d023bcef9b7d612c0f0adb239853fa0",
+  "primary_mean_log2_J_over_L": -1.1684411149858227,
+  "primary_ci95": [
+    -1.2472787769836995,
+    -1.0922529371386938
+  ],
+  "accuracy_mean_J_minus_L": 0.01759259259259259,
+  "accuracy_ci95": [
+    0.011574074074074073,
+    0.023379629629629632
+  ],
+  "quality_counts": {
+    "L": 0,
+    "J": 12,
+    "C": 15
+  },
+  "limitations": [
+    "Saved state hashes and source control corroborate initial clone/frozen identity; trajectories were not rerun and separately saved J initial state is absent.",
+    "Schedule equality is supported by one saved schedule, all arm schedule hashes and source checks; per-step execution was not replayed.",
+    "Raw validation arrays recomputed without models or inference; feature arithmetic uses same pinned torch reductions to avoid cross-library rounding.",
+    "No test arrays, raw digits, training, inference, paid API or publication used.",
+    "Conditional seen-data training-regime comparison, not objective-only causal isolation or new-data confirmation."
+  ],
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

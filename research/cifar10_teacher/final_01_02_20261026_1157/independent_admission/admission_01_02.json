@@ -1,0 +1,63 @@
+{
+  "independent_audit_process_exit_codes": [
+    0,
+    0
+  ],
+  "teachers": [
+    {
+      "seed": 26102601,
+      "status": "verified",
+      "correct": 4550,
+      "n": 5000,
+      "accuracy": 0.91,
+      "adequate": true,
+      "checkpoint_sha256": "3e8f8a4d1dc15cfe034138150c56893383d4df07e5a1150aa50eba80cf79cfd1",
+      "raw": {
+        "validation_indices": {
+          "raw_bytes_sha256": "f5504dab001da187a70126fc83602513c049b1f1dae5aae6131e37c8a71e9dbb",
+          "npy_sha256": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83",
+          "encoding": "little-endian int64 C-order"
+        },
+        "predictions": {
+          "raw_bytes_sha256": "9a18f2951b4145930a6deb51bc1c7852fb378ad4e83f1e89e5fbd4bfaa539062",
+          "npy_sha256": "387ce71e340a443bab409b72768a1f202702bad8a611e0b8e8776b19e5d089e6",
+          "encoding": "little-endian int64 C-order"
+        },
+        "labels": {
+          "raw_bytes_sha256": "c3556f4a243d7dc7c1fb41d5302fb5050146cd15b4b1e72e41d57339c79a1367",
+          "npy_sha256": "8d6ffbd471f68554596db3fd97468e00ec7598123ae40ccdd050c57fa2036e11",
+          "encoding": "little-endian int64 C-order"
+        }
+      },
+      "audit_sha256": "56e99359a8b3903e3291464d49de423ed84523085e40fdef14122401341c70c3"
+    },
+    {
+      "seed": 26102602,
+      "status": "verified",
+      "correct": 4559,
+      "n": 5000,
+      "accuracy": 0.9118,
+      "adequate": true,
+      "checkpoint_sha256": "842cb4d10a9d66fc50051d223218cbcd4c96842697e066cc1a56fac38e955ca0",
+      "raw": {
+        "validation_indices": {
+          "raw_bytes_sha256": "f5504dab001da187a70126fc83602513c049b1f1dae5aae6131e37c8a71e9dbb",
+          "npy_sha256": "4501c770b46adc4822a922ed72a91e50ae8e581f27c11d2371c501e2ff17de83",
+          "encoding": "little-endian int64 C-order"
+        },
+        "predictions": {
+          "raw_bytes_sha256": "5b29bc778cab87ed9be92ba25c2b65ac0f702f921ac0dd1c7a479e2162b493d7",
+          "npy_sha256": "27d26239de6b55277123bc51afd528b0d67271219f666ad6f0b20e6dbf0a1409",
+          "encoding": "little-endian int64 C-order"
+        },
+        "labels": {
+          "raw_bytes_sha256": "c3556f4a243d7dc7c1fb41d5302fb5050146cd15b4b1e72e41d57339c79a1367",
+          "npy_sha256": "8d6ffbd471f68554596db3fd97468e00ec7598123ae40ccdd050c57fa2036e11",
+          "encoding": "little-endian int64 C-order"
+        }
+      },
+      "audit_sha256": "1fc698df551747b260d399bf5f035eb1a5ccbfce6b450ab1bde66df052557bef"
+    }
+  ],
+  "cpu_slot_released": true
+}

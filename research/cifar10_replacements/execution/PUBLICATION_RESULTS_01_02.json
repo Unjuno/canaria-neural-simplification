@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "published_scope": "Selected small-text records only; manifest references excluded binary and auxiliary artifacts, not all are published here",
+  "snapshot_utc": "2026-10-26T12:09:21.774982+00:00",
+  "fit_source_commit": "bb30713cca06519a000251a26668309b1a4ef82b",
+  "numerical_audit": "PASS: reported counts and utility flags independently reproduced; NMSE maximum difference 2.220446049250313e-16",
+  "descriptive_method_utility": "FAIL: all six seed/arm outcomes exceed <=2pp degradation criterion",
+  "comp_joint_validation_percent": [
+    87.3,
+    87.64
+  ],
+  "teacher_validation_percent": [
+    91.0,
+    91.18
+  ],
+  "cohort": "INCOMPLETE: first two of three planned seeds only; third teacher RUNNING per parent report",
+  "official_test": "SEALED; no test evaluation",
+  "limits": [
+    "No method-success, noninferiority or population-generalization claim",
+    "Final counters/source/schedule consistency does not prove every historical update",
+    "No retained final fit-time teacher snapshot; historical freezing supported by pinned source and optimizer isolation",
+    "Independent inference used unchanged original teacher"
+  ],
+  "excluded": [
+    "All weights/checkpoints/npy/npz/predictions/logits",
+    "Any pending binary-publication operation"
+  ],
+  "files": [
+    {
+      "path": "research/cifar10_replacements/execution/EXECUTION_PROTOCOL.json",
+      "sha256": "05235e57d92e7d07e908c27e551952151d639c6fc60796a2e570fe652bba0f1c",
+      "git_blob_sha": "311816b0061d7598ab42f06a7a2c505f0ef80367",
+      "bytes": 10067
+    },
+    {
+      "path": "research/cifar10_replacements/execution/plan_seed_26102601.APPROVED.json",
+      "sha256": "4110fd5586c3aa68104833f2db912f2f8df76efdb8ed22187027152a774e1450",
+      "git_blob_sha": "cc9ea77b07753aac85ed234d63866147f446d4e8",
+      "bytes": 2213
+    },
+    {
+      "path": "research/cifar10_replacements/execution/plan_seed_26102602.APPROVED.json",
+      "sha256": "a75fbc29e8299135ef73b4187eedb2f3b9123f3405eb6e1189b93ff6580de4da",
+      "git_blob_sha": "cd15edab2e206d54af67f16d533a39bdc6acc6fd",
+      "bytes": 2213
+    },
+    {
+      "path": "research/cifar10_replacements/execution/results_01_02.json",
+      "sha256": "dacd60baaf779d3f02a7ad1fe0f6ecc1e2de1b3d558a99bf751b925c1a34fb2d",
+      "git_blob_sha": "a14f2868efabf7ea0a2abd83598f49d25bd37133",
+      "bytes": 7197
+    },
+    {
+      "path": "research/cifar10_replacements/execution/seed26102601.process_exit.json",
+      "sha256": "04253bbe30f9c797739cf6ac012f796d6ab54a97f64f06ecb768c8f784626fa0",
+      "git_blob_sha": "b63cf17bef5fd1ee8df8705cc45bec427a6024d3",
+      "bytes": 54
+    },
+    {
+      "path": "research/cifar10_replacements/execution/seed26102602.process_exit.json",
+      "sha256": "3b1671ed81f1533fbdb1c5cf65a263d63f79b99a9a8a0bdfe2b922adff08df87",
+      "git_blob_sha": "9b8c5fcc50f891eb604ed449b354672dad2aabf9",
+      "bytes": 54
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102601/exit_1793015757747984721.json",
+      "sha256": "77ca9eb9c1d4388d0ea98d22b59cf109ddc4c7743712f32b96e4016e5020e802",
+      "git_blob_sha": "d2422c0f8fcbd1b7748675be7e9b109cbc46e134",
+      "bytes": 621
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102601/launch.json",
+      "sha256": "f39a40895888e69eb96a2ea7d9c5c246e1cca926857034310d08ad6f28127f0b",
+      "git_blob_sha": "090523500035d1d7b1249e7eb0e9fb9d3be4f443",
+      "bytes": 166
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102601/recipe_lock.json",
+      "sha256": "6fa277169f64902415f604d33bc079b885d19a03d02d10ff0d798478040b8499",
+      "git_blob_sha": "919cb3f75f2d9812eddbcfcceaa4d1fb26c8b1e5",
+      "bytes": 3137
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102601/validation.json",
+      "sha256": "858c08ef7a9ac7da095804407eca4b915029d291f822d89d35ed61be5c6677e4",
+      "git_blob_sha": "e1acd962065a695fd405348f109b771ee49e1856",
+      "bytes": 1313
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102602/exit_1793015914420551379.json",
+      "sha256": "dcc1e2e797a8097e78d914526cb19ac622947347290a40efd7a5bf113e563342",
+      "git_blob_sha": "01d48732492188a95f1def4fa47b183c1e53f8ea",
+      "bytes": 621
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102602/launch.json",
+      "sha256": "fbd65a9581529fb07477d8109e9aa02bfe6a325fcc431d89208dd0c1980b1d7d",
+      "git_blob_sha": "6596246d95ac9758662985b438a3a5d8f99e45bf",
+      "bytes": 164
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102602/recipe_lock.json",
+      "sha256": "767f704a1cdcabcd85e707dab92ca77d141e4f8a1f37e637e2750f89a07723f0",
+      "git_blob_sha": "2deeef6118ce9cf4b0646248bc885376687c8a70",
+      "bytes": 3135
+    },
+    {
+      "path": "research/cifar10_replacements/artifacts/seed_26102602/validation.json",
+      "sha256": "392dbbca59a9366b8cdce1013b994235a0b01a2224cc58ea5b5c2ce2a3897db6",
+      "git_blob_sha": "207ab88a382444f4b05f96f9199313676e662812",
+      "bytes": 1315
+    },
+    {
+      "path": "research/cifar10_replacements/audit_01_02/README.md",
+      "sha256": "d7312406f6d55f96bac179a0b823d7a922b184aad153fa1cda3370bb943f0232",
+      "git_blob_sha": "23f9caa2bd63baa5f4278eded6d272b3f75a8fce",
+      "bytes": 3279
+    },
+    {
+      "path": "research/cifar10_replacements/audit_01_02/audit.py",
+      "sha256": "edafec9264ecaefcc172fa6a40f8896a26e7cee8aaf0ce112a91e5c1e2c91429",
+      "git_blob_sha": "24b8eb8a8fcfc698da53bb521dcefb1a5d7579f7",
+      "bytes": 23834
+    },
+    {
+      "path": "research/cifar10_replacements/audit_01_02/audit_result.json",
+      "sha256": "b86ad10310d77f761e1fc274b41ce30f3dcf041535280f9d6cb2afda72b85ed8",
+      "git_blob_sha": "e6409c573a4f7a025394592e6023b3a15969c405",
+      "bytes": 9331
+    },
+    {
+      "path": "research/cifar10_replacements/audit_01_02/AUDIT_MANIFEST.json",
+      "sha256": "3f230a91acb00f7520ff838ea04c12eba37495e461678af942a0f623ea8e8539",
+      "git_blob_sha": "715caaac6d6c7055542592f947aa83e07b23458c",
+      "bytes": 2141
+    },
+    {
+      "path": "research/cifar10_replacements/audit_01_02/SOURCE_REVIEW.md",
+      "sha256": "bf4adcedbb1c608567567c4d2e437374d453db8c48d8c35e8761642383ca0ca1",
+      "git_blob_sha": "b1aeaeb16b1a3b834cefaf25edb30eeb15ad48fb",
+      "bytes": 3135
+    }
+  ]
+}

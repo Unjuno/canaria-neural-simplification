@@ -1,0 +1,193 @@
+{
+  "schema": "canaria.static-source-check.v1",
+  "scope": "AST parsing, exact text/normalized-AST comparison, JSON text and import/file inventory only",
+  "candidate_imported": false,
+  "tests_executed": false,
+  "models_or_datasets_loaded": false,
+  "scientific_execution": false,
+  "package_installation": false,
+  "remote_writes": false,
+  "python_files": [
+    {
+      "path": "portable_contract.py",
+      "syntax": "AST_PARSE_PASS",
+      "imports": [
+        "__future__",
+        "datetime",
+        "hashlib",
+        "json",
+        "pathlib",
+        "re",
+        "time"
+      ],
+      "test_methods": 0
+    },
+    {
+      "path": "runner.py",
+      "syntax": "AST_PARSE_PASS",
+      "imports": [
+        "__future__",
+        "argparse",
+        "ast",
+        "contextlib",
+        "copy",
+        "datetime",
+        "hashlib",
+        "json",
+        "math",
+        "numpy",
+        "os",
+        "pathlib",
+        "platform",
+        "portable_contract",
+        "resource",
+        "scipy",
+        "signal",
+        "sklearn",
+        "sklearn.datasets",
+        "sklearn.model_selection",
+        "subprocess",
+        "sys",
+        "threading",
+        "time",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional"
+      ],
+      "test_methods": 0
+    },
+    {
+      "path": "scientific_definitions.py",
+      "syntax": "AST_PARSE_PASS",
+      "imports": [
+        "__future__",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional"
+      ],
+      "test_methods": 0
+    },
+    {
+      "path": "test_portable_contract.py",
+      "syntax": "AST_PARSE_PASS",
+      "imports": [
+        "copy",
+        "pathlib",
+        "portable_contract",
+        "tempfile",
+        "unittest"
+      ],
+      "test_methods": 12
+    },
+    {
+      "path": "test_runner.py",
+      "syntax": "AST_PARSE_PASS",
+      "imports": [
+        "copy",
+        "importlib.util",
+        "json",
+        "os",
+        "pathlib",
+        "sys",
+        "tempfile",
+        "test_portable_contract",
+        "unittest",
+        "unittest.mock"
+      ],
+      "test_methods": 15
+    }
+  ],
+  "total_test_methods": 27,
+  "scientific_functions_exact_ast": [
+    "tensor_hash",
+    "state_hash",
+    "save_state",
+    "freeze",
+    "sqrt64",
+    "optimizer",
+    "initialize",
+    "schedule",
+    "fit_arm",
+    "partition_arrays",
+    "load_partition",
+    "feature_metrics",
+    "logits_from_endpoint"
+  ],
+  "run_seed_scientific_body_identical_excluding_startup_metadata": true,
+  "analyze_identical_except_scope_description": true,
+  "historical_definitions_exact_text": [
+    {
+      "name": "ResBlock",
+      "original_lines": [
+        19,
+        30
+      ],
+      "export_lines": [
+        12,
+        23
+      ],
+      "source_segment_sha256": "fef487b0902c1dbd40d8c3740edcb2c3fdc98576d247d15825d3d441ac604913",
+      "export_segment_sha256": "fef487b0902c1dbd40d8c3740edcb2c3fdc98576d247d15825d3d441ac604913",
+      "exact_text_equal": true
+    },
+    {
+      "name": "Net",
+      "original_lines": [
+        33,
+        48
+      ],
+      "export_lines": [
+        26,
+        41
+      ],
+      "source_segment_sha256": "7817c7ed4b4d1a52df969eaec24aefbd8b15b147527a4aac75595bde14ddaff5",
+      "export_segment_sha256": "7817c7ed4b4d1a52df969eaec24aefbd8b15b147527a4aac75595bde14ddaff5",
+      "exact_text_equal": true
+    },
+    {
+      "name": "TinyRes",
+      "original_lines": [
+        51,
+        59
+      ],
+      "export_lines": [
+        44,
+        52
+      ],
+      "source_segment_sha256": "7cb4e1e5a3371432a392f484e38f9ca0a0b62f432271d765d379e9a7f25b5f29",
+      "export_segment_sha256": "7cb4e1e5a3371432a392f484e38f9ca0a0b62f432271d765d379e9a7f25b5f29",
+      "exact_text_equal": true
+    },
+    {
+      "name": "train_model",
+      "original_lines": [
+        106,
+        118
+      ],
+      "export_lines": [
+        55,
+        67
+      ],
+      "source_segment_sha256": "af62a0ae40963686b7650940edbb4ced8a4fc99f864578af6a2f80de840dcc4f",
+      "export_segment_sha256": "af62a0ae40963686b7650940edbb4ced8a4fc99f864578af6a2f80de840dcc4f",
+      "exact_text_equal": true
+    }
+  ],
+  "seeds_byte_identical": true,
+  "external_import_roots": [
+    "numpy",
+    "scipy",
+    "sklearn",
+    "torch"
+  ],
+  "closure": [
+    "runner.py -> portable_contract.py",
+    "runner.py -> scientific_definitions.py (verified SHA256, exact 4-definition AST extraction)",
+    "runner.py -> SEEDS.json",
+    "test_runner.py -> runner.py and test_portable_contract.py",
+    "test_portable_contract.py -> portable_contract.py"
+  ],
+  "host_path_or_secret_pattern_matches": [],
+  "payload_kind": "source/schema/documentation only",
+  "execution_qualification": "No runtime correctness or portability claim; reviewer checks pending"
+}

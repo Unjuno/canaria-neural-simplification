@@ -1,0 +1,79 @@
+{
+  "candidate_executed": false,
+  "exact_definition_asts": [
+    {
+      "ast_equal": true,
+      "ast_sha256": "5d22332aece6faab6529a9ee8b4e109642ef36152de820bc62aaa39c99d322dd",
+      "export_path": "deployment.py",
+      "name": "Deploy",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "af95c58e15cf8721d213faf2e5973cdc0e35299f0434fd43ec622641f0b8c114",
+      "export_path": "model_definitions.py",
+      "name": "ResBlock",
+      "source_logical_path": "scripts/reproduce/core_discovery_digits/run_confirmatory.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "bbbbd9a7ac978445ec07f3045b3f7af3288fcca2e08b358a7be4905dba41e16c",
+      "export_path": "model_definitions.py",
+      "name": "TinyRes",
+      "source_logical_path": "scripts/reproduce/core_discovery_digits/run_confirmatory.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "d6c3dbccf5e0ba7511d5edcd0e8dc13f252d783a421bf06a95c875a8a829ac39",
+      "export_path": "timing_core.py",
+      "name": "ordered",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "83ab0ce64a52622f47156bc866113f15e7af439833f72b183cd7623cf52bb38c",
+      "export_path": "timing_core.py",
+      "name": "timed_block",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "c59c053e735539c91b35ccc4ac1c393f890f818cbd5c08bc21cf1628be2b73c7",
+      "export_path": "timing_core.py",
+      "name": "summarize",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "de67d38c734be6227ef0b7f0997784bdf160360346c678f8ddd4b5068451bae4",
+      "export_path": "timing_core.py",
+      "name": "EvidenceWriter",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    },
+    {
+      "ast_equal": true,
+      "ast_sha256": "4d82ae3ae6d699ea5bb5764fa3b846afe4a72d424bb5403371d8733d2ac23dee",
+      "export_path": "timing_core.py",
+      "name": "failure_census",
+      "source_logical_path": "research/selected_latency/benchmark.py"
+    }
+  ],
+  "json_syntax_checked": true,
+  "limits": [
+    "Static text/AST checks do not establish runtime correctness.",
+    "No test, installation, formal rerun, numerical validation or new timing.",
+    "Payload custody and execution authority remain separate."
+  ],
+  "local_markdown_links_checked": true,
+  "mode": "static-only-no-import-or-execution",
+  "payload_file_types_absent": true,
+  "private_path_pattern_matches": [],
+  "python_files_parsed": 8,
+  "schema": "canaria.latency-static-validation.v1",
+  "scientific_arrays_or_models_loaded": false,
+  "storage_contract_byte_identical": true,
+  "synthetic_tests_executed": false,
+  "synthetic_tests_supplied": 15,
+  "timing_loop_ast_identical": true,
+  "timing_performed": false
+}

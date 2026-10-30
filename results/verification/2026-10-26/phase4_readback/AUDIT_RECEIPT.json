@@ -1,0 +1,25 @@
+{
+  "all_decision_values_exact": true,
+  "bootstrap_index_sha256": "5d40fdc35fec04086b5aec12b70d4203ea56b21fb44df336c94905c1c236a9c2",
+  "checks": 978,
+  "completed_utc": "2026-10-26T07:14:54.660028+00:00",
+  "computed_decision": "PHASE4_CONFIRMATORY_PASS",
+  "decision_differences": [],
+  "grid_predicates_checked": 144,
+  "integrity_errors": [],
+  "limits": [
+    "Historical protocol/source/stage-A commits unavailable in shallow repository; timing unverified",
+    "Second-host raw records absent; technical equality assertions not independently verified",
+    "Summary metric readback is not new training or independent underlying prediction validation",
+    "Base runner blob absent locally: only recorded blob identifier consistency checked.",
+    "Source per-seed JSON metrics used; underlying predictions/checkpoints not available or independently recomputed."
+  ],
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "script_sha256": "9063747a13c77711d86eda97aac0c477264626a75cde149b8f9f3f4b28f224e5",
+  "selected_endpoints_checked": 16,
+  "source_commit": "056d69cc257a7670fb45e17f11588afa497d8881",
+  "status": "PASS"
+}

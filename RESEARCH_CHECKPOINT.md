@@ -1,0 +1,92 @@
+# カナリア：研究の整理と暫定判断
+
+**研究報告2026-10-29・編集整理2026-10-30 / research/checkpoint-20261026。保存済み証拠の整理であり、新しい実験結果ではない。**
+
+## 比較対象と研究全体の範囲
+
+この文書は主に現在の Digits / CIFAR 系列の評価です。研究全体は [README](README.ja.md) と [研究索引](docs/RESEARCH_INDEX.md) を参照してください。**教師に対して C の全パラメータは約 44.14%、J は約 43.43% 減少**しています。一方、**J に対する C の追加削減**は約 1.26% です。置換部分の約 21.2% 減とも区別します。[保存量の比較表](research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md)
+
+## いまの判断
+
+**保存済み証拠は限定した研究報告としてまとめられる。研究全体・スケーリング検証の完了を意味しない。実用的な大幅圧縮・一般的な圧縮法としては証拠が不十分。**
+固定された小規模 digits では、共同学習する二写像 J に比べ、単一写像 C の置換部分の候補予算と条件付き CPU 時間に利点がある。一方、J に対する C の追加の全モデル保存量差は小さく、CIFAR-10 では要求品質を満たさなかった。
+
+「何も得られなかった」でも「これ以上よくならないと証明できた」でもない。**研究の目的は、Canaria がどこまでスケールできるか、何が一般化でき、何ができないかを検証可能な証拠で明らかにすること。この目的は未完了であり、成果・失敗・再計算経路の保存と整理はその代替ではない。** 以下は研究上の提案・判断であり、実験の起動指示ではない。同じ既視データで際限なく再調整することも既定方針にしない。
+
+## 読む順番：本文は一か所に集約
+
+| 知りたいこと | 正本・入口 |
+|---|---|
+| 方法・数値・区間・限界をまとめて読む | [限定研究報告](research-checkpoints/2026-10-27/README.md) |
+| L / J / C と比較条件 | [matched protocol](research/public_checkpoint_20261027/research/digits_matched_regime/PROTOCOL.md) |
+| 成功・失敗を含む主張と証拠 | [claim registry](research/public_checkpoint_20261027/docs/claims_checkpoint_20261027/README.ja.md) |
+| CIFAR の失敗と原因推論の限界 | [scientific appendix](research/public_checkpoint_20261027/docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md) |
+| 数表を学習なしで再計算する | [保存結果解析](research/public_saved_analysis_20261027/README.md)、[しきい値感度](research/threshold_robustness_20261027/README.md) |
+| 公開ソースの範囲と不足物 | [matched](research/digits_matched_source_20261027/README.md)、[grid](research/digits_joint_budget_source_20261027/README.md)、[storage](research/selected_whole_storage_source_20261027/README.md)、[latency](research/selected_latency_source_20261027/README.md) |
+| より古い別系列と訂正履歴 | [歴史的研究索引](docs/RESEARCH_INDEX.md)、[negative results](docs/NEGATIVE_RESULTS.md)、[archives](archives/README.md) |
+
+この入口は既存本文を置き換えない。旧 baseline、補正部分空間、再帰合成、systems と今回の J/C 比較を一つの成果に混ぜない。
+
+## 良かったこと／うまくいかなかったこと
+
+以下は**既存記録の要約**であり、本整理での新しい実測ではない。詳しい条件・統計は上の限定研究報告を正本とする。
+
+| 判定 | 分かったこと | 読み過ぎてはいけないこと |
+|---|---|---|
+| 条件付きの利点 | digits 16 教師で C/J 初回合格候補予算比 0.788324。C が小さい 11、同じ 4、大きい 1 | 約 21.2% は置換部分の集約値。全モデル削減率でも理論最小でもない |
+| 比較設計の改善 | 同じ 2,048 重みの品質合格 L 0/16、J 12/16、C 15/16。局所学習 L だけでなく強い J と比較できた | 学習方式・勾配経路等も変わる。目的関数単独の因果効果ではない |
+| J に対する追加利得 | C/J 全パラメータ約 1.26%、NPZ bytes 約 1.53–1.56% の削減 | 元教師比 C 約 44.14% 減とは別。実メモリ削減ではない |
+| 限定した速度の利点 | 共有 CPU・固定 synthetic 入力で C/J forward 時間は batch 1 約 16.33%、batch 128 約 5.67% 短い | ロード込み・他機器・実配備の費用削減や、深さだけの因果効果ではない |
+| 明確な品質未達 | CIFAR-10 の元 Comp は official test で 4.26 / 4.22 / 4.38 pp 低下。許容 2 pp を超えた | 比較対象より良いケースでも要求品質の達成ではない。方法一般の不可能性でもない |
+| 改善系列も未達 | 幅・学習予算・KL・空間配置/dilation・decision-preservation の調べた介入で目標未達 | まだ試していない設定まで不可能とはいえない。既視 test で再調整して新規確認とは呼べない |
+
+しきい値感度は**事後解析**。全組の比を出せた 20 条件では方向が維持されたが、残る 5 条件は C の候補内不合格で打ち切り。成功例だけに絞って「25 条件で成功」としない。元の選定でも C/J 各 3/16 は精度条件の正解件数の余裕がゼロだった。[全 25 条件](research/threshold_robustness_20261027/REPORT.md)
+
+## なぜそうなったか：観測と仮説を分ける
+
+| 問い | 記録から言えること | まだ識別できないこと |
+|---|---|---|
+| なぜ C/J の置換部分の差ほど C/J の全体差が大きくないか | 固定した共通部分 38,218 パラメータが残るため、置換部分だけの差は全体で薄まる。[storage](research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md) | 他の置換範囲・モデルでも同じ比率になるとは限らない |
+| なぜ CIFAR の decision-preservation がうまくいかなかったか | fit 側の目的値が下がっても diagnostic の正解数は悪化。diagnostic 目的値も 2/3 教師で悪化。logit scale は縮小した。[appendix](research/public_checkpoint_20261027/docs/research_checkpoint_20261026/SCIENTIFIC_APPENDIX.md) | 目的の形・確率重み・scale/conditioning・容量・最適化のどれが支配的かは未同定 |
+| 学習不足／logit 爆発なのか | late fit loss の下降だけでは収束や延長による回復を証明しない。観測された scale 縮小は「爆発」という説明を支持しない | 単に長く学習すれば直る、単一写像だから原理的に無理、とは断定できない |
+| なぜ C が速かったか | 選定済み全モデルの当該条件では短かった。[latency](research/public_checkpoint_20261027/research/selected_latency/REPORT_JA.md) | 構造と選択幅が同時に異なり、深さ削減だけへの帰属はできない |
+
+## 分かっていないこと／残す負債
+
+- **外部一般化：未完了。** 別 writer データ取得が成立しておらず、結果は欠測。失敗したモデル評価や合格として扱わない。
+- **新しい実データ全工程再現：未完了（試行は準備段階で終了）。** 公開コードの合成テスト・保存数表の再計算・hash/テンソル整合確認と、実データでの全工程再実行は別。原保存重みから保存 logit を改めて生成した確認とも違う。
+- **test 450 件は過去に評価済み。** 新 matched/grid はその予測・評価を使っていないが、未使用の確認集合に戻ったわけではない。grid の分割処理では全ラベルを使う点も、test 予測・評価とは区別する。
+- **旧 Issue87 の数値・来歴問題は未解決。** 新しい J/C 結果や文書整備で解決したとしない。[旧再現不一致](docs/REPRODUCTION_DISCREPANCY.md)
+- **旧 cost pilot の bytes・時間とも 5% 以上削減は不成立。** 今回の異なるモデル・比較で上書きしない。
+- **実運用の有用性：未確立。** 要求品質と全モデル資源を同じ固定モデル・対象環境で満たした一般的な製品結果はない。
+
+## 報告の区切りと、未完了の研究目的
+
+**限定研究報告の整理・保存と、研究目的の達成は別の判定とする。** 外部一般化が未完了でも、この範囲の報告を保存する価値はあるが、スケーリング・一般化・限界の検証を終えたことにはならない。広い成功主張は保留する。逆に文書やテスト件数が増えても、科学的に独立な標本は増えない。
+
+以下の順位は**意思決定上の提案**。どれも実施済み・起動済みではなく、個別の実行条件・承認・既存期限を緩めない。
+
+| 優先 | 方向と判断価値 | 再開に必要な条件／区切り |
+|---|---|---|
+| 1 | 再現性の未確認部分を閉じる。報告を第三者がどこまで追えるかを明確化する | 実行するなら対象 commit、入力来歴、有限予算、終了判定を固定。数表照合／技術再実行／独立科学再現を別々に判定し、不一致も保存。既知条件の再実行を新しい一般化証拠にしない |
+| 2 | 独立した確認経路で、digits の限定的な方向が維持されるかを問う | 実際に未曝露の確認データ経路が成立し、比較・品質・失敗扱いを事前固定できること。過去の 450 件や既視 CIFAR official test の再利用では代用しない。取得不成立なら欠測のまま閉じる |
+| 3 | 用途を絞り、同じモデルで品質と全体コストを同時に評価する | 対象機器・用途・必要削減幅が先に定義されること。置換部分だけでは足りず、品質未達なら安いモデルでも有用性未達。J 比の NPZ 保存量の追加削減約 1.5% を実用十分とは自動判定しない |
+| 4 | CIFAR の新しい機序仮説を検討する | 既存の失敗を識別できる**別の**仮説、固定比較、全失敗の記録、未曝露の確認経路が必要。同じ既視データの幅・温度・重み等の再調整を既定の継続にしない |
+
+CIFAR の検査済み介入系列は負の結果として区切る。これはカナリアという着想全体を否定する判断ではない。再開条件が満たせなければ、本報告を限定した成果として維持し、未検証の研究目的は未完了のまま記録する。この整理は既存の停止・期限・個別承認条件を変更せず、期限延長、新実験、停止済み実験の再開や正式再試行を許可しない。
+
+## 補足：再現作業の状況
+
+> **再現作業の追記（2026-10-29）：** 新しい技術的再現の試行は checkout 準備段階で失敗し、科学実行の各段階は未開始です。実験手法の再現失敗とは区別し、従来の科学的推定値を変更しません。[準備失敗・原因・未検証事項の記録](research-checkpoints/2026-10-29/REPRODUCTION_STATUS.md)
+
+## 証拠と変更範囲
+
+整理の参照点は [`59e7acf59a5f9404192a9dec5dcf4c33f9031ff4`](https://github.com/Unjuno/canaria-neural-simplification/tree/59e7acf59a5f9404192a9dec5dcf4c33f9031ff4)、公開された source-only パッケージの基準は [`06301e653b69151107af39100e0d4a82445867c5`](https://github.com/Unjuno/canaria-neural-simplification/tree/06301e653b69151107af39100e0d4a82445867c5)。引用時は読んだ commit と対象資料を指定する。
+
+今回の整理は入口と解釈を整えるもの。原プロトコル・コード・数値・失敗・欠測・訂正履歴を削除または成功扱いに変更しない。新実験、main 昇格、タグ、正式リリース、別媒体での発表を意味しない。
+
+
+
+## Later R87 evidence versus historical recovery
+
+The [portable recipe / R87R2 result](https://github.com/Unjuno/canaria-neural-simplification/blob/56a8d1a50f15cad0d930cc899336071fa8efe7dc/results/reproduction/r87_resolution/RESULT.md) reports tested Intel/AMD numerical agreement and a distinct fresh16-model-seed confirmation. It does not recover the original eight-seed archive, close its provenance discrepancy, or provide a new independent dataset. New scientific confirmation and historical exact reproduction are separate statuses.

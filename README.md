@@ -1,64 +1,71 @@
 # Canaria
 
-**Task-conditioned neural simplification — research code, evidence, and limitations.**
+**Research on simplifying neural computation while retaining task-relevant behavior.**
 
-[日本語](README.ja.md) · [Reproduce](QUICKSTART.md) · [Evidence](docs/CLAIMS_AND_EVIDENCE.md) · [Research index](docs/RESEARCH_INDEX.md)
+[日本語](README.ja.md) · [Research families](docs/RESEARCH_INDEX.md) · [Digits / CIFAR assessment](RESEARCH_CHECKPOINT.md) · [Reproduction status](STATUS.md) · [Repository layout](REPOSITORY_LAYOUT.md)
 
-Canaria asks whether a trained neural-network span can be replaced by a smaller computation when it is fitted as a composed input–output function rather than simplified one implementation block at a time.
+What changes when a network span is approximated as a composed input–output function rather than block by block? Canaria investigates learned replacement, consolidation during training, precision and structured representations, recursive composition, vision/sequence models, and runtime prototypes. The repository preserves **conditions where simplification works and conditions where quality is not retained**.
 
-**This is a research preview, not a universal compression method or a production inference library.** `main` provides the baseline experiment and a bounded evidence registry. Newer experiments are indexed separately at immutable commits; linking them does not promote them into the headline claim.
+## Three research directions
 
-> **Publication check: strict full-cohort numerical reproduction is unresolved.** Two complete repeat executions retained the directional 8/8 pattern but not all archived endpoints/statistics. See [the disclosed discrepancy](docs/REPRODUCTION_DISCREPANCY.md). Do not infer announcement readiness from a one-seed smoke test.
+1. **Post-training replacement:** compare local, jointly trained, and composed mappings; distinguish replacement size from whole-model parameters, serialized bytes, and execution time.
+2. **Training-time consolidation:** study learning and repair after changing computation. Immediate replacement and performance after adaptation are different results. [Training-time studies](docs/TRAINING_TIME_CONSOLIDATION.md)
+3. **Task preservation and its limits:** lower feature error does not necessarily preserve classification or generation. Objective, correction-subspace, recursive, and cross-family studies examine these boundaries.
 
-## Start with the recorded result and its reproduction status
+## Additional studies across the project
 
-In the recorded **residual-MLP / sklearn digits / first-two-block** experiment, the composed replacement needed fewer learned replacement parameters in all eight model seeds. “Minimum” means the smallest passing point on the tested budget grid, not a mathematical minimum.
+These are recorded primary reports/tables, not new measurements or reproductions performed during this organization. These families have different models, comparisons, and quality gates; their cohorts are not pooled.
 
-| Recorded result | Component-wise | Composed |
-|---|---:|---:|
-| Seed 1200: minimum passing replacement parameters | 3,072 | 1,536 |
-| Seeds 1200–1207: mean selected replacement parameters | 3,584 | 1,728 |
+| Separate recorded finding | Reduction or improvement | Conditions and evidence |
+|---|---|---|
+| Historical whole-model / codec | v18 FP32 code **−26.138%**, q8 zlib code **−28.786%**; v19 fixed payload **9,926 bytes**, zero round-trip logit difference | Matched repair control, fixed architecture/codec; not total executable or RAM. [v18](archives/research-history/results/v18/raw/phaseX_summary.json) / [v19](archives/research-history/results/v19/raw_AD/confirmatory_codec_summary.json) |
+| SmallViT and synthetic sequence models | Parameter reductions **60.182%** in v20 SmallViT, **58.053%** in v21 sequence, **58.154%** in v22 causal LM | v20/v22 reported quality passes require repair; v21 passes after activation fitting without task repair. Immediate v20 utility and v22 generation gates fail. [v20](archives/research-history/results/v20/g3_confirmatory_summary.json) / [v21](archives/research-history/results/v21/g5_confirmatory_summary.json) / [v22](archives/research-history/results/v22/g6_confirmatory_summary.json) |
+| California Housing regression | Composed/component-wise selected replacement budget ratio **0.476029**; test R² difference **+0.006858** | Prospective 8-model-seed study, one fixed split and residual-MLP grammar. [Report](https://github.com/Unjuno/canaria-neural-simplification/blob/f7d23c9dad2788e64b94f2a268fe3e0b1084d77c/results/phase4/california_regression/stage_b_confirmatory/RESULT.md) |
+| Staged training-time consolidation | G7 improves final PPL over early/late consolidation; G19 staged PPL 19.3580 versus direct 20.0475 at 192 updates each | Small character-LM records. Without intervening learning, G17 establishes equivalence to direct fitting within the prespecified ± 0.10 PPL band. [Training](docs/TRAINING_TIME_CONSOLIDATION.md), [later controls](docs/LATE_STAGE_FINDINGS.md) |
+| Direction-aware task-damage prediction | G23–G25 record direction/logit-error prediction and transfer; G26 improves future-horizon correction | Public summaries and provenance hashes, not independently reverified original observations/predictor implementation. Prediction is not a solved optimal controller. [Results](docs/LATE_STAGE_FINDINGS.md), [retained artifacts](results/training_time/ARTIFACT_INVENTORY.md) |
 
-[Locked protocol](results/core_discovery_digits/PROTOCOL_LOCK.json) · [Complete recorded summary](results/core_discovery_digits/confirm_summary.json) · [Scope and interpretation](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md)
+In contrast, examined small real-text LM protocols failed rollout preservation despite near-preserved teacher-forced perplexity. Precision/repair work also includes invalidated implementation results; the [correction history](results/phase2/precision_composition/INVALIDATED_HISTORY.md) remains part of the evidence.
 
-Validation selects candidate budgets; candidate test metrics are evaluated at selected endpoints. The teacher and a prespecified mechanistic control also have test metrics; test is excluded from budget selection. These are **replacement parameters**, not total model parameters, bytes, FLOPs, latency, or memory. The eight models share one dataset split; they are not eight independent dataset replications.
+## Principal results: name the comparator
 
-## Run it
+The current Digits comparison replaces the first two blocks of a four-block residual MLP while retaining the rest. **L** fits two maps locally; **J** jointly trains two maps; **C** uses one map. Sixteen teachers share one dataset split—not sixteen datasets. Selection requires validation endpoint NMSE ≤ 0.08 and accuracy loss ≤ 2 percentage points relative to the teacher.
 
-From a checkout of this repository, using **Python 3.11 on CPU**:
+| Comparison and object | Recorded result | Scope |
+|---|---|---|
+| **Original teacher → C / J: whole model** | C has **about 44.14% fewer parameters**, J **about 43.43% fewer**. Teacher 71,626; C 39,754–41,290; J 39,754–42,314 | Geometric mean of 16 per-teacher ratios. Selected quality allowance is not identical teacher accuracy |
+| **L → J: matched-budget training regime** | NMSE lower **16/16**; mean accuracy **+1.76 pp**, 95% CI [+1.16, +2.34] | Same initial parameters/600 updates; teacher forcing and gradient paths also differ, not an objective-only causal effect |
+| **J → C: replacement** | First-passing tested budget **about 21.2% lower**; C/J 0.788324, 95% CI [0.694450, 0.904368] | Finite grid; 11 smaller, 4 tied, 1 larger. Not a theoretical minimum |
+| **J → C: whole model** | Additional reduction **about 1.26% parameters**, **1.53–1.56% NPZ bytes** | Different from teacher-relative reduction; serialized bytes are not RAM/VRAM |
+| **J → C: CPU forward** | **About 16.33% shorter** at batch 1, **5.67%** at batch 128 | Shared CPU, one thread, fixed synthetic inputs; excludes loading and GPU claims |
+| **CIFAR-10: quality gate** | Original Comp official-test accuracy losses **4.26/4.22/4.38 pp** | Exceeds 2 pp allowance; examined improvement/diagnostic series also missed the target. Not impossibility of the method |
 
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -r scripts/reproduce/core_discovery_digits/requirements-pinned-py311.txt
-python scripts/reproduce/core_discovery_digits/run_confirmatory.py --seed 1200 --out outputs/seed1200.json
-```
+[Methods, confidence intervals and evidence](research-checkpoints/2026-10-27/README.md) · [Whole-model storage](research/public_checkpoint_20261027/research/selected_whole_storage/REPORT_JA.md) · [CPU conditions](research/public_checkpoint_20261027/research/selected_latency/REPORT_JA.md)
 
-[Quickstart](QUICKSTART.md) includes the full eight-seed verifier, expected results, environment checks, and failure reporting. A rerun of these already-observed seeds is **reproduction**, not additional confirmatory evidence.
+**Compression relative to the teacher and C's incremental advantage over the strong J comparator are different questions.** Neither “the whole model barely shrinks” without a comparator nor “21% whole-model reduction” describes this evidence correctly.
 
-## What is — and is not — supported
+### Family map
 
-The headline is a bounded empirical comparison under one declared architecture, span, replacement family, and passing rule. See the [claim registry](docs/CLAIMS_AND_EVIDENCE.md) for supporting baseline work and explicit exclusions.
+- **Baseline and consolidation:** [historical Digits](docs/CORE_DISCOVERY_REPLICATION_DIGITS.md), [training-time](docs/TRAINING_TIME_CONSOLIDATION.md), [later controls](docs/LATE_STAGE_FINDINGS.md).
+- **Precision, structure and encoding:** [corrected precision studies](docs/phase2/README.md), [v10–v25 archives](archives/README.md); distinguish core code, whole parameters and actual bytes.
+- **Vision, sequence and language models:** [SmallViT comparison](docs/CROSS_FAMILY_COMPOSITION_REPLICATION.md), [branch-specific extensions](docs/RESEARCH_INDEX.md); distinguish immediate from adapted performance.
+- **Recursive composition, interfaces and shift:** [C-series and QR](docs/RESEARCH_INDEX.md); correction-subspace dimension is not whole-model compression.
+- **Regression and external validity:** [family evidence](docs/RESEARCH_INDEX.md); teacher eligibility and independent datasets matter.
+- **Runtime systems:** [CPU PoC](docs/RUNTIME_POC.md), [S1–S7](docs/RESEARCH_INDEX.md); application-managed arenas are not total-process memory.
 
-We do **not** claim universal or LLM-scale compression, a general minimum-dimension predictor, or general runtime, RAM, VRAM, or energy savings. Recent head-derived correction experiments reduce a **correction subspace**, not the 4,096-parameter final model; they still compute full teacher residuals during calibration.
+### Reproduction is a separate result
 
-**Correction history is part of the evidence:** Phase 2E is `INVALIDATED_IMPLEMENTATION_BUG` and `DO_NOT_USE_FOR_INFERENCE`. Phase 2O did not establish a repair-sample advantage. [Corrections and negative results](docs/NEGATIVE_RESULTS.md)
+The [R87 tested recipe and fresh confirmation](https://github.com/Unjuno/canaria-neural-simplification/blob/56a8d1a50f15cad0d930cc899336071fa8efe7dc/results/reproduction/r87_resolution/RESULT.md) reports numerical agreement on tested Intel/AMD hosts and a separate 16-model-seed composed/component-wise budget ratio 0.531610. It is neither the current C/J comparison nor recovery of the historical 8-seed archive. The [historical exact-reproduction discrepancy](docs/REPRODUCTION_DISCREPANCY.md) remains separate.
 
-## Explore without confusing evidence classes
+This public snapshot preserves the Phase2E `INVALIDATED_IMPLEMENTATION_BUG` record and its correction history; an invalidated run must not be used as scientific evidence.
 
-| Entry | What it contains |
-|---|---|
-| [Claims and evidence](docs/CLAIMS_AND_EVIDENCE.md) | The headline, supporting baseline, caveats, and exclusions |
-| [Research index](docs/RESEARCH_INDEX.md) | Recursive composition, systems, Gaussian-shift studies, and C75E–C77E; pinned source/evidence links |
-| [Reproducibility](docs/REPRODUCIBILITY.md) | Checks, statistical units, environment limits, and reporting failures |
-| [Status and readiness](STATUS.md) | Research-preview boundary and the current announcement gate |
-| [Archives](archives/README.md) | Preserved legacy protocols/results, invalidation history, and path migration |
+## What is not established
 
-The frozen tag `v0.2.0-public-snapshot` remains historical provenance, not a certificate of current readiness. No research protocol or outcome is rewritten by this reorganization.
+The evidence supports conditional reductions and improvements, not a universal compression law or general deployment savings. California Housing and cross-model studies provide evidence beyond the original setting, but do not establish generality across unseen datasets or large architectures. Better hidden approximation need not improve task behavior. Read [negative results and corrections](docs/NEGATIVE_RESULTS.md) alongside positive findings.
 
-## Contribute and cite
+## Inspect, recompute, reproduce
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Reproduction failures and well-controlled counterexamples are useful contributions. Cite the **exact commit and experiment artifacts**, not an unversioned claim. [CITATION.cff](CITATION.cff)
+- [Saved-scalar recomputation](research/public_saved_analysis_20261027/README.md), [threshold sensitivity including censored cases](research/threshold_robustness_20261027/README.md).
+- Source-only packages: [matched](research/digits_matched_source_20261027/README.md), [grid](research/digits_joint_budget_source_20261027/README.md), [storage](research/selected_whole_storage_source_20261027/README.md), [latency](research/selected_latency_source_20261027/README.md). Check each package's missing inputs.
+- [Historical baseline Quickstart](QUICKSTART.md), [reproduction boundaries](docs/REPRODUCIBILITY.md), [documentation](docs/README.md).
 
-Original code and documentation: [Apache-2.0](LICENSE). Third-party data and dependencies retain their own licenses.
+This page organizes recorded work; it is not a new experimental run. Static inspection, saved-summary recomputation, technical reruns and independent scientific replication are distinct. Original protocols, failures, corrections and branch evidence are preserved.

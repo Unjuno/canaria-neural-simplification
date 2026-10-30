@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "arm": {
+      "enum": [
+        "teacher",
+        "C",
+        "J"
+      ]
+    },
+    "batch": {
+      "enum": [
+        1,
+        128
+      ]
+    },
+    "id": {
+      "maximum": 15,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "iterations": {
+      "const": 20
+    },
+    "ns_per_forward": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "position": {
+      "maximum": 2,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "round": {
+      "maximum": 29,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "total_ns": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "batch",
+    "round",
+    "position",
+    "arm",
+    "iterations",
+    "total_ns",
+    "ns_per_forward"
+  ],
+  "title": "One raw timing block; exactly 2880 ordered blocks required for complete cohort",
+  "type": "object"
+}

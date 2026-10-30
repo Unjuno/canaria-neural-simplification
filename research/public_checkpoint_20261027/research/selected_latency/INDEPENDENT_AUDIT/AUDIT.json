@@ -1,0 +1,2626 @@
+{
+  "status": "PASS",
+  "audit_type": "saved evidence arithmetic and static source review only; no inference or timing rerun",
+  "runtime_commit": "d653a73406525b42c19c7266046f3cfa0317e56c",
+  "evidence_commit": "8229c4eb5fe803cde8ab01a8b3e53064a6b62368",
+  "checks": [
+    {
+      "name": "2880 raw blocks",
+      "pass": true
+    },
+    {
+      "name": "exact complete ordered design including balanced permutations and alternating batches",
+      "pass": true
+    },
+    {
+      "name": "20 iterations and ns division every record",
+      "pass": true
+    },
+    {
+      "name": "96 complete consistent all three census copies",
+      "pass": true
+    },
+    {
+      "name": "clean terminal no timeout",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 0/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 1/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 2/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 3/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 4/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 5/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 6/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 7/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 8/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 9/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 10/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 11/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 12/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 13/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 14/128/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/1/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/1/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/1/J",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/128/teacher",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/128/C",
+      "pass": true
+    },
+    {
+      "name": "30 blocks 15/128/J",
+      "pass": true
+    },
+    {
+      "name": "all 32 median and ratio rows exact",
+      "pass": true
+    },
+    {
+      "name": "all six geometric summaries exact",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "source hash ARTIFACT_ROOT/REDACTED",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_0_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_1_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_2_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_3_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_4_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_5_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_6_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_7_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_8_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_9_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_10_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_11_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_12_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_13_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_14_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_teacher_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_teacher_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_C_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_C_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_J_stored.npz",
+      "pass": true
+    },
+    {
+      "name": "archive hash/size seed_15_J_deflated.npz",
+      "pass": true
+    },
+    {
+      "name": "48 saved model comparisons zero",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 0/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 0/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 0/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 0",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 1/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 1/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 1/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 1",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 2/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 2/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 2/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 2",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 3/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 3/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 3/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 3",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 4/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 4/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 4/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 4",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 5/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 5/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 5/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 5",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 6/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 6/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 6/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 6",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 7/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 7/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 7/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 7",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 8/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 8/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 8/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 8",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 9/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 9/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 9/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 9",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 10/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 10/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 10/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 10",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 11/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 11/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 11/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 11",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 12/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 12/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 12/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 12",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 13/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 13/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 13/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 13",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 14/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 14/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 14/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 14",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 15/C",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 15/J",
+      "pass": true
+    },
+    {
+      "name": "correctness reference 15/teacher",
+      "pass": true
+    },
+    {
+      "name": "split 15",
+      "pass": true
+    },
+    {
+      "name": "synthetic input shape dtype values and exact bytes",
+      "pass": true
+    },
+    {
+      "name": "both environment versions and mkldnn",
+      "pass": true
+    },
+    {
+      "name": "aggregate evidence below cap",
+      "pass": true
+    },
+    {
+      "name": "evidence manifest exact coverage",
+      "pass": true
+    },
+    {
+      "name": "evidence hash attempt/CENSUS.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash attempt/EXIT.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash attempt/START.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash attempt/SUPERVISOR_EXIT.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/CENSUS.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/CORRECTNESS.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/ENV_AFTER.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/ENV_BEFORE.json",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/INPUT.npy",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/RAW.jsonl",
+      "pass": true
+    },
+    {
+      "name": "evidence hash results/SUMMARY.json",
+      "pass": true
+    },
+    {
+      "name": "evidence commit manifest binding",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_latency/PROTOCOL.md",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_latency/SOURCE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_latency/benchmark.py",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_latency/supervise.py",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_whole_storage/SELECTION.json",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_whole_storage/results/ARTIFACTS.json",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob research/selected_whole_storage/results/ROWS.json",
+      "pass": true
+    },
+    {
+      "name": "runtime commit blob scripts/reproduce/core_discovery_digits/run_confirmatory.py",
+      "pass": true
+    }
+  ],
+  "counts": {
+    "raw_blocks": 2880,
+    "complete_cells": 96,
+    "saved_model_correctness": 48,
+    "archives_hashed": 96,
+    "source_manifest_hashes": 47,
+    "paired_rows": 32,
+    "ratio_summaries": 6,
+    "passed_checks": 345
+  },
+  "ratios": {
+    "batch1_C_over_J": {
+      "geomean": 0.8367120736129804,
+      "min": 0.809636775241526,
+      "max": 0.8841375433110384,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    },
+    "batch1_C_over_teacher": {
+      "geomean": 0.698418340898702,
+      "min": 0.6775073657993543,
+      "max": 0.7422487975884671,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    },
+    "batch1_J_over_teacher": {
+      "geomean": 0.8347176560783729,
+      "min": 0.8180374233278193,
+      "max": 0.8593955592000938,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    },
+    "batch128_C_over_J": {
+      "geomean": 0.9433388812895254,
+      "min": 0.9135898387836868,
+      "max": 0.9745689863289807,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    },
+    "batch128_C_over_teacher": {
+      "geomean": 0.5875424199697151,
+      "min": 0.5740690125583982,
+      "max": 0.6011037175576252,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    },
+    "batch128_J_over_teacher": {
+      "geomean": 0.622832824580024,
+      "min": 0.6000142494090914,
+      "max": 0.641510419052009,
+      "smaller": 16,
+      "tie": 0,
+      "larger": 0
+    }
+  },
+  "variation": [
+    {
+      "id": 0,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 111069.70000000001,
+      "min_ns": 92691.8,
+      "max_ns": 189329.5,
+      "max_over_median": 1.704600804719919,
+      "iqr_over_median": 0.18320984480916022,
+      "sample_cv": 0.1811208949737128,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 0,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 75587.325,
+      "min_ns": 63327.65,
+      "max_ns": 136944.25,
+      "max_over_median": 1.8117356316022561,
+      "iqr_over_median": 0.27552304569582275,
+      "sample_cv": 0.20236532183524764,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 0,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 93359.54999999999,
+      "min_ns": 75200.0,
+      "max_ns": 146561.2,
+      "max_over_median": 1.5698576096392927,
+      "iqr_over_median": 0.23421827226030972,
+      "sample_cv": 0.17906488694777078,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 0,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 863199.6000000001,
+      "min_ns": 771946.95,
+      "max_ns": 1008423.8,
+      "max_over_median": 1.1682394199441242,
+      "iqr_over_median": 0.06913017278969989,
+      "sample_cv": 0.0692547950174609,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 0,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 509345.875,
+      "min_ns": 475911.7,
+      "max_ns": 749276.45,
+      "max_over_median": 1.4710562837089824,
+      "iqr_over_median": 0.08562411053196411,
+      "sample_cv": 0.13773508907762586,
+      "tukey_outliers": 6
+    },
+    {
+      "id": 0,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 545917.8500000001,
+      "min_ns": 493931.7,
+      "max_ns": 644425.35,
+      "max_over_median": 1.1804438158598403,
+      "iqr_over_median": 0.06636905168057759,
+      "sample_cv": 0.06633500003022752,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 1,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 98534.05,
+      "min_ns": 91492.45,
+      "max_ns": 131507.6,
+      "max_over_median": 1.3346411722648162,
+      "iqr_over_median": 0.10200014614237415,
+      "sample_cv": 0.09026154222225843,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 1,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 69020.475,
+      "min_ns": 63428.8,
+      "max_ns": 94585.65,
+      "max_over_median": 1.370399870473218,
+      "iqr_over_median": 0.11747311214534531,
+      "sample_cv": 0.10789388402698252,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 1,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 84679.725,
+      "min_ns": 75300.15,
+      "max_ns": 114917.65,
+      "max_over_median": 1.3570857723026377,
+      "iqr_over_median": 0.17911548484598894,
+      "sample_cv": 0.1192468049868495,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 1,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 864066.4,
+      "min_ns": 794732.2,
+      "max_ns": 1310940.9,
+      "max_over_median": 1.5171761105396528,
+      "iqr_over_median": 0.09721418689582184,
+      "sample_cv": 0.10777019394292021,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 1,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 516217.19999999995,
+      "min_ns": 480639.75,
+      "max_ns": 699548.7,
+      "max_over_median": 1.3551441137567675,
+      "iqr_over_median": 0.07221960058673,
+      "sample_cv": 0.08195538988731475,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 1,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 534230.75,
+      "min_ns": 487822.5,
+      "max_ns": 650631.2,
+      "max_over_median": 1.2178842195062713,
+      "iqr_over_median": 0.05932993374117832,
+      "sample_cv": 0.05675811189092003,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 2,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 102451.45000000001,
+      "min_ns": 91581.65,
+      "max_ns": 155647.9,
+      "max_over_median": 1.5192356965177163,
+      "iqr_over_median": 0.16661391810462411,
+      "sample_cv": 0.1594203006012462,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 2,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 69882.775,
+      "min_ns": 62716.25,
+      "max_ns": 102654.25,
+      "max_over_median": 1.468949251085121,
+      "iqr_over_median": 0.16211666608831707,
+      "sample_cv": 0.16685912688338977,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 2,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 86268.15,
+      "min_ns": 75849.5,
+      "max_ns": 163119.1,
+      "max_over_median": 1.8908380439362618,
+      "iqr_over_median": 0.19721197800115095,
+      "sample_cv": 0.22090966701064912,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 2,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 854738.6000000001,
+      "min_ns": 783130.75,
+      "max_ns": 1168571.0,
+      "max_over_median": 1.3671676931403354,
+      "iqr_over_median": 0.07537482804684395,
+      "sample_cv": 0.10730339281799482,
+      "tukey_outliers": 5
+    },
+    {
+      "id": 2,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 513786.55,
+      "min_ns": 450737.25,
+      "max_ns": 703799.0,
+      "max_over_median": 1.3698276064252752,
+      "iqr_over_median": 0.11618538379410681,
+      "sample_cv": 0.12028013663936113,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 2,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 543071.3,
+      "min_ns": 483649.25,
+      "max_ns": 898596.8,
+      "max_over_median": 1.6546571324980717,
+      "iqr_over_median": 0.07035376846465656,
+      "sample_cv": 0.1502093175354128,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 3,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 100292.95,
+      "min_ns": 90401.8,
+      "max_ns": 127128.0,
+      "max_over_median": 1.2675666634593958,
+      "iqr_over_median": 0.15844944734400548,
+      "sample_cv": 0.0985900594751909,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 3,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 71073.55,
+      "min_ns": 63295.15,
+      "max_ns": 1793567.15,
+      "max_over_median": 25.23536744682093,
+      "iqr_over_median": 0.18273148027641808,
+      "sample_cv": 2.3988180959370125,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 3,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 83199.775,
+      "min_ns": 75949.1,
+      "max_ns": 97460.45,
+      "max_over_median": 1.1714028072792264,
+      "iqr_over_median": 0.13480760615037732,
+      "sample_cv": 0.07784077021373371,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 3,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 860440.45,
+      "min_ns": 784339.6,
+      "max_ns": 1215222.05,
+      "max_over_median": 1.412325571165326,
+      "iqr_over_median": 0.06960823087756966,
+      "sample_cv": 0.09229787607666685,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 3,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 511170.375,
+      "min_ns": 449728.8,
+      "max_ns": 597163.3,
+      "max_over_median": 1.168227521009996,
+      "iqr_over_median": 0.0845936396450989,
+      "sample_cv": 0.07440637115098153,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 3,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 524509.175,
+      "min_ns": 474704.35,
+      "max_ns": 634221.55,
+      "max_over_median": 1.2091715078196679,
+      "iqr_over_median": 0.08840607983644919,
+      "sample_cv": 0.07333612501759444,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 4,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 101662.525,
+      "min_ns": 90502.0,
+      "max_ns": 146659.9,
+      "max_over_median": 1.442615162273414,
+      "iqr_over_median": 0.15693811461007887,
+      "sample_cv": 0.11720812300966921,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 4,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 71512.7,
+      "min_ns": 63619.6,
+      "max_ns": 98645.2,
+      "max_over_median": 1.3794081331008339,
+      "iqr_over_median": 0.1069844936633633,
+      "sample_cv": 0.12021459674045769,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 4,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 83163.75,
+      "min_ns": 74928.6,
+      "max_ns": 104363.3,
+      "max_over_median": 1.2549133486645323,
+      "iqr_over_median": 0.17877200102207982,
+      "sample_cv": 0.09811581517218354,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 4,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 800359.95,
+      "min_ns": 758843.8,
+      "max_ns": 1663474.65,
+      "max_over_median": 2.078408158729082,
+      "iqr_over_median": 0.0520947168833222,
+      "sample_cv": 0.19241750018201315,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 4,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 463906.85,
+      "min_ns": 436648.1,
+      "max_ns": 1286509.7,
+      "max_over_median": 2.7732069487656843,
+      "iqr_over_median": 0.07143621612830249,
+      "sample_cv": 0.30975071512571417,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 4,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 484811.5,
+      "min_ns": 463879.55,
+      "max_ns": 857283.95,
+      "max_over_median": 1.7682830337151656,
+      "iqr_over_median": 0.05896691291357574,
+      "sample_cv": 0.1435007032428105,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 5,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 101554.625,
+      "min_ns": 90967.2,
+      "max_ns": 195957.5,
+      "max_over_median": 1.9295773087636334,
+      "iqr_over_median": 0.14758584357925608,
+      "sample_cv": 0.18146927590271014,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 5,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 72621.125,
+      "min_ns": 63396.25,
+      "max_ns": 190560.85,
+      "max_over_median": 2.624041558155427,
+      "iqr_over_median": 0.1908618187889544,
+      "sample_cv": 0.32864062938248495,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 5,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 85598.625,
+      "min_ns": 75576.6,
+      "max_ns": 139710.45,
+      "max_over_median": 1.6321576427191442,
+      "iqr_over_median": 0.15378780909155934,
+      "sample_cv": 0.18038737889514012,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 5,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 871652.575,
+      "min_ns": 808800.8,
+      "max_ns": 989261.55,
+      "max_over_median": 1.134926435569814,
+      "iqr_over_median": 0.04579617056715513,
+      "sample_cv": 0.04464263490858822,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 5,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 521163.65,
+      "min_ns": 490072.9,
+      "max_ns": 643411.35,
+      "max_over_median": 1.2345668198463189,
+      "iqr_over_median": 0.0712091825667424,
+      "sample_cv": 0.06151541563473176,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 5,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 555584.35,
+      "min_ns": 478762.95,
+      "max_ns": 712199.2,
+      "max_over_median": 1.2818921195314446,
+      "iqr_over_median": 0.09457668309051555,
+      "sample_cv": 0.09541027293297666,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 6,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 104063.65,
+      "min_ns": 90582.6,
+      "max_ns": 145029.45,
+      "max_over_median": 1.3936609949775933,
+      "iqr_over_median": 0.1703805795779792,
+      "sample_cv": 0.13190160818514615,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 6,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 71160.45000000001,
+      "min_ns": 63308.1,
+      "max_ns": 95280.65,
+      "max_over_median": 1.3389551358936036,
+      "iqr_over_median": 0.21197361034113746,
+      "sample_cv": 0.13220140459964969,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 6,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 86572.125,
+      "min_ns": 75397.3,
+      "max_ns": 111498.05,
+      "max_over_median": 1.287920909877169,
+      "iqr_over_median": 0.15818977528852385,
+      "sample_cv": 0.09954454303868977,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 6,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 794785.575,
+      "min_ns": 757607.45,
+      "max_ns": 969425.7,
+      "max_over_median": 1.2197323787614036,
+      "iqr_over_median": 0.05587576246586998,
+      "sample_cv": 0.05811246161393644,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 6,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 475493.05000000005,
+      "min_ns": 435779.4,
+      "max_ns": 554192.3,
+      "max_over_median": 1.1655108313360205,
+      "iqr_over_median": 0.06283803727520293,
+      "sample_cv": 0.053298437397442555,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 6,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 498986.80000000005,
+      "min_ns": 471340.35,
+      "max_ns": 1101094.65,
+      "max_over_median": 2.206660877602373,
+      "iqr_over_median": 0.05773446812621104,
+      "sample_cv": 0.21486013626994124,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 7,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 99754.15,
+      "min_ns": 89929.65,
+      "max_ns": 127432.5,
+      "max_over_median": 1.2774656492988012,
+      "iqr_over_median": 0.0726308128534,
+      "sample_cv": 0.07736657601581277,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 7,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 68036.225,
+      "min_ns": 62830.4,
+      "max_ns": 81087.85,
+      "max_over_median": 1.1918334681267222,
+      "iqr_over_median": 0.126364668233724,
+      "sample_cv": 0.07985048550983792,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 7,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 82447.15,
+      "min_ns": 75532.0,
+      "max_ns": 116666.35,
+      "max_over_median": 1.4150440615594355,
+      "iqr_over_median": 0.09346123547023746,
+      "sample_cv": 0.09821655791654738,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 7,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 797971.85,
+      "min_ns": 747953.4,
+      "max_ns": 903555.25,
+      "max_over_median": 1.1323146925546308,
+      "iqr_over_median": 0.038006885831874955,
+      "sample_cv": 0.04637067617512032,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 7,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 462580.6,
+      "min_ns": 440199.45,
+      "max_ns": 558093.15,
+      "max_over_median": 1.2064776387077194,
+      "iqr_over_median": 0.053818458880463466,
+      "sample_cv": 0.05942876012387733,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 7,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 499383.65,
+      "min_ns": 458074.4,
+      "max_ns": 739212.85,
+      "max_over_median": 1.4802504046738414,
+      "iqr_over_median": 0.0776018598125907,
+      "sample_cv": 0.10772511609769549,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 8,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 95201.025,
+      "min_ns": 89795.45,
+      "max_ns": 115324.8,
+      "max_over_median": 1.2113819152682443,
+      "iqr_over_median": 0.13172731070910226,
+      "sample_cv": 0.08267377716505786,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 8,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 67866.475,
+      "min_ns": 62539.95,
+      "max_ns": 79477.45,
+      "max_over_median": 1.1710855764941377,
+      "iqr_over_median": 0.10046160493822588,
+      "sample_cv": 0.06623364527772471,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 8,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 78098.125,
+      "min_ns": 74301.65,
+      "max_ns": 100103.4,
+      "max_over_median": 1.2817644469697576,
+      "iqr_over_median": 0.09646566418848092,
+      "sample_cv": 0.09521463917714101,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 8,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 808605.575,
+      "min_ns": 746670.05,
+      "max_ns": 961348.65,
+      "max_over_median": 1.1888968858519187,
+      "iqr_over_median": 0.03088550001649459,
+      "sample_cv": 0.04578659118938024,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 8,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 473275.175,
+      "min_ns": 444353.75,
+      "max_ns": 1511593.95,
+      "max_over_median": 3.1939007787594185,
+      "iqr_over_median": 0.0718919495407719,
+      "sample_cv": 0.37180071905922535,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 8,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 501737.94999999995,
+      "min_ns": 461780.95,
+      "max_ns": 700940.8,
+      "max_over_median": 1.3970256784442956,
+      "iqr_over_median": 0.09300295602515216,
+      "sample_cv": 0.09658928387269716,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 9,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 98733.875,
+      "min_ns": 90123.4,
+      "max_ns": 141072.0,
+      "max_over_median": 1.4288105272886331,
+      "iqr_over_median": 0.13769134453600654,
+      "sample_cv": 0.12636605438899948,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 9,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 73285.1,
+      "min_ns": 63011.7,
+      "max_ns": 107716.4,
+      "max_over_median": 1.46982674513646,
+      "iqr_over_median": 0.10956985117029257,
+      "sample_cv": 0.13435653184458157,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 9,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 82888.8,
+      "min_ns": 75102.35,
+      "max_ns": 126296.8,
+      "max_over_median": 1.5236895696402892,
+      "iqr_over_median": 0.1250645443051413,
+      "sample_cv": 0.13493520477832327,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 9,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 830412.35,
+      "min_ns": 753745.65,
+      "max_ns": 927188.3,
+      "max_over_median": 1.116539632388656,
+      "iqr_over_median": 0.053673003538543346,
+      "sample_cv": 0.0506796468191771,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 9,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 481892.425,
+      "min_ns": 437395.8,
+      "max_ns": 699565.75,
+      "max_over_median": 1.4517052223844358,
+      "iqr_over_median": 0.09218896209044991,
+      "sample_cv": 0.123259041100268,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 9,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 524273.57499999995,
+      "min_ns": 471071.9,
+      "max_ns": 899482.15,
+      "max_over_median": 1.715673253224712,
+      "iqr_over_median": 0.11949875120064936,
+      "sample_cv": 0.15894595954729743,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 10,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 97486.025,
+      "min_ns": 89885.55,
+      "max_ns": 290896.4,
+      "max_over_median": 2.983980524387983,
+      "iqr_over_median": 0.14004686825624513,
+      "sample_cv": 0.33781957247328903,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 10,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 66047.5,
+      "min_ns": 62127.35,
+      "max_ns": 88750.85,
+      "max_over_median": 1.3437427608917825,
+      "iqr_over_median": 0.10287633899844796,
+      "sample_cv": 0.09845226921628845,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 10,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 80696.25,
+      "min_ns": 74535.0,
+      "max_ns": 91698.3,
+      "max_over_median": 1.136339049212324,
+      "iqr_over_median": 0.11400421333085502,
+      "sample_cv": 0.06485889331044442,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 10,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 810389.0,
+      "min_ns": 768336.1,
+      "max_ns": 873171.15,
+      "max_over_median": 1.077471621653305,
+      "iqr_over_median": 0.05184237137967066,
+      "sample_cv": 0.037525901973820504,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 10,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 472921.425,
+      "min_ns": 444498.95,
+      "max_ns": 573850.35,
+      "max_over_median": 1.2134158438687779,
+      "iqr_over_median": 0.07509120040395714,
+      "sample_cv": 0.06551107462769158,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 10,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 503906.7,
+      "min_ns": 474323.25,
+      "max_ns": 638275.65,
+      "max_over_median": 1.266654422336516,
+      "iqr_over_median": 0.07674496092232956,
+      "sample_cv": 0.06561658578065445,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 11,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 99802.225,
+      "min_ns": 90972.7,
+      "max_ns": 155056.95,
+      "max_over_median": 1.5536422158924814,
+      "iqr_over_median": 0.14336817140098837,
+      "sample_cv": 0.12532934349494787,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 11,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 73020.95,
+      "min_ns": 63110.85,
+      "max_ns": 124355.85,
+      "max_over_median": 1.7030160522425415,
+      "iqr_over_median": 0.12849360354802294,
+      "sample_cv": 0.15340057926526218,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 11,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 82997.225,
+      "min_ns": 76332.2,
+      "max_ns": 113133.0,
+      "max_over_median": 1.3630937660867577,
+      "iqr_over_median": 0.15760978755615043,
+      "sample_cv": 0.11993987956885088,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 11,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 858969.025,
+      "min_ns": 797904.4,
+      "max_ns": 992817.25,
+      "max_over_median": 1.1558242743386469,
+      "iqr_over_median": 0.06259893946699654,
+      "sample_cv": 0.05843769573903399,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 11,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 493107.5,
+      "min_ns": 468042.8,
+      "max_ns": 866143.55,
+      "max_over_median": 1.7565004588249014,
+      "iqr_over_median": 0.0467063469933028,
+      "sample_cv": 0.15386185871767702,
+      "tukey_outliers": 5
+    },
+    {
+      "id": 11,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 527465.65,
+      "min_ns": 475983.75,
+      "max_ns": 946617.75,
+      "max_over_median": 1.7946528840314055,
+      "iqr_over_median": 0.0891971353963996,
+      "sample_cv": 0.15509676661124516,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 12,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 99836.5,
+      "min_ns": 89833.95,
+      "max_ns": 210349.5,
+      "max_over_median": 2.1069398466492717,
+      "iqr_over_median": 0.1310508932103992,
+      "sample_cv": 0.22343867809220666,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 12,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 68333.675,
+      "min_ns": 63018.7,
+      "max_ns": 89024.3,
+      "max_over_median": 1.3027881202057405,
+      "iqr_over_median": 0.15472934830447796,
+      "sample_cv": 0.10657338623759456,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 12,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 83971.15,
+      "min_ns": 75028.75,
+      "max_ns": 160467.1,
+      "max_over_median": 1.9109789493177123,
+      "iqr_over_median": 0.11743676250712302,
+      "sample_cv": 0.18637732053823647,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 12,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 814981.7749999999,
+      "min_ns": 762997.9,
+      "max_ns": 898072.85,
+      "max_over_median": 1.1019545191670084,
+      "iqr_over_median": 0.046195373510039626,
+      "sample_cv": 0.03821547090198548,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 12,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 477642.4,
+      "min_ns": 449548.5,
+      "max_ns": 1374538.3,
+      "max_over_median": 2.877756036733757,
+      "iqr_over_median": 0.04381096611188617,
+      "sample_cv": 0.3241836227552852,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 12,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 522819.30000000005,
+      "min_ns": 477823.45,
+      "max_ns": 601518.3,
+      "max_over_median": 1.1505281078950222,
+      "iqr_over_median": 0.04826897170781559,
+      "sample_cv": 0.0525660823178994,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 13,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 95502.25,
+      "min_ns": 89632.15,
+      "max_ns": 111460.95,
+      "max_over_median": 1.1671028693041263,
+      "iqr_over_median": 0.09849152768652038,
+      "sample_cv": 0.0628274833897076,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 13,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 66052.5,
+      "min_ns": 62896.0,
+      "max_ns": 89858.5,
+      "max_over_median": 1.3604102797017523,
+      "iqr_over_median": 0.12216380909125314,
+      "sample_cv": 0.09619195317601521,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 13,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 80085.1,
+      "min_ns": 76060.8,
+      "max_ns": 93139.45,
+      "max_over_median": 1.1630059773915495,
+      "iqr_over_median": 0.0686413577556873,
+      "sample_cv": 0.0571311616749348,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 13,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 837227.7,
+      "min_ns": 746733.45,
+      "max_ns": 961474.6,
+      "max_over_median": 1.148402758293831,
+      "iqr_over_median": 0.04852477707080162,
+      "sample_cv": 0.052634489967070104,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 13,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 481813.675,
+      "min_ns": 454978.6,
+      "max_ns": 633656.6,
+      "max_over_median": 1.315148641225262,
+      "iqr_over_median": 0.04325123710944871,
+      "sample_cv": 0.06888669258545872,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 13,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 502348.55,
+      "min_ns": 463463.9,
+      "max_ns": 626126.3,
+      "max_over_median": 1.246398143281194,
+      "iqr_over_median": 0.06629045211735951,
+      "sample_cv": 0.06622233838362811,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 14,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 97248.875,
+      "min_ns": 89698.25,
+      "max_ns": 116133.0,
+      "max_over_median": 1.1941834802716227,
+      "iqr_over_median": 0.13445926752366041,
+      "sample_cv": 0.07731267283243427,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 14,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 66594.3,
+      "min_ns": 63254.05,
+      "max_ns": 89318.2,
+      "max_over_median": 1.341228903975265,
+      "iqr_over_median": 0.08687830640159869,
+      "sample_cv": 0.08825354295435489,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 14,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 80176.95,
+      "min_ns": 75266.1,
+      "max_ns": 102814.5,
+      "max_over_median": 1.282344863455145,
+      "iqr_over_median": 0.15027074489613287,
+      "sample_cv": 0.0969654397373115,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 14,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 814114.2250000001,
+      "min_ns": 763077.55,
+      "max_ns": 1324762.75,
+      "max_over_median": 1.6272443218886143,
+      "iqr_over_median": 0.06112184380514891,
+      "sample_cv": 0.11999517401345683,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 14,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 479946.6,
+      "min_ns": 444668.6,
+      "max_ns": 561836.15,
+      "max_over_median": 1.170622210887628,
+      "iqr_over_median": 0.05284361322697148,
+      "sample_cv": 0.060457168706647454,
+      "tukey_outliers": 3
+    },
+    {
+      "id": 14,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 512287.0,
+      "min_ns": 468688.2,
+      "max_ns": 605803.25,
+      "max_over_median": 1.1825465998551594,
+      "iqr_over_median": 0.11429557552699965,
+      "sample_cv": 0.07542899748017759,
+      "tukey_outliers": 0
+    },
+    {
+      "id": 15,
+      "batch": 1,
+      "arm": "teacher",
+      "median_ns": 93245.6,
+      "min_ns": 89335.75,
+      "max_ns": 115127.5,
+      "max_over_median": 1.2346695179182716,
+      "iqr_over_median": 0.08093371161749197,
+      "sample_cv": 0.0711176670467392,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 15,
+      "batch": 1,
+      "arm": "C",
+      "median_ns": 65020.675,
+      "min_ns": 61572.55,
+      "max_ns": 140621.8,
+      "max_over_median": 2.1627243949712915,
+      "iqr_over_median": 0.05106971743987598,
+      "sample_cv": 0.21303461910385374,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 15,
+      "batch": 1,
+      "arm": "J",
+      "median_ns": 78532.75,
+      "min_ns": 75256.55,
+      "max_ns": 108623.75,
+      "max_over_median": 1.383164985308677,
+      "iqr_over_median": 0.10438941078721937,
+      "sample_cv": 0.10578835404844533,
+      "tukey_outliers": 4
+    },
+    {
+      "id": 15,
+      "batch": 128,
+      "arm": "teacher",
+      "median_ns": 780941.9,
+      "min_ns": 754227.25,
+      "max_ns": 869904.1,
+      "max_over_median": 1.1139165410384562,
+      "iqr_over_median": 0.04317816408621444,
+      "sample_cv": 0.03603986408657338,
+      "tukey_outliers": 1
+    },
+    {
+      "id": 15,
+      "batch": 128,
+      "arm": "C",
+      "median_ns": 460048.975,
+      "min_ns": 436425.25,
+      "max_ns": 562575.3,
+      "max_over_median": 1.2228595879384365,
+      "iqr_over_median": 0.05240010044582764,
+      "sample_cv": 0.06294830782492876,
+      "tukey_outliers": 2
+    },
+    {
+      "id": 15,
+      "batch": 128,
+      "arm": "J",
+      "median_ns": 481125.15,
+      "min_ns": 458046.7,
+      "max_ns": 582379.25,
+      "max_over_median": 1.2104527273205319,
+      "iqr_over_median": 0.07135807076391658,
+      "sample_cv": 0.05822688555095875,
+      "tukey_outliers": 1
+    }
+  ],
+  "total_bytes": 499966,
+  "supervisor_seconds": 24.93503454097663,
+  "input_sha256": "565fe00c690814296c2e8bc7c403aaeb569693340a0a5a5ebeab45d35a4488d6",
+  "raw_sha256": "a8dc849c8855e10a183dc978d3581d26caa1020b665dabd54e5e7cf48d9a47e6",
+  "environment": [
+    {
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "loadavg": [
+        0.0849609375,
+        0.03955078125,
+        0.00537109375
+      ],
+      "versions": {
+        "numpy": "2.3.5",
+        "python": "3.13.5",
+        "scipy": "1.17.0",
+        "sklearn": "1.8.0",
+        "torch": "2.10.0+cpu"
+      },
+      "mkldnn": false
+    },
+    {
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "loadavg": [
+        0.42529296875,
+        0.11962890625,
+        0.0322265625
+      ],
+      "versions": {
+        "numpy": "2.3.5",
+        "python": "3.13.5",
+        "scipy": "1.17.0",
+        "sklearn": "1.8.0",
+        "torch": "2.10.0+cpu"
+      },
+      "mkldnn": false
+    }
+  ],
+  "limits": [
+    "48 zero errors are saved execution records, not new audit inference.",
+    "No outlier exclusion; descriptive variation does not authorize invalidation or retry.",
+    "Shared-host synthetic eager CPU timing only; no hardware generalization, runtime RAM, new-data accuracy or training-time claim."
+  ],
+  "_export_notice": "Partial privacy-filtered audit excerpt. Original total check counts describe the original full audit, not the subset exported here. No checks were rerun."
+}

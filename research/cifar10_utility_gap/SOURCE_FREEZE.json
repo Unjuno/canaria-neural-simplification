@@ -1,0 +1,23 @@
+{
+  "base_commit": "bb30713cca06519a000251a26668309b1a4ef82b",
+  "files": {
+    "research/cifar10_replacements/core.py": "5d9480663f638effa5b87a057767462b601362129e946486ef3778f86dc9fef4",
+    "research/cifar10_replacements/data.py": "8601856ce86db26f6d256b875c1d5ec90137d3f0048b3d05c9f7524a624754f1",
+    "research/cifar10_teacher/model.py": "f04dc83e1b56cbea2adebf060c5d49312ab6cdf2ac28d625b7681acd5aea65d6",
+    "research/cifar10_utility_gap/MANIFEST.TEMPLATE.json": "d4b857ee6b6d7f9020493aeac2875bbaa9aec1e6834e232699d742630b3d9a59",
+    "research/cifar10_utility_gap/PROPOSAL_CONTEXT.md": "3570b8a9ee0abe2a76f4df02346c0d53bceeffbb75bb8bcec64bddda2bb88bdc",
+    "research/cifar10_utility_gap/PROTOCOL.md": "18418db439ac630fa4e5bf8da0a60b49f3b9ac99610c4473f0969a4da6ed1003",
+    "research/cifar10_utility_gap/__init__.py": "5d472b4cb972e4d1867a5639d27c4a1089c245bf9c66f2e2b9a61a3e81d8e4a8",
+    "research/cifar10_utility_gap/core.py": "3ae9e8139ec53fee55ca6ac329d56a449fb222a4465ef4e7f92310c37fa2b3a4",
+    "research/cifar10_utility_gap/data.py": "68faf7968e9d4317e4b11bfad20fab5e68881fa2a89e5eb06fa7226d9b4ff2b4",
+    "research/cifar10_utility_gap/diagnostic.py": "88827ab6865b8d4271923e5bf49f2ec2adca10f1c6b60e249c9d41f8f84532b9",
+    "research/cifar10_utility_gap/protocol.py": "e2f4d98807fd2c0afba192dec07abb679e78fb38c09763b4ef6d45f24a320211",
+    "research/cifar10_utility_gap/report.py": "c7e28110008b2d9b8730a627b7fd2d3d445523bcc848c20122e123acda742f33",
+    "research/cifar10_utility_gap/runtime.py": "1fc0d575b75700b7fdf819e554361b242885fac3cb90d671939f55cc042c67fb",
+    "research/cifar10_utility_gap/test_review_regressions.py": "3206f13b16bea0e3debba48592c54d2a8b580a8dae0461595d516871070ebff6",
+    "research/cifar10_utility_gap/test_synthetic.py": "a48ffdcf5e80826351fae0a28890cf42496bc1875376ee8ed6110b90ff0ca443"
+  },
+  "latest_repair_base_commit": "a9af0b026090b47d8491364987a350771dc82ebf",
+  "repaired_preparation_commit": "a58d6ea2ba61f7a4cd79f96ab03f4692a7da4e56",
+  "status": "repaired source freeze for independent preparation rereview; execution NOT GO"
+}

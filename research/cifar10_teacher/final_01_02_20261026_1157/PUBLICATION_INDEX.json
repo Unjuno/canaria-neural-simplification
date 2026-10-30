@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "snapshot_utc": "2026-10-26T11:57:27.892189+00:00",
+  "scope": "Independent small-text teacher-final and frozen fit-protocol checkpoint; binary artifacts excluded",
+  "teachers": {
+    "26102601": {
+      "validation_correct": 4550,
+      "n": 5000,
+      "accuracy": 0.91,
+      "quality_gate": "PASS >=0.85; independently reproduced"
+    },
+    "26102602": {
+      "validation_correct": 4559,
+      "n": 5000,
+      "accuracy": 0.9118,
+      "quality_gate": "PASS >=0.85; independently reproduced"
+    },
+    "26102603": {
+      "status": "RUNNING per parent checkpoint request; not terminal, quality pending"
+    }
+  },
+  "interpretation": "Teacher quality only, NOT Canaria method success. All formal comparison outcomes remain PENDING independent validation and publication; no outcome claim is made here. Official test remains sealed.",
+  "comparison_launch_report": {
+    "seed": 26102601,
+    "started_utc": "2026-10-26T11:53:58Z",
+    "session": 75594,
+    "source": "parent launch report; not a current process-status assertion",
+    "results": "PENDING verification/publication"
+  },
+  "frozen_fit_source_commit": "0229f2aba5ab0e95f04e2d0f9f375b014a205730",
+  "files": [
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102601/metrics.json",
+      "sha256": "d76ed9626269a397bb4583b9888ed7a7ada9d280c1140420742a9240374a377e",
+      "git_blob_sha": "5e80d712f401ddacb16e4ac64a799e127d4e03b1",
+      "bytes": 962
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102601/teacher_export.json",
+      "sha256": "25b19bcf57bb7300343c615a409de7303961754633f7e0893f5a5ad087cc7c80",
+      "git_blob_sha": "964f1253a98d533fd6b4dfc7c9597ed4d905500c",
+      "bytes": 3033
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102601/launch.json",
+      "sha256": "70cb39adf75797066288c82260d81e83992ad3eb478be67ba943c945033db919",
+      "git_blob_sha": "54d5d647938c3f950f3fb0a8259278fa894ab18f",
+      "bytes": 215
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102601/events.jsonl",
+      "sha256": "1d101b1535437ba872cd360a0ac99c104d074b82e4fbb609ee82294da494b626",
+      "git_blob_sha": "7982ee5f896d6f0e6a7a1bec66f0354c06770ef3",
+      "bytes": 11172
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102602/metrics.json",
+      "sha256": "f8e5fae264a46fb87648494d660be55a5e97da7ee415e81b442ee203d8637ee1",
+      "git_blob_sha": "18d6d0e6988721f726572e09706a32aeeb445590",
+      "bytes": 964
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102602/teacher_export.json",
+      "sha256": "e8c6e254a2c76ad78b6830565060b44bbd57a11a2f34468ae6948b56eed4de16",
+      "git_blob_sha": "9dcbc2a2861b01676a2313dc48c728fa312e4f06",
+      "bytes": 3033
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102602/launch.json",
+      "sha256": "b5da9d48955254d4cc2666735178afc67a51209d414cb7cc2a3d639d17fba78e",
+      "git_blob_sha": "5c2cdb3cc5d1af9e316152485670f732d942f7d8",
+      "bytes": 211
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/seed26102602/events.jsonl",
+      "sha256": "6f59811c14fdfffb74918367d38dd0570a55433c9dc368d6383a7727b3641194",
+      "git_blob_sha": "b78c9a86fd7db61406282833e96f1adfe7abc178",
+      "bytes": 11172
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/terminal_receipts.snapshot.json",
+      "sha256": "fe36ea3b7b719eb53ca4d456de5c5dc0dc65d88814eb099675feddc55da2ac1e",
+      "git_blob_sha": "fef4bfcb64972e3ebfc84eb53dff2ae89210161c",
+      "bytes": 6098
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/independent_admission/admission_01_02.json",
+      "sha256": "daf05bd8d260ace868a02facd753478095fa129e43873df3bf90e853c529b012",
+      "git_blob_sha": "4ae86f31288138eedd2950457b95e5e3031172c0",
+      "bytes": 2508
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/independent_admission/seed26102601/audit.json",
+      "sha256": "56e99359a8b3903e3291464d49de423ed84523085e40fdef14122401341c70c3",
+      "git_blob_sha": "68a4bdba9b8e58343af9870a8272cb73d89ebdad",
+      "bytes": 5217
+    },
+    {
+      "path": "research/cifar10_teacher/final_01_02_20261026_1157/independent_admission/seed26102602/audit.json",
+      "sha256": "1fc698df551747b260d399bf5f035eb1a5ccbfce6b450ab1bde66df052557bef",
+      "git_blob_sha": "53d50c9b52833fdeac7c0dea64d637d2485fb4cc",
+      "bytes": 5221
+    },
+    {
+      "path": "research/cifar10_replacements/execution/EXECUTION_PROTOCOL.json",
+      "sha256": "05235e57d92e7d07e908c27e551952151d639c6fc60796a2e570fe652bba0f1c",
+      "git_blob_sha": "311816b0061d7598ab42f06a7a2c505f0ef80367",
+      "bytes": 10067
+    },
+    {
+      "path": "research/cifar10_replacements/execution/plan_seed_26102601.APPROVED.json",
+      "sha256": "4110fd5586c3aa68104833f2db912f2f8df76efdb8ed22187027152a774e1450",
+      "git_blob_sha": "cc9ea77b07753aac85ed234d63866147f446d4e8",
+      "bytes": 2213
+    },
+    {
+      "path": "research/cifar10_replacements/execution/ENVIRONMENT.json",
+      "sha256": "dea3c26c8571ad21c8c07051c80cf344fcc33a0c4de8aa6046f990163ee81011",
+      "git_blob_sha": "e7d905251f975304304da26bc7b90a3b2e84466e",
+      "bytes": 4438
+    }
+  ]
+}

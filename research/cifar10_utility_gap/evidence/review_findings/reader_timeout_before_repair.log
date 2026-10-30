@@ -1,0 +1,18 @@
+test_reader_timeout_is_failure_not_owned_deadline (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_reader_timeout_is_failure_not_owned_deadline) ... FAIL
+
+======================================================================
+FAIL: test_reader_timeout_is_failure_not_owned_deadline (research.cifar10_utility_gap.test_review_regressions.ReviewRegressionTests.test_reader_timeout_is_failure_not_owned_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/shared/canaria_cifar_utility_gap_preparation_20261026/research/cifar10_utility_gap/test_review_regressions.py", line 184, in test_reader_timeout_is_failure_not_owned_deadline
+    self.assertEqual(record['trajectories']['w8_mse']['status'],'failed')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'cap-exhausted' != 'failed'
+- cap-exhausted
++ failed
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.088s
+
+FAILED (failures=1)

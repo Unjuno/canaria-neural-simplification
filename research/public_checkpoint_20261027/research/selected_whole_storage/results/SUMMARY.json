@@ -1,0 +1,79 @@
+{
+  "cohort": 16,
+  "complete": 16,
+  "failures": [],
+  "ratios": {
+    "C_over_J_deflated_bytes": {
+      "geomean": 0.9843693387697819,
+      "larger": 1,
+      "max": 1.0213964920997065,
+      "min": 0.9498059395578038,
+      "smaller": 15,
+      "tie": 0
+    },
+    "C_over_J_parameters": {
+      "geomean": 0.9874412672635827,
+      "larger": 1,
+      "max": 1.025430884617295,
+      "min": 0.9515999432811836,
+      "smaller": 11,
+      "tie": 4
+    },
+    "C_over_J_stored_bytes": {
+      "geomean": 0.9846737933661507,
+      "larger": 1,
+      "max": 1.0215162576650163,
+      "min": 0.9499672801166436,
+      "smaller": 15,
+      "tie": 0
+    },
+    "C_over_teacher_deflated_bytes": {
+      "geomean": 0.5606471191639262,
+      "larger": 0,
+      "max": 0.5777838589432578,
+      "min": 0.5568173833939183,
+      "smaller": 16,
+      "tie": 0
+    },
+    "C_over_teacher_parameters": {
+      "geomean": 0.558567812106943,
+      "larger": 0,
+      "max": 0.576466646189931,
+      "min": 0.5550219194147377,
+      "smaller": 16,
+      "tie": 0
+    },
+    "C_over_teacher_stored_bytes": {
+      "geomean": 0.5605444202788681,
+      "larger": 0,
+      "max": 0.5780224274855994,
+      "min": 0.5570810184396197,
+      "smaller": 16,
+      "tie": 0
+    },
+    "J_over_teacher_deflated_bytes": {
+      "geomean": 0.5695495553169061,
+      "larger": 0,
+      "max": 0.5939860196790225,
+      "min": 0.559224421404608,
+      "smaller": 16,
+      "tie": 0
+    },
+    "J_over_teacher_parameters": {
+      "geomean": 0.5656719347519853,
+      "larger": 0,
+      "max": 0.5907631307067266,
+      "min": 0.5550219194147377,
+      "smaller": 16,
+      "tie": 0
+    },
+    "J_over_teacher_stored_bytes": {
+      "geomean": 0.5692691570094723,
+      "larger": 0,
+      "max": 0.5937693854596271,
+      "min": 0.5588670370496609,
+      "smaller": 16,
+      "tie": 0
+    }
+  }
+}
