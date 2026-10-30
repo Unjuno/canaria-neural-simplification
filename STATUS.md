@@ -1,8 +1,10 @@
-# Research-branch status — current Digits / CIFAR checkpoint
+# Project status — integrated October research checkpoint
 
-**Scientific report 2026-10-29; editorial organization 2026-10-30 · `research/checkpoint-20261026` · limited research report, not a production release.**
+**Scientific report 2026-10-29; editorial organization 2026-10-30; main-integration change 2026-10-31 · limited research report, not a production release.**
 
-[Current assessment and direction](RESEARCH_CHECKPOINT.md) · [Full methods/results report](research-checkpoints/2026-10-27/README.md)
+[Current assessment and direction](RESEARCH_CHECKPOINT.md) · [Full methods/results report](research-checkpoints/2026-10-27/README.md) · [Integration record](docs/INTEGRATION_2026-10-31.md)
+
+The October checkpoint and documentation/navigation changes are integrated through [PR #108](https://github.com/Unjuno/canaria-neural-simplification/pull/108), following merged PRs #106 and #107. The PR state records whether a checkout is a pre-merge candidate or the integrated main. Repository integration is not scientific peer review, new experimental confirmation, release tagging, or an external announcement.
 
 ## What is ready to read
 
@@ -28,7 +30,7 @@ The setup failure is an execution-preparation result, not a measured failure of 
 
 ## Historical gates and preservation
 
-The repository is public; visibility, limited-report sharing, exact numerical reproduction, and a formal release are separate states. The [older announcement checklist](docs/ANNOUNCEMENT_READINESS.md) and Issue #13 concern the baseline preparation and are retained as historical gates, not evidence that the current limited report is scientifically complete. No social posting, release, main promotion, or gate closure is performed by this documentation update.
+The repository is public; visibility, limited-report sharing, exact numerical reproduction, and a formal release are separate states. The [older announcement checklist](docs/ANNOUNCEMENT_READINESS.md) and Issue #13 concern the baseline preparation and are retained as historical gates, not evidence that the current limited report is scientifically complete. Main integration under the owner's explicit request does **not** close #13 or #87, authorize a new release, or post an announcement.
 
 - Frozen tag `v0.2.0-public-snapshot` (`556dce21c7a5516a16780cb28d528d1ff3968e53`) is unchanged.
 - Phase 2E stays **`INVALIDATED_IMPLEMENTATION_BUG` / `DO_NOT_USE_FOR_INFERENCE`**; Phase 2I causal attribution stays retracted; Phase 2O remains uncertain.
@@ -37,8 +39,7 @@ The repository is public; visibility, limited-report sharing, exact numerical re
 
 ## Direction
 
-Preserve and explain the bounded result first. Broader claims require separate evidence: a properly scoped full-pipeline reproduction, an unexposed independent confirmation path, or quality and whole-model resource gains on a defined target. CIFAR's examined interventions remain negative results, not instructions for endless retuning on an already-observed test set. See the [decision and explicit unknowns](RESEARCH_CHECKPOINT.md).
-
+Broader claims require separate evidence: a properly scoped full-pipeline reproduction, an unexposed independent confirmation path, or quality and whole-model resource gains on a defined target. CIFAR's examined interventions remain negative results, not instructions for endless retuning on an already-observed test set. See the [decision and explicit unknowns](RESEARCH_CHECKPOINT.md).
 
 ## Scope of this status page
 

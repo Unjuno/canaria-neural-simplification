@@ -1,11 +1,11 @@
-# Publication metadata
+# Publication metadata and scope
 
-`CLAIM_POLICY.json` defines editorial inclusion, not scientific outcomes. `PRESERVATION_MANIFEST.json` checks the original evidence/code and byte-identical migrations. `PATH_MIGRATION.json` resolves archived paths. These are preparation-time records and cannot be cited as original preregistration.
+`CLAIM_POLICY.json` remains the **historical baseline's** editorial/reproduction policy, not a verdict on every later file now present on main. `PRESERVATION_MANIFEST.json` checks original evidence/code and byte-identical migrations; `PATH_MIGRATION.json` resolves archived paths. These later preparation records are not original preregistration.
 
-The executable check is `python tools/audit_publication.py`; the numerical reproduction is a separate workflow.
+The executable baseline check is `python tools/audit_publication.py`. Strict historical numerical reproduction remains a separate unresolved gate; its criteria have not been relaxed.
 
-## Evidence-policy scope after the October checkpoint
+## October checkpoint integration
 
-This folder holds the historical baseline's policy/catalog and immutable preservation metadata. The October Digits L/J/C and CIFAR reports live on a **separate research checkpoint branch** and are not promoted merely by linking them. The September R87R2/Phase4 [publication candidate PR #101](https://github.com/Unjuno/canaria-neural-simplification/pull/101) and October [documentation PR #106](https://github.com/Unjuno/canaria-neural-simplification/pull/106) have different bases and scope. Read [branch/evidence operations](../docs/REPOSITORY_OPERATIONS.md) before changing a policy file.
+[PR #106](https://github.com/Unjuno/canaria-neural-simplification/pull/106) and [PR #107](https://github.com/Unjuno/canaria-neural-simplification/pull/107) were merged into the research checkpoint before main integration through [PR #108](https://github.com/Unjuno/canaria-neural-simplification/pull/108). See the [integration record](../docs/INTEGRATION_2026-10-31.md), [checkpoint assessment](../RESEARCH_CHECKPOINT.md), and [current checkpoint claim registry](../research/public_checkpoint_20261027/docs/claims_checkpoint_20261027/README.ja.md).
 
-A publication decision requires independent claim selection, unchanged original evidence, exact-head audit and a separate merge/release decision; current Issue #87 historical exact-reproduction debt is not relabeled solved by a new cohort.
+The September [PR #101](https://github.com/Unjuno/canaria-neural-simplification/pull/101) is a separate R87R2/Phase4 publication proposal. It was not mechanically merged or declared obsolete; it needs renewed review against current main before reuse. Historical Issue #87 remains open. Integration is not external review, scientific replication, a release or a social announcement.
