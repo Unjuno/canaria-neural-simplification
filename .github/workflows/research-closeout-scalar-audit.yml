@@ -85,6 +85,32 @@ jobs:
           (root / 'closeout-audit.json').write_text(json.dumps(record,indent=2)+'\n')
           print(json.dumps(record,indent=2))
           PY
+      - name: Diagnose storage last-bit discrepancies without changing accepted data
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, sys, math
+          from pathlib import Path
+          sys.path.insert(0, str(Path.cwd()/'research/public_saved_analysis_20261027'))
+          import analyze_saved as a
+          root = Path('research/public_checkpoint_20261027/research/selected_whole_storage/results')
+          observed = a.storage(a.load(root/'ROWS.csv', 'storage'))
+          accepted = json.loads((root/'SUMMARY.json').read_text())
+          diff=[]
+          for key in sorted(accepted['ratios']):
+              o=observed['ratios'][key]
+              e=accepted['ratios'][key]
+              for field in sorted(e):
+                  if o[field] != e[field]:
+                      if field == 'geomean':
+                          ulps=abs(o[field]-e[field])/math.ulp(e[field])
+                          diff.append(dict(key=key,field=field,observed=o[field],expected=e[field],delta=o[field]-e[field],ulps=ulps))
+                      else:
+                          diff.append(dict(key=key,field=field,observed=o[field],expected=e[field],ulps=None))
+          receipt={'input_rows':16,'ratio_entries':len(accepted['ratios']),'strict_exact_storage':not bool(diff),'discrepancies':diff,'mutated_accepted_rows':False,'mutated_scientific_source':False}
+          Path('closeout_storage_diagnostic.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -92,5 +118,6 @@ jobs:
           path: |
             closeout-audit.json
             closeout_saved_analysis.json
+            closeout_storage_diagnostic.json
           retention-days: 90
           if-no-files-found: warn
