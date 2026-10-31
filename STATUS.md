@@ -4,6 +4,8 @@
 
 [Current assessment and direction](RESEARCH_CHECKPOINT.md) · [Full methods/results report](research-checkpoints/2026-10-27/README.md) · [Integration record](docs/INTEGRATION_2026-10-31.md)
 
+**研究一区切りの判断（2026-10-31）：** [限定的な結論・保存スカラー監査・停止条件・再開トリガー](docs/RESEARCH_MILESTONE_2026-10-31.md)。これは新しい科学的確認、旧再現債務の解消、リリース・告知ではありません。
+
 The October checkpoint and documentation/navigation changes are integrated through [PR #108](https://github.com/Unjuno/canaria-neural-simplification/pull/108), following merged PRs #106 and #107. The PR state records whether a checkout is a pre-merge candidate or the integrated main. Repository integration is not scientific peer review, new experimental confirmation, release tagging, or an external announcement.
 
 ## What is ready to read
