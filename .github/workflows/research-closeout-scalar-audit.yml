@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/research-closeout-scalar-audit.yml'
       - 'docs/RESEARCH_MILESTONE_2026-10-31.md'
+      - 'STATUS.md'
       - 'research/public_saved_analysis_20261027/**'
       - 'research/public_checkpoint_20261027/**'
       - 'research/threshold_robustness_20261027/**'
@@ -12,6 +13,7 @@ on:
     paths:
       - '.github/workflows/research-closeout-scalar-audit.yml'
       - 'docs/RESEARCH_MILESTONE_2026-10-31.md'
+      - 'STATUS.md'
       - 'research/public_saved_analysis_20261027/**'
       - 'research/public_checkpoint_20261027/**'
       - 'research/threshold_robustness_20261027/**'
