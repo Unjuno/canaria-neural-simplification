@@ -33,6 +33,21 @@
 
 監査実装：[research-closeout-scalar-audit.yml](../.github/workflows/research-closeout-scalar-audit.yml)。結果のActions run/commitを参照し、実際のrunがPASSするまでは本節の技術ゲートを成功扱いしない。
 
+### 2a. 監査中に検出した実際の不一致と事後診断
+
+**最初に固定した上記Dの「全summary完全一致」はFAIL。** Actions [run 41173662667](https://github.com/Unjuno/canaria-neural-simplification/actions/runs/41173662667)で、元の`check_checkpoint.py`は`storage.ratios`の厳密なfloat一致を満たさなかった。既存コードとaccepted summaryは**変更しない**。
+
+原因を調べた別の読み取り専用run [41173921037](https://github.com/Unjuno/canaria-neural-simplification/actions/runs/41173921037)では、元の保存整数を用いた9つの全モデルstorage ratioのうち、次の**2つの幾何平均だけが1 ULP（最終1 bit）**異なった。
+
+| ratio項目 | accepted summary | Python 3.11で再計算 | 差 |
+|---|---:|---:|---:|
+| C / teacher・stored bytes | 0.5605444202788681 | 0.560544420278868 | −1.1102230246251565e−16 |
+| J / teacher・parameters | 0.5656719347519853 | 0.5656719347519852 | −1.1102230246251565e−16 |
+
+**これは新しい科学発見でも、元の厳格ゲートPASSでもない。** 保存された整数と方向の判定を変える根拠は現時点でないが、数値ライブラリ/算術順序依存の可能性を含む最終bit差は残る。原データや原summaryを変更して合格させない。
+
+上記結果の観測**後**、別の**事後診断（post-hoc technical diagnostic）**を追加した。他のsummaryフィールド・全9 ratioの整数由来比較を厳格に検査し、例外は**上記2つの幾何平均に限り各1 ULP以内**。これ以外の差はFAILとする。さらに25条件・5出力ファイルを厳格照合する。ActionsがSUCCESSでも判定は`STRICT_EXACT_FAIL_POSTHOC_NUMERIC_EQUIVALENCE`であり、元の厳格な研究ゲートが達成されたと表現しない。事後診断の新しい成功は科学的独立再現でもない。
+
 ## 3. 停止する研究と、未解決として保存するもの
 
 **ここで停止：** 既視digits上の無制限な再チューニング、観測済みCIFAR official testを使った成功までの再試行、追加seedが独立データを意味するという扱い、完了済みプロトコルの事後改変、実機測定なしのRAM/エネルギー主張。
